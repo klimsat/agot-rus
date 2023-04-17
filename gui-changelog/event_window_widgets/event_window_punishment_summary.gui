@@ -1,0 +1,113 @@
+widget = {
+	allow_outside = yes
+	name = "event_window_punishment_summary"  #Box above options stating what will happen once the punishment executes 
+	size = { 480 239 }
+
+	vbox = {
+		margin_top = 80
+
+		scrollbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			minimumsize = { 480 150 }
+			blockoverride "scrollbox_margins"
+			{
+				margin = { 10 15 }
+			}
+			blockoverride "scrollbox_content"
+			{
+
+				text_single = {
+					name = "Punishment box"
+					size = { 310 400 }
+					text = "[GetScriptedGui('mw_gui_punish_traitor').BuildTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End ) ]"
+				}
+			}
+		}
+	}
+
+	vbox = { # Window type to be able to move it
+		position = { 0 0 } # THIS MOVES THE GUI BADGER 
+		size = { 17% 50% }
+		state = {
+			name = _show
+			trigger_when = "[Not(IsGamePaused)]"
+			on_start = "[OnPause]"
+		}
+		#datacontext = "[GetScriptedGui('mw_gui_setup_traitor_list')]"
+		visible = "[GetPlayer.MakeScope.Var('mw_trigger_traitors_gui').IsSet]"
+		#enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+		#layoutpolicy_horizontal = expanding
+		#direction = vertical
+		allow_outside = yes
+		#using = Window_Background
+		vbox = {
+			layoutpolicy_vertical = expanding
+			widget = {
+				size = {340 80}
+				background = {using = Background_Area}
+
+				vbox = {
+					hbox = {
+						vbox = {
+							#layoutpolicy_vertical = expanding
+							MegaWarsTraitorsButton = { # Take Titles
+								parentanchor = left
+
+								blockoverride "size" {size = {160 30}}
+								blockoverride "text" {text = MW_GUI_TAKE_TITLES}
+								#blockoverride "onclick" {onclick = "[GetVariableSystem.Set( 'selection_block', 'take_titles' )]"}
+								#datacontext = "[GetScriptedGui('mw_gui_traitors_take_titles')]"
+								onclick = "[GetVariableSystem.Toggle( 'take_titles' )]"
+								onclick = "[GetVariableSystem.Clear( 'misc' )]"
+								onclick = "[GetVariableSystem.Clear( 'banishment' )]"
+								onclick = "[GetVariableSystem.Clear( 'execution' )]"
+								down = "[GetVariableSystem.Exists( 'take_titles' )]"
+							}
+							MegaWarsTraitorsButton = { # Misc
+								parentanchor = left
+
+								blockoverride "size" {size = {160 30}}
+								blockoverride "text" {text = MW_GUI_MISC}
+								#datacontext = "[GetScriptedGui('mw_gui_traitors_misc')]"
+								onclick = "[GetVariableSystem.Toggle( 'misc' )]"
+								onclick = "[GetVariableSystem.Clear( 'take_titles' )]"
+								onclick = "[GetVariableSystem.Clear( 'banishment' )]"
+								onclick = "[GetVariableSystem.Clear( 'execution' )]"
+								down = "[GetVariableSystem.Exists( 'misc' )]"
+							}
+						}
+						vbox = {
+							#layoutpolicy_vertical = expanding
+							MegaWarsTraitorsButton = { # Banishment
+								parentanchor = left
+
+								blockoverride "size" {size = {160 30}}
+								blockoverride "text" {text = MW_GUI_BANISHMENT}
+								#datacontext = "[GetScriptedGui('mw_gui_traitors_banishment')]"
+								onclick = "[GetVariableSystem.Toggle( 'banishment' )]"
+								onclick = "[GetVariableSystem.Clear( 'take_titles' )]"
+								onclick = "[GetVariableSystem.Clear( 'misc' )]"
+								onclick = "[GetVariableSystem.Clear( 'execution' )]"
+								down = "[GetVariableSystem.Exists( 'banishment' )]"
+							}
+							MegaWarsTraitorsButton = { # Execution
+								parentanchor = left
+
+								blockoverride "size" {size = {160 30}}
+								blockoverride "text" {text = MW_GUI_EXECUTION}
+								#datacontext = "[GetScriptedGui('mw_gui_traitors_execution')]"
+								onclick = "[GetVariableSystem.Toggle( 'execution' )]"
+								onclick = "[GetVariableSystem.Clear( 'take_titles' )]"
+								onclick = "[GetVariableSystem.Clear( 'misc' )]"
+								onclick = "[GetVariableSystem.Clear( 'banishment' )]"
+								down = "[GetVariableSystem.Exists( 'execution' )]"
+							}
+						}
+					}
+				}
+			}
+			expand = {}
+		}
+	}
+}

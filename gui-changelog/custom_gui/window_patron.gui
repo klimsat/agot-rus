@@ -1,0 +1,691 @@
+types PatronWindow {
+	type agot_patron_tab_button = button_tab {
+		layoutpolicy_horizontal = expanding
+		onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'patron' )]"
+		down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' )]"
+		visible = "[EqualTo_string(GetPlayer.GetFaith.GetReligion.GetNameNoTooltip,Localize('faith_of_the_seven_religion'))]"
+		text = "FAITH_PATRON"
+		default_format = "#low"
+
+		using = tooltip_below
+	}
+
+	type patron_menu = vbox {
+		#margin_left = 0
+		#margin_right = 0
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		
+		scrollbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			
+			blockoverride "scrollbox_content"
+			{
+				vbox = {
+					spacing = 10
+					margin_bottom = 30
+					margin_top = 5
+					layoutpolicy_horizontal = expanding
+					
+					## Faith of the Seven
+					
+					datamodel = "[GetPlayer.MakeScope.GetList('patron_gods')]"
+					
+					item = {
+						vbox = {
+							vbox = {
+								margin_bottom = 8
+								margin_top = 0
+								patron_selection = {
+									#datacontext = "[GetScriptedGui( Concatenate('choose_patron_', Scope.GetFlagName))]"
+									datacontext = "[GetScriptedGui('choose_patron_generic')]"
+									datacontext = "[GetModifier(Concatenate('patron_', Concatenate(Scope.GetFlagName ,'_modifier')))]"
+								}
+							}
+							
+							divider_light = {
+								layoutpolicy_horizontal = expanding
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	type patron_selection = widget {
+		name = "patron_view"
+		widgetid = "patron_view"	
+		size = { 720 120 }
+		# tooltip = ""
+		#raw_toolip = "Placeholder" # AGOT TODO, what is this for?
+		# enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		
+		margin_widget = {
+			size = { 100% 100% }
+			margin = { 3 3 }
+
+			block "vignette"
+			{
+				icon = {
+					name = "vignette"
+					size = { 100% 100% }
+					alpha = 0.2
+					texture = "gfx/interface/component_masks/mask_vignette.dds"
+					color = { 0.15 0.15 0.15 1 }
+				}
+			}
+		}
+		
+		background = {
+			visible = "[EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName)]"
+			size = { 100% 100% }
+			texture = "gfx/interface/component_masks/mask_fade_circle.dds"
+			gfxtype = icongfx
+			spriteType = Corneredstretched
+			spriteborder = { 20 20 }
+			shaderfile = "gfx/FX/pdxgui_default.shader"
+			color = { 1.0 1.0 0.9 0.4 }
+		}
+		
+		button_standard = {
+			size = { 720 120 }
+			#onclick = "[ExecuteConsoleCommand('gui.createwidget gui/custom_gui/window_patron.gui select_patron_confirm')]"
+			enabled = "[Not(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName))]"
+			
+			modify_texture = {
+				name = "overlay"
+				texture = "gfx/interface/buttons/button_standard_overlay.dds"
+				spriteType = Corneredstretched
+				spriteborder = { 3 3 }
+				blend_mode = overlay
+			}
+			
+			tooltip = PATRON_SELECTION_TOOLTIP
+
+			onclick = "[GetVariableSystem.Set('selected_patron', Scope.GetFlagName)]"
+			onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag( GetVariableSystem.Get( 'selected_patron' ))).End )]"
+
+			hbox = {
+				icon = {
+					size = { 120 120 }
+	
+					block "patron_icon" {
+						text_single = {
+							visible = "[Not(Or(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName), GetVariableSystem.HasValue( 'show_patron_modifiers', StaticModifier.GetName )))]"
+							margin_top = -10
+							parentanchor = vcenter|hcenter
+							fontsize = 120
+							raw_text = PATRON_ICON_DARK
+						}
+						text_single = {
+							visible = "[And(Not(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName)), Not(ScriptedGui.IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).End)))]"
+							margin_top = -10
+							parentanchor = vcenter|hcenter
+							fontsize = 120
+							raw_text = PATRON_ICON_GREY
+						}
+						text_single = {
+							visible = "[Or(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName), GetVariableSystem.HasValue( 'show_patron_modifiers', StaticModifier.GetName ))]"
+							margin_top = -10
+							parentanchor = vcenter|hcenter
+							fontsize = 120
+							raw_text = PATRON_ICON_STANDARD
+						}
+					}
+					using = Mask_Rough_Edges
+					alpha = 0.5
+				}
+
+				widget = {
+					size = { 320 120 }
+					vbox = {
+						widget = { # Patron name text
+							size = { 320 26 }
+						
+							text_single = {
+								default_format = "#clickable"
+								block "choose_patron_text" {
+									text = "[Localize(Concatenate('patron_god_', Scope.GetFlagName))]"
+								}
+							}
+
+							background = {
+								size = { 0 0 }
+								margin_left = 20
+								#margin_right = 20
+								alpha = 0.7
+
+								texture = "gfx/interface/component_tiles/tile_title_bg_01.dds"
+								spriteType = Corneredtiled
+								spriteborder = { 40 8 }
+								texture_density = 2
+							}
+						}
+						
+						widget = {
+							size = { 320 60 }
+
+							text_multi = { # Desc not highlighted
+								size = { 320 60 }
+								visible = "[Not(And(GetVariableSystem.HasValue( 'show_patron_modifiers', StaticModifier.GetName ), ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)))]"
+								parentanchor = left
+								default_format = "#low"
+								block "flavor_text" {
+									text = "[Localize( Concatenate( 'patron_god_desc_', Scope.GetFlagName )))]"
+								}
+								autoresize = yes
+								fontsize = 14
+								margin_left = 0
+								margin_right = 10
+								max_width = 320
+							}
+							text_multi = { # Desc highlighted
+								size = { 320 60 }
+								visible = "[EqualTo_string( GetPlayer.MakeScope.Var( 'patron_god' ).GetFlagName, Scope.GetFlagName )]"
+								parentanchor = left
+								default_format = "#high"
+								block "flavor_text" {
+									text = "[Localize( Concatenate( 'patron_god_desc_', Scope.GetFlagName )))]"
+								}
+								autoresize = yes
+								fontsize = 14
+								margin_left = 0
+								margin_right = 10
+								max_width = 320
+							}
+						}
+						
+						expand = {}
+					}
+				}
+				
+				widget = {
+					size = { 260 120 }
+					
+					vbox = {
+						widget = { # Patron name text
+							size = { 260 26 }
+							#using = debug_square
+						
+							text_single = {
+								default_format = "#clickable"
+								raw_text = PATRON_SELECTION_MODIFIERS
+							}
+
+							background = {
+								size = { 0 0 }
+								margin_left = 20
+								#margin_right = 20
+								alpha = 0.7
+
+								texture = "gfx/interface/component_tiles/tile_title_bg_01.dds"
+								spriteType = Corneredtiled
+								spriteborder = { 40 8 }
+								texture_density = 2
+							}
+						}
+						
+						widget = {
+							size = { 260 114 }
+							#using = debug_square
+						
+							text_single = { # Show modifiers
+								#visible = "[Or( GetVariableSystem.HasValue( 'show_patron_modifiers_effect', 'true' ), And( GetVariableSystem.HasValue( 'show_patron_modifiers', StaticModifier.GetName ), ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))) ]"
+								#parentanchor = left
+								default_format = "#high"
+								block "effect_text" {
+									text = "[StaticModifier.GetDesc]"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	### For character window
+	type character_subheading_patron_button = widget {
+		name = "character_subheading_patron_type"
+		size = { 30 30 }
+		#layoutpolicy_horizontal = expanding
+		#parentanchor = left
+		#margin = { 3 0 }
+		#spacing = 2
+
+		vbox = {
+			container = {
+				button_standard_hover  = {
+					#datacontext = "[Character.GetFaith]"
+					layoutpolicy_horizontal = expanding
+					size = { 30 30 }
+					onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'patron' )]"
+					onclick = "[DefaultOnFaithClick(GetPlayer.GetFaith.GetID)]"
+					onclick = "[GetScriptedGui('get_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+					default_format = "#clickable;italic"
+					align = left|nobaseline
+					margin_left = 5
+					
+
+					#icon = {
+					#	name = "dread_icon"
+					#	size = { 30 30 }
+					#	texture = "[Character.GetPietyLevelTexture]"
+					#}
+
+					modify_texture = {
+						name = "overlay"
+						texture = "gfx/interface/buttons/button_standard_overlay.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 3 3 }
+						blend_mode = overlay
+					}
+
+					tooltipwidget = {
+						patron_tooltip = {}
+					}
+				}
+
+				icon = {
+					size = { 30 30 }
+					parentanchor = vcenter|hcenter
+					fontsize = 25
+					raw_text = PATRON_CHARACTER_ICON
+					using = Mask_Rough_Edges
+					alpha = 0.5
+				}
+			}
+		}
+
+		expand = {}
+	}
+
+	type patron_tooltip = widget {
+		alwaystransparent = no
+		using = GeneralTooltipSetup
+		widget = {
+			name = "background"
+			using = DefaultTooltipBackground
+			size = { 100% 100% }
+			alwaystransparent = no
+		}
+		vbox = {
+			set_parent_size_to_minimum = yes
+			margin = { 12 8 }
+			margin_bottom = 16
+			spacing = 4
+
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				margin = { 0 4 }
+
+				background = {
+					name = "header"
+					texture = "gfx/interface/component_tiles/tile_title_big_top_01.dds"
+					spriteType = Corneredstretched
+					texture_density = 2
+					margin = { 15 0 }
+
+					modify_texture = {
+						name = "mask"
+						texture = "gfx/interface/component_masks/mask_title_big_top.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 160 0 }
+						blend_mode = alphamultiply
+						alpha = 0.5
+					}
+
+					modify_texture = {
+						name = "overlay"
+						texture = "gfx/interface/component_overlay/overlay_title_big_top.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 0 0 }
+						blend_mode = overlay
+					}
+				}
+
+				hbox = {
+					layoutpolicy_horizontal = expanding
+
+					vbox = {
+						layoutpolicy_vertical = expanding
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							name = "header"
+							text = "[Localize(Concatenate('patron_god_', Character.MakeScope.Var('patron_god').GetFlagName))]"
+							visible = "[Character.MakeScope.Var('patron_god').IsSet]"
+							align = top
+							using = Font_Type_Flavor
+							using = Font_Size_Big
+						}
+						expand = {
+							layoutpolicy_vertical = growing
+						}
+					}
+					vbox = {
+						layoutpolicy_vertical = expanding
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							name = "header"
+							text = "NO_PATRON"
+							visible = "[Not(Character.MakeScope.Var('patron_god').IsSet)]"
+							align = top
+							using = Font_Type_Flavor
+							using = Font_Size_Big
+						}
+						expand = {
+							layoutpolicy_vertical = growing
+						}
+					}
+					expand = {
+						layoutpolicy_horizontal = growing
+					}
+				}
+			}
+		}
+	}
+
+	type window_faith_patron_tab = vbox {
+		name = "tab_patron"
+		visible = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' )]"
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		datacontext = "[GetIllustration( 'religion_holding' )]"
+
+		blockoverride "scrollbox_background" {}
+		blockoverride "scrollbox_background_fade" {}
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+			on_start = "[GetScriptedGui('get_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		}
+
+		state = {
+			name = _hide
+			alpha = 0
+			on_start = "[GetScriptedGui('clear_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		}
+		
+		background = {
+			texture = "[Illustration.GetTextureForFaith( FaithWindow.GetFaith )]"
+			alpha = 0.5
+			fittype = end
+
+			modify_texture = {
+				texture = "gfx/interface/component_masks/mask_fade_vertical_up.dds"
+				blend_mode = alphamultiply
+			}
+		}
+		
+		patron_menu = {
+		
+		}
+	}
+
+	type hbox_character_subheading = widget {
+		name = "patron_deity_character_window"
+		size = { 30 30 }
+		layoutpolicy_horizontal = expanding
+		parentanchor = left
+
+		character_subheading_patron_button = {}
+		
+		# # Extra Icon - purpose TBD
+		# vbox = {			
+		# 	button_standard_hover  = {
+		# 		layoutpolicy_horizontal = expanding
+		# 		size = { 30 30 }
+		# 		onclick = "[]"
+		# 		default_format = "#clickable;italic"
+		# 		align = left|nobaseline
+		# 		margin_left = 5
+				
+		# 		visible = no
+				
+		# 		icon = {
+		# 			name = "dread_icon"
+		# 			size = { 30 30 }
+		# 			texture = "gfx/interface/icons/icon_dread.dds"
+		# 		}
+				
+		# 		tooltipwidget = { }
+		# 	}
+		# }
+		
+		# # Extra Icon - purpose TBD
+		# vbox = {			
+		# 	button_standard_hover  = {
+		# 		layoutpolicy_horizontal = expanding
+		# 		size = { 30 30 }
+		# 		onclick = "[]"
+		# 		default_format = "#clickable;italic"
+		# 		align = left|nobaseline
+		# 		margin_left = 5
+				
+		# 		visible = no
+				
+		# 		icon = {
+		# 			name = "dread_icon"
+		# 			size = { 30 30 }
+		# 			texture = "gfx/interface/icons/icon_dread.dds"
+		# 		}
+				
+		# 		tooltipwidget = { }
+		# 	}
+		# }
+	}
+}
+
+texticon = {
+	icon = the_father_patron_icon
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_father.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_father_patron_icon_dark
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_father_dark.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_father_patron_icon_grey
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_father_grey.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_mother_patron_icon
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_mother.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_mother_patron_icon_dark
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_mother_dark.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_mother_patron_icon_grey
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_mother_grey.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_warrior_patron_icon
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_warrior.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_warrior_patron_icon_dark
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_warrior_dark.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_warrior_patron_icon_grey
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_warrior_grey.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_smith_patron_icon
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_smith.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_smith_patron_icon_dark
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_smith_dark.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_smith_patron_icon_grey
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_smith_grey.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_maiden_patron_icon
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_maiden.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_maiden_patron_icon_dark
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_maiden_dark.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_maiden_patron_icon_grey
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_maiden_grey.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_crone_patron_icon
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_crone.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_crone_patron_icon_dark
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_crone_dark.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_crone_patron_icon_grey
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_crone_grey.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_stranger_patron_icon
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_stranger.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_stranger_patron_icon_dark
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_stranger_dark.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}
+
+texticon = {
+	icon = the_stranger_patron_icon_grey
+	iconsize = {
+		texture = "gfx/interface/icons/patron_gods/the_stranger_grey.png"
+		size = { 120 120 }
+		offset = { 0 0 }
+		fontsize = 120
+	}
+}

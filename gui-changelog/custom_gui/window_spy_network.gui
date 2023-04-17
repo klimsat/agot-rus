@@ -1,0 +1,302 @@
+#####################################################
+################### SPY NETWORK #####################
+#####################################################
+
+window = {
+	name = "spy_network_window"
+	parentanchor = right
+	position = { -700 90 }
+	layer = middle
+	movable = yes
+	allow_outside = yes
+
+	using = Window_Size_CharacterList
+	using = Window_Background
+	using = Window_Decoration
+
+	state = {
+		name = _show
+		using = Animation_FadeIn_Quick
+	}
+
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Quick
+	}
+
+	# A list is not a datacontext, but a datamodel.
+	# datacontext = "[GetPlayer.MakeScope.GetList('spy_network_members')]"
+
+	vbox = {
+		using = Window_Margins
+
+		header_pattern = {
+			layoutpolicy_horizontal = expanding
+
+			blockoverride "header_text"
+			{
+				text = INTRIGUE_WINDOW_SPY_NETWORK
+			}
+
+			#blockoverride "button_close"
+			#{
+			#	onclick = "[ExecuteConsoleCommand('gui.ClearWidgets spy_network_window')]"
+			#}
+		}
+
+		vbox_spy_list = {
+			
+		}
+	}
+	
+	
+}
+
+types SpyNetworkWindow {
+	type vbox_spy_list = vbox {
+		name = "spy_list"
+		spacing = 16
+		
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		
+		hbox = {
+			text_single = {
+				default_format = "#high"
+				raw_text = "Your Spies"
+				
+				using = Font_Type_Flavor
+				using = Font_Size_Big
+				fontsize_min = 14
+			}
+		}
+
+
+		block "special_character" {}
+
+		scrollbox = {
+			name = "characters_scroll_area"
+			layoutpolicy_vertical = expanding
+			layoutpolicy_horizontal = expanding
+
+			blockoverride "scrollbox_content" {
+
+				block "container_implementation" {
+					vbox = {
+						name = "characters_grid"
+						layoutpolicy_horizontal = expanding
+						
+						datamodel = "[GetPlayer.MakeScope.GetList('spy_network_members')]"
+
+						item = {
+							widget_spy_list_item = {
+								block "item_size" {
+									size = { 650 110 }
+									layoutpolicy_horizontal = expanding
+								}
+							}
+						}
+					}
+				}
+			}
+
+			blockoverride "scrollbox_empty"
+			{
+				block "scrollbox_empty_visibility"
+				{
+					layoutpolicy_vertical = expanding
+					visible = "[IsDataModelEmpty( GetPlayer.MakeScope.GetList('spy_network_members') )]"
+					text = "INTRIGUE_WINDOW_NO_SPIES"
+				}
+			}
+			
+			blockoverride "button"
+			{
+				using = Background_Guest
+			}
+
+			blockoverride "base_button"
+			{
+				alwaystransparent = yes
+			}
+
+			blockoverride "bottom_right_box"
+			{
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+
+					expand = {}
+				}
+			} 
+		}
+
+		block "character_count"
+		{
+			hbox = {
+				layoutpolicy_horizontal = growing
+				margin = { 15 5 }
+				margin_bottom = 8
+				spacing = 5
+				block "bottom_bar" {}
+
+				expand = {}
+
+				widget = {
+					size = { 20 15 }
+
+					#icon = {
+					#	size = { 20 20 }
+					#	#visible = "[Not( CharacterSelectionList.IsAllDefault )]"
+					#	tooltip = "CHARACTER_FINDER_FILTER_SET"
+					#	texture = "gfx/interface/icons/symbols/icon_warning.dds"
+					#}
+				}
+
+				text_single = {
+					name = "character_count"
+					#datacontext = "[CharacterSelectionList]"
+					text = "CHARACTER_FINDER_COUNT"
+					align = center|nobaseline
+					default_format = "#low"
+				}
+			}
+		}
+	}
+	
+	type widget_spy_list_item = widget {
+		#datacontext = "[CharacterListItem.GetCharacter]"
+		datacontext = "[Scope.GetCharacter]"
+		size = { 10 111 }
+
+		block "divider" {
+			divider = {
+				parentanchor = bottom|hcenter
+				size = { 100% 3 }
+			}
+		}
+		hbox = {
+			portrait_head = {}
+			
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				# Name and age
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					margin_left = 10
+
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						using = Font_Size_Medium
+						autoresize = no
+
+						text = "[Character.GetUINameNoTooltip]"
+					}
+
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+
+						using = character_age_or_death_text
+						blockoverride "list_layout" {}
+
+						block "character_relation"
+						{
+							text_single = {
+								name = "character_relation"
+								layoutpolicy_horizontal = expanding
+								raw_text = "|  [Character.GetRelationToString( GetPlayer )]"
+								default_format = "#low"
+								autoresize = no
+								align = nobaseline
+								visible = "[Character.HasRelationTo( GetPlayer )]"
+							}
+
+							expand = {
+								visible = "[Not(Character.HasRelationTo( GetPlayer ))]"
+							}
+						}
+					}
+				}
+
+				# Dynasty and location
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					margin_left = 5
+
+					widget = {
+						size = { 45 60 }
+
+						coa_house_small = {
+							datacontext = "[Character.GetHouse]"
+							scale = 0.7
+						}
+					}
+
+					# Traits
+
+					#fixedgridbox = {
+					#	name = "traits_grid"
+					#	datamodel = "[CharacterListItem.GetTraits]"
+					#	flipdirection = yes
+					#	size = { 150 60 }
+					#	addcolumn = 30
+					#	addrow = 45
+					#	maxhorizontalslots = 8
+					#	maxverticalslots = 1
+					#
+					#	item = {
+					#		container = {
+					#			visible = "[Trait.IsValid]"
+					#
+					#			icon_trait = {
+					#				blockoverride "icon_size"
+					#				{
+					#					size = { 30 30 }
+					#				}
+					#
+					#				blockoverride "tooltip_placement"
+					#				{
+					#					using = tooltip_se
+					#				}
+					#
+					#				blockoverride "glow_radius"
+					#				{
+					#					glow_radius = 3
+					#				}
+					#			}
+					#		}
+					#	}
+					#}
+
+					block "bottom_middle_box" {
+						expand  = {}
+					}
+
+					# Location
+					text_single = {
+						name = "government_type"
+						layoutpolicy_horizontal = expanding
+						text = "[Character.GetLocationDesc]"
+						default_format = "#low"
+						format_override = { high medium }
+						format_override = { V medium }
+						align = nobaseline
+						autoresize = no
+					}
+				}
+				
+				
+			}
+			
+			vbox = {
+				# Button to fire character
+				# TODO: implement this (call interaction 'agot_remove_from_spy_network_interaction')
+			}
+		}
+	}
+}

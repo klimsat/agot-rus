@@ -1,0 +1,10 @@
+template agot_character_is_not_ruin {
+	# Because "[Not(HoldingView.GetTitle.GetHolder.HasTrait(GetTrait('ruin').Self))]" is more performant than "[GetScriptedGui('agot_isnt_ruin').IsShown(GuiScope.SetRoot(HoldingView.GetTitle.MakeScope).End)]"
+	visible = "[Not(Character.HasTrait(GetTrait('ruin').Self))]"
+}
+template agot_character_is_ruin {
+	visible = "[Character.HasTrait(GetTrait('ruin').Self)]"
+}
+template agot_county_view_is_not_ruin {
+	visible = "[Not(HoldingView.GetTitle.GetHolder.HasTrait(GetTrait('ruin').Self))]"
+}

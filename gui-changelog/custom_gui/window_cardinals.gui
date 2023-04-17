@@ -1,0 +1,488 @@
+﻿
+types CardinalsGridStuff { #Reusable templates for showing characters
+    type window_cardinals_special_character = widget { #For showing the Pope, Preferatus, etc. Larger than nomrmal.
+	    allow_outside = yes
+        size = {150 213}
+        scale = 1.2
+
+        icon = {
+            parentanchor = hcenter|top
+            texture = "gfx/interface/CollegeCardinals/Nameplate_Large.png"
+            
+            text_single = {
+                block "text" {text = "[Character.GetUIName]"}
+                parentanchor = hcenter|vcenter
+                default_format = "#light_background"
+                using = Font_Type_Flavor
+                block "fontsize" { fontsize = 22 }
+                position = {0 -4}
+            }
+        }
+        block "portrait" {portrait_head = {parentanchor = hcenter|vcenter position = {0 5} }}
+        text_single = {
+            parentanchor = bottom|hcenter
+            position = {0 -25}
+            text = "[Character.GetUIName]"
+        }
+    }
+    type window_cardinals_portrait = portrait_head { # Normal character portrait used for Cardinals.
+        # Type for changing the actual portrait
+    }
+    type namefail = widget {
+        allow_outside = yes
+        size = {150 213}
+        scale = 1.2
+
+        # icon = {
+        #     visible = "[GetScriptedGui('can_see_my_candidate_fail').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        #     parentanchor = hcenter|top
+        #     texture = "gfx/interface/CollegeCardinals/papacy_nameplate_large_bg.dds"
+        #     position = {-350 75} #don't change
+        #     text_single = {
+        #     text = candiatesoon
+        #         parentanchor = hcenter|vcenter
+        #         default_format = "#light_background"
+        #         using = Font_Type_Flavor
+        #         block "fontsize" { fontsize = 22 }
+        #         position = {0 -4}
+        #     }
+        # }
+    }
+
+    type namefail_pope = widget {
+        allow_outside = yes
+        size = {150 213}
+        scale = 1.2
+
+        # icon = {
+        #     visible = "[GetScriptedGui('can_see_my_candidate_pope').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+        #     parentanchor = hcenter|top
+        #     texture = "gfx/interface/CollegeCardinals/papacy_nameplate_large_bg.dds"
+        #     position = {-350 39} #don' change
+        #     text_single = {
+        #     text = candiatesoonpope
+        #         parentanchor = hcenter|vcenter
+        #         default_format = "#light_background"
+        #         using = Font_Type_Flavor
+        #         block "fontsize" { fontsize = 22 }
+        #         position = {0 -4}
+        #     }
+        # }
+    }
+
+    type window_cardinals_character = widget { # Lists character's name and portrait
+	    allow_outside = yes
+        size = {150 150}
+        #position = {0 50}
+        vbox = {
+            margin_top = -0
+            icon = {
+                texture = "gfx/interface/CollegeCardinals/Nameplate_Small.png"
+                text_single = {
+                    block "text" {text = cardinals_cardinal}
+                    parentanchor = hcenter|vcenter
+                    default_format = "#light_background"
+                    using = Font_Type_Flavor
+				    fontsize = 20
+                    position = {0 -5}
+                }
+            }
+            window_cardinals_portrait = {}
+            text_single = {
+                visible = "[Character.HasLandedTitles]"
+                text = "cardinals_cardinal2"
+            }
+            text_single = {
+                visible = "[Not(Character.HasLandedTitles)]"
+                text = "cardinals_cardinal3"
+            }
+        }
+    }
+    type window_cardinal_bishop = widget { # Can be used for a non-cardinal, but is unused
+        size = {300 250}
+        datacontext = "[Scope.GetCharacter]"
+        window_cardinals_character = {}
+        window_cardinals_campaign = {}
+        window_cardinals_score = {}
+    }
+    type window_cardinal_griditem = widget{ # Contains all the information of a single entry in the cardinals grid
+        size = {299 210}
+        background = { # Show a gold border for a cardinal that has you as its beneficiary.
+            texture = "gfx/interface/CollegeCardinals/tile_selected_gold.dds"
+            spriteType = Corneredtiled
+            spriteborder = { 6 6 }
+            shaderfile = "gfx/FX/pdxgui_default.shader"
+            visible = "[ObjectsEqual(Scope.Var('beneficiary').Char,GetPlayer)]"
+        }
+        datacontext = "[Scope.GetCharacter]"
+        # Uncomment the following if you wish to use ScriptedGui.Execute(TopScope.End) or TopScope.ScriptValue('key').
+        # Remember to use .End if using TopScope for ScriptedGui, otherwise you've got a memory leak!
+        #datacontext = "[GuiScope.SetRoot(Scope)]"
+        window_cardinals_character = {}
+        window_cardinals_score = {}
+    }
+
+    type window_cardinal_fixedgrid = fixedgridbox{ # Not currently used. Can be used in place of the Dynamicgridbox
+        name = "cardinal_grid"
+        datamodel = "[Religion.MakeScope.GetList('cardinal_characters')]"
+        datamodel_wrap = 4
+		addcolumn = 300
+		addrow = 245
+		flipdirection = yes
+        item = {
+            window_cardinal_griditem = {}
+        }
+    }
+    type window_cardinal_dynamicgrid = dynamicgridbox{ #Used
+        name = "cardinal_grid"
+        ignoreinvisible = yes
+        datamodel = "[Religion.MakeScope.GetList('cardinal_characters')]"
+        datamodel_wrap = 4
+		flipdirection = yes
+        item = {
+            window_cardinal_griditem = {
+                visible = "[Not(ObjectsEqual(Scope.GetCharacter,Religion.MakeScope.Var('preferatus_character').Char))]"
+            }
+        }
+    }
+}
+# For showing the election stuff in the gui
+types CardinalsElection  {
+
+    type window_cardinals_score = widget { # Show score for the upcoming election (Bishop-to-cardinal or cardinal-to-pope)
+        size = {100 100}
+        parentanchor = hcenter|vcenter
+        position = { 40 15 }
+        icon = {
+            texture = "gfx/interface/CollegeCardinals/CardinalReasonings.png"
+            position = {26 -25}
+        }
+        text_single = {
+            position = { 66 60 }
+            block "score" {text = "[GuiScope.SetRoot(Character.MakeScope).ScriptValue('cardinal_to_pope_score')|0]"}
+            fontsize = 25
+        }
+        tooltipwidget = {cardinal_score_breakdown_tooltip = {}}
+    }
+    type window_cardinals_campaign = widget { # Show much money has been invested in this character's election campaign
+        size            = {50 30}
+        position        = {-10 -10}
+        parentanchor    = left|top
+        vbox = {
+            spacing = -40
+            position = {-35 -5}
+            icon = {texture = "gfx/interface/CollegeCardinals/Coins.png"}
+            text_single = {
+                text = "[Character.MakeScope.Var('cardinal_campaign_contribution').GetValue|0]"
+                #"[GuiScope.SetRoot(Character.MakeScope).ScriptValue('cardinal_money_bonus')|0]"
+                fontsize = 25
+            }
+        }
+    } 
+	type window_cardinals_invest = button { # Add x gold to the character's election fund
+        size = { 100 75 }
+        parentanchor = left|bottom
+        icon = {
+            texture = "gfx/interface/CollegeCardinals/Invest.png"
+        }
+        tooltip = "window_cardinals_invest_tooltip"
+        enabled = "[GetScriptedGui('invest_in_cardinal').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('player',GetPlayer.MakeScope).End)]"
+        onclick = "[GetScriptedGui('invest_in_cardinal').Execute(GuiScope.SetRoot(Character.MakeScope).AddScope('player',GetPlayer.MakeScope).End)]"
+        alwaystransparent = no
+        layoutpolicy_vertical = expanding
+    }
+	type window_cardinals_divest = button { # Retrieve 50% of your donation from the character's election fund
+        size = { 100 75 }
+        parentanchor = right|bottom
+        icon = {
+            texture = "gfx/interface/CollegeCardinals/Divest.png"
+        }
+        tooltip = "window_cardinals_divest_tooltip"
+        enabled = "[GetScriptedGui('divest_from_cardinal').IsValid(GuiScope.SetRoot(Character.MakeScope).AddScope('player',GetPlayer.MakeScope).End)]"
+        onclick = "[GetScriptedGui('divest_from_cardinal').Execute(GuiScope.SetRoot(Character.MakeScope).AddScope('player',GetPlayer.MakeScope).End)]"
+        alwaystransparent = no
+        layoutpolicy_vertical = expanding
+    }
+	type window_cardinals_invest_divest = widget { # Show both invest and divest buttons
+        size = { 200 100 }
+        parentanchor = hcenter|bottom
+        allow_outside = yes
+        window_cardinals_invest = {}
+        window_cardinals_divest = {}
+    }
+}
+ 
+# The main components of the window itself and the button which accesses it.
+types Cardinals  {
+    type open_cardinal_window_button = button_standard {
+        name = "college_of_cardinals"
+        minimumsize = { 240 0 }
+        visible = "[EqualTo_string(FaithWindow.GetFaith.GetNameNoTooltip,Localize('the_seven_main'))]"
+        text = "VIEW_CARDINAL_WINDOW_TITLE"
+        tooltip = "VIEW_CARDINAL_WINDOW_TITLE_TOOLTIP"
+        onclick = "[GetVariableSystem.Toggle('window_cardinals')]"
+        onclick = "[GetScriptedGui('refresh_cardinal_characters').Execute(GuiScope.SetRoot(Religion.MakeScope).End)]"
+        #onclick = "[GetScriptedGui('cardinal_music').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+        using = tooltip_nw
+
+        # text_single = {
+        # 	position= {60 3}
+        # 	name = "header_text_custom"
+        # 	default_format = "#clickable"
+
+        # 	text = "collegeofcardinals"
+        # 	maximumsize = { 400 -1 }
+
+        # 	#using = Font_Type_Flavor
+        # 	using = tooltip_nw
+        # }
+    }
+
+	type window_cardinals_open_button = button {
+        size = { 100 100 }
+        datacontext = "[Faith.GetReligion]"
+        # This is the trigger which sets which faiths use the cardinal windows.
+        visible = "[Faith.MakeScope.Var('uses_cardinal_module').IsSet]"
+        #visible = "[Or(EqualTo_string(FaithWindow.GetFaith.GetNameNoTooltip,Localize('the_seven_main')),EqualTo_string(FaithWindow.GetFaith.GetNameNoTooltip,Localize('the_seven_dorne')))]"
+        icon    = {texture = "gfx/interface/CollegeCardinals/HouseofCardinalsButton.png"}
+        raw_tooltip = "#T The [collegeofcardinals|E]#!."
+        onclick = "[GetVariableSystem.Toggle('window_cardinals')]"
+        onclick = "[GetScriptedGui('refresh_cardinal_characters').Execute(GuiScope.SetRoot(Religion.MakeScope).End)]"
+        alwaystransparent = no
+        layoutpolicy_vertical = expanding
+    }
+
+    
+    
+	type window_cardinals = window {
+        # Data context to replace DummyMale. If DummyMale is desired, replace cases of "Religion" with "DummyMale"
+        datacontext = "[Faith.GetReligion]"
+        scale = 0.75
+        allow_outside = yes
+        movable = yes
+        position= {855 70}
+        size    = { 1250 1150 }
+        visible = "[And(Faith.MakeScope.Var('uses_cardinal_module').IsSet,GetVariableSystem.Exists('window_cardinals'))]"
+        alwaystransparent = no
+        layoutpolicy_vertical   = expanding
+        layoutpolicy_horizontal = expanding
+        using = DefaultTooltipBackground # Replace this with your preferred background template
+        ## Al ternatively, uncomment the following:
+        background = {
+            texture = "gfx/interface/CollegeCardinals/12501150.png"  # Replace with your preferred background
+            spriteType = Corneredtiled                                         # Can be removed - test whether you like the effect.
+            spriteborder = { 6 6 }                                             # Can be removed - test whether you like the effect.
+            shaderfile = "gfx/FX/pdxgui_default.shader"                        # Can be removed - test whether you like the effect.
+        # You can make several background widgets with distinct visibility conditions if you want the background to change with the cultural Era for example 
+        #   visible = "[blabla]"                                                     
+        }
+		# header_pattern = {
+        #     size = {100% 50}
+        #     parentanchor = top|hcenter
+		# 	layoutpolicy_horizontal = expanding
+		# 	blockoverride "header_text" {text = cardinals_college   }
+		# 	blockoverride "button_close"{onclick = "[GetVariableSystem.Toggle('window_cardinals')]" }
+		# }
+        
+
+    widget = {
+        size = { 100% 100 }
+
+        text_single = {
+            name = "header_text_custom"
+            parentanchor = top|hcenter
+            position = { 0 5 }
+            default_format = "#light_background"
+            fontsize = 30
+            text = cardinals_college
+
+            maximumsize = { 400 -1 }
+
+            using = Font_Type_Flavor
+            using = Font_Size_Big
+        }                
+    }
+
+    button = { # Add x gold to the character's election fund
+        size = { 100 100 }
+        position= {544 1090}
+        visible = "[EqualTo_string(FaithWindow.GetFaith.GetNameNoTooltip,Localize('catholic'))]"
+        icon    = {texture = "gfx/interface/CollegeCardinals/CloseButton.png"}
+        tooltip = "close_tooltip"
+        onclick = "[GetVariableSystem.Toggle('window_cardinals')]"
+        onclick = "[GetScriptedGui('refresh_cardinal_characters').Execute(GuiScope.SetRoot(Religion.MakeScope).End)]"
+        alwaystransparent = no
+        layoutpolicy_vertical = expanding
+    }
+
+
+    widget = { 
+        size = { 100% 100 }
+        position= {-544 1090 }
+
+        button = {
+            parentanchor = top|right
+            texture = "gfx/interface/CollegeCardinals/CloseButton.png"
+            #blockoverride "button_close"{ onclick = "[GetVariableSystem.Toggle('window_cardinals')]" }
+            onclick = "[GetScriptedGui('refresh_cardinal_characters').Execute(GuiScope.SetRoot(Religion.MakeScope).End)]"
+            onclick = "[GetVariableSystem.Toggle('window_cardinals')]" 
+        }
+    }
+
+    widget = {
+        size = { 100% 100 }
+        position= {597 1087 }
+        text_single = {
+            name = "header_text_custom"
+            default_format = "#clickable"
+
+            raw_text = "Close"
+            fontsize = 25
+            maximumsize = { 400 -1 }
+
+            using = Font_Type_Flavor
+            using = Font_Size_Big
+        }
+    }
+
+    widget = {
+        parentanchor = top|hcenter
+        size = {80% 30%}
+        hbox = {
+            parentanchor = top|hcenter
+            window_cardinals_special_character = {
+                datacontext = "[FaithWindow.GetFaith.GetReligiousHead]"
+                blockoverride "text" { raw_text = cardinals_pope}
+                blockoverride "fontsize" { fontsize = 25 }
+            }
+            window_cardinals_special_character = {
+                datacontext = "[Religion.MakeScope.Var('preferatus_character').GetCharacter]"
+                blockoverride "text"    {   raw_text = cardinals_preferatus}
+                blockoverride "portrait" {  window_cardinals_portrait = { parentanchor = hcenter|vcenter position = { -13 3 } } } 
+                blockoverride "fontsize" { fontsize = 26 }
+                window_cardinals_score =    {position = { 56 15 }}
+            }
+        }
+    }
+
+    widget = {
+            size = {100% 45%}
+            #allow_outside = yes
+            position = {0 300}
+            scrollarea = {
+                background = {
+                    using = Background_Area_Border
+                }
+                position = {25 35}
+                maximumsize = { -1 430 }
+                autoresizescrollarea = yes
+                scrollbar_vertical = {
+		    		using = Scrollbar_Vertical
+		    	}
+                scrollbarpolicy_horizontal = always_off #??
+                #allow_outside = yes
+                scrollwidget = {
+                    #allow_outside = yes
+                    #widget = {size = {0 50}}
+                    window_cardinal_dynamicgrid = {
+                        parentanchor = top|left
+		                layoutpolicy_horizontal = expanding
+		                layoutpolicy_vertical = expanding
+                    }
+                }
+            }
+        }
+
+    # window_cardinal_dynamicgrid = {
+    #     position = {25 355}
+    #     parentanchor = top|left
+    #     layoutpolicy_horizontal = expanding
+    #     layoutpolicy_vertical = expanding
+    # }
+    
+    widget = {
+        widget = {
+            size = { 100% 50 }
+    
+            # buttons_window_control = {
+            #     parentanchor = top|right
+            #     #blockoverride "button_close"{onclick = "[GetVariableSystem.Toggle('window_cardinals')]" }
+            # }
+            text_single = {
+                name = "header_text_custom"
+                parentanchor = top|hcenter
+                position = { 0 -2 }
+                default_format = "#light_background"
+                text = cardinals_candidacy
+                fontsize = 28
+                maximumsize = { 400 -1}
+    
+                using = Font_Type_Flavor
+                using = Font_Size_Big
+            }                
+        }
+        size = {100% 32%}
+        parentanchor = bottom|left
+        allow_outside = yes
+        window_cardinals_special_character = {
+            parentanchor = vcenter|left
+            position = {250 0}
+            visible = "[GetScriptedGui('can_see_my_candidate').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+            datacontext = "[GetPlayer.MakeScope.Var('cardinal_player_candidate').GetCharacter]"
+            blockoverride "text"    {   text = cardinals_my_candidate}
+            blockoverride "portrait" {  window_cardinals_portrait = { parentanchor = hcenter|vcenter }}
+            blockoverride "score" {text = "[GuiScope.SetRoot(Character.MakeScope).ScriptValue('bishop_to_cardinal_score')|0]"}
+            blockoverride "fontsize" { fontsize = 26 }
+            window_cardinals_campaign = {position = { -25 50 }}
+            window_cardinals_score =    {position = { 65 10 }}
+            window_cardinals_invest_divest = {
+                parentanchor = bottom|hcenter
+                position = { -10 15 }
+            }
+        }
+        namefail = {
+            size = { 100% 32 }
+            icon = {
+                position = {100 50 }
+                visible = "[GetScriptedGui('can_see_my_candidate_fail').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                texture = "gfx/interface/CollegeCardinals/papacy_nameplate_small_bg.dds"
+                text_single = {
+                    block "text" {text = candiatesoon}
+                    parentanchor = hcenter|vcenter
+                    default_format = "#light_background"
+                    using = Font_Type_Flavor
+                    fontsize = 20
+                    position = {-100 0 }
+                }
+            }    
+        }
+        namefail_pope = {
+            size = { 100% 32 }
+            icon = {
+                visible = "[GetScriptedGui('can_see_my_candidate_pope').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+                texture = "gfx/interface/CollegeCardinals/papacy_nameplate_small_bg.dds"
+                text_single = {
+                    block "text" {text = candiatesoon}
+                    parentanchor = hcenter|vcenter
+                    default_format = "#light_background"
+                    using = Font_Type_Flavor
+                    fontsize = 20
+                    position = {-100 0}
+                }
+            }    
+        }
+        window_cardinals_special_character = {
+            parentanchor = vcenter|right
+            position = {-220 0}
+            datacontext = "[Religion.MakeScope.Var('predicted_cardinal').GetCharacter]"
+            blockoverride "text"    {   text = cardinals_predictus}
+            blockoverride "portrait" {  window_cardinals_portrait = { parentanchor = hcenter|vcenter }}
+            blockoverride "score" {text = "[GuiScope.SetRoot(Character.MakeScope).ScriptValue('bishop_to_cardinal_score')|0]"}
+            blockoverride "fontsize" { fontsize = 22 }
+            window_cardinals_campaign   = {position = { -25 40 }}
+            window_cardinals_score      = {position = { 70 10 }}
+        }
+    }
+}
+}
