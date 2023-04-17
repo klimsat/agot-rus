@@ -859,7 +859,7 @@ window = {
 									fontsize = 20
 									fontsize_min = 14
 									align = nobaseline
-									default_format = "#medium"
+									default_format = "#high"
 									tooltip = "[Character.GetNickname]"
 								}
 
@@ -3970,10 +3970,8 @@ window = {
 				button_standard = {
 					name = "construct_ruins_button"
 					text = "agot_ruin_begin_reconstruction"
-					visible = "[GetScriptedGui('can_reconstruct_ruin').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('actor', GetPlayer.MakeScope).End)]"
-					enabled = "[GetScriptedGui('has_money_reconstruct_ruin').IsValid(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('actor', GetPlayer.MakeScope).End)]"
+					enabled = "[GetScriptedGui('can_reconstruct_ruin').IsValid(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('actor', GetPlayer.MakeScope).End)]"
 					onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
-					#tooltip = "agot_ruin_begin_reconstruction_desc"
 					tooltip = "[CharacterWindow.GetCharacter.Custom('RuinsReconstructTooltip')]"
 				}
 			}
