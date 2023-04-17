@@ -1,7 +1,7 @@
 ﻿l_russian:
  fire_court_physician_effect.tt:1 "[THIS.Char.GetShortUIName] is no longer [GetCourtPositionType('court_physician_court_position').GetName()]"
 
- #Recovery events, by Linnéa Thimrén and Petter Vilberg
+ #Recovery events, by Linnéa Thimrén and Petter Vilberg #NT!
  health.0001.desc:0 "My Wound Has Healed"
 
  health_wounded_title:0 "Wounded:"
@@ -20,7 +20,7 @@
  health.wounded_1_success:0 "Successful Wound Treatment"
  health.wounded_1_failure:0 "Failed Wound Treatment"
 
- # Becoming wounded, by Linnéa Thimrén and Petter Vilberg
+ # Becoming wounded, by Linnéa Thimrén and Petter Vilberg #NT!
  health.0102.t:1 "$health_wounded_title$ Deeply Cut"
  health.0102.desc:0 "Pain shoots up my body with every step, and even the smallest of movements leave me gasping. As I bring a hand up to gingerly touch my wound it comes away bloody, and I tremble as blood drips down my side."
  health.0102.court_physician.desc:0 "\n\n"Not to worry, my [ROOT.Char.GetLadyLord]. Your wound is deep, but my knowledge is deeper.""
@@ -31,7 +31,7 @@
  health.0104.court_physician.desc:0 "\n\n"You are gravely injured, my [ROOT.Char.GetLadyLord]. We need to tend to you at once!""
  health.0104.a:1 "[ROOT.Char.GetFaith.HealthGodName|U], deliver me from this pain!"
 
- # Infection/gangrene, by Linnéa Thimrén and Petter Vilberg
+ # Infection/gangrene, by Linnéa Thimrén and Petter Vilberg #NT!
  health.0201.desc:0 "Infected Wound"
 
  health.0202.t:1 "$health_wounded_title$ A Taint Within"
@@ -46,7 +46,7 @@
  health.0204.desc:0 "A wound is supposed to hurt, and some swelling is not unusual, so I assumed my wound was healing. However, now there are blisters marring my skin, and the redness is turning black. My body is rotting before my eyes!"
  health.0204.court_physician.desc:0 "\n\n"You have contracted gangrene, my [ROOT.Char.GetLadyLord]. This is most serious... We must treat you at once!""
 
- # Disease Contraction, by Mathilda Bjarnehed
+ # Disease Contraction, by Mathilda Bjarnehed #NT!
  health.1001.t:1 "[SCOPE.Custom('EventTitleDisease')]: My Mortal Body"
  health.1001.desc:0 "[ROOT.Char.GetTitleTierName] or peasant, high or low, it does not matter. In the end, we are all mortals. I was reminded of this as I woke coughing in the early morning hours, a dull ache pounding through my head and throat."
  health.1001.court_physician.desc:0 "\n\n"You seem to be under the weather, my [ROOT.Char.GetLadyLord]. I know a fair number of suitable remedies.""
@@ -109,7 +109,7 @@
  health.1011.court_physician.desc:0 "\n\n"My [ROOT.Char.GetLadyLord], I will do everything in my power, but it might be wise to prepare for the worst...""
  health.1011.a:1 "Oh, [ROOT.Char.GetFaith.HealthGodName]! Save me from this nightmare!"
 
- # Recover from diseases, by Mathilda Bjarnehed
+ # Recover from diseases, by Mathilda Bjarnehed #NT!
  health.1101.t:1 "[SCOPE.Custom('EventTitleDisease')]: My Old Self"
  health.1101.desc:0 "As I woke this morning and saw rays of sunshine falling through my window, it took me a moment to realize I had slept soundly for the first time in weeks. I did not wake up coughing once!"
  health.1101.a:0 "I am glad to be well again."
@@ -148,7 +148,7 @@
  health.1111.a:1 "Praise [ROOT.Char.GetFaith.HealthGodName] for this miracle!"
  health.1111.a.tt:0 "I am now immune to [GetTrait('bubonic_plague').GetName( GetNullCharacter )]"
 
- # STD events, by Mathilda Bjarnehed
+ # STD events, by Mathilda Bjarnehed #NT!
  health.2001.t:1 "[SCOPE.Custom('EventTitleDisease')]: A Nasty Surprise"
  health.2001.start.desc:0 "As I slid between the sheets to join [std_partner.GetFirstName], I was horrified to find oozing blisters on [std_partner.GetHerHis] most private parts!"
  health.2001.not_sick.desc:0 "How could [std_partner.GetSheHe] bring such a disgusting affliction to our bed?"
@@ -179,7 +179,7 @@
  health.2003.lover.desc:0 "ended things between us."
  health.2003.a:0 "Shall everything be taken from me?"
 
- #Courtier/guest/prisoner has contagious disease
+ #Courtier/guest/prisoner has contagious disease #NT!
  health.2101.t:1 "[SCOPE.Custom('EventTitleDisease')]: A Killer In Our Midst"
  health.2101.smallpox_outbreak.desc:0 "The curse of death has fallen upon my court — a case of smallpox has been discovered!"
  health.2101.smallpox_spreads.desc:0 "Yet another soul has been cursed with smallpox."
@@ -194,8 +194,8 @@
  health.2101.a.tt:0 "The disease will spread unhindered at my court"
  health.2101.b:0 "[sick_character.GetTitledFirstName] is banished from my court!"
  health.2101.c:0 "Throw [sick_character.GetHerHim] out!"
- 
- # Important character has dangerous disease events, by Mathilda Bjarnehed
+
+ # Important character has dangerous disease events, by Mathilda Bjarnehed #NT!
  health.2201.t:2 "[SCOPE.Custom('EventTitleDisease')]: My Poor [ROOT.GetCharacter.Custom2('RelationToMeShort', SCOPE.sC('sick_character'))|U]"
  health.2201.start.desc:1 "Today I was given grave news. My [ROOT.GetCharacter.Custom2('RelationToMe', SCOPE.sC('sick_character'))] [sick_character.GetFirstName] has fallen ill with"
  disease_ill_article:0 "a"
@@ -220,7 +220,7 @@
  health.2201.court_physician.desc_sick_physician:0 "\n\n[sick_character.GetSheHe|U] may be my physician, but [sick_character.GetSheHe] nonetheless looks to me for guidance."
  health.2201.a:0 "This is an enemy I cannot protect [sick_character.GetHerHim] from."
 
- #There is no longer an outbreak! 
+ #There is no longer an outbreak! #NT!
  health.2102.t:1 "[SCOPE.Custom('EventTitleDisease')]: A New Day"
  health.2102.start1.desc:0 "The outbreak of"
  health.2102.smallpox.desc:0 "smallpox"
@@ -246,7 +246,7 @@
  health.2202.a.relieved:0 "My court is a little safer."
  health.2202.a.neutral:0 "Fortunate."
 
- # Recruit physician event
+ # Recruit physician event #NT!
  health.3001.disease.t:0 "[SCOPE.Custom('EventTitleDisease')]:"
  health.3001.t:0 "Court Physician"
  health.3001.fallback_reason.desc:0 "This world is full of dangers, even to a [ROOT.Char.GetTitleTierName] and [ROOT.Char.GetHerHis] court. I should hire a court physician lest injury or disease befalls us.\n\nI have asked around for recommendations, and have assembled a few options to chose from."
@@ -261,7 +261,7 @@
  health.3001.e:0 "[excellent_skill_option.GetFirstNameNoTooltip] is widely known in scholarly circles."
  health.3001.d.tt:1 "I do not recruit anyone as my [GetCourtPositionType('court_physician_court_position').GetName()]"
 
- #Disease treatment, by Mathilda Bjarnehed & Milla Isaksson
+ #Disease treatment, by Mathilda Bjarnehed & Milla Isaksson #NT!
  health.3101.t:1 "[SCOPE.Custom('EventTitleDisease')]: Time For Treatment"
  health.3101.start.desc:0 ""The time has come to treat your"
  health.3101.safe_recommendation.desc:0 "While I am fairly certain a simple tincture would suffice,"
@@ -350,7 +350,7 @@
  health.risky_treatment_eye.1.desc:0 "[physician.GetTitledFirstName] made me drink a draught of poppy before strapping me down on [physician.GetHerHis] operating table. I almost dozed off while [physician.GetSheHe] prepared [physician.GetHerHis] instruments, but when [physician.GetSheHe] raised a scalpel towards my eye, I felt wide awake. "I am sorry, my [ROOT.Char.GetLadyLord], but we must remove the root of the problem.""
  health.3105.end.desc:0 "\n\nStrangely enough, I can no longer feel any symptoms..."
  health.3105.a:0 "It is a miracle!"
- 
+
  health.3106.t:1 "[SCOPE.Custom('EventTitleDisease')]: Balanced Humors"
  health.3106.end.desc:0 "\n\nThe treatment was almost as unpleasant as my symptoms, yet it seems to have been effective. While I am not fully cured, I feel much better."
  health.3106.a:0 "I will live to see another day."
@@ -390,7 +390,7 @@
  health.3110.t:1 "[SCOPE.Custom('EventTitleDisease')]: Into Darkness"
  health.3110.end.desc:0 "\n\nMy mind must have been altered, twisted by some dark trick. I would never have agreed to this willingly. The memories haunt me..."
 
- # Punishment for mistreating important people
+ # Punishment for mistreating important people #NT!
  health.3200.death.desc:0 "While I can certainly see that the face is [sick_character.GetTitledFirstNamePossessive], it still looks nothing like [sick_character.GetHerHim]. [sick_character.GetSheHe|U] is no longer... there. The rest of the body is wrapped up in a thick shroud, covering the grisly details of [physician.GetTitledFirstNamePossessive] failure."
  health.3200.failure.desc:0 "It takes me a moment to recognize [sick_character.GetTitledFirstName]. [sick_character.GetSheHe|U] is so bruised and swollen, [sick_character.GetSheHe] barely looks human. As I grab [sick_character.GetHerHis] hand, my [ROOT.GetCharacter.Custom2('RelationToMeShort', SCOPE.sC('sick_character'))] attempts to speak but no sound passes [sick_character.GetHerHis] lips."
  health.3200.failure.desc_2:0 "As I near [ROOT.GetCharacter.Custom2('RelationToMeShort', SCOPE.sC('sick_character'))] [sick_character.GetTitledFirstNamePossessive] chambers I hear a horrifying scream; barely human and full of pain. I burst into the room only to find [sick_character.GetFirstNameNoTooltip] collapsed in a heap on the floor, #EMP covered#! in blood."
@@ -416,8 +416,8 @@
  physician_level_up_chance_effect.t:0 "Court Physician's Knowledge Increases"
 
  maester_level_up_chance_effect.t:0 "Maester's Knowledge Increases"
- 
- # Wound treatment, by Linnéa Thimrén
+
+ # Wound treatment, by Linnéa Thimrén #NT!
  health.4000.t:1 "$health_wounded_title$ My Injured [ROOT.GetCharacter.Custom2('RelationToMeShort', SCOPE.sC('sick_character'))|U]"
  health.4000.start.desc:0 "My [ROOT.GetCharacter.Custom2('RelationToMe', SCOPE.sC('sick_character'))] [sick_character.GetTitledFirstName] has been wounded,"
  health.4000.infected_wound.desc:1 "and [sick_character.GetHerHis] flesh has contracted foulness and swelling.\n\nIf the right kind of treatment is administered, and [ROOT.Char.GetFaith.HealthGodName] is merciful, [sick_character.GetSheHe] should make it."
@@ -460,9 +460,9 @@
  health.4105.end.desc:0 "\n\nI did not believe I could be in more pain, but I was soon proven wrong."
 
 
- ########################
- # Notification messages
- ########################
+ ######################## #NT!
+ # Notification messages #NT!
+ ######################## #NT!
 
  disease_contraction_feed_message.t:1 "[message_receiver.Custom2('RelationToMeShort', SCOPE.sC('sick_character'))|U] Falls Ill"
  disease_recovery_feed_message.t:1 "[message_receiver.Custom2('RelationToMeShort', SCOPE.sC('sick_character'))|U] Recovers"
@@ -471,7 +471,7 @@
 
 
 
- # Suicide events, by Linnéa Thimrén 
+ # Suicide events, by Linnéa Thimrén #NT!
  health.6001.t:0 "The Attempt"
  health.6001.desc_opening:0 "I will end my life. I cannot help the sorrow rising in my heart thinking of all that I will leave behind, but my mind is set."
  health.6001.desc_depression:0 "The suffering seems endless."
@@ -505,11 +505,11 @@
  health.6005.a:0 "My plans, foiled..."
 
  health.6007.desc:0 "I breathe in the vapors coming from the cup of tea I hold in my hands, and close my eyes. Slowly I raise the rim to my lips and take a long sip. I swallow.\n\nSoon the world starts to go gray and indistinct, darkness creeping into the edge of my vision, and I lay my head down onto the table. I feel my breath coming shorter and shorter. I close my eyes."
- 
+
  health.6008.desc:0 "I breathe in the vapors coming from the cup of tea I hold in my hands, and close my eyes. Slowly I raise the rim to my lips and–\n\nThe cup is yanked out of my hand and thrown to the floor where it shatters. A guard stands above me, panic in [dummy_gender.GetHerHis] eyes."
 
  health.6010.desc:0 "The steam from my hot bath is wafting around me and I breathe in deeply as I pick up the knife beside me. I rest it gently upon one arm, and then I press. Hard.\n\nWhen I have two identical cuts on both arms I let them sink back into the rapidly reddening water. I lean my head back and sigh as the world starts to spin. It won't be long now..."
- 
+
  health.6011.desc:0 "Just as I am about to cut into my arm with the knife, the steam of the hot bath wafting around me, guards barge in and quickly wrestle the knife from my hands.\n\n"
 
  health.6100.desc:0 ""Hello [ROOT.Char.GetTitledFirstNameNoTooltip]. I just wanted to pay you a visit, to ask how you are doing since... the incident a while ago."\n\n[friendly_person.GetTitledFirstName] asks me with genuine warmth, and not even the mention of my attempted suicide can quell it completely."
@@ -555,7 +555,7 @@
  health.6210.desc:0 "I am waiting. That I can remember even through the fog of my mind – I am waiting for the delivery [close_person.GetTitledFirstName] can grant me, but it does not come. Why...? Why won't [close_person.GetSheHe] come?"
  health.6210.a:0 "Has [close_person.GetSheHe] too left me behind...?"
 
- # Infirm events
+ # Infirm events #NT!
  health.7000.t:0 "A Prisoner In My Own Body"
  health.7000.desc:0 "I knew that getting older would mean doing everything slower, but I didn't think it would all come to a halt until my death. Lately, I feel a constant malaise and everything takes more effort than before. I'm worried that if I lie down, I might not be able to get up again. There is no doubt that my time is running out."
  health.7000.desc_collapse:0 "I know I was pushing it – I should've just listened to what my body was telling me, but I chose to ignore it. "I'll finish this before going to bed; just a couple more, then I'll rest." Suddenly I felt light-headed, and as I got up, my vision went black.\n\nThe next day, I awoke in my bed, unable to get up as my body refuses to listen to me. Perhaps [ROOT.Char.GetFaith.HighGodName] decided to punish me for not treating this vessel meant to serve [ROOT.Char.GetFaith.HighGodNameAlternate] with respect."

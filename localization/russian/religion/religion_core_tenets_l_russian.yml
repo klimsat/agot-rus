@@ -2,7 +2,7 @@
  doctrine_core_tenets_name:1 "Tenets"
  tenets_name:0 "Tenets"
 
- #Abrahamic Tenets
+ #Abrahamic Tenets #NT!
  tenet_communion_name:0 "Communion"
  tenet_communion_desc:0 "Our rituals are not merely symbolic — they invoke the very presence of the divine itself. Those who cannot or do not join us in their practice cannot be true believers."
  doctrine_parameter_seek_indulgences_active:1 "Characters may #V Seek Indulgences#! from their [head_of_faith|E] to pay [gold|E] in exchange for [piety|E]"
@@ -24,7 +24,7 @@
  tenet_divine_marriage_desc:0 "The blood of the divine runs through the veins of our kings and queens. Keeping our bloodlines pure is the best way to ensure our family's reign continues for centuries to come."
  doctrine_parameter_divine_marriage_opinion:0 "Adherents who are married to a [close_family|E] member have $VALUE|0+=$ [opinion|E] from [vassals|E] of the same [faith|E]"
  doctrine_parameter_divine_marriage_piety_gain_active:2 "The [GetFaithDoctrine('doctrine_monogamy').GetBaseName] marriage bonus also grants a large amount of [piety|E] if you are marrying a [close_family|E] member"
- 
+
  tenet_pacifism_name:0 "Pacifism"
  tenet_pacifism_desc:0 "Violence is an abhorrent act that only leads to suffering, pain, and regret. By working to avoid it whenever possible we can build stronger, more secure societies for the faithful to live in."
  doctrine_parameter_holy_wars_forbidden:0 "Cannot declare [holy_wars|E] or [raid|E]"
@@ -111,7 +111,7 @@
  GetRiteEcumenismFullOrEmpty_full:0 "Christian [faiths|E] with [GetFaithDoctrine('special_doctrine_ecumenical_christian').GetBaseName] keep it on creation"
  GetRiteEcumenismFullOrEmpty_empty:0 ""
 
- #Muslim Tenets
+ #Muslim Tenets #NT!
  tenet_struggle_submission_name:0 "Struggle and Submission"
  tenet_struggle_submission_desc:0 "Divine will is the source of all good, so a good existence is based on submission to that will, expressed through the struggle to enact it."
  doctrine_parameter_bonus_holy_war_piety_active:0 "[piety|E] and [piety_experience|E] from winning [holy_wars|E] is increased by #P 50%#!"
@@ -147,7 +147,7 @@
  doctrine_parameter_legalism_modified_law_costs_2:0 "Increase law costs by #N 10%#! for each [sin|E] a ruler has"
  doctrine_parameter_legalism_trust_just_leader_active:1 "[electors|E] under elective [succession|E] types are more likely to vote for the choice of their [liege|E] if their Liege is $trait_just$"
  tenet_legalism_law_cost_tooltip:0 "[legalism|E]:\n   My sins and virtues are affecting this by: [SCOPE.ScriptValue('legalism_law_cost_modifier')|-0%]"
- 
+
  tenet_reincarnation_name:0 "Reincarnation"
  tenet_reincarnation_desc:0 "We have lived many lives before this one, and will continue to live many lives after it. Every death is only the beginning of something new."
  doctrine_parameter_reincarnation_resistance_to_conversion:0 "County Conversion Resistance: #P +20%#!"
@@ -157,7 +157,7 @@
  tenet_esotericism_desc:0 "The great mysteries of the divine may be beyond mortal comprehension, but that is not an excuse for ignorance. Their very existence compels us to seek knowledge and understanding of the world around us."
  doctrine_parameter_tenet_esotericism_mystic_education:1 "Children with the [learning|E] [education_focus|E] may gain the [GetTrait('mystic_1').GetName( GetNullCharacter )] trait if they do well at their studies."
 
- #Eastern Tenets
+ #Eastern Tenets #NT!
  tenet_adaptive_name:0 "Adaptive"
  tenet_adaptive_desc:0 "Dogmatic adherence to old restrictions only harms the faithful. As long as we stay true to the core beliefs of our faith, we may adapt our laws to the world around us."
  doctrine_parameter_tenet_adaptive_conversion_resistance:0 "County Conversion Resistance: #P +30%#!"
@@ -183,7 +183,7 @@
  tenet_ritual_hospitality_desc:0 "Hospitality is one of the greatest virtues mankind can exhibit. Guests in our homes, be they mortal or divine, should always be treated with the utmost honor and respect."
  doctrine_parameter_host_honored_guests_active:0 "[rulers|E] can host other characters as an Honored Guest, spending [piety|E] in exchange for increased [opinion|E]"
 
- #Pagan tenets
+ #Pagan tenets #NT!
  tenet_warmonger_name:0 "Warmonger"
  tenet_warmonger_desc:0 "Faith and war go hand in hand. One who refuses to fight in the name of the divine cannot be called a true believer."
  doctrine_parameter_conquest_cb_enabled:0 "[rulers|E] have a Conquest [casus_belli|E] against neighboring rulers"
@@ -216,7 +216,7 @@
 
  tenet_sanctity_of_nature_name:0 "Sanctity of Nature"
  tenet_sanctity_of_nature_desc:1 "The natural world is the creation of the divine, and we are merely guests in it. We must respect and honor every tree, every animal, and even the ground itself."
- # This parameter does nothing; it's just here to flag the tenet's nature silently so we can reference it without directly tagging the tenet.
+ # This parameter does nothing; it's just here to flag the tenet's nature silently so we can reference it without directly tagging the tenet. #NT!
  doctrine_parameter_believes_in_harmony_with_nature_invisible:0 ""
 
  tenet_mystical_birthright_name:0 "Auspicious Birthright"
@@ -233,8 +233,8 @@
  doctrine_parameter_summer_festivals_active:0 "Hosting Feasts in the summer months earns [piety|E]"
  doctrine_parameter_trial_by_sun_active:0 "Imprisoned [criminals|E] can be sentenced to a Sun Trial"
 
- # Syncretic Tenets
- #Not referenced in-game anywhere by itself, but used to control other opinion title copy:
+ # Syncretic Tenets #NT!
+ #Not referenced in-game anywhere by itself, but used to control other opinion title copy: #NT!
  faith_syncretic_opinion_active_control:0 "Syncretism with Faith"
  faith_syncretic_popular_opinion_active_control:0 "[holder|E] Syncretic with Local [faith|E]"
  unreformed_syncretic_recipient_opinion_active_opinion_name:0 "$faith_syncretic_opinion_active_control$"
@@ -261,7 +261,7 @@
  tenet_eastern_syncretism_name:0 "Eastern Syncretism"
  tenet_eastern_syncretism_desc:0 "There is something to be learned from the way the different eastern religions tolerate each other. They may not follow the true faith, but that does not make them evil."
  doctrine_parameter_hostility_override_eastern_hostility_doctrine:1 "Eastern [faiths|E] are considered only [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V]"
- #Instead, add these doctrine parameters to appropriate tenets (presently Eastern Syncretism).
+ #Instead, add these doctrine parameters to appropriate tenets (presently Eastern Syncretism). #NT!
  doctrine_parameter_is_eastern_faith_bilateral_loc_override:0 "Considers Eastern [faiths|E], and is considered by Eastern $game_concept_faiths$, to be [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V] instead of $hostility_evil_tooltippable$"
  doctrine_parameter_hostility_override_special_doctrine_is_eastern_faith:0 "Considers Eastern [faiths|E], and is considered by Eastern $game_concept_faiths$, to be [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V] instead of $hostility_evil_tooltippable$"
  doctrine_parameter_eastern_syncretic_actor_opinion_active:0 "Mutual [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] [opinion|E] bonus with Eastern [faiths|E]"
@@ -281,9 +281,9 @@
 
  tenet_christian_syncretism_name:0 "Christian Syncretism"
  tenet_christian_syncretism_desc:0 "Jesus of Nazareth may not have been true divinity, but he was still an upstanding and virtuous figure. We should honor and respect his teachings."
- #This is deliberately left blank. It should not be deleted or filled in: such will break the loc.
+ #This is deliberately left blank. It should not be deleted or filled in: such will break the loc. #NT!
  doctrine_parameter_hostility_override_special_doctrine_is_christian_faith:1 ""
- #Instead, add these doctrine parameters to appropriate tenets (presently Christian Syncretism & Pastoral Isolation).
+ #Instead, add these doctrine parameters to appropriate tenets (presently Christian Syncretism & Pastoral Isolation). #NT!
  doctrine_parameter_is_christian_faith_bilateral_loc_override:2 "Considers Christian [faiths|E], and is considered by Christian $game_concept_faiths$, to be [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V] instead of $hostility_evil_tooltippable$"
  doctrine_parameter_is_christian_faith_pastoral_isolation_loc_override:1 "Always considers other Christian [faiths|E] to be [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V], regardless of doctrinal differences"
  doctrine_parameter_can_use_christian_artefacts:0 "Can use Christian [artifacts|E] at full benefit"
@@ -318,7 +318,7 @@
  doctrine_parameter_jewish_syncretic_recipient_opinion_active:1 "Mutual [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] [opinion|E] bonus with [faiths|E] that have the $tenet_jewish_syncretism_name$ [core_tenet|E]"
  doctrine_parameter_opinion_of_jewish_syncretic_actor_opinion_active:0 ""
 
- # Additional Tenets
+ # Additional Tenets #NT!
  tenet_ritual_cannibalism_name:0 "Ritual Cannibalism"
  tenet_ritual_cannibalism_desc:0 "Mankind is blessed to have been bestowed with the spark of the divine. Human flesh is therefore sacred, its presence something to be savored, not buried or burned."
  doctrine_parameter_cannibalism_legal:0 "The [GetTrait('cannibal').GetName( GetNullCharacter )] trait is no longer considered [criminal|E]"
@@ -346,10 +346,10 @@
  doctrine_parameter_naked_adherents_active:0 "Adherents do not wear clothes"
  doctrine_parameter_natural_primitivism_law_cost_increase:0 "Law Costs: #N +50%#!"
  doctrine_parameter_unlock_jizya_contract:0 "Unlocks the Jizya [vassal_contract|E]"
- 
+
  tenet_sacrificial_ceremonies_name:0 "Sacrificial Ceremonies"
  tenet_sacrificial_ceremonies_desc:0 "Human sacrifice both voluntary and involuntary bring us closer to the divine. It is customary and virtuous for one to volunteer to sacrifice oneself in ceremony, just as it is virtuous to sacrifice those who have committed unforgivable crimes against the Gods."
- 
+
  tenet_megaliths_name:0 "Megalithic Constructions"
  tenet_megaliths_desc:0 "Worship should not be done merely in the confines of a temple, these are the primitive constructions of man that distracts them from the divine creations surrounding us all. We embrace stone and the open air, arranging the stones that the creator gave us in ways which please them and bring us closer to divinity."
  doctrine_parameter_can_build_megaliths:0 "Enables the construction of Megaliths in [temple|E] holdings and Great Megaliths in Duchy Capitals."

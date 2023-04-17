@@ -48,10 +48,10 @@
  vassal_modify_vassal_contract_interaction_desc:0 "Renegotiate your [obligations|E] to [recipient.GetShortUINameNoTooltip]"
  vassal_modify_vassal_contract_interaction_extra_icon:0 "$hook_extra_icon$"
  visit_court_interaction:0 "Visit Court"
- 
+
  start_bribe:0 "Start Bribe"
  end_bribe:0 "End Bribe"
- 
+
  snoop_around_court:0 "Snoop around Court"
  end_scheme:0 "#D End Scheme#!"
  lower_scheme_secrecy:0 "#D Lower Scheme Secrecy#!"
@@ -188,7 +188,7 @@
  AI_GUARDIAN_SKILL_STEWARDSHIP:0 "Guardian's [stewardship|E] Skill: $VALUE|=+0$"
  AI_GUARDIAN_SKILL_INTRIGUE:0 "Guardian's [intrigue|E] Skill: $VALUE|=+0$"
  AI_GUARDIAN_SKILL_LEARNING:0 "Guardian's [learning|E] Skill: $VALUE|=+0$"
- 
+
  educate_child_interaction:0 "Educate Child"
  educate_child_interaction_desc:0 "Appoint a [ward|E] and a [guardian|E] in your [court|E]"
  educate_child_interaction_extra_icon:0 "$hook_extra_icon$"
@@ -196,7 +196,7 @@
  recipient_secondary_educate_child_interaction:0 "[ward|E]"
  educate_child_interaction_notification:0 "Educate Child"
 
- 
+
  offer_ward_interaction:0 "Offer Ward"
  offer_ward_interaction_desc:0 "Offer [recipient.GetShortUIName] a [ward|E], making [recipient.GetHerHim], or someone in [recipient.GetHerHis] [court|E], the [guardian|E] of the chosen child"
  offer_ward_interaction_extra_icon:0 "$hook_extra_icon$"
@@ -274,7 +274,7 @@
  RANSOM_EXTORTIONATE_GOLD_IMPRISONED_PERSPECTIVE_OPTION:0 "For [gold_i]$EXTORTIONATE_RANSOM_COST|0$"
  RANSOM_EXTORTIONATE_CURRENT_GOLD_OPTION:0 "For [gold_i]$CURRENT_GOLD|0$ and [prestige_i]$CURRENT_GOLD|0$ #weak (cannot afford full ransom of [gold_i]$EXTORTIONATE_RANSOM_COST|0$)#!"
  RANSOM_EXTORTIONATE_CURRENT_GOLD_IMPRISONED_PERSPECTIVE_OPTION:0 "For [gold_i]$CURRENT_GOLD|0$ #weak (cannot afford full ransom of [gold_i]$EXTORTIONATE_RANSOM_COST|0$)#!"
- 
+
  RANSOM_FAVOR_OPTION:0 "For a Favor"
  ALREADY_SENT_GIFT_WARNING:0 "@warning_icon!#X You have already sent a Gift to [recipient.GetShortUIName], sending another one will #underline override#! the existing [opinion|E] modifier!#!"
  ALREADY_SENT_GIFT_CULTURAL_ACCEPTANCE_WARNING:0 "@warning_icon!#X As you sent a Gift recently, you will not increase the cultural acceptance"
@@ -294,7 +294,7 @@
  IS_ALLOWED_TO_REVOKE_EVIL_INFIDEL_VASSAL:1 "Because you consider [recipient.GetFaith.GetAdherentNamePlural] to be $hostility_evil_tooltippable$, you can revoke [recipient.GetShortUINamePossessive] vassals without being viewed as a tyrant."
  IS_ALLOWED_TO_REVOKE_HOSTILE_INFIDEL_VASSAL:1 "Because you consider [recipient.GetFaith.GetAdherentNamePlural] to be $hostility_hostile_tooltippable$, you can revoke [recipient.GetShortUINamePossessive] vassals without being viewed as a tyrant."
  INFIDEL_REVOCATION_OPINION:0 "Every [recipient.GetFaith.GetAdjective] vassal"
- #[GetHostilityLevelName(TOKEN_PARAMETER.GetIntValue)|V] only""
+ #[GetHostilityLevelName(TOKEN_PARAMETER.GetIntValue)|V] only"" #NT!
  IS_ALLOWED_TO_REVOKE_TITLE_BARONY_DESC:0 "Revoking [baronies|E] does not incur [tyranny|E]"
  IMPRISONMENT_RELATIVES_EFFECT_DUNGEON:1 "All of [THIS.GetCharacter.GetShortUINamePossessive] [family|E] loses #N 30#! [opinion|E] of [imprisoner.GetShortUIName]"
  IMPRISONMENT_RELATIVES_EFFECT_HOUSE_ARREST:1 "All of [THIS.GetCharacter.GetShortUINamePossessive] [family|E] loses #N 15#! [opinion|E] of [imprisoner.GetShortUIName]"
@@ -447,9 +447,9 @@
  WHEREABOUTS_UNKNOWN:0 "[CHARACTER.GetShortUIName|U]'s whereabouts are unknown"
 
 
- #Blackmail Interaction Descs
+ #Blackmail Interaction Descs #NT!
  BLACKMAIL_NOTIFICATION_OPENING:0 "My regrets that it has come to this."
- 	#Secrets
+ 	#Secrets #NT!
  BLACKMAIL_NOTIFICATION_SECRET_DEVIANT:0 "\nI know of your... unusual sexual proclivities."
  BLACKMAIL_NOTIFICATION_SECRET_HOMOSEXUAL:0 "\nI have evidence of your taste for the company of other [recipient.GetWomenMen]."
  BLACKMAIL_NOTIFICATION_SECRET_MURDER:0 "\nI know that you are [secret_target.GetShortUINamePossessive] real killer!"
@@ -483,7 +483,7 @@
  BLACKMAIL_NOTIFICATION_SECRET_UNMARRIED_ILLEGITIMATE_CHILD_TARGET_ACTOR:0 "\nI know that I am your true father."
  BLACKMAIL_NOTIFICATION_SECRET_UNMARRIED_ILLEGITIMATE_CHILD_TARGET_OTHER:0 "\nI know the identity of your true father, [real_father.GetShortUIName]!"
 
- # Communion Rite interaction Descs
+ # Communion Rite interaction Descs #NT!
  seek_indulgences_interaction:0 "Seek Indulgences"
  seek_indulgences_interaction_desc:0 "Pay [gold|E] in exchange for forgiveness for your sins and gain [piety|E]"
  SEEK_INDULGENCES_EXCOMMUNICATED:1 "You cannot Seek Indulgences while you are [excommunicated|E]!"
@@ -520,7 +520,7 @@
 
  AI_SIMPLE_OPINION_REASON:0 "Opinion: $VALUE|=+0$"
 
-# Other Rite interaction Desc
+# Other Rite interaction Desc #NT!
  TAKE_THE_VOWS_TEMPERATE:1 "[GetTrait('temperate').GetName( recipient.Self )]: $VALUE|=+0$"
  TAKE_THE_VOWS_CHASTE:1 "[GetTrait('chaste').GetName( recipient.Self )]: $VALUE|=+0$"
  TAKE_THE_VOWS_GLUTTONOUS:1 "[GetTrait('gluttonous').GetName( recipient.Self )]: $VALUE|=+0$"
@@ -587,7 +587,7 @@
  HOST_HONORED_GUEST_IS_AT_WAR:0 "You are at war with [TARGET_CHARACTER.GetShortUIName]!"
  HOST_HONORED_GUEST_IS_MY_COURTIER:0 "[TARGET_CHARACTER.GetShortUIName|U] is a permanent resident in your court"
 
- # Spiritual Head Interactions
+ # Spiritual Head Interactions #NT!
  hof_ask_for_gold_interaction:0 "Ask for Gold"
  recipient_secondary_hof_ask_for_gold_interaction:0 "Target"
  recipient_secondary_hof_ask_for_claim_interaction:0 "Target"
@@ -600,7 +600,7 @@
  I_AM_WAGING_AN_OFFENSIVE_HOLY_OR_EXCOMMUNICATION_WAR:0 "You are waging an offensive [holy_war|E] or [excommunication|E] war: $VALUE|=+0$"
  I_AM_ATTACKING_A_CORELIGIONIST:0 "You are waging war on someone of your own [faith|E]: $VALUE|=+0$"
  ASK_FOR_GOLD_OVERFLOWING_COFFERS:0 "Sizable Treasury: $VALUE|=+0$"
- 
+
  hof_ask_for_claim_interaction:0 "Request Claim"
  hof_ask_for_claim_interaction_extra_icon:0 "$hook_extra_icon$"
  hof_ask_for_claim_interaction_desc:0 "Petition [recipient.GetShortUIName] to give you a [claim|E] on a [title|e], in exchange for [piety|E]"
@@ -622,7 +622,7 @@
  HOF_ASK_FOR_CLAIM_EXCOMMUNICATED:0 "You cannot $hof_ask_for_claim_interaction$ while you are [excommunicated|E]!"
  HOF_INTERACTION_UNREFORMED_FAITH:0 "Your [faith|E] must be [organized|E] to take this action"
 
- #Religious Interactions Descs
+ #Religious Interactions Descs #NT!
  ask_for_conversion_interaction:0 "Demand Conversion"
  ask_for_conversion_interaction_desc:0 "Demand that [recipient.GetShortUINameNoTooltip] converts to your [faith|E]\n#weak (From [recipient.GetFaith.GetName] to [actor.GetFaith.GetName])#!"
  ask_for_conversion_courtier_interaction:0 "Demand Conversion"
@@ -675,10 +675,10 @@
  is_head_of_religion:0 "[CHARACTER.GetShortUIName|U] will not convert as [CHARACTER.GetSheHe] is the religious head of [CHARACTER.GetHerHis] [faith|E]."
  request_culture_conversion_interaction:0 "$ask_for_conversion_interaction$"
 
- # Dummy interaction Descs
+ # Dummy interaction Descs #NT!
  TEST_INTERACTION_NOT_IMPLEMENTED:0 "Test Interaction — Not Implemented (N/A)"
 
- #Offer Vassalization/Fealty
+ #Offer Vassalization/Fealty #NT!
  offer_vassalization_true_ruler_perk_tt:0 "You have [GetPerk( 'true_ruler_perk' ).GetName( GetPlayer )]: $VALUE|=+0$"
  offer_vassalization_interaction_aibehavior_differentfaith_tt:0 "You are of a different [faith|E]: $VALUE|=+0$"
  offer_vassalization_interaction_aibehavior_culture_tt:0 "You are of a different [culture|E]: $VALUE|=+0$"
@@ -768,7 +768,7 @@
 
  char_interaction.0002.desc:0 "I do not need your protection and prefer to keep the bounty of my Realm to myself."
  char_interaction.0002.a:0 "I shall have to explore other options..."
- 
+
  char_interaction.0010.opening:0 "[recipient.Custom2('AppropriateGreetingPositive', actor )]"
  char_interaction.0010.desc:0 "[actor.GetFirstName], I think this is the beginning of a beautiful vassalship!"
  char_interaction.0010.a:0 "My liege!"
@@ -839,7 +839,7 @@
 
  char_interaction.0141.desc:0 "I find your ransom offer quite underwhelming. I think I will hold onto [secondary_recipient.GetShortUIName] for now."
  char_interaction.0141.a:0 "Curse that [actor.Custom('InsultAdjective')] [actor.Custom('InsultNoun')]!"
- 
+
  char_interaction.0150.desc:0 "Very well, I shall release you, though I must admit I have grown fond of your company."
 
  char_interaction.0151.desc:0 "I fear I must refuse your ransom offer. You shall have to endure my hospitality awhile longer."
@@ -849,7 +849,7 @@
  char_interaction.0160.a.courtier:0 "Watch your step now, [recipient.GetFirstNameNoTooltip]..."
 
  char_interaction.0161.desc:0 "I would rather rot in your dungeon than accept your unreasonable demands."
- 
+
  char_interaction.0170.t:0 "A Difficult Time"
  char_interaction.0170.desc:0 "I was woken in the early hours of the morning by two unfamiliar guards. Being led outside, I had no illusions about what was about to happen. As I kneel for [actor.GetShortUINamePossessive] headsman, I experience a moment of serene and perfect clarity."
  char_interaction.0170.desc_burned:0 "Just as I had finished my meager repast, the door slammed open and I was seized and manhandled outside. It will be no easy death for me — the pyre is lit and I can already feel the heat on my legs. A hush descends on the mob as they behold my final moments with unhinged expressions on their faces."
@@ -919,40 +919,40 @@
  marriage_interaction.0010.mid.g_desc:0 "\n\nYour [actor.Custom2('RelationToMe', SCOPE.sC('secondary_actor'))], [secondary_actor.GetFirstName], and I will be the best couple #EMP ever#!!"
  marriage_interaction.0010.mid.h_desc:0 "\n\nYou and I will be the best couple #EMP ever#!!"
 
-# Long life and many children
+# Long life and many children #NT!
  marriage_interaction.0010.ending.a_desc:0 "\n\nMay [recipient.GetFaith.HighGodName] grant them long life and many children!"
  marriage_interaction.0010.ending.a_actor_desc:0 "\n\nMay [recipient.GetFaith.HighGodName] grant you long life and many children!"
  marriage_interaction.0010.ending.a_recipient_desc:0 "\n\nMay [recipient.GetFaith.HighGodName] grant us long life and many children!"
  marriage_interaction.0010.ending.a_both_desc:0 "\n\nMay [recipient.GetFaith.HighGodName] grant us long life and many children, my [secondary_actor.Custom('ComplimentAdjective')] [secondary_actor.Custom('WifeHusband')]!"
-# May HighGod bless the union
+# May HighGod bless the union #NT!
  marriage_interaction.0010.ending.b_desc:0 "\n\nMay [recipient.GetFaith.FertilityGodName] bless their union!"
  marriage_interaction.0010.ending.b_actor_desc:0 "\n\nMay [recipient.GetFaith.FertilityGodName] bless your union!"
  marriage_interaction.0010.ending.b_recipient_desc:0 "\n\nMay [recipient.GetFaith.FertilityGodName] bless our union!"
  marriage_interaction.0010.ending.b_both_desc:0 "\n\nMay [recipient.GetFaith.FertilityGodName] bless our union, my [secondary_actor.Custom('ComplimentAdjective')] [secondary_actor.Custom('WifeHusband')]!"
-# Happy and fulfilling marriage
+# Happy and fulfilling marriage #NT!
  marriage_interaction.0010.ending.c_desc:0 "\n\nMay their union bring happiness and fulfillment!"
  marriage_interaction.0010.ending.c_actor_desc:0 "\n\nMay your union bring happiness and fulfillment!"
  marriage_interaction.0010.ending.c_recipient_desc:0 "\n\nMay our union bring happiness and fulfillment!"
  marriage_interaction.0010.ending.c_both_desc:0 "\n\nMay our union bring happiness and fulfillment, my [secondary_actor.Custom('ComplimentAdjective')] [secondary_actor.Custom('WifeHusband')]!"
-# Strength and support
+# Strength and support #NT!
  marriage_interaction.0010.ending.h_desc:0 "\n\nMay they find strength and support in their union!"
  marriage_interaction.0010.ending.h_actor_desc:0 "\n\nMay you find strength and support in your union!"
  marriage_interaction.0010.ending.h_recipient_desc:0 "\n\nMay we find strength and support in our union!"
  marriage_interaction.0010.ending.h_both_desc:0 "\n\nMay we find strength and support in our union, my [secondary_actor.Custom('ComplimentAdjective')] [secondary_actor.Custom('WifeHusband')]!"
-# Fruitful in spite of hatred
+# Fruitful in spite of hatred #NT!
  marriage_interaction.0010.ending.d_desc:0 "\n\nMay their marriage be fruitful in spite of the bad blood between them."
  marriage_interaction.0010.ending.d_actor_desc:0 "\n\nMay your marriage be fruitful in spite of the bad blood between you."
  marriage_interaction.0010.ending.d_recipient_desc:0 "\n\nMay our marriage be fruitful in spite of the bad blood between us."
  marriage_interaction.0010.ending.d_both_desc:0 "\n\nMay our marriage be fruitful in spite of the bad blood between us, my [secondary_actor.Custom('InsultAdjective')] [secondary_actor.Custom('WifeHusband')]!"
-# Perfect match
+# Perfect match #NT!
  marriage_interaction.0010.ending.e_desc:0 "\n\nNever have I seen such a perfect couple, they were made for each other!"
  marriage_interaction.0010.ending.e_actor_desc:0 "\n\nNever have I seen such a perfect couple, you were made for each other!"
  marriage_interaction.0010.ending.e_recipient_desc:0 "\n\nFinally we are joined in holy matrimony as well as in soul and heart!"
  marriage_interaction.0010.ending.e_both_desc:0 "\n\nFinally we are joined in holy matrimony as well as in soul and heart, my [secondary_actor.Custom('ComplimentAdjective')] [secondary_actor.Custom('WifeHusband')]!"
-# Recipient hates secondary recipient
+# Recipient hates secondary recipient #NT!
  marriage_interaction.0010.ending.f_desc:0 "\n\nWhy anyone would want to marry that [secondary_recipient.Custom('InsultAdjective')] [secondary_recipient.Custom('InsultNoun')] is beyond me, but I wish them well."
  marriage_interaction.0010.ending.f_actor_desc:0 "\n\nWhy anyone would want to marry that [secondary_recipient.Custom('InsultAdjective')] [secondary_recipient.Custom('InsultNoun')] is beyond me, so best of luck."
-# Sinner, or criminal
+# Sinner, or criminal #NT!
  marriage_interaction.0010.ending.g_desc:0 "\n\nI pray that they together can find redemption and atonement, as well as happiness."
  marriage_interaction.0010.ending.g_actor_desc:0 "\n\nI pray that you together can find redemption and atonement, as well as happiness."
  marriage_interaction.0010.ending.g_recipient_desc:0 "\n\nI pray that we together can find redemption and atonement, as well as happiness."
@@ -977,7 +977,7 @@
 
  marriage_interaction.0041.desc:1 "I have released your [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('recipient'))] from my prison to serve as my concubine."
  marriage_interaction.0041.a:0 "The foul fiend!"
- 
+
  marriage_interaction.0042.desc:1 "I have decided to give you to [recipient.GetTitledFirstName] as [recipient.GetHerHis] concubine."
  marriage_interaction.0043.desc_concubine:1 "I have released your concubine from my prison to serve as [recipient.GetTitledFirstNamePossessive] concubine."
  marriage_interaction.0043.desc_spouse:1 "I have released your [secondary_actor.Custom('WifeHusband')] from my prison to serve as [recipient.GetTitledFirstNamePossessive] concubine."
@@ -1010,7 +1010,7 @@
  IS_PLEDGED_GHW_ATTACKER_TRIGGER:0 "Has pledged their allegiance to the attacking side"
  GHW_DEFENDERS_STRENGTH_TRIGGER:0 "The Military Strength of the Defenders"
  is_directed_ghw_trigger:0 "Is a directed Great Holy War"
- 
+
  hof_redirect_great_holy_war_interaction:0 "Propose Target"
  recipient_secondary_hof_redirect_great_holy_war_interaction:0 "Target"
  hof_redirect_great_holy_war_interaction_desc:0 "By spending enough [piety|E], a ruler can convince the leader of the [actor.GetFaith.Custom('GHWName')] to target a different Kingdom during the preparation phase."
@@ -1083,7 +1083,7 @@
  torture_interaction_desc:1 "[torture|E] [recipient.GetShortUINameNoTooltip]"
  I_RECENTLY_TORTURED_SOMEONE:0 "You recently tortured someone"
  CHARACTER_WAS_RECENTLY_TORTURED:0 "[CHARACTER.GetShortUIName|U] was recently tortured"
- 
+
  torture_interaction_actor_effects.secrets.tt:0 "Might discover a [secret|E], if [recipient.GetShortUIName] has or knows about one"
 
  blind_interaction:0 "Blind"
@@ -1095,12 +1095,12 @@
  I_AM_BEING_TORTURED:0 "You are being tortured!"
  THEY_ARE_BEING_TORTURED:0 "[CHARACTER.GetShortUIName|U] is being tortured"
 
- #Recruit to Court
+ #Recruit to Court #NT!
  recruit_guest_interaction:0 "Recruit to Court"
  recruit_guest_interaction_desc:0 "Pay to employ [recipient.GetShortUINameNoTooltip] as your [courtier|E]"
  recruit_guest_interaction_extra_icon:0 "$hook_extra_icon$"
 
- #Kick from court
+ #Kick from court #NT!
  kick_from_court_interaction:0 "Dismiss"
  kick_from_court_interaction_desc:0 "Turn [recipient.GetShortUINameNoTooltip] into a [wanderer|E] and send [recipient.GetHerHim] away from your [court|E]"
  kick_from_court_interaction_desc_guest:0 "Send [recipient.GetShortUINameNoTooltip] away from your [court|E]"
@@ -1111,7 +1111,7 @@
  kick_from_court_holds_court_title_warning_tt:0 "@warning_icon!#X [kicked.GetShortUIName] holds a [court_position|E] in my [court|E]#!"
  KICK_FROM_COURT_INTERACTION_TRAVELLING_FAMILY_INVALID_LOC:0 "[CHARACTER.GetShortUIName|U] would be leaving a close family member behind"
 
- #Invite to court
+ #Invite to court #NT!
  invite_to_court_interaction:0 "Invite to Court"
  invite_to_court_interaction_desc:0 "Invite [recipient.GetShortUINameNoTooltip] to move to your [court|E], where [recipient.GetSheHe] will be your [courtier|E]"
  invite_to_court_interaction_notification:0 "Arrived at Court"
@@ -1152,7 +1152,7 @@
  AI_INSPIRED:0 "[inspired|E]: $VALUE|=+0$"
  AI_SPONSORED_INSPIRATION:0 "Sponsored [inspiration|E]: $VALUE|=+0$"
 
- #Send child to holy order
+ #Send child to holy order #NT!
  take_vows_interaction:0 "Ask to Take Vows"
  take_vows_interaction_desc:1 "Ask [recipient.GetShortUINameNoTooltip] to take the vows and join the clergy"
  not_inheriting_check:3 "[CHARACTER.GetSheHe|U] is an [heir|E]"
@@ -1164,15 +1164,15 @@
  send_to_holy_order_interaction_extra_icon:0 "$hook_extra_icon$"
  send_to_holy_order_interaction_desc:0 "Ask [recipient.GetShortUINameNoTooltip] to take the vows and join a Holy Order"
 
- # Taking vows
+ # Taking vows #NT!
  was_asked_to_take_vows_recently:0 "I have already asked [TARGET_CHARACTER.GetShortUINameNoTooltip] to Take the Vows recently"
 
  CHARACTER_INTERACTION_WINDOW_SELECT_TITLE_TOOLTIP:0 "Title selection"
 
  perk_alliance_interaction:0 "Propose Alliance"
  perk_alliance_interaction_desc:0 "Use strategic diplomacy to forge an alliance with [recipient.GetTitledFirstNameNoTooltip] — not with blood, but with words!"
- 
- 
+
+
  negotiate_alliance_interaction:0 "Negotiate Alliance"
  negotiate_alliance_interaction_extra_icon:0 "$hook_extra_icon$"
  negotiate_alliance_interaction_desc:0 "Use the existing blood ties with [recipient.GetTitledFirstNamePossessive] family to forge an alliance with [recipient.GetHerHim]"
@@ -1273,13 +1273,13 @@
 
 
 
- #Sun Trial
+ #Sun Trial #NT!
  sun_trial_interaction:0 "Sun Trial"
  sun_trial_interaction.success.tt:0 "[recipient.GetTitledFirstName] perishes in the sun"
  sun_trial_interaction.failure.tt:0 "[recipient.GetTitledFirstName] survives the trial"
  sun_trial_interaction.non_faith_family:0 "All non-[actor.GetFaith.GetAdjective] [family_members|E] of [recipient.GetTitledFirstName]"
 
- #Literalist Debate
+ #Literalist Debate #NT!
  literalist_debate_interaction:0 "Literalist Debate"
  literalist_debate_interaction_desc:0 "You challenge this person to a debate about the fundamentals of your faith"
  literalist_debate_interaction.tt_modifiers:1 "Every #P virtuous trait#! gives additional chance to win the debate, while every #N sinful trait#! increases the chance to lose, regardless of learning\n\n@warning_icon! #X You can only debate once every 2 years#!"
@@ -1289,7 +1289,7 @@
  literalist_debate_timing:1 "You have not taken part in a debate recently"
  not_literalist_debate_timing:0 "You have taken part in a debate recently"
 
- # Mongol interactions
+ # Mongol interactions #NT!
  mongol_demand_subjugation_interaction:0 "Demand Subjugation"
  mongol_demand_subjugation_interaction_desc:0 "Demand that [recipient.GetShortUINameNoTooltip] becomes your [vassal|E], under threat of [war|E]"
  mongol_demand_subjugation_interaction_tooltip:0 "[recipient.GetShortUIName|U] gets a chance to respond"
@@ -1300,7 +1300,7 @@
 
  is_ai:0 "Is an AI-Controlled Character"
 
- #Elopement
+ #Elopement #NT!
  elope_interaction:0 "Elope #weak (Scheme)#!"
  elope_interaction_decline_toast:0 "Elopement declined"
  elope_interaction_notification:0 "Elope"
@@ -1316,7 +1316,7 @@
  SEND_DEMAND:0 "Send Demand"
 
  modify_vassal_contract_interaction_SEND:1 "Modify Vassal Contract"
- 
+
  char_interaction.0250.desc:1 "[actor.Custom2('PositiveSupplimentaryGreeting', recipient)]\nI regret to inform you that I have decided to increase your contractual obligations.\n\nSurely you understand my plight – [actor.GetPrimaryTitle.GetNameNoTierNoTooltip] is in dire need of protection, and your contribution plays a huge part.\n\nAnd, besides, you #emphasis do owe me!#!"
  char_interaction.0250.a:0 "It seems I have little choice..."
  char_interaction.0251.desc:1 "[actor.Custom2('PositiveSupplimentaryGreeting', recipient)]\nI have been a good vassal to you, but surely you understand that I have subjects of my own, too!\n\nMy current contract is very restrictive, surely you would see the wisdom in making it more lenient?\n\nAnd, besides, you #emphasis do owe me!#!"
@@ -1336,15 +1336,15 @@
  claim_throne_interaction_toast:0 "Scheming to Claim Throne"
  fabricate_hook_interaction_toast:0 "Fabricating a Hook"
  deposed_and_become_wanderer:0 "[recipient.GetShortUINameNoTooltip] is [deposed|E] and becomes a [wanderer|E]"
- 
+
  IS_CHARACTER_INTERACTION_VALID_TRIGGER:0 "Is character interaction valid"
  IS_CHARACTER_INTERACTION_POTENTIALLY_ACCEPTED_TRIGGER:0 "Character interaction can potentially be accepted"
 
  NOT_TAKE_VOWS_INTERACTION_MARTIAL_EDUCATION:0 "[TARGET_CHARACTER.GetTitledFirstName] does #bold not#! have a [martial|E] [education_trait|E]"
  TAKE_VOWS_INTERACTION_MARTIAL_EDUCATION:0 "has a [martial|E] [education_trait|E] and can join a [holy_order|E]"
- 
+
  release_pow_at_end_of_war:0 "[hostages|EU] taken by all war participants will be released."
- 
+
  INTERACTION_MARTIAL_EDUCATION:0 "[recipient.GetSheHe|U] has a [martial|E] [education|E]: $VALUE|=+0$"
  INTERACTION_CRAVEN:0 "[GetTrait('craven').GetName( recipient )]: $VALUE|=+0$"
  INTERACTION_BRAVE:0 "[GetTrait('brave').GetName( recipient )]: $VALUE|=+0$"
@@ -1451,7 +1451,7 @@
 
 
 
- #Sumptuary Law
+ #Sumptuary Law #NT!
  sumptuary_law_debate_interaction:0 "Accuse of Violating Sumptuary Law"
  sumptuary_law_debate_interaction_desc:0 "You challenge this [character|E] to a [stewardship|E] debate, attacking them for their crimes against fashion"
  sumptuary_debate_interaction.tt_modifiers:1 "Your general attractiveness gives you an advantage in the debate\n\n@warning_icon! #X You can only debate Sumptuary Law once every 2 years#!"
