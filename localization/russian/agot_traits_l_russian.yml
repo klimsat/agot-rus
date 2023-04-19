@@ -9,11 +9,11 @@
 
  trait_declared_incapable:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Признана недееспособным', 'Признан недееспособным' )]"
  trait_declared_incapable_desc:0 "Признанный советом непригодным для правления, этот персонаж зависит от регента, который будет править от его имени."
- trait_declared_incapable_character_desc:0 "Признанный непригодным к правлению, [ROOT.GetCharacter.GetHerHis] советом, [ROOT.GetCharacter.GetFirstNameNoTooltip] зависит от регента."
+ trait_declared_incapable_character_desc:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Признанная', 'Признанный' )] советом непригодным для правления, [ROOT.GetCharacter.GetSheHe] советом, зависит от регента, который будет править от [ROOT.GetCharacter.GetHerHis] имени."
 
  trait_mute:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Немая', 'Немой' )]"
  trait_mute_desc:0 "Этот персонаж не способен высказывать свое мнение и вообще не способен говорить."
- trait_mute_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] не способен выражать свои [ROOT.GetCharacter.GetHerHis] мысли, вообще ничего не может сказать."
+ trait_mute_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] не [Select_CString( ROOT.GetCharacter.IsFemale, 'способна', 'способен' )] выражать свои мысли, вообще ничего не может сказать."
 
 
  #Fame traits #NT!
@@ -118,7 +118,7 @@
 
  trait_squire:0 "Оруженосец"
  trait_squire_desc:0 "Оруженосец [agot_knight|E] находится на тренировке. Он служит слугой рыцаря, помогая ему со всеми его обязанностями."
- trait_squire_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] служит слугой рыцаря в надежде однажды стать рыцарем [ROOT.GetCharacter.GetHerHis] самостоятельно."
+ trait_squire_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] служит слугой рыцаря в надежде однажды [Select_CString( ROOT.GetCharacter.IsFemale, 'самой', 'самому' )] стать рыцарем."
  trait_squire_no_knight_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] это рыцарь на тренировке; однако, его рыцарь #N умер, оставив его прогресс#!."
  trait_prefers_being_a_squire_desc:0 "Вместо того, чтобы стремиться к рыцарскому званию, [ROOT.GetCharacter.GetFirstNameNoTooltip] заявил, что будет служить оруженосцем неопределенный срок"
  trait_squire_unique_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] является рыцарем на тренировке; однако, его рыцарь #N умер, оставив его прогресс#!."
@@ -131,7 +131,7 @@
 
  trait_honorable:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Благородная', 'Благородный' )]"
  trait_honorable_desc:0 "Высоко ценя свою мораль, этот человек старается поступать правильно, невзирая на последствия."
- trait_honorable_character_desc:0 "Высоко [ROOT.GetCharacter.GetHerHis] ценит мораль, [ROOT.GetCharacter.GetFirstNameNoTooltip] старается поступать правильно, невзирая на последствия."
+ trait_honorable_character_desc:0 "Высоко ценя мораль, [ROOT.GetCharacter.GetFirstNameNoTooltip] старается поступать правильно, невзирая на последствия."
 
  trait_ruthless:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Беспощадная', 'Беспощадный' )]"
  trait_ruthless_desc:0 "Независимо от того, хорош он или плох, этот персонаж будет использовать любые средства, необходимые для достижения своих целей."
@@ -143,11 +143,11 @@
 
  trait_rude:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Грубая', 'Грубый' )]"
  trait_rude_desc:0 "Этот персонаж прямолинеен в своих словах, пренебрегая чувствами других в пользу того, чтобы говорить то, что ему заблагорассудится."
- trait_rude_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] прямолинеен [ROOT.GetCharacter.GetHerHis] в выражениях, пренебрегает чувствами других в пользу того, чтобы говорить то, [ROOT.GetCharacter.GetSheHe] что нравится."
+ trait_rude_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'прямолинейна', 'прямолинеен' )] в своих выражениях и пренебрегает чувствами других в пользу того, чтобы говорить то, что нравится."
 
  trait_selfish:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Эгоистичная', 'Эгоистичный' )]"
  trait_selfish_desc:0 "Этот персонаж мало заботится о нуждах других, во всем ставя во главе угла себя."
- trait_selfish_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] мало заботится о нуждах других, расставляя приоритеты [ROOT.GetCharacter.GetHerselfHimself] во всём."
+ trait_selfish_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] мало заботится о нуждах других, возводя в приоритет в первую очередь свои желания."
 
  trait_fire_obsessed:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Одержимая огнём', 'Одержимый огнём' )]"
  trait_fire_obsessed_desc:0 "Сила огня привела в восторг этого персонажа, привлекая его к нему то ли по духовным причинам, то ли для менее благородных целей..."
@@ -155,11 +155,11 @@
 
  trait_fashionable:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Элегантная', 'Модный' )]"
  trait_fashionable_desc:0 "Хорошо сшитая одежда и элегантный фасон привлекают внимание этого персонажа - и его кошелька."
- trait_fashionable_character_desc:0 "Хорошо сшитая одежда и элегантный фасон привлекают  [ROOT.GetCharacter.GetFirstNameNoTooltip]'ваше внимание—и [ROOT.GetCharacter.GetHerHis] кошелек."
+ trait_fashionable_character_desc:0 "Хорошо сшитая одежда и элегантный фасон у [ROOT.GetCharacter.GetFirstNameNoTooltip] привлекают внимание и [ROOT.GetCharacter.GetHerHis] кошелёк."
 
  trait_uncouth:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Неотёсанная', 'Неотёсанный' )]"
  trait_uncouth_desc:0 "Этот персонаж совершенно не заботится о своей внешности, сильно не дотягивая до стандартов людей."
- trait_uncouth_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] совершенно не заботится о [ROOT.GetCharacter.GetHerHis] внешнем виде, сильно не дотягивая до стандартов людей."
+ trait_uncouth_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] совершенно не заботится о своём внешнем виде, сильно не дотягивая до стандартов людей."
 
  #Dragon #NT!
  trait_dragon:0 "Дракон"
@@ -266,7 +266,7 @@
 
  trait_greyscale_1:0 "Поседевшая кожа"
  trait_greyscale_1_desc:0 "Этот персонаж заметил на их теле пятна жесткой омертвевшей кожи, которые на ощупь напоминают камень..."
- trait_greyscale_1_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] заметил на [ROOT.GetCharacter.GetHerHis] теле пятна жесткой омертвевшей кожи, которые на ощупь напоминают камень..."
+ trait_greyscale_1_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'заметила', 'заметил' )] на своём теле пятна жесткой омертвевшей кожи, которые на ощупь напоминают камень..."
 
  trait_greyscale:0 "Серая хворь"
  trait_greyscale_desc:0 "Этот персонаж страдает от серой хвори. Потрескавшаяся, шелушащаяся и похожая на камень кожа покрывает большую часть их тела."
@@ -307,7 +307,7 @@
 
  trait_shivers:0 "Дрожь"
  trait_shivers_desc:0 "Это началось как озноб, но дрожь стала неконтролируемой. Стучащие зубы этого персонажа, дергающиеся в конвульсиях ноги и хлещущая кровь сопровождаются своеобразным синим оттенком его губ."
- trait_shivers_character_desc:0 "Это началось как озноб, но дрожь стала неконтролируемой. [ROOT.GetCharacter.GetFirstNameNoTooltip]'стучащие зубы, дергающиеся в конвульсиях ноги и приливающая кровь сопровождаются своеобразным синим. [ROOT.GetCharacter.GetHerHis] оттенком губ."
+ trait_shivers_character_desc:0 "Это началось как озноб, но дрожь стала неконтролируемой. Стучащие зубы у [ROOT.GetCharacter.GetFirstNameNoTooltip], дергающиеся в конвульсиях ноги и приливающая кровь сопровождаются своеобразным синим оттенком [ROOT.GetCharacter.GetHerHis] губ."
 
  trait_winter_fever:0 "Зимняя лихорадка"
  trait_winter_fever_desc:0 "Лицо этого персонажа покраснело от лихорадки, и он сильно дрожит. Их охватил бред и холодный пот, и неизвестно, выживут ли они."
@@ -354,40 +354,40 @@
 #Replaced Eyes #NT!
  trait_one_eyed_sapphire:0 "Сапфировый глаз"
  trait_one_eyed_sapphire_desc:0 "Этот персонаж заменил свой отсутствующий глаз куском сверкающего сапфира."
- trait_one_eyed_sapphire_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] заменил [ROOT.GetCharacter.GetHerHis] отсутствующий глаз сверкающим сапфиром."
+ trait_one_eyed_sapphire_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'заменила', 'заменил' )] свой отсутствующий глаз сверкающим сапфиром."
 
  trait_one_eyed_red:0 "Рубиновый глаз"
  trait_one_eyed_red_desc:0 "Этот персонаж заменил свой отсутствующий глаз горящим рубином."
- trait_one_eyed_red_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] заменил [ROOT.GetCharacter.GetHerHis] отсутствующий глаз огненным рубином."
+ trait_one_eyed_red_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'заменила', 'заменил' )] свой отсутствующий глаз огненным рубином."
 
  trait_one_eyed_white:0 "Белый глаз"
  trait_one_eyed_white_desc:0 "Этот персонаж заменил свой отсутствующий глаз сверкающим бриллиантом."
- trait_one_eyed_white_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] заменил [ROOT.GetCharacter.GetHerHis] отсутствующий глаз сверкающим бриллиантом."
+ trait_one_eyed_white_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'заменила', 'заменил' )] свой отсутствующий глаз сверкающим бриллиантом."
 
  trait_one_eyed_green:0 "Изумрудный глаз"
  trait_one_eyed_green_desc:0 "Этот персонаж заменил свой отсутствующий глаз на насыщенный изумруд."
- trait_one_eyed_green_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] заменил [ROOT.GetCharacter.GetHerHis] отсутствующий глаз насыщенным изумрудом."
+ trait_one_eyed_green_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'заменила', 'заменил' )] свой] отсутствующий глаз насыщенным изумрудом."
 
  trait_one_eyed_black:0 "Стеклянный глаз Дракона"
  trait_one_eyed_black_desc:0 "Кусок драконьего стекла находится на том месте, где раньше был глаз этого персонажа."
- trait_one_eyed_black_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] заменил [ROOT.GetCharacter.GetHerHis] отсутствующий глаз с осколком драконьего стекла."
+ trait_one_eyed_black_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'заменила', 'заменил' )] свой отсутствующий глаз с осколком драконьего стекла."
 
  trait_one_eyed_yellow:0 "Топазовый глаз"
  trait_one_eyed_yellow_desc:0 "Этот персонаж заменил свой отсутствующий глаз золотым топазом."
- trait_one_eyed_yellow_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] заменил [ROOT.GetCharacter.GetHerHis] отсутствующий глаз с золотым топазом."
+ trait_one_eyed_yellow_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'заменила', 'заменил' )] свой отсутствующий глаз с золотым топазом."
 
  trait_one_eyed_orange:0 "Янтарный глаз"
  trait_one_eyed_orange_desc:0 "Этот персонаж заменил свой отсутствующий глаз мерцающим янтарем."
- trait_one_eyed_orange_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] заменил [ROOT.GetCharacter.GetHerHis] отсутствующий глаз с медово-янтарным оттенком."
+ trait_one_eyed_orange_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'заменила', 'заменил' )] свой отсутствующий глаз с медово-янтарным оттенком."
 
  trait_one_eyed_blue:0 "Ляписовый глаз"
  trait_one_eyed_blue_desc:0 "Этот персонаж заменил свой отсутствующий глаз звездчатым ляписом."
- trait_one_eyed_blue_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] заменил [ROOT.GetCharacter.GetHerHis] отсутствующий глаз со звездчатым ляписом."
+ trait_one_eyed_blue_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'заменила', 'заменил' )] свой отсутствующий глаз со звездчатым ляписом."
 
  trait_one_eyed_purple:0 "Аметистовый глаз"
  trait_one_eyed_purple_desc:0 "Этот персонаж заменил свой отсутствующий глаз темным аметистом."
- trait_one_eyed_purple_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] заменил [ROOT.GetCharacter.GetHerHis] отсутствующий глаз с темным аметистом."
+ trait_one_eyed_purple_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'заменила', 'заменил' )] свой отсутствующий глаз с темным аметистом."
 
  trait_paramour:0 "Любовник"
  trait_paramour_desc:0 "Известно, что этот персонаж был любовником дорнийского дворянина."
- trait_paramour_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] известно, что она была любовницей дорнийского дворянина."
+ trait_paramour_character_desc:0 " О [ROOT.GetCharacter.GetFirstNameNoTooltip] известно, что она была любовницей дорнийского дворянина."
