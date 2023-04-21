@@ -12,7 +12,7 @@ window = {
 	size = { 650 100% }
 	using = Window_Size_Sidebar
 	using = Window_Background_Sidebar
-	window_ruins_confirm = {}
+	#window_ruins_confirm = {}
 
 	state = {
 		name = _show
@@ -3963,6 +3963,27 @@ window = {
 			}
 
 			vbox = {
+				name = "confirmation"
+				layoutpolicy_horizontal = expanding
+				visible = "[GetScriptedGui('can_reconstruct_ruin').IsValid(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('actor', GetPlayer.MakeScope).End)]"
+
+				## Name
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin = { 0 0 }
+					margin_top = 0
+
+					text_single = {
+						multiline = yes
+						max_width = 500
+						align = center
+						text = "[CharacterWindow.GetCharacter.Custom('RuinsReconstructDesc')]"
+					}
+				}
+			}
+
+
+			vbox = {
 				layoutpolicy_horizontal = expanding
 				margin = { 20 20 }
 				parentanchor = left|top
@@ -3971,11 +3992,11 @@ window = {
 					name = "construct_ruins_button"
 					text = "agot_ruin_begin_reconstruction"
 					enabled = "[GetScriptedGui('can_reconstruct_ruin').IsValid(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('actor', GetPlayer.MakeScope).End)]"
-					onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
+					onclick = "[CharacterWindow.Close]"
+					onclick = "[GetScriptedGui('reconstruct_ruin').Execute(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('actor', GetPlayer.MakeScope).End)]"
 					tooltip = "[CharacterWindow.GetCharacter.Custom('RuinsReconstructTooltip')]"
 				}
 			}
-
 
 			### DEBUG STUFF, please make sure those are visible and usable, especially the watch button, type "watch" into the console to show it
 			flowcontainer = {
@@ -4674,68 +4695,68 @@ window = {
 		}
 
 
-		type window_ruins_confirm = window {
-	        allow_outside = yes
-	        movable = no
-			parentanchor = center
-	        position = { 640 0 }
-	        visible = "[GetVariableSystem.Exists('window_ruins_confirm')]"
-	        alwaystransparent = no
-	        layoutpolicy_vertical = expanding
-	        layoutpolicy_horizontal = expanding
-	        using = DefaultTooltipBackground # Replace this with your preferred background template
+		# type window_ruins_confirm = window {
+	 #        allow_outside = yes
+	 #        movable = no
+		# 	parentanchor = center
+	 #        position = { 640 0 }
+	 #        visible = "[GetVariableSystem.Exists('window_ruins_confirm')]"
+	 #        alwaystransparent = no
+	 #        layoutpolicy_vertical = expanding
+	 #        layoutpolicy_horizontal = expanding
+	 #        using = DefaultTooltipBackground # Replace this with your preferred background template
 
-	        vbox = {
-				set_parent_size_to_minimum = yes
-				margin = { 20 20 }
+	 #        vbox = {
+		# 		set_parent_size_to_minimum = yes
+		# 		margin = { 20 20 }
 
-			    hbox = {
-					margin_bottom = -10
-					margin = { -20 -20 }
-					layoutpolicy_horizontal = expanding
-					parentanchor = top
+		# 	    hbox = {
+		# 			margin_bottom = -10
+		# 			margin = { -20 -20 }
+		# 			layoutpolicy_horizontal = expanding
+		# 			parentanchor = top
 
-					header_pattern_interaction = {
-						layoutpolicy_horizontal = expanding
-						minimumsize = { 100% 0 }
+		# 			header_pattern_interaction = {
+		# 				layoutpolicy_horizontal = expanding
+		# 				minimumsize = { 100% 0 }
 
-						blockoverride "header_text" {
-							text = "reconstruct_ruin_confirm_title"
-						}
+		# 				blockoverride "header_text" {
+		# 					text = "reconstruct_ruin_confirm_title"
+		# 				}
 
-						blockoverride "button_close" {
-							onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
-						}
-					}
-				}
+		# 				blockoverride "button_close" {
+		# 					onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
+		# 				}
+		# 			}
+		# 		}
 
-				hbox = {
-					margin = { 20 20 }
-					text_single = {
-						multiline = yes
-						max_width = 500
-						align = center
-						text = "[CharacterWindow.GetCharacter.Custom('RuinsReconstructDesc')]"
-					}
-				}
+		# 		hbox = {
+		# 			margin = { 20 20 }
+		# 			text_single = {
+		# 				multiline = yes
+		# 				max_width = 500
+		# 				align = center
+		# 				text = "[CharacterWindow.GetCharacter.Custom('RuinsReconstructDesc')]"
+		# 			}
+		# 		}
 
-				## Send Button
-				hbox = {
-					name = "confirm_button"
-					margin = { 20 10 }
-					margin_bottom = 15
-					spacing = 3
+		# 		## Send Button
+		# 		hbox = {
+		# 			name = "confirm_button"
+		# 			margin = { 20 10 }
+		# 			margin_bottom = 15
+		# 			spacing = 3
 
-					button_primary_big = {
-						text = "reconstruct_ruin_confirm_button"
+		# 			button_primary_big = {
+		# 				text = "reconstruct_ruin_confirm_button"
 
-						onclick = "[CharacterWindow.Close]"
-						onclick = "[GetScriptedGui('reconstruct_ruin').Execute(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('actor', GetPlayer.MakeScope).End)]"
-						onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
-					}
-				}
-			}
-        }
+		# 				onclick = "[CharacterWindow.Close]"
+		# 				onclick = "[GetScriptedGui('reconstruct_ruin').Execute(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('actor', GetPlayer.MakeScope).End)]"
+		# 				onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
+		# 			}
+		# 		}
+		# 	}
+  #       }
     }
 
 	template Animation_Character_Window_Refresh
