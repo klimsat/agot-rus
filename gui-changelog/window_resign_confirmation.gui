@@ -103,7 +103,7 @@ window = {
 				size = { 230 42 }
 				text = "RESIGN"
 				visible = "[Not(GetVariableSystem.Exists('AGOT_must_show_fake_button'))]"
-				onclick = "[GetScriptedGui('end_wildfire').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				onclick = "[GetScriptedGui('agot_end_wildfire').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				#onclick = "[ResignConfirmationWindow.OnMenu]"
 				clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_quit_game"
 				 # NOTE: Here, instead of attempting to call OpenTitleRenamePopup directly,
@@ -121,7 +121,7 @@ window = {
 					name = _show
 					duration = 0.1
 
-					
+
 					# NOTE: The actual call to OpenTitleRenamePopup happens here,
 					#       0.1 seconds after the real button was clicked
 					#       (and the fake one was shown).

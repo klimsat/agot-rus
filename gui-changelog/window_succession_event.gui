@@ -898,7 +898,7 @@ window = {
 					button_standard = {
 						name = "menu_button"
 						visible = "[And(Not(SuccessionEventWindow.GetPlayerHeir.IsValid), Not(GetVariableSystem.Exists('AGOT_must_show_fake_button'))]"
-						onclick = "[GetScriptedGui('end_wildfire').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						onclick = "[GetScriptedGui('agot_end_wildfire').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 						text = "[SuccessionEventWindow.GetExitName]"
 						tooltip = "[SuccessionEventWindow.GetExitTooltip]"
 						#onclick = "[SuccessionEventWindow.GoToMenu]"
@@ -914,7 +914,7 @@ window = {
 							name = _show
 							duration = 0.1
 
-							
+
 							# NOTE: The actual call to OpenTitleRenamePopup happens here,
 							#       0.1 seconds after the real button was clicked
 							#       (and the fake one was shown).
