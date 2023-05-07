@@ -329,7 +329,7 @@ types CouncilWindow
 		vbox = {
 			visible = "[CouncilTaskType.IsPercentageTask]"
 			layoutpolicy_horizontal = expanding
-			margin = { 5 3 }
+			margin = { 5 -5 }
 
 			text_single = {
 				name = "location"
@@ -366,7 +366,7 @@ types CouncilWindow
 		vbox = {
 			visible = "[And( CouncilTaskType.IsValueTask, Not( ActiveCouncilTask.IsFrozen ) )]"
 			layoutpolicy_horizontal = expanding
-			margin = { 5 3 }
+			margin = { 5 -5 }
 
 			text_single = {
 				name = "location"
@@ -1678,7 +1678,7 @@ types CouncilTaskTypes
 					datacontext = "[ActiveCouncilTask.GetCouncillor]"
 					name = "tutorial_court_chaplain"
 
-					datacontext = "[GetIllustration('agot_councilposition')]"
+					datacontext = "[GetIllustration('agot_chaplain')]"
 
 					background =  {
 						texture = "[Illustration.GetTexture( Character.Self )]"
