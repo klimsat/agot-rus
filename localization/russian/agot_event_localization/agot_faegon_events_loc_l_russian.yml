@@ -1,0 +1,61 @@
+﻿l_russian:
+ #Those clearly are placeholders for now, please send loc help - Typical
+
+ faegon_landing.0002.opening: "[faegon.Custom2('AppropriateGreeting', ROOT.Char)]"
+ faegon_landing.0002.d: "[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], мне известно, что вы - [Select_CString(ROOT.Char.IsFemale, 'мудрая и благородная', 'мудрый и благородный' )] [ROOT.Char.GetWomanMan]. Моё имя [faegon.GetTitledFirstName], я [faegon.Custom('GetDaughterSon')] [rogort.GetTitledFirstName]а и Железный Трон мой по праву. Созовёте ли вы знамёна за моё правое дело и поможете ли отвоевать трон у узурпаторов?"
+ faegon_landing.0002.opt.a: "Я буду служить вам верой и правдой. Да здравствует Дом Дракона!"
+ faegon_landing.0002.opt.b: "Единственный хороший дракон - мёртвый дракон. Проваливай, [faegon.GetTitleTierName]-попрошайка."
+
+ #This event states character thoughts about landing in westeros again, their hopes dreams and ambitions after taking the throne also it includes some short banter with Captain General of Golden Company (only if they dont land after losing throne to blackfyres) and Jon Con (Faegon and Jae only)
+ #saved scopes faegon_loc, faegon_story_loc (variable agot_faegon_landing_title stored on this story holds value of county in which Faegon landed), strickland and, jon_con
+ faegon_landing.0003.t: "Высадка Дракона"
+ faegon_landing.0003.d.faegon: "Я - [faegon_loc.GetTitledFirstNameNicknamed] из дома Таргариен, шестой сего имени, первородный сын [rogort.GetFirstName]а, принца Драконьего Камня. Я король андалов, ройнаров и Первых людей, Лорд Семи Королевств и Защитник державы. Я отомщу за гибель своего отца на Трезубце и верну себе Железный Трон во имя моего дома и ради всего королевства."
+ #Aegon "Young Griff" Targaryen
+ faegon_landing.0003.d.dany: "Я - [faegon_loc.GetTitledFirstNameNicknamed] из дома Таргариен, первая сего имени, дочь короля Эйриса II, королева андалов, ройнаров и Первых людей, Леди Семи Королевств и Защитница державы. Пламенем и кровью я верну Железный Трон." #Danearys Targaryen
+ faegon_landing.0003.d.viserys: "Я - [faegon_loc.GetTitledFirstName] из дома Таргариен, третий сего имени, последний выживший сын короля Эйриса Свергнутого! Я законный Лорд Семи Королевств, король андалов, ройнаров и Первых людей, Принц Драконьего Камня и Защитник державы. Я - дракон, и я верну себе мой Железный Трон!" #viserys targaryen
+ faegon_landing.0004.d.jae: "Я [faegon_loc.GetTitledFirstNameNicknamed], третий сего имени, сын принца Рейгара и Лианны Старк. Я законный король андалов, ройнаров и Первых людей. Я - Лорд Семи Королевств и клянусь защищать королевство о тех, кто жаждет причинить ему вред. Я займу Железный Трон." #jon snow
+ faegon_landing.0003.d.post_blackfyre_win: "Я - [faegon_loc.GetTitledFirstNameNicknamed] из дома [faegon_loc.GetHouse.GetName], [faegon_loc.Custom('GetDaughterSon')] [faegon_loc.GetFather.GetTitledFirstName]а. [faegon_loc.GetTitleTierName] андалов, ройнаров и Первых людей, [faegon_loc.GetLadyLord] Семи Королевств и Защитник державы. О отвоюю Железный Трон у лже-драконов и свершу правосудие над изменниками, которые отдали его им." 
+ faegon_landing.0003.opt: "Дракон высадился"
+
+ faegon_landing.0004.t: "Вторжение [faegon.GetFirstName]"
+ faegon_landing.0004.d.faegon: "[faegon_loc.GetTitledFirstName], претендент из рода Таргариен, [Select_CString(faegon_loc.IsFemale, 'высадилась', 'высадился' )] в [faegon_story_loc.MakeScope.Var('agot_faegon_landing_title').Title.GetName]. Его сопровождает лорд-изгнанник [jon_con.GetTitledFirstName] и десять тысяч наёмников из Золотых Мечей, которыми командует [strickland.GetTitledFirstName]. Пока всплывает память о свергнутой династии Эйгона Завоевателя, Вестерос вновь охвачен войной. Когда Неведомый вернётся в Семь Королевств, знамёна будут созваны, мечи сложены, а клятвы принесены."
+ faegon_landing.0004.d.dany: "[faegon_loc.GetTitledFirstName], претендент из рода Таргариен, [Select_CString(faegon_loc.IsFemale, 'высадилась', 'высадился' )] в [faegon_story_loc.MakeScope.Var('agot_faegon_landing_title').Title.GetName] вместе десятью тысячами наёмников из Золотых Мечей, которыми командует [strickland.GetTitledFirstName]. Пока всплывает память о свергнутой династии Эйгона Завоевателя, Вестерос вновь охвачен войной. Когда Неведомый вернётся в Семь Королевств, знамёна будут созваны, мечи сложены, а клятвы принесены."
+ faegon_landing.0004.d.viserys: "[faegon_loc.GetTitledFirstName], претендент из рода Таргариен, [Select_CString(faegon_loc.IsFemale, 'высадилась', 'высадился' )] в [faegon_story_loc.MakeScope.Var('agot_faegon_landing_title').Title.GetName] вместе десятью тысячами наёмников из Золотых Мечей, которыми командует [strickland.GetTitledFirstName]. Пока всплывает память о свергнутой династии Эйгона Завоевателя, Вестерос вновь охвачен войной. Когда Неведомый вернётся в Семь Королевств, знамёна будут созваны, мечи сложены, а клятвы принесены."
+ faegon_landing.0004.d.jae: "[faegon_loc.GetTitledFirstName], претендент из рода Таргариен, [Select_CString(faegon_loc.IsFemale, 'высадилась', 'высадился' )] в [faegon_story_loc.MakeScope.Var('agot_faegon_landing_title').Title.GetName] вместе десятью тысячами наёмников из Золотых Мечей, которыми командует [strickland.GetTitledFirstName]. Пока всплывает память о свергнутой династии Эйгона Завоевателя, Вестерос вновь охвачен войной. Когда Неведомый вернётся в Семь Королевств, знамёна будут созваны, мечи сложены, а клятвы принесены."
+ faegon_landing.0004.d.post_blackfyre_win: "[faegon_loc.GetTitledFirstName], претендент из рода Таргариен, [Select_CString(faegon_loc.IsFemale, 'высадилась', 'высадился' )] в [faegon_story_loc.MakeScope.Var('agot_faegon_landing_title').Title.GetName] вместе с десятью тысячами наёмников, которые поклялись свергнуть узурпаторов. Пока всплывает память о свергнутой династии Эйгона Завоевателя, Вестерос вновь охвачен войной. Когда Неведомый вернётся в Семь Королевств, знамёна будут созваны, мечи сложены, а клятвы принесены."
+ faegon_landing.0004.opt.a: "У дракона три головы? Давайте отрубим их!"
+ faegon_landing.0004.opt.b: "Возможно, это может оказаться выгодным"
+ faegon_landing.0004.opt.c: "Посмотрим, что они могут предложить."
+
+ faegon_landing.0006.t: "Шестое восстание Блэкфайра"
+ faegon_landing.0006.d: "Грозные вести для Вестерос.  [faegon_fyre_loc.GetTitledFirstName], забытый отпрыск вероломного дома Блэкфайров, [Select_CString(faegon_fyre_loc.IsFemale, 'высадилась', 'высадился' )] в [faegon_fyre_story_loc.MakeScope.Var('agot_faegon_landing_title').Title.GetName], а вместе с [faegon_fyre_loc.GetHerHim] десять тысяч наёмников, которыми командует [strickland.GetTitledFirstName]. В тот момент, когда раны королевства, казалось, почти зажили, Семь Королевств снова охватила война."
+
+ faegon_landing.0006.opt.a: "К оружию! Этот чёрный дракон должен быть уничтожен."
+ faegon_landing.0006.opt.b: "Возможно, это может оказаться выгодным"
+ faegon_landing.0006.opt.c: "Возможно, мне стоит присоединиться к этому чёрному дракону?"
+
+ faegon_landing.0007.t: "Триумф Чёрного Дракона"
+ faegon_landing.0007.d: "[faegon_fyre_loc.GetTitledFirstName] захватил Железный Трон. Красный Замок пал перед Блэкфайрами, а теперь чёрный дракон воссел на трон, залитый красной кровью изменников. Лже-[Select_CString(former_king.IsFemale, 'королева', 'король' )] [former_king.GetTitledFirstName] [Select_CString(former_king.IsFemale, 'заключена', 'заключён' )] в темницу, а [former_king.GetHerHis] семья рассеялась в изгнании по ту сторону Узкого моря. Да будет известно от Дорна до Стены, что Деймон Истиннорождённый отмщён!"
+ faegon_landing.0007.opt: "Да начнётся моё правление"
+ agot_6th_blackfyre_targs_flee: "Оставшиеся представители рода remaining members of [former_king.GetHouse.GetName] бегут в Эссос"
+
+ faegon_landing.0008.t: "Происхождение Дракона"
+ faegon_landing.0008.d: "Война окончена и я воссел на Железный Трон. Но меня днём и ночью преследует острый вопрос. Кто же я на самом деле? Потерянный сын Рейгара Таргариена? Или это лишь ложь, скрывающая более болезненную истину?"
+ faegon_landing.0008.opt.a: "[blackfyre_parent.GetFirstNameNicknamed] - [Select_CString(blackfyre_parent.IsFemale, 'моя мать', 'произвёл' )]мой отец"
+ faegon_landing.0008.opt.b: "Я действительно сын [rodgir_father.GetFirstNameNicknamed]а"
+ faegon_landing.0008.opt.c: "[brightonion_father.GetNickname] - мой предок"
+ faegon_landing.0008.opt.d: "Я всего лишь простолюдин"
+
+ faegon_landing.0009.t: "Триумф Красного Дракона"
+ faegon_landing.0009.d: "Победа! Лорды и воины возвращаются в свои дома, в надежде, что [faegon_loc.GetTitleTierName] будет править в мире и процветании, теперь, когда лже-[former_king.GetTitledFirstName] [Select_CString(former_king.IsFemale, 'свергнута', 'свергнут' )]. Законные правители Семи Королевств, потомки Эйгона Завоевателя, вернулись!"
+ faegon_landing.0009.opt: "Да начнётся моё правление"
+
+ faegon_landing.0010.opening: "[sender.Custom2('AppropriateGreeting', ROOT.Char)]"
+ faegon_landing.0010.d: "Ваша Светлость, мой дом и знамёна - ваши"
+ faegon_landing.0010.opt: "Отлично"
+ faegon_landing.0011.opening: "[sender.Custom2('AppropriateGreeting', ROOT.Char)]"
+ faegon_landing.0011.d: "Мы давно изгнали Таргариенов. Пусть [ROOT.Char.GetFaith.DevilName] заберёт тебя!"
+ faegon_landing.0011.opt: "Я желаю вам удачи в грядущих войнах, чтобы вы смогли прожить достаточно долго, чтобы склониться перед нами."
+
+ the_golden_company_name: "Золотые Мечи"
+ targaryen_host: "Воинство Таргариенов"
