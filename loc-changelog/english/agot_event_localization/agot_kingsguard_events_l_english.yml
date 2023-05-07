@@ -67,7 +67,7 @@
  agot_kingsguard.1007.hate:0 "I would rather kiss a dead pig's bloated anus than serve as your sworn shield."
  agot_kingsguard.1007.a:0 "This time bring me someone who will serve the realm!"
  agot_kingsguard.1007.a.tt:0 "You will send for more knights."
- agot_kingsguard.1007.b:0 "They deny their king?!"
+ agot_kingsguard.1007.b:0 "They deny their [ROOT.Char.GetTitleTierName]?!"
 
  agot_kingsguard.1008.t:0 "Vows Bestowed"
  agot_kingsguard.1008.desc:0 "[kingsguard_candidate.Custom2('MyCharacterIntroduction',ROOT.Char)|U] kneels before me, swearing to exchange [kingsguard_candidate.GetHerHis] life for mine, to obey your word and keep your confidence, to speak their mind or hold their tongue at your beck, and to defend the honor of your name, your dynasty, and your throne. [kingsguard_candidate.GetSheHe|U] rises, now pledged to ward you with all [kingsguard_candidate.GetHerHis] strength and to give [kingsguard_candidate.GetHerHis] blood for yours."
@@ -98,7 +98,7 @@
  agot_kingsguard.1011.b:0 "[kingsguard_5.GetName] shall lead the [ROOT.Char.Custom('KingsguardName')]"
  agot_kingsguard.1011.c:0 "[kingsguard_6.GetName] shall lead the [ROOT.Char.Custom('KingsguardName')]"
 
- kingsguard_other_selections_available_tt:0 "I shall consider other [ROOT.Char.Custom('KingsguardName')]"
+ kingsguard_other_selections_available_tt:0 "I shall consider my other guards"
 
 
 ################################
@@ -114,6 +114,20 @@
  agot_kingsguard.2001.c: "Actually, nevermind."
  indicate_bodyguard_target: "[councillor.GetTitledFirstName] starts protecting [si_target.GetShortUIName]."
  set_relation_bodyguard_first: "[TARGET_CHARACTER.GetUIName] starts protecting [CHARACTER.GetUIName]."
+
+ agot_kingsguard.2002.title:0 "Renegade [ROOT.Char.Custom('KingsguardName')]!"
+ agot_kingsguard.2002.desc:0 "[recipient.GetTitledFirstName] has managed to avoid capture and has fled into the city! Perhaps there is still time to circumvent [kingsguard.GetHerHis] flight.\n\n[kingsguard.GetName] is on watch and may be able to intercept [recipient.GetName], or I could send word to [goldcloaks.GetName] and rouse the full force of the city watch."
+ agot_kingsguard.2002.a:0 "[kingsguard.GetName], return your sworn brother to me!"
+ agot_kingsguard.2002.a.failure:0 "[recipient.GetName] will escape"
+ agot_kingsguard.2002.b:0 "[goldcloaks.GetTitledFirstName], sieze him!"
+ agot_kingsguard.2002.c:0 "Let them go, they are of no threat to me."
+
+ agot_kingsguard.2003.title:0 "Renegade [ROOT.Char.Custom('KingsguardName')]!"
+ agot_kingsguard.2003.desc:0 "My [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('fleeing_kingsguard'))] has come to my court seeking asylum. [crown.GetTitledFirstNamePossessive] attempted to have [fleeing_kingsguard.GetFirstName] arrested on some trumped up charge and now [fleeing_kingsguard.GetSheHe] finds [fleeing_kingsguard.GetHerselfHimself] a fugitive of the realm. I must now make the difficult decision between my duty and my family in deciding what to do next."
+ agot_kingsguard.2003.a:0 "You are my [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('fleeing_kingsguard'))], and you belong here." 
+ agot_kingsguard.2003.b:0 "If you make for the wall then you will be beyond [crown.GetTitledFirstNamePossessive] reach!"
+ agot_kingsguard.2003.c:0 "You must flee across the narrow sea!"
+ agot_kingsguard.2003.d:0 "I'm sorry [fleeing_kingsguard.GetFirstName], but I can't harbor a fugitive."
 
 ################################
 # Kingsguard Flavour Events
@@ -187,3 +201,17 @@
  agot_kingsguard.3011.a.unworthy_kingsguard.toast:0 "[unworthy_kingsguard.GetTitledFirstName] slew [challenger.GetTitledFirstName] "
  agot_kingsguard.3011.b:0 "Be gone home, [challenger.GetTitledFirstNameNoTooltip]. [unworthy_kingsguard.GetTitledFirstNameNoTooltip] has more than earned [unworthy_kingsguard.GetHerHis] keep."
  agot_kingsguard.3011.c:0 "Nobody questions my appointments. Guards!"
+
+
+ agot_kingsguard.3012.t:0 "A Broken Dream"
+ agot_kingsguard.3012.desc:0 "I am looking down from the gallery at my fumbling [failed_kingsguard.Custom('GetDaughterSon')] in the courtyard. They bumble about the yard, showing almost no improvement from when they began their quest to join the prestigious guard of our liege. Perhaps I ought to intervene. After all, is it not crueler to let them continue with false hope than to quash this foolishness here and now?"
+ agot_kingsguard.3012.a:0 "It is time to move on from this."
+ agot_kingsguard.3012.b:0 "The Night's Watch is always in need of good men!"
+ agot_kingsguard.3012.c:0 "You'll get better!"
+
+
+ agot_kingsguard.3013.t:0 "Some Drink to Remember"
+ agot_kingsguard.3013.desc:0 "[drunken_kingsguard.GetFullName] is known to spend all their time off duty drinking and carousing in local taverns and pot shops. [drunken_kingsguard.GetSheHe|U]'s began to garner a reputation amongst the city and in the court, ranging from being able to drink anyone under a table, to being able to down an entire keg of arbor gold while standing on [drunken_kingsguard.GetHerHis].\n\Now a particularly worrying tale has reached me involving [drunken_kingsguard.GetFirstName] bring a jackass and a honeycomb into a brothel. This behaviour would seem unworthy of a member of the [ROOT.Char.Custom('KingsguardName')], but it has led to some interesting anecdotes to say the least."
+ agot_kingsguard.3013.a:0 "A night in the cells will sober [drunken_kingsguard.GetHerHim] up."
+ agot_kingsguard.3013.b:0 "Being a [ROOT.Char.Custom('KingsguardName')] is stressful, leave [drunken_kingsguard.GetHerHim] be."
+ agot_kingsguard.3013.c:0 "[drunken_kingsguard.GetFullName] is a [drunken_kingsguard.GetWomanMan] after my own heart!"
