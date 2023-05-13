@@ -32,4 +32,4 @@ Steam - https://steamcommunity.com/workshop/filedetails/?id=2962333032
 ## Контакты
 Любые вопросы вы можете задать на нашем Discord сервере:
 
-![Discord](https://img.shields.io/discord/1037643873310228521?label=CK3%20-%20RU%20Community&style=for-the-badge&logo=appveyor)
+<a href="https://discord.gg/56P53b9zrD"><img src="https://img.shields.io/discord/1037643873310228521?label=CK3%20-%20RU%20Community&color=5865F2&style=for-the-badge&logo=discord&logoColor=white" alt="Discord сервер" /></a>
