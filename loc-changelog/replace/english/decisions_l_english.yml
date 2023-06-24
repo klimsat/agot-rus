@@ -1,8 +1,17 @@
 ﻿l_english:
  DECISION_ON_COOLDOWN:0 "@warning_icon!#X $DECISION_NAME$ unavailable until [DATE.GetStringLong]#!"
  ALREADY_PLANNING_ACTIVITY:0 "You are already planning another [activity|E]"
+ ALREADY_IN_ACTIVITY_FIRST_NOT:0 "You are currently busy [CHARACTER.Custom('GetActivityName')]"
+ ALREADY_IN_ACTIVITY_THIRD_NOT:0 "[CHARACTER.GetSheHe|U] is currently busy [CHARACTER.Custom('GetActivityName')]"
+ unavailable_activity:0 "participating in [ROOT.Char.GetInvolvedActivity.GetName]"
+ unavailable_pay_homage:0 "paying homage to your liege"
+ unavailable_meditation:0 "meditating"
+ unavailable_petition_liege:0 "petitioning your liege"
+ unavailable_hold_court:0 "holding court"
+ unavailable_tour_stop:0 "preparing for your liege's [tour|E]"
+
  start_hunt_decision:0 "Call Hunt"
- start_hunt_decision_tooltip:1 "A [hunt|E] will be held"
+ start_hunt_decision_tooltip:2 "A [GetActivityType('activity_hunt').GetName] will be held"
  start_hunt_decision_desc:0 "#F The untamed wilds are calling, and all manner of beasts are awaiting my spear and arrow!#!"
  start_hunt_decision_go_on_hunt:1 "You go on a #V Hunt#! in one of the baronies of your realm"
  start_hunt_decision_prestige:1 "You may get opportunities to increase your [prestige|E]"
@@ -17,7 +26,7 @@
  host_lavish_feast_decision:0 "Host a Lavish Feast"
  host_grand_feast_decision:0 "Host a Grand Feast"
  host_modest_feast_decision:0 "Host a Modest Feast"
- host_feast_decision_tooltip:0 "A [feast|E] will be held"
+ host_feast_decision_tooltip:0 "A [GetActivityType('activity_feast').GetName] will be held"
  host_feast_decision_opening_desc:0 "#F Cracking open the casks and inviting guests of honor is not only a duty, but an opportunity to reaffirm bonds of loyalty, and often a great pleasure!#!"
  host_feast_decision_desc_vassals:1 "May increase your vassals' [opinion|E] of you"
  host_feast_decision_desc_court_musician_opinion:1 "#P Since you employ a $court_musician_court_position$ the opinion gain will be more significant#!"
@@ -42,7 +51,7 @@
  escape_from_prison_decision_failure.tt:0 "Your escape attempt fails"
  escape_from_prison_decision_failure_outcome.tt:0 "[imprisoner.GetTitledFirstName] might be... displeased"
  escape_from_prison_decision_confirm:0 "No bars will hold me!"
- escape_from_prison_decision_effect_tooltip:0 "@warning_icon! The success of you attempt depends on your [prowess|E] and your [traits|E]"
+ escape_from_prison_decision_effect_tooltip:1 "@warning_icon! The chance of success depends on your [prowess|E], [traits|E], and whether you are in the [dungeon|E]"
 
  tribal_challenge_ruler_decision:0 "Challenge the [ROOT.Char.GetLiege.GetTitleAsNameNoTooltip|U]"
  tribal_challenge_ruler_decision_desc:0 "[ROOT.Char.GetLiege.GetFirstName] carries the title of [ROOT.Char.GetLiege.GetTitleAsNameNoTooltip] as if it is unquestionably [ROOT.Char.GetLiege.GetHersHis]; as if it is not skill and strength alone that should decide our leader.\n\nI, [ROOT.Char.GetFullNameNoTooltip], question [ROOT.Char.GetLiege.GetHerHis] right to the title, to all of [ROOT.Char.GetLiege.GetPrimaryTitle.GetNameNoTier], and I will be silent no longer!"
@@ -111,7 +120,7 @@
  playdate_decision_desc:0 "#F Inviting every small lord and lady in the realm to enjoy themselves in the company of other children is a liberating and fun experience!#!"
  host_playdate_decision_desc_vassal_and_courtiers:0 "May increase your vassals and courtiers' [opinion|E] of you"
  start_playdate_decision:0 "You meet your peers in [capital_province.GetName]"
- playdate_decision_tooltip:0 "You will invite children to [playdate|E]"
+ playdate_decision_tooltip:0 "You will invite children to [GetActivityType('activity_playdate').GetName]"
  playdate_decision_confirm:0 "Send out invitations!"
 
  repay_loan_decision:0 "Repay Loan"
@@ -127,8 +136,6 @@
  I_NOT_CREATE_CADET_BRANCH_DECISION_SUCCESSION_LINE:1 "You are #bold not#! third or closer in the line of succession for one of your [house_head|E]'s [titles|E]"
  I_CREATE_CADET_BRANCH_DECISION_ANCESTOR_IN_HOUSE:1 "One of your ancestors belong to your current [house|E]"
  I_NOT_CREATE_CADET_BRANCH_DECISION_ANCESTOR_IN_HOUSE:2 "None of your living ancestors belong to your current [house|E]"
- I_DYNASTIC_ANCESTORS_RULED_THIS_TITLE:1 "At least three of your ancestors belong to your current [house|E] and have ruled your [primary_title|E] for at least ten years." # AGOT ADDED
- I_NOT_DYNASTIC_ANCESTORS_RULED_THIS_TITLE:2 "Less than three of your ancestors belong to your current [house|E] and have ruled your [primary_title|E], for at least ten years." # AGOT ADDED 
  created_cadet_branch_toast_new_house_desc:2 "A New House"
  created_cadet_branch_toast_new_house_other_tt:2 "You are now a member of House [new_house.GetName]"
 
@@ -413,6 +420,8 @@
  convert_whole_realm_to_feudalism_decision_confirm:0 "Adopt [ROOT.Char.Custom('GetTribalReformGovernment')|U] Ways"
  convert_whole_realm_to_feudalism_decision_tooltip:0 "Change [government|E] type by adopting [feudalism|E]"
 
+ #AGOT Modified
+ # islamic_vassals_will_convert:1 "As I am Islamic, my [tribal|E] vassals will change to [clan|E] government"
  islamic_vassals_will_convert:1 "My [tribal|E] vassals will change to [clan|E] government"
  other_vassals_will_convert:1 "My [tribal|E] vassals will change to [feudalism|E]"
  clan_liege_vassals_will_convert:0 "As my [liege|E] has a [clan_government|E], my [tribal|E] vassals will change to $game_concept_clan$"
@@ -575,8 +584,8 @@
  found_university_decision_tooltip:1 "[special_building|E] Slot: [GetBuilding('generic_university').GetName] will be made available"
  found_university_decision_confirm:1 "Lay the foundation!"
  found_university_decision_custom:0 "In a fitting Barony"
- no_built_university:0 "The province does not have a [special_building|E]"
- no_special_building_slot:0 "The province does not already have a [special_building|E] Slot"
+ no_built_university:1 "The [holding|E] does not have a [special_building|E]"
+ no_special_building_slot:1 "The [holding|E] does not already have a [special_building|E] Slot"
  decision_found_university_custom:0 "All County Capitals without a [GetBuilding('generic_university').GetName]"
  
  empower_sicilian_parliament_decision:0 "Empower Sicilian Parliament"
@@ -633,7 +642,7 @@
  found_witch_coven_decision_tooltip:0 "Start a new family tradition"
  found_witch_coven_decision_effects.children.tt:0 "All children of the [founder.GetHouse.GetBaseName] coven who are educated by a [GetTrait('witch').GetName( GetPlayer )] becomes a Witch"
  found_witch_coven_decision_effects.convert.tt:0 "All Witches of the [founder.GetHouse.GetBaseName] coven are more successful when converting others to witchcraft"
- found_witch_coven_decision_effects.grand_rite.tt:0 "The [house_head|E] of the [founder.GetHouse.GetBaseName] coven can host a Grand Rite [activity|E]"
+ found_witch_coven_decision_effects.grand_rite.tt:1 "The [house_head|E] of the [founder.GetHouse.GetBaseName] coven can host a [GetActivityType('activity_witch_ritual').GetName] [activity|E]"
 
  strengthen_bloodline_decision:0 "Strengthen Bloodline"
  strengthen_bloodline_decision_desc:0 "Vigor, beauty and intellect are all proof of a bloodline's strength. A dynasty thus blessed will pass these gifts on from generation to generation."
@@ -743,9 +752,9 @@
  #Guest decisions
  invite_knights_decision:1 "Invite $knight_culture_player_plural_no_tooltip$"
  invite_knights_decision_desc:1 "As the [ROOT.Char.GetTitleAsNameNoTooltip] of [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip], I need brave $knight_culture_player_plural_no_tooltip_lowercase$ to defend the realm and conquer new lands. I will send out a herald to let my subjects know I am in search of skilled warriors."
- invite_knights_decision.men.tt:0 "At least #P 3#! able-bodied men with #V 12#! or more [prowess|E] will arrive as [guests|E] at Court within the coming months"
- invite_knights_decision.women.tt:0 "At least #P 3#! able-bodied women with #V 12#! or more [prowess|E] will arrive as [guests|E] at Court within the coming months"
- invite_knights_decision.warriors.tt:1 "At least #P 3#! warriors with #V 12#! or more [prowess|E] will arrive as [guests|E] at Court within the coming months"
+ invite_knights_decision.men.tt:1 "At least #P 3#! able-bodied men with #V [EmptyScope.ScriptValue('invite_knights_decision_standard_value')|0]#! or more [prowess|E] will arrive as [guests|E] at Court within the coming months"
+ invite_knights_decision.women.tt:2 "At least #P 3#! able-bodied women with #V [EmptyScope.ScriptValue('invite_knights_decision_standard_value')|0]#! or more [prowess|E] will arrive as [guests|E] at Court within the coming months"
+ invite_knights_decision.warriors.tt:2 "At least #P 3#! warriors with #V [EmptyScope.ScriptValue('invite_knights_decision_standard_value')|0]#! or more [prowess|E] will arrive as [guests|E] at Court within the coming months"
  invite_knights_decision_confirm:0 "Send the herald"
  minor_decisions.0001.t:1 "$knight_culture_player_no_tooltip$ Has Arrived"
  minor_decisions.0001.desc:1 "[knight.GetTitledFirstName] heeded my summons and has arrived at court as my guest"
@@ -879,10 +888,16 @@
  stress_loss_drunkard_decision_effect_tooltip:1 "You will lose some [stress|E]"
  stress_loss_drunkard_decision_confirm:0 "Cheers!"
 
- stress_loss_hashishiyah_decision:1 "Consume Milk of the Poppy" #AGOT Overwrite - Zombie
+ #AGOT Modified
+ # stress_loss_hashishiyah_decision:1 "Consume Hashish Cakes"
+ stress_loss_hashishiyah_decision:1 "Drink Milk of the Poppy"
+ #AGOT Modified
+ # stress_loss_hashishiyah_decision_desc:1 "Just a few bites, and the stress seems to flow from my body. My mind begins to fog, and a sense of peace and restfulness overcomes me. There is nothing that is quite as relaxing as good hashish!"
  stress_loss_hashishiyah_decision_desc:1 "Just a few sips, and the stress seems to flow from my body. My mind begins to fog, and a sense of peace and restfulness overcomes me. There is nothing that is quite as relaxing..."
  stress_loss_hashishiyah_decision_tooltip:1 "Let your stress melt into a drug-induced haze"
- stress_loss_hashishiyah_decision_confirm:1 "Bring me a Drink!"
+ #AGOT Modified
+ # stress_loss_hashishiyah_decision_confirm:1 "Bring me a platter!"
+ stress_loss_hashishiyah_decision_confirm:1 "Bring me a cup!"
 
  stress_loss_rakish_decision:0 "Visit a Brothel"
  stress_loss_rakish_decision_desc:0 "[ROOT.Char.Custom('AttractionWomanManIndef')|U] on my lap, and everything – and everyone – the brothel has to offer at my beck and call..."
@@ -949,9 +964,9 @@
  stress_loss_athletic_decision_tooltip:0 "A healthy body begets a healthy mind"
  stress_loss_athletic_decision_confirm:0 "Let's go!"
 
- DECISION_COOLDOWN_WARNING:0 "@warning_icon!#X $DECISION_NAME$ will be unavailable for $COOLDOWN$#!"
+ DECISION_COOLDOWN_WARNING:1 "@alert_icon! #alert_trial $DECISION_NAME$ will be unavailable for $COOLDOWN$#!"
  
- SHOW_DECISION_TOOLTIP:1 "#T [Decision.GetTitleForPlayer]#!\n[Decision.GetCommandDescForPlayer][Select_CString(StringIsEmpty(Decision.GetCommandDescForPlayer),'','\n')][Decision.GetShortDescForPlayer]"
+ SHOW_DECISION_TOOLTIP:3 "#T [Decision.GetTitleForPlayer]#!\n[Decision.GetCommandDescForPlayer][Select_CString(StringIsEmpty(Decision.GetCommandDescForPlayer),'','\n')][Decision.GetShortDescForPlayer]\n\n#I Click to select#!"
 
  all_courtiers_except_confidant:0 "All [courtiers|E] except confidant"
 
@@ -1039,7 +1054,6 @@
  introduce_a_new_fashion_at_court_decision_confirm:0 "For a new style and class!"
  court_already_has_a_fashion_tend_tt:0 "The court already has an ongoing fashion trend."
 
- #TODO_CD_JB, move over to a separate event file
  court_amenities_interactions.0010.b_turned_down:0 "Everyone loves the new style!"
  court_amenities_interactions.0010.t:0 "A New Fashion at Court"
  court_amenities_interactions.0010.desc_intro:0 "[actor.GetNameNoTooltip|U] has burst into court, catching the eye of all the lords and ladies of the realm with [actor.GetHerHis] most peculiar garments."
@@ -1170,9 +1184,36 @@
  build_holy_pilgrim_roads_decision_confirm:0 "Fund Construction"
  build_holy_pilgrim_roads_decision_hardcoded_trigger_text.a:0 "There is a [holy_site|E] in your [realm|E] without a pilgrim roads [modifier|E]"
  build_holy_pilgrim_roads_decision_construction_notif.t:0 "Pilgrim Roads Constructed in [chosen_location_for_pilgrim_roads.GetNameNoTierNoTooltip]"
- build_holy_pilgrim_roads_decision_construction_notif.desc:1 "Roads have been built all over the [chosen_location_for_pilgrim_roads.GetName] leading to the province of [chosen_holy_site_for_pilgrim_roads.GetNameNoTier], where a [ROOT.Char.GetFaith.GetAdjective] [holy_site|E] awaits future pilgrims."
+ build_holy_pilgrim_roads_decision_construction_notif.desc:2 "Roads have been built all over the [chosen_location_for_pilgrim_roads.GetName] leading to [chosen_holy_site_for_pilgrim_roads.GetNameNoTier], where a [ROOT.Char.GetFaith.GetAdjective] [holy_site|E] awaits future pilgrims."
 
  not_can_execute_decision:0 "You cannot take this [decision|E] at the moment"
  can_execute_decision:0 "You can take this [decision|E] at the moment"
  NO_DECISION_OPTIONS_SELECTED:0 "@warning_icon! #X Select an option#!"
  revive_taltoism_decision_before_last_date:0 "The date is 1100.1.1 or earlier"
+
+ call_for_acclaimed_knight_candidates_decision:0 "Restore Accolades"
+ call_for_acclaimed_knight_candidates_decision_desc:0 "The martial dignities of my retinue lie dormant. Spread word to the $knight_culture_player_plural_no_tooltip_lowercase$ of the land: the [ROOT.Char.GetTitleAsNameNoTooltip] of [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip] calls!\n\nWorthy scions for my time-honored stations of honor shall find themselves warmly welcomed."
+ call_for_acclaimed_knight_candidates_decision_tooltip:0 "Potential [acclaimed_knights|e] appear for each [inactive_accolade|e]"
+ call_for_acclaimed_knight_candidates_decision_confirm:0 "Send the herald"
+ call_for_acclaimed_knight_candidates_decision.tt:0 "Eligible candidates for every [inactive_accolade|e] will appear within the next year and become [knights|e]"
+
+ accolade.0013.notification:1 "Acclaimed $knight_culture_player_no_tooltip$ Candidate Arrives"
+ accolade_call_acclaimed_knight_tooltip:0 "The worthy [chosen_knight.GetUIName] may be appointed as [accolade_in_need.GetName]"
+ accolade.0013.notification_fail:0 "No Worthy Candidates for Accolade"
+ accolade_call_acclaimed_knight_fail_notification_tooltip:0 "One of your Accolades will remain Inactive, as no worthy $knight_culture_player_no_tooltip_lowercase$ has come forward"
+ you_have_empty_accolades:0 "You have at least one [inactive_accolade|e] and no [knights|e] who can be Appointed to it"
+ break_with_the_old_ways_decision:0 "Break With the Old Ways"
+ break_with_the_old_ways_decision_desc:0 "The $kabarism_adj$ faith has long been practiced alongside local traditions, but no more. We must reject the old ways and embrace Judaism to the fullest extent."
+ break_with_the_old_ways_decision_tooltip:0 "A folk religion no more!"
+ break_with_the_old_ways_decision_confirm:0 "We commit to Judaism!"
+ break_with_the_old_ways_decision.path_fundamentalist:0 "$mozarabic_bind_the_faith_to_rome_decision.path_fundamentalist$"
+ break_with_the_old_ways_decision.path_righteous:0 "$mozarabic_bind_the_faith_to_rome_decision.path_righteous$"
+
+ embrace_hebrew_language_decision:0 "Embrace the Hebrew Language"
+ embrace_hebrew_language_decision_desc:0 "Hebrew has been the liturgical language of the Jewish religion for millennia, but the diaspora has caused us to develop countless languages influenced by our neighbors. Now we have built enough of a community here that we may adopt Hebrew as the common language of our people."
+ embrace_hebrew_language_decision_tooltip:0 "We will adopt the Hebrew language."
+ embrace_hebrew_language_decision_confirm:0 "Diaspora no more!"
+ switch_to_israelite_language_tt:0 "[GetPlayer.GetCulture.GetName] will adopt the $language_israelite_name$ [language|E]"
+ switch_to_original_language_tt:0 "Your new culture will speak [target_other_culture.GetLanguage.GetNameNoTooltip]."
+ at_least_10_jewish_counties_tt:0 "You must hold at least 10 Jewish [counties|E] of your [culture|E]"
+ 

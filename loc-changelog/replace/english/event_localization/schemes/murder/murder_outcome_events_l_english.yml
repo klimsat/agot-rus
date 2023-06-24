@@ -3,6 +3,7 @@
  murder_child_really_tooltip:1 "Murdering a child. Are you certain about this?"
  murder_outcome_murdered_rival_tt:1 "For outliving your [rival|E]:"
  murder_unknown_murder_against_you_was_successful:0 "#X You were murdered by an unknown assailant!#!"
+ murder_unknown_murder_against_you_was_successful_other:0 "#X [THIS.Char.GetShortUIName] was murdered by an unknown assailant!#!"
 
  murder_outcome.1001.t:0 "Assassin!"
  murder_outcome.1001.d:0 "The time has come. My agents are in place. One of them will pay the assassin the very night the deed will happen. Another will ensure the wall is unguarded. A third will leave a subtle trail of candles to [target.GetTitledFirstNamePossessive] bedchamber.\n\nEverything is in place."
@@ -10,8 +11,10 @@
  murder_outcome.1001.b:0 "Wait, I am not ready."
 
  murder_outcome.1002.t:0 "Accosted"
- murder_outcome.1002.d:0 "My agents have scheduled a journey for [target.GetTitledFirstName] which will take them through dark woods. All that is missing is the band of thugs that will tragically slay them in a highway robbery gone wrong.\n\nI can already imagine blood seeping into the dark soil..."
- murder_outcome.1002.a:0 "Oh, the woods can be such a dangerous place."
+ murder_outcome.1002.opening:0 "My agents have scheduled a journey for [target.GetTitledFirstName] which will take them through dark woods. $murder_outcome.1002.d$"
+ murder_outcome.1002.opening_travel:0 "My agents have learned that [target.GetTitledFirstName] is currently undertaking a journey to [province.GetName] which will take [target.GetHerHim] through several patches of wilderness.\n\n$murder_outcome.1002.d$"
+ murder_outcome.1002.d:1 "All that is missing is the band of thugs that will tragically slay [target.GetHerHim] in a highway robbery gone wrong.\n\nI can already imagine [target.GetHerHis] blood seeping into the dark soil..."
+ murder_outcome.1002.a:1 "Oh, the wilderness can be such a dangerous place."
  murder_outcome.1002.b:0 "Wait, this is not the right moment."
 
  murder_outcome.1003.t:0 "A Meal to Die For"
@@ -34,9 +37,11 @@
  murder_outcome.1006.a:0 "This will be easy!"
 
  murder_outcome.1007.t:0 "In Choppy Waters"
+ murder_outcome.1007.travel:0 "[target.GetTitledFirstName] is currently aboard a ship somewhere in the [province.GetName]."
  murder_outcome.1007.desc_not_inspection:0 "[target.GetTitledFirstName] is visiting a ship anchored in one of the harbors of [province.GetNameNoTier] later this week."
  murder_outcome.1007.desc:0 "[target.GetTitledFirstName] is inspecting a ship anchored in one of the harbors of [province.GetNameNoTier] later this week."
  murder_outcome.1007.desc_ending:0 "\n\nIt would be easy to have my agents drench the rowboat meant to ferry [target.GetHerHim] out in flammable liquid, wait until it's out in the middle of the harbor, launch a flaming arrow, and then just... let the water claim [target.GetHerHim]."
+ murder_outcome.1007.desc_ending_travel:0 "\n\nIt would be a tragedy if my agents were to drench the timbers in flammable liquid, escape on the only rowboat, and set the ship alight as they make their safe escape... thus ensuring [target.GetFirstNamePossessiveNoTooltip] death along with [target.GetHerHis] entourage."
  murder_outcome.1007.a:0 "Set the plan in motion."
 
  murder_outcome.1008.t:0 "Drink Of Life"
@@ -163,6 +168,7 @@
  murder_outcome.2007.scheme_unknown:0 "\n\n#EMP Unfortunately#! the archer couldn't be found."
  murder_outcome.2007.a.discovered:0 "I... I thought [target.GetSheHe] could swim!"
  murder_outcome.2007.a:0 "Such a tragedy!"
+ every_entourage_member:0 "Every member of [target.GetTitledFirstNamePossessiveNoTooltip] entourage:"
 
  murder_outcome.2008.desc_drunkard:0 "[target.GetTitledFirstName] is dead, killed by the [target.Custom('RegionalAlcoholicDrink')] [target.GetSheHe] loved so much!"
  murder_outcome.2008.desc_not_drunkard:0 "[target.GetTitledFirstName] is dead, killed by a deep draught of [target.Custom('RegionalDrink')]!"
@@ -239,7 +245,7 @@
  murder_outcome.4001.a:0 "You will pay someday, [target.GetFirstNameNoTooltip]!"
  murder_outcome.4001.b:0 "If at first you don't succeed..."
 
- murder_outcome.4002.desc:0 "\n\nMy hired thugs failed to overpower [target.GetHerHis]'s retinue."
+ murder_outcome.4002.desc:1 "\n\nMy hired thugs failed to overpower [target.GetHerHis] retinue."
  murder_outcome.4002.exposed_scheme:0 "Worse still, a few of them were captured alive and revealed that they had been paid for the attack! It did not take long to trace the payment back to me."
  murder_outcome.4002.not_exposed_scheme:0 "At least they were slain to a man. With no one left to talk, they have been assumed to be nothing but common bandits."
  murder_outcome.4002.a:0 "You cannot trust commoners to do anything right..."
@@ -255,7 +261,7 @@
  murder_outcome.4004.failure_declaration_1:0 "[target.GetTitledFirstName] has survived the [SCOPE.Custom('VenomousCreature')]'s [SCOPE.Custom('VenomousCreatureAttack')]!"
  murder_outcome.4004.failed_attempt_1:0 "Although the [SCOPE.Custom('VenomousCreatureType')] attacked, a physician was quickly called and managed to stop the venom from spreading."
  murder_outcome.4004.scheme_owner_known:0 "\n\nDisastrously, the servant who planted the [SCOPE.Custom('VenomousCreatureType')] was found, and my involvement was revealed shortly after!"
- murder_outcome.4004.scheme_known:0 "\n\nThe placement of a [SCOPE.Custom('VenomousCreature')] in the [target.GetTitlePossessive] bed is hardly inconspicuous, but at least no one knows I was behind it."
+ murder_outcome.4004.scheme_known:1 "\n\nThe placement of a [SCOPE.Custom('VenomousCreature')] in the [target.GetTitleAsNamePossessiveNoTooltip] bed is hardly inconspicuous, but at least no one knows I was behind it."
  murder_outcome.4004.scheme_unknown:0 "\n\nAt least the [SCOPE.Custom('VenomousCreatureAttack')] has been blamed on the wanderings of [SCOPE.Custom('VenomousCreatureType')]s, rather than on me."
  murder_outcome.4004.a:0 "Your luck will only stretch so far, [target.GetFirstNameNoTooltip]!"
 
@@ -351,7 +357,12 @@
  murder_outcome.5001.creepy_crawly_end:0 "I can barely feel its [SCOPE.Custom('VenomousCreatureAttack')] at first, but soon a burning pain flows through my body. I call for help, but even with my best physicians by my side, the world slowly fades from me."
  murder_outcome.5001.riled_up_mob:0 "I am riding through the streets of [home_province.GetNameNoTier] when a mob of screaming and shouting peasants descends on my retinue. Before I realize what is happening, the commoners tear me from my horse and start beating me. I can hear my guards shouting, but long before they reach me the world is fading from my sight."
  murder_outcome.5001.bricked:0 "As I attend some local celebrations in the [home_province.GetName] I spend the evening drunk on merriment and wine.\n\nAs I wake in the morning it is to find myself in a damp cellar with a huge hangover and a newly built wall covering the exit! The days pass in a blur after that, and I soon find it impossible to stand, then to sit, then to #EMP think#!..."
- murder_outcome.5001.sunken_boat:0 "I'm out on a boat in a harbor in [province.GetNameNoTier] when suddenly a flaming arrow soars across the sky towards us!\n\nIt hits the boat with a heavy #EMP thunk#!, and it only takes a moment before the whole boat is doused in green flames. I throw myself in the cold ocean water. As my heavy clothes drags me below the surface I try to swim, I try to reach for something to hold on to, I try to #EMP breathe#!..."  #AGOT Changed
+ #AGOT Modified
+ #murder_outcome.5001.sunken_boat:0 "I'm out on a boat in a harbor in [province.GetNameNoTier] when suddenly a flaming arrow soars across the sky towards us!\n\nIt hits the boat with a heavy #EMP thunk#!, and it only takes a moment before the whole boat is aflame and I throw myself in the cold ocean water. As my heavy clothes drags me below the surface I try to swim, I try to reach for something to hold on to, I try to #EMP breathe#!..."
+ murder_outcome.5001.sunken_boat:0 "I'm out on a boat in a harbor in [province.GetNameNoTier] when suddenly a flaming arrow soars across the sky towards us!\n\nIt hits the boat with a heavy #EMP thunk#!, and it only takes a moment before the whole boat is doused in green flames. I throw myself in the cold ocean water. As my heavy clothes drags me below the surface I try to swim, I try to reach for something to hold on to, I try to #EMP breathe#!..."
+ #AGOT Modified
+ #murder_outcome.5001.sunken_boat_travel:0 "I'm aboard a ship in the [province.GetName], when suddenly a flaming arrow soars across the sky towards us!\n\nIt hits the boat with a heavy #EMP thunk#!, and it only takes a moment before the whole boat is aflame and I throw myself in the cold ocean water. As my heavy clothes drags me below the surface I try to swim, I try to reach for something to hold on to, I try to #EMP breathe#!..."
+ murder_outcome.5001.sunken_boat_travel:0 "I'm aboard a ship in the [province.GetName], when suddenly a flaming arrow soars across the sky towards us!\n\nIt hits the boat with a heavy #EMP thunk#!, and it only takes a moment before the whole boat is doused in green flames. I throw myself in the cold ocean water. As my heavy clothes drags me below the surface I try to swim, I try to reach for something to hold on to, I try to #EMP breathe#!..."
  murder_outcome.5001.poisoned_drink_alcohol:0 "As I am enjoying dinner and a full cup of [ROOT.Char.Custom('RegionalAlcoholicDrink')] I suddenly feel a curious sensation in my throat."
  murder_outcome.5001.poisoned_drink_no_alcohol:0 "As I am enjoying dinner and a full cup of [ROOT.Char.Custom('RegionalDrink')] I suddenly feel a curious sensation in my throat."
  murder_outcome.5001.poisoned_drink:0 "It doesn't take long before I am #EMP clawing#! at my neck trying to breath, to scream, to get any air at all past my swollen and bleeding throat. As my consciousness fades I see that there's blood and skin under my nails; I'm going to have to wash that off, how unseemly..."
@@ -383,7 +394,9 @@
  murder_outcome.5002.creepy_crawly_end:0 "The [SCOPE.Custom('VenomousCreatureType')]'s venom spread with a burning sensation through my body, but I called for my physician at once. It was a painful endeavor but as the sun rose, the pain of the poison was finally letting go."
  murder_outcome.5002.riled_up_mob:0 "I was riding through the streets of [home_province.GetNameNoTier] when a mob of screaming and shouting peasants descended on my retinue. Thankfully my guards did not hesitate to start cutting them down left and right, while I made my way back to the [ROOT.Char.Custom('ResidenceBuilding')]."
  murder_outcome.5002.bricked:0 "As I attend some local celebrations in the [home_province.GetName] I spend the evening drunk on merriment and wine.\n\nAs I wake in the morning it is to find myself in a damp cellar with a huge hangover and a newly built wall almost covering the exit... Someone meant to bury me here!"
- murder_outcome.5002.sunken_boat:0 "I'm out on a boat in a harbor in [province.GetNameNoTier] when suddenly a flaming arrow soars across the sky towards us!\n\nIt misses the boat by a hair's breadth, and as I lean down to see it fizzle out in the cold ocean water I catch a distinct smell coming from the wood of the boat: wildfire! This was an attempt on my life." #AGOT Changed
+ #AGOT Modified
+ #murder_outcome.5002.sunken_boat:0 "I'm out on a boat in a harbor in [province.GetNameNoTier] when suddenly a flaming arrow soars across the sky towards us!\n\nIt misses the boat by a hair's breadth, and as I lean down to see it fizzle out in the cold ocean water I catch a distinct smell coming from the wood of the boat: Greek fire! This was an attempt on my life."
+ murder_outcome.5002.sunken_boat:0 "I'm out on a boat in a harbor in [province.GetNameNoTier] when suddenly a flaming arrow soars across the sky towards us!\n\nIt misses the boat by a hair's breadth, and as I lean down to see it fizzle out in the cold ocean water I catch a distinct smell coming from the wood of the boat: wildfire! This was an attempt on my life."
  murder_outcome.5002.poisoned_drink:0 "While having dinner a servant bursts into the room and slaps the goblet from my hand #EMP just#! as I am about to take a sip!\n\n"My [ROOT.Char.GetLadyLord], it's poison! One of the scullery maids... Forgive her, she took a sip, and she– she's dead!""
  murder_outcome.5002.lured_into_forest:0 "I was tricked into coming with [acting_agent.GetFirstName] into the forest to play, but [acting_agent.GetTitledFirstName] hid and never emerged!\n\nI was crying, stumbling across branches, and shouting for help when a path of fey lights lit up before me. Following the whispers and giggles of the forest folk, I found my way out of the woods and home to safety."
  murder_outcome.5002.stab_infant:0 "Lights shifting. Familiar faces, unfamiliar faces. Sounds I know, and sounds I don't know. A sharp, cold sound makes my ears ache, and I start crying.\n\nThen I hear a woman sobbing, large and adult. The voice of my wet nurse. Then I am left alone."
