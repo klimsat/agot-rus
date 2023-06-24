@@ -3,14 +3,17 @@
 ######################################################
 
 window = {
-	allow_outside = yes # AGOT Added #This is needed for the Most Devout window to work, please leave it 
-	window_cardinals = {} # AGOT Added
+	#AGOT Added for the Most Devout window
+	allow_outside = yes
+	window_cardinals = {}
+
 	name = "faith_window"
 	datacontext = "[FaithWindow.GetFaith]"
 	datacontext = "[GetVariableSystem]"
 	movable = no
-	size = { 42% 100% } # AGOT Added
 	layer = windows_layer
+	#AGOT Added
+	size = { 42% 100% }
 
 	using = Window_Size_Sidebar
 	using = Window_Background_Sidebar
@@ -18,7 +21,8 @@ window = {
 	state = {
 		name = _show
 		position = { 0 0 }
-		#on_start = "[GetVariableSystem.Set( 'faith_view_tabs', 'beliefs' )]" # AGOT Disabled
+		#AGOT Disabled
+		#on_start = "[GetVariableSystem.Set( 'faith_view_tabs', 'beliefs' )]"
 		on_start = "[GetVariableSystem.Set( 'hide_bottom_left_HUD', 'true' )]"
 
 		using = Animation_FadeIn_Quick
@@ -69,7 +73,8 @@ window = {
 			blockoverride "button_close"
 			{
 				onclick = "[FaithWindow.Close]"
-				onclick = "[GetVariableSystem.Clear( 'faith_view_tabs' )]" # AGOT Added
+				#AGOT Added
+				onclick = "[GetVariableSystem.Clear( 'faith_view_tabs' )]"
 			}
 
 			blockoverride "button_back"
@@ -86,7 +91,7 @@ window = {
 
 			blockoverride "illustration_texture"
 			{
-				texture = "[Illustration.GetTextureForFaith( FaithWindow.GetFaith )]"
+				texture = "[Illustration.GetTexture( FaithWindow.GetFaith.MakeScope )]"
 				spriteType = stretched
 				fittype = centercrop
 				alpha = 0.35
@@ -229,7 +234,9 @@ window = {
 			button_tab = {
 				layoutpolicy_horizontal = expanding
 				onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'beliefs' )]"
-				down = "[Not(Or(GetVariableSystem.HasValue( 'faith_view_tabs', 'holy_sites' ), GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' )))]" # AGOT Changed
+				#AGOT Modified
+				#down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'beliefs' )]"
+				down = "[Not(Or(GetVariableSystem.HasValue( 'faith_view_tabs', 'holy_sites' ), GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' )))]"
 				text = "FAITH_BELIEFS"
 				default_format = "#low"
 
@@ -246,12 +253,15 @@ window = {
 				using = tooltip_below
 			}
 
-			agot_patron_tab_button = { } # Added by AGOT
+			#AGOT Added
+			agot_patron_tab_button = { }
 		}
 
 		vbox = {
 			name = "tab_beliefs"
-			visible = "[Or(Not(GetVariableSystem.Exists('faith_view_tabs')), GetVariableSystem.HasValue('faith_view_tabs', 'beliefs'))]" # Agot Changed
+			#AGOT Modified
+			#visible = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'beliefs' )]"
+			visible = "[Or(Not(GetVariableSystem.Exists('faith_view_tabs')), GetVariableSystem.HasValue('faith_view_tabs', 'beliefs'))]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 
@@ -280,7 +290,8 @@ window = {
 				hbox = {
 					name = "doctrines_grid_core_tenets"
 					datamodel = "[FaithWindow.GetGroupingHelper( 'core_tenets' ).GetGrouping]"
-					#spacing = 52 # AGOT Changed
+					#AGOT Disabled
+					#spacing = 52
 
 					state = {
 						name = "faith_view_refresh"
@@ -358,14 +369,18 @@ window = {
 								}
 
 								widget = {
-									size = { 350 40 } # AGOT Changed
+									#AGOT Modified
+									# size = { 250 40 }
+									size = { 350 40 }
 
 									vbox = {
 										dynamicgridbox = {
 											name = "virtues_grid"
 											datamodel = "[FaithWindow.GetSins]"
 											flipdirection = yes
-											datamodel_wrap = 8 # AGOT Changed
+											#AGOT Modified
+											# datamodel_wrap = 6
+											datamodel_wrap = 8
 
 											item = {
 												icon = {
@@ -417,13 +432,17 @@ window = {
 								}
 
 								widget = {
-									size = { 350 40 } # AGOT Changed
+									#AGOT Modified
+									# size = { 250 40 }
+									size = { 350 40 }
 									vbox = {
 										dynamicgridbox = {
 											name = "virtues_grid"
 											datamodel = "[FaithWindow.GetVirtues]"
 											flipdirection = yes
-											datamodel_wrap = 8 # AGOT Changed
+											#AGOT Modified
+											# datamodel_wrap = 6
+											datamodel_wrap = 8
 
 											item = {
 												icon = {
@@ -509,13 +528,14 @@ window = {
 								}
 							}
 
-							text_label_center = { # AGOT Added
+							#AGOT Added
+							text_label_center = {
 								layoutpolicy_horizontal = expanding
 								text = "FAITH_DOCTRINES_BELIEF"
 								default_format = "#low"
 							}
 							
-							fixedgridbox = { # AGOT Added
+							fixedgridbox = {
 								datamodel = "[FaithWindow.GetGroupingHelper( 'belief' ).GetGrouping]"
 								flipdirection = yes
 								addcolumn = 230
@@ -527,13 +547,13 @@ window = {
 								}
 							}
 							
-							text_label_center = { # AGOT Added
+							text_label_center = {
 								layoutpolicy_horizontal = expanding
 								text = "FAITH_DOCTRINES_PRACTICES"
 								default_format = "#low"
 							}
 							
-							fixedgridbox = { # AGOT Added
+							fixedgridbox = {
 								datamodel = "[FaithWindow.GetGroupingHelper( 'practices' ).GetGrouping]"
 								flipdirection = yes
 								addcolumn = 230
@@ -544,6 +564,13 @@ window = {
 									widget_doctrine_item = {}
 								}
 							}
+							#AGOT End
+						}
+
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							spacing = 12
+							margin_bottom = -10
 
 							text_label_center = {
 								layoutpolicy_horizontal = expanding
@@ -554,9 +581,9 @@ window = {
 							fixedgridbox = {
 								datamodel = "[FaithWindow.GetGroupingHelper( 'marriage' ).GetGrouping]"
 								flipdirection = yes
-								addcolumn = 230 # AGOT Changed
-								addrow = 65 # AGOT Changed
-								datamodel_wrap = 3 # AGOT Changed
+								addcolumn = 225
+								addrow = 67
+								datamodel_wrap = 2
 
 								item = {
 									widget_doctrine_item = {}
@@ -569,53 +596,63 @@ window = {
 							spacing = 12
 							margin_bottom = -10
 
-						text_label_center = {
-							layoutpolicy_horizontal = expanding
-							text = "FAITH_DOCTRINES_CRIMES"
-							default_format = "#low"
-						}
+							text_label_center = {
+								layoutpolicy_horizontal = expanding
+								text = "FAITH_DOCTRINES_CRIMES"
+								default_format = "#low"
+							}
 
-						fixedgridbox = {
-							datamodel = "[FaithWindow.GetGroupingHelper( 'crimes' ).GetGrouping]"
-							flipdirection = yes
-							addcolumn = 230 # AGOT Changed
-							addrow = 65 # AGOT Changed
-							datamodel_wrap = 3 # AGOT Changed
+							fixedgridbox = {
+								datamodel = "[FaithWindow.GetGroupingHelper( 'crimes' ).GetGrouping]"
+								flipdirection = yes
+								#AGOT Modified
+								# addcolumn = 225
+								# addrow = 67
+								# datamodel_wrap = 2
+								addcolumn = 230
+								addrow = 65
+								datamodel_wrap = 3
 
-							item = {
-								widget_doctrine_item = {}
+								item = {
+									widget_doctrine_item = {}
+								}
 							}
 						}
-					}
 
-					vbox = {
-						layoutpolicy_horizontal = expanding
-						spacing = 12
-						margin_bottom = -10
-
-						text_label_center = {
+						vbox = {
 							layoutpolicy_horizontal = expanding
-							text = "FAITH_DOCTRINES_CLERGY"
-							default_format = "#low"
-						}
+							spacing = 12
+							margin_bottom = -10
 
-						fixedgridbox = {
-							datamodel = "[FaithWindow.GetGroupingHelper( 'clergy' ).GetGrouping]"
-							flipdirection = yes
-							addcolumn = 230 # AGOT Changed
-							addrow = 65 # AGOT Changed
-							datamodel_wrap = 3 # AGOT Changed
+							text_label_center = {
+								layoutpolicy_horizontal = expanding
+								text = "FAITH_DOCTRINES_CLERGY"
+								default_format = "#low"
+							}
 
-							item = {
-								widget_doctrine_item = {}
+							fixedgridbox = {
+								datamodel = "[FaithWindow.GetGroupingHelper( 'clergy' ).GetGrouping]"
+								flipdirection = yes
+								#AGOT Modified
+								# addcolumn = 225
+								# addrow = 67
+								# datamodel_wrap = 2
+								addcolumn = 230
+								addrow = 65
+								datamodel_wrap = 3
+
+								item = {
+									widget_doctrine_item = {}
+								}
 							}
 						}
-					}
 
 						vbox = {
 							visible = "[DataModelHasItems(FaithWindow.GetGroupingHelper( 'special' ).GetGrouping)]"
 							layoutpolicy_horizontal = expanding
-							spacing = 10 # AGOT Changed
+							#AGOT Modified
+							# spacing = 7
+							spacing = 10
 
 							text_label_center = {
 								layoutpolicy_horizontal = expanding
@@ -625,9 +662,43 @@ window = {
 
 							vbox = {
 								datamodel = "[FaithWindow.GetGroupingHelper( 'special' ).GetGrouping]"
+								#AGOT Disabled
+								# layoutpolicy_horizontal = expanding
+								# margin_left = 50
+								# margin_right = 66
 
 								spacing = 8
 
+								#AGOT Disabled
+								# item = {
+								# 	text_single = {
+								# 		layoutpolicy_horizontal = expanding
+
+
+								# 		margin = { 17 0 }
+								# 		margin_top = 12
+								# 		margin_bottom = 13
+
+								# 		datacontext = "[GuiFaithDoctrineItem.GetDoctrine]"
+								# 		datacontext = "[GuiFaithDoctrineItem.GetFaith]"
+
+								# 		text = "[FaithDoctrine.GetNameNoTooltip( GuiFaithDoctrineItem.GetFaith )]"
+								# 		tooltip = "FAITH_WINDOW_DOCTRINE_TOOLTIP_WITH_FAITH"
+
+								# 		align = nobaseline
+
+								# 		using = tooltip_es
+
+								# 		background = {
+								# 			using = Background_Area
+								# 		}
+
+
+								# 	}
+
+								# }
+
+								#AGOT Added
 								fixedgridbox = {
 									datamodel = "[FaithWindow.GetGroupingHelper( 'special' ).GetGrouping]"
 									flipdirection = yes
@@ -638,22 +709,22 @@ window = {
 									item = {
 										text_single = {
 											layoutpolicy_horizontal = expanding
-	
+
 											
 											margin = { 17 0 }
 											margin_top = 12
 											margin_bottom = 13
-	
+
 											datacontext = "[GuiFaithDoctrineItem.GetDoctrine]"
 											datacontext = "[GuiFaithDoctrineItem.GetFaith]"
-	
+
 											text = "[FaithDoctrine.GetNameNoTooltip( GuiFaithDoctrineItem.GetFaith )]"
 											tooltip = "FAITH_WINDOW_DOCTRINE_TOOLTIP_WITH_FAITH"
-	
+
 											align = nobaseline
-	
+
 											using = tooltip_es
-	
+
 											background = {
 												using = Background_Area
 											}
@@ -854,8 +925,11 @@ window = {
 
 			hbox = {
 				#spacing = 10
-				margin_bottom = 20 # AGOT Changed
-				margin_top = 5 # AGOT Changed
+				#AGOT Modified
+				# margin_bottom = 8
+				# margin_top = 8
+				margin_bottom = 20
+				margin_top = 5
 				layoutpolicy_horizontal = expanding
 
 				expand = {}
@@ -865,7 +939,7 @@ window = {
 					minimumsize = { 240 0 }
 					visible = "[NotEqualTo_uint32( Faith.GetID, GetPlayer.GetFaith.GetID )]"
 					text = "FAITH_CONVERSION_CONVERT"
-					onclick = "[OpenFaithConversionWindow( Faith.GetID )]"
+					onclick = "[ToggleGameViewData( 'faith_conversion', Faith.GetID )]"
 
 					using = tooltip_nw
 				}
@@ -873,9 +947,11 @@ window = {
 				button_standard = {
 					name = "create_faith"
 					minimumsize = { 240 0 }
-					visible = "[Not(Or(GetVariableSystem.HasValue( 'faith_view_tabs', 'holy_sites' ), GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' )))]" # AGOT Changed
+					#AGOT Modified
+					#visible = "[And( ObjectsEqual(Faith.Self, GetPlayer.GetFaith ), GetVariableSystem.HasValue( 'faith_view_tabs', 'beliefs' ))]"
+					visible = "[Not(Or(GetVariableSystem.HasValue( 'faith_view_tabs', 'holy_sites' ), GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' )))]"
 					text = "CREATE_REFORM_FAITH_TEXT"
-					onclick = "[OpenFaithCreationWindow( Faith.GetID )]"
+					onclick = "[OpenGameViewData( 'faith_creation', Faith.GetID )]"
 					tooltip = "CREATE_REFORM_FAITH_TOOLTIP"
 
 					using = tooltip_nw
@@ -903,7 +979,8 @@ window = {
 					text = "RECREATE_TEMPORAL_HEAD_OF_FAITH_TITLE"
 				}
 
-				open_cardinal_window_button = {} # AGOT Added
+				#AGOT Added
+				open_cardinal_window_button = {}
 
 				expand = {}
 			}
@@ -933,7 +1010,7 @@ window = {
 			background = {
 				alpha = 0.5
 				fittype = end
-				texture = "[Illustration.GetTextureForFaith( FaithWindow.GetFaith )]"
+				texture = "[Illustration.GetTexture( FaithWindow.GetFaith.MakeScope )]"
 
 				modify_texture = {
 					mirror = vertical
@@ -1141,8 +1218,8 @@ window = {
 			}
 		}
 
-		## PATRON
-		window_faith_patron_tab = {} # AGOT Added
+		#AGOT Added
+		window_faith_patron_tab = {}
 	}
 }
 
@@ -1273,7 +1350,7 @@ window = {
 
 							state = {
 								name = _mouse_click
-								on_finish = "[DefaultOnFaithClick(Faith.GetID)]"
+								on_finish = "[OpenGameViewData( 'faith', Faith.GetID )]"
 							}
 
 							background = {
@@ -1282,7 +1359,7 @@ window = {
 							}
 
 							divider_light = {
-								alpha = "[Select_float(GreaterThan_int32(Faith.GetNumberOfCountiesOfFaith,'(int32)0'), '(float)1.0','(float)0.5'))]"
+								alpha = "[Select_float(GreaterThan_int32(Faith.GetNumberOfCountiesOfFaith,'(int32)0'), '(float)1.0','(float)0.5')]"
 								size = { 100% 3 }
 								parentanchor = bottom
 								position = { 0 1 }
@@ -1290,7 +1367,7 @@ window = {
 
 							hbox = {
 								margin = { 10 5 }
-								alpha = "[Select_float(GreaterThan_int32(Faith.GetNumberOfCountiesOfFaith,'(int32)0'), '(float)1.0','(float)0.5'))]"
+								alpha = "[Select_float(GreaterThan_int32(Faith.GetNumberOfCountiesOfFaith,'(int32)0'), '(float)1.0','(float)0.5')]"
 
 								icon = {
 									name = "faith_icon"

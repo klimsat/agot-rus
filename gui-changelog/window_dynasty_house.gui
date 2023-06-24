@@ -38,19 +38,6 @@ window = {
 			margin_right = -10
 		}
 
-		### DEBUG STUFF, please make sure those are visible and usable, especially the watch button, type "watch" into the console to show it
-		flowcontainer = {
-			name = "debug_buttons"
-			parentanchor = top|left
-			position = { 200 20 }
-			ignoreinvisible = yes
-
-			watch_window_button = {
-				size = { 60 40 }
-				onclick = "[AddWatchWindow( DynastyHouseView.GetDynastyHouse.MakeScope )]"
-			}
-		}
-
 		### HOUSE ###
 		vbox = {
 			layoutpolicy_horizontal = expanding
@@ -156,6 +143,11 @@ window = {
 							}
 
 							expand = {}
+
+							watch_window_button = {
+								size = { 60 40 }
+								onclick = "[AddWatchWindow( DynastyHouse.MakeScope )]"
+							}
 
 							buttons_window_control = {
 
@@ -283,7 +275,7 @@ window = {
 
 				background = {
 					visible = "[Character.IsValid]"
-					texture = "[Illustration.GetTexture( Character.Self )]"
+					texture = "[Illustration.GetTexture( Character.MakeScope )]"
 					alpha = 0.5
 					fittype = centercrop
 					using = Mask_Rough_Edges
@@ -328,7 +320,7 @@ window = {
 				}
 
 				background = {
-					texture = "[Illustration.GetTexture( Character.Self )]"
+					texture = "[Illustration.GetTexture( Character.MakeScope )]"
 					alpha = 0.6
 					fittype = centercrop
 					margin_top = 120
@@ -634,6 +626,11 @@ window = {
 													tooltip = "CUSTOMIZE_DYNASTY"
 												}
 
+												watch_window_button = {
+													size = { 60 25 }
+													onclick = "[AddWatchWindow( Dynasty.MakeScope )]"
+												}
+
 												expand = {}
 											}
 
@@ -757,7 +754,7 @@ window = {
 						### DYNASTY TREE ###
 						button_standard_clean = {
 							tooltip = "DYNASTY_VIEW_TT_DYNASTY_TREE"
-							onclick = "[OpenDynastyTreeViewFromCharacter( DynastyHouse.GetHeadOfHouseOrLastHistoricHead.GetID )]"
+							onclick = "[OpenGameViewData( 'dynasty_tree_view', DynastyHouse.GetHeadOfHouseOrLastHistoricHead.GetID )]"
 							size = { 300 42 }
 
 							button_dynasty_tree = {
@@ -855,27 +852,30 @@ window = {
 
 				### LEGACY ###
 
+				#AGOT Added, scrollbox for increased legacies
 				scrollbox = {
 					name = "legacy"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
 					minimumsize = { 0 400 }
-
-
 					blockoverride "scrollbox_margins"
 					{
 						margin_top = 0
 						margin_bottom = 0
 						margin_right = 0
 					}
-	
+
 					blockoverride "scrollbox_content"
 					{
+				#AGOT End
+
 				vbox = {
 					datacontext = "[DynastyHouse.GetDynasty]"
 					datacontext = "[DynastyHouseView.GetTopLegacy]"
 					layoutpolicy_vertical = expanding
 					layoutpolicy_horizontal = expanding
+					#AGOT Modified
+					#margin = { 10 0 }
 					margin = { 10 25 }
 					minimumsize = { 0 400 }
 					spacing = 2
@@ -898,7 +898,6 @@ window = {
 
 					hbox = {
 						layoutpolicy_horizontal = expanding
-						
 						margin = { 5 0 }
 						margin_right = 10
 						margin_top = 5
@@ -906,7 +905,6 @@ window = {
 
 						vbox = {
 							layoutpolicy_horizontal = expanding
-							
 							spacing = 3
 
 							hbox = {
@@ -968,12 +966,12 @@ window = {
 						dynamicgridbox = {
 							datamodel = "[DynastyHouseView.GetLegacies]"
 							visible = "[Not(LessThan_int32(GetDataModelSize(DynastyHouseView.GetLegacies), '(int32)10'))]"
-							datamodel_wrap = 5
+							datamodel_wrap = 6
 							flipdirection = yes
 
 							item = {
 								widget = {
-									size = { 110 100 }
+									size = { 95 100 }
 									tooltip = "[DynastyLegacyItem.GetTooltip]"
 
 									widget_legacy_icon = {}
@@ -1243,7 +1241,7 @@ window = {
 							size = { -1 33 }
 							datacontext = "[DynastyHouseView.GetTopLegacy]"
 
-							onclick = "[OpenDynastyViewFromDynasty(Dynasty.GetID)]"
+							onclick = "[OpenGameViewData( 'dynasty_view', Dynasty.GetID )]"
 							tooltip = "HOUSE_VIEW_SHOW_DYNASTY_TT"
 
 							widget = {
@@ -1285,7 +1283,10 @@ window = {
 							}
 						}
 					}
-				}
+
+					#AGOT Added, closing scrollbox
+					}
+					}
 
 					expand = {
 						layoutpolicy_vertical = expanding
@@ -1293,7 +1294,7 @@ window = {
 				}
 			}
 		}
-	 }
+
 		expand = {
 			layoutpolicy_vertical = expanding
 		}
@@ -1431,19 +1432,20 @@ window = {
 													align = nobaseline
 												}
 
-												## AGOT ADDED/CHANGED
 												text_single = {
+													#AGOT Modified, Traditional Cadets
+													#visible = "[Not(DynastyHouse.IsFoundingHouse)]"
 													visible = "[And(Not(DynastyHouse.IsFoundingHouse), Not(Or(DynastyHouse.GetFounder.HasTrait(GetTrait('bastard')), DynastyHouse.GetFounder.HasTrait(GetTrait('bastard_founder')))))]"
 													text = "HOUSE_LIST_CADET"
 													align = nobaseline
 												}
 
+												#AGOT Added, Bastard Cadets
 												text_single = {
 													visible = "[And(Not(DynastyHouse.IsFoundingHouse), Or(DynastyHouse.GetFounder.HasTrait(GetTrait('bastard')), DynastyHouse.GetFounder.HasTrait(GetTrait('bastard_founder'))))]"
 													text = "HOUSE_LIST_BASTARD"
 													align = nobaseline
 												}
-												## END ADDED/CHANGED
 											}
 
 											text_single = {

@@ -1,4 +1,4 @@
-﻿
+
 ######################################################
 ################## COUNCIL WINDOW ####################
 ######################################################
@@ -69,11 +69,12 @@ window = {
 						layoutpolicy_horizontal = expanding
 						text = "COUNCIL_WINDOW_PLAYER_COUNCIL"
 
-						down = "[GetVariableSystem.Exists('my_council')]"
+						down = "[And( GetVariableSystem.Exists('my_council'), Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 						onclick = "[CouncilWindow.SetPlayerCouncil]"
 						onclick = "[GetVariableSystem.Set('council_tabs','my_council')]"
 						onclick = "[GetVariableSystem.Toggle('my_council')]"
-
+						onclick = "[GetVariableSystem.Clear( 'diarchy_tab' )]"
+						
 						#down = "[Not(GetVariableSystem.Exists('council_tabs'))]" # AGOT Changed
 						
 						# onclick = "[PdxGuiTriggerAllAnimations('council_refresh')]"
@@ -88,11 +89,11 @@ window = {
 					button_tab = {
 						visible = "[Not(GetPlayer.IsIndependentRuler)]"
 						
-						down = "[CouncilWindow.IsLiegeCouncilShown]"
+						down = "[And( CouncilWindow.IsLiegeCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 						onclick = "[CouncilWindow.SetLiegeCouncil]"
 						onclick = "[GetVariableSystem.Clear('my_council')]" # AGOT Added turns off Main Council Tab 
 						onclick = "[GetVariableSystem.Clear('council_tabs')]" # AGOT Added Turns off Kingsguard Tab 
-
+						onclick = "[GetVariableSystem.Clear( 'diarchy_tab' )]"
 
 						# onclick = "[PdxGuiTriggerAllAnimations('council_refresh')]"
 
@@ -130,7 +131,7 @@ window = {
 			vbox_council_layout = {
 				name = "my_council"
 				#visible = "[CouncilWindow.IsPlayerCouncilShown]"
-				visible = "[GetVariableSystem.HasValue('council_tabs','my_council')]"
+				visible = "[And(GetVariableSystem.HasValue('council_tabs','my_council'), Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 	
 				using = Animation_Tab_Switch
 
@@ -148,7 +149,7 @@ window = {
 			#Causes Liege's Council to double for some reason 
 			vbox_council_layout = {
 				name = "council_refresh"
-				visible = "[CouncilWindow.IsLiegeCouncilShown]"
+						visible = "[And( CouncilWindow.IsLiegeCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 
 				using = Animation_Tab_Switch
 
@@ -1681,7 +1682,7 @@ types CouncilTaskTypes
 					datacontext = "[GetIllustration('agot_chaplain')]"
 
 					background =  {
-						texture = "[Illustration.GetTexture( Character.Self )]"
+						texture = "[Illustration.GetTexture( ActiveCouncilTask.GetCouncillor.GetFaith.MakeScope )]"
 						margin_bottom = 20
 						margin_right = 5
 						fittype = centercrop

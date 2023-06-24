@@ -151,8 +151,9 @@
 					text = "FINISH"
 					enabled = "[HouseCustomizationWindow.CanClickFinish]"
 					tooltip = "[HouseCustomizationWindow.GetCanClickFinishText]"
-					onclick = "[GetScriptedGui('agot_gui_update_coa_house').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('edit_scope', HouseCustomizationWindow.GetHouse.MakeScope).End ) ]" # AGOT ADDED; so coa updates after editor
 					onclick = "[HouseCustomizationWindow.OnClickFinish]"
+					# AGOT Added so coa updates after editor
+					onclick = "[GetScriptedGui('agot_gui_update_coa_house').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('edit_scope', HouseCustomizationWindow.GetHouse.MakeScope).End ) ]"
 				}
 			}
 		}

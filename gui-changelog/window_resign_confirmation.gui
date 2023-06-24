@@ -102,26 +102,24 @@ window = {
 				name = "menu_button"
 				size = { 230 42 }
 				text = "RESIGN"
+				#AGOT Modified, Button Hijack for Wildfire fix
+				#onclick = "[ResignConfirmationWindow.OnMenu]"
 				visible = "[Not(GetVariableSystem.Exists('AGOT_must_show_fake_button'))]"
 				onclick = "[GetScriptedGui('agot_end_wildfire').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				#onclick = "[ResignConfirmationWindow.OnMenu]"
 				clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_quit_game"
+				#AGOT Added
 				 # NOTE: Here, instead of attempting to call OpenTitleRenamePopup directly,
 				#       we just hide this button and show the same-looking fake button, defined below,
 				#       by setting the system var that controls their visibility.
 				#       This triggers fake button's _show effect.
 				onclick = "[GetVariableSystem.Set('AGOT_must_show_fake_button', 'true')]"
 			}
-
-			# NOTE: Fake button.
+			#AGOT added, fake button
 			button_edit_text = {
 				visible = "[GetVariableSystem.Exists('AGOT_must_show_fake_button')]"
-
 				state = {
 					name = _show
 					duration = 0.1
-
-
 					# NOTE: The actual call to OpenTitleRenamePopup happens here,
 					#       0.1 seconds after the real button was clicked
 					#       (and the fake one was shown).

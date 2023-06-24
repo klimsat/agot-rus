@@ -38,6 +38,7 @@ window = {
 		
 			button_standard_clean = {
 				name = "grant_to_same_culture_noble"
+				#AGOT Added, checks High Valyrian rules
 				visible = "[GetScriptedGui('agot_same_culture_noble').IsShown(GuiScope.SetRoot(FindVassalListWindow.GetTitle.MakeScope).End)]"
 				onclick = "[FindVassalListWindow.GetTitle.CreateHolderForTitle]"
 				onclick = "[FindVassalListWindow.Close]"
@@ -78,7 +79,7 @@ window = {
 								min_width = 230
 								max_width = 275
 								layoutpolicy_horizontal = expanding
-								text = "GRANT_TO_SAME_CULTURE_NOBLE_HEADER" #AGOT Changed 
+								text = "GRANT_TO_SAME_CULTURE_NOBLE_HEADER"
 								default_format = "#clickable"
 								align = nobaseline
 							}

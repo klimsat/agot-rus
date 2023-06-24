@@ -894,19 +894,24 @@ window = {
 						onclick = "[SuccessionEventWindow.ChooseNewCharacter]"
 						default_format = "#high"
 					}
-					###AGOT HIGHJACK
+
 					button_standard = {
 						name = "menu_button"
+						#AGOT Modified, Button Hijack for Wildfire fix
+						#visible = "[Not(SuccessionEventWindow.GetPlayerHeir.IsValid)]"
 						visible = "[And(Not(SuccessionEventWindow.GetPlayerHeir.IsValid), Not(GetVariableSystem.Exists('AGOT_must_show_fake_button')))]"
+						#AGOT Added
 						onclick = "[GetScriptedGui('agot_end_wildfire').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 						text = "[SuccessionEventWindow.GetExitName]"
 						tooltip = "[SuccessionEventWindow.GetExitTooltip]"
+						#AGOT Disabled
 						#onclick = "[SuccessionEventWindow.GoToMenu]"
 						default_format = "#high"
+						#AGOT Added
 						onclick = "[GetVariableSystem.Set('AGOT_must_show_fake_button', 'true')]"
 					}
 
-					# NOTE: Fake button.
+					#AGOT Added, fake button
 					button_edit_text = {
 						visible = "[GetVariableSystem.Exists('AGOT_must_show_fake_button')]"
 
@@ -1175,6 +1180,40 @@ types Legacy
 			texture = "gfx/interface/icons/character_interactions/declare_war_interaction.dds"
 			tooltip = "LEGACY_WARS"
 			using = tooltip_se
+		}
+
+		container = {
+			name = "activities_hosted"
+			visible = "[DataModelHasItems( LegacyItem.GetActivitiesHosted )]"
+
+			icon = {
+				datacontext_from_model = {
+					datamodel = "[LegacyItem.GetActivitiesHosted]"
+					index = 0
+				}
+				
+				texture = "[ActivityType.GetIcon]"
+				size = { 24 24 }
+				tooltip = "LEGACY_HOSTED_ACTIVITIES"
+				using = tooltip_se
+			}
+		}
+
+		container = {
+			name = "activities_attended"
+			visible = "[DataModelHasItems( LegacyItem.GetActivitiesAttended )]"
+
+			icon = {
+				datacontext_from_model = {
+					datamodel = "[LegacyItem.GetActivitiesAttended]"
+					index = 0
+				}
+				
+				texture = "[ActivityType.GetIcon]"
+				size = { 24 24 }
+				tooltip = "LEGACY_ATTENDED_ACTIVITIES"
+				using = tooltip_se
+			}
 		}
 	}
 

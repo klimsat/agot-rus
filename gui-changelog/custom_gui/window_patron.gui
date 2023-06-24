@@ -262,7 +262,7 @@ types PatronWindow {
 					layoutpolicy_horizontal = expanding
 					size = { 30 30 }
 					onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'patron' )]"
-					onclick = "[DefaultOnFaithClick(GetPlayer.GetFaith.GetID)]"
+					onclick = "[OpenGameViewData( 'faith', GetPlayer.GetFaith.GetID )]"
 					onclick = "[GetScriptedGui('get_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 					default_format = "#clickable;italic"
 					align = left|nobaseline
@@ -411,7 +411,7 @@ types PatronWindow {
 		}
 		
 		background = {
-			texture = "[Illustration.GetTextureForFaith( FaithWindow.GetFaith )]"
+			texture = "[Illustration.GetTexture( FaithWindow.GetFaith.MakeScope )]"
 			alpha = 0.5
 			fittype = end
 

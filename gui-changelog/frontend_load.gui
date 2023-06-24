@@ -13,6 +13,8 @@ widget = {
 	}
 
 	background = {
+		#AGOT Modified
+		#texture = "gfx/interface/illustrations/frontend/frontend_bg.dds"
 		texture = "gfx/interface/illustrations/loading_screens/assassin.dds"
 		fittype = centercrop
 	}
@@ -330,15 +332,17 @@ types LoadGameTypes
 						size = { 30 30 }
 					}
 
+					# Because of game rules
 					achievements_disabled_icon = {
 						visible = "[SaveGameItem.HasAchievementBlockingGameRules]"
 						tooltip = "[SaveGameItem.GetAchievementBlockingGameRulesInfo]"
 						size = { 30 30 }
 					}
 
+					# because of other reasons (tag switching, console, multiplayer, modified checksum)
 					achievements_disabled_icon = {
-						visible = "[And( SaveGameItem.CanGetAchievements, Not( IsGameChecksumOk ) )]"
-						tooltip = "GAME_CHECKSUM_CHANGED_FROM_SAVE_FILE"
+						visible = "[And( Not(SaveGameItem.HasAchievementBlockingGameRules), Not(SaveGameItem.CanGetAchievements) )]"
+						tooltip = "ACHIEVEMENTS_DISABLED_SAVEGAME"
 						size = { 30 30 }
 					}
 
@@ -601,6 +605,38 @@ types LoadGameTypes
 
 										text_single = {
 											text = "LOAD_IRONMAN_TOOLTIP"
+											default_format = "#low"
+											align = nobaseline
+										}
+
+										expand = {}
+									}
+
+									hbox = {
+										layoutpolicy_horizontal = expanding
+										visible = "[SaveGameItem.CanGetAchievements]"
+										spacing = 5
+
+										achievements_enabled_icon = {}
+
+										text_single = {
+											text = "LOAD_ACHIEVEMENTS_ENABLED_TOOLTIP"
+											default_format = "#low"
+											align = nobaseline
+										}
+
+										expand = {}
+									}
+
+									hbox = {
+										layoutpolicy_horizontal = expanding
+										visible = "[Not(SaveGameItem.CanGetAchievements)]"
+										spacing = 5
+
+										achievements_disabled_icon = {}
+
+										text_single = {
+											text = "LOAD_ACHIEVEMENTS_DISABLED_TOOLTIP"
 											default_format = "#low"
 											align = nobaseline
 										}

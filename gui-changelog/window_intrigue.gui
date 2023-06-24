@@ -16,8 +16,9 @@ window = {
 		using = Sound_WindowShow_Standard
 		using = Window_Position_MainTab
 
-		on_start = "[GetVariableSystem.Set( 'intrigue_view_tabs', 'schemes' )]"	# Added by AGOT, This is necessary to manage the additional tab
-		#on_start = "[IntrigueWindow.SetTab( 'schemes' )]" # Disabled by AGOT
+		#AGOT Modified, support for spy network tab
+		#on_start = "[IntrigueWindow.SetTab( 'schemes' )]"
+		on_start = "[GetVariableSystem.Set( 'intrigue_view_tabs', 'schemes' )]"
 		on_start = "[GetVariableSystem.Set( 'secrets_show_all', 'true' )]"
 	}
 
@@ -31,6 +32,8 @@ window = {
 	margin_widget = {
 		size = { 100% 100% }
 		margin = { 0 26 }
+		#AGOT Modified
+		#margin_right = 13
 		margin_right = 20
 
 		widget = {
@@ -58,13 +61,13 @@ window = {
 					}
 				}
 
+				#AGOT Note, IntrigueWindow.SetTab only supports two tabs, so to support a third tab in the window, a variable is used instead
+				# However, the SetTab function is still called, to make a widget work (see below)
 				hbox = {
 					name = "tabs"
 					layoutpolicy_horizontal = expanding
 					margin_left = 1
 
-					# AGOT: IntrigueWindow.SetTab only supports two tabs, so to support a third tab in the window, a variable is used instead
-					# However, the SetTab function is still called, to make a widget work (see below)
 					button_tab = {
 						name = "open_scheme_tab"
 						layoutpolicy_horizontal = expanding
@@ -72,40 +75,41 @@ window = {
 						text = "OPEN_SCHEMES_TAB"
 						default_format = "#low"
 						onclick = "[IntrigueWindow.SetTab( 'schemes' )]"
-						#down = "[IntrigueWindow.IsTabShown( 'schemes' )]" # Disabled by AGOT
-						onclick = "[GetVariableSystem.Set( 'intrigue_view_tabs', 'schemes' )]" # Added by AGOT
-						down = "[GetVariableSystem.HasValue( 'intrigue_view_tabs', 'schemes' )]" # Added by AGOT
+						#AGOT Modified
+						# down = "[IntrigueWindow.IsTabShown( 'schemes' )]"
+						onclick = "[GetVariableSystem.Set( 'intrigue_view_tabs', 'schemes' )]"
+						down = "[GetVariableSystem.HasValue( 'intrigue_view_tabs', 'schemes' )]"
 
 						using = tooltip_above
 					}
 
+					#AGOT Note, even though IsTabShown isn't used, the next line is necessary for the "Secrets Known to Me" widget to work for some reason
 					button_tab = {
 						name = "open_hooks_and_secrets_tab"
 						layoutpolicy_horizontal = expanding
 
 						text = "OPEN_HOOKS_AND_SECRETS_TAB"
 						default_format = "#low"
-						# AGOT NOTE: Even though IsTabShown isn't used, the next line is necessary for
-						# the "Secrets Known to Me" widget to work for some reason
 						onclick = "[IntrigueWindow.SetTab( 'hooks_and_secrets' )]"
-						#down = "[IntrigueWindow.IsTabShown( 'hooks_and_secrets' )]" # Disabled by AGOT
-						onclick = "[GetVariableSystem.Set( 'intrigue_view_tabs', 'hooks_and_secrets' )]" # Added by AGOT
-						down = "[GetVariableSystem.HasValue( 'intrigue_view_tabs', 'hooks_and_secrets' )]" # Added by AGOT
+						#AGOT Modified
+						#down = "[IntrigueWindow.IsTabShown( 'hooks_and_secrets' )]"
+						onclick = "[GetVariableSystem.Set( 'intrigue_view_tabs', 'hooks_and_secrets' )]"
+						down = "[GetVariableSystem.HasValue( 'intrigue_view_tabs', 'hooks_and_secrets' )]"
 
 						using = tooltip_above
 					}
 
-					# AGOT: Spy Network Tab
+					#AGOT Added, Spy Network Tab
 					button_tab = { # Added by AGOT
 						name = "open_spy_network_tab"
 						layoutpolicy_horizontal = expanding
-					
-						text = "OPEN_SPY_NETWORK_TAB"	# todo: localize
+
+						text = "OPEN_SPY_NETWORK_TAB"
 						default_format = "#low"
 						onclick = "[IntrigueWindow.SetTab( 'schemes' )]"
 						onclick = "[GetVariableSystem.Set( 'intrigue_view_tabs', 'spy_network' )]"
 						down = "[GetVariableSystem.HasValue( 'intrigue_view_tabs', 'spy_network' )]"
-					
+
 						using = tooltip_above
 					}
 				}
@@ -117,8 +121,9 @@ window = {
 					### SCHEMES
 					scrollbox = {
 						name = "schemes"
-						#visible = "[IntrigueWindow.IsTabShown( 'schemes' )]" # Disabled by AGOT
-						visible = "[GetVariableSystem.HasValue( 'intrigue_view_tabs', 'schemes' )]" # Added by AGOT
+						#AGOT Modified
+						#visible = "[IntrigueWindow.IsTabShown( 'schemes' )]"
+						visible = "[GetVariableSystem.HasValue( 'intrigue_view_tabs', 'schemes' )]"
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
 
@@ -285,8 +290,9 @@ window = {
 					### HOOKS AND SECRETS
 					scrollbox = {
 						name = "hooks_and_secrets"
-						#visible = "[IntrigueWindow.IsTabShown( 'hooks_and_secrets' )]" # Disabled by AGOT
-						visible = "[GetVariableSystem.HasValue( 'intrigue_view_tabs', 'hooks_and_secrets' )]" # Added by AGOT
+						#AGOT Modified
+						#visible = "[IntrigueWindow.IsTabShown( 'hooks_and_secrets' )]"
+						visible = "[GetVariableSystem.HasValue( 'intrigue_view_tabs', 'hooks_and_secrets' )]"
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
 
@@ -718,41 +724,33 @@ window = {
 						}
 					}
 
-					# SPY NETWORK
-					scrollbox = { # Added by AGOT
+					#AGOT Added, Spy Network Tab
+					scrollbox = {
 						name = "spy_network"
-						#visible = "[IntrigueWindow.IsTabShown( 'spy_network' )]"
 						visible = "[GetVariableSystem.HasValue( 'intrigue_view_tabs', 'spy_network' )]"
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
-
 						state = {
 							name = _show
 							using = Animation_FadeIn_Quick
 						}
-
 						state = {
 							name = _hide
 							alpha = 0
 						}
-
 						background = {
 							texture = "gfx/interface/illustrations/event_scenes/alley.dds"
 							margin = { -5 0 }
 							fittype = end
 							alpha = 0.6
-
 							modify_texture = {
 								texture = "gfx/interface/component_masks/mask_fade_vertical_up.dds"
 								blend_mode = alphamultiply
 							}
 						}
-
 						blockoverride "scrollbox_content"
 						{
-							vbox_spy_list = {
-								
-							}
+							vbox_spy_list = { }
 						}
 					}
 				}
@@ -872,10 +870,10 @@ types IntrigueWindow
 				layoutpolicy_vertical = expanding
 				margin_top = 13
 
-				progressbar_segmented = {
+				progressbar_segmented_chance = {
 					name = "progress"
 					tooltip = "SCHEME_ITEM_PROGRESS_TOOLTIP"
-					datamodel = "[GetSegmentedProgressBar( GetDefine( 'NScheme', 'STEPS_TO_PROGRESS' ), GetDefine( 'NScheme', 'PROGRESS_FRAMES' ), Scheme.GetProgress, Scheme.GetProgressChance )]"
+					datamodel = "[GetSegmentedProgressChanceBar( GetDefine( 'NScheme', 'STEPS_TO_PROGRESS' ), GetDefine( 'NScheme', 'PROGRESS_FRAMES' ), Scheme.GetProgress, Scheme.GetProgressChance )]"
 				}
 
 				text_single = {
