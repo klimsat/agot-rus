@@ -1,4 +1,12 @@
 ﻿l_russian:
+
+ ### PHASES
+ playdate_phase:0 "Встреча"
+
+ ### OPTIONS
+
+ ### INTENTS
+
  child_return_from_playdate_title:0 "Возвращение ребенка"
  child_return_from_playdate_desc:0 "[child_scope.GetShortUIName] возвращается после встречи с ровесниками при дворе персонажа [host.GetShortUIName]"
 
@@ -20,7 +28,7 @@
  playdate.1002.a:0 "Разумеется, [child_scope.GetSheHe] там будет."
  playdate.1002.b:0 "Не могу принять ваше приглашение."
 
- playdate.2001.t:0 "$playdate_header$: Сбор"
+ playdate.2001.t:1 "Все в сборе"
  playdate.2001.desc_opening:0 "Гости прибыли!\n\nВсе эти маленькие лорды и леди приводят меня в восторг."
  playdate.2001.desc_guest_of_interest_1_2_3:0 "Мне очень приятно, что и [guest_of_interest_1.Custom2('MyCharacterIntroduction', ROOT.Char)|l], и [guest_of_interest_2.Custom2('MyCharacterIntroduction', ROOT.Char)|l] смогли приехать, и в особенности [guest_of_interest_3.Custom2('MyCharacterIntroductionNoComma', ROOT.Char)|l]!"
  playdate.2001.desc_guest_of_interest_1_and_2:0 "Мне очень приятно, что и [guest_of_interest_1.Custom2('MyCharacterIntroduction', ROOT.Char)|l], и [guest_of_interest_2.Custom2('MyCharacterIntroduction', ROOT.Char)|l] смогли приехать!"
@@ -34,9 +42,9 @@
  playdate.2003.desc:0 "Поверить не могу. Столько приглашений, столько подготовки — на встречу ровесников никто не приехал!\n\nА мне все равно. Я буду в одиночестве наслаждаться этими сладостями. И этими игрушками. И... И... Ну почему никто не приехал?"
  playdate.2003.a:0 "Почему никто не приехал?"
  
- playdate.2501.t:0 "$playdate_header$: Теплый прием"
- playdate.2501.likes_host:0 "Все собрались в пиршественном зале, и [activity.GetOwner.GetTitledFirstName] приветствует нас на встрече ровесников!"
- playdate.2501.dislikes_host:0 "Все собрались в пиршественном зале, и [activity.GetOwner.Custom('InsultAdjective')] [activity.GetOwner.GetTitledFirstName] приветствует нас на встрече ровесников!"
+ playdate.2501.t:1 "Теплый прием"
+ playdate.2501.likes_host:1 "Все собрались в пиршественном зале, и [host.GetTitledFirstNameNoTooltip] приветствует нас на встрече ровесников!"
+ playdate.2501.dislikes_host:1 "Все собрались в пиршественном зале, и [host.Custom('InsultAdjective')|l] [host.GetTitledFirstNameNoTooltip] приветствует нас на встрече ровесников."
  playdate.2501.a:0 "Жду не дождусь!"
  playdate.2501.a_dislike:0 "Давайте уже закончим это."
 
@@ -50,19 +58,19 @@
 
  playdate.0022.desc:0 "[host.Custom2('MyCharacterIntroduction', ROOT.Char)|U] в темнице, и [host.GetHerHis] встреча ровесников окончена. Как не вовремя!"
 
- playdate.3001.t:0 "$playdate_header$ Грубая игра"
+ playdate.3001.t:1 "Притворная суровость"
  playdate.3001.desc:0 "Мне казалось, что [guest.Custom2('MyCharacterIntroduction', ROOT.Char)|l] и [ROOT.Char.Custom('RandomGirlBoy')] из числа крестьян просто притворяются, что дерутся, но внезапно кровь орошает землю.\n\n[guest.GetFirstNameNoTooltip] со стоном падает на землю, а крестьянский ребенок приближается к н[guest.GetHerHim], чтобы ударить снова."
  playdate.3001.a:0 "Я спасу [guest.GetHerHis]!"
  playdate.3001.a_injured:0 "Вы получаете ранение"
  playdate.3001.b:0 "«Кто-нибудь, на помощь!»"
  playdate.3001.c:0 "А это весело, дай я тоже ударю!"
 
- playdate.3002.t:0 "$playdate_header$: Секреты"
+ playdate.3002.t:1 "Секреты"
  playdate.3002.desc:0 "[secret_holder.Custom2('MyCharacterIntroduction', ROOT.Char)|U] наверняка что-то скрывает.\n\nНо, когда [secret_holder.GetSheHe] почти раскрывает мне свой секрет, подходит [close_participant.Custom2('MyCharacterIntroduction', ROOT.Char)|l] с просьбой сыграть партию в шахматы."
  playdate.3002.a:0 "Конечно. Мне нет дела до глупых секретов."
  playdate.3002.b:0 "Тс-с-с, я хочу узнать секрет!"
 
- playdate.3003.t:0 "$playdate_header$ [ROOT.Char.Custom('CatStoryName')]"
+ playdate.3003.t:1 "[ROOT.Char.Custom('CatStoryName')]"
  playdate.3003.desc_opening:0 "Со мной моя кошка [ROOT.Char.Custom('CatStoryName')], чтобы все могли увидеть, какая у меня замечательная кошка.\n\n"
  playdate.3003.desc_bonding_cat_opening:0 "«Твоя кошка такая милая! Хочешь посмотреть мою?»"
  playdate.3003.desc_bonding_cat:0 "[guest.Custom2('MyCharacterIntroduction', ROOT.Char)|U] протягивает мне кошку. «[guest.Custom('CatStoryHerHis')|U] зовут [guest.Custom('CatStoryName')]!»"
@@ -73,14 +81,14 @@
  playdate.3003.b:0 "Спасибо! Или сюда, [guest.Custom('DogStoryName')]!"
  playdate.3003.c:0 "Фу, ну и блохастик. Не то что моя кошка!"
 
- playdate.3004.t:0 "$playdate_header$ [ROOT.Char.Custom('DogStoryName')]"
+ playdate.3004.t:1 "[ROOT.Char.Custom('DogStoryName')]"
  playdate.3004.desc_opening:0 "Со мной моя собака [ROOT.Char.Custom('DogStoryName')], чтобы все могли увидеть, какая у меня замечательная собака.\n\n"
  playdate.3004.desc_bonding_cat_opening:0 "«Твоя собака такая милая! Хочешь посмотреть мою кошку?»"
  playdate.3004.desc_bonding_dog_opening:0 "«Твоя собака такая милая! Хочешь посмотреть мою?»"
  playdate.3004.b:0 "Спасибо! Или сюда, [guest.Custom('CatStoryName')]!"
  playdate.3004.c:0 "Фу, ну и блохастик. Не то что моя собака!"
 
- playdate.3005.t:0 "$playdate_header$: Секрет "
+ playdate.3005.t:1 "Секрет "
  playdate.3005.desc:0 "Я и [guest.Custom2('MyCharacterIntroduction', ROOT.Char)|l] обсуждаем придворную жизнь и последние слухи.\n\n«А мне доводилось слышать, что [secret_owner.GetTitledFirstName] [secret.Custom('SecretDescriptionThirdPerson')]...»\n\nЯ умолкаю на полуслове, но слишком поздно. [guest.GetFirstNameNoTooltip] все знает."
  playdate.3005.a:0 "Ой..."
  playdate.3005.b:0 "Прошу вас, забудьте мои слова. Я сделаю что угодно!"
@@ -89,19 +97,19 @@
  playdate.3005.d.success:0 "[guest.GetFirstNameNoTooltip] обещает держать язык за зубами"
  playdate.3005.d.failure:0 "[guest.GetFirstNameNoTooltip] не боится вас"
 
- playdate.3006.t:0 "$playdate_header$ Друг с книгой"
+ playdate.3006.t:1 "Читающий спутник"
  playdate.3006.desc:0 "Как всегда, я никуда не хожу без небольшой книги, но не успеваю я присесть и открыть книгу, как [fellow_nerd.Custom2('MyCharacterIntroduction', ROOT.Char)|l] подходит ко мне.\n\n«Это ведь #EMP [SCOPE.Custom('RandomInformativeTextName')|U]#!? Я [Select_CString(fellow_nerd.IsFemale, 'прочла', 'прочел' )] эту книгу недавно. Как она тебе?»"
  playdate.3006.a:0 "Нас ждет интересное обсуждение!"
  playdate.3006.b:0 "Не мешай, я читаю."
 
- playdate.3007.t:0 "$playdate_header$ Лазанье"
+ playdate.3007.t:1 "Лазание"
  playdate.3007.desc:0 "[participant.Custom2('MyCharacterIntroduction', ROOT.Char)|U], забравшись на самое высокое место, машет мне рукой.\n\nЭто будет не первый мой подъем, но карабкаться придется высоко..."
  playdate.3007.a:0 "Я не отступлюсь!"
  playdate.3007.a.success:0 "Вы сумели забраться"
  playdate.3007.a.failure:0 "Вы получаете серьезные травмы при падении"
  playdate.3007.b:0 "Нет, я лучше останусь внизу."
 
- playdate.3008.t:0 "$playdate_header$ Купание"
+ playdate.3008.t:1 "Плавание"
  playdate.3008.desc:0 "[participant.Custom2('MyCharacterIntroduction', ROOT.Char)|U] с без колебаний прыгает в воду, и [ROOT.Char.Custom('IndefiniteBodyOfWater')] с готовностью принимает [participant.GetHerHis].\n\nНо игривые брызги постепенно становятся более отчаянными, а затем [participant.GetSheHe] исчезает под водой. И вскоре я понимаю, что без посторонней помощи [participant.GetSheHe] уже не выплывет."
  playdate.3008.a:0 "Держись, я иду!"
  playdate.3008.a.success:0 "[participant.GetFirstNameNoTooltip] [Select_CString(participant.IsFemale, 'спасена', 'спасен' )] вами"
@@ -112,8 +120,8 @@
  playdate.3008.b.failure:0 "Никто не приходит на помощь"
  playdate.3008.c:0 "[participant.GetSheHe|U], должно быть, [Select_CString(participant.IsFemale, 'пошла', 'пошел' )] домой..."
 
- playdate.3009.t:0 "$playdate_header$ Снежный день"
- playdate.3009.desc_two:0 "[participant.Custom2('MyCharacterIntroduction', ROOT.Char)] и [to_blame.Custom2('MyCharacterIntroduction', ROOT.Char)|l] ничего не подозревают, когда я подкрадываюсь к ним с полными руками снега, и когда [participant.GetFirstNameNoTooltip] поворачивается, я кидаю снежок!"
+ playdate.3009.t:1 "Снежный день"
+ playdate.3009.desc_two:0 "[participant.Custom2('MyCharacterIntroduction', ROOT.Char)] и [to_blame.Custom2('MyCharacterIntroduction', ROOT.Char)] ничего не подозревают, когда я подкрадываюсь к ним с полными руками снега, и когда [participant.GetFirstNameNoTooltip] поворачивается, я кидаю снежок!"
  playdate.3009.desc_opening:0 "[participant.Custom2('MyCharacterIntroduction', ROOT.Char)] ничего не подозревает, когда я подкрадываюсь с полными руками снега, и когда [participant.GetSheHe] поворачивается, я кидаю снежок!"
  playdate.3009.desc:0 "\n\n[participant.GetSheHe|U] вскрикивает, но быстро приходит в себя. Вскоре я уже бегу прочь, а [participant.GetSheHe] следует за мной с огромным снежком в руках!"
  playdate.3009.a:0 "Я не отступлю!"
@@ -124,8 +132,8 @@
  playdate.3009.c.success:0 "[participant.GetFirstNameNoTooltip] верит вам"
  playdate.3009.c.failure:0 "[participant.GetSheHe|U] понимает, что вы врете"
 
- playdate.3010.t:0 "$playdate_header$ Базарный день"
- playdate.3010.desc:0 "[participant.Custom2('MyCharacterIntroduction', ROOT.Char)|U] и я сходимся во мнении, что дворянам важно учиться искусству торговли, поэтому мы решили посетить рынок во владении [ROOT.Char.GetCurrentActivity.GetLocation.GetName].\n\nУ нас нет денег, только камушки, но они #EMP такие#! блестящие!"
+ playdate.3010.t:1 "Рыночный день"
+ playdate.3010.desc:0 "[participant.Custom2('MyCharacterIntroduction', ROOT.Char)|U] и я сходимся во мнении, что дворянам важно учиться искусству торговли, поэтому мы решили посетить рынок во владении [ROOT.Char.GetCurrentLocation.GetName].\n\nУ нас нет денег, только камушки, но они #EMP такие#! блестящие!"
  playdate.3010.a:0 "Кхм, мне бы хотелось купить что-нибудь."
  playdate.3010.a.success:0 "Вы убеждаете купца торговать с вами"
  playdate.3010.a.failure:0 "Торговец прогоняет вас"
@@ -133,14 +141,14 @@
  playdate.3010.c:0 "Откроем собственную лавку!"
  playdate.3010.c.tt:0 "Некоторые торговцы в шутку «покупают» ваши камни за листья"
 
- playdate.3011.t:0 "$playdate_header$ Игра в семью"
+ playdate.3011.t:1 "Дочки-матери"
  playdate.3011.desc:1 "[participant.Custom2('MyCharacterIntroduction', ROOT.Char)|U] подходит ко мне, сжимая в руках кусок ткани. [participant.GetSheHe] раскладывает его на полу, и я понимаю, что это одежда — взрослая одежда!\n\n«Давай играть в семью!»"
  playdate.3011.a:0 "Только если мы будем родителями!"
  playdate.3011.b:0 "Конечно. А [disliked_participant.GetFirstNameNoTooltip] будет собакой!"
  playdate.3011.c:0 "Нет, это глупо. Сыграем лучше в шахматы."
  playdate.3011.c.tt:1 "Вы продвигаетесь в изучении такого искусства, как [THIS.Char.Custom('education_focus_child')]"
 
- playdate.3012.t:0 "$playdate_header$: Отвага — $knight_culture_player_plural_no_tooltip$"
+ playdate.3012.t:1 "Отважные [GetPlayer.Custom( 'KnightCulturePluralNoTooltip' )|l]"
  playdate.3012.desc_knight:0 "[participant.Custom2('MyCharacterIntroduction', ROOT.Char)|U] и я наблюдаем за тем, как $knight_culture_player_plural_no_tooltip_lowercase$ практикуются во дворе, когда [knight.Custom2('MyCharacterIntroduction', ROOT.Char)|l] с улыбкой подходит к нам."
  playdate.3012.desc_no_knight:0 "[participant.Custom2('MyCharacterIntroduction', ROOT.Char)|U] и я наблюдаем за тем, как крестьяне практикуются во дворе, когда один из них с улыбкой подходит к нам."
  playdate.3012.desc:0 "\n\n«Ну что, [participant.Custom('GirlsBoysChildren')], как постигаются азы мастерства?»"
@@ -150,18 +158,17 @@
  playdate.3012.a.failure:0 "Вы получаете по голове, и #EMP сильно#!"
  playdate.3012.b:0 "Лучше посмотрю, как вы тренируетесь."
 
- playdate.3013.t:0 "$playdate_header$ [Select_CString(witch.IsFemale, 'Мудрая', 'Мудрый' )] [witch.GetWomanMan|U] "
+ playdate.3013.t:1 "[Select_CString(witch.IsFemale, 'Мудрая женщина', 'Мудрец' )]"
  playdate.3013.desc:0 "Мы играем в лесу, и вдруг я оказываюсь в полном одиночестве. Мне все казалось, что остальные следуют за мной!\n\nЯ готовлюсь закричать — чтобы остальные нашли меня, а вовсе не потому, что мне #EMP страшно#!, — но вдруг мне встречается [witch.Custom2('MyCharacterIntroduction', ROOT.Char)|l] в черном плаще. [witch.GetSheHe|U] стоит на коленях и рассматривает какое-то странное растение, сравнивает его с картинкой из большой черной книги, лежащей тут же на земле.\n\n«Приветствую вас, [ROOT.CharGetLadyLord]. Зов знаний привел вас ко мне?»"
  playdate.3013.a:0 "Я просто хочу узнать, что это за растение."
  playdate.3013.a.success:0 "Вы многое узнали о травах и растениях"
  playdate.3013.a.failure:0 "Вы не понимаете, о чем [witch.GetSheHe] говорит"
- playdate.3013.b:0 "Говорят, ты видишь будущее..?" #AGOT MODIFIED - ZOMBIESCHRODCAT
- playdate.3013.b.paranoid:0 "Услышанное заставило меня всерьез переживать за собственную жизнь..." #AGOT MODIFIED - ZOMBIESCHRODCAT
- playdate.3013.b.ambitious:0 "Исходя из сказанного, я обречен на величие!" #AGOT MODIFIED - ZOMBIESCHRODCAT
- playdate.3013.b.unknown:0 "Вы не понимаете, о чем [witch.GetSheHe] говорит" #AGOT MODIFIED - ZOMBIESCHRODCAT
+ #AGOT Modified
+ #playdate.3013.b:0 "Да, научите меня всему!"
+ playdate.3013.b:0 "Говорят, ты видишь будущее..?"
  playdate.3013.c:0 "Вы... занимаетесь ведовством! Это очень плохо."
 
- playdate.3014.t:0 "$playdate_header$ [priest.GetCouncilTitle|U]"
+ playdate.3014.t:1 "[priest.GetCouncilTitle|U]"
  playdate.3014.desc_participant:0 "[ROOT.Char.GetFaith.HouseOfWorship] уже давно привлекает мое внимание, и вот когда [participant.Custom2('MyCharacterIntroduction', ROOT.Char)|l] и я изучаем здание, нам встречается [priest.Custom2('MyCharacterIntroduction', ROOT.Char)|l] в окружении множества свитков.\n\n«Это древние записи, вам такое интересно?»"
  playdate.3014.desc:0 "[ROOT.Char.GetFaith.HouseOfWorship] уже давно привлекает мое внимание, и вот когда я изучаю здание, мне встречается [priest.Custom2('MyCharacterIntroduction', ROOT.Char)|l] в окружении множества свитков.\n\n«Это древние записи, вам такое интересно?»"
  playdate.3014.a:0 "Да! Расскажите мне о них."
@@ -172,7 +179,7 @@
  playdate.3014.a.failure:0 "Вы ничему не научились"
  playdate.3014.b:0 "Нет, я хочу, чтобы вы рассказали нам о приключении!"
 
- playdate.4001.t:0 "$playdate_header$ Языковой барьер"
+ playdate.4001.t:1 "Языковой барьер"
  playdate.4001.desc.rowdy:0 "«#EMP "Болванчик"#!! Куколка! Не #EMP "дурачок"#!!» — [participant.GetTitledFirstName] вне себя из-за разделяющего нас языкового барьера. Судя по плещущим в воздухе рукам, скоро грянет гром."
  playdate.4001.desc.pensive:0 "«Прости... #EMP "Хижина"#!. Она вернулась в скромную хижину, а не к скорому хищнику». Несмотря на хорошие манеры, [participant.GetTitledFirstName] печально хмурится."
  playdate.4001.desc:0 "\n\n[ROOT.Char.GetCulture.GetLanguage.GetName] и [participant.GetCulture.GetLanguage.GetName|l] имеют больше различий, чем сходства, поэтому нам затруднительно общаться.\n\nМогу ли я как-то исправить положение, чтобы мы могли играть и не ссориться, или надеяться, что все решится само собой?"
@@ -180,11 +187,11 @@
  playdate.4001.b:0 "Быть может, [participant.GetFirstNameNoTooltip] сумеет научить меня #L [participant.GetCulture.GetCollectiveNoun|l]ому#!?"
  playdate.4001.c:0 "Пф, что мне за дело? Я просто хочу веселиться!"
 
- playdate.9001.t:0 "$playdate_header$ Конец веселья"
+ playdate.9001.t:1 "Конец веселья"
  playdate.9001.desc:0 "Было приятно ненадолго забыть об ответственности и провести время с другими детьми, но мне пора возвращаться к своим обязанностям...\n\nМы так хорошо провели время! Надеюсь, вскоре мы сможем это повторить."
  playdate.9001.a:0 "До новых встреч!"
 
- playdate.9002.t:0 "$playdate_header$ Возвращение домой"
+ playdate.9002.t:1 "Возвращение домой"
  playdate.9002.desc:0 "Как же мы повеселились! Я еще долго буду помнить время, что я и [host.GetTitledFirstName] провели вместе.\n\nА теперь мне пора собрать вещи и вернуться домой к своим обязанностям. Но я надеюсь, что мы сможем повторить."
  playdate.9002.a:0 "До свидания, [host.GetFirstNameNoTooltip]!"
 
