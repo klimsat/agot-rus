@@ -36,13 +36,27 @@
 # Improve the skills of your court physician, by Mathilda Bjarnehed
  learning_medicine.2010.t:0 "Трудности перевода"
  learning_medicine.2010.start.desc:0 "Я вхожу в комнату, где работает [Select_CString(court_physician.IsFemale, 'моя', 'мой' )] [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('court_physician'))] [court_physician.GetFirstName], и вижу, что [Select_CString(court_physician.IsFemale, 'она склонилась', 'он склонился' )] над книгой.\n\n«Этот перевод"
- learning_medicine.2010.galen.desc:0 "Адароса из Волантиса" #AGOT Changed
- learning_medicine.2010.hippocrates.desc:0 "Хармона" #AGOT Changed
- learning_medicine.2010.herophilus.desc:0 "Малеи Голубой Красы" #AGOT Changed
- learning_medicine.2010.hildegard.desc:0 "Мейстера Валлен" #AGOT Changed
- learning_medicine.2010.mundinus.desc:0 "Гадроса из Красных Рук" #AGOT Changed
- learning_medicine.2010.avicenna.desc:0 "Фрасоса из Мира" #AGOT Changed
- learning_medicine.2010.trota.desc:0 "Прендроса из Лиса" #AGOT Changed
+ #AGOT Modified
+ # learning_medicine.2010.galen.desc:0 "Galen"
+ learning_medicine.2010.galen.desc:0 "Адароса из Волантиса"
+ #AGOT Modified
+ # learning_medicine.2010.hippocrates.desc:0 "Hippocrates"
+ learning_medicine.2010.hippocrates.desc:0 "Хармона"
+ #AGOT Modified
+ # learning_medicine.2010.herophilus.desc:0 "Herophilus"
+ learning_medicine.2010.herophilus.desc:0 "Малеи Голубой Благодати"
+ #AGOT Modified
+ # learning_medicine.2010.hildegard.desc:0 "Hildegard of Bingen"
+ learning_medicine.2010.hildegard.desc:0 "Мейстера Валлена"
+ #AGOT Modified
+ # learning_medicine.2010.mundinus.desc:0 "Mundinus"
+ learning_medicine.2010.mundinus.desc:0 "Гадроса из Красных Рук"
+ #AGOT Modified
+ # learning_medicine.2010.avicenna.desc:0 "Avicenna"
+ learning_medicine.2010.avicenna.desc:0 "Фрасоса из Мира"
+ #AGOT Modified
+ # learning_medicine.2010.trota.desc:0 "Trota of Salerno"
+ learning_medicine.2010.trota.desc:0 "Прендроса из Лиса"
  learning_medicine.2010.fallback.desc:0 "отчета о вскрытии"
  learning_medicine.2010.end.desc:0 "просто ужасен, — со вдохом говорит [court_physician.GetSheHe]. — Если следовать этим инструкциям, я запросто могу убить пациента»."
 
@@ -163,26 +177,43 @@
  learning_medicine.2054.a:0 "Если бы... если бы я..."
 
  #A vassal (or your liege) wants to eat some hashish while visiting your capital, by Ewan Cowhig Croft.
- learning_medicine.2110.t:0 "Беседа за пирогами"
+ #AGOT Modified
+ # learning_medicine.2110.t:0 "Conversation over Cakes"
+ learning_medicine.2110.t:0 "Вино Колдунов"
  learning_medicine.2110.desc:0 "Я и моя свита возвращаемся из поездки по владению [capital.GetNameNoTooltip], когда внезапно наш путь пересекают [hashish_vassal_or_liege.Custom2('MyCharacterIntroduction', ROOT.Char)] и [hashish_vassal_or_liege.GetHerHis] свита, которые крутятся возле моей столицы без видимой причины.\n\n"
- learning_medicine.2110.desc_good_terms:0 "«О, [ROOT.Char.GetFirstNameNoTooltip]! Я [Select_CString(hashish_vassal_or_liege.IsFemale, 'надеялась', 'надеялся' )] встретиться с вами. Пойдемте, я знаю восхитительную небольшую таверну неподалеку. Вы, я, [ROOT.Char.Custom('GetExpensiveDrink')] и пироги с гашишем, что скажете?»"
- learning_medicine.2110.desc_bad_terms:0 "В воздухе повисает напряжение, наша стража готовится в бою. «[Select_CString(ROOT.Char.IsFemale, 'Госпожа', 'Господин' )], — нервно бормочет молодой солдат позади меня, — может, нам и правда лучше немного расслабиться за пирогами с гашишем в той небольшой таверне?»\n\nОбе группы умолкают, и [hashish_vassal_or_liege.GetFirstNameNoTooltip] ждет моего ответа."
- learning_medicine.2110.desc_neutral_terms:0 "[Select_CString(hashish_vassal_or_liege.IsFemale, 'Застигнутая', 'Застигнутый' )] врасплох, [hashish_vassal_or_liege.GetFirstNameNoTooltip] после недолгого молчания останавливает взгляд на чем-то за моей спиной.\n\n«[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [hashish_vassal_or_liege.Custom2('RelationToMe', ROOT.Char)], возможно, вы присоединитесь ко мне? Вы, я, [ROOT.Char.Custom('GetExpensiveDrink')] и пироги с гашишем, что скажете?»"
+ #AGOT Modified
+ # learning_medicine.2110.desc_good_terms:0 "«О, [ROOT.Char.GetFirstNameNoTooltip]! Я [Select_CString(hashish_vassal_or_liege.IsFemale, 'надеялась', 'надеялся' )] встретиться с вами. Пойдемте, я знаю восхитительную небольшую таверну неподалеку. Вы, я, [ROOT.Char.Custom('GetExpensiveDrink')] и пироги с гашишем, что скажете?»"
+ learning_medicine.2110.desc_good_terms:0 "«О, [ROOT.Char.GetFirstNameNoTooltip]! Я [Select_CString(hashish_vassal_or_liege.IsFemale, 'надеялась', 'надеялся' )] встретиться с вами. Пойдемте, я знаю восхитительную небольшую таверну неподалеку. Вы, я и #italic вечерняя тень#!, что скажете?»"
+ #AGOT Modified
+ #  learning_medicine.2110.desc_bad_terms:0 "В воздухе повисает напряжение, наша стража готовится в бою. «[Select_CString(ROOT.Char.IsFemale, 'Госпожа', 'Господин' )], — нервно бормочет молодой солдат позади меня, — может, нам и правда лучше немного расслабиться за пирогами с гашишем в той небольшой таверне?»\n\nОбе группы умолкают, и [hashish_vassal_or_liege.GetFirstNameNoTooltip] ждет моего ответа."
+ learning_medicine.2110.desc_bad_terms:0 "В воздухе повисает напряжение, наша стража готовится в бою. «[Select_CString(ROOT.Char.IsFemale, 'Госпожа', 'Господин' )], — нервно бормочет молодой солдат позади меня, — может, нам и правда лучше немного расслабиться за вечерней тенью в той небольшой таверне?»\n\nОбе группы умолкают, и [hashish_vassal_or_liege.GetFirstNameNoTooltip] ждет моего ответа."
+ #AGOT Modified
+ # learning_medicine.2110.desc_neutral_terms:0 "[Select_CString(hashish_vassal_or_liege.IsFemale, 'Застигнутая', 'Застигнутый' )] врасплох, [hashish_vassal_or_liege.GetFirstNameNoTooltip] после недолгого молчания останавливает взгляд на чем-то за моей спиной.\n\n«[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [hashish_vassal_or_liege.Custom2('RelationToMe', ROOT.Char)], возможно, вы присоединитесь ко мне? Вы, я, [ROOT.Char.Custom('GetExpensiveDrink')] и пироги с гашишем, что скажете?»"
+ learning_medicine.2110.desc_neutral_terms:0 "[Select_CString(hashish_vassal_or_liege.IsFemale, 'Застигнутая', 'Застигнутый' )] врасплох, [hashish_vassal_or_liege.GetFirstNameNoTooltip] после недолгого молчания останавливает взгляд на чем-то за моей спиной.\n\n«[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [hashish_vassal_or_liege.Custom2('RelationToMe', ROOT.Char)], возможно, вы присоединитесь ко мне? Вы, я и #italic вечерняя тень#!, что скажете?»"
  learning_medicine.2110.a.good_terms:0 "Прошу прощения, но мне пора."
  learning_medicine.2110.a.bad_terms:0 "С этим ничтожеством? Ни за что!"
  learning_medicine.2110.a.neutral_terms:0 "Боюсь, меня ждут другие дела."
  learning_medicine.2110.b.good_terms:0 "Пожалуй, можно попробовать..."
- learning_medicine.2110.b.bad_terms:0 "Хорошо. Но #EMP только один#! кусочек."
- learning_medicine.2110.b.neutral_terms:0 "Возможно, мы могли бы взять пару пирогов..."
- learning_medicine.2110.b.flavour:0 "Где один кусочек, там и два, три, пять..."
+ #AGOT Modified
+ # learning_medicine.2110.b.bad_terms:0 "Хорошо. Но #EMP только один#! кусочек."
+ learning_medicine.2110.b.bad_terms:0 "Хорошо. Но #EMP только один#! глоток."
+ #AGOT Modified
+ # learning_medicine.2110.b.neutral_terms:0 "Возможно, мы могли бы взять пару пирогов..."
+ learning_medicine.2110.b.neutral_terms:0 "Возможно, мы могли бы сделать ещё пару глотков..."
+ #AGOT Modified
+ # learning_medicine.2110.b.flavour:0 "Где один кусочек, там и два, три, пять..."
+ learning_medicine.2110.b.flavour:0 "Где один глоток, там и два, три, пять..."
  cosmic_insights_modifier:0 "Космические откровения"
- cosmic_insights_modifier_desc:0 "Долгая ночь и потребление гашиша открыли этому персонажу истинную природу реальности."
+ #AGOT Modified
+ # cosmic_insights_modifier_desc:0 "Долгая ночь и потребление гашиша открыли этому персонажу истинную природу реальности."
+ cosmic_insights_modifier_desc:0 "Долгая ночь и потребление вечерней тени открыли этому персонажу истинную природу реальности."
  learning_medicine.2110.c.good_terms:0 "Просто не отставай, друг!"
  learning_medicine.2110.c.bad_terms:0 "Меня так просто не прошибешь!"
  learning_medicine.2110.c.neutral_terms:0 "Это будет ночь, полная изощренных удовольствий!"
- learning_medicine.2110.c.tt_success:0 "Гашиш развязывает [hashish_vassal_or_liege.GetHerHim] язык"
+ #AGOT Modified
+ # learning_medicine.2110.c.tt_success:0 "Гашиш развязывает [hashish_vassal_or_liege.GetHerHim] язык"
+ learning_medicine.2110.c.tt_success:0 "Вечерняя тень развязывает [hashish_vassal_or_liege.GetHerHim] язык"
  learning_medicine.2110.c.tt_fail:0 "Злоупотребление приводит меня к неосмотрительности"
-
 ##########
 #learning_medicine_special
 ###########
