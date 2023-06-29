@@ -1,12 +1,12 @@
 ﻿l_russian:
- cb_discount_prestige_10:0 "[prestige|E] за [casus_belli|El]: #P -10%#!"
- cb_discount_piety_10:0 "[Concept('piety', 'Благочестие' )|E] за [casus_belli|El]: #P -10%#!"
+ cb_discount_prestige_10:1 "Затраты [Concept( 'prestige', 'престижа' )|E] на [casus_belli|E]: [prestige_i]#P −10%#!"
+ cb_discount_piety_10:1 "Затраты [Concept('piety', 'благочестия' )|E] на [casus_belli|El]: [piety_i]#P −10%#!"
  individual_county_de_jure_cb:0 "Отдельное [de_jure|El] [county|El]"
  individual_duchy_de_jure_cb:0 "Отдельное [de_jure|El] [duchy|El]"
  multiple_claim_wars:1 "Можно навязать больше одной [claims|El] за войну"
  multiple_claim_wars_others:0 "Можно навязать другому персонажу больше одной [claims|El] за войну"
- fabricate_claim_speed:0 "Скорость [Concept('councillor_task', 'задания' )|E] «Сфабриковать претензию на графство»: #P +50%#!"
- promote_culture_speed:0 "Скорость [Concept('councillor_task', 'задания' )|E] «Распространять культуру»: #P +15%#!"
+ fabricate_claim_speed:1 "Скорость [Concept('councillor_task', 'задания' )|E] #V «$task_fabricate_claim$»#!: #P +50%#!"
+ promote_culture_speed:1 "Скорость [Concept('councillor_task', 'задания' )|E] #V «$task_promote_culture$»#!: #P +15%#!"
  same_culture_group_reduced_factionalism:1 "[vassals|E], [Concept( 'culture', 'культура' )|E] которых имеет общее [Concept( 'heritage', 'наследие' )|E] с вашей, с меньшей вероятностью вступят во [Concept( 'independence_factions', 'фракцию сепаратистов' )|E]"
  reduce_develop_county_penalty_01:0 "Теперь графство получает штраф за максимальное [existing_development|El], когда [development|El] достигает 20"
  reduce_develop_county_penalty_02:0 "Теперь графство получает штраф за максимальное [existing_development|El], когда [development|El] достигает 35"
@@ -37,9 +37,6 @@
  unlock_fortification_rights_contract:0 "Открывает [feudal_contract|El] «#high $fortification_rights$#!»"
  unlock_coinage_rights_contract:0 "Открывает [feudal_contract|El] «#high $coinage_rights$#!»"
 
- outriders:0 "Загонщики"
- outriders_flavor:0 "Являясь промежуточным звеном между легкой и тяжелой кавалерией, они были жизненно важной силой с тех пор, как Первые Люди прибыли в Вестерос."
-
 ##############
 # Tribal Era #
 ##############
@@ -57,8 +54,14 @@
  innovation_mustering_grounds:0 "Тренировочный плац"
  innovation_mustering_grounds_desc:0 "Просто набрать людей, готовых за нас сражаться, недостаточно. Выделив клочок земли для тренировок и сбора перед сражением, мы получим более опытных бойцов, которые смогут добыть нам победу."
 
- innovation_bannus:0 "Пограничные Лорды"
- innovation_bannus_desc:0 "Основываясь на праве командовать людьми в бою, пограничные лорды дают нашим правителям право заставлять свободных людей сражаться за них, формируя правовую основу для сбора больших армий."
+ #AGOT Modified
+ #innovation_bannus:0 "Bannus"
+ innovation_bannus:0 "Лорды Марок"
+ #AGOT Modified
+ #innovation_bannus_desc:0 "Based on the authority to command men in battle, the bann gives our rulers the power to compel free men to fight for them, forming a legal basis for the mustering of large armies."
+ innovation_bannus_desc:0 "Основываясь на праве командовать людьми в бою, лорды Марок дают нашим правителям право заставлять свободных людей сражаться за них, формируя правовую основу для сбора больших армий."
+ eligible_accolade_vanguard_attribute_ACCOLADES_DLC:0 "[knights|E] of this [culture|E] become eligible for [GetAccoladeType('vanguard_attribute').GetName] [accolades|E]"
+ eligible_accolade_vanguard_attribute:1 "[AddLocalizationIf( HasDlcFeature( 'accolades' ), 'eligible_accolade_vanguard_attribute_ACCOLADES_DLC')]"
 
  innovation_quilted_armor:0 "Стеганый доспех"
  innovation_quilted_armor_desc:0 "Сшитые из десятка и более слоев льна, эти куртки могут останавливать даже тяжелые стрелы. Это недорогой способ обеспечить броней целый полк."
@@ -88,9 +91,6 @@
  innovation_ledger:0 "Перепись"
  innovation_ledger_desc:0 "Из-за роста земель нам требуется более надежный способ вести учет нашим богатствам. Благодаря переписи мы всегда будем знать, какими ресурсами располагаем."
 
- outriders:0 "Загонщики"
- outriders_flavor:0 "Являясь промежуточным звеном между легкой и тяжелой кавалерией, они были жизненно важной силой с тех пор, как Первые Люди прибыли в Вестерос."
-
  #Regional
  innovation_viking_tradition:0 "Тактика викингов"
  innovation_viking_tradition_desc:0 "Северяне издавна промышляли торговлей и пиратством. Немногие готовы дать отпор врагу, способному внезапно и без предупреждения появиться на берегу реки, и викинги — мастера подобной тактики."
@@ -100,9 +100,13 @@
 
  innovation_war_camels:0 "Боевые верблюды"
  innovation_war_camels_desc:0 "Верблюды от природы приспособлены для жизни в засушливой местности, но к битвам их необходимо готовить специальным образом. Наши заводчики и дрессировщики помогут нам создать небывалую конницу, и мы станем повелителями песков."
+ eligible_accolade_camelry_attribute_ACCOLADES_DLC:0 "[Concept('knights', 'Рыцари' )|E] этой [Concept('culture', 'культуры' )|E] могут получить [accolades|El] «[GetAccoladeType('camelry_attribute').GetName]»"
+ eligible_accolade_camelry_attribute:1 "[AddLocalizationIf( HasDlcFeature( 'accolades' ), 'eligible_accolade_camelry_attribute_ACCOLADES_DLC')]"
 
  innovation_elephantry:0 "Элефантерия"
  innovation_elephantry_desc:0 "Слонов трудно растить в неволе, и каждый махаут должен поймать собственного дикого слона и научить его всему необходимому. Использование слонов в сражениях — подлинное искусство, и мы намерены в совершенстве овладеть им."
+ eligible_accolade_elephantry_attribute_ACCOLADES_DLC:0 "[Concept('knights', 'Рыцари' )|E] этой [Concept('culture', 'культуры' )|E] могут получить [accolades|El] «[GetAccoladeType('elephantry_attribute').GetName]»"
+ eligible_accolade_elephantry_attribute:1 "[AddLocalizationIf( HasDlcFeature( 'accolades' ), 'eligible_accolade_elephantry_attribute_ACCOLADES_DLC')]"
  
  innovation_wootz_steel:0 "Тигельная сталь"
  innovation_wootz_steel_desc:0 "Также известный как хиндувани или серик, этот богатый углеродом металл отлично подходит для создания оружия. Тигельной сталью торгуют по всему миру: считается, что это один из лучших видов стали. С древних времен этот материал вызывал восхищение арабских, египетских, китайских и даже римских покупателей."
@@ -123,16 +127,22 @@
 
 ######################
 # Early Medieval Era #
-######################
-
- #Military
+###################### 
+ 
+ #Military 
  innovation_battlements:0 "Бойницы"
  innovation_battlements_desc:0 "Прочная внешняя стена не только укрепит саму цитадель и позволит размещать сверху лучников, но и даст нашим замкам дополнительный уровень защиты от вражеских атак."
 
  innovation_mangonel:0 "Мангонели"
  innovation_mangonel_desc:0 "Значительно улучшенные метательные машины, мангонели существенно мощнее и быстрее обычных рычажно-пращевых машин."
+ eligible_accolade_besieger_attribute_ACCOLADES_DLC:0 "[Concept('knights', 'Рыцари' )|E] этой [Concept('culture', 'культуры' )|E] могут получить [accolades|El] «[GetAccoladeType('besieger_attribute').GetName]»"
+ eligible_accolade_besieger_attribute:1 "[AddLocalizationIf( HasDlcFeature( 'accolades' ), 'eligible_accolade_besieger_attribute_ACCOLADES_DLC')]"
 
+ #AGOT Modified
+ #innovation_burhs:0 "Бурхи"
  innovation_burhs:0 "Укрепленные поселения"
+ #AGOT Modified
+ #innovation_burhs_desc:0 "Бурхи — раскиданные по сельской местности укрепленные поселения, которые играют важнейшую стратегическую роль. Их можно использовать как места сбора войск и как административные центры."
  innovation_burhs_desc:0 "Разбросанные по сельской местности, укрепленные поселения являются важными поселениями, которые мы можем использовать как для сбора войск, так и в качестве административных центров."
 
  innovation_house_soldiers:0 "Дворцовые солдаты"
@@ -143,9 +153,8 @@
 
  innovation_arched_saddle:0 "Седла с луками"
  innovation_arched_saddle_desc:0 "Даже самая смертоносная легкая конница использует далеко не все возможности боевых лошадей. Седла с луками позволят нам отправлять в бой закованных в броню копейщиков, натиска которых не сдержит ни один противник."
-
- innovation_knighthood:0 "Мастер над оружием"
- innovation_knighthood_desc:0 "Обязанность мастера над оружием - обучать отпрысков лорда жестокому искусству боя. Убедившись, что в каждом владении работает человек с боевой репутацией, мы сможем передать эти навыки нашей высшей касте."
+ eligible_accolade_lancer_attribute_ACCOLADES_DLC:0 "[Concept('knights', 'Рыцари' )|E] этой [Concept('culture', 'культуры' )|E] могут получить [accolades|El] «[GetAccoladeType('lancer_attribute').GetName]»"
+ eligible_accolade_lancer_attribute:1 "[AddLocalizationIf( HasDlcFeature( 'accolades' ), 'eligible_accolade_lancer_attribute_ACCOLADES_DLC')]"
 
  #Civic
  innovation_hereditary_rule:0 "Наследное правление"
@@ -173,17 +182,15 @@
  innovation_currency_02_desc:0 "Нерегулируемые валюты хаотичны и нестабильны, а для торговли это — смерть. Наше спасение — чеканная монета точно отмеренного веса с монаршьей печатью."
 
  #Regional
- innovation_primogeniture_westeros:0 "Первородство"
- innovation_primogeniture_westeros_desc:0 "Первородство по мужской линии является обычным, но не обязательным для вестеросской знати. Одно королевство - один наследник, хотя существуют определенные исключения и толкования."
+
+ innovation_reconquista:1 "Духовная экспансия"
+ innovation_reconquista_desc:0 "Погрязнув во внутренних распрях, мы слишком долго терпели присутствие неверных в Испании. Теперь же пора собрать войско и навсегда изгнать их из этих земель!"
 
  innovation_stem_duchies:0 "Племенные герцогства"
  innovation_stem_duchies_desc:0 "Мы принадлежим к разным племенам, но все-таки признаем важность единства и совместных действий. Независимость часто переоценивают: лишь единство и стабильность ведут к безопасности и процветанию."
 
-innovation_ghilman:0 "Гулямы"
+ innovation_ghilman:0 "Гулямы"
  innovation_ghilman_desc:0 "Рабы-солдаты, захваченные в плен во время войны, гулямы — обученные воины, которые более верны и при этом стоят дешевле, чем обычные наемники."
-
- innovation_maesters:0 "Мейстеры"
- innovation_maesters_desc:0 "Обученные в Цитадели всем манерам знания, лорды Вестероса считают мейстеров жизненно важными для стабильности их правления и здоровья."
 
 #####################
 # High Medieval Era #
@@ -202,8 +209,17 @@ innovation_ghilman:0 "Гулямы"
  innovation_men-at-arms:0 "Профессионалы"
  innovation_men-at-arms_desc:0 "Спрос на воинов, умеющих обращаться с конем и копьем, не проходит, а вот нанять таких мастеров не всегда возможно. Содержание собственных профессиональных солдат гарантирует, что в случае войны мы не останемся без умелых бойцов."
 
+ #AGOT Modified
+ #innovation_knighthood:0 "Knighthood"
+ innovation_knighthood:0 "Мастер над оружием"
+ #AGOT Modified
+ #innovation_knighthood_desc:0 "Посвящая лучших из лучших в рыцари и расплачиваясь с ними земельными владениями, а не просто деньгами, мы можем воздать воинам заслуженные почести, а заодно заручиться их верностью."
+ innovation_knighthood_desc:0 "Долг мастера над оружием - обучать отпрысков лорда жестокому искусству боя. Убедившись, что в каждом владении работает человек с боевой репутацией, мы сможем передать эти навыки нашему высшему сословию."
+
  innovation_advanced_bowmaking:0 "Улучшенное изготовление луков"
  innovation_advanced_bowmaking_desc:0 "Хотя традиционно лучники сами изготавливали свои луки и заботились о них, ремесленники начали делать луки нового типа, более мощные и сложные. Приняв их на вооружение, мы превратим мастеров-лукоделов в бесценный военный ресурс."
+ eligible_accolade_crossbower_attribute_ACCOLADES_DLC:0 "[Concept('knights', 'Рыцари' )|E] этой [Concept('culture', 'культуры' )|E] могут получить [accolades|El] «[GetAccoladeType('crossbowmen_attribute').GetName]»"
+ eligible_accolade_crossbower_attribute:1 "[AddLocalizationIf( HasDlcFeature( 'accolades' ), 'eligible_accolade_crossbower_attribute_ACCOLADES_DLC')]"
 
  #Civic
 
@@ -226,6 +242,8 @@ innovation_ghilman:0 "Гулямы"
  innovation_guilds_desc:0 "По мере расширения наших земель становится все труднее напрямую контролировать торговые пути, проходящие через наш домен. Даровав хартии объединениям торговцев и ремесленников, мы обеспечим им большую независимость в делах и при этом будем по-прежнему извлекать прибыль из их предприятий."
 
  innovation_development_03:0 "Урбанизация"
+ #AGOT Modified
+ #innovation_development_03_desc:0 "Величие Рима, Византии и Дели уходит корнями в историю, и тягаться с ним, казалось бы, невозможно. Но наша инфраструктура и население растут. Наконец-то мы можем построить новые поселения, которые смогут поспорить с древними городскими центрами."
  innovation_development_03_desc:0 "Великие города Эссоса издавна выделялись как реликвии великого, непревзойденного наследия. Но наша инфраструктура и население растут. Наконец-то мы можем построить новые поселения, которые смогут поспорить с древними городскими центрами."
 
  innovation_currency_03:0 "Банковская система"
@@ -247,8 +265,8 @@ innovation_ghilman:0 "Гулямы"
 
 #####################
 # Late Medieval Era #
-#####################
-
+##################### 
+ 
  #Military
  innovation_machicolations:0 "Машикули"
  innovation_machicolations_desc:0 "Каменные машикули — значительный шаг вперед по сравнению с ранними гурдициями. Они служат той же цели, но при этом гораздо прочнее и предоставляют защитникам стен большую защиту."
@@ -274,6 +292,8 @@ innovation_ghilman:0 "Гулямы"
  innovation_primogeniture_desc:0 "Одно королевство — один наследник. Младшие дети правителя, без сомнения, почувствуют себя обделенными, однако только примогенитура способна обеспечить стабильность державы и защитить ее от кризиса наследования."
 
  innovation_cranes:0 "Подъемные краны"
+ #AGOT Modified
+ #innovation_cranes_desc:0 "Римляне широко использовали краны с топчаковыми колесами. Ныне это чудо инженерной мысли позабыто, однако его стоит вернуть к жизни, если мы собираемся заняться строительством собственной империи."
  innovation_cranes_desc:0 "Забытое чудо инженерной мысли, валирийцы с большим успехом использовали краны на колесах при строительстве своей империи, и мы тоже будем использовать их."
 
  innovation_noblesse_oblige:0 "Положение обязывает"
@@ -305,4 +325,4 @@ innovation_ghilman:0 "Гулямы"
  innovation_deccan_unity:0 "Единство Деккана"
  innovation_deccan_unity_desc:0 "Приток новых верований и религий показал, что наше общество напрасно цеплялось за местные традиции и убеждения. Мы должны объединиться с другими последователями нашей веры и создать сильное и надежное государство, которое выдержит любые невзгоды."
 
- students_of_knighthood:0 "Дети, завершившие обучение с [Concept( 'education_focus', 'фокусом' )|E] «[martial|E]» получают [Concept( 'trait', 'свойство' )|E] «$trait_education_martial_prowess$»."
+ students_of_knighthood:1 "Дети, завершившие [Concept( 'education', 'обучение' )|E] с [Concept( 'education_focus', 'фокусом' )|E] «[martial|E]» получают [Concept( 'trait', 'свойство' )|E] «$trait_education_martial_prowess$»"
