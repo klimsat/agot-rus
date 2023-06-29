@@ -17,8 +17,8 @@
  artifact_name_prefix_owner_name:0 "персонажа [owner.GetTitledFirstNamePossessiveNoTooltip]"
  artifact_name_prefix_inspiration_owner_name:0 "персонажа [inspiration_owner.GetTitledFirstNamePossessiveNoTooltip]"
  artifact_name_prefix_owner_culture:0 "[owner.GetCulture.GetCollectiveNounNoTooltip|l]ого народа"
- artifact_name_prefix_location_culture:0 "[owner.MakeScope.Var('adventure_artifact_location').Title.GetHolder.GetCulture.GetCollectiveNounNoTooltip|l]ого народа"
- artifact_name_prefix_owner_dynasty:0 "династии [owner.GetDynasty.GetBaseName]"
+ artifact_name_prefix_location_culture:0 "[owner.MakeScope.Var('adventure_artifact_location').Province.GetHolder.GetCulture.GetCollectiveNounNoTooltip|l]ого народа"
+ artifact_name_prefix_owner_dynasty:0 "династии [owner.GetDynasty.GetBaseNameNoTooltip]"
  artifact_name_prefix_descriptor_high_quality:0 "великолепного качества"
  artifact_name_prefix_descriptor_medium_quality:0 "на века"
  artifact_name_prefix_descriptor_medium_alt_version_quality:0 "превосходного качества"
@@ -42,10 +42,15 @@
  metal_wrought_iron:0 "кованого железа"
  metal_folded_iron:0 "сфальцованного железа"
  metal_steel:0 "стали"
- metal_wootz_steel:0 "итийской стали" #AGOT Changed
- metal_bulat_steel:0 "квохорской стали" #AGOT Changed
- metal_damascus_steel:0 "валирийской стали" #AGOT Changed
-
+ #AGOT Modified
+ #metal_wootz_steel:0 "wootz steel"
+ metal_wootz_steel:0 "и-тийской стали"
+ #AGOT Modified
+ #metal_bulat_steel:0 "bulat steel"
+ metal_bulat_steel:0 "квохорской стали"
+ #AGOT Modified
+ #metal_damascus_steel:0 "Damascus steel"
+ metal_damascus_steel:0 "валирийской стали"
  # Metal Feature Derivatives 
  feature_blade_metal_wrought_iron:0 "$metal_wrought_iron$"
  feature_blade_metal_folded_iron:0 "$metal_folded_iron$"
@@ -82,9 +87,13 @@
  # Gilded (gold-leafed) silver. More common in Europe but could be found in East Asia.
  metal_silver_gilt:0 "позолоченного серебра"
  # Extremely rare bronze alloy from antiquity. Manufacturing process unknomwn, statues made from it were more valuable than gold.
- metal_corinthian_bronze:0 "рунической бронзы" #AGOT Changed
+ #AGOT Modified
+ #metal_corinthian_bronze:0 "Corinthian bronze"
+ metal_corinthian_bronze:0 "рунической бронзы"
  # Alloy of gold, silver, copper, zinc, and iron. Sacred in Hinduism, used for making jewelery and decorating statues.
- metal_panchaloha:0 "кваатийского металла" #AGOT Changed
+ #AGOT Modified
+ #metal_panchaloha:0 "panchaloha"
+ metal_panchaloha:0 "кваатийского металла"
  # High-purity iron collected from meteorites. Auspicious in Tibetan culture, where it was known as 'thokcha'.
  metal_meteoric_iron:0 "метеоритного железа"
 
@@ -103,6 +112,15 @@
  feature_decoration_material_wire_copper:0 "$metal_copper$"
  feature_decoration_material_wire_pewter:0 "$metal_pewter$"
  feature_decoration_material_wire_latten:0 "$metal_latten$"
+
+ #############
+ # Earthware #
+ #############
+
+ earthware_clay:0 "глина"
+ earthware_stone:0 "камень"
+ earthware_terracotta:0 "терракота"
+ earthware_porcelain:0 "фарфор"
 
  #########
  # Woods #
@@ -129,7 +147,9 @@
  # Widespread Regional - Subsaharan Africa
  wood_fleroya:0 "флерои"
  wood_sycomore:0 "сикомора"
- wood_padauk:0 "златосердца" #AGOT Changed
+ #AGOT Modified
+ #wood_padauk:0 "padauk"
+ wood_padauk:0 "златосерда"
 
  # Widespread Regional - India
  wood_sal:0 "акации"
@@ -372,7 +392,7 @@
  feature_decoration_pattern_floral:0 "узоры из цветов"
  feature_decoration_pattern_geometric:0 "геометрические формы"
  feature_decoration_pattern_wolf:0 "голова волка"
- feature_decoration_pattern_local_animal:0 "[Artifact.GetOwner.Custom('LocalAnimal')|U] во всех подробностях"
+ feature_decoration_pattern_local_animal:0 "[Artifact.GetOwner.Custom('GetAnimalType')|U] во всех подробностях"
  feature_decoration_pattern_war_god:0 "символы и слова, в которых славится [Artifact.GetOwner.GetFaith.WarGodName]"
  feature_decoration_pattern_religious_symbol:0 "[Artifact.GetOwner.GetFaith.ReligiousSymbol]"
  feature_decoration_pattern_gibberish:0 "символы, значение которых ведает лишь их создатель,"
@@ -382,7 +402,9 @@
  feature_decoration_pattern_shield:0 "герб дома [Artifact.GetOwner.GetHouse.GetBaseName]"
  feature_decoration_pattern_dynasty_shield:0 "$feature_decoration_pattern_shield$"
  feature_decoration_pattern_dynasty_motifs:0 "элементы девиза и герба дома [Artifact.GetOwner.GetHouse.GetBaseName]"
- feature_decoration_pattern_beasts:0 "древние существа" #AGOT Changed
+ #AGOT Modified
+ #feature_decoration_pattern_beasts:0 "mythological beasts"
+ feature_decoration_pattern_beasts:0 "древние существа"
  feature_decoration_pattern_religion:0 "религиозные символы"
  feature_decoration_pattern_quotes:0 "вдохновляющие цитаты"
  feature_decoration_pattern_eschatology:0 "эсхатологические сцены"
@@ -573,11 +595,15 @@
  feature_armor_helmet_great_helmet:0 "В набор входят грандхельм и кольчужный койф с подкладом из [Artifact.GetFeatureText( 'generic_material_cloth' )]"
  feature_armor_helmet_great_helmet_bascinet:0 "В набор входят грандхельм и надеваемый под него бацинет"
  feature_armor_helmet_great_helmet_cervelliere:0 "В набор входят грандхельм и надеваемый под него цервельер"
- feature_armor_helmet_turban_helmet:0 "В набор входят кваатийский шлем и бармица" #AGOT Changed
- feature_armor_helmet_lamellar:0 "В набор входят сарнорский шлем с декоративным плюмажем и бармица" #AGOT Changed
+ #AGOT Modified
+ #feature_armor_helmet_turban_helmet:0 "The set includes a turban helmet and an aventail"
+ feature_armor_helmet_turban_helmet:0 "В набор входят кваатийский шлем и бармица"
+ feature_armor_helmet_lamellar:0 "В набор входят шлем с декоративным плюмажем и бармица"
  feature_armor_helmet_kettle:0 "В набор входит шапель с широкой кромкой"
  feature_armor_helmet_cervelliere:0 "В набор входят полукруглый плотный цервельер и кольчужный койф с подкладом из [Artifact.GetFeatureText( 'generic_material_cloth' )]"
- feature_armor_helmet_kulah_khud:0 "В набор входят ройниский шлем и бармица" #AGOT Changed
+ #AGOT Modified
+ #feature_armor_helmet_kulah_khud:0 "The set includes a Khula Khud helmet and an aventail"
+ feature_armor_helmet_kulah_khud:0 "В набор входят ройнарский шлем и бармица"
 
  feature_armor_decoration_etched_pattern:0 "На доспехе выгравирован повторяющийся узор — [Artifact.GetFeatureText( 'decoration_pattern' )]"
  feature_armor_decoration_inlay_pattern:0 "Весь доспех украшен инкрустациями из [Artifact.GetFeatureText( 'decoration_material_inlay' )], рисующими повторяющийся узор — [Artifact.GetFeatureText( 'decoration_pattern' )]"
@@ -626,6 +652,7 @@
 
  # Brooches
  artifact_brooch:0 "Брошь"
+ artifact_brooch_pedestal:0 "$artifact_brooch$"
  artifact_brooch_name:0 "Брошь $artifact_name_prefix$"
  artifact_brooch_description:1 "[SCOPE.Custom('ArtifactArticleWealth')]ая брошь [SCOPE.Custom('ArtifactQuality')] качества. [newly_created_artifact.GetFeatureText( 'brooch_decoration' )]."
 
@@ -640,28 +667,53 @@
  feature_brooch_adornment_runes:0 "в окружении кольца из [Artifact.GetFeatureText( 'decoration_material_wire' )] с выгравированными рунами"
  create_artifact_brooch_tooltip:0 "[inspiration_owner.GetShortUIName] [Select_CString(inspiration_owner.IsFemale, 'выковала', 'выковал' )] [SCOPE.Custom('ArtifactArticleWealth')|l]ую брошь [SCOPE.Custom('ArtifactQuality')] качества"
 
+ # Rings
+ artifact_ring:0 "Кольцо"
+ artifact_ring_name:0 "Кольцо [SCOPE.Custom('ArtifactPrefixGeneric')]"
+ artifact_ring_description:0 "[SCOPE.Custom('ArtifactArticleWealth')]ое кольцо [SCOPE.Custom('ArtifactQuality')] качества. Шинка выполнена из [newly_created_artifact.GetFeatureText( 'generic_material_metal' )] и [newly_created_artifact.GetFeatureText( 'ring_decoration' )]."
+ feature_ring_decoration_centerpiece_and_adornment:0 "с [Artifact.GetFeatureText( 'ring_centerpiece' )] и [Artifact.GetFeatureText( 'ring_adornment' )]"
+ feature_ring_decoration_centerpiece:0 "венчает ее [Artifact.GetFeatureText( 'ring_centerpiece' )]"
+ feature_ring_decoration_adornment:0 "[Artifact.GetFeatureText( 'ring_adornment' )]"
+ feature_ring_centerpiece_cabochon:0 "кабошоном из [Artifact.GetFeatureText( 'decoration_material_gem' )]"
+ feature_ring_centerpiece_signet:0 "печать дома [Artifact.GetOwner.GetHouse.GetBaseNameNoTooltip] выгравирована на печатке из [Artifact.GetFeatureText( 'decoration_material_wire' )]"
+ feature_ring_centerpiece_religious:0 "#L [Artifact.GetOwner.GetFaith.GetName|l]ий#! символ, [Artifact.GetOwner.GetFaith.ReligiousSymbol], выгравирован на печатке из [Artifact.GetFeatureText( 'decoration_material_wire' )]"
+ feature_ring_adornment_filigree:0 "украшен тонкой филигранью"
+ feature_ring_adornment_motto:0 "окружена девизом дома [Artifact.GetOwner.GetHouse.GetBaseNameNoTooltip]: «#EMP [Artifact.GetOwner.GetHouse.GetMotto]#!»"
+ feature_ring_adornment_religious:0 "окружена цитатами из #L [Artifact.GetOwner.GetFaith.GetName|l]их#! священных текстов"
+ feature_ring_adornment_gems:0 "с [Artifact.GetFeatureText( 'decoration_material_gem' )] в виде небольших кусочков"
+ feature_ring_adornment_runes:0 "в окружении кольца из [Artifact.GetFeatureText( 'decoration_material_wire' )] с выгравированными рунами"
+
  ## fund_inspiration.6001-6006 trinkets from your adventurer
- morin_khuur_ornament_name:0 "Орнамент Кхаласарской лошади" #AGOT Changed
- morin_khuur_ornament_description:1 "Голова лошади, вырезанная из кости лошади, обычно устанавливается на гриф. [owner.GetTitledFirstNameNoTooltip] [Select_CString(owner.IsFemale, 'получила', 'получил' )] его из далеких земель, которые [Select_CString(inspiration_owner.IsFemale, 'посещала', 'посещал' )] [inspiration_owner.GetTitledFirstNameNoTooltip]." #AGOT Changed
+ #AGOT Modified
+ morin_khuur_ornament_name:0 "Орнамент лошади кхаласара"
+ #AGOT Modified
+ morin_khuur_ornament_description:1 "Голова лошади, вырезанная из кости лошади, обычно устанавливается на гриф. [owner.GetTitledFirstNameNoTooltip] [Select_CString(owner.IsFemale, 'получила', 'получил' )] его из далеких земель, которые [Select_CString(inspiration_owner.IsFemale, 'посещала', 'посещал' )] [inspiration_owner.GetTitledFirstNameNoTooltip]."
  animal_ring_name:0 "Безвкусное кольцо с тигром"
  animal_ring_description:1 "Украшенное самоцветами и настолько цветастое, что вы скорее ослепите им своих придворных, а не поразите их чувством стиля. [owner.GetTitledFirstNameNoTooltip] [Select_CString(owner.IsFemale, 'получила', 'получил' )] его из далеких земель, которые [Select_CString(inspiration_owner.IsFemale, 'посетила', 'посетил' )] [inspiration_owner.GetTitledFirstNameNoTooltip] в ходе своих приключений."
  ostrich_shell_necklace_name:0 "Ожерелье из скорлупы страусиных яиц"
  ostrich_shell_necklace_description:1 "Хрупкое украшение безупречно-белого цвета. [owner.GetTitledFirstNameNoTooltip] [Select_CString(owner.IsFemale, 'получила', 'получил' )] его из далеких земель, которые [Select_CString(inspiration_owner.IsFemale, 'посещала', 'посещал' )] [inspiration_owner.GetTitledFirstNameNoTooltip]."
- pilgrimage_figurine_name:0 "Костяная фигура" #AGOT Changed
- pilgrimage_figurine_description:1 "Фигура древнего гискарского воина, который отстоял право Армении исповедовать христианство в Аварайрской битве в 451 году. Его шлем украшен вставками из бронзы. [owner.GetTitledFirstNameNoTooltip] [Select_CString(owner.IsFemale, 'получила', 'получил' )] эту фигуру из далеких земель, которые [Select_CString(inspiration_owner.IsFemale, 'посещала', 'посещал' )] [inspiration_owner.GetTitledFirstNameNoTooltip]." #AGOT Changed
- saint_margaret_fingernails_name:0 "Ногти Творца узоров" #AGOT Changed
- saint_margaret_fingernails_description:1 "Лабиринт Творца узоров — это лабиринт в Браавосе, который нужно пройти, чтобы обрести мудрость. Предположительно, эти старые отвратительные обрезки ногтей принадлежали блестящему уму, стоящему за этим лабиринтом. [owner.GetTitledFirstNameNoTooltip] [Select_CString(owner.IsFemale, 'получила', 'получил' )] эту реликвию из далеких земель, которые [Select_CString(inspiration_owner.IsFemale, 'посетила', 'посетил' )] [inspiration_owner.GetTitledFirstNameNoTooltip] в ходе своих приключений." #AGOT Changed
+ #AGOT Modified
+ pilgrimage_figurine_name:0 "Костяная фигура"
+ #AGOT Modified
+ pilgrimage_figurine_description:1 "Фигура древнего гискарского воина. Его шлем украшен вставками из бронзы. [owner.GetTitledFirstNameNoTooltip] [Select_CString(owner.IsFemale, 'получила', 'получил' )] эту фигуру из далеких земель, которые [Select_CString(inspiration_owner.IsFemale, 'посещала', 'посещал' )] [inspiration_owner.GetTitledFirstNameNoTooltip]."
+ #AGOT Modified
+ saint_margaret_fingernails_name:0 "Ногти Творца узоров"
+ #AGOT Modified
+ saint_margaret_fingernails_description:1 "Лабиринт Творца узоров — это лабиринт в Браавосе, который нужно пройти, чтобы обрести мудрость. Предположительно, эти старые отвратительные обрезки ногтей принадлежали блестящему уму, стоящему за этим лабиринтом. [owner.GetTitledFirstNameNoTooltip] [Select_CString(owner.IsFemale, 'получила', 'получил' )] эту реликвию из далеких земель, которые [Select_CString(inspiration_owner.IsFemale, 'посетила', 'посетил' )] [inspiration_owner.GetTitledFirstNameNoTooltip] в ходе своих приключений."
  seahorse_brooch_name:0 "Золотая брошь с морским коньком"
  seahorse_brooch_description:1 "Брошь с изящным витым орнаментом под изображением коня с крыльями и рыбьим хвостом. [owner.GetTitledFirstNameNoTooltip] [Select_CString(owner.IsFemale, 'получила', 'получил' )] ее из далеких земель, которые [Select_CString(inspiration_owner.IsFemale, 'посещала', 'посещал' )] [inspiration_owner.GetTitledFirstNameNoTooltip]."
-
 
  #fund_inspiration.6500- trinkets from your adventurer
  leopard_hat_name:0 "Леопардовый шлем"
  leopard_hat_description:0 "Головной убор из головы леопарда, которого [Select_CString(inspiration_owner.IsFemale, 'сразила', 'сразил' )] [inspiration_owner.GetTitledFirstName]."
- kurgan_ornament_name:0 "Фигура пантеры" #AGOT Changed
- kurgan_ornament_description:0 "Каменная фигура, которую [inspiration_owner.GetTitledFirstName] [Select_CString(inspiration_owner.IsFemale, 'добыла', 'добыл' )] в кургане." #AGOT Changed
- kurgan_saddle_name:0 "Седло из кургана" #AGOT Changed
- kurgan_saddle_description:1 "Седло, которое [inspiration_owner.GetTitledFirstName] [Select_CString(inspiration_owner.IsFemale, 'добыла', 'добыл' )] в древнем кургане. Ему более тысячи лет, но оно хорошо сохранилось в гробнице без доступа воздуха, в окружении дюжин мумифицированных лошадей. Возможно, так мы сможем понять искусство древних всадников." #AGOT Changed
+ #AGOT Modified
+ kurgan_ornament_name:0 "Фигура пантеры"
+ #AGOT Modified
+ kurgan_ornament_description:0 "Каменная фигура, которую [inspiration_owner.GetTitledFirstName] [Select_CString(inspiration_owner.IsFemale, 'добыла', 'добыл' )] в кургане."
+ #AGOT Modified
+ kurgan_saddle_name:0 "Седло из кургана"
+ #AGOT Modified
+ kurgan_saddle_description:1 "Седло, которое [inspiration_owner.GetTitledFirstName] [Select_CString(inspiration_owner.IsFemale, 'добыла', 'добыл' )] в древнем кургане. Ему более тысячи лет, но оно хорошо сохранилось в гробнице без доступа воздуха, в окружении дюжин мумифицированных лошадей. Возможно, так мы сможем понять искусство древних всадников."
  naked_tapestry_name:0 "Гобелен с наготой"
  naked_tapestry_description:0 "Здесь [Select_CString(inspiration_owner.IsFemale, 'изображена', 'изображен' )] [inspiration_owner.GetTitledFirstName] без одежды посреди пустынного оазиса, [Select_CString(inspiration_owner.IsFemale, 'обмахивающаяся', 'обмахивающийся' )] пальмовым листом в окружении сверкающих капель воды."
 
@@ -778,14 +830,18 @@
  feature_blade_wrought_iron:0 "кованого железа"
  feature_blade_folded_iron:0 "сфальцованного железа"
  feature_blade_steel:0 "стали"
+ #AGOT Modified
  feature_blade_wootz_steel:0 "итийской стали"
+ #AGOT Modified
  feature_blade_bulat_steel:0 "квохорской стали"
+ #AGOT Modified
  feature_blade_damascus_steel:0 "валирийской стали"
 
  ## Character Modifiers made to artifacts ##
 
  # From court_ongoing_1021
  artifact_necklace:1 "Украшение"
+ artifact_necklace_pedestal:0 "$artifact_necklace$"
  artifact_necklace_name:1 "Ожерелье из [newly_created_artifact.GetFeatureText( 'decoration_material_wire' )] и [newly_created_artifact.GetFeatureText( 'decoration_material_gem' )]"
  artifact_necklace_description:1 "[SCOPE.Custom('ArtifactArticleWealth')]ое, но изящное ожерелье [SCOPE.Custom('ArtifactQuality')] качества. Выковано из [newly_created_artifact.GetFeatureText( 'decoration_material_wire' )] и украшено великолепным кулоном из [newly_created_artifact.GetFeatureText( 'decoration_material_gem' )]."
  artifact_pressed_flower_name:1 "[SCOPE.Custom('ArtifactFlowerSpecies')|U]"
@@ -808,7 +864,7 @@
 
 ## christian_saint_bone pilgrim reward
  christian_saint_bone_name:0 "[saint_bone_owner.Custom('RandomSaintBone')|U] [saint_bone_owner.Custom('RandomSaintNamePossessive')]"
- christian_saint_bone_description:0 "Знаменитые останки [saint_bone_owner.GetFaith.GetReligion.GetNameNoTooltip|l]ого предка, которые [saint_bone_owner.GetNameNoTooltip] [Select_CString(saint_bone_owner.IsFemale, 'добыла', 'добыл' )] во время паломничества. [destination_title.GetNameNoTierNoTooltip] — святое место, и этот дар [saint_bone_owner.GetFaith.GetAdherentNamePluralNoTooltip|l] считают символом удачи и благочестия."
+ christian_saint_bone_description:0 "Знаменитые останки [saint_bone_owner.GetFaith.GetReligion.GetNameNoTooltip|l]ого предка, которые [saint_bone_owner.GetNameNoTooltip] [Select_CString(saint_bone_owner.IsFemale, 'добыла', 'добыл' )] во время паломничества. [christian_saint_bone_scope.MakeScope.Var('holy_site').GetProvince.GetCounty.GetTitle.GetNameNoTierNoTooltip] — святое место, и этот дар [saint_bone_owner.GetFaith.GetAdherentNamePluralNoTooltip|l] считают символом удачи и благочестия."
 # bones
  bone_type_knuckle:0 "фаланга пальца"
  bone_type_shin:0 "Шин"
@@ -827,20 +883,29 @@
  bone_type_tibia:0 "берцовая кость"
  bone_type_ankle:0 "лодыжка"
 
- # yearly.4081 AGOT MODIFIED
+ # yearly.4081
  translated_arabic_book_de_materia_medica_name:0 "#italic О лекарственных веществах#!"
- translated_arabic_book_de_materia_medica_desc:0 "Иллюстрированный список пятитомника Мейгора Нагариса о применении различных растений в медицине, написанный в древней Валирии $translated_arabic_book_shared_desc$"
+ #AGOT Modified
+ translated_arabic_book_de_materia_medica_desc:0 "Иллюстрированный список пятитомника Мейгора Ногариса о применении различных растений в медицине, написанный в древней Валирии $translated_arabic_book_shared_desc$"
  translated_arabic_book_on_ascensions_name:0 "#italic О восхождениях#!"
+ #AGOT Modified
  translated_arabic_book_on_ascensions_desc:0 "Список трактата Геймона Белериса о движении звёзд по небу, написанный в древней Валирии $translated_arabic_book_shared_desc$"
  translated_arabic_book_elements_name:0 "#italic Начала#!"
- translated_arabic_book_elements_desc:0 "Список трактата Нариса Тогариена в тринадцати томах о геометрии, логике и их доказательствах, написанный в древней Валирии $translated_arabic_book_shared_desc$"
+ #AGOT Modified
+ translated_arabic_book_elements_desc:0 "Список трактата Нейриса Тогариена в тринадцати томах о геометрии, логике и их доказательствах, написанный в древней Валирии $translated_arabic_book_shared_desc$"
  translated_arabic_book_on_the_soul_name:0 "#italic О душе#!"
- translated_arabic_book_on_the_soul_desc:0 "Список древнего психологического трактата Тэмиона Араэлиса в трёх томах о природе души и ее наклонностей $translated_arabic_book_shared_desc$"
+ #AGOT Modified
+ translated_arabic_book_on_the_soul_desc:0 "Список древнего психологического трактата Теймиона Арейлиса в трёх томах о природе души и ее наклонностей $translated_arabic_book_shared_desc$"
+ #AGOT Modified
  translated_arabic_book_thucydides_name:0 "#italic Огонь на траве#!"
- translated_arabic_book_thucydides_desc:0 "Список древнего сочинения Террио Эрастеса о жизни Кхала Дако, Дракона Севера $translated_arabic_book_shared_desc$"
+ #AGOT Modified
+ translated_arabic_book_thucydides_desc:0 "Список древнего сочинения Террио Эрастеса о жизни кхала Дхако, Дракона Севера $translated_arabic_book_shared_desc$"
+ #AGOT Modified
  translated_arabic_book_plutarch_name:0 "#italic Жизнь триарха Беличо#!"
+ #AGOT Modified
  translated_arabic_book_plutarch_desc:0 "Копия одного из томов о жизни триарха Беличо, из Волантиса $translated_arabic_book_shared_desc$"
- translated_arabic_book_shared_desc:0 "- перевод на Общий язык с оригинального валирийского для [ROOT.Char.GetLadyLord] [ROOT.Char.GetHouse.GetNameNoTooltip]."
+ #AGOT Modified
+ translated_arabic_book_shared_desc:0 "- перевод на общий язык с оригинального валирийского для [ROOT.Char.GetLadyLord] [ROOT.Char.GetHouse.GetNameNoTooltip]."
  
  # hold_court.4300
  dress_me_artifact_desc:0 "Изысканное одеяние от лучших портных, которое [ROOT.Char.GetTitledFirstNameNoTooltipRegnal] [Select_CString(ROOT.Char.IsFemale, 'заказала', 'заказал' )], чтобы впечатлить двор своим великолепием."
@@ -856,6 +921,30 @@
 
  #bp1_yearly.7200
  perfume_bottle_description:0 "[ROOT.Char.GetFirstNameNoTooltip] [Select_CString(ROOT.Char.IsFemale, 'собрала', 'собрал' )] ингредиенты для этого благовония."
+
+ # travel_events.4005
+ maritime_trading_handbook:0 "Справочник морской торговли"
+ maritime_trading_handbook_description:0 "Умело написанный справочник о природе [merchant_character_scope.GetCulture.GetCollectiveNoun|l]ой морской торговли."
+ own_holy_text_mid:0 "[ROOT.Char.GetFaith.ReligiousText|U] с самоцветами"
+ own_holy_text_mid_description:0 "[ROOT.Char.GetFaith.ReligiousText|U] с отделкой из драгоценных камней."
+ merchants_holy_text_mid:0 "[merchant_character_scope.GetFaith.ReligiousText|U] с самоцветами"
+ merchants_holy_text_mid_description:0 "[merchant_character_scope.GetFaith.ReligiousText|U] с отделкой из драгоценных камней."
+ merchants_sword:0 "#L [merchant_character_scope.GetCulture.GetCollectiveNoun]ий#! меч"
+ merchants_sword_description:0 "Отличный клинок, приобретенный у странствующего [merchant_character_scope.GetCulture.GetCollectiveNoun|l]ого торговца."
+ jewelled_slippers:0 "Драгоценные туфли"
+ jewelled_slippers_description:0 "Великолепная пара туфель, инкрустированных драгоценностями. Надевая их, вы чувствуете, что всегда найдете дорогу домой."
+ witchcraft_book:0 "Книга травничества"
+ witchcraft_book_description:0 "Эта книга когда-то принадлежала ведьме из владения [ROOT.Char.GetCurrentLocation.GetTitle.GetNameNoTier]. Ее страницы полны рецептов травяных настоев, помогающих регулировать баланс гуморов."
+ witchy_holy_text_mid:0 "[witch_scope.GetFaith.ReligiousText|U] с самоцветами"
+ witchy_holy_text_mid_description:0 "[witch_scope.GetFaith.ReligiousText|U] с отделкой из драгоценных камней."
+ immaculate_witchy_bones:0 "Сохранные кости ведьмы"
+ immaculate_witchy_bones_description:0 "Куча костей, некогда принадлежавших ведьме из владения [ROOT.Char.GetCurrentLocation.GetTitle.GetNameNoTier]. Даже после того, как [witch_scope.GetHerHis|l] сожгли, кости остаются в идеальном состоянии."
+ mysterious_lamp:0 "Таинственная лампа"
+ mysterious_lamp_description:0 "Блестящая золотая лампа, украшенная самоцветами. Вы ощущаете присутствие могущественных космических сил, когда держите ее в руках."
+ mysterious_puzzle:0 "Таинственная головоломка"
+ mysterious_puzzle_description:0 "Причудливая золотая головоломка, покрытая надписями на иностранном языке. По слухам, она когда-то принадлежала выдающемуся знатоку игр."
+ lunchbox:0 "Консервирующий ящик"
+ lunchbox_description:0 "Герметичный ящик, который, судя по всему, продлевает срок годности помещенной внутрь пищи."
 
  #Artifact Titles
  artifact_title_valor:0 "доблести"
@@ -995,10 +1084,14 @@
  artifact_dragvandil_description:0 "Говорят, этот меч некогда принадлежал Эгилю Скаллагримссону, фермеру, поэту и воину, известному по Саге об Эгиле."
  artifact_szczerbiec_name:0 "Щербец"
  artifact_szczerbiec_description:1 "Говорят, что этот меч королю Болеславу Храброму вручил ангел. Этим же мечом был нанесен удар по Золотым воротам Киева. Этот меч обладает большим символическим значением."
- artifact_chinese_caligraphy_name:1 "Итийская каллиграфия" #AGOT Changed
- artifact_chinese_caligraphy_description:0 "Тонкий лист бумаги, покрытый странными, но прекрасными и четкими символами. Говорят, его привезли из далеких земель И-Ти на востоке." #AGOT Changed
- artifact_ruyi_name:0 "Нефритовый скипетр" #AGOT Changed
- artifact_ruyi_description:0 "Небольшой нефритовый скипетр, покрытый итийскими символами и украшениями." #AGOT Changed
+ #AGOT Modified
+ artifact_chinese_caligraphy_name:1 "И-тийская каллиграфия"
+ #AGOT Modified
+ artifact_chinese_caligraphy_description:0 "Тонкий лист бумаги, покрытый странными, но прекрасными и четкими символами. Говорят, его привезли из далеких земель И-Ти на востоке."
+ #AGOT Modified
+ artifact_ruyi_name:0 "Нефритовый скипетр"
+ #AGOT Modified
+ artifact_ruyi_description:0 "Небольшой нефритовый скипетр, покрытый и-тийскими символами и украшениями."
  turquoise_throne_name:0 "Бирюзовый трон"
  turquoise_throne_description:0 "Драгоценный трон, изготовленный по образу и подобию легендарного трона персидских царей из Шахнаме. Основа из эбенового дерева покрыта немыслимым количеством бирюзы, а также золотыми пластинами, глазированными бирюзой. Подобной красоты могли достичь лишь наиболее выдающиеся ремесленники."
  peacock_throne_name:0 "Павлиний трон"
@@ -1030,7 +1123,8 @@
  xylospongium:0 "Губка на палке"
  xylospongium.desc:1 "Происхождение и назначение неизвестны, но она источает слабый неприятный запах."
  #Common
- st_davids_morsel:1 "Кусочек Бейлора Благословенного" #AGOT Changed
+ #AGOT Modified
+ st_davids_morsel:1 "Мощи Бейлора Благословенного"
  st_davids_morsel.desc:0 "Похоже на кусок вяленого мяса. Возраст и происхождение неизвестны."
  platypus_figurine:0 "Фигурка животного"
  platypus_figurine.desc:0 "У этого животного широкий клюв, блестящий мех и плавники. Как необычно."
@@ -1041,17 +1135,22 @@
  stewardship_general.2001.artifact.potsherd_holy.desc:0 "Древний черепок. Предположительно, он происходит из священного места [trinket_holy_site.GetNameNoTierNoTooltip]."
  small_bell_beaker:0 "Малый колоколовидный кубок"
  small_bell_beaker.desc:0 "Колоколовидный кубок с замысловатым узором."
- serpentine_budai:0 "Нефритовый лев" #AGOT Changed
- serpentine_budai.desc:0 "Небольшой образ свирепого, рычащего восточного льва." #AGOT Changed
+ #AGOT Modified
+ serpentine_budai:0 "Нефритовый лев"
+ #AGOT Modified
+ serpentine_budai.desc:0 "Небольшой образ свирепого, рычащего восточного льва."
  #Uncommon
  mythical_creature_horn:0 "Рог, что носит [ROOT.Char.Custom('HornedMythicalCreature')|U]"
  mythical_creature_horn.desc:0 "Кусок рога странной формы. Предположительно, такими рогами владеет [ROOT.Char.Custom('HornedMythicalCreature')]."
  mythical_creature_figurine:0 "[ROOT.Char.Custom('TrinketLookAdjective')|U]ая фигурка — [ROOT.Char.Custom('RegionalMythicalCreature')]"
  mythical_creature_figurine.desc:1 "Эта фигурка передает образ мифологического существа. [ROOT.Char.Custom('RegionalMythicalCreature')] выглядит [ROOT.Char.Custom('TrinketLookAdverbFollowup')], с небольшими драгоценными камнями, которыми славится [target_location.GetNameNoTooltip]."
- st_davids_taper:1 "Свеча старухи" #AGOT Changed
- st_davids_taper.desc:1 "Похоже, кто-то пытался жечь ее с обеих сторон."
- jira_stick:0 "Мраморный скипетр Либера" #AGOT Changed
- jira_stick.desc:0 "Древний скипетр с изображением паука и змея, бьющихся друг с другом." #AGOT Changed
+ #AGOT Modified
+ st_davids_taper:1 "Свеча Старицы"
+ st_davids_taper.desc:1 "Похоже, кто-то пытался поджечь её с обеих сторон."
+ #AGOT Modified
+ jira_stick:0 "Мраморный скипетр Либера"
+ #AGOT Modified
+ jira_stick.desc:0 "Древний скипетр с изображением паука и змея, бьющихся друг с другом."
  lucky_coin:0 "Счастливая [ROOT.Char.GetCulture.GetCollectiveNounNoTooltip|l]ая монета"
  lucky_coin.desc:1 "[ROOT.Char.GetCulture.GetNameNoTooltip]ая монета, такие чеканит [target_location.GetNameNoTooltip].\n\nНекогда рифленая поверхность стала гладкой из-за частых касаний."
  lavender_jade_pendant:0 "Лавандовый нефритовый талисман"
@@ -1067,14 +1166,17 @@
  easteregg_artifact_elisabeth_plush_description:0 "Лисье чучело Елизаветы — любимая игрушка, сопровождавшая свою владелицу на протяжении почти всей жизни. Часто видели, как Елизавета общалась с лисой, составляя сложные шифры для своего нанимателя. Чучело успокаивает и вдохновляет владельца уподобиться в хитроумии лисе."
  easteregg_artifact_nicks_weapon:0 "Согласие"
  easteregg_artifact_nicks_weapon_description:0 "Поистине великолепное оружие, при виде которого любой лишится чувств. Небольшая надпись на рукояти гласит: «Когда уловки бессильны»."
- easteregg_artifact_chad_book:0 "«На краю света» с пометками" #AGOT Changed
- easteregg_artifact_chad_book_description:0 "Ценимая и украшенная копия «На краю света» мейстера Балдера со множеством пометок, как глупых, так и стоящих внимания." #AGOT Changed
+ #AGOT Modified
+ easteregg_artifact_chad_book:0 "«На краю света» с пометками"
+ #AGOT Modified
+ easteregg_artifact_chad_book_description:0 "Ценимая и украшенная копия «На краю света» мейстера Балдера со множеством пометок, как глупых, так и стоящих внимания."
  easteregg_artifact_chad_dagger:0 "Кинжал"
  easteregg_artifact_chad_dagger_description:0 "Блеск клинка померк от потеков засохшей крови, но ему все мало."
  easteregg_artifact_veronica_book:0 "Кольца властелина"
- easteregg_artifact_veronica_book_description:0 "Слабо завуалированная отсылка в виде книги. Написана на языке, давно потерянном за морем." #AGOT Changed
+ #AGOT Modified
+ easteregg_artifact_veronica_book_description:0 "Слабо завуалированная отсылка в виде книги. Написана на языке, давно потерянном за морем."
 
- easteregg_artifact_jason_sword:0 "Меч Мышонка" #AGOT Changed
+ easteregg_artifact_jason_sword:0 "Меч Святого Мартина"
  easteregg_artifact_jason_sword_description:0 "Вдоль дола клинка кто-то небрежно нацарапал: «Я то, что есть»."
 
  child_toy_template_tt:0 "Только [Concept( 'child', 'ребенок' )|E] может использовать этот [Concept( 'inventory_artifact', 'личный артефакт' )|E]"
@@ -1082,3 +1184,88 @@
  # Blessed Junk
  fp2_blessed_junk:0 "[ROOT.Char.Custom('TrinketLookAdjective')|U]ая фигурка — $blessed_artifact_modifier$"
  fp2_blessed_junk_desc:0 "[ROOT.Char.Custom('TrinketLookAdverbFollowup')|U] [ROOT.Char.Custom('TrinketLookAdjective')|l]ый, но в остальном бесполезный артефакт. $blessed_artifact_modifier_desc$."
+ 
+ local_artisan_modifier:0 "Местный ремесленник"
+ local_artisan_modifier_desc:0 "Этот персонаж — местный ремесленник, которого правитель убедил поступить к нему на службу.\n#weak Результаты его [Concept( 'inspirations', 'вдохновения' )|E] будут более низкого качества.#!"
+
+ # EP2
+ # TOURNAMENT
+ artifact_pas_darmes_token:0 "Сувенир падарма"
+ artifact_pas_darmes_token_name:0 "Сувенир персонажа [owner.GetFirstNameNoTooltip]"
+ artifact_pas_darmes_token_description:0 "[owner.Custom('GetTournamentFavor')|U] из [newly_created_artifact.GetFeatureText( 'generic_material_cloth' )] [SCOPE.Custom('ArtifactQuality')] качества с узором — [newly_created_artifact.GetFeatureText( 'decoration_pattern' )]. Предыдущий владелец — [owner.GetFullName]. [winner.GetFullName] [Select_CString(winner.IsFemale, 'получила', 'получил' )] эту вещицу за победу в падарме во владении [location.GetName]."
+ artifact_pas_darmes_spurs:0 "Трофей падарма"
+ artifact_pas_darmes_spurs_name:0 "Шпоры персонажа [owner.GetFirstNameNoTooltip]"
+ artifact_pas_darmes_spurs_description:0 "Пара шпор из [newly_created_artifact.GetFeatureText( 'generic_material_metal' )] [SCOPE.Custom('ArtifactQuality')] качества, раньше их [Select_CString(owner.IsFemale, 'носила', 'носил' )] [owner.GetFullName], но [winner.GetFullName] [Select_CString(winner.IsFemale, 'получила', 'получил' )] их, победив в падарме во владении [location.GetName]."
+ artifact_tournament_favor:0 "Турнирная благосклонность"
+ artifact_tournament_favor_name:0 "Знак расположения [Select_CString(owner.IsFemale, 'госпожи', 'господина' )]"
+ artifact_tournament_favor_description:0 "[owner.Custom('GetTournamentFavor')|U] из [newly_created_artifact.GetFeatureText( 'generic_material_cloth' )] [SCOPE.Custom('ArtifactQuality')] качества с узором — [newly_created_artifact.GetFeatureText( 'decoration_pattern' )]. [recipient.GetFullName] [Select_CString(recipient.IsFemale, 'получила', 'получил' )] эту вещицу за от [Select_CString(owner.IsFemale, 'поклонницы', 'поклонника' )]."
+ # BOWS
+ artifact_longbow:0 "Длинный лук"
+ artifact_longbow_name:0 "Длинный лук [owner.GetCulture.GetCollectiveNounNoTooltip|l]ого народа"
+ artifact_longbow_description:1 "Длинный лук [SCOPE.Custom('ArtifactQuality')] качества, материалом для которого служит [newly_created_artifact.GetFeatureText( 'longbow_wood' )] — упругая древесина и прочная сердцевина отлично сочетаются с тетивой из [newly_created_artifact.GetFeatureText( 'bow_string' )]. Этот лук больше человеческого роста и обладает на редкость большой силой натяжения."
+ artifact_composite:0 "Композитный лук"
+ artifact_composite_name:0 "Композитный лук [SCOPE.Custom('ArtifactPrefixGeneric')]"
+ artifact_composite_description:0 "Композитный лук из [newly_created_artifact.GetFeatureText( 'composite_wood' )] [SCOPE.Custom('ArtifactQuality')] качества, усиленный рогом и сухожилиями [newly_created_artifact.GetFeatureText( 'composite_horn' )] и с тетивой из [newly_created_artifact.GetFeatureText( 'bow_string' )]. Благодаря недлинным плечам, этот лук идеально подходит для стрельбы верхом."
+ artifact_bow:0 "Лук"
+ artifact_bow_name:0 "Лук [SCOPE.Custom('ArtifactPrefixGeneric')]"
+ artifact_bow_description:1 "Лук из [newly_created_artifact.GetFeatureText( 'bow_wood' )] [SCOPE.Custom('ArtifactQuality')] качества с тетивой из [newly_created_artifact.GetFeatureText( 'bow_string' )]. Годится как для охоты, так и для войны."
+ artifact_crossbow:0 "Арбалет"
+ artifact_crossbow_name:0 "$artifact_name_prefix$ арбалет"
+ artifact_crossbow_description:0 "Арбалет [SCOPE.Custom('ArtifactQuality')] качества, материалом для которого служит [newly_created_artifact.GetFeatureText( 'bow_wood' )], с тетивой из крепких жил. Очень мощное оружие, которое можно носить на взводе, но перезарядка занимает много времени."
+ feature_longbow_wood_elm:0 "$wood_elm$"
+ feature_longbow_wood_yew:0 "$wood_yew$"
+ feature_composite_wood_bamboo:1 "$feature_bow_wood_bamboo$"
+ feature_composite_wood_maple:0 "$wood_maple$"
+ feature_composite_wood_mulberry:0 "тутовника"
+ feature_composite_horn_antelope:1 "$animal_type_antelope_plural$"
+ feature_composite_horn_bison:1 "$animal_type_bison_plural$"
+ feature_composite_horn_deer:1 "$animal_type_buck_plural$"
+ feature_composite_horn_gazelle:0 "$animal_type_gazelle_plural$"
+ feature_composite_horn_aurochs:0 "$animal_type_aurochs_plural$"
+ feature_bow_wood_ash:0 "ясеня"
+ feature_bow_wood_bamboo:0 "бамбука"
+ feature_bow_wood_cherry:0 "вишни"
+ feature_bow_wood_dogwood:0 "кизила"
+ feature_bow_wood_elm:0 "вяза"
+ feature_bow_wood_hazel:0 "ореха"
+ feature_bow_wood_hickory:0 "пекана"
+ feature_bow_wood_maple:0 "клена"
+ feature_bow_wood_mulberry:0 "тутовника"
+ feature_bow_wood_palm:0 "пальмы"
+ feature_bow_wood_oak:0 "дуба"
+ feature_bow_wood_walnut:0 "ореха"
+ feature_bow_wood_yew:0 "тиса"
+ feature_bow_string_hemp:0 "пеньки"
+ feature_bow_string_horse_hair:0 "лошадиного волоса"
+ feature_bow_string_linen:0 "льна"
+ feature_bow_string_rawhide:0 "сыромятной кожи"
+ feature_bow_string_silk:0 "шелка"
+ feature_bow_string_sinew:0 "животных жил"
+
+ tournament_favor_glove:0 "перчатка"
+ tournament_favor_sleeve:0 "муфта"
+ tournament_favor_scarf:0 "шарф"
+
+ blooded_blade:0 "Кровавый клинок"
+ blooded_blade_description:0 "Вихрящийся, изломанный узор на оружии намекает на относительную хрупкость клинка и на его происхождение: [ROOT.Char.GetTitledFirstName] [Select_CString(ROOT.Char.IsFemale, 'дала', 'дал' )] свою кровь, чтобы закалить его."
+ sullied_blooded_blade:0 "Запятнанный клинок"
+ sullied_blooded_blade_description:0 "Вихрящийся, изломанный узор на оружии намекает на довольно низкое качество клинка и на его происхождение: [ROOT.Char.GetTitledFirstName] [Select_CString(ROOT.Char.IsFemale, 'дала', 'дал' )] свою кровь, чтобы закалить его."
+
+ fake_papal_tiara_name:0 "Поддельная папская тиара"
+ fake_papal_tiara_description:0 "Копия папской митры, хотя при близком рассмотрении можно найти отличия. Но все равно забавно, не так ли?"
+
+ artisanal_sword:0 "Меч, которым владеет [ROOT.Char.GetFirstName]"
+ artisanal_sword_description:0 "Меч превосходной ковки с украшенным самоцветами яблоком и красивой, но надежной рукоятью. Покрытый узорами клинок идеально сбалансирован, его кончик сужается до тончайшего острия."
+ feature_generic_material_metal_gold:0 "золота"
+ feature_generic_material_metal_silver:0 "серебра"
+ feature_generic_material_metal_electrum:0 "электрума"
+ feature_generic_material_metal_iron:0 "железа"
+ feature_generic_material_metal_pewter:0 "олова"
+ feature_generic_material_metal_brass:0 "латуни"
+ feature_generic_material_metal_steel:0 "стали"
+ feature_generic_material_metal_bronze:0 "бронзы"
+ feature_generic_material_metal_copper:0 "меди"
+ feature_generic_material_earthware_clay:0 "$earthware_clay$"
+ feature_generic_material_earthware_terracotta:0 "$earthware_terracotta$"
+ feature_generic_material_earthware_stone:0 "$earthware_stone$"
+ feature_generic_material_earthware_porcelain:0 "$earthware_porcelain$"
