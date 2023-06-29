@@ -211,20 +211,20 @@ l_russian:
 
 
  #AGOT Modified
- fp2_yearly.1006.t:0 "Пентосийский сыр?"
+ fp2_yearly.1006.t:0 "Пентошийский сыр?"
  #AGOT Modified
- fp2_yearly.1006.desc:0 "Я останавливаюсь у прилавка, где продаются всякие нехитрые яства. [Select_CString(cheese_trader.IsFemale, 'Торговка', 'Торговец' )], [cheese_trader.GetName], показывает мне разные товары, а затем достает из-за прилавка резную деревянную коробочку.\n\n«Специально для вас, мой сюзерен, лучший сыр в наших землях». [cheese_trader.GetSheHe|U] пихает коробочку мне в руки и заговорщически шепчет мне на ухо: «Его сделали викинги-сыроделы тут же, в Пентосе».\n\nХоть это замечание меня и озадачило, но сыр оказался невероятно хорош."
- fp2_yearly.1006.a:0 "За сыр спасибо, но про пентосийцев ты заливаешь."
+ fp2_yearly.1006.desc:0 "Я останавливаюсь у прилавка, где продаются всякие нехитрые яства. [Select_CString(cheese_trader.IsFemale, 'Торговка', 'Торговец' )], [cheese_trader.GetName], показывает мне разные товары, а затем достает из-за прилавка резную деревянную коробочку.\n\n«Специально для вас, мой сюзерен, лучший сыр в наших землях». [cheese_trader.GetSheHe|U] пихает коробочку мне в руки и заговорщически шепчет мне на ухо: «Его сделали сыроделы тут же, в Пентосе».\n\nХоть это замечание меня и озадачило, но сыр оказался невероятно хорош."
+ fp2_yearly.1006.a:0 "За сыр спасибо, но про пентошийцев ты заливаешь."
  #AGOT Modified
- fp2_yearly.1006.b:0 "Надо бы найти этих «пентосийцев-сыроделов»..."
+ fp2_yearly.1006.b:0 "Надо бы найти этих «пентошийцев-сыроделов»..."
  #AGOT Modified
- fp2.1006.b.tt:0 "Вы отправляете своих людей найти этих «пентосийцев-сыроделов»"
+ fp2.1006.b.tt:0 "Вы отправляете своих людей найти этих «пентошийцев-сыроделов»"
  fp2_yearly.1006.c:0 "Что за чушь."
 
 
  fp2_yearly.1007.t:0 "$fp2_yearly.1006.t$"
  #AGOT Modified
- fp2_yearly.1007.desc:0 "Ко мне приводят [Select_CString(fake_cheese_viking.IsFemale, 'тщедушную женщину', 'тщедушного мужчину' )]. Но с виду [Select_CString(fake_cheese_viking.IsFemale, 'эта', 'этот' )] замухрышка и на сыродела-то не [Select_CString(fake_cheese_viking.IsFemale, 'похожа', 'похож' )], а уж тем более на пентосийца.\n\n«Простите меня, не из Пентоса я, — признается [fake_cheese_viking.GetSheHe]. — Я просто так всем рассказываю, чтобы сыр продавать»."
+ fp2_yearly.1007.desc:0 "Ко мне приводят [Select_CString(fake_cheese_viking.IsFemale, 'тщедушную женщину', 'тщедушного мужчину' )]. Но с виду [Select_CString(fake_cheese_viking.IsFemale, 'эта', 'этот' )] замухрышка и на сыродела-то не [Select_CString(fake_cheese_viking.IsFemale, 'похожа', 'похож' )], а уж тем более на пентошийца.\n\n«Простите меня, не из Пентоса я, — признается [fake_cheese_viking.GetSheHe]. — Я просто так всем рассказываю, чтобы сыр продавать»."
  fp2_yearly.1007.a:0 "Ну что ж, зато загадка сыроделов разгадана."
  fp2_yearly.1007.b:0 "Я хочу половину твоих доходов и половину твоего сыра."
 
@@ -233,7 +233,7 @@ l_russian:
 
  fp2_cheese_artifact:0 "Зрелый сыр"
  #AGOT Modified
- fp2_cheese_artifact_desc:0 "Несмотря на слухи, сделали этот сыр не пентосийцы. Но он все равно очень вкусный."
+ fp2_cheese_artifact_desc:0 "Несмотря на слухи, сделали этот сыр не пентошийцы. Но он все равно очень вкусный."
 
 
  fp2_yearly.1008.t:0 "Время есть сыр"
@@ -306,69 +306,165 @@ l_russian:
  fp2_struggle.1001.physician_imprisoned:0 "[great_physician.GetFirstName] в заключении у персонажа [neighboring_ruler.GetName] по лишь им известным причинам"
 
  fp2_struggle.1010.t:0 "Железная душа"
- fp2_struggle.1010.desc:1 "[great_swordsmith.GetWomanMan] По имени [great_swordsmith.GetName] [Select_CString(great_swordsmith.IsFemale, 'прибыла', 'прибыл' )] к моему двору, уверяя, что является [Select_CString(great_swordsmith.IsFemale, 'выдающейся оружейницей', 'выдающимся оружейником' )].\n\n«[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetLadyLord], — говорит [great_swordsmith.GetSheHe], — с древних времен мой род жил во владении [toledo_holding.GetNameNoTierNoTooltip] и ковал мечи. Когда-то мы делали #italic фалькаты#! для армий Карфагена. Ни один металл не сравнится с тем, что добывают в Иберии. И я могу сделать его еще лучше. Я могу изготовить для вас лучшее оружие в мире, но взамен прошу вас назначить меня главой гильдии кузнецов владения [blacksmith_county.GetNameNoTierNoTooltip]. Пусть они наконец поймут, что я лучше них!"
- fp2_struggle.1010.a:1 "Нет, работай с гильдией ради общего блага."
+ #AGOT Modified
+ # fp2_struggle.1010.desc:1 "[great_swordsmith.GetWomanMan] По имени [great_swordsmith.GetName] [Select_CString(great_swordsmith.IsFemale, 'прибыла', 'прибыл' )] к моему двору, уверяя, что является [Select_CString(great_swordsmith.IsFemale, 'выдающейся оружейницей', 'выдающимся оружейником' )].\n\n«[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetLadyLord], — говорит [great_swordsmith.GetSheHe], — с древних времен мой род жил во владении [toledo_holding.GetNameNoTierNoTooltip] и ковал мечи. Когда-то мы делали #italic фалькаты#! для армий Карфагена. Ни один металл не сравнится с тем, что добывают в Иберии. И я могу сделать его еще лучше. Я могу изготовить для вас лучшее оружие в мире, но взамен прошу вас назначить меня главой гильдии кузнецов владения [blacksmith_county.GetNameNoTierNoTooltip]. Пусть они наконец поймут, что я лучше них!"
+ fp2_struggle.1010.desc:1 "[great_swordsmith.GetWomanMan] по имени [great_swordsmith.GetName] [Select_CString(great_swordsmith.IsFemale, 'прибыла', 'прибыл' )] к моему двору, уверяя, что является [Select_CString(great_swordsmith.IsFemale, 'выдающейся оружейницей', 'выдающимся оружейником' )] из тёмного Квохора.\n\n«[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetLadyLord], — говорит [great_swordsmith.GetSheHe], — со времён Старой Валирии мой род жил в городе Чародеев. Когда-то мы делали мечи для Драконьих владык. Лишь валирийская сталь сравнится с оружием, что изготавливают кузнецы Квохора. Я могу изготовить для вас лучшее оружие в мире, но взамен прошу вас назначить меня главным кузнецом владения [blacksmith_county.GetNameNoTierNoTooltip]."
+ #AGOT Modified
+ # fp2_struggle.1010.a:1 "Нет, работай с гильдией ради общего блага."
+ fp2_struggle.1010.a:1 "Нет, работай с местными кузнецами ради общего блага."
  fp2_struggle.1010.b:1 "Какими бы знаниями ты ни [Select_CString(great_swordsmith.IsFemale, 'обладала', 'обладал' )], я вытяну их из тебя..."
  fp2_struggle.1010.c:1 "Гильдия твоя, если сделаешь мечи для моего войска."
- fp2_struggle.1010.d:1 "Сделай мне лучший клинок в Иберии, и гильдия твоя."
- fp2_struggle.1010.e:0 "Я не стану ссориться с гильдией ради твоего тщеславия."
- fp2_struggle.1010.smithgoesaway:1 "[great_swordsmith.GetNameNoTooltip] возглавляет гильдию кузнецов."
+ #AGOT Modified
+ # fp2_struggle.1010.d:1 "Сделай мне лучший клинок в Иберии, и гильдия твоя."
+ fp2_struggle.1010.d:1 "Сделай мне лучший клинок из квохорской стали, и должность твоя."
+ #AGOT Modified
+ # fp2_struggle.1010.e:0 "Я не стану ссориться с гильдией ради твоего тщеславия."
+ fp2_struggle.1010.e:0 "Я не стану ссориться с другими ради твоего тщеславия."
+ #AGOT Modified
+ # fp2_struggle.1010.smithgoesaway:1 "[great_swordsmith.GetNameNoTooltip] возглавляет гильдию кузнецов."
+ fp2_struggle.1010.smithgoesaway:1 "[great_swordsmith.GetNameNoTooltip] возглавляет местных кузнецов."
  fp2_struggle.1010.paranoid_rivals:1 "Увидев, как вы вооружаете солдат, ваши соседи могут забеспокоиться."
  fp2_struggle.1010.smithmakesweapon:1 "[great_swordsmith.GetNameNoTooltip] остается у вас при дворе и изготавливает заказанный вами меч."
  fp2_struggle.1010.swordsmith_imprisoned:0 "[great_swordsmith.GetNameNoTooltip] попадает в темницу и под пытками выдает вам секреты"
  fp2_struggle.1010.compassionate_courtiers:0 "Не все придворные одобрят это"
- toledo_compromise_flavor:0 "Вы пытаетесь найти компромисс, который примут и [great_swordsmith.GetNameNoTooltip], и гильдия."
+ #AGOT Modified
+ # toledo_compromise_flavor:0 "Вы пытаетесь найти компромисс, который примут и [great_swordsmith.GetNameNoTooltip], и гильдия."
+ toledo_compromise_flavor:0 "Вы пытаетесь найти компромисс, который примут и [great_swordsmith.GetNameNoTooltip], и местные кузнецы."
  fp2_struggle.1010.swordsmith_leaves:0 "[great_swordsmith.GetNameNoTooltip] уходит в другой двор."
 
 
  fp2_struggle.1011.t:1 "«Меч владения [blacksmith_county.GetNameNoTierNoTooltip]»"
- fp2_struggle.1011.desc:1 "«Дело сделано, — говорит [great_swordsmith.GetName] на удивление усталым голосом».\n\n«Должно быть, этот клинок мне помогли выковать сами духи предков, ибо это лучший меч, что я [Select_CString(great_swordsmith.IsFemale, 'создала', 'создал' )] в своей в жизни. Ни я, ни другой мастер не сумеют сделать оружие, равное ему, ибо эту тайну я заберу с собой в могилу. Я ухожу, чтобы возглавить гильдию, как мы и договаривались, хоть эта награда почему-то больше не радует мое сердце. Будь что будет. Вы же должны дать мечу имя»."
- fp2_struggle.1011.a:1 "#italic Мартиелло#!, молот."
- fp2_struggle.1011.b:0 "#italic Тиньебра#!, тьма."
- fp2_struggle.1011.c:0 "#italic Вермехо#!, красный."
- fp2_struggle.1011.d:0 "#italic Жаргонса#!, в честь голубого самоцвета."
- fp2_struggle.1011.e:0 "#italic Сухайл#!, великолепный."
- fp2_struggle.1011.f:0 "#italic аль-Батар#!, рассекающий."
- fp2_struggle.1011.g:0 "#italic Казиб#!, крепкий хват."
- fp2_struggle.1011.h:0 "#italic Зумурруд#!, в честь ослепительного изумруда."
- fp2_struggle.1011.i:0 "#italic Орци#!, гром."
- fp2_struggle.1011.j:0 "#italic Гауэко#!, ночной дух."
- fp2_struggle.1011.k:0 "#italic Горри#!, красный."
- fp2_struggle.1011.l:0 "#italic Айстото#!, ножик."
- fp2_struggle.1011.m:0 "#italic Эскремире#!, фехтовальщик."
- fp2_struggle.1011.n:0 "#italic Фолья#!, лист."
- fp2_struggle.1011.o:0 "#italic Проэса#!, доблесть."
- fp2_struggle.1011.p:0 "#italic Требалхар#!, мучитель."
- fp2_struggle.1011.q:0 "#italic Суфакс#!, в честь героя древности."
- fp2_struggle.1011.r:0 "#italic Тумелальт#!, белый."
- fp2_struggle.1011.s:0 "#italic Аюгу#!, ярмо."
+ #AGOT Modified
+ # fp2_struggle.1011.desc:1 "«Дело сделано, — говорит [great_swordsmith.GetName] на удивление усталым голосом».\n\n«Должно быть, этот клинок мне помогли выковать сами духи предков, ибо это лучший меч, что я [Select_CString(great_swordsmith.IsFemale, 'создала', 'создал' )] в своей в жизни. Ни я, ни другой мастер не сумеют сделать оружие, равное ему, ибо эту тайну я заберу с собой в могилу. Я ухожу, чтобы возглавить гильдию, как мы и договаривались, хоть эта награда почему-то больше не радует мое сердце. Будь что будет. Вы же должны дать мечу имя»."
+ fp2_struggle.1011.desc:1 "«Дело сделано, — говорит [great_swordsmith.GetName] на удивление усталым голосом».\n\n«Должно быть, этот клинок мне помогли выковать сами духи предков, ибо это лучший меч, что я [Select_CString(great_swordsmith.IsFemale, 'создала', 'создал' )] в своей в жизни. Ни я, ни другой мастер не сумеют сделать оружие, равное ему, ибо эту тайну я заберу с собой в могилу. Я ухожу, чтобы занять обещанную должность, как мы и договаривались, хоть эта награда почему-то больше не радует мое сердце. Будь что будет. Вы же должны дать мечу имя»."
+ #AGOT Modified
+ # fp2_struggle.1011.a:1 "#italic Мартиелло#!, молот."
+ fp2_struggle.1011.a:1 "#italic Рубиновый Крушитель#!, молот."
+ #AGOT Modified
+ # fp2_struggle.1011.b:0 "#italic Тиньебра#!, тьма."
+ fp2_struggle.1011.b:0 "#italic Синдрор#!, тьма."
+ #AGOT Modified
+ # fp2_struggle.1011.c:0 "#italic Вермехо#!, красный."
+ fp2_struggle.1011.c:0 "#italic Сумеречный Охотник#!, красный."
+ #AGOT Modified
+ # fp2_struggle.1011.d:0 "#italic Жаргонса#!, в честь голубого самоцвета."
+ fp2_struggle.1011.d:0 "#italic Каста#!, в честь голубого самоцвета."
+ #AGOT Modified
+ # fp2_struggle.1011.e:0 "#italic Сухайл#!, великолепный."
+ fp2_struggle.1011.e:0 "#italic Джакьярза#!, великолепный."
+ #AGOT Modified
+ #fp2_struggle.1011.f:0 "#italic аль-Батар#!, рассекающий."
+ fp2_struggle.1011.f:0 "#italic Нектолла#!, рассекающий."
+ #AGOT Modified
+ # fp2_struggle.1011.g:0 "#italic Казиб#!, крепкий хват."
+ fp2_struggle.1011.g:0 "#italic Докимарвеш#!, крепкий хват."
+ #AGOT Modified
+ # fp2_struggle.1011.h:0 "#italic Зумурруд#!, в честь ослепительного изумруда."
+ fp2_struggle.1011.h:0 "#italic Джехар#!, в честь ослепительного изумруда."
+ #AGOT Modified
+ # fp2_struggle.1011.i:0 "#italic Орци#!, гром."
+ fp2_struggle.1011.i:0 "#italic Ровио#!, гром."
+ #AGOT Modified
+ #fp2_struggle.1011.j:0 "#italic Гауэко#!, ночной дух."
+ fp2_struggle.1011.j:0 "#italic Гис#!, ночной дух."
+ #AGOT Modified
+ # fp2_struggle.1011.k:0 "#italic Горри#!, красный."
+ fp2_struggle.1011.k:0 "#italic Меле#!, красный."
+ #AGOT Modified
+ # fp2_struggle.1011.l:0 "#italic Айстото#!, ножик."
+ fp2_struggle.1011.l:0 "#italic Хеги#!, нож мясника."
+ #AGOT Modified
+ # fp2_struggle.1011.m:0 "#italic Эскремире#!, фехтовальщик."
+ fp2_struggle.1011.m:0 "#italic Брэво#!, фехтовальщик."
+ #AGOT Modified
+ # fp2_struggle.1011.n:0 "#italic Фолья#!, лист."
+ fp2_struggle.1011.n:0 "#italic Тэмбли#!, лист."
+ #AGOT Modified
+ # fp2_struggle.1011.o:0 "#italic Проэса#!, доблесть."
+ fp2_struggle.1011.o:0 "#italic Неденка#!, доблесть."
+ #AGOT Modified
+ # fp2_struggle.1011.p:0 "#italic Требалхар#!, мучитель."
+ fp2_struggle.1011.p:0 "#italic Амивиндигон#!, мучитель."
+ #AGOT Modified
+ # fp2_struggle.1011.q:0 "#italic Суфакс#!, в честь героя древности."
+ fp2_struggle.1011.q:0 "#italic Сиракс#!, в честь древнего божества."
+ #AGOT Modified
+ # fp2_struggle.1011.r:0 "#italic Тумелальт#!, белый."
+ fp2_struggle.1011.r:0 "#italic Тимпа#!, белый."
+ #AGOT Modified
+ # fp2_struggle.1011.s:0 "#italic Аюгу#!, ярмо."
+ fp2_struggle.1011.s:0 "#italic Торкве#!, ярмо."
  fp2_struggle.1011.u:0 "Разумеется, #italic Железная душа#!."
  fp2_struggle.1011.v:0 "Мне нравится имя #italic Омела#!..."
- fp2_struggle.1011.w:0 "#italic Маврорез#!, как еще?"
- fp2_struggle.1011.x:0 "#italic Клинок узурпатора#! — подходящее имя, учитывая, как мы обошлись с гильдией..."
+ #AGOT Modified
+ # fp2_struggle.1011.w:0 "#italic Маврорез#!, как еще?"
+ fp2_struggle.1011.w:0 "#italic Проклятие Дорнийца#!, как ещё?"
+ #AGOT Modified
+ # fp2_struggle.1011.x:0 "#italic Клинок узурпатора#! — подходящее имя, учитывая, как мы обошлись с гильдией..."
+ fp2_struggle.1011.x:0 "#italic Клинок узурпатора#! — подходящее имя, учитывая, как мы обошлись с местными кузнецами..."
  fp2_struggle.1011.swordsmith_leaves:0 "Завершив работу, [great_swordsmith.GetName] покидает ваш двор"
- martiello_name:0 "Мартиелло"
- tiniebra_name:0 "Тиньебра"
- vermejo_name:0 "Вермехо"
- jargonca_name:0 "Жаргонса"
- suhayl_name:0 "Сухайл"
- albattar_name:0 "аль-Батар"
- qazeeb_name:0 "Казиб"
- zumurrud_name:0 "Зумурруд"
- ortzi_name:0 "Орци"
- gaueko_name:0 "Гауэко"
- gorri_name:0 "Горри"
- aiztoto_name:0 "Айстото"
- escremire_name:0 "Эскремире"
- folha_name:0 "Фолья"
- proeza_name:0 "Проэса"
- trebalhar_name:0 "Требалхар"
- sufax_name:0 "Суфакс"
- toumellalt_name:0 "Тумелальт"
- ayugu_name:0 "Аюгу"
+ #AGOT Modified
+ # martiello_name:0 "Мартиелло"
+ martiello_name:0 "Рубиновый Крушитель"
+ #AGOT Modified
+ # tiniebra_name:0 "Тиньебра"
+ tiniebra_name:0 "Синдрор"
+ #AGOT Modified
+ # vermejo_name:0 "Вермехо"
+ vermejo_name:0 "Сумеречный Охотник"
+ #AGOT Modified
+ # jargonca_name:0 "Жаргонса"
+ jargonca_name:0 "Каста"
+ #AGOT Modified
+ # suhayl_name:0 "Сухайл"
+ suhayl_name:0 "Джакьярза"
+ #AGOT Modified
+ # albattar_name:0 "аль-Батар"
+ albattar_name:0 "Нектолла"
+ #AGOT Modified
+ # qazeeb_name:0 "Казиб"
+ qazeeb_name:0 "Докимарвеш"
+ #AGOT Modified
+ # zumurrud_name:0 "Зумурруд"
+ zumurrud_name:0 "Джехар"
+ #AGOT Modified
+ # ortzi_name:0 "Орци"
+ ortzi_name:0 "Ровио"
+ #AGOT Modified
+ # gaueko_name:0 "Гауэко"
+ gaueko_name:0 "Гис"
+ #AGOT Modified
+ # gorri_name:0 "Горри"
+ gorri_name:0 "Меле"
+ #AGOT Modified
+ # aiztoto_name:0 "Айстото"
+ aiztoto_name:0 "Хеги"
+ #AGOT Modified
+ # escremire_name:0 "Эскремире"
+ escremire_name:0 "Брэво"
+ #AGOT Modified
+ # folha_name:0 "Фолья"
+ folha_name:0 "Тэмбли"
+ #AGOT Modified
+ # proeza_name:0 "Проэса"
+ proeza_name:0 "Неденка"
+ #AGOT Modified
+ # trebalhar_name:0 "Требалхар"
+ trebalhar_name:0 "Амивиндигон"
+ #AGOT Modified
+ # sufax_name:0 "Суфакс"
+ sufax_name:0 "Сиракс"
+ #AGOT Modified
+ # toumellalt_name:0 "Тумелальт"
+ toumellalt_name:0 "Тимпа"
+ #AGOT Modified
+ # ayugu_name:0 "Аюгу"
+ ayugu_name:0 "Торкве"
  ironsoul_name:0 "Железная душа"
  mistletoe_name:0 "Омела"
- moormurder_name:0 "Маврорез"
+ #AGOT Modified
+ # moormurder_name:0 "Маврорез"
+ moormurder_name:0 "Проклятие Дорнийца"
  usurperblade_name:0 "Клинок узурпатора"
 
  awesome_toledo_sword_name:1 "Меч [great_swordsmith.GetTitledFirstNamePossessiveNoTooltip]"
@@ -385,16 +481,34 @@ l_russian:
  toledo_sword_desc:0 "Это клинок из толедской стали, отличающейся твердостью и прочностью. Небольшая надпись у рукояти гласит, что этот меч [Select_CString(great_swordsmith.IsFemale, 'выковала', 'выковал' )] #italic [Select_CString(great_swordsmith.IsFemale, 'выдающаяся оружейница', 'выдающийся оружейник' )]#! [great_swordsmith.GetName] во владении [blacksmith_county.GetNameNoTierNoTooltip]."
 
  fp2_struggle.1050.t:0 "Сны о погибели"
- fp2_struggle.1050.desc_opening:1 "[visionary_spouse.GetTitledFirstName] приходит ко мне под покровом ночи, [Select_CString(visionary_spouse.IsFemale, 'бледная и трясущаяся', 'бледный и трясущийся' )]. «Мне было видение, — говорит [visionary_spouse.GetSheHe]. — Я [Select_CString(visionary_spouse.IsFemale, 'стояла', 'стоял' )] на поле, заваленном телами."
- fp2_struggle.1050.desc_christian:0 "Наши города разрушены, колокольни снесены, а люди захлебываются в собственной крови."
- fp2_struggle.1050.desc_islamic:0 "Наши библиотеки сожжены, минареты пали, братья и сестры распяты на крестах и стали пищей для стервятников."
- fp2_struggle.1050.desc_rampaging_barbarian_heathen:0 "Наши дома сожжены, рунные камни низвергнуты, а воины пали без славы или чести."
- fp2_struggle.1050.desc_non_barbarian_heathen:0 "Наши города разрушены, храмы сожжены, а люди перебиты или угнаны в плен."
- fp2_struggle.1050.desc_islamic_heritage:0 "Я [Select_CString(visionary_spouse.IsFemale, 'видела', 'видел' )], как было разрушено всё, созданное нашими предками на этой земле».\n\n"
- fp2_struggle.1050.desc_christian_bling_reference_drop:0 "Реликвии наших святых сожжены в пламени».\n\n"
- fp2_struggle.1050.desc_middle_neutral_version:0 "Все строения разрушены, на земле воцарились смерть и разруха».\n\n"
+ #AGOT Modified
+ # fp2_struggle.1050.desc_opening:1 "[visionary_spouse.GetTitledFirstName] приходит ко мне под покровом ночи, [Select_CString(visionary_spouse.IsFemale, 'бледная и трясущаяся', 'бледный и трясущийся' )]. «Мне было видение, — говорит [visionary_spouse.GetSheHe]. — Я [Select_CString(visionary_spouse.IsFemale, 'стояла', 'стоял' )] на поле, заваленном телами."
+ fp2_struggle.1050.desc_opening:1 "[visionary_spouse.GetTitledFirstName] приходит ко мне под покровом ночи, [Select_CString(visionary_spouse.IsFemale, 'бледная и трясущаяся', 'бледный и трясущийся' )]. «Мне было видение, — говорит [visionary_spouse.GetSheHe]. — Я [Select_CString(visionary_spouse.IsFemale, 'стояла окружённая', 'стоял окружённый' )] смертью и снегом."
+ #AGOT Modified
+ # fp2_struggle.1050.desc_christian:0 "Наши города разрушены, колокольни снесены, а люди захлебываются в собственной крови."
+ fp2_struggle.1050.desc_christian:0 "Наши дома были разрушены, мертвые воскрешены, мужчин, женщин и детей поглотила тьма."
+ #AGOT Modified
+ # fp2_struggle.1050.desc_islamic:0 "Наши библиотеки сожжены, минареты пали, братья и сестры распяты на крестах и стали пищей для стервятников."
+ fp2_struggle.1050.desc_islamic:0 "Наши дома были разрушены, мертвые воскрешены, мужчин, женщин и детей поглотила тьма." 
+ #AGOT Modified
+ #fp2_struggle.1050.desc_rampaging_barbarian_heathen:0 "Наши дома сожжены, рунные камни низвергнуты, а воины пали без славы или чести."
+ fp2_struggle.1050.desc_rampaging_barbarian_heathen:0 "Наши дома были разрушены, мертвые воскрешены, мужчин, женщин и детей поглотила тьма."
+ #AGOT Modified
+ #fp2_struggle.1050.desc_non_barbarian_heathen:0 "Наши города разрушены, храмы сожжены, а люди перебиты или угнаны в плен."
+ fp2_struggle.1050.desc_non_barbarian_heathen:0 "Наши дома были разрушены, мертвые воскрешены, мужчин, женщин и детей поглотила тьма."
+ #AGOT Modified
+ #fp2_struggle.1050.desc_islamic_heritage:0 "Я [Select_CString(visionary_spouse.IsFemale, 'видела', 'видел' )], как было разрушено всё, созданное нашими предками на этой земле».\n\n"
+ fp2_struggle.1050.desc_islamic_heritage:0 "Я [Select_CString(visionary_spouse.IsFemale, 'видела', 'видел' )], как всё вокруг поглотил лёд и наступила ночь, которой нет конца.»\n\n"
+ #AGOT Modified
+ #fp2_struggle.1050.desc_christian_bling_reference_drop:0 "Реликвии наших святых сожжены в пламени».\n\n"
+ fp2_struggle.1050.desc_christian_bling_reference_drop:0 "Я [Select_CString(visionary_spouse.IsFemale, 'видела', 'видел' )], как всё вокруг поглотил лёд и наступила ночь, которой нет конца.»\n\n"
+ #AGOT Modified
+ #fp2_struggle.1050.desc_middle_neutral_version:0 "Все строения разрушены, на земле воцарились смерть и разруха».\n\n"
+ fp2_struggle.1050.desc_middle_neutral_version:0 "Я [Select_CString(visionary_spouse.IsFemale, 'видела', 'видел' )], как всё вокруг поглотил лёд и наступила ночь, которой нет конца.»\n\n"
  fp2_struggle.1050.desc_love_and_warmth_ending:0 "«Помоги мне, любовь моя. Я боюсь, что мои сны станут явью и всё это произойдет на самом деле. Обними меня. Мне так холодно»."
- fp2_struggle.1050.desc_no_love_and_warmth_ending:0 "«[Select_CString(ROOT.Char.IsFemale, 'Жена моя', 'Муж мой' )], послушай. Это не просто болезнь. Боюсь, мои сны могут оказаться вещими и всё это случится на самом деле. Прошу тебя, не допусти этого. Мы должны спасти Иберию»."
+ #AGOT Modified
+ #fp2_struggle.1050.desc_no_love_and_warmth_ending:0 "«[Select_CString(ROOT.Char.IsFemale, 'Жена моя', 'Муж мой' )], послушай. Это не просто болезнь. Боюсь, мои сны могут оказаться вещими и всё это случится на самом деле. Прошу тебя, не допусти этого. Мы должны спасти Иберию»."
+ fp2_struggle.1050.desc_no_love_and_warmth_ending:0 "«[Select_CString(ROOT.Char.IsFemale, 'Жена моя', 'Муж мой' )], послушай. Это не просто болезнь. Боюсь, мои сны могут оказаться вещими и всё это случится на самом деле. Прошу тебя, не допусти этого. Мы должны спастись от Долгой Ночи»."
  fp2_struggle.1050.a:0 "Ты занимаешься ведовством?"
  fp2_struggle.1050.b:0 "Соберись, это [ROOT.GetCharacter.GetFaith.HighGodName] испытывает тебя."
  fp2_struggle.1050.c:0 "Расскажи мне о своих видениях."
@@ -405,6 +519,7 @@ l_russian:
  fp2_struggle.1050.condition_might_get_very_worse:0 "Возможно, [visionary_spouse.GetTitledFirstNameNoTooltip] продолжит сходить с ума"
  comforting_spouse_visionary_toast.success:0 "[visionary_spouse.GetTitledFirstName] успокаивается, выслушав вас"
  comforting_spouse_visionary.failure:0 "[visionary_spouse.GetTitledFirstName] не верит вашим словам"
+
  fp2_yearly.8004.t:0 "Школа переводчиков в провинции [translation_capital.GetNameNoTierNoTooltip]"
  fp2_yearly.8004.desc_opening:0 "Вдохновленные духом примирения в Иберии, ученые со всего полуострова собираются в библиотеках моего государства. Быть может, я смогу направить их силы на что-нибудь полезное...\n\n"
  fp2_yearly.8004.desc_chaplain:0 "[Select_CString(translation_enthusiast.IsFemale, 'Моя', 'Мой' )|U] [translation_enthusiast.GetCouncilTitle] [translation_enthusiast.GetTitledFirstName] [Select_CString(translation_enthusiast.IsFemale, 'подошла', 'подошел' )] ко мне с предложением. «Нам нужно собрать группу переводчиков, — говорит о[translation_enthusiast.GetSheHe], — а во главе ее могу встать я. Давайте соберем по всей нашей земле самых способных переводчиков, даже безбожников, и пусть они работают под вашим покровительством. При вашей поддержке город[translation_capital.GetNameNoTierNoTooltip] может стать светочем просвещения!»"
@@ -415,29 +530,29 @@ l_russian:
  recruiting_brilliance_toast.success:0 "Вы нашли отличных переводчиков"
  recruiting_mediocrity_toast.failure:0 "Вы взяли посредственных переводчиков"
 
- fp2_yearly.8005.t:0 "Under the Stone Pine"
- fp2_yearly.8005.desc_opening:0 "In the scorching midday heat, they sit in the shadow under a great stone pine, playing on lutes and flutes."
- fp2_yearly.8005.desc_iberian:0 "They sing in Galician-Portuguese, in Catalan, about life, loss, bittersweet love."
- fp2_yearly.8005.desc_arabic:0 "They sing in Arabic about beauty, glory, love lost and found again."
- fp2_yearly.8005.desc_language_neutral:0 "They sing in many tongues, yet my heart can understand every word."
- fp2_yearly.8005.desc_middle_part:0 "I can hear them from my balcony, and they stir my soul.\n\nYet I do not know the identity of these musicians, and when I leave my lofty halls and approach the tree, they are gone."
- fp2_yearly.8005.desc_post_troubadours:0 "I thought only the troubadours of Occitania possessed such talent and wit, but perhaps I was mistaken...\n\nWhat am I to do with these damned #italic feelings#!?"
- fp2_yearly.8005.desc_pre_troubadours:0 "\n\nAre they sent from [ROOT.Char.GetFaith.PositiveAfterLife|U]? Are they phantoms devised by [ROOT.Char.GetFaith.DevilName] to ensnare me? Perhaps not... but what am I to do with these damned #italic feelings#!?"
- fp2_yearly.8005.a:0 "My love for [courtly_lover.GetFirstNameNoTooltip] fills my heart with song."
- fp2_yearly.8005.b:0 "So beautiful..."
- fp2_yearly.8005.c:0 "I should sponsor more musicians!"
- fp2_yearly.8005.d:0 "Enough! I will have that damned tree chopped down."
+ fp2_yearly.8005.t:0 "Под сенью пинии"
+ fp2_yearly.8005.desc_opening:0 "В самый жаркий час дня одни сидят в тени огромной пинии, играют на лютнях и флейтах."
+ fp2_yearly.8005.desc_iberian:0 "Они поют на галисийско-португальском и каталонском о жизни, потерях и несчастной любви."
+ fp2_yearly.8005.desc_arabic:0 "Они поют на арабском о красоте, славе, любви потерянной и вновь обретенной."
+ fp2_yearly.8005.desc_language_neutral:0 "Они поют на разных языках, но мое сердце понимает каждое слово."
+ fp2_yearly.8005.desc_middle_part:0 "Я слышу их с балкона, и их песни бередят мне сердце.\n\nНо я не знаю, кто эти музыканты, а когда я покидаю просторные залы дворца и подхожу к дереву, их там уже нет."
+ fp2_yearly.8005.desc_post_troubadours:0 "Мне казалось, таким талантом и остроумием наделены только трубадуры Окситании, но похоже, это не так.\n\nКак же мне справиться с этими проклятыми #italic чувствами#!?"
+ fp2_yearly.8005.desc_pre_troubadours:0 "\n\nНеужели они посланцы с того света и настоящий их дом — [ROOT.Char.GetFaith.PositiveAfterLife|U]? Или они призраки, которых подсылает ко мне [ROOT.Char.GetFaith.DevilName]? Быть может, это не так... Но как мне справиться с этими проклятыми #italic чувствами#!?"
+ fp2_yearly.8005.a:0 "Эта песня наполнила мое сердце любовью, имя которой — [courtly_lover.GetFirstNameNoTooltip]."
+ fp2_yearly.8005.b:0 "Какая красота..."
+ fp2_yearly.8005.c:0 "Мне нужно покровительствовать музыкантам!"
+ fp2_yearly.8005.d:0 "Довольно! Я срублю это проклятое дерево."
 
- fp2_yearly.8002.t:0 "A Dietary Dilemma"
- fp2_yearly.8002.desc:0 "Two children were collecting clams from the beach in [beached_whale_province.GetName] when they came upon a carcass of colossal size. Beach-dwellers claim that the flesh of this dead sea-creature is still incorrupt, and #italic very#! tasty. But my [preoccupied_ulama.GetCouncilTitle] [preoccupied_ulama.GetFirstName] pulls me aside during the council meeting, seemingly concerned.\n\n"Is the consumption of whale meat truly permissible to us [ROOT.Char.GetFaith.GetAdherentNamePluralNoTooltip]?", [preoccupied_ulama.GetSheHe] ponders. "I cannot make a ruling in this matter. We should wait for a statement from a very respected scholar. But you should forbid the people from eating the meat of this beast - just in case...""
- fp2_yearly.8002.a:0 "No, #italic I#! can make it permissible."
- fp2_yearly.8002.b:0 "Give me some of that meat! I #italic must#! taste it."
- fp2_yearly.8002.c:0 "Very well, let us wait for a ruling."
- fp2_yearly.8002.d:0 "It must #italic not#! be eaten. I shall go there myself and burn it."
- exploding_whale_toast:0 "The carcass mysteriously exploded!"
- exploding_whale.tt:0 "The carcass explodes!"
- healthy_whale_toast:0 "It tasted very good"
- unhealthy_whale_toast:0 "Something is not right..."
+ fp2_yearly.8002.t:0 "Есть или не есть?"
+ fp2_yearly.8002.desc:0 "В провинции [beached_whale_province.GetName] двое детей собирали на пляже ракушки и наткнулись на невероятных размеров тушу. Местные жители уверяют, что мясо этого мертвого животного еще пригодно в пищу, и даже больше — оно #italic весьма#! приятно на вкус. Но во время заседания совета [Select_CString(preoccupied_ulama.IsFemale, 'моя', 'мой' )] [preoccupied_ulama.GetCouncilTitle] [preoccupied_ulama.GetFirstName] отводит меня в сторону. На лице [Select_CString(preoccupied_ulama.IsFemale, 'ее', 'его' )] читается озабоченность.\n\n«Можем ли мы, [ROOT.Char.GetFaith.GetAdherentNamePluralNoTooltip|l], есть китовое мясо? — размышляет [preoccupied_ulama.GetSheHe] вслух. — Тут я не могу дать ответа. Нужно дождаться решения одного очень уважаемого мудреца. Но до тех пор нужно запретить подданным есть мясо этого зверя — на всякий случай»."
+ fp2_yearly.8002.a:0 "Как #italic я#! скажу, так и будет можно."
+ fp2_yearly.8002.b:0 "Принесите мне этого мяса! Мне #italic нужно#! его попробовать."
+ fp2_yearly.8002.c:0 "Ладно, давай дождемся решения."
+ fp2_yearly.8002.d:0 "Его #italic нельзя#! есть. Я лично пойду к туше и сожгу ее."
+ exploding_whale_toast:0 "Туша загадочным образом взорвалась!"
+ exploding_whale.tt:0 "Туша взрывается!"
+ healthy_whale_toast:0 "Было очень вкусно"
+ unhealthy_whale_toast:0 "У меня что-то с животом..."
 
  fp2_yearly.8003.t:0 "Полет фантазии"
  fp2_yearly.8003.desc:0 "[Select_CString(flying_polymath.IsFemale, 'Известная изобретательница', 'Известный изобретатель' )|U] [flying_polymath.GetFirstName] [Select_CString(flying_polymath.IsFemale, 'явилась', 'явился' )] ко мне с парой крыльев из дерева и шелка и странным прошением.\n\n«Всю свою историю человек мечтал о том, чтобы парить в небесах, — говорит [flying_polymath.GetSheHe]. — Я [Select_CString(flying_polymath.IsFemale, 'провела', 'провел' )] расчеты. Я докажу, что это возможно! Но мне нужно высокое здание: [ROOT.Char.Custom('ResidenceBuilding')], где вы живете. Позвольте мне спрыгнуть с крыши, и за это я поступлю к вам на службу». К сожалению, о нашем разговоре [Select_CString(enthusiastic_child.IsFemale, 'прослышала моя', 'прослышал мой' )] [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('enthusiastic_child'))] [enthusiastic_child.GetTitledFirstName], и теперь [enthusiastic_child.GetSheHe] упрашивает меня пустить [Select_CString(enthusiastic_child.IsFemale, 'ее', 'его' )] посмотреть на полет [Select_CString(flying_polymath.IsFemale, 'умудренной опытом ученой', 'умудренного опытом ученого' )]. "
@@ -1015,17 +1130,17 @@ l_russian:
  fp2_yearly.4008.b:0 "Ха! Глупые байки с привидениями!"
  fp2_yearly.4008.c:0 "Ты — прекрасная рассказчица!"
 
- fp2_yearly.4009.t:0 "The White Lord"
- fp2_yearly.4009.desc:0 "Today is a special day. I round the corner and sight my quarry the Malato Tree from the legend of Jaun Zuria. The tale of the young warrior who turned back an army is well-worn into the minds of every [root_culture.GetName] child.\n\nI run a hand over the knobbled trunk and my fingers coming to rest on a slit, as wide as a finger. As legend has it, a sword was embedded here by the White Lord's followers to witness their resolve to follow him anywhere."
- fp2_yearly.4009.a:0 "I too shall vanquish our people's foes!"
- fp2_yearly.4009.b:0 "I am more than just [root_culture.GetNameNoTooltip]."
- fp2_yearly.4009.c:0 "A little memento of this day would be nice."
+ fp2_yearly.4009.t:0 "Белый лорд"
+ fp2_yearly.4009.desc:0 "Сегодня — особенный день. Я поворачиваю за угол и вижу предмет моих воздыханий: дерево Малато из легенды о Хауне Зурия. Сказание о юном воине, сумевшем обратить вспять целую армию, хорошо известно каждому #L [root_culture.GetCollectiveNoun|l]ому#! ребенку.\n\nЯ провожу рукой по узловатому стволу, и пальцы натыкаются на разрез в палец шириной. Как гласит легенда, слуги Белого лорда вонзили сюда меч в знак своей решимости следовать за ним всегда и везде."
+ fp2_yearly.4009.a:0 "Я тоже уничтожу врагов моего народа!"
+ fp2_yearly.4009.b:0 "Я — больше чем [root_culture.GetCollectiveNounNoTooltip|l]ие подданные."
+ fp2_yearly.4009.c:0 "Не взять ли что-нибудь на память о сегодняшнем дне?"
 
- fp2_yearly.4010.t:0 "Pigs of Stone"
- fp2_yearly.4010.desc:0 "It was meant to be a simple trip to visit the [verraco_county.GetName], but I have come across something rare and unusual.\n\nHuge stone beasts in the shape of boars stand before me in the wide open country. By the weathering, I would guess they are truly ancient. If they really are that old, then what possibly possessed these people to expend the effort to create monolithic swine?"
- fp2_yearly.4010.a:0 "Perhaps these were tombs... for saints?"
- fp2_yearly.4010.a.success:0 "The people buy in to your theory"
- fp2_yearly.4010.a.fail:0 "The people point out this has no basis in reality"
- fp2_yearly.4010.b:0 "These serve no purpose. Dismantle them."
- fp2_yearly.4010.c:0 "These are blasphemous statues! Tear them down!"
- fp2_yearly.4010.d:0 "All of this pig talk is boar-ing me."
+ fp2_yearly.4010.t:0 "Каменные свиньи"
+ fp2_yearly.4010.desc:0 "Мы планировали простой визит, но [verraco_county.GetName] умеет преподносить сюрпризы.\n\nОгромные каменные вепри стоят передо мной на открытом просторе. Судя по тому, как истерли ветры их бока, они и впрямь очень стары. А если так, то что могло побудить местных жителей вложить столько сил в создание монолитных свиней?"
+ fp2_yearly.4010.a:0 "Возможно, это усыпальницы... святых?"
+ fp2_yearly.4010.a.success:0 "Люди соглашаются с вашим предположением"
+ fp2_yearly.4010.a.fail:0 "Люди говорят, что этому нет никакого подтверждения"
+ fp2_yearly.4010.b:0 "От них никакого толку. Снести!"
+ fp2_yearly.4010.c:0 "Что за святотатство! Разбить их!"
+ fp2_yearly.4010.d:0 "Эти свинские разговоры так утомляют."
