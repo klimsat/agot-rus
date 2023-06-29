@@ -69,12 +69,18 @@
  grizzled_veterans:0 "Седые ветераны"
  glory_seekers:0 "Искатели славы"
  fp1_yearly.2300.t:0 "Искатели славы"
- fp1_yearly.2300.desc:0 "В последнее время в таверны владения [tavern_location.GetNameNoTier] прибывает множество воинов, жаждущих славы.\n\nВ их числе группа старых и закаленных боями ветеранов, разбойников, которым требуется [Select_CString(recruiting_character.IsFemale, 'новая', 'новый' )] [recruiting_character.Custom('MistressMaster')].\n\nЗдесь же можно найти множество излучающей энтузиазм молодежи, без устали рассуждающей о походах за славой к чужим берегам.\n\nВозможно, мне стоит нанять кого-то из них?"
- fp1_yearly.2300.a:0 "Я приглашу на службу разбойников."
+ #AGOT Modified
+ #fp1_yearly.2300.desc:0 "The taverns of [tavern_location.GetNameNoTier] have seen an influx of glory-seeking warriors as of late.\n\nAmong them — a group of old and battle-hardened veterans, huscarls looking for a new [recruiting_character.Custom('MistressMaster')].\n\nThere is also a whole host of enthusiastic young men that talk non-stop about finding glory on foreign shores.\n\nPerhaps I should seek to employ some of them?"
+ fp1_yearly.2300.desc:0 "В последнее время в таверны владения [tavern_location.GetNameNoTier] прибывает множество воинов, жаждущих славы.\n\nВ их числе группа старых и закаленных боями ветеранов, налётчиков, которым требуется [Select_CString(recruiting_character.IsFemale, 'новая', 'новый' )] [recruiting_character.Custom('MistressMaster')].\n\nЗдесь же можно найти множество излучающей энтузиазм молодежи, без устали рассуждающей о походах за славой к чужим берегам.\n\nВозможно, мне стоит нанять кого-то из них?"
+ #AGOT Modified
+ #fp1_yearly.2300.a:0 "I'll bring the huscarls into my household."
+ fp1_yearly.2300.a:0 "Я приглашу на службу налётчиков."
  fp1_yearly.2300.b:0 "Молодежи не хватает опыта, но зато их много!"
  fp1_yearly.2300.c:0 "Пора удвоить цены на эль!"
  fp1_yearly.2300.d:0 "Присоединяйтесь ко мне, отважные воины! Я приведу вас к победе!"
- huscarls_tt:0 "#F Разбойники — суровые бойцы первой линии, способные нанести огромный урон более слабым войскам#!"
+ #AGOT Modified
+ #huscarls_tt:0 "#F Huscarls are tough frontline fighters capable of inflicing a lot of damage to weaker troops#!"
+ huscarls_tt:0 "#F Налётчики — суровые бойцы первой линии, способные нанести огромный урон более слабым войскам#!"
  bondi_tt:0 "#F Бонды выносливы и отлично сражаются на равнинах или пахотных землях чужбины#!"
  
  fp1_yearly.2400.t:0 "Подготовка к охоте"
@@ -82,13 +88,15 @@
  fp1_yearly.2400.a:0 "Мне нужна новая гончая!"
  fp1_yearly.2400.b:0 "Новые копья и стрелы с пером ворона."
  fp1_yearly.2400.c:0 "Хватит и того, что есть. Но нужно время на подготовку."
- fp1_yearly.2400.free_hunt:0 "Ваша следующая [Concept( 'hunt', 'охота' )|E] не будет стоить [Concept( 'gold', 'золота' )|E]"
+ fp1_yearly.2400.free_hunt:0 "Ваша следующая [GetActivityType('activity_hunt').GetName] не потребует траты [Concept( 'gold', 'золота' )|E]"
  brand_new_hunting_tools:0 "Новые охотничьи инструменты"
  brand_new_hunting_tools_desc:0 "Этот персонаж потратил много золота на новое охотничье снаряжение."
  
  fp1_yearly.2500.t:0 "Оскверненный рунный камень"
  fp1_yearly.2500.desc:0 "После недолгой поездки по владению [runestone_location.GetNameNoTier] я прибываю на место, где стоит рунный камень моей семьи. Но, похоже, я тут не [Select_CString(ROOT.Char.IsFemale, 'одна', 'один' )], [Select_CString(deviant_guest.IsFemale, 'моя гостья', 'мой гость' )] [deviant_guest.GetTitledFirstName] тоже здесь. Как [deviant_guest.GetSheHe] [Select_CString(deviant_guest.IsFemale, 'нашла', 'нашел' )] это место?\n\n«Это не то, что вы думаете, [ROOT.Char.GetTitleTierName]!» — уверяет [deviant_guest.GetSheHe].\n\nНо тот факт, что [deviant_guest.GetSheHe] наполовину [Select_CString(deviant_guest.IsFemale, 'раздета', 'раздет' )] и яростно трется о #EMP рунный камень моей семьи#!, говорит, что это именно то, что я думаю."
  
+ #AGOT Modified
+ #fp1_yearly.2600.t:0 "Fury of the Northmen"
  fp1_yearly.2600.t:0 "Ярость Старых Богов"
  fp1_yearly.2600.desc:0 "«[ROOT.GetCharacter.GetFirstNameNoTooltip], вы великолепны на поле боя, но #EMP действительно#! ли враги боятся вас?» — говорит [berserker_teacher.GetFirstName].\n\nМне случалось видеть, как [berserker_teacher.GetFirstNameNoTooltip] с воем обрушивает нечеловеческую ярость на поле боя и как бесчисленные враги лежат у [berserker_teacher.GetHerHis] ног. [berserker_teacher.GetFirstNameNoTooltip] в ярости выглядит словно [ROOT.GetCharacter.GetFaith.HighGodHerselfHimself] [ROOT.GetCharacter.GetFaith.HighGodName].\n\n«Присядьте со мной у костра. Давайте разбудим в вас ярость», — приглашает [berserker_teacher.GetSheHe]."
  fp1_yearly.2600.a:0 "Дайте только найду медвежью шкуру!"
