@@ -3535,32 +3535,6 @@ window = {
 		}
 
 		vbox = {
-			name = "name_etc"
-			layoutpolicy_horizontal = expanding
-			widgetanchor = top
-			size = { 600 20 }
-
-			## Name
-			hbox = {
-				layoutpolicy_horizontal = expanding
-				margin = { 0 0 }
-				margin_top = 0
-
-				text_single = {
-					name = "character_name"
-					raw_text = "[Character.GetUINameNotMeNoTooltip] "
-					margin_left = 2
-					max_width = 400
-					fontsize = 30
-					fontsize_min = 14
-					align = nobaseline
-					default_format = "#medium"
-					tooltip = "[Character.GetUINameNotMeNoTooltip]"
-				}
-			}
-		}
-
-		vbox = {
 			layoutpolicy_horizontal = fixed
 			layoutpolicy_vertical = fixed
 			margin = { 320 120 }
@@ -3592,46 +3566,10 @@ window = {
 				text_multi = {
 					parentanchor = left|top
 					widgetanchor = left
-					text = "[CharacterWindow.GetCharacter.Custom('RuinsHistory')]"
-					using = Font_Size_Medium
+					text = "ruin_history_generic"
+					using = Font_Size_Big
 					size = { 560 460 }
 				}
-			}
-		}
-
-		vbox = {
-			name = "confirmation"
-			layoutpolicy_horizontal = expanding
-			visible = "[GetScriptedGui('can_reconstruct_ruin').IsValid(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('actor', GetPlayer.MakeScope).End)]"
-
-			## Name
-			hbox = {
-				layoutpolicy_horizontal = expanding
-				margin = { 0 0 }
-				margin_top = 0
-
-				text_single = {
-					multiline = yes
-					max_width = 500
-					align = center
-					text = "[CharacterWindow.GetCharacter.Custom('RuinsReconstructDesc')]"
-				}
-			}
-		}
-
-
-		vbox = {
-			layoutpolicy_horizontal = expanding
-			margin = { 20 20 }
-			parentanchor = left|top
-
-			button_standard = {
-				name = "construct_ruins_button"
-				text = "agot_ruin_begin_reconstruction"
-				enabled = "[GetScriptedGui('can_reconstruct_ruin').IsValid(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('actor', GetPlayer.MakeScope).End)]"
-				onclick = "[CharacterWindow.Close]"
-				onclick = "[GetScriptedGui('reconstruct_ruin').Execute(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('actor', GetPlayer.MakeScope).End)]"
-				tooltip = "[CharacterWindow.GetCharacter.Custom('RuinsReconstructTooltip')]"
 			}
 		}
 

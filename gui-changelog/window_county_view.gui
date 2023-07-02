@@ -45,6 +45,8 @@ window = {
 		name = _hide
 		on_start = "[GetVariableSystem.Clear( 'county_view_open' )]"
 		on_start = "[GetVariableSystem.Clear( 'hide_bottom_left_HUD' )]"
+		#AGOT Added
+		on_start = "[GetVariableSystem.Clear( 'window_ruins_confirm' )]"
 
 		using = Animation_FadeOut_Standard
 		using = Sound_WindowHide_Standard
@@ -778,6 +780,20 @@ window = {
 				enabled = "[And(HoldingView.CanNewHoldingBeConstructed, Not(HoldingView.IsSelectingHoldingType))]"
 			}
 
+			#AGOT Added
+			button_standard_big = {
+				name = "restore_ruins"
+				datacontext = "[HoldingView.GetTitle]"
+				visible = "[GetScriptedGui('agot_is_ruin').IsShown( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).End)]"
+
+				parentanchor = bottom|left
+				position = { 5 -5 }
+				size = { 200 50 }
+				text = "agot_ruin_begin_reconstruction"
+				tooltip = "[HoldingView.GetProvince.Custom('RuinsReconstructTooltip')]"
+				enabled = "[GetScriptedGui('can_reconstruct_ruin').IsValid(GuiScope.SetRoot(HoldingView.GetProvince.MakeScope).AddScope('actor', GetPlayer.MakeScope ).End)]"
+				onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
+			}
 
 			### TOP LEFT
 			flowcontainer = {
@@ -983,21 +999,6 @@ window = {
 						}
 						expand = {}
 					}
-
-					#AGOT Added, Ruins
-					hbox = {
-						layoutpolicy_horizontal = expanding
-						margin = { 5 0 }
-						button_standard = {
-							name = "abandon_ruins_button"
-							visible = "[GetScriptedGui('agot_is_reclaimed_ruin').IsShown(GuiScope.SetRoot(HoldingView.GetProvince.MakeScope).End)]"
-							text = "ABANDON_RUIN_BUTTON"
-							onclick = "[GetScriptedGui('abandon_ruin').Execute(GuiScope.SetRoot(HoldingView.GetProvince.GetTitle.MakeScope).End)]"
-							tooltip = "ABANDON_RUINS_TOOLTIP"
-						}
-						expand = {}
-					}
-					#AGOT End
 
 					hbox = {
 						datacontext = "[HoldingView.GetTitle.GetLesseeOrHolder]"
@@ -1572,6 +1573,10 @@ window = {
 
 		}
 	}
+
+	#AGOT Added
+	window_ruins_blocker = {}
+	window_ruins_confirm = {}
 }
 
 ######################################################
@@ -2787,5 +2792,87 @@ types CountyViewTypes
 			text = "HOLDING_VIEW_BUILDING_IN_VASSAL"
 		}
 	}
+
+	#AGOT Added
+	type window_ruins_blocker = window {
+
+		parentanchor = center
+		size = { 4000 4000 }
+		layer = confirmation
+		filter_mouse = all
+		movable = no
+		alwaystransparent = no
+		alpha = 0
+		using = Window_Background
+		visible = "[GetVariableSystem.Exists('window_ruins_confirm')]"
+		button_primary_big = {
+			size = { 100% 100% }
+			onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
+		}
+	}
+
+	#AGOT Added
+	type window_ruins_confirm = window {
+		allow_outside = yes
+		movable = no
+		parentanchor = center
+		position = { 640 -300 }
+		visible = "[GetVariableSystem.Exists('window_ruins_confirm')]"
+		alwaystransparent = no
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		using = Window_Background
+		using = Window_Decoration
+
+		vbox = {
+			set_parent_size_to_minimum = yes
+			margin = { 20 20 }
+
+			hbox = {
+				margin_bottom = -10
+				margin = { 20 0 }
+				layoutpolicy_horizontal = expanding
+				parentanchor = top
+
+				header_pattern = {
+					layoutpolicy_horizontal = expanding
+
+					blockoverride "header_text" {
+						text = "reconstruct_ruin_confirm_title"
+					}
+
+					blockoverride "button_close" {
+						visible = no
+					}
+				}
+			}
+
+			hbox = {
+				margin = { 40 20 }
+				text_single = {
+					multiline = yes
+					max_width = 500
+					align = center
+					text = "[HoldingView.GetProvince.Custom('RuinsReconstructDesc')]"
+				}
+			}
+
+			## Send Button
+			hbox = {
+				name = "confirm_button"
+				margin = { 20 10 }
+				margin_bottom = 15
+				spacing = 3
+
+				button_primary_big = {
+					text = "reconstruct_ruin_confirm_button"
+
+					onclick = "[GetScriptedGui('reconstruct_ruin').Execute( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).AddScope('actor', GetPlayer.MakeScope ).End)]"
+					onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
+				}
+			}
+		}
+	}
+
 }
 
