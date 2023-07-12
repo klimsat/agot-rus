@@ -3,6 +3,7 @@
  murder_child_really_tooltip:1 "Убийство ребенка. Вы точно этого хотите?"
  murder_outcome_murdered_rival_tt:1 "Пережить [Concept( 'rival', 'соперника' )|E]:"
  murder_unknown_murder_against_you_was_successful:0 "#X Вашу жизнь прервал неизвестный наемный убийца!#!"
+ murder_unknown_murder_against_you_was_successful_other:0 "#X [THIS.Char.GetShortUIName] [Select_CString(THIS.Char.IsLocalPlayer, 'были убиты', Select_CString(THIS.Char.IsFemale, 'была убита', 'был убит' ))] неизвестным наемным убийцей!#!"
 
  murder_outcome.1001.t:0 "Убийца!"
  murder_outcome.1001.d:0 "Час пробил. Мои люди на местах. Один из них передаст плату убийце в ту самую ночь, когда все свершится. Второй обеспечит отсутствие охраны на стене, а третий сделает едва заметную дорожку из свечей, ведущую в покои, где спит [target.GetTitledFirstNamePossessive].\n\nВсе готово."
@@ -10,8 +11,10 @@
  murder_outcome.1001.b:0 "Стойте, мне нужно больше времени."
 
  murder_outcome.1002.t:0 "Эй, там!"
- murder_outcome.1002.d:0 "Мои люди всё устроили. [target.GetTitledFirstName] отправится в путешествие и будет проезжать по лесной чаще. Осталось только найти банду разбойников, которые самым трагическим образом убьют и ограбят жертву.\n\nЯ так и вижу темную землю, обагренную кровью…"
- murder_outcome.1002.a:0 "О, в лесах бывает очень опасно."
+ murder_outcome.1002.opening:0 "Мои люди всё устроили. [target.GetTitledFirstName] отправится в путешествие и будет проезжать по лесной чаще. $murder_outcome.1002.d$"
+ murder_outcome.1002.opening_travel:0 "Мои люди узнали, что [target.GetTitledFirstName] сейчас на пути во владение [province.GetName], ради чего придется преодолеть несколько участков необжитых земель.\n\n$murder_outcome.1002.d$"
+ murder_outcome.1002.d:1 "Осталось только найти банду разбойников, которые самым трагическим образом убьют и ограбят [Select_CString(target.IsFemale, 'ее', 'его' )].\n\nЯ так и вижу темную землю, обагренную кровью…"
+ murder_outcome.1002.a:1 "О да, необжитые земли очень опасны."
  murder_outcome.1002.b:0 "Стоп, еще не время."
 
  murder_outcome.1003.t:0 "Убийственный вкус"
@@ -34,9 +37,11 @@
  murder_outcome.1006.a:0 "Это будет легко!"
 
  murder_outcome.1007.t:0 "В неспокойных водах"
+ murder_outcome.1007.travel:0 "[target.GetTitledFirstName] сейчас на борту судна где-то в области [province.GetName]."
  murder_outcome.1007.desc_not_inspection:0 "На этой неделе [target.GetTitledFirstName] планирует посетить корабль, стоящий в одной из гаваней провинции [province.GetNameNoTier]."
  murder_outcome.1007.desc:0 "На этой неделе [target.GetTitledFirstName] планирует осмотреть корабль, стоящий в одной из гаваней провинции [province.GetNameNoTier]."
  murder_outcome.1007.desc_ending:0 "\n\nВряд ли будет трудно убедить моих соучастников полить горючей жидкостью лодку, на которой [target.GetHerHis] повезут на корабль, дождаться, пока лодка окажется в центре гавани, выпустить горящую стрелу, а затем... просто подождать, пока [target.GetTitledFirstName] не утонет."
+ murder_outcome.1007.desc_ending_travel:0 "\n\nБыло бы настоящей трагедией, если бы мои люди облили дерево горючей жидкостью, уплыли на единственной шлюпке и подожгли судно с безопасного расстояния... тем самым гарантируя, что [target.GetFirstNameNoTooltip] умрет со всей своей свитой."
  murder_outcome.1007.a:0 "Приступайте к исполнению плана."
 
  murder_outcome.1008.t:0 "Напиток жизни"
@@ -163,6 +168,7 @@
  murder_outcome.2007.scheme_unknown:0 "\n\n#EMP К сожалению#!, лучника найти не удалось."
  murder_outcome.2007.a.discovered:0 "Мне... казалось, [target.GetSheHe] умеет плавать!"
  murder_outcome.2007.a:0 "Какая трагедия!"
+ every_entourage_member:0 "Все члены свиты, которую [Select_CString(target.IsFemale, 'взяла', 'взял' )] с собой [target.GetTitledFirstNameNoTooltip]:"
 
  murder_outcome.2008.desc_drunkard:0 "[target.GetTitledFirstName] [Select_CString(target.IsFemale, 'мертва', 'мертв' )], и убийца — [target.Custom('RegionalAlcoholicDrink')], [SCOPE.sC('target').GetHerHis] давняя любовь!"
  murder_outcome.2008.desc_not_drunkard:0 "[target.GetTitledFirstName] [Select_CString(target.IsFemale, 'мертва', 'мертв' )], и убийца — [target.Custom('RegionalDrink')]"
@@ -239,7 +245,7 @@
  murder_outcome.4001.a:0 "Однажды ты за все заплатишь, [target.GetFirstNameNoTooltip]!"
  murder_outcome.4001.b:0 "Если сразу не повезло..."
 
- murder_outcome.4002.desc:0 "\n\nНаемным громилам не удалось справиться с [target.GetHerHis] свитой."
+ murder_outcome.4002.desc:0 "\n\nНаемным громилам не удалось справиться с [Select_CString(target.IsFemale, 'ее', 'его' )] свитой."
  murder_outcome.4002.exposed_scheme:0 "Что еще хуже, некоторых схватили живыми, и они рассказали, что работали за деньги! Вычислить, что плата поступила от меня, не составило труда."
  murder_outcome.4002.not_exposed_scheme:0 "Впрочем, их перебили всех до единого. Болтать было некому, и все приняли происшествие за обычное нападение разбойников."
  murder_outcome.4002.a:0 "Ничего этим простолюдинам доверить нельзя..."
@@ -255,7 +261,7 @@
  murder_outcome.4004.failure_declaration_1:0 "[SCOPE.Custom('VenomousCreature')] успевает [SCOPE.Custom('VenomousCreatureAttack')], но [target.GetTitledFirstName] выживает!"
  murder_outcome.4004.failed_attempt_1:0 "[SCOPE.Custom('VenomousCreatureType')] делает свое дело, но врач успевает вовремя и нейтрализует яд."
  murder_outcome.4004.scheme_owner_known:0 "\n\nКатастрофа! Слуга, который подсадил тварь в покои, попался, и вскоре о моем участии узнали все!"
- murder_outcome.4004.scheme_known:0 "\n\nКонечно, [SCOPE.Custom('VenomousCreature')] в постели — событие запоминающееся, но [target.GetTitlePossessive] хотя бы не знает, что это моих рук дело."
+ murder_outcome.4004.scheme_known:0 "\n\nКонечно, [SCOPE.Custom('VenomousCreature')] в постели — событие запоминающееся, но [target.GetTitleAsNamePossessiveNoTooltip] хотя бы не знает, что это моих рук дело."
  murder_outcome.4004.scheme_unknown:0 "\n\nПо крайней мере, [SCOPE.sC('target').GetFirstNameNoTooltip] считает, что всему виной [SCOPE.Custom('VenomousCreatureType')], а не я."
  murder_outcome.4004.a:0 "Удача не будет сопутствовать тебе вечно, [target.GetFirstNameNoTooltip]!"
 
@@ -351,7 +357,12 @@
  murder_outcome.5001.creepy_crawly_end:0 "[SCOPE.Custom('VenomousCreatureAttack')|U] такой стремительный, что я едва его чувствую, но через мгновение тело скручивает всепоглощающая боль. Я зову на помощь, но даже лучшие врачи бессильны удержать стремительно гаснущую жизнь."
  murder_outcome.5001.riled_up_mob:0 "Я скачу по улицам, и кажется, что [home_province.GetNameNoTier] в полном покое, но вдруг на меня и мою свиту обрушивается орущая толпа крестьян. Не успеваю я понять, что происходит, как простолюдины выдирают меня из седла и начинают бить. Я слышу крики моих стражников, но прежде чем они успевают пробиться ко мне, мир меркнет перед глазами."
  murder_outcome.5001.bricked:0 "Хотелось бы мне сказать, что [home_province.GetName] навсегда останется в моих теплых воспоминаниях после веселого и хмельного пира.\n\nНо утром я просыпаюсь в сыром подвале, страдая от похмелья, и вижу, что выход закрыт свежевозведенной стеной! С тех пор дни сливаются в сплошную туманную череду, и вскоре мне уже трудно стоять, потом сидеть, а потом и #EMP думать#!..."
- murder_outcome.5001.sunken_boat:0 "[province.GetNameNoTier] — удивительно спокойное место с приятной гаванью. Я сижу в лодке, как вдруг небо прорезает огненная стрела и устремляется прямо к нам!\n\n#EMP «Щелк!»#! — и лодку в мгновение ока охватывает зелёное пламя! Я бросаюсь в холодные объятия океана и чувствую, как тяжелые одежды тянут ко дну. Я пытаюсь барахтаться, пытаюсь за что-нибудь схватиться, пытаюсь #EMP дышать#!..."  #AGOT Changed
+ #AGOT Modified
+ #murder_outcome.5001.sunken_boat:0 "I'm out on a boat in a harbor in [province.GetNameNoTier] when suddenly a flaming arrow soars across the sky towards us!\n\nIt hits the boat with a heavy #EMP thunk#!, and it only takes a moment before the whole boat is aflame and I throw myself in the cold ocean water. As my heavy clothes drags me below the surface I try to swim, I try to reach for something to hold on to, I try to #EMP breathe#!..."
+ murder_outcome.5001.sunken_boat:0 "[province.GetNameNoTier] — удивительно спокойное место с приятной гаванью. Я сижу в лодке, как вдруг небо прорезает огненная стрела и устремляется прямо к нам!\n\n#EMP «Щелк!»#! — и лодку в мгновение ока охватывает зелёное пламя! Я бросаюсь в холодные объятия океана и чувствую, как тяжелые одежды тянут ко дну. Я пытаюсь барахтаться, пытаюсь за что-нибудь схватиться, пытаюсь #EMP дышать#!..."
+ #AGOT Modified
+ #murder_outcome.5001.sunken_boat_travel:0 "I'm aboard a ship in the [province.GetName], when suddenly a flaming arrow soars across the sky towards us!\n\nIt hits the boat with a heavy #EMP thunk#!, and it only takes a moment before the whole boat is aflame and I throw myself in the cold ocean water. As my heavy clothes drags me below the surface I try to swim, I try to reach for something to hold on to, I try to #EMP breathe#!..."
+ murder_outcome.5001.sunken_boat_travel:1 "Я на борту корабля в открытом море, и вдруг небо прорезает огненная стрела и устремляется прямо к нам!\n\n#EMP «Щелк!»#! — и судно в мгновение ока охватывает зелёное пламя! Я бросаюсь в холодные объятия океана и чувствую, как тяжелые одежды тянут ко дну. Я пытаюсь барахтаться, пытаюсь за что-нибудь схватиться, пытаюсь #EMP дышать#!..."
  murder_outcome.5001.poisoned_drink_alcohol:0 "Я наслаждаюсь ужином, в кубке плещется [ROOT.Char.Custom('RegionalAlcoholicDrink')]. Я делаю глоток, и внезапно в горле возникает странное ощущение."
  murder_outcome.5001.poisoned_drink_no_alcohol:0 "Я наслаждаюсь ужином, в кубке плещется [ROOT.Char.Custom('RegionalDrink')]. Я делаю глоток, и внезапно в горле возникает странное ощущение."
  murder_outcome.5001.poisoned_drink:0 "Пару мгновений спустя я буквально #EMP раздираю#! себе шею, пытаясь дышать, кричать, пропихнуть хоть маленький глоточек воздуха в распухшее и кровоточащее горло. Сознание гаснет, и я вижу кровь и лоскуты кожи под собственными ногтями... Надо будет... вычистить их... а то... не подобает..."
@@ -383,7 +394,9 @@
  murder_outcome.5002.creepy_crawly_end:0 "[SCOPE.Custom('VenomousCreatureType')] славится своим сильным ядом, и его пламя уже терзает мои вены, но я немедленно зову врача. Остаток ночи проходит в мучениях, но к восходу солнца от яда не остается и следа."
  murder_outcome.5002.riled_up_mob:0 "[home_province.GetNameNoTier] затихает, когда я скачу по улицам, но вдруг тишину разрывают вопли обезумевшей толпы. Крестьяне набрасываются на мою свиту, но, к счастью, стража не теряется и начинает рубить мятежников налево и направо. Я успеваю сбежать, и вскоре [ROOT.Char.Custom('ResidenceBuilding')] надежно укрывает меня от народного гнева."
  murder_outcome.5002.bricked:0 "Хотелось бы мне сказать, что [home_province.GetName] навсегда останется в моих теплых воспоминаниях после веселого и хмельного пира.\n\nНо утром я просыпаюсь в сыром подвале, страдая от похмелья, и вижу, что выход наполовину закрыт свежевозведенной стеной... Меня пытались замуровать заживо!"
- murder_outcome.5002.sunken_boat:0 "Я сижу в лодке, в гавани. За бортом виднеется [province.GetNameNoTier]. Внезапно небо прорезает огненная стрела и устремляется прямо к нам!\n\nОна пролетает на волосок от лодки, я наклоняюсь вслед за ней и чувствую легкий, но ни с чем не сравнимый запах: дикий огонь! Это было покушение на меня." #AGOT Changed
+ #AGOT Modified
+ #murder_outcome.5002.sunken_boat:0 "I'm out on a boat in a harbor in [province.GetNameNoTier] when suddenly a flaming arrow soars across the sky towards us!\n\nIt misses the boat by a hair's breadth, and as I lean down to see it fizzle out in the cold ocean water I catch a distinct smell coming from the wood of the boat: Greek fire! This was an attempt on my life."
+ murder_outcome.5002.sunken_boat:0 "Я сижу в лодке, в гавани. За бортом виднеется [province.GetNameNoTier]. Внезапно небо прорезает огненная стрела и устремляется прямо к нам!\n\nОна пролетает на волосок от лодки, я наклоняюсь вслед за ней и чувствую легкий, но ни с чем не сравнимый запах: дикий огонь! Это было покушение на меня."
  murder_outcome.5002.poisoned_drink:0 "Во время ужина в зал врывается слуга и внезапно выбивает у меня из рук кубок, который из которого я #EMP как раз#! [Select_CString(ROOT.Char.IsFemale, 'собиралась', 'собирался' )] сделать глоток!\n\n«[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetLadyLord], там яд! Наша посудомойка... Простите ее, она осмелилась отхлебнуть, и вот... умерла!»"
  murder_outcome.5002.lured_into_forest:0 "[acting_agent.GetFirstName] [Select_CString(acting_agent.IsFemale, 'завлекла', 'завлек' )] меня в лес — якобы для игр, но потом [acting_agent.GetTitledFirstName] [Select_CString(acting_agent.IsFemale, 'спряталась', 'спрятался' )] и [Select_CString(acting_agent.IsFemale, 'пропала', 'пропал' )]!\n\nРыдая и продираясь сквозь ветви, я зову на помощь и вскоре выхожу на дорогу, освещенную волшебными огоньками. Под шепот и хихиканье лесного народца я выбираюсь из леса и нахожу дорогу домой."
  murder_outcome.5002.stab_infant:0 "Мелькает свет. Знакомые лица, незнакомые лица. Звуки, которые уже были, и звуки, которых еще не было. Острое, холодное, в ухе больно. Начинаю плакать.\n\nЖенщина. Большая, взрослая. Всхлипывает. Это моя нянька. Потом все уходят."
