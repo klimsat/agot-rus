@@ -65,10 +65,10 @@
 # Mega War Aftermath
  agot_mega_wars.0500.t:0 "Быть королем или не быть им"
  agot_mega_wars.0500.desc.a:0 "Я вышел победителем из своей войны с кровожадной династией [defender_house_scope.GetName]."
- agot_mega_wars.0500.desc.ba:0 "Силы, лояльные мне, хотят заставить #italic me#! [ROOT.Char.Custom('GetQueenKing')]. Они говорят, что мое требование исходило бы от [claim_ancestor.GetFullName], моего [ROOT.Char.Custom2('RelationToMe', claim_ancestor)]..."
- agot_mega_wars.0500.desc.bb:0 "\n\nНо я должен спросить себя, действительно ли я хочу быть [ROOT.Char.Custom('GetQueenKing')]? [chosen_LP.GetFullName] думаю, он гораздо больше меня подходит для управления королевством."
- agot_mega_wars.0500.desc.bc:0 "\n\nНо я должен спросить себя, действительно ли я хочу быть [ROOT.Char.Custom('GetQueenKing')]? [option_LP_1.GetFullName] and [option_LP_2.GetNameOrMe] думаю, гораздо больше меня подходят для управления королевством."
- agot_mega_wars.0500.desc.bd:0 "\n\nНо я должен спросить себя, действительно ли я хочу быть [ROOT.Char.Custom('GetQueenKing')]? Лорды, подобные [option_LP_1.GetFullName] и [option_LP_2.GetFullName] думаю, гораздо больше меня подходят для управления королевством."
+ agot_mega_wars.0500.desc.ba:0 "Силы, лояльные мне, хотят сделать #italic меня#! [ROOT.Char.Custom('GetQueenKing')]. Они говорят, что моё право исходит от [claim_ancestor.GetFirstName] [claim_ancestor.GetDynastyName], моего [ROOT.Char.Custom2('RelationToMe', claim_ancestor)]..."
+ agot_mega_wars.0500.desc.bb:0 "\n\nНо я должен спросить себя, действительно ли я хочу быть [ROOT.Char.Custom('GetQueenKing')]? Думаю, [option_LP.GetFirstName] [option_LP.GetDynastyName] гораздо больше меня подходит для управления королевством."
+ agot_mega_wars.0500.desc.bc:0 "\n\nНо я должен спросить себя, действительно ли я хочу быть [ROOT.Char.Custom('GetQueenKing')]? Думаю, [option_LP_1.GetFirstName] [option_LP_1.GetDynastyName] и [option_LP_2.GetFirstName] [option_LP_2.GetDynastyName], гораздо больше меня подходят для управления королевством."
+ agot_mega_wars.0500.desc.bd:0 "\n\nНо я должен спросить себя, действительно ли я хочу быть [ROOT.Char.Custom('GetQueenKing')]? На мой взгляд, лорды, подобные [option_LP_1.GetFirstName] [option_LP_1.GetDynastyName] и [option_LP_2.GetFirstName] [option_LP_2.GetDynastyName], гораздо больше меня подходят для управления королевством."
  agot_mega_wars.0500.desc.c:0 "Никто не будет оспаривать мой выбор сделать королем любого из этих великих людей, если я выберу..."
  agot_mega_wars.0500.desc.d:0 "К несчастью [ROOT.Var('si_selected_character').Char.GetTitledFirstName] отклонили, [ROOT.Var('si_selected_character').Char.GetSheHe] не будет править королевством. Следовательно, я еще раз должен принять решение...."
  agot_mega_wars.0500.a:0 "Смещения [defender.GetTitledFirstName] должно быть достаточно."
@@ -177,19 +177,21 @@
  POST_REBEL_JOINS_TOOLTIP:0 "[post_rebel_scope.GetName] скорее всего, присоединится к вашему делу."
 
  agot_mega_wars.0605.t:0 "Накажите предателей"
- agot_mega_wars.0605.desc:0 "Война окончена, я победил. Итак, как наказать предателей?"
+ agot_mega_wars.0605.desc:0 "Война окончена, я победил. Итак, как наказать предателей?\nПредатель: [selected_traitor.GetName]"
  agot_mega_wars.0605.a:0 "Мягкого наказания будет достаточно." # Soft punishment
  agot_mega_wars.0605.b:0 "Наказание должно быть твердым." # Medium punishment
  agot_mega_wars.0605.c:0 "Наказание должно быть суровым." # Hard punishment
  agot_mega_wars.0605.d:0 "Ни один предатель больше никогда не войдет в королевство." # REALLY Hard punishment
  agot_mega_wars.0605.e:0 "Отправьте предателей на Стену." # Wall
- agot_mega_wars.0605.f:0 "Пусть Верховные Лорды решат." # Let LP decide
+ agot_mega_wars.0605.f:0 "Пусть решает Верховный лорд." # Let LP decide
 
- agot_mega_wars.9999.t:0 "FUN  EVENT"
- agot_mega_wars.9999.desc:0 "FUN  DESCRIPTION"
+ agot_mega_wars.9999.t:0 "FUN EVENT"
+ agot_mega_wars.9999.desc:0 "FUN DESCRIPTION"
  agot_mega_wars.9999.a:0 "OPTION A"
  agot_mega_wars.9999.b:0 "OPTION B"
  agot_mega_wars.9999.c:0 "OPTION C"
+
+ MW_TRAITORS_SEND_TO_WALL_TT:0 "[selected_traitor.GetName] будет отправлен на Стену,\nоставив все [selected_traitor.GetHerHis] титулы наследнику"
 
 # Scripted GUI
  MW_TRAITORS_HOSTAGES_TT:0 "Доступных заложников нет."
@@ -197,7 +199,8 @@
  MW_TRAITORS_SPEC_TITLES_TT:0 "Доступных титулов нет."
  MW_TRAITORS_ARTIFACT_TT:0 "Доступных артефактов нет."
  MW_TRAITORS_EXECUTION_TT:0 "Доступных персонажей нет."
- MW_TRAITORS_SEND_TO_WALL_TT:0 "Вы можете отправить этого персонажа на Стену."
+ MW_TRAITORS_EXECUTION_WALL_TT:0 "Вы уже отправляете этого персонажа на Стену."
+ MW_TRAITORS_CAN_SEND_TO_WALL_TT:0 "Вы можете отправить этого персонажа на Стену."
 
  mw_tab_name_header:0 "Гражданская война"
  MEGA_WARS_VIEW_GUI_LOYALIST:0 "Лоялисты"
