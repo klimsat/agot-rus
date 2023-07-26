@@ -1,23 +1,23 @@
 ﻿l_russian:
- agot_offer_knighthood_interaction:0 "Предложить рыцарское звание"
+ agot_offer_knighthood_interaction:0 "Предложить посвятить в рыцари"
  agot_offer_knighthood_interaction_desc:0 "[recipient.GetFirstNameNicknamedNoTooltipRegnal] ещё не рыцарь, но может им стать, поскольку любой рыцарь может посвятить любого другого человека в рыцари."
 
- offer_of_knighthood:0 "Предложить рыцарское звание"
+ offer_of_knighthood:0 "Предложить посвятить в рыцари"
  OFFER_KNIGHTHOOD_NOTIFICATION:0 "Говорят, что любой рыцарь может посвятить в рыцари другого человека. Я [Select_CString(recipient.IsFemale, 'заметила', 'заметил')], что вы ещё не рыцарь. Я буду [Select_CString(recipient.IsFemale, 'рада', 'рад')] исправить эту ошибку и даровать вам рыцарское звание."
 
  agot_offer_squirehood_interaction:0 "Обучить оруженосца"
- agot_offer_squirehood_interaction_desc:0 "Назначить [Concept( 'squire', 'оруженосца' )|E] и [Concept( 'agot_knight', 'рыцаря' )|E] при вашем [Concept( 'court', 'дворе' )|E]"
+ agot_offer_squirehood_interaction_desc:0 "Назначить [Concept( 'squire', 'оруженосца' )|E] и [Concept( 'agot_knight', 'рыцаря-наставника' )|E] при вашем [Concept( 'court', 'дворе' )|E]"
  agot_offer_squirehood_interaction_extra_icon:0 "$hook_extra_icon$"
  actor_secondary_agot_offer_squirehood_interaction:0 "[agot_knight|E]"
  recipient_secondary_agot_offer_squirehood_interaction:0 "[squire|E]"
  agot_offer_squirehood_interaction_notification:0 "Обучить оруженосца"
 
  agot_offer_squire_interaction:0 "Предложить оруженосца"
- agot_offer_squire_interaction_desc:0 "Предложить [recipient.GetShortUIName] [Concept( 'squire', 'оруженосца' )|E], сделав [recipient.GetHerHis] или кого-то при [recipient.GetHerHis] [Concept( 'court', 'дворе' )|E], [Concept( 'agot_knight', 'рыцарем' )|E] выбранного персонажа."
+ agot_offer_squire_interaction_desc:0 "Предложить персонажу [recipient.GetShortUIName] [Concept( 'squire', 'оруженосца' )|E], сделав [recipient.GetHerHis] или кого-то при [recipient.GetHerHis] [Concept( 'court', 'дворе' )|E], [Concept( 'agot_knight', 'рыцарем-наставником' )|E] выбранного персонажа."
  agot_offer_squire_interaction_extra_icon:0 "$hook_extra_icon$"
 
  agot_offer_knight_education_interaction:0 "Предложить рыцарское наставничество"
- agot_offer_knight_education_interaction_desc:0 "Предложить [recipient.GetShortUIName] [Concept( 'agot_knight', 'рыцаря')|E], сделав кого-то при [recipient.GetHerHis] [Concept( 'court', 'дворе' )|E] [Concept( 'squire', 'оруженосцем' )|E]"
+ agot_offer_knight_education_interaction_desc:0 "Предложить персонажу [recipient.GetShortUIName] [Concept( 'agot_knight', 'рыцаря-наставника')|E], сделав кого-то при [recipient.GetHerHis] [Concept( 'court', 'дворе' )|E] [Concept( 'squire', 'оруженосцем' )|E]"
  agot_oagot_offer_knight_education_interaction_extra_icon:0 "$hook_extra_icon$"
 
  actor_secondary_agot_offer_squire_interaction:0 "Оруженосец"
@@ -32,7 +32,7 @@
  EDUCATE_SELECT_YOUR_KNIGHT:0 "#Я выберу [Concept( 'agot_knight', 'рыцаря' )|E] при вашем [Concept( 'court', 'дворе' )|E]#!"
  EDUCATE_SELECT_YOUR_SQUIRE:0 "#Я выберу [Concept( 'squire', 'оруженосца' )|E] при вашем [Concept( 'court', 'дворе' )|E]#!"
 
- SQUIRE_ACTOR_CHILD_PERSONALLY_REQUEST:0 "Я буду премного [Select_CString(recipient.IsFemale, 'благодарна', 'благодарен')], если вы лично возьмёте [secondary_actor.GetShortUIName] в свои оруженосцы."
+ SQUIRE_ACTOR_CHILD_PERSONALLY_REQUEST:0 "Я буду премного [Select_CString(recipient.IsFemale, 'благодарна', 'благодарен')], если [secondary_actor.GetShortUIName] станет вашим оруженосцем."
  SQUIRE_ACTOR_PERSONALLY_REQUEST:0 "Для меня будет честью, если вы лично возьмёте меня в свои оруженосцы."
  SQUIRE_ACTOR_CHILD_REQUEST:0 "Мне будет очень приятно, если вы позволите [secondary_actor.GetShortUIName] стать оруженосцем [recipient.Custom2('RelationToMe', SCOPE.sC('secondary_recipient'))] [secondary_recipient.GetShortUINamePossessive]."
  SQUIRE_ACTOR_REQUEST:0 "Я буду премного [Select_CString(recipient.IsFemale, 'благодарна', 'благодарен')], если [Select_CString(secondary_recipient.IsFemale, 'ваша', 'ваш')] [recipient.Custom2('RelationToMe', SCOPE.sC('secondary_recipient'))] [secondary_recipient.GetShortUINamePossessive] станет моим оруженосцем."
