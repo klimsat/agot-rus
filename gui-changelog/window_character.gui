@@ -148,42 +148,70 @@ window = {
 				# }
 			}
 
+			expand = {}
+
+			hbox = {
+				margin_top = 50
+				layoutpolicy_horizontal = expanding
+				expand = {}
+
 			### Jailor / Imprisoner / Imprisoned by
-			container = {
+				vbox = {
 				name = "imprisoned_by"
 				datacontext = "[CharacterWindow.GetCharacter.GetImprisonedBy]"
 				visible = "[Character.IsValid]"
-				parentanchor = bottom|right
-				widgetanchor = top|left
-				position = { -195 -250 }
 
-				using = Animation_Character_Window_Refresh
+					margin_right = 20
+					layoutpolicy_vertical = expanding
+					using = Animation_Character_Window_Refresh
 
-				portrait_head_small = {
-					blockoverride "portrait_transformation"
-					{
-						portrait_scale = { -1 1 }
-						portrait_offset = { 1 0 }
+					portrait_head_small = {
+						blockoverride "portrait_transformation"
+						{
+							portrait_scale = { -1 1 }
+							portrait_offset = { 1 0 }
+						}
 					}
+
+					text_label_center = {
+						text = "IMPRISONED_BY"
+					}
+					expand = {}
 				}
 
-				text_label_center = {
-					parentanchor = top|hcenter
-					position = { 0 85 }
-					text = "IMPRISONED_BY"
-				}
+				### Hostage Home Court
+				vbox = {
+					name = "hostage_home_court"
+					datacontext = "[CharacterWindow.GetCharacter.GetHomeCourt]"
+					visible = "[Character.IsValid]"
+
+					margin_right = 20
+					layoutpolicy_vertical = expanding
+					using = Animation_Character_Window_Refresh
+
+					portrait_head_small = {
+						blockoverride "portrait_transformation"
+						{
+							portrait_scale = { -1 1 }
+							portrait_offset = { 1 0 }
+						}
+					}
+
+					text_label_center = {
+						text = "[home_court|E]"
+					}
+					expand = {}
 			}
 
 			### Liege
-			container = {
+			vbox = {
 				name = "liege"
 				datacontext = "[CharacterWindow.GetCharacter.GetLiegeEvenWhenDead]"
 				visible = "[CharacterWindow.HasLiegeEvenWhenDead]"
-				parentanchor = bottom|right
-				widgetanchor = top|left
-				position = { -105 -250 }
 				allow_outside = yes
 
+				margin_right = 20
+				layoutpolicy_vertical = expanding
 				using = Animation_Character_Window_Refresh
 
 				portrait_head_small = {
@@ -211,19 +239,25 @@ window = {
 					}
 				}
 
-				text_label_center = {
-					parentanchor = top|hcenter
-					position = { 0 85 }
-					text = "[liege|E]"
-					allow_outside = yes
+				hbox = {
+					spacing = 3
+
+					text_label_center = {
+						datacontext = "[CharacterWindow.GetCharacter]"
+						visible = "[Character.IsHostage]"
+						text = "WARDEN_OF"
+					}
+
+					text_label_center = {
+						datacontext = "[CharacterWindow.GetCharacter]"
+						visible = "[Not( Character.IsHostage )]"
+						text = "[liege|E]"
+					}
 
 					icon = {
-						name = "non_dejure_liege"
 						datacontext = "[CharacterWindow.GetCharacter]"
+						name = "non_dejure_liege"
 						visible = "[Not( Character.GetVassalContract.IsRightfulLiege )]"
-						position = { 3 0 }
-						parentanchor = right
-						widgetanchor = left
 						size = { 30 30 }
 						texture = "gfx/interface/icons/levy_tax_reduction.dds"
 
@@ -234,8 +268,6 @@ window = {
 
 				portrait_opinion = {
 					name = "liege_opinion"
-					parentanchor = top|hcenter
-					position = { 0 110 }
 
 					datacontext = "[CharacterWindow.GetCharacter]"
 					visible = "[And( Character.GetLiege.IsValid, And( Character.IsAlive, Not(Character.IsLocalPlayer ) ) )]"
@@ -268,7 +300,9 @@ window = {
 						text = "[Character.GetOpinionBreakdownText( CharacterWindow.GetCharacter.GetLiege )]"
 					}
 				}
+				expand = {}
 			}
+		}
 
 			### Host
 			container = {
@@ -3424,9 +3458,19 @@ window = {
 				}
 			}
 
-			filter_item = {
+			vbox_filter_group = {
 				layoutpolicy_horizontal = expanding
-				datacontext = "[CharacterSelectionList.GetFilter('dynasty_filter')]"
+				datacontext = "[CharacterSelectionList.GetCategory('politics_filter_category')]"
+				blockoverride "filters" {
+					filter_item = {
+						layoutpolicy_horizontal = expanding
+						datacontext = "[CharacterSelectionList.GetFilter('dynasty_filter')]"
+					}
+					filter_item = {
+						layoutpolicy_horizontal = expanding
+						datacontext = "[CharacterSelectionList.GetFilter('hostage_filter')]"
+					}
+				}
 			}
 		}
 	}
@@ -3434,7 +3478,8 @@ window = {
 	window_character_filter = {
 		name = "vassal_filter_window"
 		datacontext = "[CharacterWindow.GetVassals]"
-		position = { 525 275 }
+		size = { 510 820 }
+		position = { 525 200 }
 
 		blockoverride "editbox_properties"
 		{
@@ -3490,9 +3535,19 @@ window = {
 				}
 			}
 
-			filter_item = {
+			vbox_filter_group = {
 				layoutpolicy_horizontal = expanding
-				datacontext = "[CharacterSelectionList.GetFilter('dynasty_filter')]"
+				datacontext = "[CharacterSelectionList.GetCategory('politics_filter_category')]"
+				blockoverride "filters" {
+					filter_item = {
+						layoutpolicy_horizontal = expanding
+						datacontext = "[CharacterSelectionList.GetFilter('dynasty_filter')]"
+					}
+					filter_item = {
+						layoutpolicy_horizontal = expanding
+						datacontext = "[CharacterSelectionList.GetFilter('hostage_filter')]"
+					}
+				}
 			}
 		}
 	}
