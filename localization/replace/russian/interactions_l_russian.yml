@@ -707,6 +707,7 @@
  #Offer Vassalization/Fealty
                                                                                                          
  offer_vassalization_true_ruler_perk_tt:0 "У вас есть достоинство «[GetPerk( 'true_ruler_perk' ).GetName( GetPlayer )]»: $VALUE|=+0$"
+ offer_vassalization_education_diplomacy_5_tt: "[GetTrait('education_diplomacy_5').GetName( GetNullCharacter )]: $VALUE|=+0$"
  offer_vassalization_emissary_accolade_tt:0 "У вас на службе есть хотя бы один политически одаренный $knight_culture_player_no_tooltip_lowercase$"
  offer_vassalization_interaction_aibehavior_differentfaith_tt:0 "У вас разная [Concept( 'faith', 'конфессия' )|E]: $VALUE|=+0$"
  offer_vassalization_interaction_aibehavior_culture_tt:0 "У вас разная [Concept( 'culture', 'культура' )|E]: $VALUE|=+0$"
@@ -837,11 +838,29 @@
  char_interaction.0079.desc:0 "Мне казалось, мы договорились, что [ward.GetTitledFirstName] будет учиться у вас, а наставником станет [guardian.GetTitledFirstName]. Но теперь вы говорите, что [guardian.GetSheHe] [Select_CString(guardian.IsFemale, 'занята', 'занят' )] заботой о других подопечных?! Стыдитесь."
  char_interaction.0079.a:0 "Наверное, это было ошибкой..."
 
- char_interaction.0080.desc:0 "Мы с радостью принимаем ваше предложение об обучении — благородное воспитание для благородной души!"
+ char_interaction.0080.desc: "Для меня будет честью, если [guardian.GetShortUINameNoFormat] лично проследит за тем, какое образование получит [Select_CString(ward.IsFemale, 'моя', 'мой' )] [ward_liege.Custom2('RelationToMeShort', SCOPE.sC('ward'))] [ward.GetShortUINameNoFormat] — благородное воспитание для благородной души!"
+ char_interaction.0080.desc_self: "Для меня будет честью, если вы лично проследите за тем, какое образование получит [Select_CString(ward.IsFemale, 'моя', 'мой' )] [ward_liege.Custom2('RelationToMeShort', SCOPE.sC('ward'))] [ward.GetShortUINameNoFormat] — благородное воспитание для благородной души!"
+ char_interaction.0080.desc_guardian_self_ward: "Для меня будет честью заняться вашим образованием — благородное воспитание для благородной души!"
+ char_interaction.0080.desc_guardian_self: "Для меня будет честью лично проследить за тем, какое образование получит [Select_CString(ward.IsFemale, 'ваша', 'ваш' )] [ward_liege.Custom2('RelationToMeShort', SCOPE.sC('ward'))] [ward.GetShortUIName] — благородное воспитание для благородной души!"
+ char_interaction.0080.desc_guardian: "Для меня будет честью, если [Select_CString(guardian.IsFemale, 'моя', 'мой' )] [guardian_liege.Custom2('RelationToMeShort', SCOPE.sC('guardian'))], [guardian.GetShortUINameNoFormat], лично проследит за тем, какое образование получит [ward.GetShortUINameNoFormat] — благородное воспитание для благородной души!"
 
  char_interaction.0081.desc:0 "К сожалению, нам не нравится ваше предложение об обучении."
  char_interaction.0081.a:0 "Какая жалость."
 
+ char_interaction.0082.t: "Мой наставник"
+ char_interaction.0082.intro: "[guardian.GetTitledFirstName] наконец-то [Select_CString(guardian.IsFemale, 'прибыла', 'прибыл' )] из державы [guardian_liege.GetPrimaryTitle.GetNameNoTierNoTooltip], привезя с собой горы книг и свитков."
+ char_interaction.0082.desc.liege: "\n\n[guardian.GetSheHe|U] сообщает мне, что [ward.GetFirstNameNoTooltip] вскоре начнет учебу!"
+ char_interaction.0082.desc: "\n\n[guardian.GetSheHe|U] сообщает мне, что моя учеба скоро начнется!"
+ char_interaction.0082.a: "Очень хорошо."
+
+ char_interaction.0083.t: "Работа с разумом"
+ char_interaction.0083.intro: "[Select_CString(ward.IsFemale, 'Юная', 'Юный' )] [ward.GetTitledFirstName], [ward_liege.Custom2('RelationToMeShort', SCOPE.sC('ward'))] персонажа [ward_liege.GetTitledFirstName], наконец-то [Select_CString(ward.IsFemale, 'прибыла', 'прибыл' )] из державы [ward_liege.GetPrimaryTitle.GetNameNoTierNoTooltip] для своего обучения."
+ char_interaction.0083.desc.host: "\n\n[guardian.GetTitledFirstName] скоро начнет уроки."
+ char_interaction.0083.desc: "\n\nКогда [ward.GetSheHe] устроится, начнутся занятия."
+ char_interaction.0083.a: "Отлично."
+
+ char_interaction.0084.desc: "[Select_CString(ward.IsFemale, 'Ваша', 'Ваш' )] [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('ward'))], [ward.GetTitledFirstName], благополучно [Select_CString(ward.IsFemale, 'прибыла', 'прибыл' )] в державу [guardian_liege.GetPrimaryTitle.GetNameNoTierNoTooltip], и я безотлагательно начну [ward.GetHerHis] обучение."
+ char_interaction.0084.a: "Очень хорошо."
 
  char_interaction.0090.from_ward.desc:0 "Боюсь, обучение при вашем дворе больше не отвечает моим потребностям. Я немедленно возвращаюсь в свою столицу."
  char_interaction.0090.two_wards.desc:0 "Боюсь, образование, которое [ward.GetTitledFirstName] и [ward_2.GetTitledFirstName] получают при вашем дворе, больше не отвечает нашим потребностям. Мы возвращаем их под свою опеку."
@@ -1214,6 +1233,7 @@
  RULERS_FAMILY_IS_MARRIED_TO_THEM:0 "[CHARACTER.GetShortUIName] состоит в браке с отпрыском, родителем, сиблингом, внуком/внучкой, дедом/бабкой, дядей/тетей, племянником/племянницей персонажа [TARGET_CHARACTER.GetTitledFirstName]"
  RULERS_CHILD_PARENT_SIBLING_IS_MARRIED_TO_OTHER_RULERS:0 "Ребенок, родитель или сиблинг персонажа [CHARACTER.GetTitledFirstName] состоит в браке с ребенком, родителем или сиблингом персонажа [TARGET_CHARACTER.GetTitledFirstName]"
  HAS_SENT_INTERACTION_ALREADY:1 "Вы можете отправлять только одно из этих взаимодействий за раз"
+ HAS_NO_OPTION_SELECTED: "Вы должны выбрать хотя бы один вариант"
  ALREADY_HAS_AN_ALLIANCE_DEAL:1 "У вас уже есть одно активное предложение [Concept( 'alliance', 'союза' )|E]"
  NOT_ALREADY_HAS_AN_ALLIANCE_DEAL:0 "У вас уже есть активное предложение [Concept( 'alliance', 'союза' )|E]"
  negotiate_alliance_effect_tooltip:0 "[recipient.GetTitledFirstName] и я заключили [alliance|El]"
@@ -1377,7 +1397,7 @@
  NOT_TAKE_VOWS_INTERACTION_MARTIAL_EDUCATION:0 "[TARGET_CHARACTER.GetTitledFirstName] #bold не#! имеет [Concept( 'martial', 'военного' )|E] [Concept( 'education_trait', 'свойства образования' )|E]"
  TAKE_VOWS_INTERACTION_MARTIAL_EDUCATION:0 "имеет [Concept( 'martial', 'военное' )|E] [Concept( 'education_trait', 'свойство образования' )|E] и может вступить в [Concept( 'holy_order', 'священный орден' )|E]"
  
- release_pow_at_end_of_war:0 "[hostages|EU] всех участников войны получат свободу."
+ release_pow_at_end_of_war: "[valuable_prisoners|EU] всех участников войны получат свободу."
  
  INTERACTION_MARTIAL_EDUCATION:0 "[recipient.GetSheHe|U] имеет [Concept( 'martial', 'военное' )|E] [Concept( 'education', 'образование' )|E]: $VALUE|=+0$"
  INTERACTION_CRAVEN:0 "[GetTrait('craven').GetName( recipient )]: $VALUE|=+0$"
@@ -1643,3 +1663,27 @@
  find_suitable_accolade_successor_interaction:0 "Найти достойного преемника акколады"
  find_suitable_accolade_successor_interaction_desc:0 "Призвать к своему [Concept( 'court', 'двору' )|E] подходящего [Concept( 'knight', 'рыцаря' )|E]"
  find_suitable_accolade_successor_interaction.tt:0 "[Concept( 'knight', 'Рыцарь' )|E], удовлетворяющий требованиям этой [Concept( 'accolade', 'акколады' )|E], присоединится к вашему [Concept( 'court', 'двору' )|E] в течение #high 6 месяцев#!\n\n@alert_icon! #alert_trial Решение «Найти достойного преемника акколады» будет недоступно в течение #high 2 лет#!#!"
+
+ adoption.0001.opening: "[recipient.Custom2('AppropriateGreetingPositive', actor)]"
+ adoption.0001.desc: "Я принимаю ваше предложение об усыновлении. Я буду с гордостью считать себя представителем дома [actor.GetHouse.GetBaseName] и вашим родичем!"
+ adoption.0001.a: "Прошу, называй меня «[actor.Custom('GetMumDad')]»."
+
+ ward_invalidated_during_travel_title: "Подопечный недействителен"
+ guardian_invalidated_during_travel_title: "Опекун недействителен"
+ ward_departs_title: "Подопечный отправляется"
+ ward_departs_tt: "[ward.GetFirstNameNoTooltip] отправляется во владение [guardian.GetCurrentLocation.GetNameNoTooltip]"
+ guardian_departs_title: "Опекун отправляется"
+ guardian_departs_tt: "[guardian.GetFirstNameNoTooltip] отправляется во владение [ward.GetCurrentLocation.GetNameNoTooltip]"
+ adoptee_departs_title: "Приемный ребенок отправляется"
+ adoptee_departs_tt: "[adoptee.GetFirstNameNoTooltip] отправляется во владение [adopter.GetCurrentLocation.GetNameNoTooltip]"
+ adoptee_leaves_for_adopter_tt: "@alert_icon! #alert_trial [adoptee.GetFirstName] [Select_CString(adoptee.IsFemale, 'должна', 'должен' )] сперва [Concept( 'travel', 'добраться' )|E] до двора, где правит [adopter.GetFirstName]#!"
+ ward_leaves_for_guardian_tt: "@alert_icon! #alert_trial [ward|E] должен сперва [Concept( 'travel', 'добраться' )|E] до двора [Concept( 'guardian_possessive', 'опекуна' )|E]#!"
+ guardian_leaves_for_ward_tt: "@alert_icon! #alert_trial [guardian|E] должен сперва [Concept( 'travel', 'добраться' )|E] до двора [Concept( 'ward_possessive', 'подопечного' )|E]#!"
+ ward_already_offered_awaiting_response_tt: "Уже договаривается стать чьим-то [Concept( 'ward', 'подопечным' )|E]"
+ guardian_already_offered_awaiting_response_tt: "Уже договаривается стать чьим-то [Concept( 'guardian', 'опекуном' )|E]"
+ ward_already_offered_awaiting_travel_tt: "$ward_already_offered_awaiting_response_tt$"
+ guardian_already_offered_awaiting_travel_tt: "$guardian_already_offered_awaiting_response_tt$"
+ ward_effects_on_arrival_tt: "Когда [TARGET_CHARACTER.GetFirstName] прибудет:"
+ ward_nearing_adulthood_tt: "@warning_icon! #X [TARGET_CHARACTER.GetShortUIName] скоро повзрослеет#!"
+ ward_travelling_tt: "[THIS.Char.GetShortUIName|U] в пути с целью стать [Concept( 'ward', 'подопечным' )|E]"
+ guardian_travelling_tt: "[THIS.Char.GetShortUIName|U] в пути с целью стать [Concept( 'guardian', 'опекуном' )|E]"
