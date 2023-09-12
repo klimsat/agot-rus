@@ -705,6 +705,7 @@
 
  #Offer Vassalization/Fealty
  offer_vassalization_true_ruler_perk_tt:0 "You have [GetPerk( 'true_ruler_perk' ).GetName( GetPlayer )]: $VALUE|=+0$"
+ offer_vassalization_education_diplomacy_5_tt: "[GetTrait('education_diplomacy').GetName( GetNullCharacter )]: $VALUE|=+0$"
  offer_vassalization_emissary_accolade_tt:0 "You employ at least one politically gifted $knight_culture_player_no_tooltip_lowercase$"
  offer_vassalization_interaction_aibehavior_differentfaith_tt:0 "You are of a different [faith|E]: $VALUE|=+0$"
  offer_vassalization_interaction_aibehavior_culture_tt:0 "You are of a different [culture|E]: $VALUE|=+0$"
@@ -835,11 +836,29 @@
  char_interaction.0079.desc:0 "I thought we had agreed for [guardian.GetTitledFirstName] to educate [ward.GetTitledFirstName], but now I hear that [guardian.GetSheHe] has [guardian.GetHerHis] hands full with other wards?! For shame."
  char_interaction.0079.a:0 "I might have made a mistake..."
 
- char_interaction.0080.desc:0 "We are happy to accept your proposed education arrangement — a noble upbringing for a noble spirit!"
+ char_interaction.0080.desc:0 "I would be happy for [guardian.GetShortUINameNoFormat] to educate my [ward_liege.Custom2('RelationToMeShort', SCOPE.sC('ward'))], [ward.GetShortUINameNoFormat] — a noble upbringing for a noble spirit!"
+ char_interaction.0080.desc_self:0 "I would be happy for you to educate my [ward_liege.Custom2('RelationToMeShort', SCOPE.sC('ward'))], [ward.GetShortUINameNoFormat] — a noble upbringing for a noble spirit!"
+ char_interaction.0080.desc_guardian_self_ward: "I would be happy to educate you — a noble upbringing for a noble spirit!"
+ char_interaction.0080.desc_guardian_self: "I would be happy to educate your [ward_liege.Custom2('RelationToMeShort', SCOPE.sC('ward'))], [ward.GetShortUIName] — a noble upbringing for a noble spirit!"
+ char_interaction.0080.desc_guardian: "I would be happy for my [guardian_liege.Custom2('RelationToMeShort', SCOPE.sC('guardian'))], [guardian.GetShortUINameNoFormat], to educate [ward.GetShortUINameNoFormat] — a noble upbringing for a noble spirit!"
 
  char_interaction.0081.desc:0 "Unfortunately, we do not find your proposed education arrangement to our liking."
  char_interaction.0081.a:0 "Such a shame."
 
+ char_interaction.0082.t: "A Mentor to Mine"
+ char_interaction.0082.intro: "[guardian.GetTitledFirstName] has at last arrived from [guardian_liege.GetPrimaryTitle.GetNameNoTierNoTooltip], burdened with tomes and scrolls."
+ char_interaction.0082.desc.liege: "\n\n[guardian.GetSheHe|U] tells me [ward.GetFirstNamePossessiveNoTooltip] lessons will begin soon!"
+ char_interaction.0082.desc: "\n\n[guardian.GetSheHe|U] tells me my lessons will begin soon!"
+ char_interaction.0082.a: "Very good."
+ 
+ char_interaction.0083.t: "A Mind to Mold"
+ char_interaction.0083.intro: "Young [ward.GetTitledFirstName], [ward_liege.GetTitledFirstNamePossessive] [ward_liege.Custom2('RelationToMeShort', SCOPE.sC('ward'))], has at last arrived from [ward_liege.GetPrimaryTitle.GetNameNoTierNoTooltip] for [ward.GetHerHis] education."
+ char_interaction.0083.desc.host: "\n\n[guardian.GetTitledFirstName] will soon begin [guardian.GetHerHis] lessons."
+ char_interaction.0083.desc: "\n\nOnce [ward.GetSheHe] is settled in, the lessons will begin."
+ char_interaction.0083.a: "Excellent."
+
+ char_interaction.0084.desc: "Your [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('ward'))], [ward.GetTitledFirstName], has safely arrived in [guardian_liege.GetPrimaryTitle.GetNameNoTierNoTooltip], and I shall begin [ward.GetHerHis] lessons forthwith."
+ char_interaction.0084.a: "Very good."
 
  char_interaction.0090.from_ward.desc:0 "I fear my education at your court no longer suits my needs. I will be returning to [capital.GetNameNoTierNoTooltip] immediately."
  char_interaction.0090.two_wards.desc:0 "I fear the education of [ward.GetTitledFirstName] and [ward_2.GetTitledFirstName] at your court no longer suit our needs. They are hereby recalled to our care."
@@ -1212,6 +1231,7 @@
  RULERS_FAMILY_IS_MARRIED_TO_THEM:0 "[CHARACTER.GetShortUIName] is married to a child, parent, sibling, grandchild, grandparent, uncle, aunt, niece or nephew of [TARGET_CHARACTER.GetShortUIName]"
  RULERS_CHILD_PARENT_SIBLING_IS_MARRIED_TO_OTHER_RULERS:0 "[CHARACTER.GetTitledFirstNamePossessive] child, parent or sibling is married to a child, parent or sibling of [TARGET_CHARACTER.GetShortUIName]"
  HAS_SENT_INTERACTION_ALREADY:1 "You can only send one of these interactions at a time"
+ HAS_NO_OPTION_SELECTED: "You have to select at least one option"
  ALREADY_HAS_AN_ALLIANCE_DEAL:1 "You can have one proposed [alliance|E] active"
  NOT_ALREADY_HAS_AN_ALLIANCE_DEAL:0 "You already have one proposed [alliance|E] active"
  negotiate_alliance_effect_tooltip:0 "[recipient.GetTitledFirstName] and I enter a mutual [alliance|E]"
@@ -1375,7 +1395,7 @@
  NOT_TAKE_VOWS_INTERACTION_MARTIAL_EDUCATION:0 "[TARGET_CHARACTER.GetTitledFirstName] does #bold not#! have a [martial|E] [education_trait|E]"
  TAKE_VOWS_INTERACTION_MARTIAL_EDUCATION:0 "has a [martial|E] [education_trait|E] and can join a [holy_order|E]"
  
- release_pow_at_end_of_war:0 "[hostages|EU] taken by all war participants will be released."
+ release_pow_at_end_of_war:1 "[valuable_prisoners|EU] taken by all war participants will be released."
  
  INTERACTION_MARTIAL_EDUCATION:0 "[recipient.GetSheHe|U] has a [martial|E] [education|E]: $VALUE|=+0$"
  INTERACTION_CRAVEN:0 "[GetTrait('craven').GetName( recipient )]: $VALUE|=+0$"
@@ -1639,3 +1659,24 @@
  find_suitable_accolade_successor_interaction:0 "Seek Worthy Accolade Successor"
  find_suitable_accolade_successor_interaction_desc:0 "Call for an eligible [knight|e] to join your [court|e]"
  find_suitable_accolade_successor_interaction.tt:0 "A [knight|e] who fulfills this [accolade|e]'s requirements will join your [court|e] within #high 6 months#!\n\n@alert_icon! #alert_trial Seek Worthy Accolade Successor will be unavailable for #high 2 years#!#!"
+
+ adoption.0001.opening: "[actor.Custom2('AppropriateGreetingPositive', recipient)]"
+ adoption.0001.desc: "I accept your offer of adoption. I'm proud to call myself a member of the [actor.GetDynastyName] Dynasty and your kin!"
+ adoption.0001.a: "Please, call me "[actor.Custom('GetMumDad')]"."
+
+ ward_invalidated_during_travel_title: "Ward Invalidated"
+ guardian_invalidated_during_travel_title: "Guardian Invalidated"
+ ward_departs_title: "Ward Sets Out"
+ ward_departs_tt: "[ward.GetFirstNameNoTooltip] departs for [guardian.GetCurrentLocation.GetNameNoTooltip]"
+ guardian_departs_title: "Guardian Sets Out"
+ guardian_departs_tt: "[guardian.GetFirstNameNoTooltip] departs for [ward.GetCurrentLocation.GetNameNoTooltip]"
+ ward_leaves_for_guardian_tt: "@alert_icon! #alert_trial [ward|E] must first [travel|E] to [guardian_possessive|E] court#!"
+ guardian_leaves_for_ward_tt: "@alert_icon! #alert_trial [guardian|E] must first [travel|E] to [ward_possessive|E] court#!"
+ ward_already_offered_awaiting_response_tt: "Already under negotiation to become someone's [ward|E]"
+ guardian_already_offered_awaiting_response_tt: "Already under negotiation to become someone's [guardian|E]"
+ ward_already_offered_awaiting_travel_tt: "$ward_already_offered_awaiting_response_tt$"
+ guardian_already_offered_awaiting_travel_tt: "$guardian_already_offered_awaiting_response_tt$"
+ ward_effects_on_arrival_tt: "When [TARGET_CHARACTER.GetFirstName] arrives:"
+ ward_nearing_adulthood_tt: "@warning_icon! #X [TARGET_CHARACTER.GetShortUIName] will soon be an adult#!"
+ ward_travelling_tt: "[THIS.Char.GetShortUIName|U] is traveling to become a [ward|E]"
+ guardian_travelling_tt: "[THIS.Char.GetShortUIName|U] is traveling to become a [guardian|E]"
