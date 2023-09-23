@@ -4,6 +4,7 @@
  agot_bastard_event.reveal_tt:0 "You will tell [reveal_scope.GetName] the truth about [reveal_scope.GetHerHis] heritage."
  agot_bastard_event.reveal_warning:0 "@warning_icon! #warning This may have major implications for yourself and the realm.#!"
  agot_bastard_event.reveal_warning_letter:0 "You will send letters to every corner of Westeros.\n@warning_icon!#warning This may have major implications for yourself and the realm.#!"
+ agot_bastard_event.realm_ruler_react_wait:0 "Now to see how the realm, and [ruler_scope.GetFirstNameOrMe], react..."
  agot_bastard_event.host_response_choice:0 "It will be up to [reveal_employer.GetName] to respond to your demand."
  agot_bastard_event.personal_response_choice:0 "It will be up to [reveal_scope.GetName] to respond to your demand."
  agot_bastard_event.demand_reject_harsh:0 "This is an outrageous demand! This means war!"
@@ -133,7 +134,6 @@
  # Employer notified of child revealing
  agot_bastard_event.0915.t:0 "A Truth Revealed"
  agot_bastard_event.0915.desc:0 "[reveal_scope.GetName] is silent for a long time. I can see their thoughts dancing across their face. Confusion. Happiness. Fear. "So..." [reveal_scope.GetSheHe] exhales at last, but remains staring at the floor.\n\nI search [reveal_scope.GetHerHis] face for what feels like a day before [reveal_scope.GetSheHe] turns to me and says "This will change things, won't it?".\n\nWith that, there were plans to be made. [reveal_scope.GetFirstName] has made [reveal_scope.GetHerHis] decision. The realm is to know, and consequences to face."
- agot_bastard_event.0915.a:0 "Now to see how the realm, and [ruler_scope.GetFirstName], react..."
  
  # Employer notified child doesn't want to share
  agot_bastard_event.0916.t:0 "A Request From Lessers"
@@ -184,22 +184,19 @@
  agot_bastard_event.0952.t:0 "A Truth Revealed"
  agot_bastard_event.0952.desc:0 "[reveal_scope.GetName] is silent for a long time. I can see their thoughts dancing across their face. Confusion. Happiness. Fear. "So..." [reveal_scope.GetSheHe] exhales at last, but remains staring at the floor.\n\nI search [reveal_scope.GetHerHis] face for what feels like a day before [reveal_scope.GetSheHe] turns to me and says "This will change things, won't it?".\n\nThere were hugs, there were tears. The family was certainly shocked. But [reveal_scope.GetFirstName] has made [reveal_scope.GetHerHis] decision. The realm is to know."
  agot_bastard_event.0952.desc.jon:0 "[reveal_scope.GetName] is silent for a long time. I can see their thoughts dancing across their face. Confusion. Happiness. Fear. "Lyanna..." [reveal_scope.GetSheHe] exhales at last, but remains staring at the floor.\n\nI search [reveal_scope.GetHerHis] face for what feels like a day before [reveal_scope.GetSheHe] turns to me and says "This will change things, won't it?".\n\nThere were hugs, there were tears. The family was certainly shocked. But [reveal_scope.GetFirstName] has made [reveal_scope.GetHerHis] decision. The realm is to know."
- agot_bastard_event.0952.a:0 "Now to see how the realm, and [ruler_scope.GetFirstName], react..."
  
  # Parent responds to child revealing after being told
  agot_bastard_event.0953.t:0 "A Truth Revealed"
  agot_bastard_event.0953.desc:0 "[reveal_scope.GetName] is silent for a long time after handing me the letter from [sharer.GetFullName]. It tells of the truth. That [reveal_scope.GetFirstName] was born of [real_mother.GetName] and [real_father.GetName]. Such a secret I held close for so long that it was not even I who could tell it to them.\n\nThere were hugs, there were tears. The family was certainly shocked. But [reveal_scope.GetFirstName] has made [reveal_scope.GetHerHis] decision. The realm is to know."
- agot_bastard_event.0953.a:0 "Now to see how the realm, and [ruler_scope.GetFirstName], react..."
  
  # Parent responds to sharer revealing without telling
  agot_bastard_event.0954.t:0 "A Truth Revealed"
  agot_bastard_event.0954.desc:0 "[reveal_scope.GetName] is silent for a long time after handing me the letter from [sharer.GetFullName]. It tells of the truth. That [reveal_scope.GetFirstName] was born of [real_mother.GetName] and [real_father.GetName]. Whats worse, copies have been sent to all the realm!\n\nSuch a secret I held close for so long that it was not even I who could reveal it.\n\nThere were hugs, there were tears. This should rightfully have been [reveal_scope.GetHerHis] decision, but [sharer.GetFirstName] has robbed us of that option. Regardless, it has been done. Though it was neither I nor [reveal_scope.GetFirstNamePossessive] decision, the realm is to know."
- agot_bastard_event.0954.a:0 "Now to see how they, and [ruler_scope.GetFirstName], react..."
  
  # Sharer is told that child is revealing based on their response
  agot_bastard_event.0955.t:0 "A Truth Revealed"
  agot_bastard_event.0955.desc:0 "It has been some time since I sent a letter to [reveal_scope.GetFirstName], and though every day I have asked if I have recieved a reply, or notice sent to the realm, I have recieved no word as yet.\n\nAt last, after weeks of waiting, a paige tells me that I have recieved a reply.\n\n"Dear [ROOT.Char.GetFullName]," [reveal_scope.GetSheHe] begins "I thank you for your candor, and I write to you in advance to let you know that I shall be writing to the realm in the coming days revealing that which you told me."\n\nIt seems [reveal_scope.GetName] has made their choice, and I feel a weight leave my shoulders."
- agot_bastard_event.0955.a:0 "Now to see how they, and [ruler_scope.GetFirstName], react..."
+ agot_bastard_event.0955.a:0 "Now to see how they, and [ruler_scope.GetFirstNameOrMe], react..."
  
  # Child reacts to non-consentual sharing
  agot_bastard_event.0956.t:0 "A Truth Revealed"
@@ -216,7 +213,6 @@
  agot_bastard_event.0958.desc.bastard:0 "The ravens are sent. The messages, delivered. The truth, known.\n\nThough many will curse me for revealing such a grand secret, for better or worse the truth is out there. Perhaps I may play a great role in the days to come. Perhaps all of this will come to naught. Whatever the case, my true bloodline is now acknowledged by all, for good or ill."
  agot_bastard_event.0958.desc.host:0 "The ravens are sent. The messages, delivered. The truth, known.\n\nThough many will curse me for revealing such a grand secret, for better or worse the truth is out there. Perhaps I may play a great role in the days to come. Perhaps all of this will come to naught. Whatever the case, [reveal_scope.GetFirstNamePossessive] true bloodline is now acknowledged by all, for good or ill."
  agot_bastard_event.0958.desc.else:0 "The ravens are sent. The messages, delivered. The truth, known.\n\nThough many will curse me for revealing such a grand secret, for better or worse the truth is out there. Perhaps I may play a great role in the days to come. Perhaps this is where my part ends. Whatever the case, [reveal_scope.GetFirstNamePossessive] true bloodline is now acknowledged by all, for good or ill."
- agot_bastard_event.0958.a:0 "Now to see how the realm, and [ruler_scope.GetFirstName], react..."
  
  # King is alerted
  agot_bastard_event.0959.t:0 "A Bastard of Royal Blood"
@@ -260,7 +256,7 @@
  agot_bastard_event.0962.a.ss:0 "She shall be allowed to join the Silent Sisters."
  agot_bastard_event.0962.b:0 "[reveal_scope.GetSheHe|U] must be placed under arrest."
  agot_bastard_event.0962.c:0 "[reveal_scope.GetName] may join court, to note their new station."
- agot_bastard_event.0962.d:0 "[reveal_scope.GetName] must state they have no claim, that is enough."
+ agot_bastard_event.0962.d:0 "[reveal_scope.GetName] must state [reveal_scope.GetSheHe] has no claim, that is enough."
  
  # King is of same dynasty
  agot_bastard_event.0963.t:0 "A New [ROOT.Char.GetHouse.GetBaseName]?"
@@ -273,7 +269,7 @@
  agot_bastard_event.0963.b:0 "[reveal_scope.GetSheHe|U] must be placed under arrest."
  agot_bastard_event.0963.c:0 "[reveal_scope.GetName] may join court, to note their new station."
  agot_bastard_event.0963.c.flavor:0 "You may confer additional honors to them if they accept."
- agot_bastard_event.0963.d:0 "[reveal_scope.GetName] must state they have no claim, that is enough."
+ agot_bastard_event.0963.d:0 "[reveal_scope.GetName] must state [reveal_scope.GetSheHe] has claim, that is enough."
  
  # Employer responds to king execute all demands
  agot_bastard_event.0970.t:0 "A Tyrannous Demand"
@@ -298,7 +294,7 @@
  
  # Employer responds to king claim demand
  agot_bastard_event.0975.t:0 "A Clear Demand"
- agot_bastard_event.0975.desc:0 "A letter has arrived, bearing the seal of house [ruler_scope.GetHouse.GetBaseName]. The letter from [ruler_scope.GetName] bears no misunderstanding or misinterpretation. [ruler_scope.GetName] has demanded, in [ruler_scope.GetHerHis] mercy, for [reveal_scope.GetFirstName] to make a public and legal declaration absconding any claim their revealed heritage may represent.\n\nThis demand has been sent across the realm, and many believe that it is a just answer to recent developments. Still, it is a stain on ones honour to give up claims rightfully theirs should the wheels of fate turn.\n\nWhat shall it be then, pride or peace?"
+ agot_bastard_event.0975.desc:0 "A letter has arrived, bearing the seal of house [ruler_scope.GetHouse.GetBaseName]. The letter from [ruler_scope.GetName] bears no misunderstanding or misinterpretation. [ruler_scope.GetName] has demanded, in [ruler_scope.GetHerHis] mercy, for [reveal_scope.GetFirstName] to make a public and legal declaration absconding any claim their revealed heritage may represent.\n\nThis demand has been sent across the realm, and many believe that it is a just answer to recent developments. Still, it is a stain on ones honor to give up claims rightfully theirs should the wheels of fate turn.\n\nWhat shall it be then, pride or peace?"
  
  # Employer reacts to no news
  agot_bastard_event.0976.t:0 "No News is Good News?"
@@ -323,7 +319,7 @@
  
  # Landed bastard responds to king claim demand
  agot_bastard_event.0981.t:0 "A Clear Demand"
- agot_bastard_event.0981.desc:0 "A letter has arrived, bearing the seal of house [ruler_scope.GetHouse.GetBaseName]. The letter from [ruler_scope.GetName] bears no misunderstanding or misinterpretation. [ruler_scope.GetName] has demanded, in [ruler_scope.GetHerHis] mercy, for me to make a public and legal declaration absconding any claim my revealed heritage may represent.\n\nThis demand has been sent across the realm, and many believe that it is a just answer to recent developments. Still, it is a stain on ones honour to give up claims rightfully theirs should the wheels of fate turn.\n\nWhat shall it be then, my pride, or peace in the realm?"
+ agot_bastard_event.0981.desc:0 "A letter has arrived, bearing the seal of house [ruler_scope.GetHouse.GetBaseName]. The letter from [ruler_scope.GetName] bears no misunderstanding or misinterpretation. [ruler_scope.GetName] has demanded, in [ruler_scope.GetHerHis] mercy, for me to make a public and legal declaration absconding any claim my revealed heritage may represent.\n\nThis demand has been sent across the realm, and many believe that it is a just answer to recent developments. Still, it is a stain on ones honor to give up claims rightfully theirs should the wheels of fate turn.\n\nWhat shall it be then, my pride, or peace in the realm?"
  
   # Landed bastard reacts to no news
  agot_bastard_event.0982.t:0 "No News is Good News?"
@@ -399,7 +395,7 @@
  
  # Bastard wins war
  agot_bastard_event.0995.t:0 "Proclaiming Your Birthright"
- agot_bastard_event.0995.desc:0 "I step through the gates of the throne room and see the Iron Throne towering over me, its form towering over the court assembled on either side. I can feel it calling to me, and with a decisive step, I answer.\n\nEach step brings more to their knees as I pass by, bowing before their new liege. Though many may have questioned it not months ago, none now dare challenge my legitimacy.\n\nAs I take those first steps up the throne I feel the stain of my birth washing away, and once I reach the top I turn and raise my sword high to proclaim a new age!"
+ agot_bastard_event.0995.desc:0 "I step through the gates of the throne room and see the Iron Throne's form dominating the room, towering over the court assembled on either side. I can feel it calling to me, and with a decisive step, I answer.\n\nEach step brings more to their knees as I pass by, bowing before their new liege. Though many may have questioned it not months ago, none now dare challenge my legitimacy.\n\nAs I take those first steps up the throne I feel the stain of my birth washing away, and once I reach the top I turn and raise my sword high to proclaim a new age!"
  agot_bastard_event.0995.a.king:0 ""I am [ROOT.Char.GetFirstName] [father_house.GetBaseName], and I am your King!""
  agot_bastard_event.0995.b.king:0 ""I am [ROOT.Char.GetFirstName] [mother_house.GetBaseName], and I am your King!""
  agot_bastard_event.0995.a.queen:0 ""I am [ROOT.Char.GetFirstName] [father_house.GetBaseName], and I am your Queen!""
@@ -439,7 +435,7 @@
  # Ruler notified of hostage acceptance
  agot_bastard_event.1005.t:0 "Demands Accepted"
  agot_bastard_event.1005.desc.jon:0 "I watch as [reveal_scope.GetFirstName] is brought before me in full view of the court, kneeling on the cold marble of the throne room as I preside above [reveal_scope.GetHerHim]. The offspring of my beloved Lyanna and my foe Rhaegar performs the perfect recital of vows, and now that I know the truth, I wonder how I ever didn't see Rhaegar's features in [reveal_scope.GetHerHim].\n\n"- do so swear fealty to you and your heirs as rulers of the [ROOT.Char.GetPrimaryTitle.GetName]." As [reveal_scope.GetHerHis] oaths are finished and [reveal_scope.GetSheHe] rises I find myself shocked. Those eyes look just like Lyanna's. For years I couldn't remember what she looked like, and just now I remember a piece for the first time in over a decade. Those are Lyanna's eyes.\n\nWithout word from me, [reveal_scope.GetSheHe] steps out of the procession and into the thrum of court. Lyanna's eyes perhaps, but that bearing is Targaryen. What I do with [reveal_scope.GetHerHim] is up to me now."
- agot_bastard_event.1005.desc:0 "I watch as [reveal_scope.GetFirstName] is brought before me in full view of the court, kneeling on the cold marble of the throne room as I preside above [reveal_scope.GetHerHim].\n\n"- do so swear fielty and loyalty to you and your heirs as the just rulers of the [ROOT.Char.GetPrimaryTitle.GetName]." As the oaths are finished and [reveal_scope.GetSheHe] rises I find myself searching [reveal_scope.GetHerHis] eyes, seeking the motive behind [reveal_scope.GetHerHis] surrender. Was it cowardess, or a desire for peace? Perhaps this is part of some larger ploy? Only by the silence do I realise that the swearing is over.\n\nWithout word from me, [reveal_scope.GetSheHe] steps out of the procession and into the thrum of court, joining their fellow courtiers."
+ agot_bastard_event.1005.desc:0 "I watch as [reveal_scope.GetFirstName] is brought before me in full view of the court, kneeling on the cold marble of the throne room as I preside above [reveal_scope.GetHerHim].\n\n"- do so swear fealty and loyalty to you and your heirs as the just rulers of the [ROOT.Char.GetPrimaryTitle.GetName]." As the oaths are finished and [reveal_scope.GetSheHe] rises I find myself searching [reveal_scope.GetHerHis] eyes, seeking the motive behind [reveal_scope.GetHerHis] surrender. Was it cowardess, or a desire for peace? Perhaps this is part of some larger ploy? Only by the silence do I realise that the swearing is over.\n\nWithout word from me, [reveal_scope.GetSheHe] steps out of the procession and into the thrum of court, joining their fellow courtiers."
  agot_bastard_event.1005.a:0 "To honor, to ignore, or to use as I see fit."
  agot_bastard_event.1005.b:0 "[reveal_scope.GetFirstName] is a renown warrior, why not invite [reveal_scope.GetHerHim] to my Kingsguard?"
  agot_bastard_event.1005.c:0 "To the dungeon with them then!"
