@@ -1,0 +1,123 @@
+﻿template UMS_Entry_Margins
+{
+    margin_left = 60
+    margin_right = 60
+}
+
+
+template rv_Relation_Icons_cb
+{
+    lover_relation_icon = {
+        blockoverride "icon_template"
+        {
+            using = rv_Relation_Icon
+        }
+    }
+    friend_relation_icon = {
+        blockoverride "icon_template"
+        {
+            using = rv_Relation_Icon
+        }
+    }
+    rival_relation_icon = {
+        blockoverride "icon_template"
+        {
+            using = rv_Relation_Icon
+        }
+    }
+    soulmate_relation_icon = {
+        blockoverride "icon_template"
+        {
+            using = rv_Relation_Icon
+        }
+    }
+    best_friend_relation_icon = {
+        blockoverride "icon_template"
+        {
+            using = rv_Relation_Icon
+        }
+    }
+    nemesis_relation_icon = {
+        blockoverride "icon_template"
+        {
+            using = rv_Relation_Icon
+        }
+    }
+
+	rv_family_relation_icon = {
+		blockoverride "icon_template"
+        {
+            using = rv_Relation_Icon_family
+        }
+	}
+	
+}
+
+template rv_Relation_Icon
+{
+	size = { 24 24 }
+	framesize = { 40 40 }
+
+	visible = "[ScriptedRelation.HasRelationBetween( GetPlayer.Self, Character.Self )]"
+
+	tooltipwidget = {
+		scripted_relation_tooltip = {
+			blockoverride "description_text"
+			{
+				text = "[GetScriptedRelationTooltip( ScriptedRelation, GetPlayer, Character )]"
+			}
+		}
+	}
+}
+
+template rv_Relation_Icon_family
+{
+	size = { 24 24 }
+	framesize = { 40 40 }
+
+	#visible = "[ObjectsEqual( Character.GetDynasty.Self, GetPlayer.GetDynasty.Self )]"
+	visible =  "[GetScriptedGui('rv_family_icon_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
+
+	tooltipwidget = {
+		container ={
+			alwaystransparent = no
+	
+			object_tooltip_pop_out = {
+				blockoverride "title_text" {
+					margin = { 0 8 }
+					text = "[family_member|E]"
+				}
+	
+				blockoverride "concept_link" {
+					raw_text = " "
+				}
+
+				blockoverride "description_text"
+				{
+					raw_text = "this character is your family member"
+				}
+			}
+		}
+	}
+	
+}
+
+
+types rv_portrait_icons
+{
+	type rv_family_relation_icon = icon
+	{
+		name = "family"
+
+		#datacontext = "[GetRelation( 'lover' )]"
+		texture = "gfx/interface/icons/rv_type_family.dds"
+		#texture = "gfx/interface/icons/event_types/type_family.dds"
+		#texture = "gfx/interface/icons/portraits/friend_bestfriend.dds"
+		frame = 1
+	
+		block "icon_template" {
+			#using = Portrait_Relation_Icon_Normal_Size
+		}
+	}
+}
+

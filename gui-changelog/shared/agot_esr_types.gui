@@ -1,0 +1,97 @@
+template esr_character_opinion_tooltip {
+	widget = {
+		using = GeneralTooltipSetup
+		using = DefaultTooltipBackground
+		alwaystransparent = no
+
+		vbox = {
+			set_parent_size_to_minimum = yes
+			margin = { 8 8 }
+			spacing = 2
+
+			hbox = {
+				name = "heading"
+				layoutpolicy_horizontal = expanding
+
+				margin = { 8 8 }
+
+				spacing = 6 #ugly hack to get a space between label and value
+
+				background = {
+					using = Background_Area
+				}
+
+				text_single = {
+					text = "[Scope.GetCharacter.GetOpinionHeadingText( GetPlayer )]"
+					using = Font_Size_Medium
+					align = nobaseline
+				}
+
+				text_single = {
+					background = {
+						name = "portrait_opinion_bg"
+						texture = "gfx/interface/component_tiles/solid_black_label.dds"
+						spritetype = Corneredtiled
+						spriteborder = { 20 20 }
+						texture_density = 2
+						margin = { 3 1 }
+					}
+
+					max_width = 45
+					align = nobaseline
+
+					text = "[Scope.GetCharacter.GetOpinionOf( GetPlayer )|=]"
+					fonttintcolor = "[Scope.GetCharacter.GetOpinionOfTint( GetPlayer )]"
+
+					default_format = "#true_white"
+					using = Font_Size_Medium
+				}
+
+				expand = {}
+			}
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				margin = { 8 0 }
+				visible = "[Scope.GetCharacter.IsPlayer]"
+
+				text_multi = {
+					datacontext = "[Scope.GetCharacter.]"
+					visible = "[Not( Scope.GetCharacter.IsLocalPlayer )]"
+
+					autoresize = yes
+					max_width = 400
+					text = "PLAYER_OPINION_UNIMPORTANT"
+					default_format = "#weak"
+				}
+
+				text_multi = {
+					datacontext = "[Scope.GetCharacter.]"
+					visible = "[Scope.GetCharacter.IsLocalPlayer]"
+
+					autoresize = yes
+					max_width = 400
+					text = "PLAYER_OPINION_UNIMPORTANT_SELF"
+					default_format = "#weak"
+				}
+
+				expand = {}
+			}
+
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				margin = { 8 0 }
+
+				text_multi = {
+					text = "[Scope.GetCharacter.GetOpinionBreakdownText( GetPlayer )]"
+
+					autoresize = yes
+					max_width = 400
+				}
+
+				expand = {}
+			}
+		}
+	}
+}
