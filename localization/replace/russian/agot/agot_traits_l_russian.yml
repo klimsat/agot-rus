@@ -5,7 +5,7 @@
  #Health traits
  trait_aged:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Старая', 'Старый' )]"
  trait_aged_desc:0 "Старость сделала этого персонажа слепым."
- trait_aged_character_desc:0 "Старость оставила [ROOT.GetCharacter.GetFirstNameNoTooltip] слепой."
+ trait_aged_character_desc:0 "Старость оставила [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'слепой', 'слепым' )]."
 
  trait_declared_incapable:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Признана недееспособной', 'Признан недееспособным' )]"
  trait_declared_incapable_desc:0 "Признанный советом непригодным для правления, этот персонаж зависит от регента, который будет править от [ROOT.GetCharacter.GetHerHis] имени."
@@ -31,7 +31,7 @@
 
  trait_septon_male:0 "Септон"
  trait_septon_male_desc:0 "Этот персонаж принял обет септона и отказался от своего родового имени."
- trait_septon_male_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] приняла обет септы и отказалась от своего родового имени."
+ trait_septon_male_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] принял обет септона и отказался от своего родового имени."
 
  trait_septon_female:0 "Септа"
  trait_septon_female_desc:0 "Эта женщина приняла обет септы и отказалась от своего родового имени."
@@ -46,7 +46,7 @@
 
  trait_high_septon_male:0 "Верховный септон"
  trait_high_septon_male_desc:0 "Этот персонаж не только принял обеты септона и отказался от своего родового имени, но и стал самым святым из всех Праведных."
- trait_high_septon_male_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] имеет не только обеты септона и отказался от своего родового имени, но и стал самым святым из всех Праведных"
+ trait_high_septon_male_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] не только принял обеты септона и отказался от своего родового имени, но и стал самым святым из всех Праведных"
 
  trait_high_septon_female:0 "Верховная септа"
  trait_high_septon_female_desc:0 "Эта женщина не только дала обет септы и отказалась от своего родового имени, но и стала самой святой из всех Праведных"
@@ -57,7 +57,7 @@
 
 
  trait_most_devout_member:0 "Праведный"
- trait_most_devout_member_desc:0 "[collegeofcardinals|E], высший религиозный орган церкви Семерых, принял этого персонажа в свои ряды и, таким образом, сделал выборщиком Верховного септона."
+ trait_most_devout_member_desc:0 "[collegeofcardinals|E], высший религиозный орган церкви Семерых, приняли этого персонажа в свои ряды и, таким образом, сделали выборщиком Верховного септона."
  trait_most_devout_member_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] был принят в [collegeofcardinals|E], высший религиозный орган церкви Семерых и, таким образом, является выборщиком Верховного септона."
 
  #Nightswatch traits
@@ -76,11 +76,11 @@
 
  #Marriage traits
  trait_widowed:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Вдова', 'Вдовец' )]"
- trait_widowed_desc:0 "Супруга этого персонажа умерла, оставив его овдовевшим."
+ trait_widowed_desc:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Супруга', 'Супруг' )] этого персонажа [Select_CString( ROOT.GetCharacter.IsFemale, 'умерла', 'умер' )], оставив [Select_CString( ROOT.GetCharacter.IsFemale, 'её овдовевшей', 'его овдовевшим' )]."
  trait_widowed_character_desc:0 "Свет в [ROOT.GetCharacter.GetHerHis] жизни оборвался, и теперь [ROOT.GetCharacter.GetFirstNamePossessiveNoTooltip] продолжает жить в одиночестве."
 
  trait_refusing_marriage:0 "Отказ от брака"
- trait_refusing_marriage_desc:0 "Этот персонаж отказывается брать себе супругу."
+ trait_refusing_marriage_desc:0 "Этот персонаж отказывается вступать в брак."
  trait_refusing_marriage_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] отказывается брать себе [Select_CString( ROOT.GetCharacter.IsFemale, 'супруга', 'супругу' )]."
 
  #KG traits
@@ -114,14 +114,14 @@
  trait_knighthood:0 "Рыцарство" #Trait group localization key
  trait_knight:0 "Рыцарь"
 
- trait_knight_desc:0 "Этот персонаж был посвящен в рыцари и поклялся перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим капитанам, сеньору, королю, храбро сражаться и выполнять другие возложенные на себя задачи, какими бы трудными, скромными или опасными они ни были."
+ trait_knight_desc:0 "Этот персонаж был посвящён в рыцари и поклялся перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим капитанам, сюзерену, королю, храбро сражаться и выполнять другие возложенные на себя задачи, какими бы трудными, скромными или опасными они ни были."
 
- trait_knight_unique_desc:0 "Этот персонаж был посвящен в рыцари и поклялся перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим капитанам, сеньору, королю, храбро сражаться и выполнять другие возложенные на себя задачи, какими бы трудными, скромными или опасными они ни были."
+ trait_knight_unique_desc:0 "Этот персонаж был посвящён в рыцари и поклялся перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим капитанам, сюзерену, королю, храбро сражаться и выполнять другие возложенные на себя задачи, какими бы трудными, скромными или опасными они ни были."
 
- trait_knight_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'была посвящена', 'был посвящен' )] в рыцари и [Select_CString( ROOT.GetCharacter.IsFemale, 'поклялась', 'поклялся' )] перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим капитанам, сеньору, королю, храбро сражаться и выполнять другие возложенные на [Select_CString( ROOT.GetCharacter.IsFemale, 'неё', 'него' )] задачи, какими бы трудными, скромными или опасными они ни были."
+ trait_knight_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'была посвящена', 'был посвящен' )] в рыцари и [Select_CString( ROOT.GetCharacter.IsFemale, 'поклялась', 'поклялся' )] перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим капитанам, сюзерену, королю, храбро сражаться и выполнять другие возложенные на [Select_CString( ROOT.GetCharacter.IsFemale, 'неё', 'него' )] задачи, какими бы трудными, скромными или опасными они ни были."
 
  trait_squire:0 "Оруженосец"
- trait_squire_desc:0 "Оруженосец - это [agot_knight|E], пока ещё проходящий обучение. Он сопровождает рыцаря, помогая ему со всеми его обязанностями."
+ trait_squire_desc:0 "Оруженосец - это [agot_knight|El], пока ещё проходящий обучение. Он сопровождает рыцаря, помогая ему со всеми его обязанностями."
  trait_squire_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] сопровождает рыцаря в надежде однажды [Select_CString( ROOT.GetCharacter.IsFemale, 'самой', 'самому' )] стать рыцарем."
  trait_squire_no_knight_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] проходит обучение на рыцаря; однако, [ROOT.GetCharacter.GetHerHis] рыцарь #N умер, приостановив [ROOT.GetCharacter.GetHerHis] совершенствование#!."
  trait_prefers_being_a_squire_desc:0 "Вместо того, чтобы стремиться к рыцарскому титулу, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'заявила', 'заявил' )], что будет отныне и навсегда оруженосцем"
@@ -226,14 +226,14 @@
  #Supernatural dream traits
 
  trait_greensight:0 "Зелёные сны"
- trait_greensight_desc:0 "У этого персонажа есть пророческие "зелёные сны", позволяющие ему заглянуть в будущее, к добру или к худу."
- trait_greensight_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] имеет вещие "зелёные сны", позволяющие [ROOT.GetCharacter.GetHerHim] заглядывать в будущее, к добру это или к худу."
+ trait_greensight_desc:0 "Этот персонаж видит пророческие «зелёные сны», позволяющие ему заглянуть в будущее, к добру или к худу."
+ trait_greensight_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] видит вещие «зелёные сны», позволяющие [ROOT.GetCharacter.GetHerHim] заглядывать в будущее, к добру это или к худу."
 
- trait_firesight:0 "Дальновидность"
+ trait_firesight:0 "Огненные видения"
  trait_firesight_desc:0 "PLACEHOLDER"
  trait_firesight_character_desc:0 "PLACEHOLDER"
 
- trait_water_sight:0 "Водный прицел"
+ trait_water_sight:0 "Водные видения"
  trait_water_sight_desc:0 "PLACEHOLDER"
  trait_water_sight_character_desc:0 "PLACEHOLDER"
 
@@ -247,8 +247,8 @@
 
 
  trait_green_dreams:0 "Зелёные сны"
- trait_green_dreams_desc:0 "У этого персонажа есть пророческие "зелёные сны", позволяющие ему заглянуть в будущее, к добру или к худу."
- trait_green_dreams_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] имеет вещие "зелёные сны", позволяющие [ROOT.GetCharacter.GetHerHim] заглядывать в будущее, к добру это или к худу."
+ trait_green_dreams_desc:0 "Этот персонаж видит пророческие «зелёные сны», позволяющие ему заглянуть в будущее, к добру или к худу."
+ trait_green_dreams_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] видит вещие «зелёные сны», позволяющие [ROOT.GetCharacter.GetHerHim] заглядывать в будущее, к добру это или к худу."
 
  trait_dragon_dreams:0 "Драконьи сны"
  trait_dragon_dreams_desc:0 "Этого персонажа преследуют предчувствия и видения возможного будущего."
@@ -269,7 +269,7 @@
 
  #Plague and diseases and malladies
  trait_dancing_plague:0 "Танцующая чума"
- trait_dancing_plague_desc:0 "Этот персонаж страдает от танцевальной чумы, бесконтрольно раскачиваясь и двигаясь в жестоких конвульсиях."
+ trait_dancing_plague_desc:0 "Этот персонаж страдает от танцующей чумы, бесконтрольно раскачиваясь и двигаясь в жестоких конвульсиях."
  trait_dancing_plague_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] страдает от танцующей чумы, бесконтрольно раскачиваясь и двигаясь в жестоких конвульсиях."
 
  trait_greyscale_1:0 "Окаменелая кожа"
@@ -277,10 +277,10 @@
  trait_greyscale_1_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'заметила', 'заметил' )] на своём теле пятна жесткой омертвевшей кожи, которые на ощупь напоминают камень..."
 
  trait_greyscale:0 "Серая хворь"
- trait_greyscale_desc:0 "Этот персонаж страдает от серой хвори. Потрескавшаяся, шелушащаяся и похожая на камень кожа покрывает большую часть их тела."
+ trait_greyscale_desc:0 "Этот персонаж страдает от серой хвори. Потрескавшаяся, шелушащаяся и похожая на камень кожа покрывает большую часть его тела."
  trait_greyscale_character_desc:0 "Теперь нельзя отрицать, что [ROOT.GetCharacter.GetFirstNameNoTooltip] страдает от серой хвори. Потрескавшаяся, шелушащаяся и похожая на камень кожа покрывает большую часть [ROOT.GetCharacter.GetHerHis] тела."
 
- trait_greyscale_2.desc:0 "Этот персонаж страдает от серой хвори. Потрескавшаяся, шелушащаяся и похожая на камень кожа покрывает большую часть их тела."
+ trait_greyscale_2.desc:0 "Этот персонаж страдает от серой хвори. Потрескавшаяся, шелушащаяся и похожая на камень кожа покрывает большую часть его тела."
  trait_greyscale_2_character.desc:0 "Теперь уже нельзя отрицать, что [ROOT.GetCharacter.GetFirstNameNoTooltip] страдает от серой хвори. Потрескавшаяся, шелушащаяся и похожая на камень кожа покрывает большую часть [ROOT.GetCharacter.GetHerHis] тела."
 
  trait_greyscale_3:0 "Неподконтрольная серая хворь"
@@ -331,8 +331,8 @@
 
  #House customizer traits
  trait_house_customizer:0 "Кастомизация дома"
- trait_house_customizer_desc:0 "Вы можете использовать эту черту, чтобы позволить созданному вами персонажу взять имя и герб любого существующего дома или нескольких исчезнувших домов."
- trait_house_customizer_character_desc:0 "Вы можете использовать эту черту, чтобы позволить созданному вами персонажу взять имя и герб любого существующего дома или нескольких исчезнувших домов."
+ trait_house_customizer_desc:0 "Вы можете использовать это свойство, чтобы позволить созданному вами персонажу взять имя и герб любого существующего дома или нескольких исчезнувших домов."
+ trait_house_customizer_character_desc:0 "Вы можете использовать это свойство, чтобы позволить созданному вами персонажу взять имя и герб любого существующего дома или нескольких исчезнувших домов."
 
  #"Line of/Occluded" Charater Trait
  trait_line_of_char:0 "Ответвление..."
@@ -357,7 +357,7 @@
  #Rahloo priests
  trait_red_priest:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Красная жрица', 'Красный жрец' )]"
  trait_red_priest_desc:0 "Этот персонаж - жрец Рглора."
- trait_red_priest_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] является жрецом Рглора."
+ trait_red_priest_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] является [Select_CString( ROOT.GetCharacter.IsFemale, 'жрицей', 'жрецом' )] Рглора."
 
 #Replaced Eyes
  trait_one_eyed_sapphire:0 "Сапфировый глаз"
