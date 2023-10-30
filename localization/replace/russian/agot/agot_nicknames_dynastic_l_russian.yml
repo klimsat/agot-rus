@@ -4,12 +4,12 @@
  GetWarriorNickname_Blank:0 ""
  GetWarriorNickname_Dynasty:0 " дома [Character.GetDynasty.GetNameNoTooltip]"
  GetWarriorNickname_Location:0 " владения [Character.GetCapitalLocation.GetTitle.GetNameNoTierNoTooltip]"
- GetWarriorNickname_Knight:0 " рыцарь"
- GetWarriorNickname_Warrior:0 "[Select_CString(CHARACTER.IsFemale, ' воительница', ' воин' )]" #нужны тесты
- GetWarriorNickname_Reaver:0 " жнец"
- GetWarriorNickname_Maid:0 " дева"
- GetWarriorNickname_LordLady:0 " [Character.GetLadyLord|U]"
- GetWarriorNickname_KingQueen:0 " [CHARACTER.GetQueenKing]"
+ GetWarriorNickname_Knight:0 "Рыцарь"
+ GetWarriorNickname_Warrior:0 "[Select_CString(CHARACTER.IsFemale, 'Воительница', 'Воин' )]" #нужны тесты
+ GetWarriorNickname_Reaver:0 "Жнец"
+ GetWarriorNickname_Maid:0 "Дева"
+ GetWarriorNickname_LordLady:0 "[Character.GetLadyLord|U]"
+ GetWarriorNickname_KingQueen:0 "[CHARACTER.GetQueenKing]"
 
  #Lion Nicknames
  nick_the_black_lion:0 "[Select_CString(CHARACTER.IsFemale, 'Чёрная Львица', 'Чёрный Лев' )]" # [CHARACTER.Custom('GetCadetHousePrefix')]
@@ -31,9 +31,9 @@
  nick_the_old_lion:0 "[Select_CString(CHARACTER.IsFemale, 'Старая Львица', 'Старый Лев' )]"
  nick_the_laughing_lion:0 "[Select_CString(CHARACTER.IsFemale, 'Смеющаяся Львица', 'Смеющийся Лев' )]"
  nick_the_lion_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Льва', 'Сын Льва' )]"
- nick_the_lionknight:0 "[Select_CString(CHARACTER.IsFemale, 'Львица', 'Лев' )][CHARACTER.Custom('GetWarriorNickname')]"
- nick_the_crimsonknight:0 "[Select_CString(CHARACTER.IsFemale, 'Алая', 'Алый' )][CHARACTER.Custom('GetWarriorNickname')]"
- nick_the_chequyknight:0 "[Select_CString(CHARACTER.IsFemale, 'Клетчатая', 'Клетчатый' )][CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_lionknight:0 "[CHARACTER.Custom('GetWarriorNickname')]-[Select_CString(CHARACTER.IsFemale, 'Львица', 'Лев' )]"
+ nick_the_crimsonknight:0 "[Select_CString(CHARACTER.IsFemale, 'Алая', 'Алый' )] [CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_chequyknight:0 "[Select_CString(CHARACTER.IsFemale, 'Клетчатая', 'Клетчатый' )] [CHARACTER.Custom('GetWarriorNickname')]"
 
  nick_the_lioness:0 "[Select_CString(CHARACTER.IsFemale, 'Львица', 'Лев' )]"
 
@@ -56,7 +56,7 @@
  nick_the_old_wolf:0 "[Select_CString(CHARACTER.IsFemale, 'Старая Волчица', 'Старый Волк' )]"
  nick_the_laughing_wolf:0 "[Select_CString(CHARACTER.IsFemale, 'Воющая Волчица', 'Воющий Волк' )]"
  nick_the_wolf_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Волчица', 'Волк' )]"
- nick_the_wolfknight:0 "[Select_CString(CHARACTER.IsFemale, 'Волчица', 'Волк' )][CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_wolfknight:0 "[Select_CString(CHARACTER.IsFemale, 'Волчица', 'Волк' )] [CHARACTER.Custom('GetWarriorNickname')]"
 
 #Dragon Nicknames
  nick_the_black_dragon:0 "Чёрный Дракон"
@@ -78,7 +78,7 @@
  nick_the_laughing_dragon:0 "Смеющийся Дракон"
  nick_the_dragon_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь', 'Сын' )] Дракона"
  nick_the_dragonknight:0 "Дракон[CHARACTER.Custom('GetWarriorNickname')]"
- nick_the_fireknight:0 "[Select_CString(CHARACTER.IsFemale, 'Пламенная', 'Пламенный' )][CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_fireknight:0 "[Select_CString(CHARACTER.IsFemale, 'Пламенная', 'Пламенный' )] [CHARACTER.Custom('GetWarriorNickname')]"
 
 #Stag Nicknames
  nick_the_black_stag:0 "[Select_CString(CHARACTER.IsFemale, 'Чёрная Лань', 'Чёрный Олень' )]"
@@ -99,7 +99,7 @@
  nick_the_old_stag:0 "[Select_CString(CHARACTER.IsFemale, 'Старая Лань', 'Старый Олень' )]"
  nick_the_laughing_stag:0 "[Select_CString(CHARACTER.IsFemale, 'Смеющаяся Лань', 'Смеющийся Олень' )]"
  nick_the_stag_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Лань', 'Олень' )]"
- nick_the_stagknight:0 "[Select_CString(CHARACTER.IsFemale, 'Лань', 'Олень' )][CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_stagknight:0 "[CHARACTER.Custom('GetWarriorNickname')] [Select_CString(CHARACTER.IsFemale, 'Лань', 'Олень' )]"
 
 #Storm Nicknames
  nick_the_black_storm:0 "Чёрный Шторм"
@@ -120,7 +120,7 @@
  nick_the_old_storm:0 "Старый Ветер"
  nick_the_laughing_storm:0 "Смеющийся Шторм"
  nick_the_storm_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Шторма', 'Сын Шторма' )]"
- nick_the_stormknight:0 "Шторм[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_stormknight:0 "[CHARACTER.Custom('GetWarriorNickname')] Шторма"
 
 #Spear Nicknames - Martell/Stackspear
  nick_the_black_spear:0 "Чёрное Копьё"
@@ -141,7 +141,7 @@
  nick_the_old_spear:0 "Старое Копьё"
  nick_the_laughing_spear:0 "Смеющееся Копьё"
  nick_the_spear_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Копья', 'Сын Копья' )]"
- nick_the_spearknight:0 "Копьё[CHARACTER.Custom('GetWarriorNicknamePrefix')]"
+ nick_the_spearknight:0 "[CHARACTER.Custom('GetWarriorNicknamePrefix')] Копья"
 
 #Sun Nicknames - Martell
  nick_the_black_sun:0 "Чёрное Солнце"
@@ -162,7 +162,7 @@
  nick_the_old_sun:0 "Старое Солнце"
  nick_the_laughing_sun:0 "Улыбающееся Солнце"
  nick_the_sun_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Солнца', 'Сын Солнца' )]"
- nick_the_sunknight:0 "Солнце[CHARACTER.Custom('GetWarriorNicknamePrefix')]"
+ nick_the_sunknight:0 "[CHARACTER.Custom('GetWarriorNicknamePrefix')] Солнца"
 
 #Rose Nicknames - Tyrell
  nick_the_black_rose:0 "Чёрная Роза"
@@ -204,7 +204,7 @@
  nick_the_old_fish:0 "Старая Рыба"
  nick_the_laughing_fish:0 "Смеющаяся Рыба"
  nick_the_fish_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Рыб', 'Сын Рыбы' )]"
- nick_the_fishknight:0 "[Select_CString(CHARACTER.IsFemale, 'Речная', 'Речной' )][CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_fishknight:0 "[Select_CString(CHARACTER.IsFemale, 'Речная', 'Речной' )] [CHARACTER.Custom('GetWarriorNickname')]"
 
 #Squid Nicknames - Greyjoy
  nick_the_black_squid:0 "Чёрный Кракен"
@@ -225,7 +225,7 @@
  nick_the_old_squid:0 "Старый Кракен"
  nick_the_laughing_squid:0 "Смеющийся Кракен"
  nick_the_kraken_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Кракена', 'Сын Кракена' )]"
- nick_the_squidknight:0 "Кракен[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_squidknight:0 "[CHARACTER.Custom('GetWarriorNickname')]-Кракен"
 
 #Falcon Nicknames - Arryn
 
@@ -247,7 +247,7 @@
  nick_the_old_falcon:0 "Старый Сокол"
  nick_the_laughing_falcon:0 "Смеющийся Сокол"
  nick_the_falcon_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Сокола', 'Сын Сокола' )]"
- nick_the_falconknight:0 "Сокол[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_falconknight:0 "[CHARACTER.Custom('GetWarriorNickname')]-Сокол"
 
 #Hand Nicknames - Gardener
  nick_the_black_hand:0 "Чёрная Длань"
@@ -268,7 +268,7 @@
  nick_the_old_hand:0 "Старая Длань"
  nick_the_laughing_hand:0 "Весёлая Длань"
  nick_the_hand_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Длани', 'Сын Длани' )]"
- nick_the_handknight:0 "Длань[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_handknight:0 "[CHARACTER.Custom('GetWarriorNickname')] Длани"
  nick_the_gardenknight:0 "[CHARACTER.Custom('GetWarriorNicknamePrefix')] Садов"
 
 #Iron Nicknames - Hoare/Greyjoy
@@ -290,7 +290,7 @@
  nick_the_old_iron:0 "Старое Железо"
  nick_the_laughing_iron:0 "Смеющееся Железо"
  nick_the_iron_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Железа', 'Сын Железа' )]"
- nick_the_ironknight:0 "Железный[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_ironknight:0 "[Select_CString(CHARACTER.IsFemale, 'Железная', 'Железный' )] [CHARACTER.Custom('GetWarriorNickname')]"
 
 #Seahorse Nicknames - Velaryon
  nick_the_black_seahorse:0 "Чёрный Морской конёк"
@@ -311,7 +311,7 @@
  nick_the_old_seahorse:0 "Старый Морской конёк"
  nick_the_laughing_seahorse:0 "Смеющийся Морской конёк"
  nick_the_seahorse_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Морского конька', 'Сын Морского конька' )]"
- nick_the_seahorseknight:0 "Морской конёк[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_seahorseknight:0 "[CHARACTER.Custom('GetWarriorNickname')]-Морской конёк"
 
 #Fox Nicknames - Florent
  nick_the_black_fox:0 "[Select_CString(CHARACTER.IsFemale, 'Чёрная Лисица', 'Чёрный Лис' )]"
@@ -332,7 +332,7 @@
  nick_the_old_fox:0 "[Select_CString(CHARACTER.IsFemale, 'Старая Лисица', 'Старый Лис' )]"
  nick_the_laughing_fox:0 "[Select_CString(CHARACTER.IsFemale, 'Смеющаяся Лисица', 'Смеющийся Лис' )]"
  nick_the_fox_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Лисица', 'Лис' )]"
- nick_the_foxknight:0 "[Select_CString(CHARACTER.IsFemale, 'Лисица', 'Лис' )][CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_foxknight:0 "[CHARACTER.Custom('GetWarriorNickname')] [Select_CString(CHARACTER.IsFemale, 'Лисица', 'Лис' )]"
 
 #Bear Nicknames - Mormont
  nick_the_black_bear:0 "[Select_CString(CHARACTER.IsFemale, 'Чёрная Медведица', 'Чёрный Медведь' )]"
@@ -353,7 +353,7 @@
  nick_the_old_bear:0 "[Select_CString(CHARACTER.IsFemale, 'Старая Медведица', 'Старый Медведь' )]"
  nick_the_laughing_bear:0 "[Select_CString(CHARACTER.IsFemale, 'Смеющаяся Медведица', 'Смеющийся Медведь' )]"
  nick_the_bear_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Медведя', 'Сын Медведя' )]"
- nick_the_bearknight:0 "[Select_CString(CHARACTER.IsFemale, 'Медведица', 'Медведь' )][CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_bearknight:0 "[CHARACTER.Custom('GetWarriorNickname')] [Select_CString(CHARACTER.IsFemale, 'Медведица', 'Медведь' )]"
 
 #Tower Nicknames - Hightower
  nick_the_black_tower:0 "Чёрная Башня"
@@ -374,7 +374,7 @@
  nick_the_old_tower:0 "Старая Башня"
  nick_the_laughing_tower:0 "Смеющаяся Башня"
  nick_the_tower_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Башни', 'Сын Башни' )]"
- nick_the_towerknight:0 "Башня[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_towerknight:0 "[CHARACTER.Custom('GetWarriorNickname')] Башни"
 
 #Griffin Nicknames - Connington
  nick_the_black_griffin:0 "Чёрный Грифон"
@@ -395,7 +395,7 @@
  nick_the_old_griffin:0 "Старый Грифон"
  nick_the_laughing_griffin:0 "Смеющийся Грифон"
  nick_the_griffin_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Грифона', 'Сын Грифона' )]"
- nick_the_griffinknight:0 "Грифон[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_griffinknight:0 "[CHARACTER.Custom('GetWarriorNickname')]-Грифон"
 
 #Bridge nicknames - Frey
  nick_the_black_bridge:0 "Чёрный Мост"
@@ -416,7 +416,7 @@
  nick_the_old_bridge:0 "Старый Мост"
  nick_the_laughing_bridge:0 "Смеющийся Мост"
  nick_the_bridge_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Моста', 'Сын Моста' )]"
- nick_the_bridgeknight:0 "Мост[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_bridgeknight:0 "[CHARACTER.Custom('GetWarriorNickname')] Моста"
  nick_the_crossingknight:0 "[CHARACTER.Custom('GetWarriorNickname')] Переправы"
 
 #Gate Nicknames - Yronwood
@@ -438,7 +438,7 @@
  nick_the_old_gate:0 "Старые Врата"
  nick_the_laughing_gate:0 "Смеющиеся Врата"
  nick_the_gate_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Врат', 'Сын Врат' )]"
- nick_the_gateknight:0 "Врат[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_gateknight:0 "[CHARACTER.Custom('GetWarriorNickname')] Врат"
 
 #Star Nicknames - Dayne
  nick_the_black_star:0 "Чёрная Звезда"
@@ -501,7 +501,7 @@
  nick_the_old_oak:0 "Старый Дуб"
  nick_the_laughing_oak:0 "Смеющийся Дуб"
  nick_the_oak_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Дуба', 'Сын Дуба' )]"
- nick_the_oakknight:0 "Дуб[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_oakknight:0 "[CHARACTER.Custom('GetWarriorNickname')] Дуба"
 
 #Merman Nicknames - Manderly
  nick_the_black_merman:0 "Чёрный Водяной"
@@ -522,7 +522,7 @@
  nick_the_old_merman:0 "Старый Водяной"
  nick_the_laughing_merman:0 "Смеющийся Водяной"
  nick_the_merman_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Водяного', 'Сын Водяного' )]"
- nick_the_mermanknight:0 "Водяной[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_mermanknight:0 "[CHARACTER.Custom('GetWarriorNickname')] Водяного"
 
  nick_the_black_mermaid:0 "Чёрная Русалка"
  nick_the_white_mermaid:0 "Белая Русалка"
@@ -541,7 +541,7 @@
  nick_the_silver_mermaid:0 "Серебряная Русалка"
  nick_the_old_mermaid:0 "Старая Русалка"
  nick_the_laughing_mermaid:0 "Смеющаяся Русалка"
- nick_the_mermaidknight:0 "Русалка[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_mermaidknight:0 "[CHARACTER.Custom('GetWarriorNickname')] Русалки"
 
 #Bat Nicknames - Whent/Lothston
  nick_the_black_bat:0 "Чёрная Летучая Мышь"
@@ -562,7 +562,7 @@
  nick_the_old_bat:0 "Старая Летучая Мышь"
  nick_the_laughing_bat:0 "Смеющаяся Летучая Мышь"
  nick_the_bat_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Летучей Мыши', 'Сын Летучей Мыши' )]"
- nick_the_batknight:0 "Летучая Мышь[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_batknight:0 "[CHARACTER.Custom('GetWarriorNickname')]-Летучая Мышь"
 
 #Boar Nicknames - Crakehall
  nick_the_black_boar:0 "Чёрный Вепрь"
@@ -583,7 +583,7 @@
  nick_the_old_boar:0 "Старый Вепрь"
  nick_the_laughing_boar:0 "Смеющийся Вепрь"
  nick_the_boar_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Вепря', 'Сын Вепря' )]"
- nick_the_boarknight:0 "Вепрь[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_boarknight:0 "[CHARACTER.Custom('GetWarriorNickname')]-Вепрь"
 
 #Badger Nicknames - Lydden
  nick_the_black_badger:0 "Чёрный Барсук"
@@ -604,7 +604,7 @@
  nick_the_old_badger:0 "Старый Барсук"
  nick_the_laughing_badger:0 "Смеющийся Барсук"
  nick_the_badger_daughter:0 "[Select_CString(CHARACTER.IsFemale, 'Дочь Барсука', 'Сын Барсука' )]"
- nick_the_badgerknight:0 "Барсук[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_badgerknight:0 "[CHARACTER.Custom('GetWarriorNickname')]-Барсук"
 
 #Bronze Nicknames - Royce
  nick_the_black_bronze:0 "Чёрная Руна"
@@ -647,7 +647,7 @@
  nick_the_old_swan:0 "Старый Лебедь"
  nick_the_laughing_swan:0 "Смеющийся Лебедь"
  nick_the_swan_daughter:0 "Леди Лебедь"
- nick_the_swanknight:0 "Лебедь[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_swanknight:0 "[CHARACTER.Custom('GetWarriorNickname')]-Лебедь"
 
 #Bee Nicknames - Beesbury
  nick_the_black_bee:0 "Чёрная Пчела"
@@ -668,5 +668,5 @@
  nick_the_old_bee:0 "Старая Пчела"
  nick_the_laughing_bee:0 "Шмель-Пчела"
  nick_the_bee_daughter:0 "Пчелиная Королева"
- nick_the_beeknight:0 "Пчела[CHARACTER.Custom('GetWarriorNickname')]"
+ nick_the_beeknight:0 "[CHARACTER.Custom('GetWarriorNickname')]-Пчела"
  nick_stringer:0 "Жало"
