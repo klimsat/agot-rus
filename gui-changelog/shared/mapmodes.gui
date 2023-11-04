@@ -231,7 +231,7 @@ types MapModes
 
 			text_single = {
 				parentanchor = hcenter
-				raw_text = "Legend"
+				text = "AGOT_ROADS_MAP_LEGEND"
 				margin_bottom = 8
 				default_format = "#Bold #color_white"
 				
@@ -252,7 +252,7 @@ types MapModes
 						text_single = {
 							margin_top = -6
 							align = center
-							raw_text = "Urban Terrain"
+							text = "AGOT_ROADS_MAP_URBAN_TERRAIN"
 						}
 						expand = {}
 					}
@@ -268,7 +268,7 @@ types MapModes
 						text_single = {
 							margin_top = -6
 							align = center
-							raw_text = "Major Road"
+							text = "AGOT_ROADS_MAP_MAJOR_ROAD"
 						}
 						expand = {}
 					}
@@ -284,7 +284,7 @@ types MapModes
 						text_single = {
 							margin_top = -6
 							align = center
-							raw_text = "Minor Road"
+							text = "AGOT_ROADS_MAP_MINOR_ROAD"
 						}
 						expand = {}
 					}
@@ -607,6 +607,39 @@ types MapModes
 				shortcut = "map_mode_8"
 			}
 
+			#AGOT Added, Roads Map Mode
+			button_tertiary = {
+				name = "map_mode_agot_roads"
+				visible = "[CanChangeMapMode]"
+				parentanchor = hcenter
+
+				size = { 159 25 }
+				onclick = "[SetMapMode('agot_custom_mapmode')]"
+				onclick = "[GetScriptedGui('agot_roads_map').Execute(GuiScope.End)]"
+				down = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') )]"
+				enabled = "[GetScriptedGui('agot_roads_map').IsValid(GuiScope.End)]"
+
+				text = "AGOT_ROADS_MAP_HEADER"
+
+				tooltip = "AGOT_ROADS_MAP_TOOLTIP"
+				using = tooltip_ws
+
+				button_expand = {
+					visible = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') ), IsDefaultGUIMode ) )]"
+					size = { 15	15 }
+					parentanchor = left|vcenter
+					alwaystransparent = yes
+				}
+
+				button_expand = {
+					visible = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') ), IsDefaultGUIMode ) )]"
+					mirror = horizontal
+					size = { 15	15 }
+					parentanchor = right|vcenter
+					alwaystransparent = yes
+				}
+			}
+
 			widget ={
 				size = {0 4}
 			}
@@ -662,52 +695,6 @@ types MapModes
 					datacontext = "[GetMapMode( 'simple_terrain' )]"
 				}
 				shortcut = "map_mode_12"
-			}
-
-			#AGOT Added
-			#Separate AGOT mapmodes from Vanilla
-			widget ={
-				size = {0 4}
-			}
-			divider_light = {
-				min_width = 100
-				parentanchor = hcenter
-			}
-			widget ={
-				size = {0 4}
-			}
-			
-			#AGOT Roads Mapmode
-			button_tertiary = {
-				name = "map_mode_agot_roads"
-				visible = "[CanChangeMapMode]"
-				parentanchor = hcenter
-
-				size = { 159 25 }
-				onclick = "[SetMapMode('agot_custom_mapmode')]"
-				onclick = "[GetScriptedGui('agot_roads_map').Execute(GuiScope.End)]"
-				down = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') )]"
-				enabled = "[GetScriptedGui('agot_roads_map').IsValid(GuiScope.End)]"
-
-				text = "AGOT_ROADS_MAP_HEADER"
-
-				tooltip = "AGOT_ROADS_MAP_TOOLTIP"
-				using = tooltip_ws
-
-				button_expand = {
-					visible = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') ), IsDefaultGUIMode ) )]"
-					size = { 15	15 }
-					parentanchor = left|vcenter
-					alwaystransparent = yes
-				}
-				
-				button_expand = {
-					visible = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') ), IsDefaultGUIMode ) )]"
-					mirror = horizontal
-					size = { 15	15 }
-					parentanchor = right|vcenter
-					alwaystransparent = yes
-				}
 			}
 		}
 	}
