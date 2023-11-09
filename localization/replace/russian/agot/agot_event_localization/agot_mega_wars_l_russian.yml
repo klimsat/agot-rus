@@ -14,21 +14,21 @@
  agot_mega_wars.0002.a:0 "Созвать знамена!"
  agot_mega_wars.0002.b:0 "Как устроены гражданские войны?"
 
- agot_mega_wars.0003.desc.a:0 "[rebel_leader.GetFullName] [Select_CString(rebel_leader.IsFemale, 'восстала', 'восстал' )] против короны в лице персонажа [crown.GetFullName] в войне, известной как «[war.GetName]». Я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] принять решение:  сохранить верность короне в лице персонажа [crown.GetFullName], присоединиться к мятежникам под предводительством персонажа [rebel_leader.GetFullName] или оставаться [Select_CString(ROOT.Char.IsFemale, 'нейтральной', 'нейтральным' )] и позволить течению времени определить мое решение."
+ agot_mega_wars.0003.desc.a:0 "[mw_rebel_leader.GetFullName] [Select_CString(mw_rebel_leader.IsFemale, 'восстала', 'восстал' )] против короны в лице персонажа [mw_crown.GetFullName] в войне, известной как «[war.GetName]». Я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] принять решение:  сохранить верность короне в лице персонажа [crown.GetFullName], присоединиться к мятежникам под предводительством персонажа [mw_rebel_leader.GetFullName] или оставаться [Select_CString(ROOT.Char.IsFemale, 'нейтральной', 'нейтральным' )] и позволить течению времени определить моё решение."
  agot_mega_wars.0003.desc.b:0 "Однако, поскольку вы ранее поклялись в верности персонажу [ROOT.Var('mw_is_loyal_to').Char.GetName], теперь от меня ожидают, что я сдержу свое слово..."
  agot_mega_wars.0003.desc.c:0 "\n[ROOT.Char.GetLiege.GetTitledFirstName] решает поддержать корону..."
  agot_mega_wars.0003.desc.d:0 "\n[ROOT.Char.GetLiege.GetTitledFirstName] решает сохранить нейтралитет..."
  agot_mega_wars.0003.desc.e:0 "\n[ROOT.Char.GetLiege.GetTitledFirstName] решает поддержать мятежников..."
  agot_mega_wars.0003.desc.f:0 "\n[ROOT.Char.GetLiege.GetTitledFirstName] решает провозгласить независимость..."
  agot_mega_wars.0003.a:0 "Восставшие дорого заплатят за это."
- agot_mega_wars.0003.a.tt:0 "Вы предаете персонажа [mw_rebel_leader.GetFullName] и [mw_rebel_leader.GetHerHis] заговорщиков."
+ agot_mega_wars.0003.a.tt:0 "Вы предаёте персонажа [mw_rebel_leader.GetFullName] и [mw_rebel_leader.GetHerHis] заговорщиков."
  agot_mega_wars.0003.b:0 "Я не вижу причин вмешиваться."
  agot_mega_wars.0003.c:0 "Дело восстания праведно!"
  agot_mega_wars.0003.c.tt:0 "Вы присоединяетесь к восстанию на стороне персонажа [mw_rebel_leader.GetFullName]."
  agot_mega_wars.0003.c.tt.independence:0 "Поскольку эта война за независимость, вы также получите независимость, если одержите победу!"
  agot_mega_wars.0003.d:0 "Сейчас самое время проложить наш собственный путь!"
  agot_mega_wars.0003.d.tt:0 "Вы начинаете свою собственную войну за независимость против персонажа [mw_crown.GetFullName]."
- agot_mega_wars.0003.tt.negative:0 "Поскольку ранее я поклялся в верности персонажу [mw_is_loyal_to.GetName], моё поведение будет расценено как бесчестное."
+ agot_mega_wars.0003.tt.negative:0 "Поскольку ранее я [Select_CString(ROOT.Char.IsFemale, 'поклялась', 'поклялся' )] в верности персонажу [mw_is_loyal_to.GetName], моё поведение будет расценено как бесчестное."
  MW_DEBUG_JOIN_LOYALISTS:0 "ИИ вероятно: #N Присоединится к лоялистам#!"
  MW_DEBUG_STAY_NEUTRAL:0 "ИИ вероятно: #N Сохранит нейтралитет#!"
  MW_DEBUG_JOIN_REBELS:0 "ИИ вероятно: #N Присоединится к восстанию#!"
@@ -113,7 +113,7 @@
 
  agot_mega_wars.0506.t:0 "Королевские последствия"
  agot_mega_wars.0506.desc:0 "Война выиграна, королевская семья свергнута. Знамя узурпатора теперь развевается над Королевской гаванью.\n\nТеперь необходимо принять трудное решение: что делать с бывшей королевской семьей? PLACEHOLDER Решите, что делать с бывшей королевской семьей; оставите их в покое, убьёте их всех или изгоните их"
- agot_mega_wars.0506.a:0 "Оставьте их в покое."
+ agot_mega_wars.0506.a:0 "Оставить их в покое."
  agot_mega_wars.0506.b:0 "Убить их всех."
  agot_mega_wars.0506.c:0 "Изгнать их из королевства."
 
@@ -191,7 +191,7 @@
  agot_mega_wars.9999.b:0 "OPTION B"
  agot_mega_wars.9999.c:0 "OPTION C"
 
- MW_TRAITORS_SEND_TO_WALL_TT:0 "[selected_traitor.GetName] будет отправлен на Стену,\nоставив все [selected_traitor.GetHerHis] титулы своему наследнику"
+ MW_TRAITORS_SEND_TO_WALL_TT:0 "[selected_traitor.GetName] будет выслан на Стену,\nоставив все [selected_traitor.GetHerHis] титулы своему наследнику"
 
 # Scripted GUI
  MW_TRAITORS_HOSTAGES_TT:0 "Доступных заложников нет."
@@ -209,6 +209,7 @@
 
  MEGA_WARS_VIEW_GUI_JOIN:0 "Присоединиться"
  MEGA_WARS_VIEW_GUI_SHOW_REBEL_LEADERS:0 "Показать лидеров восстания"
+
 # Scripted effects
  AGOT_MW_JOIN_CROWN:0 "Вы присоединяетесь к восстанию на стороне персонажа [mw_crown.GetTitledFirstName]"
  MW_SWITCH_SIDE_TO_CROWN:0 "[mw_choosing_ruler.GetName] отныне поддерживает персонажа [mw_crown.GetTitledFirstName]"
