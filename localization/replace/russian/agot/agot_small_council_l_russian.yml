@@ -1,12 +1,12 @@
 ﻿l_russian:
 small_councillor: "Член Малого совета"
 invite_to_small_council: "Пригласить в Малый совет"
-invite_to_small_council_prompt: "Настоящим я прошу, чтобы ваш [recipient.Custom2('RelationToMe',SCOPE.sC('secondary_recipient')], [secondary_recipient.GetName], был освобожден для работы в моём Малом совете. Будучи временным прямым вассалом, он, конечно, останется связанным с вами как союзник."
+invite_to_small_council_prompt: "Настоящим я прошу, чтобы [Select_CString(secondary_recipient.IsFemale, 'ваша', 'ваш' )] [recipient.Custom2('RelationToMe',SCOPE.sC('secondary_recipient')], [secondary_recipient.GetName], [Select_CString(secondary_recipient.IsFemale, 'была освобождена', 'был освобождён' )] для работы в моём Малом совете. Будучи временным прямым вассалом, [Select_CString(secondary_recipient.IsFemale, 'она', 'он' )], конечно, останется [Select_CString(secondary_recipient.IsFemale, 'связанной', 'связанным' )] с вами как [Select_CString(secondary_recipient.IsFemale, 'союзница', 'союзник' )]."
 recipient_secondary_invite_to_small_council: "Член Малого совета"
 invite_to_small_council_accepted:0 "[secondary_recipient.GetShortUIName|U] станет вашим прямым вассалом, чтобы присоединиться к вашему совету."
-invite_to_small_council_declined:0 "[secondary_recipient.GetShortUIName|U] решил не присоединяться к вашему совету."
+invite_to_small_council_declined:0 "[secondary_recipient.GetShortUIName|U] [Select_CString(secondary_recipient.IsFemale, 'решила', 'решил' )] не присоединяться к вашему совету."
 
-small_council_vassal_retained_desc:0 "У вас уже есть один из [TARGET_CHARACTER.GetShortUIName] вассалов."
+small_council_vassal_retained_desc:0 "Вы уже наняли одного из вассалов персонажа [TARGET_CHARACTER.GetShortUIName]."
 
 
 demanded_my_vassal_opinion:0 "Потребовал моего вассала"
