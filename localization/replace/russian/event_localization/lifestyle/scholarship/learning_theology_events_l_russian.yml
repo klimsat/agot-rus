@@ -1,7 +1,7 @@
 ﻿l_russian:
 # Your realm priest asks for books, by Linnéa Thimrén
  learning_theology.1301.t:0 "Желанная книга"
- learning_theology.1301.desc_opening:0 "«[ROOT.Char.GetLadyLord|U]!» — ко мне спешно подходит [bishop.Custom2('MyCharacterIntroduction', ROOT.Char)].\n\n"
+ learning_theology.1301.desc_opening:0 "«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )]!» — ко мне спешно подходит [bishop.Custom2('MyCharacterIntroduction', ROOT.Char)].\n\n"
  learning_theology.1301.desc_regula_pastoralis:0 "«У местного торговца есть список весьма важной книги, «Пасторского правила», но этот барыга отказывается его мне продать."
  learning_theology.1301.desc:0 "«У местного торговца есть список «Краткой книги восполнения и противопоставления», но этот барыга отказывается его мне продать."
  learning_theology.1301.desc_ending:0 "Буду признателен, если вы объясните ему, что он неправ!»"
@@ -214,8 +214,8 @@
 
 # Learned scholar come to your court, by Linnéa Thimrén
  learning_theology_special.1101.t:0 "Комментарии"
- learning_theology_special.1101.desc:0 "«Благослови вас [ROOT.Char.GetFaith.HighGodName], [ROOT.Char.GetLadyLord]. Меня зовут [scholar.GetTitledFirstName]», — раввин отвешивает мне низкий поклон.\n\n«Всю жизнь я изучаю и пишу комментарии к Танаху и Талмуду. Возможно, мои труды и наставления помогут вам в исследовании такой книги, как [ROOT.Char.GetFaith.ReligiousText]»."
- learning_theology_special.1101.desc.fallback:0 "«Приветствую, [ROOT.Char.GetLadyLord]. Меня зовут [scholar.GetTitledFirstName]», — [Select_CString(scholar.IsFemale, 'священница', 'священник' )] отвешивает мне низкий поклон.\n\n«[ROOT.Char.GetFaith.ReligiousText]... всю свою жизнь я изучаю и пишу комментарии к этой книге. Возможно, мои труды и наставления помогут вам в исследовании»."
+ learning_theology_special.1101.desc:0 "«Благослови вас [ROOT.Char.GetFaith.HighGodName], [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )]. Меня зовут [scholar.GetTitledFirstName]», — раввин отвешивает мне низкий поклон.\n\n«Всю жизнь я изучаю и пишу комментарии к Танаху и Талмуду. Возможно, мои труды и наставления помогут вам в исследовании такой книги, как [ROOT.Char.GetFaith.ReligiousText]»."
+ learning_theology_special.1101.desc.fallback:0 "«Приветствую, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )]. Меня зовут [scholar.GetTitledFirstName]», — [Select_CString(scholar.IsFemale, 'священница', 'священник' )] отвешивает мне низкий поклон.\n\n«[ROOT.Char.GetFaith.ReligiousText]... всю свою жизнь я изучаю и пишу комментарии к этой книге. Возможно, мои труды и наставления помогут вам в исследовании»."
  learning_theology_special.1101.a:0 "Давайте напишем комментарии к такой книге, как [ROOT.Char.GetFaith.ReligiousText]!"
  learning_theology_special.1101.b:0 "У меня есть более срочные дела в #EMP реальном#! мире."
  learning_theology_special.1101.c:0 "Еретику не место под крышей моего дома!"

@@ -68,7 +68,7 @@
 
  # Fertility treatment, by Mathilda Bjarnehed
  learning_medicine.2021.t:0 "[ROOT.Char.Custom('FormalComplimentAdjective')][Select_CString(ROOT.Char.IsFemale, 'ая', 'ый' )] [ROOT.Char.GetTitledFirstNameNoTooltip]!"
- learning_medicine.2021.desc:0 "Меня зовут [physician.GetTitledFirstNameNoTooltip], и я хорошо разбираюсь в вопросах деторождения. Возможно, [ROOT.Char.GetLadyLord] сочтет полезным мой деликатный совет? Я с радостью буду служить вам за номинальную плату."
+ learning_medicine.2021.desc:0 "Меня зовут [physician.GetTitledFirstNameNoTooltip], и я хорошо разбираюсь в вопросах деторождения. Возможно, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )] сочтет полезным мой деликатный совет? Я с радостью буду служить вам за номинальную плату."
  learning_medicine.2021.a:0 "Ваша помощь мне не помешает..."
  learning_medicine.2021.a.tt:0 "[physician.GetFirstName|V] будет лечить меня от бесплодия"
  learning_medicine.2021.b:0 "Человек, сведущий в медицине, всегда кстати."
@@ -88,7 +88,7 @@
  learning_medicine.2022.c:0 "Вообще-то, мне просто был нужен... совет."
  learning_medicine.2022.a.unexpected.tt:0 "Может произойти что-нибудь неожиданное"
 
- learning_medicine.2023.urine.desc:0 "«Ваши тела не синхронизированы, [Select_CString(ROOT.Char.IsFemale, 'моя', 'мой' )] [ROOT.Char.GetLadyLord], но я знаю, как это исправить. Вы должны пить мочу [Select_CString(spouse.IsFemale, 'вашей жены', 'вашего мужа' )], а [spouse.GetSheHe] — вашу. Каждую ночь перед сном в течение недели. Ваши души наверняка придут в созвучие!»\n\nНеделя выдалась долгой."
+ learning_medicine.2023.urine.desc:0 "«Ваши тела не синхронизированы, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )], но я знаю, как это исправить. Вы должны пить мочу [Select_CString(spouse.IsFemale, 'вашей жены', 'вашего мужа' )], а [spouse.GetSheHe] — вашу. Каждую ночь перед сном в течение недели. Ваши души наверняка придут в созвучие!»\n\nНеделя выдалась долгой."
  learning_medicine.2023.unpleasant_end.desc:0 "\n\nПусть даже само лечение было весьма неприятным,"
  learning_medicine.2023.pig_testicles.desc:0 "«Мне удалось найти самого плодовитого хряка во всем владении [location.GetNameNoTooltip], высушить и растолочь в порошок его яички. Пейте их с вином в течение двух недель, и ваша плодовитость вырастет в десять раз!»"
  learning_medicine.2023.pig_testicles_end.desc:0 "\n\nИ хотя от порошка вино приобрело кислый привкус, мне, как это ни удивительно, все очень понравилось."
@@ -105,10 +105,10 @@
  learning_medicine.2024.a:0 "Я просто хочу отдохнуть..."
  learning_medicine.2024.b:0 "Стража! В темницу шарлатана!"
 
- learning_medicine.2025.start.desc:0 "«[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetLadyLord], у меня отличные новости! Срок еще небольшой, но ваша [spouse.Custom('WifeHusband')] демонстрирует все признаки беременности!»\n\nСначала я испытываю счастье и облегчение, но вскоре приходят сомнения: «Вы же даже не начали лечения, [physician.GetFirstName]», — замечаю я.\n\n"
+ learning_medicine.2025.start.desc:0 "«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], у меня отличные новости! Срок еще небольшой, но ваша [spouse.Custom('WifeHusband')] демонстрирует все признаки беременности!»\n\nСначала я испытываю счастье и облегчение, но вскоре приходят сомнения: «Вы же даже не начали лечения, [physician.GetFirstName]», — замечаю я.\n\n"
  learning_medicine.2025.fertilitygod.desc:0 "«[physician.GetFaith.FertilityGodName]"
  learning_medicine.2025.the_universe.desc:0 "«Вселенная"
- learning_medicine.2025.end.desc:0 "действует непостижимым для нас образом, [Select_CString(ROOT.Char.IsFemale, 'моя', 'мой' )] [ROOT.Char.GetLadyLord]. Иногда лучше принять происходящее, чем пытаться объяснить его»."
+ learning_medicine.2025.end.desc:0 "действует непостижимым для нас образом, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )]. Иногда лучше принять происходящее, чем пытаться объяснить его»."
  learning_medicine.2025.b:0 "Мудрые слова!"
  learning_medicine.2025.a:0 "[spouse.GetFirstNameNoTooltip]. Нам нужно поговорить. Наедине."
  learning_medicine.2025.a.tt:0 "Я и [spouse.GetShortUIName] бранимся"
@@ -157,7 +157,7 @@
  learning_medicine.2051.start_our.desc:0 "Наш"
  learning_medicine.2051.start.desc:0 "пациент кричит и вырывается. И хотя [soldier.GetHerHis] удерживают [Select_CString(soldier.IsFemale, 'три взрослые женщины', 'трое взрослых мужчин' )], каждый этап превращается в сражение."
  learning_medicine.2051.middle.desc:0 "Но [helper.GetTitledFirstName] сохраняет спокойствие, и в спустя какое-то время нас всех охватывает тихая сосредоточенность.\n\nНе знаю, как нам это удалось, но кажется, солдат будет жить. «Замечательная работа,"
- learning_medicine.2051.my_ladylord.desc:0 "[Select_CString(ROOT.Char.IsFemale, 'моя', 'мой' )] [ROOT.Char.GetLadyLord], "
+ learning_medicine.2051.my_ladylord.desc:0 "[Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )], "
  learning_medicine.2051.firstname.desc:1 "[ROOT.Char.GetFirstNameNoTooltip],"
  learning_medicine.2051.end.desc:0 "— говорит [helper.GetFirstNameNoTooltip] с усталой улыбкой. — Для меня было честью работать подле вас»."
  learning_medicine.2051.a:0 "Без вас у меня ничего бы не вышло."
@@ -168,7 +168,7 @@
  learning_medicine.2052.b:0 "Мне не нужна ваша жалость!"
 
  learning_medicine.2053.start_my.desc:0 "Мой"
- learning_medicine.2053.desc:0 "Но мои знания не подводят меня, а руки не дрожат.\n\nНе знаю, как мне это удалось, но в конце концов становится понятно, что солдат, скорее всего, выживет. [soldier.GetHerHis|U] товарищи хлопают меня по спине, от облегчения потеряв почтительность. «Спасибо вам, [ROOT.Char.GetLadyLord]. Без вас [soldier.GetFirstName] бы сразу [Select_CString(soldier.IsFemale, 'померла', 'помер' )]!»"
+ learning_medicine.2053.desc:0 "Но мои знания не подводят меня, а руки не дрожат.\n\nНе знаю, как мне это удалось, но в конце концов становится понятно, что солдат, скорее всего, выживет. [soldier.GetHerHis|U] товарищи хлопают меня по спине, от облегчения потеряв почтительность. «Спасибо вам, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )]. Без вас [soldier.GetFirstName] бы сразу [Select_CString(soldier.IsFemale, 'померла', 'помер' )]!»"
  learning_medicine.2053.a:0 "Сегодня мне удалось спасти жизнь!"
 
  learning_medicine.2054.desc:0 "\n\nЯ лихорадочно работаю, пытаясь перекричать суету, но все без толку. [soldier.GetWomanMan|U] слабеет, [soldier.GetHerHis] кровь утекает сквозь пальцы.\n\nКогда уносят тело, [helper.GetFirstName] смотрит на меня, и в этом взгляде читается"
