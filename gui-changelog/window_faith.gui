@@ -368,36 +368,28 @@ window = {
 									}
 								}
 
-								widget = {
-									#AGOT Modified
-									# size = { 250 40 }
-									size = { 350 40 }
+								vbox = {
+									dynamicgridbox = {
+										name = "virtues_grid"
+										datamodel = "[FaithWindow.GetSins]"
+										flipdirection = yes
+										datamodel_wrap = 6
 
-									vbox = {
-										dynamicgridbox = {
-											name = "virtues_grid"
-											datamodel = "[FaithWindow.GetSins]"
-											flipdirection = yes
-											#AGOT Modified
-											# datamodel_wrap = 6
-											datamodel_wrap = 8
+										item = {
+											icon = {
+												datacontext = "[GuiVirtueOrSinItem.GetTrait]"
+												size = { 40 40 }
+												alwaystransparent = yes
+												texture = "[Trait.GetIcon( GetPlayer )]"
 
-											item = {
-												icon = {
-													datacontext = "[GuiVirtueOrSinItem.GetTrait]"
-													size = { 40 40 }
-													alwaystransparent = yes
-													texture = "[Trait.GetIcon( GetPlayer )]"
+												tooltipwidget = {
+													using = faith_window_trait_tooltip
+												}
 
-													tooltipwidget = {
-														using = faith_window_trait_tooltip
-													}
-
-													block "tooltip_placement"
-													{
-														using = tooltip_ne
-														tooltip_offset = { 0 20 }
-													}
+												block "tooltip_placement"
+												{
+													using = tooltip_ne
+													tooltip_offset = { 0 20 }
 												}
 											}
 										}
@@ -431,35 +423,28 @@ window = {
 									}
 								}
 
-								widget = {
-									#AGOT Modified
-									# size = { 250 40 }
-									size = { 350 40 }
-									vbox = {
-										dynamicgridbox = {
-											name = "virtues_grid"
-											datamodel = "[FaithWindow.GetVirtues]"
-											flipdirection = yes
-											#AGOT Modified
-											# datamodel_wrap = 6
-											datamodel_wrap = 8
+								vbox = {
+									dynamicgridbox = {
+										name = "virtues_grid"
+										datamodel = "[FaithWindow.GetVirtues]"
+										flipdirection = yes
+										datamodel_wrap = 6
 
-											item = {
-												icon = {
-													datacontext = "[GuiVirtueOrSinItem.GetTrait]"
-													size = { 40 40 }
-													alwaystransparent = yes
-													texture = "[Trait.GetIcon( GetPlayer )]"
+										item = {
+											icon = {
+												datacontext = "[GuiVirtueOrSinItem.GetTrait]"
+												size = { 40 40 }
+												alwaystransparent = yes
+												texture = "[Trait.GetIcon( GetPlayer )]"
 
-													tooltipwidget = {
-														using = faith_window_trait_tooltip
-													}
+												tooltipwidget = {
+													using = faith_window_trait_tooltip
+												}
 
-													block "tooltip_placement"
-													{
-														using = tooltip_ne
-														tooltip_offset = { 0 20 }
-													}
+												block "tooltip_placement"
+												{
+													using = tooltip_ne
+													tooltip_offset = { 0 20 }
 												}
 											}
 										}
@@ -924,7 +909,7 @@ window = {
 			}
 
 			hbox = {
-				#spacing = 10
+				spacing = 10
 				#AGOT Modified
 				# margin_bottom = 8
 				# margin_top = 8

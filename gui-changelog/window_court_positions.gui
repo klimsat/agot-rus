@@ -339,7 +339,9 @@ types CourtPositionTypes
 		using = Animation_Tab_Switch
 
 		margin = {8 8}
-		spacing = 4
+		#AGOT MODIFIED 
+		#spacing = 4
+		spacing = 15
 
 		item = {
 			block "cps_item"
@@ -411,19 +413,27 @@ types CourtPositionTypes
 	{
 		blockoverride "cp_root"
 		{
-			size = {537 210}
+			#AGOT MODIFIED 
+			#size = {537 210}
+			size = {537 240}
 
 			datacontext = "[EmployedPositionItem.GetPosition]"
 			datacontext = "[CourtPosition.GetEmployee]"
 			datacontext = "[CourtPosition.GetPositionType]"
+			#AGOT Added for Background
+			datacontext = "[GetIllustration('agot_courtposition')]"
+
 
 			#TODO TIT-42781: For better performance, cull these items from the datamodel. Is this line even needed? Why do we hide positions that you have hired?
 			visible = "[EmployedPositionItem.CanShow]"
 
 			background = {
-				using = Background_Area_Light
+				#AGOT Modified
+				#using = Background_Area_Light
+				texture = "[Illustration.GetTexture( Character.MakeScope )]"
 				margin_top = 2
-				alpha = 0.6
+				#AGOT MODIFIED 
+				alpha = 0.6 
 			}
 
 			background = {
@@ -457,8 +467,15 @@ types CourtPositionTypes
 
 		blockoverride "cp_portrait"
 		{
-			portrait_head_small = {
+			#AGOT MODIFIED - Use Larger Portrait
+			# portrait_head_small = {
+			# }
+			portrait_torso = {
+				#blockoverride "opinion_box" {} #Hide opinion box cause is ugly 
+				blockoverride "coa" {} #Hide COA 
 			}
+			#AGOT ADDED - Arranges Large Portrait 
+			margin = { 0 -10 }
 		}
 
 		blockoverride "cp_ai_score"
@@ -480,7 +497,9 @@ types CourtPositionTypes
 				align = left|nobaseline
 
 				background = {
-					using = Background_Area
+					#AGOT MODIFIED 
+					#using = Background_Area
+					using = Background_Area_Dark
 
 					modify_texture = {
 						texture = "gfx/interface/component_masks/mask_fade_horizontal_extended.dds"
@@ -525,7 +544,9 @@ types CourtPositionTypes
 				expand = {}
 
 				text_single = {
-					default_format = "#weak"
+					#AGOT MODIFIED - Readability 
+					#default_format = "#weak"
+					default_format = "#high"
 					text = "[CourtPosition.GetTimeOfService]"
 					align = nobaseline
 					max_width = 160
@@ -642,7 +663,9 @@ types CourtPositionTypes
 
 					spriteType = Corneredtiled
 					using = Color_Blue
-					alpha = 0.3
+					#AGOT MODIFIED 
+					#alpha = 0.3 
+					alpha = 0.6
 					texture = "gfx/interface/colors/white.dds"
 
 
@@ -674,7 +697,9 @@ types CourtPositionTypes
 
 					spriteType = Corneredtiled
 					using = Color_Purple
-					alpha = 0.3
+					#AGOT MODIFIED 
+					#alpha = 0.3 
+					alpha = 0.6
 					texture = "gfx/interface/colors/white.dds"
 
 					using = Mask_Rough_Edges
@@ -720,19 +745,20 @@ types CourtPositionTypes
 
 
 					#### DEBUG AI SCORE ####
-					text_single = {
-						name = "ai_score"
-						visible = "[InDebugMode]"
-						block "cp_ai_score"
-						{
-							text = ""
-						}
-						default_format = "#D"
-						parentanchor = vcenter|left
-						align = nobaseline
+					#AGOT Disabled - Turned off to combat mega lag 
+					# text_single = {
+					# 	name = "ai_score"
+					# 	visible = "[InDebugMode]"
+					# 	block "cp_ai_score"
+					# 	{
+					# 		text = ""
+					# 	}
+					# 	default_format = "#D"
+					# 	parentanchor = vcenter|left
+					# 	align = nobaseline
 
-						position = {100 0}
-					}
+					# 	position = {100 0}
+					# }
 
 
 					flowcontainer = {
@@ -781,7 +807,9 @@ types CourtPositionTypes
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
 
-				margin = { 8 4 }
+				#AGOT MODIFIED 
+				#margin = { 8 4 }
+				margin = { 8 0 }
 				margin_bottom = 4
 				#spacing = 4
 
@@ -812,6 +840,12 @@ types CourtPositionTypes
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding
 							margin = { 8 4 }
+
+							#AGOT ADDED 
+							background = {
+								using = Background_Area_Dark
+								alpha = 0.8
+							}
 
 							align = top|left|nobaseline
 							block "cp_effects"

@@ -84,6 +84,17 @@ types Kingsguard {
 						color = { 0.15 0.15 0.15 1 }
 						alpha = 0.3
 					}
+					blockoverride "missing_councillor"
+						{
+							text_label_center = {
+								visible = "[And( Not(Character.IsValid), CouncilWindow.IsPlayerCouncilShown )]"
+								parentanchor = bottom|hcenter
+								position = { 0 -10 }
+								text = "KINGSGUARD_CLICK_TO_HIRE"
+								default_format = "#high;italic"
+								max_width = 235
+							}
+						}
 				}
 		}
 		
@@ -116,6 +127,17 @@ types Kingsguard {
 						color = { 0.15 0.15 0.15 1 }
 						alpha = 0.3
 					}
+					blockoverride "missing_councillor"
+						{
+							text_label_center = {
+								visible = "[And( Not(Character.IsValid), CouncilWindow.IsPlayerCouncilShown )]"
+								parentanchor = bottom|hcenter
+								position = { 0 -10 }
+								text = "KINGSGUARD_CLICK_TO_HIRE"
+								default_format = "#high;italic"
+								max_width = 235
+							}
+						}
 				}
 				
 				widget_councillor_item = {
@@ -140,6 +162,17 @@ types Kingsguard {
 						color = { 0.15 0.15 0.15 1 }
 						alpha = 0.3
 					}
+					blockoverride "missing_councillor"
+						{
+							text_label_center = {
+								visible = "[And( Not(Character.IsValid), CouncilWindow.IsPlayerCouncilShown )]"
+								parentanchor = bottom|hcenter
+								position = { 0 -10 }
+								text = "KINGSGUARD_CLICK_TO_HIRE"
+								default_format = "#high;italic"
+								max_width = 235
+							}
+						}
 				}
 			}
 			
@@ -182,6 +215,17 @@ types Kingsguard {
 						color = { 0.15 0.15 0.15 1 }
 						alpha = 0.3
 					}
+					blockoverride "missing_councillor"
+						{
+							text_label_center = {
+								visible = "[And( Not(Character.IsValid), CouncilWindow.IsPlayerCouncilShown )]"
+								parentanchor = bottom|hcenter
+								position = { 0 -10 }
+								text = "KINGSGUARD_CLICK_TO_HIRE"
+								default_format = "#high;italic"
+								max_width = 235
+							}
+						}
 				}
 				
 				widget_councillor_item = {
@@ -207,6 +251,18 @@ types Kingsguard {
 						alpha = 0.3
 					}
 				}
+
+				blockoverride "missing_councillor"
+					{
+						text_label_center = {
+							visible = "[And( Not(Character.IsValid), CouncilWindow.IsPlayerCouncilShown )]"
+							parentanchor = bottom|hcenter
+							position = { 0 -10 }
+							text = "KINGSGUARD_CLICK_TO_HIRE"
+							default_format = "#high;italic"
+							max_width = 235
+						}
+					}
 			}
 
 			hbox = {
@@ -247,6 +303,18 @@ types Kingsguard {
 						color = { 0.15 0.15 0.15 1 }
 						alpha = 0.3
 					}
+
+					blockoverride "missing_councillor"
+						{
+							text_label_center = {
+								visible = "[And( Not(Character.IsValid), CouncilWindow.IsPlayerCouncilShown )]"
+								parentanchor = bottom|hcenter
+								position = { 0 -10 }
+								text = "KINGSGUARD_CLICK_TO_HIRE"
+								default_format = "#high;italic"
+								max_width = 235
+							}
+						}
 				}
 				widget_councillor_item = {
 					layoutpolicy_horizontal = expanding
@@ -270,6 +338,17 @@ types Kingsguard {
 						color = { 0.15 0.15 0.15 1 }
 						alpha = 0.3
 					}
+					blockoverride "missing_councillor"
+						{
+							text_label_center = {
+								visible = "[And( Not(Character.IsValid), CouncilWindow.IsPlayerCouncilShown )]"
+								parentanchor = bottom|hcenter
+								position = { 0 -10 }
+								text = "KINGSGUARD_CLICK_TO_HIRE"
+								default_format = "#high;italic"
+								max_width = 235
+							}
+						}
 				}
 			}
 
@@ -328,67 +407,6 @@ types Kingsguard {
 				blockoverride "portrait_button"
 				{
 					using = tooltip_ws
-				}
-			}
-
-			block "missing_councillor"
-			{
-				portrait_council = {
-					name = "councillor_portrait_blank"
-					visible = "[And( Not(Character.IsValid), CouncilWindow.IsPlayerCouncilShown)]"
-					parentanchor = center
-
-					blockoverride "portrait_button_no_character_text"
-					{
-						text = "PORTRAIT_NO_COUNCILLOR"
-					}
-
-					blockoverride "portrait_button_template_onclick"
-					{
-						onclick = "[GuiCouncilPosition.SelectCouncillor]"
-					}
-
-					text_label_center = {
-						parentanchor = bottom|hcenter
-						position = { 0 -10 }
-						text = "COUNCILLOR_CLICK_TO_HIRE"
-						default_format = "#low;italic"
-						max_width = 235
-					}
-
-					blockoverride "onclick" {
-						onclick = "[GuiCouncilPosition.SelectCouncillor]"
-
-						button_icon = {
-							parentanchor = center
-							alwaystransparent = yes
-							size = { 40 40 }
-							position = { 0 70 }
-							texture = "gfx/interface/icons/flat_icons/plus.dds"
-						}
-					}
-					blockoverride "portrait_button"
-					{
-						using = tooltip_ws
-					}
-				}
-
-				portrait_council = {
-					name = "councillor_portrait_blank_liege"
-					visible = "[And( Not(Character.IsValid), CouncilWindow.IsLiegeCouncilShown )]"
-					parentanchor = center
-
-					text_label_center = {
-						parentanchor = bottom|hcenter
-						position = { 0 -10 }
-						text = "COUNCILLOR_BLANK_LIEGE"
-						default_format = "#low;italic"
-					}
-
-					blockoverride "portrait_button"
-					{
-						using = tooltip_ws
-					}
 				}
 			}
 		}
