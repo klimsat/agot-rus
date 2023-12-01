@@ -9,6 +9,8 @@
  unavailable_petition_liege:0 "petitioning your liege"
  unavailable_hold_court:0 "holding court"
  unavailable_tour_stop:0 "preparing for your liege's [tour|E]"
+ 
+ GENERIC_CHOOSE_OPTION: "Choose Option"
 
  start_hunt_decision:0 "Call Hunt"
  start_hunt_decision_tooltip:2 "A [GetActivityType('activity_hunt').GetName] will be held"
@@ -257,14 +259,14 @@
  commission_artifact_decision_option_furniture_desc:0 "[AddTextIf( Or(ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'sculpture' ), Or( ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'pedestal' ), ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'throne' ) ) ), 'Currently Displayed:\n' )][AddTextIf(ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'sculpture' ), Concatenate( ROOT.Char.GetInventory.GetEquippedArtifactsInSlotTypeString( 'sculpture', 'NEWLINE', 'NEWLINE', 'NEWLINE' ), '\n') )][AddTextIf(ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'pedestal' ), Concatenate( ROOT.Char.GetInventory.GetEquippedArtifactsInSlotTypeString( 'pedestal', 'NEWLINE', 'NEWLINE', 'NEWLINE' ), '\n') )][AddTextIf(ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'throne' ), Concatenate( ROOT.Char.GetInventory.GetEquippedArtifactsInSlotTypeString( 'throne', 'NEWLINE', 'NEWLINE', 'NEWLINE' ), '\n') )]"
  commission_artifact_decision_option_book_desc:0 "[AddTextIf( ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'book' ), Concatenate( '\nCurrently Displayed:\n', ROOT.Char.GetInventory.GetEquippedArtifactsInSlotTypeString( 'book', 'NEWLINE', 'NEWLINE', 'NEWLINE' ) ) )]"
 
- commission_weapon_tooltip:0 "#T Weapon#! \n$IS_VALID_BLOCKER$\n$DESC$"
- commission_armor_tooltip:0 "#T Armor#! \n$IS_VALID_BLOCKER$\n$DESC$"
- commission_crown_tooltip:0 "#T Crown#! \n$IS_VALID_BLOCKER$\n$DESC$"
- commission_regalia_tooltip:0 "#T Regalia#! \n$IS_VALID_BLOCKER$\n$DESC$"
- commission_brooch_tooltip:0 "#T Brooch#! \n$IS_VALID_BLOCKER$\n$DESC$"
- commission_tapestry_tooltip:1 "#T Wall Hanging#! \n$IS_VALID_BLOCKER$\n$DESC$"
- commission_furniture_tooltip:0 "#T Furniture#! \n$IS_VALID_BLOCKER$\n$DESC$"
- commission_book_tooltip:0 "#T Book#! \n$IS_VALID_BLOCKER$\n$DESC$"
+ commission_weapon_tooltip:1 "#T Weapon#! \n$DESC$"
+ commission_armor_tooltip:1 "#T Armor#! \n$DESC$"
+ commission_crown_tooltip:1 "#T Crown#! \n$DESC$"
+ commission_regalia_tooltip:1 "#T Regalia#! \n$DESC$"
+ commission_brooch_tooltip:1 "#T Brooch#! \n$DESC$"
+ commission_tapestry_tooltip:2 "#T Wall Hanging#! \n$DESC$"
+ commission_furniture_tooltip:1 "#T Furniture#! \n$DESC$"
+ commission_book_tooltip:1 "#T Book#! \n$DESC$"
 
  go_on_pilgrimage_decision:0 "Go on a Pilgrimage"
  go_on_pilgrimage_decision_tooltip:1 "Undertake a [pilgrimage|E] to prove your dedication to [ROOT.Char.GetFaith.PantheonTerm]"
@@ -516,9 +518,9 @@
  restore_high_priesthood_decision_tooltip:0 "The [ROOT.Char.GetFaith.GetAdjective] priesthood is re-established."
  restore_high_priesthood_decision_effect_tooltip:0 "The [THIS.Char.GetFaith.GetAdjective] priesthood is re-established"
 
- zoroastrian_restore_high_priesthood_decision:0 "Restore the [ROOT.Char.GetFaith.GetNameNoTooltip] High Priesthood"
+ zoroastrian_restore_high_priesthood_decision:0 "Restore the [ROOT.Char.GetFaith.AltPriestTermPlural]"
  zoroastrian_restore_high_priesthood_decision_confirm:0 "Establish a new religious head"
- zoroastrian_restore_high_priesthood_decision_desc:0 "If the [ROOT.Char.GetFaith.GetAdjective] faith gains a foothold in Persia, the time will be ripe for the reinstitution of a proper Zoroastrian Priesthood."
+ zoroastrian_restore_high_priesthood_decision_desc:1 "Since the fall of the Sasanian Empire and the advent of Muslim rule, the rightful [ROOT.Char.GetFaith.GetAdjective] priesthood has languished in obscurity. It is time to bring this shame to an end, ignite the sacred fires all across our land, and return the [ROOT.Char.GetFaith.AltPriestTermPlural] back to prominence as the stalwart allies of a rightful [ROOT.Char.GetTitleTierName]."
  zoroastrian_restore_high_priesthood_decision_tooltip:0 "The [ROOT.Char.GetFaith.GetAdjective] priesthood is established."
  zoroastrian_restore_high_priesthood_decision_effect_tooltip:0 "The [THIS.Char.GetFaith.GetAdjective] priesthood is established"
 
@@ -797,7 +799,7 @@
  minor_decisions.0003.d:0 "Uhhh, we're not that desperate yet..."
  
  #False Conversion decisions
- revoke_false_conversion_decision:0 "Revoke False Conversion"
+ revoke_false_conversion_decision:0 "Reveal True Faith"
  revoke_false_conversion_decision.tt:0 "Publicly reconvert to your old [faith|E]"
  revoke_false_conversion_decision.desc:0 "#F Though officially I follow the [ROOT.Char.GetFaith.GetAdjectiveNoTooltip] faith, I cannot let go of many of the personal rituals and private beliefs held by my ancestors. Perhaps the old ways truly were better?#!"
  revoke_false_conversion_decision.desc.tt:0 "You publicly reconvert to your previous [faith|E]. Your [vassals|E] and [close_family|E] may convert with you"
@@ -811,6 +813,10 @@
  encourage_confession_of_false_conversions_decision.desc.tt_pluralist_counties:0 "If you are [independent|E], [counties|E] within your [realm|E] that have [GetModifier('false_convert_modifier').GetNameWithTooltip] may convert openly, depending on how hostile you would be to their new [faith|E]"
  encourage_confession_of_false_conversions_decision.desc.tt_coreligionist:0 "Crypto-religionists within your realm may reveal themselves, if their private [faith|E] is the same as your public one"
  encourage_confession_of_false_conversions_decision_confirm:0 "Make a proclamation"
+ abandon_crypto_faith_decision: "Abandon Secret Faith"
+ abandon_crypto_faith_decision.tt: "Stop practicing your old faith in secret"
+ abandon_crypto_faith_decision.desc: "#F All of these secret sermons and whispered prayers are tiring my patience. Meanwhile, I've grown comfortable with my public life in [ROOT.Char.GetFaith.GetName]. Perhaps it's time to lay my old faith to rest once and for all.#!"
+ abandon_crypto_faith_decision_confirm: "Abandon #EMP crypto-faith#!"
 
  #Restore the Holy Roman Empire
  restore_holy_roman_empire_decision:0 "Restore the Holy Roman Empire"
@@ -943,11 +949,12 @@
  stress_loss_comfort_eater_decision_desc:0 "When everything seems a bit #EMP too much#! I can always count on food to put my mind at ease – a full stomach leads to an empty and calm mind."
  stress_loss_comfort_eater_decision_tooltip:0 "Eat to focus your mind"
  stress_loss_comfort_eater_decision_confirm:0 "Set the table!"
+ lackluster_diet_hindrance_desc: "You are on a Lackluster Diet" 
 
  stress_loss_inappetetic_decision:0 "Shun Food"
  stress_loss_inappetetic_decision_desc:0 "I have too much on my plate at it is, even without counting the literal food sitting there! By skipping meals I can focus on the issues that actually matter to the realm."
  stress_loss_inappetetic_decision_tooltip:0 "Avoid food and avoid stress"
- stress_loss_inappetetic_decision_confirm:0 "Inform the cook."
+ stress_loss_inappetetic_decision_confirm:0 "Inform the cook"
 
  stress_loss_journaller_decision:0 "Write Thoughts Down"
  stress_loss_journaller_decision_desc:0 "I will put my thoughts and burdens down in writing. Nothing clears the mind like some ink and paper can!"
@@ -966,8 +973,6 @@
 
  DECISION_COOLDOWN_WARNING:1 "@alert_icon! #alert_trial $DECISION_NAME$ will be unavailable for $COOLDOWN$#!"
  
- SHOW_DECISION_TOOLTIP:3 "#T [Decision.GetTitleForPlayer]#!\n[Decision.GetCommandDescForPlayer][Select_CString(StringIsEmpty(Decision.GetCommandDescForPlayer),'','\n')][Decision.GetShortDescForPlayer]\n\n#I Click to select#!"
-
  all_courtiers_except_confidant:0 "All [courtiers|E] except confidant"
 
  found_kingdom_of_bosnia_decision:0 "Found Kingdom of Bosnia"
@@ -1112,7 +1117,7 @@
  appoint_a_righteous_caliph_decision_desc:0 "[ROOT.Char.GetFaith.GetReligiousHead.GetTitledFirstName] is a distant, unworthy figure, ill-prepared to lead the Ummah. Being [ROOT.Char.GetFaith.GetReligiousHead.GetFaith.GetAdjective], [ROOT.Char.GetFaith.GetReligiousHead.GetSheHe] simply doesn't #EMP understand#! many of the subtle truths of [ROOT.Char.GetFaith.GetAdjective] thought.\n\n[ROOT.Char.GetFaith.GetReligiousHead.GetSheHe|U] may not, but #EMP I#! do..."
  appoint_a_righteous_caliph_decision_confirm:0 "I am guided by [ROOT.Char.GetFaith.PositiveAfterLife|U]!"
  appoint_a_righteous_caliph_decision_tooltip:0 "Lead [ROOT.Char.GetFaith.GetNameNoTooltip] away from the [ROOT.Char.GetFaith.GetReligiousHead.GetFaith.GetAdjectiveNoTooltip] path"
- appoint_a_righteous_caliph_decision.tt.you_become_caliph:0 "[THIS.Char.GetShortUIName|U] [Select_CString(THIS.Char.IsLocalPlayer, 'are', 'is' )] the new [THIS.Char.GetFaith.GetAdjective] [head_of_faith|E]"
+ appoint_a_righteous_caliph_decision.tt.you_become_caliph:0 "You become the new [head_of_faith|E]"
  appoint_a_righteous_caliph_decision.need_at_least_ten_same_faith_counties:0 "You have at least [EmptyScope.ScriptValue('appoint_a_righteous_caliph_decision_same_faith_county_count')|0] [CHARACTER.GetFaith.GetAdjective] [counties|E]"
  appoint_a_righteous_caliph_decision.cant_be_caliphal_controller:0 "You are not your [head_of_faith|E]'s [liege|E]"
  appoint_a_righteous_caliph_decision.no_more_than_x_sinful_traits:0 "You have no more than [EmptyScope.ScriptValue('appoint_a_righteous_caliph_decision_own_max_sins')|0] [sinful|E] [traits|E]"
@@ -1121,6 +1126,10 @@
  appoint_a_righteous_caliph_decision.control_two_holy_sites:0 "You control at least 2 [holy_sites|E]"
  appoint_a_righteous_caliph_decision.caliph_has_x_or_more_traits_sinful_to_your_faith:0 "Your [head_of_faith|E] has [EmptyScope.ScriptValue('appoint_a_righteous_caliph_decision_hof_min_sins')|0] or more [sinful|E] [traits|E]"
  appoint_a_righteous_caliph_decision.has_wishes_to_schism_caliphate_flag:0 "You planned to splinter off further when your [faith|E] was founded"
+ appoint_a_righteous_caliph_decision_mutazila_variant: "Restore Mu'tazila"
+ appoint_a_righteous_caliph_decision_general_iranian_variant: "Break with the Caliphate"
+ appoint_a_righteous_caliph_decision_mutazila_variant_desc: "Since the end of the Mihna, those who stand for the createdness of the Qur'an have been persecuted or neglected by the would-be caliphs. I will take it upon myself to avenge the slights we have suffered, and once again bring Mu'tazila doctrine to the forefront of Islamic thought."
+ appoint_a_righteous_caliph_decision_general_iranian_variant_desc: "Though Islam was brought to Persia by force, none may now deny our belief in the Oneness of [ROOT.Char.GetFaith.HighGodNameAlternate]. But our ways and the Arab ways have grown apart, and we must break with [ROOT.Char.GetFaith.GetReligiousHead.GetTitledFirstName] once and for all. Henceforth, I will personally lead the [ROOT.Char.GetFaith.GetAdjective]."
 
  mozarabic_bind_the_faith_to_rome_decision:0 "Bind the Faith to Rome"
  mozarabic_bind_the_faith_to_rome_decision_desc:0 "Though [ROOT.Char.GetFaith.GetReligiousHead.GetTitledFirstName] is still our one true Pope, isolation from the will of Christ's Vicar has taken us down strange paths. Gone are the days when the great conclaves of Europe's clergy trod the halls of Toledo.\n\nYet, they do not have to be... if our faith has strayed, could not a strong shepherd yoke it back to the flock?"
@@ -1191,6 +1200,9 @@
  NO_DECISION_OPTIONS_SELECTED:0 "@warning_icon! #X Select an option#!"
  revive_taltoism_decision_before_last_date:0 "The date is 1100.1.1 or earlier"
 
+ I_CREATE_CADET_BRANCH_DECISION_IN_ANOTHER_REALM: "You are #bold not#! in the same [realm|E] than your [house_head|E]"
+ I_NOT_CREATE_CADET_BRANCH_DECISION_IN_ANOTHER_REALM: "You #bold are#! in the same [realm|E] than your [house_head|E]"
+
  call_for_acclaimed_knight_candidates_decision:0 "Restore Accolades"
  call_for_acclaimed_knight_candidates_decision_desc:0 "The martial dignities of my retinue lie dormant. Spread word to the $knight_culture_player_plural_no_tooltip_lowercase$ of the land: the [ROOT.Char.GetTitleAsNameNoTooltip] of [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip] calls!\n\nWorthy scions for my time-honored stations of honor shall find themselves warmly welcomed."
  call_for_acclaimed_knight_candidates_decision_tooltip:0 "Potential [acclaimed_knights|e] appear for each [inactive_accolade|e]"
@@ -1216,4 +1228,6 @@
  switch_to_israelite_language_tt:0 "[GetPlayer.GetCulture.GetName] will adopt the $language_israelite_name$ [language|E]"
  switch_to_original_language_tt:0 "Your new culture will speak [target_other_culture.GetLanguage.GetNameNoTooltip]."
  at_least_10_jewish_counties_tt:0 "You must hold at least 10 Jewish [counties|E] of your [culture|E]"
+ 
+ DECISION_TOOLTIP_TITLE: "$EFFECT_LIST_BULLET$ [Decision.GetName]"
  

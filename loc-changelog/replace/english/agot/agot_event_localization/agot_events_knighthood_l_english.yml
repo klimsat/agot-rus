@@ -13,13 +13,13 @@
  agot_knighthood.0016.b.tt:0 "[hedge_knight.GetName] will leave your court."
 
  # Hedge knight wants to knight your non-heir son
- agot_knighthood.0700.t:0 "The Hedgeknight and the Spare"
+ agot_knighthood.0700.t:0 "The Hedge Knight and the Spare"
  agot_knighthood.0700.desc:0 "A hedge knight by the name of [hedge_knight.GetName], has recently visited my court. A [hedge_knight.GetCulture.GetName] by birth, he has traveled across the realm to seek the service of a lord. I know little of this man, save for the fact that he allegedly comes from minor Westerland noble stock, and is, of course, a knight.\n\nI have not paid any attention to him, and as such, I expected him to be moving on soon. However, he came to me, in confidence, and offered to knight my son, [potential_child_knight.GetName], in exchange for being allowed to stay for as long as he pleases!"
  agot_knighthood.0700.a:0 "I suppose such an arrangement can be made."
  agot_knighthood.0700.b:0 "No, I will not agree to it."
 
  # Hedge knight wants to knight you
- agot_knighthood.0701.t:0 "The Hedgeknight and the Lord"
+ agot_knighthood.0701.t:0 "The Hedge Knight and the Lord"
  agot_knighthood.0701.desc:0 "A hedge knight by the name of [hedge_knight.GetName], has recently visited my court. A [hedge_knight.GetCulture.GetName] by birth, he is traveling across the realm for reasons unknown.\n\nWhile I have not paid an attenton to him, it seems he has paid attention to me. A crudely written note offering me knighthood, signed by none other than [hedge_knight.GetFirstNamePossessive], was delivered to one of my servants early this morning. For the right price, the note claims, I can be made a knight."
  agot_knighthood.0701.a:0 "I will accept this deal."
  agot_knighthood.0701.b:0 "No, I will not agree to it."
@@ -30,7 +30,7 @@
 
  #0017-19
  agot_knighthood.0017.t:0 "Dynastic Knighting"
- agot_knighthood.0017.desc:0 "My relative, [potential_squire.GetName], is not yet a squire. Perhaps by offering to make [potential_squire.GetHerHim] my squire, I could forge a better relationship between us?"
+ agot_knighthood.0017.desc:0 "My [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('potential_squire'))], [potential_squire.GetName], is not yet a squire. Perhaps by offering to make [potential_squire.GetHerHim] my squire, I could forge a better relationship between us?"
  agot_knighthood.0017.a:0 "Yes, offer [potential_squire.GetHerHim] squirehood."
  agot_knighthood.0017.a.tt:0 "You ask [potential_squire.GetName] to become your [squire|e]"
  agot_knighthood.0017.b:0 "No, it's a waste of time."
@@ -53,16 +53,16 @@
 
  #0199
  agot_knighthood.0199.t:0 "Squirehood"
- agot_knighthood.0199.desc:0 "[my_knight.GetName] has taken me on as their squire! My journey to knighthood begins now, and I am so excited for it."
+ agot_knighthood.0199.desc:0 "[my_knight.GetName] has taken me on as [my_knight.GetHerHis] squire! My journey to knighthood begins now, and I am so excited for it."
  agot_knighthood.0199.a:0 "The journey starts now."
 
  agot_knighthood.0300.t:0 "A Squire's Progress"
- agot_knighthood.0300.desc:0 "My squire, [my_squire.GetName], has proven their worth! They have come far as as squire and I believe it is time for them to be made a knight."
- agot_knighthood.0300.a:0 "I will will make [my_squire.GetHerHim] a knight."
+ agot_knighthood.0300.desc:0 "My squire, [my_squire.GetName], has proven [my_squire.GetHerHis] worth! [my_squire.GetSheHe|U] has come far as as squire and I believe it is time for [my_squire.GetHerHim] to be made a knight."
+ agot_knighthood.0300.a:0 "I will make [my_squire.GetHerHim] a knight."
  agot_knighthood.0300.a.tt:0 "[my_squire.GetName] will be knighted!"
 
- agot_knighthood.0320.t:0 "A Relative Knighted!"
- agot_knighthood.0320.desc:0 "My relative, [my_relation.GetName], has been made a knight! [my_relation.GetSheHe] has made House [ROOT.GetCharacter.GetHouse.GetName] very proud."
+ agot_knighthood.0320.t:0 "My [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('my_relation'))|U] Is Knighted!"
+ agot_knighthood.0320.desc:0 "News reaches me that my [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('my_relation'))], [my_relation.GetTitledFirstName], has been made a knight! [my_relation.GetSheHe|U] has made House [ROOT.GetCharacter.GetHouse.GetName] very proud."
  agot_knighthood.0320.a:0 "Good for [my_relation.GetHerHim]!"
 
  ##################
@@ -101,38 +101,38 @@
  ################################
 
  agot_knighthood.0500.t:0 "My Squire, a Winner"
- agot_knighthood.0500.desc:0 "My squire, [winning_squire.GetName] has won a tournament! Against a number of other participants, he fought his way to the top, and won.\n\nSuch an achievement is simply oustanding. For a mere #italic squire#! to defeat knights and other warriors of the realm is unheard of.\n\nSuch an achievement is enough cause to make a man a knight, some might say..."
- agot_knighthood.0500.a:0 "Yes, I will make [winning_squire.GetName] a knight! "
+ agot_knighthood.0500.desc:0 "My squire, [winning_squire.GetName] has won a tournament! Against a number of other participants, [winning_squire.GetSheHe] fought [winning_squire.GetHerHis] way to the top, and won.\n\nSuch an achievement is simply oustanding. For a mere #italic squire#! to defeat knights and other warriors of the realm is unheard of.\n\nSuch an achievement is enough cause to make someone a knight, some might say..."
+ agot_knighthood.0500.a:0 "Yes, I will make [winning_squire.GetNameNoTooltip] a knight! "
  agot_knighthood.0500.a.tt:0 "You will knight your squire."
  agot_knighthood.0500.b:0 "No, let's not get ahead of ourselves."
  agot_knighthood.0500.b.tt:0 "You will not grant your squire knighthood."
 
  agot_knighthood.0501.t:0 "Knighthood"
- agot_knighthood.0501.desc:0 "As I am basking in the glory of being declared the winner of [host.GetNamePossessive] tournament, my knight approaches me and tells me to kneel.\n\nHe solemny draws his sword. As he places his sword on my right shoulder, the cacophony of the tournament celebrations subsides. All eyes are on us.\n\nHe dutifully begins to speak: "[ROOT.GetCharacter.GetFirstNameNoTooltip|V] [ROOT.GetCharacter.GetHouse.GetNameNoTooltip|V], do you swear before the eyes of gods and men to defend those who cannot defend themselves, to protect all women and children, to obey your captains, your liege lord, and your king, to fight bravely when needed and do such other tasks as are laid upon you, however hard or humble or dangerous they may be?""
+ agot_knighthood.0501.desc:0 "As I am basking in the glory of being declared the winner of [host.GetNamePossessive] tournament, [my_knight.GetTitledFirstName] approaches me and tells me to kneel.\n\n[my_knight.GetSheHe|U] solemnly draws [my_knight.GetHerHis] sword. As [my_knight.GetSheHe] places [my_knight.GetHerHis] sword on my right shoulder, the cacophony of the tournament celebration subsides. All eyes are on us.\n\n[my_knight.GetSheHe] dutifully begins to speak: "[ROOT.GetCharacter.GetFirstNameNoTooltip|V] [ROOT.GetCharacter.GetHouse.GetNameNoTooltip|V], do you swear before the eyes of gods and men to defend those who cannot defend themselves, to protect all women and children, to obey your captains, your liege lord, and your king, to fight bravely when needed and do such other tasks as are laid upon you, however hard or humble or dangerous they may be?""
  agot_knighthood.0501.a:0 "Aye, I swear it."
  agot_knighthood.0501.a.tt:0 "You swear to uphold the values of a knight."
 
  agot_knighthood.0502.t:0 "Knighthood"
- agot_knighthood.0502.desc:0 "[my_knight.GetName] moves his sword to my left shoulder and smiles. "Then rise, #V Ser#! [ROOT.GetCharacter.GetFirstNameNoTooltip|V], a knight!""
+ agot_knighthood.0502.desc:0 "[my_knight.GetName] moves [my_knight.GetHerHis] sword to my left shoulder and smiles. "Then rise, #V Ser#! [ROOT.GetCharacter.GetFirstNameNoTooltip|V], a knight!""
  agot_knighthood.0502.a:0 "I am a knight now!"
  agot_knighthood.0502.a.tt:0 "You have been knighted!"
 
  agot_knighthood.0503.t:0 "The Squire that Stood Tall"
- agot_knighthood.0503.desc:0 "[host.GetNamePossessive] tournament recently ended. While I had a enjoyable experience, the winner was someone unexpected: [winning_squire.GetName], an ambitious squire with no knightly mentor!\n\nWhile [winning_squire.GetName] has had some training in the traditions of knighthood and chivalry, they are still but a squire. Their showing over the tournament has impressed many. If [winning_squire.GetName] had a knightly mentor still, surely this would earn him knighthood. It is a shame to see such talent squandered.\n\nIf I were to knight him, then I could right this wrong. None would object, afterall, he's earned it."
+ agot_knighthood.0503.desc:0 "[host.GetNamePossessive] tournament recently ended. While I had a enjoyable experience, the winner was someone unexpected: [winning_squire.GetName], an ambitious squire with no knightly mentor!\n\nWhile [winning_squire.GetName] has had some training in the traditions of knighthood and chivalry, [winning_squire.GetSheHe] is still but a squire. [winning_squire.GetHerHis|U] showing over the tournament has impressed many. If [winning_squire.GetName] had a knightly mentor still, surely this would earn him knighthood. It is a shame to see such talent squandered.\n\nIf I were to knight [winning_squire.GetHerHim], then I could right this wrong. None would object, after all, [winning_squire.GetSheHe] has earned it."
  agot_knighthood.0503.a:0 "Yes, I will make [winning_squire.GetName] a knight! "
  agot_knighthood.0503.a.tt:0 "You will knight [winning_squire.GetNameNoTooltip]."
  agot_knighthood.0503.b:0 "No, it's not my place."
  agot_knighthood.0503.b.tt:0 "You will not grant [winning_squire.GetNameNoTooltip] knighthood."
 
  agot_knighthood.0504.t:0 "Knighthood"
- agot_knighthood.0504.desc:0 "As I am basking in the glory of being declared the winner of [host.GetNamePossessive] tournament, [potential_knight_maker.GetName], a fellow participant, approaches me and urges me to kneel before him. He tells me that is not right that I should win the tournament and remain a squire - he wants to make me a knight!\n\nAs I kneel before him, he solemny draws his sword. As he places his sword on my right shoulder, the din of the tournament celebrations subsides. All eyes are on us.\n\nHe dutifully begins to speak: "[ROOT.GetCharacter.GetFirstNameNoTooltip|V] [ROOT.GetCharacter.GetHouse.GetNameNoTooltip|V], do you swear before the eyes of gods and men to defend those who cannot defend themselves, to protect all women and children, to obey your captains, your liege lord, and your king, to fight bravely when needed and do such other tasks as are laid upon you, however hard or humble or dangerous they may be?""
+ agot_knighthood.0504.desc:0 "As I am basking in the glory of being declared the winner of [host.GetNamePossessive] tournament, [potential_knight_maker.GetTitledFirstName], a fellow participant, approaches me and urges me to kneel before [potential_knight_maker.GetHerHim]. [potential_knight_maker.GetSheHe|U] tells me that is not right that I should win the tournament and remain a squire — [potential_knight_maker.GetSheHe] would make me a #bold knight#!!\n\nAs I kneel before [potential_knight_maker.GetHerHim], [potential_knight_maker.GetSheHe] solemnly draws [potential_knight_maker.GetHerHis] sword. As [potential_knight_maker.GetSheHe] places [potential_knight_maker.GetHerHis] sword on my right shoulder, the din of the tournament celebration subsides. All eyes are on us.\n\n[potential_knight_maker.GetSheHe|U] dutifully begins to speak: "[ROOT.GetCharacter.GetFirstNameNoTooltip|V] [ROOT.GetCharacter.GetHouse.GetNameNoTooltip|V], do you swear before the eyes of gods and men to defend those who cannot defend themselves, to protect all women and children, to obey your captains, your liege lord, and your king, to fight bravely when needed and do such other tasks as are laid upon you, however hard or humble or dangerous they may be?""
  agot_knighthood.0504.a:0 "Aye, I swear it."
  agot_knighthood.0504.a.tt:0 "You swear to uphold the values of a knight."
 #  agot_knighthood.0504.b:0 "On second thought, no I don't swear it."
 #  agot_knighthood.0504.b.tt:0 "You refuse to say the vows prompted by [potential_knight_maker.GetName]."
 
  agot_knighthood.0505.t:0 "Knighthood"
- agot_knighthood.0505.desc:0 "[potential_knight_maker.GetName] moves his sword to my left shoulder and smiles. "Then rise, #V Ser#! [ROOT.GetCharacter.GetFirstNameNoTooltip|V], a knight!""
+ agot_knighthood.0505.desc:0 "[potential_knight_maker.GetName] moves [potential_knight_maker.GetHerHis] sword to my left shoulder and smiles. "Then rise, #V Ser#! [ROOT.GetCharacter.GetFirstNameNoTooltip|V], a knight!""
  agot_knighthood.0505.a:0 "I am a knight now!"
  agot_knighthood.0505.a.tt:0 "You have been knighted!"
 
@@ -149,16 +149,16 @@
  agot_knighthood.0510.b.tt:0 "You will not grant [winning_squire.GetNameNoTooltip] knighthood."
 
  agot_knighthood.0511.t:0 "The Tourney Champion"
- agot_knighthood.0511.desc.host_perspective:0 "As I am basking in the glory of being declared the winner of the tournament, [potential_knight_maker.GetName], the host of the tournament, approaches me and urges me to kneel before him. He tells me that is not right that I should win the tournament and not be a knight - he wants to make me a knight!\n\nAs I kneel before him, he solemny draws his sword. As he places his sword on my right shoulder, the din of the tournament celebrations subsides. All eyes are on us.\n\nHe dutifully begins to speak: "[ROOT.GetCharacter.GetFirstNameNoTooltip|V] [ROOT.GetCharacter.GetHouse.GetNameNoTooltip|V], do you swear before the eyes of gods and men to defend those who cannot defend themselves, to protect all women and children, to obey your captains, your liege lord, and your king, to fight bravely when needed and do such other tasks as are laid upon you, however hard or humble or dangerous they may be?""
+ agot_knighthood.0511.desc.host_perspective:0 "As I am basking in the glory of being declared the winner of the tournament, [potential_knight_maker.GetName], the host of the tournament, approaches me and urges me to kneel before [potential_knight_maker.GetHerHim]. [potential_knight_maker.GetSheHe|U] tells me that is not right that I should win the tournament and not be a knight — [potential_knight_maker.GetSheHe] would make me a #bold knight#!!\n\nAs I kneel before [potential_knight_maker.GetHerHim], [potential_knight_maker.GetSheHe] solemnly draws [potential_knight_maker.GetHerHis] sword. As [potential_knight_maker.GetSheHe] places [potential_knight_maker.GetHerHis] sword on my right shoulder, the din of the tournament celebration subsides. All eyes are on us.\n\n[potential_knight_maker.GetSheHe|U] dutifully begins to speak: "[ROOT.GetCharacter.GetFirstNameNoTooltip|V] [ROOT.GetCharacter.GetHouse.GetNameNoTooltip|V], do you swear before the eyes of gods and men to defend those who cannot defend themselves, to protect all women and children, to obey your captains, your liege lord, and your king, to fight bravely when needed and do such other tasks as are laid upon you, however hard or humble or dangerous they may be?""
  agot_knighthood.0511.a:0 "Aye, I swear it."
  agot_knighthood.0511.a.tt:0 "You swear to uphold the values of a knight."
 
- agot_knighthood.0511.desc.participant_perspective:0 "As I am basking in the glory of being declared the winner of [host.GetNamePossessive] tournament, [potential_knight_maker.GetName], a fellow participant, approaches me and urges me to kneel before him. He tells me that is not right that I should win the tournament and not be a knight - he wants to make me a knight!\n\nAs I kneel before him, he solemny draws his sword. As he places his sword on my right shoulder, the din of the tournament celebrations subsides. All eyes are on us.\n\nHe dutifully begins to speak: "[ROOT.GetCharacter.GetFirstNameNoTooltip|V] [ROOT.GetCharacter.GetHouse.GetNameNoTooltip|V], do you swear before the eyes of gods and men to defend those who cannot defend themselves, to protect all women and children, to obey your captains, your liege lord, and your king, to fight bravely when needed and do such other tasks as are laid upon you, however hard or humble or dangerous they may be?""
+ agot_knighthood.0511.desc.participant_perspective:0 "As I am basking in the glory of being declared the winner of [host.GetNamePossessive] tournament, [potential_knight_maker.GetName], a fellow participant, approaches me and urges me to kneel before [potential_knight_maker.GetHerHim]. [potential_knight_maker.GetSheHe|U] tells me that is not right that I should win the tournament and not be a knight — [potential_knight_maker.GetSheHe] would make me a #bold knight#!!\n\nAs I kneel before [potential_knight_maker.GetHerHim], [potential_knight_maker.GetSheHe] solemnly draws [potential_knight_maker.GetHerHis] sword. As [potential_knight_maker.GetSheHe] places [potential_knight_maker.GetHerHis] sword on my right shoulder, the din of the tournament celebration subsides. All eyes are on us.\n\n[potential_knight_maker.GetSheHe|U] dutifully begins to speak: "[ROOT.GetCharacter.GetFirstNameNoTooltip|V] [ROOT.GetCharacter.GetHouse.GetNameNoTooltip|V], do you swear before the eyes of gods and men to defend those who cannot defend themselves, to protect all women and children, to obey your captains, your liege lord, and your king, to fight bravely when needed and do such other tasks as are laid upon you, however hard or humble or dangerous they may be?""
  agot_knighthood.0511.a:0 "Aye, I swear it."
  agot_knighthood.0511.a.tt:0 "You swear to uphold the values of a knight."
 
  agot_knighthood.0512.t:0 "Knighthood"
- agot_knighthood.0512.desc:0 "[potential_knight_maker.GetName] moves his sword to my left shoulder and smiles. "Then rise, #V Ser#! [ROOT.GetCharacter.GetFirstNameNoTooltip|V], a knight!""
+ agot_knighthood.0512.desc:0 "[potential_knight_maker.GetName] moves [potential_knight_maker.GetHerHis] sword to my left shoulder and smiles. "Then rise, #V Ser#! [ROOT.GetCharacter.GetFirstNameNoTooltip|V], a knight!""
  agot_knighthood.0512.a:0 "I am a knight now!"
  agot_knighthood.0512.a.tt:0 "You have been knighted!"
 
@@ -182,12 +182,12 @@
 ######################################
 
 agot_knighthood.0800.t:0 "Making Knights of Children"
-agot_knighthood.0800.desc:0 "My child, [squire.GetName], has recently become an age in which he is able to be squired. Perhaps I could command a member of my Kingsguard to squire him? I believe [knight.GetName] would be a good candidate."
+agot_knighthood.0800.desc:0 "My child, [squire.GetName], is now of an age to squire. Perhaps I could command a member of my Kingsguard to squire [squire.GetHerHim]? I believe [knight.GetName] would be a good candidate."
 agot_knighthood.0800.a:0 "Yes!"
 agot_knighthood.0800.b:0 "No!"
 
 agot_knighthood.0801.t:0 "Making Knights of Children"
-agot_knighthood.0801.desc:0 "My child, [squire.GetName], has recently become an age in which he is able to be squired. Perhaps I could command a vassal of my realm to squire him? I believe [knight.GetName] would be a good candidate."
+agot_knighthood.0801.desc:0 "My child, [squire.GetName], is now of an age to squire. Perhaps I could command a vassal of my realm to squire [squire.GetHerHim]? I believe [knight.GetName] would be a good candidate."
 agot_knighthood.0801.a:0 "Yes!"
 agot_knighthood.0801.b:0 "No!"
 

@@ -633,7 +633,7 @@
  culture_parameter_no_limit_to_kingdom_level_holy_wars:0 "No limit to the number of [kingdom|E]-level [holy_wars|E] that can be declared by any one [ruler|E]"
  culture_parameter_cb_lower_piety_level_requirement:0 "All [casus_bellis|E] that require a specific [piety_level|E] require one less"
  culture_parameter_can_host_joust_contests:0 "[SelectLocalization( HasDlcFeature( 'tours_and_tournaments' ), 'can_host_joust_contests_custom_effect_description_TOTO_DLC', 'can_host_joust_contests_custom_effect_description_NO_TOTO_DLC' )]"
- can_host_joust_contests_custom_effect_description_TOTO_DLC:0 "Can hold a Joust [contests|E] in a [GetActivityType( 'activity_tournament' ).GetName]"
+ can_host_joust_contests_custom_effect_description_TOTO_DLC:0 "Can hold a Joust [contest|E] in a [GetActivityType( 'activity_tournament' ).GetName]"
  can_host_joust_contests_custom_effect_description_NO_TOTO_DLC:0 ""
  culture_parameter_just_trait_gives_bonuses:0 "The [GetTrait('just').GetName( GetNullCharacter )] [trait|E] has additional bonuses"
  culture_parameter_trade_port_building_bonuses:1 "The #V $building_type_common_tradeport_01$#! line of [buildings|E] will generate additional tax in [counties|E] of this [culture|E]"
@@ -751,7 +751,7 @@
  ACCEPTANCE_BASELINE_CLOSE_PLURALISTS:0 "[cultures|E] are geographically close and share [GetFaithDoctrine('doctrine_pluralism_pluralistic').GetBaseName] majority [faiths|E]"
  ACCEPTANCE_BASELINE_FAITH:0 "[cultures|E] share a majority [faith|E]"
  TRADITION_ASTUTE_DIPLOMATS_ACCEPTANCE_MODIFIER:1 "$tradition_astute_diplomats_name$ [tradition|E]: $VALUE|=+0$"
- CULTURE_HARD_TO_CONVERT_REASON:1 "$tradition_zealous_people_name$ [culture_tradition|E]"
+ CULTURE_HARD_TO_CONVERT_REASON: "$tradition_zealous_people_name$ [culture_tradition|E]: $VALUE|=+0$"
  TRADITION_RELIGION_BLENDING_CONVERSION_MODIFIER:1 "$tradition_religion_blending_name$ [culture_tradition|E]"
  TRADITION_HARDER_TO_CONVERT_CONVERSION_MODIFIER:0 "$CULTURE_HARD_TO_CONVERT_REASON$"
  TRADITION_BREAKDOWN_LAW_REALM_SIZE_COST:0 "$KEY$: $VALUE|=-0$ #Weak (from [traditions|E]: #P -50%#!)#!"
@@ -768,6 +768,8 @@
  20_percent_churches:0 "The [culture|E] does not have a [temple|E] in #V 20%#! of its [counties|E]"
  must_be_feudal_or_clan:0 "You must have the [feudal|E] or [clan|E] [government|E]"
  only_one_marriage_tradition_allowed:0 "Only one [marriage|E] [tradition|E] is allowed and the following cannot be combined: $tradition_monogamous_name$, $tradition_polygamous_name$, and $tradition_concubines_name$"
+ no_warrior_culture: "$tradition_fp3_beacon_of_learning_name$ is incompatible with $tradition_warrior_culture$"
+ no_philosopher_culture: "$tradition_fp3_beacon_of_learning_name$ is incompatible with $tradition_philosopher_culture_name$"
  
  culture_in_winter_geographical_region_trigger_desc:0 "The [culture|E] is not present in a [region|E] with winter"
  culture_in_non_sedentary_geographical_region_trigger_desc:0 "The [culture|E] is not present in the [GetGeographicalRegion('world_steppe').GetName]"
@@ -834,19 +836,20 @@
  not_bellicose_egalitarian_or_communal_desc:1 "The [culture|E] does not have the $ethos_bellicose_name$, $ethos_egalitarian_name$ or $ethos_communal_name$ [ethos|E]"
  not_bellicose_egalitarian_or_courtly_desc:1 "The [culture|E] does not have the $ethos_bellicose_name$, $ethos_egalitarian_name$ or $ethos_courtly_name$ [ethos|E]"
  not_bellicose_egalitarian_or_bureaucratic_desc:1 "The [culture|E] does not have the $ethos_bellicose_name$, $ethos_egalitarian_name$ or $ethos_bureaucratic_name$ [ethos|E]"
- not_bureaucratic_egalitarian_or_stoic_desc:0 "The [culture|E] does not have the $ethos_bureaucratic_name$, $ethos_stoic_name$ or $ethos_egalitarian_name$ [ethos|E]"
+ not_bellicose_egalitarian_or_stoic_desc:0 "The [culture|E] does not have the $ethos_bellicose_name$, $ethos_stoic_name$ or $ethos_egalitarian_name$ [ethos|E]"
  not_bellicose_stoic_or_communal_desc:1 "The [culture|E] does not have the $ethos_bellicose_name$, $ethos_stoic_name$ or $ethos_communal_name$ [ethos|E]"
  not_bellicose_stoic_or_bureaucratic_desc:1 "The [culture|E] does not have the $ethos_bellicose_name$, $ethos_stoic_name$ or $ethos_bureaucratic_name$ [ethos|E]"
  not_bellicose_courtly_or_communal_desc:1 "The [culture|E] does not have the $ethos_bellicose_name$, $ethos_courtly_name$ or $ethos_communal_name$ [ethos|E]"
  not_bellicose_stoic_or_courtly_desc:1 "The [culture|E] does not have the $ethos_bellicose_name$, $ethos_stoic_name$ or $ethos_courtly_name$ [ethos|E]"
  not_bellicose_spiritual_or_stoic_desc:1 "The [culture|E] does not have the $ethos_bellicose_name$, $ethos_spiritual_name$ or $ethos_stoic_name$ [ethos|E]"
  not_bellicose_bureaucratic_or_spiritual_desc:0 "The [culture|E] does not have the $ethos_bellicose_name$, $ethos_bureaucratic_name$ or $ethos_spiritual_name$ [ethos|E]"
-
+ not_bellicose_egalitarian_or_spiritual_desc: "The [culture|E] does not have the $ethos_bellicose_name$, $ethos_egalitarian_name$ or $ethos_spiritual_name$ [ethos|E]"
  ## Stoic.
 
  ## Bureaucratic.
  not_bureaucratic_courtly_or_egalitarian_desc:1 "The [culture|E] does not have the $ethos_bureaucratic_name$, $ethos_courtly_name$ or $ethos_egalitarian_name$ [ethos|E]"
  not_bureaucratic_spiritual_or_egalitarian_desc:1 "The [culture|E] does not have the $ethos_bureaucratic_name$, $ethos_spiritual_name$ or $ethos_egalitarian_name$ [ethos|E]"
+ not_bureaucratic_courtly_or_spiritual_desc: "The [culture|E] does not have the $ethos_bureaucratic_name$, $ethos_courtly_name$ or $ethos_spiritual_name$ [ethos|E]"
 
  ## Spiritual.
 
@@ -1091,7 +1094,7 @@
  culture_tradition_events.0101.t:0 "A Mystic's Mind"
  culture_tradition_events.0101.desc:0 "It's rare enough for me to get a chance for a quiet meal without sycophants or matters of state interrupting, but tonight I've managed it. A nice, calm dinner, and a chance to rest my social muscles.\n\nWithin seconds, the door bursts off its hinges with a tragic inevitability, and a [mendicant_mystic.GetFaith.PriestNeuter] barges into the room. [mendicant_mystic.GetSheHe|U] carries gnarled-walking stick, still covered in splinters from battering down the door in a single swing.\n\n"Noble [ROOT.Char.GetTitleAsNameNoTooltip], I come with an offer! For a small stipend, I, #EMP [mendicant_mystic.GetFirstName]#!, will share knowledge of our people's ancient ways with the children of your court!""
  culture_tradition_events.0101.a:0 "Of course, noble [mendicant_mystic.GetFaith.PriestNeuter]. Please put the beating stick down."
- culture_tradition_events.0101.a.tt:0 "All available [children|E] at [court|E] receive a boost to their on-going [education|E]"
+ culture_tradition_events.0101.a.tt:0 "All available [children|E] at [court|E] receive a boost to their ongoing [education|E]"
  culture_tradition_events.0101.b:0 "Isn't this a little much for [mendicant_mystic.GetFaith.HighGodNamePossessive] work?"
  culture_tradition_events.0101.b.tt.success:0 "You argue the mystic down"
  culture_tradition_events.0101.b.tt.failure:0 "The mystic leaves your court in disgust"
@@ -1142,6 +1145,7 @@
  culture_parameter_drylands_hunt_success_chance:0 "Increased [hunt_success_chance|E] in [GetTerrain( 'drylands' ).GetName] and [GetTerrain( 'desert' ).GetName]"
  culture_parameter_jungle_hunt_success_chance:0 "Increased [hunt_success_chance|E] in [GetTerrain( 'jungle' ).GetName]"
  culture_parameter_wetlands_hunt_success_chance:0 "Increased [hunt_success_chance|E] in [GetTerrain( 'wetlands' ).GetName] and [GetTerrain( 'wetlands' ).floodplains]"
+ can_host_joust_contests_name: "[GetCultureTradition('tradition_chanson_de_geste').GetName] or [GetCultureTradition('tradition_chivalry').GetName]"
 
  #BP2 Traditions
  tradition_noble_adoption_name: "Noble Adoption"
