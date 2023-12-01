@@ -10,6 +10,8 @@
  unavailable_hold_court:0 "собрание двора"
  unavailable_tour_stop:0 "подготовка к [Concept( 'tour', 'туру' )|E] вашего сюзерена"
 
+ GENERIC_CHOOSE_OPTION:0 "Выбрать вариант"
+
  start_hunt_decision:0 "Созвать охоту"
  start_hunt_decision_tooltip:2 "Состоится мероприятие «[GetActivityType('activity_hunt').GetName]»"
  start_hunt_decision_desc:0 "#F Я слышу зов неукротимой природы, и дикие звери готовятся ко встрече с моими стрелами и копьями!#!"
@@ -30,7 +32,7 @@
  host_feast_decision_opening_desc:0 "#F Выбить пробки из бочек и созвать знатных гостей — не просто обязанность. Это отличная возможность укрепить узы верности, а зачастую и получить истинное удовольствие!#!"
  host_feast_decision_desc_vassals:1 "[opinion|E] вассалов о вас может повыситься"
  host_feast_decision_desc_court_musician_opinion:1 "#P Поскольку у вас есть $court_musician_court_position$, мнение окружающих о вас будет увеличиваться значительнее#!"
- host_feast_decision_desc_shy: "#N [GetTrait('shy').GetName( GetPlayer )] или [GetTrait('reclusive').GetName( GetPlayer )|l] не позволит вам снизить [Concept('stress', 'стресс')|E]#!"
+ host_feast_decision_desc_shy:0 "#N [GetTrait('shy').GetName( GetPlayer )] или [GetTrait('reclusive').GetName( GetPlayer )|l] не позволит вам снизить [Concept('stress', 'стресс')|E]#!"
  host_feast_decision_desc_pensive:0 "#N [GetTrait('pensive').GetName( GetPlayer )] не позволит вам снизить [Concept('stress', 'стресс')|E]#!"
  host_feast_decision_desc_stress_medium:1 "Ваш [Concept('stress', 'стресс')|E] снизится"
  host_feast_decision_desc_stress:1 "Ваш [Concept('stress', 'стресс')|E] может снизиться"
@@ -257,14 +259,14 @@
  commission_artifact_decision_option_furniture_desc:0 "[AddTextIf( Or(ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'sculpture' ), Or( ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'pedestal' ), ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'throne' ) ) ), 'Демонстрируется:\n' )][AddTextIf(ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'sculpture' ), Concatenate( ROOT.Char.GetInventory.GetEquippedArtifactsInSlotTypeString( 'sculpture', 'NEWLINE', 'NEWLINE', 'NEWLINE' ), '\n') )][AddTextIf(ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'pedestal' ), Concatenate( ROOT.Char.GetInventory.GetEquippedArtifactsInSlotTypeString( 'pedestal', 'NEWLINE', 'NEWLINE', 'NEWLINE' ), '\n') )][AddTextIf(ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'throne' ), Concatenate( ROOT.Char.GetInventory.GetEquippedArtifactsInSlotTypeString( 'throne', 'NEWLINE', 'NEWLINE', 'NEWLINE' ), '\n') )]"
  commission_artifact_decision_option_book_desc:0 "[AddTextIf( ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'book' ), Concatenate( '\nДемонстрируется:\n', ROOT.Char.GetInventory.GetEquippedArtifactsInSlotTypeString( 'book', 'NEWLINE', 'NEWLINE', 'NEWLINE' ) ) )]"
 
- commission_weapon_tooltip:0 "#T Оружие#! \n$IS_VALID_BLOCKER$\n$DESC$"
- commission_armor_tooltip:0 "#T Доспех#! \n$IS_VALID_BLOCKER$\n$DESC$"
- commission_crown_tooltip:0 "#T Венец#! \n$IS_VALID_BLOCKER$\n$DESC$"
- commission_regalia_tooltip:0 "#T Регалии#! \n$IS_VALID_BLOCKER$\n$DESC$"
- commission_brooch_tooltip:0 "#T Брошь#! \n$IS_VALID_BLOCKER$\n$DESC$"
- commission_tapestry_tooltip:1 "#T Драпировка#! \n$IS_VALID_BLOCKER$\n$DESC$"
- commission_furniture_tooltip:0 "#T Мебель#! \n$IS_VALID_BLOCKER$\n$DESC$"
- commission_book_tooltip:0 "#T Книга#! \n$IS_VALID_BLOCKER$\n$DESC$"
+ commission_weapon_tooltip:0 "#T Оружие#! \n$DESC$"
+ commission_armor_tooltip:0 "#T Доспех#! \n$DESC$"
+ commission_crown_tooltip:0 "#T Корона#! \n$DESC$"
+ commission_regalia_tooltip:0 "#T Регалия#! \n$DESC$"
+ commission_brooch_tooltip:0 "#T Брошь#! \n$DESC$"
+ commission_tapestry_tooltip:0 "#T Драпировка#! \n$DESC$"
+ commission_furniture_tooltip:0 "#T Мебель#! \n$DESC$"
+ commission_book_tooltip:0 "#T Книга#! \n$DESC$"
 
  go_on_pilgrimage_decision:0 "Отправиться в паломничество"
  go_on_pilgrimage_decision_tooltip:1 "Совершить [pilgrimage|El], чтобы [ROOT.Char.GetFaith.PantheonTerm] увидели мою преданность"
@@ -516,9 +518,9 @@
  restore_high_priesthood_decision_tooltip:0 "#L [ROOT.Char.GetFaith.GetName]ое#! священство возродилось."
  restore_high_priesthood_decision_effect_tooltip:0 "#L [THIS.Char.GetFaith.GetName]ое#! священство возродилось"
 
- zoroastrian_restore_high_priesthood_decision:0 "Вернуть высшее [ROOT.Char.GetFaith.GetNameNoTooltip|l]ое духовенство"
+ zoroastrian_restore_high_priesthood_decision:0 "[ROOT.Char.GetFaith.AltPriestTermPlural|U] должны вернуться"
  zoroastrian_restore_high_priesthood_decision_confirm:0 "Возвысить нового духовного лидера"
- zoroastrian_restore_high_priesthood_decision_desc:0 "Когда в Персии укрепится #L [ROOT.Char.GetFaith.GetName|l]ая#! вера, настанет время возродить истинное зороастрийское жречество."
+ zoroastrian_restore_high_priesthood_decision_desc:0 "Со времен падения Сасанидской империи и распространения владычества мусульман #L [ROOT.Char.GetFaith.GetName|l]ое#! духовенство постепенно зачахло. Пришло время покончить с этой позорной страницей нашей истории, зажечь священные огни, и тогда [ROOT.Char.GetFaith.AltPriestTermPlural|l] вернут себе былое влияние, став верными союзниками, на которых сможет положиться [ROOT.Char.GetTitleTierName|l]."
  zoroastrian_restore_high_priesthood_decision_tooltip:0 "#L [ROOT.Char.GetFaith.GetName]ое#! священство возродилось."
  zoroastrian_restore_high_priesthood_decision_effect_tooltip:0 "#L [THIS.Char.GetFaith.GetName]ое#! священство возродилось"
 
@@ -752,9 +754,9 @@
  #Guest decisions
  invite_knights_decision:1 "$knight_culture_player_plural_no_tooltip$ — пригласить"
  invite_knights_decision_desc:1 "[ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip] требует достойной защиты, и я как [ROOT.Char.GetTitleAsNameNoTooltip|l] ищу храбрецов для обороны моих границ и завоевания новых земель. Отправлю глашатая с вестью, что мне нужны опытные $knight_culture_player_plural_no_tooltip_lowercase$."
- invite_knights_decision.men.tt: "В ближайшие месяцы ко двору прибудут [guests|El]. Не менее #P 3#! крепких мужчин, чей показатель [Concept( 'prowess', 'доблести' )|E] от #V [SCOPE.ScriptValue('invite_knights_decision_standard_value')|0]#! и выше"
- invite_knights_decision.women.tt: "В ближайшие месяцы ко двору прибудут [guests|El]. Не менее #P 3#! крепких женщин, чей показатель [Concept( 'prowess', 'доблести' )|E] от #V [SCOPE.ScriptValue('invite_knights_decision_standard_value')|0]#! и выше"
- invite_knights_decision.warriors.tt: "В ближайшие месяцы ко двору прибудут [guests|El]. Не менее #P 3#! воинов, чей показатель [Concept( 'prowess', 'доблести' )|E] от #V [SCOPE.ScriptValue('invite_knights_decision_standard_value')|0]#! и выше"
+ invite_knights_decision.men.tt:0 "В ближайшие месяцы ко двору прибудут [guests|El]. Не менее #P 3#! крепких мужчин, чей показатель [Concept( 'prowess', 'доблести' )|E] от #V [SCOPE.ScriptValue('invite_knights_decision_standard_value')|0]#! и выше"
+ invite_knights_decision.women.tt:0 "В ближайшие месяцы ко двору прибудут [guests|El]. Не менее #P 3#! крепких женщин, чей показатель [Concept( 'prowess', 'доблести' )|E] от #V [SCOPE.ScriptValue('invite_knights_decision_standard_value')|0]#! и выше"
+ invite_knights_decision.warriors.tt:0 "В ближайшие месяцы ко двору прибудут [guests|El]. Не менее #P 3#! воинов, чей показатель [Concept( 'prowess', 'доблести' )|E] от #V [SCOPE.ScriptValue('invite_knights_decision_standard_value')|0]#! и выше"
  invite_knights_decision_confirm:0 "Отправить глашатая"
  minor_decisions.0001.t:1 "Прибыл $knight_culture_player_no_tooltip$"
  minor_decisions.0001.desc:1 "[knight.GetTitledFirstName] откликается на мой зов и прибывает ко двору как гость"
@@ -797,7 +799,7 @@
  minor_decisions.0003.d:0 "У-у-ух, все не настолько плохо..."
  
  #False Conversion decisions
- revoke_false_conversion_decision:0 "Отречься от ложного обращения"
+ revoke_false_conversion_decision:0 "Раскрыть истинную веру"
  revoke_false_conversion_decision.tt:0 "Открыто вернуться к своей старой [Concept( 'faiths', 'конфессии' )|E]"
  revoke_false_conversion_decision.desc:0 "#F Хотя официально я исповедую [ROOT.Char.GetFaith.GetNameNoTooltip|l]ую конфессию, я не могу отказаться от множества привычных ритуалов и верований моих предков. Может, старая вера и впрямь была лучше?#!"
  revoke_false_conversion_decision.desc.tt:0 "Вы открыто возвращаетесь к своей старой [Concept( 'faiths', 'конфессии' )|E]. Ваши [vassals|El] и [Concept( 'close_family', 'близкие родственники' )|E] могут обратиться вместе с вами"
@@ -811,6 +813,10 @@
  encourage_confession_of_false_conversions_decision.desc.tt_pluralist_counties:0 "Если вы [Concept( 'independent', 'независимы' )|E], то [counties|El] вашей [realms|El], где исповедуется [GetModifier('false_convert_modifier').GetNameWithTooltip], могут открыто обратиться. Это зависит от вашей агрессивности в отношении их новой [Concept( 'faiths', 'конфессии' )|E]"
  encourage_confession_of_false_conversions_decision.desc.tt_coreligionist:0 "Тайные последователи других конфессий в вашей державе могут раскрыть себя, если их тайная [Concept( 'faiths', 'конфессия' )|E] совпадает с вашей публичной"
  encourage_confession_of_false_conversions_decision_confirm:0 "Сделать заявление"
+ abandon_crypto_faith_decision:0 "Отказаться от тайной веры"
+ abandon_crypto_faith_decision.tt:0 "Прекратить тайно исповедовать свою старую конфессию"
+ abandon_crypto_faith_decision.desc:0 "#F Все эти тайные службы и читаемые шепотом молитвы меня утомили. И в то же время меня больше ничуть не смущает моя общественная жизнь в свете #L [ROOT.Char.GetFaith.GetName|l]ой#! веры. Возможно, пора раз и навсегда отринуть старую веру.#!"
+ abandon_crypto_faith_decision_confirm:0 "Отринуть #EMP крипто-конфессию#!"
 
  #Restore the Holy Roman Empire
  restore_holy_roman_empire_decision:0 "Возродить Священную Римскую империю"
@@ -943,11 +949,12 @@
  stress_loss_comfort_eater_decision_desc:0 "Когда я чувствую, что больше мне уже #EMP не выдержать#!, я знаю, что делать: еда всегда помогает мне успокоиться — полный желудок освобождает и успокаивает разум."
  stress_loss_comfort_eater_decision_tooltip:0 "Ешьте, чтобы собраться"
  stress_loss_comfort_eater_decision_confirm:0 "Накройте на стол!"
+ lackluster_diet_hindrance_desc:0 "У вас несбалансированная диета"
 
  stress_loss_inappetetic_decision:0 "Отказаться от еды"
  stress_loss_inappetetic_decision_desc:0 "При таком количестве пищи для ума пища для тела будет лишней! Отказавшись от еды, я смогу сосредоточиться на проблемах, важных для державы."
  stress_loss_inappetetic_decision_tooltip:0 "Избегайте пищи — и стресса"
- stress_loss_inappetetic_decision_confirm:0 "Сообщите повару."
+ stress_loss_inappetetic_decision_confirm:0 "Сообщите повару"
 
  stress_loss_journaller_decision:0 "Записать мысли"
  stress_loss_journaller_decision_desc:0 "Я запишу свои мысли и тяжкие заботы. Ничто так не очищает разум, как перо и чернила!"
@@ -966,8 +973,6 @@
 
  DECISION_COOLDOWN_WARNING:1 "@alert_icon! #alert_trial Решение «$DECISION_NAME$» будет недоступно в течение $COOLDOWN$#!"
  
- SHOW_DECISION_TOOLTIP:3 "#T [Decision.GetTitleForPlayer]#!\n[Decision.GetCommandDescForPlayer][Select_CString(StringIsEmpty(Decision.GetCommandDescForPlayer),'','\n')][Decision.GetShortDescForPlayer]\n\n#I Щелкните, чтобы выбрать#!"
-
  all_courtiers_except_confidant:0 "Все [Concept( 'courtiers', 'придворные' )|E], кроме наперсника"
 
  found_kingdom_of_bosnia_decision:0 "Основано королевство Босния"
@@ -1121,6 +1126,10 @@
  appoint_a_righteous_caliph_decision.control_two_holy_sites:0 "Вы контролируете хотя бы 2 [Concept( 'holy_site', 'святых места' )|E]"
  appoint_a_righteous_caliph_decision.caliph_has_x_or_more_traits_sinful_to_your_faith:0 "У [Concept( 'head_of_faith', 'главы' )|E] вашей конфессии не меньше [EmptyScope.ScriptValue('appoint_a_righteous_caliph_decision_hof_min_sins')|0] [Concept( 'sinful', 'греховных' )|E] [Concept( 'traits', 'свойств' )|E]"
  appoint_a_righteous_caliph_decision.has_wishes_to_schism_caliphate_flag:0 "Вы планируете усугубить раскол при создании собственной [Concept( 'faith', 'конфессии' )|E]"
+ appoint_a_righteous_caliph_decision_mutazila_variant:0 "Восстановить мутазилию"
+ appoint_a_righteous_caliph_decision_general_iranian_variant:0 "Разрыв с халифатом"
+ appoint_a_righteous_caliph_decision_mutazila_variant_desc:0 "С окончания михны сторонники сотворенности Корана подвергались гонениям или просто игнорировались самозванными халифами. Я поставлю перед собой цель отомстить за причиненные им обиды и вновь выдвинуть на первое место доктрину мутазилии."
+ appoint_a_righteous_caliph_decision_general_iranian_variant_desc:0 "Хотя ислам принесли в Персию силой, сегодня никто не сможет поставить под сомнение нашу веру в то, что [ROOT.Char.GetFaith.HighGodNameAlternate] един. Но наши и арабские воззрения разошлись. Мы и [ROOT.Char.GetFaith.GetReligiousHead.GetTitledFirstName|l] должны пойти каждый своим путем. Поэтому я лично возглавлю #L [ROOT.Char.GetFaith.GetName|l]ую#! конфессию."
 
  mozarabic_bind_the_faith_to_rome_decision:0 "Вернуться в лоно Рима"
  mozarabic_bind_the_faith_to_rome_decision_desc:0 "Хотя [ROOT.Char.GetFaith.GetReligiousHead.GetTitledFirstName] остается нашим истинным Папой, оторванность от наместника Христова исказила нашу веру. Давно в прошлом те времена, когда по залам Толедо ходили великие собрания священников со всей Европы.\n\nНо у нас еще есть путь назад. Если наша вера сбилась с пути, не сможет ли сильный пастырь вернуть ее обратно в стадо?"
@@ -1191,6 +1200,9 @@
  NO_DECISION_OPTIONS_SELECTED:0 "@warning_icon! #X Выберите вариант#!"
  revive_taltoism_decision_before_last_date:0 "Дата — 1 января 1100 г. или ранее"
 
+ I_CREATE_CADET_BRANCH_DECISION_IN_ANOTHER_REALM:0 "Вы #bold не#! в той же [Concept( 'realm', 'державе' )|E], что и [Concept( 'house_head', 'глава' )|E] вашего дома"
+ I_NOT_CREATE_CADET_BRANCH_DECISION_IN_ANOTHER_REALM:0 "Вы #bold в той же#! [Concept( 'realm', 'державе' )|E], что и [Concept( 'house_head', 'глава' )|E] вашего дома"
+
  call_for_acclaimed_knight_candidates_decision:0 "Восстановить акколады"
  call_for_acclaimed_knight_candidates_decision_desc:0 "Моя свита позабыла, что такое воинские заслуги. Пусть [GetPlayer.Custom( 'KnightCulturePluralNoTooltipLowercase' )] из моих владений знают, что [ROOT.Char.GetTitleAsNameNoTooltip] зовет своих верных сыновей и дочерей: [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip] нуждается в них!\n\nПотомкам, достойным почетных чинов, будет оказан радушный прием."
  call_for_acclaimed_knight_candidates_decision_tooltip:0 "Появляются возможные [Concept( 'acclaimed_knights', 'именитые рыцари' )|E] — по одному за каждую [Concept( 'inactive_accolade', 'недействительную акколаду' )|E]"
@@ -1216,3 +1228,5 @@
  switch_to_israelite_language_tt:0 "[GetPlayer.GetCulture.GetName] примут еврейский [language|El]"
  switch_to_original_language_tt:0 "Ваша новая культура будет использовать [target_other_culture.GetLanguage.GetNameNoTooltip|l]."
  at_least_10_jewish_counties_tt:0 "У вас должно быть не менее 10 иудейских [Concept( 'counties', 'графств' )|E] вашей [Concept( 'culture', 'культуры' )|E]"
+
+ DECISION_TOOLTIP_TITLE:0 "$EFFECT_LIST_BULLET$ [Decision.GetName]"
