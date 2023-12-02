@@ -3,13 +3,13 @@
  # Catalyst UI Keys
  PHASE_CATALYST_DESCRIPTION_HEADER:2 "#S Катализация к фазе [StrugglePhase.GetNameNoTooltip]#!"
  PHASE_CATALYST_DESCRIPTION_HEADER_INFO:1 "#I Завершите катализацию сколько угодно раз, чтобы увеличить прогресс фазы#!"
- PHASE_CATALYST_DESCRIPTION_ENTRY:1 "$EFFECT_LIST_BULLET$ [CatalystEntry.GetCatalyst.GetDescription]: #I [CatalystEntry.GetWorth|+=] прогресса#!"
+ PHASE_CATALYST_DESCRIPTION_ENTRY: "[CatalystEntry.GetCatalystDescription]"
  PHASE_CATALYST_COMPLETIONS:0 "[Select_CString(GreaterThan_int32(Struggle.GetNumCompletionsOfCatalystForPhase(StruggleWindow.GetSelectedPhase, CatalystEntry.GetCatalyst), '(int32)0'), '#COLOR_GREEN ', '#COLOR_GRAY ')]x[Struggle.GetNumCompletionsOfCatalystForPhase(StruggleWindow.GetSelectedPhase, CatalystEntry.GetCatalyst)]#!"
 
  ##################################################
  # Catalyst Names
  catalyst_passing_of_time:1 "[struggle_catalyst_catalyst|E] ежегодного изменения"
- catalyst_passing_of_time_desc:1 "Каждый год смещается в сторону этой [Concept( 'struggle_phase', 'фазы борьбы' )|E]"
+ catalyst_passing_of_time_desc: "Каждый год смещается в сторону этой [Concept( 'struggle_phase', 'фазы борьбы' )|E]"
  catalyst_demanding_important_conversion:0 "[struggle_catalyst_catalyst|E]: требование обращения"
  catalyst_demanding_important_conversion_desc:4 "[demand_conversion|E] [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E]"
  catalyst_enforcing_de_jure_claims:0 "[struggle_catalyst_catalyst|E]: навязывание [de_jure|E] [Concept( 'claims', 'претензий' )|E]"
@@ -45,6 +45,9 @@
 
  catalyst_forming_alliance_with_major_uninvolved_power:0 "[struggle_catalyst_catalyst|E]: в [Concept( 'allied', 'союзе' )|E] с иностранной державой"
  catalyst_forming_alliance_with_major_uninvolved_power_desc:2 "Заключить [Concept( 'alliance', 'союз' )|E] с [Concept( 'realm', 'державой' )|E], [Concept( 'struggle_uninvolved', 'не участвующей в борьбе' )|E], [Concept( 'realm_size', 'размер владений' )|E] которой не менее чем [EmptyScope.ScriptValue('catalyst_forming_alliance_with_major_uninvolved_power_power_realm_size_value')|0]"
+ catalyst_forming_alliance_between_independent_involved_rulers: "[Concept( 'allied', 'В союзе' )|E] с другим [Concept( 'struggle_involved', 'вовлеченным в борьбу' )|E] [Concept( 'independent_ruler', 'независимым правителем' )|E] — [Concept( 'struggle_catalyst_catalyst', 'катализация' )|E]"
+ catalyst_forming_alliance_between_independent_involved_rulers_desc: "Образовать [Concept( 'alliance', 'союз' )|E] с другим [Concept( 'independent_ruler', 'независимым правителем' )|E], [Concept( 'struggle_involved', 'вовлеченным в борьбу' )|E]"
+
  catalyst_accepted_independence_faction_demands:0 "[struggle_catalyst_catalyst|E]: $catalyst_accepted_demand_from_faction_requesting_culture_faith_conversion$"
  catalyst_accepted_independence_faction_demands_desc:2 "Принять требования [Concept( 'peasant_faction', 'крестьян' )|E] или [Concept( 'popular_faction', 'популистов' )|E]"
  catalyst_conducted_border_raid:0 "[struggle_catalyst_catalyst|E]: сделана [Concept( 'border_raid', 'вылазка' )|E]"
@@ -96,21 +99,15 @@
  catalyst_becomes_rival_with_involved:0 "[struggle_catalyst_catalyst|E]: разжигание соперничества"
  catalyst_becomes_rival_with_involved_desc:1 "Стать [Concept( 'rival', 'соперником' )|E] или [Concept( 'nemesis', 'заклятым врагом' )|E] другого [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E]"
  catalyst_using_a_hook_on_very_important_character:0 "[struggle_catalyst_catalyst|E]: используется [Concept( 'hook', 'влияние' )|E]"
- #AGOT Modified
  catalyst_using_a_hook_on_very_important_character_desc:4 "Использовать [hooks|El] на [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E]"
- #catalyst_usurp_title:0 "[struggle_catalyst_catalyst|E]: узурпация [Concept( 'title', 'титула' )|E]"
- #AGOT Modified
- catalyst_usurp_title:0 "[struggle_catalyst_catalyst|E]: узурпация [Concept( 'title', 'титула' )|E]
- #catalyst_usurp_title_desc:0 "Usurp a new [title|E] which is part of the [de_jure|E] of $e_spain$"
- catalyst_usurp_title_desc:0 "Узурпировать [title|El], [de_jure|El] являющийся частью державы $e_beyond_the_wall$"
+ catalyst_usurp_title_fp2: "[struggle_catalyst_catalyst|E]: узурпация [Concept( 'title', 'титула' )|E]"
+ catalyst_usurp_title_fp2_desc: "Узурпировать [Concept( 'title', 'титул' )|E], [Concept( 'de_jure', 'де-юре' )|E] являющийся частью державы $e_spain$"
  catalyst_unnatural_death_important_character:0 "[struggle_catalyst_catalyst|E]: убийство"
  catalyst_unnatural_death_important_character_desc:2 "Убить [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E]"
  catalyst_forced_conversion:0 "[struggle_catalyst_catalyst|E]: обращение"
  catalyst_forced_conversion_desc:1 "Обратить [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E] или [county|El]"
- catalyst_gain_claim_on_title:1 "[struggle_catalyst_catalyst|E]: полученная [claim|E]"
- #AGOT Modified
- #catalyst_gain_claim_on_title_desc:1 "Acquire a [claim|E] on a [title|E] under the [de_jure|E] of $e_spain$"
- catalyst_gain_claim_on_title_desc:1 "Получить [Concept( 'claim', 'претензию' )|E] на [title|El], [de_jure|El] являющийся частью державы $e_beyond_the_wall$"
+ catalyst_gain_claim_on_title_fp2: "[struggle_catalyst_catalyst|E]: полученная [claim|El]"
+ catalyst_gain_claim_on_title_fp2_desc: "Получить [Concept( 'claim', 'претензию' )|E] на [Concept( 'title', 'титул' )|E], [Concept( 'de_jure', 'де-юре' )|E] являющийся частью державы $e_spain$"
  catalyst_reveal_secret_important:1 "[struggle_catalyst_catalyst|E]: раскрытие [Concept( 'secret', 'секрета' )|El]"
  catalyst_reveal_secret_important_desc:1 "Раскрыть [secret|El] [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E]"
  catalyst_sign_truce_outside_war:1 "[struggle_catalyst_catalyst|E]: подписание [Concept( 'truce', 'перемирия' )|E]"
@@ -127,3 +124,191 @@
  catalyst_grant_land_local_noble_desc:0 "Отдать одно из ваших [Concept( 'counties', 'графств' )|E] местному дворянину, принадлежащему к [Concept( 'struggle_involved', 'вовлеченной в борьбу' )|E] [Concept( 'culture', 'культуре' )|E]"
  catalyst_convert_local_culture_faith:0 "[struggle_catalyst_catalyst|E]: обращение в местную веру"
  catalyst_convert_local_culture_faith_desc:0 "Обратиться в местную [Concept( 'struggle_involved', 'вовлеченную в борьбу' )|E] [Concept( 'faith', 'конфессию' )|E] или [Concept( 'culture', 'культуру' )|E]"
+
+ catalyst_raided_involved: "[struggle_catalyst_catalyst|E]: налет на [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E] — [Concept( 'struggle_catalyst_catalyst', 'катализация' )|E]"
+ catalyst_raided_involved_desc: "Совершить [Concept( 'raid', 'налет' )|E] на [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E]"
+ catalyst_populist_uprise: "[struggle_catalyst_catalyst|E]: народное или крестьянское восстание"
+ catalyst_populist_uprise_desc: "Заполучить [Concept( 'civil_wars', 'гражданскую войну' )|E] в роли [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E]"
+ catalyst_revoke_title: "[struggle_catalyst_catalyst|E]: лишение титула"
+ catalyst_revoke_title_desc: "[Concept( 'revoke', 'Лишить' )|E] [Concept( 'title', 'титула' )|E] (в том числе [Concept( 'leased', 'арендованных' )|E] [Concept( 'titles', 'титулов' )|E])"
+ catalyst_gain_claim_on_title_fp3: "$catalyst_gain_claim_on_title_fp2$"
+ catalyst_gain_claim_on_title_fp3_desc: "Получить [Concept( 'claim', 'претензию' )|E] на [Concept( 'title', 'титул' )|E], [Concept( 'de_jure', 'де-юре' )|E] являющийся частью державы $e_persia$"
+ catalyst_usurp_title_fp3: "$catalyst_usurp_title_fp2$"
+ catalyst_usurp_title_fp3_desc: "Узурпировать [Concept( 'title', 'титул' )|E], [Concept( 'de_jure', 'де-юре' )|E] являющийся частью державы $e_persia$"
+
+ catalyst_became_supporter_fp3: "Важный [Concept( 'character', 'персонаж' )|E] [Concept( 'decision', 'решил' )|E] принять следующую роль: [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
+ catalyst_became_supporter_fp3_desc: "Важный [Concept( 'character', 'персонаж' )|E] [Concept( 'decision', 'решает' )|E] принять следующую роль: [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
+ catalyst_became_detractor_fp3: "Важный [Concept( 'character', 'персонаж' )|E] [Concept( 'decision', 'решил' )|E] принять следующую роль: [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
+ catalyst_became_detractor_fp3_desc: "Важный [Concept( 'character', 'персонаж' )|E] [Concept( 'decision', 'решает' )|E] принять следующую роль: [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
+
+ catalyst_ruler_chooses_persian_faith: "Важный [Concept( 'character', 'персонаж' )|E] принял [Concept( 'decision', 'решение' )|E]: [GetDecisionWithKey('adopt_a_new_faith_for_persia_decision').GetName]"
+ catalyst_ruler_chooses_persian_faith_desc: "Важный [Concept( 'character', 'персонаж' )|E] принимает [Concept( 'decision', 'решение' )|E]: [GetDecisionWithKey('adopt_a_new_faith_for_persia_decision').GetName]"
+
+ catalyst_new_islamic_temple_construction: "Персонаж построил [Concept( 'temple_holding', 'храмовые владения' )|E]: [islam_religion.GetName]"
+ catalyst_new_islamic_temple_construction_desc: "Построить новые [Concept( 'temple_holding', 'храмовые владения' )|E] в #high исламской#! провинции"
+ catalyst_install_loyalist_cb: "Успешно использует [Concept( 'casus_belli', 'казус белли' )|E] «[Concept( 'fp3_install_loyalist_cb', 'Посадить на трон сторонника' )|E]»"
+ catalyst_install_loyalist_cb_desc: "Успешно использовать [Concept( 'casus_belli', 'казус белли' )|E] «[Concept( 'fp3_install_loyalist_cb', 'Посадить на трон сторонника' )|E]»"
+
+ catalyst_cadet_branch_created: "[struggle_catalyst_catalyst|E]: создана [Concept( 'cadet_branch', 'младшая линия' )|E]"
+ catalyst_cadet_branch_created_desc: "Создать новый [Concept( 'house', 'дом' )|E] через [Concept( 'cadet_branching', 'отделение младших' )|E]"
+
+ catalyst_gain_struggle_vassals_from_interlopers_uninvolved: "[struggle_catalyst_catalyst|E]: получен [Concept( 'vassal', 'вассал' )|E] от [Concept( 'struggle_interloper', 'вмешательства' )] или [Concept( 'struggle_uninvolved', 'не вовлеченного в борьбу' )|E]"
+ catalyst_gain_struggle_vassals_from_interlopers_uninvolved_desc: "Получить [Concept( 'vassal', 'вассала' )|E] от [Concept( 'struggle_interloper', 'вмешательства' )] или [Concept( 'struggle_uninvolved', 'не вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E]"
+
+ catalyst_gain_struggle_titles_from_interlopers_uninvolved: "[struggle_catalyst_catalyst|E]: получен [Concept( 'title', 'титул' )|E] от [Concept( 'struggle_interloper', 'вмешательства' )] или [Concept( 'struggle_uninvolved', 'не вовлеченного в борьбу' )|E]"
+ catalyst_gain_struggle_titles_from_interlopers_uninvolved_desc: "Получить [Concept( 'title', 'титул' )|E] в [Concept( 'struggle_region', 'области борьбы' )] от [Concept( 'struggle_interloper', 'вмешательства' )] или [Concept( 'struggle_uninvolved', 'не вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E]"
+
+ catalyst_interloper_uninvolved_gain_struggle_vassals: "[struggle_catalyst_catalyst|E]: потерян [Concept( 'vassal', 'вассал' )|E] в результате [Concept( 'struggle_interloper', 'вмешательства' )] или действий [Concept( 'struggle_uninvolved', 'не вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E]"
+ catalyst_interloper_uninvolved_gain_struggle_vassals_desc: "Потерять [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'vassal', 'вассала' )|E] в результате [Concept( 'struggle_interloper', 'вмешательства' )] или действий [Concept( 'struggle_uninvolved', 'не вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E]"
+
+ catalyst_interloper_uninvolved_gain_struggle_titles: "[struggle_catalyst_catalyst|E]: [Concept( 'title', 'титул' )|E] забрал [Concept( 'struggle_involved', 'вовлеченный в борьбу' )] соперник"
+ catalyst_interloper_uninvolved_gain_struggle_titles_desc: "Потерять [Concept( 'title', 'титул' )|E] в [Concept( 'struggle_region', 'области борьбы' )] от [Concept( 'struggle_interloper', 'вмешательства' )] или в результате действий [Concept( 'struggle_uninvolved', 'не вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E]"
+
+ catalyst_declare_any_war_within_the_region: "[struggle_catalyst_catalyst|E]: начатая [Concept( 'war', 'война' )|E]"
+
+ catalyst_supporter_win_unfair_war_within_the_region: "$catalyst_win_any_war_within_the_region$"
+ catalyst_supporter_win_unfair_war_within_the_region_desc: "Выиграть [Concept( 'war', 'войну' )|E], начатую вами против другого [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E] (более низкого [Concept( 'title_tier', 'уровня' )|E]), как [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
+
+ catalyst_supporter_win_fair_war_within_the_region: "$catalyst_win_any_war_within_the_region$"
+ catalyst_supporter_win_fair_war_within_the_region_desc: "Выиграть [Concept( 'war', 'войну' )|E], начатую вами против другого [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E] (того же [Concept( 'title_tier', 'уровня' )|E] или выше), как [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
+
+ catalyst_supporter_declare_unfair_war_within_the_region: "$catalyst_declare_any_war_within_the_region$"
+ catalyst_supporter_declare_unfair_war_within_the_region_desc: "Начать [Concept( 'war', 'войну' )|E] против другого [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E] (более низкого [Concept( 'title_tier', 'уровня' )|E]), как [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
+
+ catalyst_supporter_declare_fair_war_within_the_region: "$catalyst_declare_any_war_within_the_region$"
+ catalyst_supporter_declare_fair_war_within_the_region_desc: "Начать [Concept( 'war', 'войну' )|E] против другого [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E] (того же [Concept( 'title_tier', 'уровня' )|E] или выше), как [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
+
+ catalyst_detractor_win_unfair_war_within_the_region: "$catalyst_win_any_war_within_the_region$"
+ catalyst_detractor_win_unfair_war_within_the_region_desc: "Выиграть [Concept( 'war', 'войну' )|E], начатую вами против другого [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E] (более низкого [Concept( 'title_tier', 'уровня' )|E]), как [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
+
+ catalyst_detractor_win_fair_war_within_the_region: "$catalyst_win_any_war_within_the_region$"
+ catalyst_detractor_win_fair_war_within_the_region_desc: "Выиграть [Concept( 'war', 'войну' )|E], начатую вами против другого [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E] (того же [Concept( 'title_tier', 'уровня' )|E] или выше), как [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
+
+ catalyst_detractor_declare_unfair_war_within_the_region: "$catalyst_declare_any_war_within_the_region$"
+ catalyst_detractor_declare_unfair_war_within_the_region_desc: "Начать [Concept( 'war', 'войну' )|E] против другого [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E] (более низкого [Concept( 'title_tier', 'уровня' )|E]), как [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
+
+ catalyst_detractor_declare_fair_war_within_the_region: "$catalyst_declare_any_war_within_the_region$"
+ catalyst_detractor_declare_fair_war_within_the_region_desc: "Начать [Concept( 'war', 'войну' )|E] против другого [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E] (того же [Concept( 'title_tier', 'уровня' )|E] или выше), как [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
+
+ catalyst_war_ends_in_white_peace_between_supporter_detractor: "[Concept( 'war', 'Война' )|E] закончилась [Concept( 'white_peace', 'миром на условиях статус-кво' )|E]"
+ catalyst_war_ends_in_white_peace_between_supporter_detractor_desc: "[Concept( 'war', 'Война' )|E] между персонажами [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] и [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] заканчивается [Concept( 'white_peace', 'миром на условиях статус-кво' )|E]"
+
+ catalyst_forming_alliance_between_supporter_detractor_rulers: "[struggle_catalyst_catalyst|E]: между персонажами [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] и [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] образовался [Concept( 'alliance', 'союз' )|E]"
+ catalyst_forming_alliance_between_supporter_detractor_rulers_desc: "Между персонажами [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] и [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] образовался [Concept( 'alliance', 'союз' )|E]"
+
+ catalyst_forming_alliance_between_detractor_uninvolved_rulers: "[struggle_catalyst_catalyst|E]: [Concept( 'allied', 'в союзе' )|E] с зарубежной державой"
+ catalyst_forming_alliance_between_detractor_uninvolved_rulers_desc: "Заключить [Concept( 'alliance', 'союз' )|E] с [Concept( 'struggle_uninvolved', 'не вовлеченной в борьбу' )|E] [Concept( 'realm', 'державой' )|E] в роли «[GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]»"
+
+ catalyst_gift_supporter_detractor_ruler: "$catalyst_gift_independent_ruler$"
+ catalyst_gift_supporter_detractor_ruler_desc: "Между персонажами [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] и [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] перешел из рук в руки [Concept( 'gift', 'подарок' )|E] или [Concept( 'artifact', 'артефакт' )|E]"
+
+ catalyst_supporter_forced_conversion: "$catalyst_forced_conversion$"
+ catalyst_supporter_forced_conversion_desc: "[GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] — обратить [Concept( 'ruler', 'правителя' )|E] в другую веру"
+
+ catalyst_detractor_forced_conversion: "$catalyst_forced_conversion$"
+ catalyst_detractor_forced_conversion_desc: "[GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] — обратить [Concept( 'ruler', 'правителя' )|E] в другую веру"
+
+ catalyst_release_supporter_detractor: "$catalyst_release_important$"
+ catalyst_release_supporter_detractor_desc: "Кто-то освобожден из [Concept( 'prison', 'тюрьмы' )|E]. Персонажи [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] и [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] не обменивались требованиями."
+
+ catalyst_ransom_supporter_detractor: "$catalyst_ransom_important$"
+ catalyst_ransom_supporter_detractor_desc: "Выкупить [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E] с участием персонажей [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] и [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
+
+ catalyst_imprison_detractor: "[struggle_catalyst_catalyst|E]: [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] находится в тюрьме"
+ catalyst_imprison_detractor_desc: "[GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] — заточить персонажа в тюрьму"
+
+ catalyst_imprison_supporter: "[struggle_catalyst_catalyst|E]: [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] находится в тюрьме"
+ catalyst_imprison_supporter_desc: "[GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] — заточить персонажа в тюрьму"
+
+ catalyst_becomes_rival_supporter_detractor: "$catalyst_becomes_rival_with_involved$"
+ catalyst_becomes_rival_supporter_detractor_desc: "Персонажи [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] и [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] становятся [Concept( 'rival', 'соперниками' )|E] или [Concept( 'nemesis', 'заклятыми врагами' )|E]"
+
+ catalyst_became_best_friend_soulmate_supporter_detractor: "$catalyst_became_best_friend_soulmate_with_very_important_character$"
+ catalyst_became_best_friend_soulmate_supporter_detractor_desc: "Персонажи [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] и [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] становятся [Concept( 'best_friends', 'лучшими друзьями' )|E] или [Concept( 'soulmates', 'родственными душами' )|E]"
+
+ catalyst_became_friend_lover_supporter_detractor: "$catalyst_became_friend_lover_with_character$"
+ catalyst_became_friend_lover_supporter_detractor_desc: "Персонажи [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] и [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] становятся [Concept( 'friends', 'друзьями' )|E] или [Concept( 'lovers', 'любовниками' )|E]"
+
+ catalyst_unnatural_death_supporter: "$catalyst_unnatural_death_important_character$"
+ catalyst_unnatural_death_supporter_desc: "Убит [Concept( 'ruler', 'правитель' )|E] со свойством «[GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]»"
+
+ catalyst_unnatural_death_detractor: "$catalyst_unnatural_death_important_character$"
+ catalyst_unnatural_death_detractor_desc: "Убит [Concept( 'ruler', 'правитель' )|E] со свойством «[GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]»"
+
+ catalyst_reveal_secret_supporter: "$catalyst_reveal_secret_important$"
+ catalyst_reveal_secret_supporter_desc: "Раскрыть [Concept( 'secret', 'секрет' )|E] [Concept( 'ruler', 'правителя' )|E] с ролью «[GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]»"
+
+ catalyst_reveal_secret_detractor: "$catalyst_reveal_secret_important$"
+ catalyst_reveal_secret_detractor_desc: "Раскрыть [Concept( 'secret', 'секрет' )|E] [Concept( 'ruler', 'правителя' )|E] с ролью «[GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]»"
+
+ catalyst_yearly_influential_house_is_harmonious: "[struggle_catalyst_catalyst|E]: гармоничный [Concept( 'house', 'дом' )|E]"
+ catalyst_yearly_influential_house_is_harmonious_desc: "или больше [Concept( 'house_heads', 'глав' )|E] [Concept( 'struggle_involved', 'вовлеченных' )|E] домов с гармоничным уровнем [Concept( 'house_unity', 'единства' )|E]"
+ catalyst_yearly_influential_house_is_harmonious_major: "$catalyst_yearly_influential_house_is_harmonious$"
+ catalyst_yearly_influential_house_is_harmonious_major_desc: "Ежегодное изменение: [EmptyScope.ScriptValue('catalyst_yearly_influential_house_is_harmonious_major_control_value')|0] $catalyst_yearly_influential_house_is_harmonious_desc$"
+ catalyst_yearly_influential_house_is_harmonious_medium: "$catalyst_yearly_influential_house_is_harmonious$"
+ catalyst_yearly_influential_house_is_harmonious_medium_desc: "Ежегодное изменение: [EmptyScope.ScriptValue('catalyst_yearly_influential_house_is_harmonious_medium_control_value')|0] $catalyst_yearly_influential_house_is_harmonious_desc$"
+ catalyst_yearly_influential_house_is_harmonious_minor: "$catalyst_yearly_influential_house_is_harmonious$"
+ catalyst_yearly_influential_house_is_harmonious_minor_desc: "Ежегодное изменение: [EmptyScope.ScriptValue('catalyst_yearly_influential_house_is_harmonious_minor_control_value')|0] $catalyst_yearly_influential_house_is_harmonious_desc$"
+ catalyst_yearly_influential_house_is_harmonious_minimal: "$catalyst_yearly_influential_house_is_harmonious$"
+ catalyst_yearly_influential_house_is_harmonious_minimal_desc: "Ежегодное изменение: [EmptyScope.ScriptValue('catalyst_yearly_influential_house_is_harmonious_minimal_control_value')|0] $catalyst_yearly_influential_house_is_harmonious_desc$"
+
+ catalyst_yearly_influential_house_is_antagonistic: "[struggle_catalyst_catalyst|E]: враждебный [Concept( 'house', 'дом' )|E]"
+ catalyst_yearly_influential_house_is_antagonistic_desc: "или больше [Concept( 'house_heads', 'глав' )|E] [Concept( 'struggle_involved', 'вовлеченных' )|E] домов с враждебным уровнем [Concept( 'house_unity', 'единства' )|E]"
+ catalyst_yearly_influential_house_is_antagonistic_major: "$catalyst_yearly_influential_house_is_antagonistic$"
+ catalyst_yearly_influential_house_is_antagonistic_major_desc: "Ежегодное изменение: [EmptyScope.ScriptValue('catalyst_yearly_influential_house_is_antagonistic_major_control_value')|0] $catalyst_yearly_influential_house_is_antagonistic_desc$"
+ catalyst_yearly_influential_house_is_antagonistic_medium: "$catalyst_yearly_influential_house_is_antagonistic$"
+ catalyst_yearly_influential_house_is_antagonistic_medium_desc: "Ежегодное изменение: [EmptyScope.ScriptValue('catalyst_yearly_influential_house_is_antagonistic_medium_control_value')|0] $catalyst_yearly_influential_house_is_antagonistic_desc$"
+ catalyst_yearly_influential_house_is_antagonistic_minor: "$catalyst_yearly_influential_house_is_antagonistic$"
+ catalyst_yearly_influential_house_is_antagonistic_minor_desc: "Ежегодное изменение: [EmptyScope.ScriptValue('catalyst_yearly_influential_house_is_antagonistic_minor_control_value')|0] $catalyst_yearly_influential_house_is_antagonistic_desc$"
+ catalyst_yearly_influential_house_is_antagonistic_minimal: "$catalyst_yearly_influential_house_is_antagonistic$"
+ catalyst_yearly_influential_house_is_antagonistic_minimal_desc: "Ежегодное изменение: [EmptyScope.ScriptValue('catalyst_yearly_influential_house_is_antagonistic_minimal_control_value')|0] $catalyst_yearly_influential_house_is_antagonistic_desc$"
+
+ catalyst_invite_involved_as_honorary_guests_to_feast_hunt: "[struggle_catalyst_catalyst|E]: почетный гость"
+ catalyst_invite_involved_as_honorary_guests_to_feast_hunt_desc: "Пригласить [Concept( 'struggle_involved', 'вовлеченного в борьбу' )|E] [Concept( 'ruler', 'правителя' )|E] на пир или охоту в роли [Concept( 'honorary_guest', 'почетного гостя' )|E]"
+
+ catalyst_abandon_hook_on_supporter_detractor: "[struggle_catalyst_catalyst|E]: отмена [Concept( 'hook', 'влияния' )|E]"
+ catalyst_abandon_hook_on_supporter_detractor_desc: "Между персонажами [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] и [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] больше нет [Concept( 'hook', 'влияния' )|E]"
+
+ catalyst_grants_pardon_supporter_detractor: "[struggle_catalyst_catalyst|E]: даровано помилование"
+ catalyst_grants_pardon_supporter_detractor_desc: "Между персонажами [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] и [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] было прощено [Concept( 'crime', 'преступление' )|E]"
+
+ catalyst_grants_vassal_to_de_jure_liege_supporter_detractor: "[struggle_catalyst_catalyst|E]: произошла передача [Concept( 'de_jure', 'номинальному' )|E] сюзерену"
+ catalyst_grants_vassal_to_de_jure_liege_supporter_detractor_desc: "Между персонажами [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] и [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] произошла передача [Concept( 'vassal', 'вассала' )|E] [Concept( 'de_jure', 'номинальному' )|E] сюзерену"
+
+ catalyst_turn_supporter_into_detractor: "[struggle_catalyst_catalyst|E]: произошла смена сторон"
+ catalyst_turn_supporter_into_detractor_desc: "[GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] принимает новую роль: [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
+
+ catalyst_turn_detractor_into_supporter: "[struggle_catalyst_catalyst|E]: произошла смена сторон"
+ catalyst_turn_detractor_into_supporter_desc: "[GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )] принимает новую роль: [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
+
+ catalyst_new_building_in_holdings: "[struggle_catalyst_catalyst|E]: построено [Concept( 'holding', 'владение' )|E]"
+ catalyst_new_building_in_holdings_desc: "Построить [Concept( 'building', 'здание' )|E] в любом [Concept( 'holding', 'владении' )|E]"
+
+ catalyst_execute_supporter: "[struggle_catalyst_catalyst|E]: казнен персонаж — [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
+ catalyst_execute_supporter_desc: "Казнить персонажа — [GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]"
+
+ catalyst_execute_detractor: "[struggle_catalyst_catalyst|E]: казнен персонаж — [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
+ catalyst_execute_detractor_desc: "Казнить персонажа — [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
+
+ catalyst_missing_caliphate_or_arabian_empire: "Ежегодное изменение: уничтожены либо [GetTitleByKey('d_sunni').GetBaseName], либо [GetTitleByKey('e_arabia').GetBaseName]"
+ catalyst_missing_caliphate_or_arabian_empire_desc: "Ежегодное изменение: уничтожены либо [GetTitleByKey('d_sunni').GetBaseName], либо [GetTitleByKey('e_arabia').GetBaseName]"
+
+ catalyst_caliph_or_emperor_loses_revolt_war: "[Concept( 'holder', 'Носитель' )|E] титула [GetTitleByKey('d_sunni').GetBaseName] или [GetTitleByKey('e_arabia').GetBaseName] проиграл [Concept( 'civil_war', 'гражданскую войну' )|E]"
+ catalyst_caliph_or_emperor_loses_revolt_war_desc: "[Concept( 'holder', 'Носитель' )|E] титула [GetTitleByKey('d_sunni').GetBaseName] или [GetTitleByKey('e_arabia').GetBaseName] проигрывает [Concept( 'civil_war', 'гражданскую войну' )|E]"
+
+ catalyst_caliph_or_emperor_accepts_faction_demands: "[Concept( 'holder', 'Носитель' )|E] титула [GetTitleByKey('d_sunni').GetBaseName] или [GetTitleByKey('e_arabia').GetBaseName] принял требования [Concept( 'faction', 'фракции' )|E]"
+ catalyst_caliph_or_emperor_accepts_faction_demands_desc: "[Concept( 'holder', 'Носитель' )|E] титула [GetTitleByKey('d_sunni').GetBaseName] или [GetTitleByKey('e_arabia').GetBaseName] принимает требования [Concept( 'faction', 'фракции' )|E]"
+
+ catalyst_caliph_died_violently: "[GetFaithByKey('ashari').ReligiousHeadName|U] суннитов умер насильственной смертью"
+ catalyst_caliph_died_violently_desc: "[GetFaithByKey('ashari').ReligiousHeadName|U] суннитов умирает насильственной смертью\n#WEAK ([EmptyScope.ScriptValue('catalyst_cooldown_between_significant_character_deaths_years_value')] г./лет восстановления)#!"
+
+ catalyst_caliph_died_naturally: "[GetFaithByKey('ashari').ReligiousHeadName|U] суннитов умер естественной смертью"
+ catalyst_caliph_died_naturally_desc: "[GetFaithByKey('ashari').ReligiousHeadName|U] суннитов умирает естественной смертью\n#WEAK ([EmptyScope.ScriptValue('catalyst_cooldown_between_significant_character_deaths_years_value')] г./лет восстановления)#!"
+
+ supporter_and_detractor: "[GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] и [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
+ supporter_and_detractor_caps: "[GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )] и [GetTrait('fp3_struggle_detractor').GetName( GetNullCharacter )]"
+
+ catalyst_revealed_secret_faith_non_islam: "[struggle_catalyst_catalyst|E]: раскрыта тайная #L не[GetReligionByKey('islam_religion').GetName|l]ая#! [Concept( 'faith', 'вера' )|E]"
+ catalyst_revealed_secret_faith_non_islam_desc: "Раскрытие тайной #L не[GetReligionByKey('islam_religion').GetName|l]ой#! [Concept( 'faith', 'веры' )|E]"
+ catalyst_revealed_secret_faith_islam: "[struggle_catalyst_catalyst|E]: раскрыта тайная #L [GetReligionByKey('islam_religion').GetName|l]ая#! [Concept( 'faith', 'вера' )|E]"
+ catalyst_revealed_secret_faith_islam_desc: "Раскрытие тайной #L [GetReligionByKey('islam_religion').GetName|l]ой#! [Concept( 'faith', 'веры' )|E]"

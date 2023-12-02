@@ -250,6 +250,8 @@
  game_concept_cultures:0 "Культуры"
  game_concept_culture_possessive: "Культуры"
  game_concept_cultural:0 "Культура"
+ #AGOT Modified
+ # game_concept_culture_desc:1 "$game_concept_culture$ представляет язык и обычаи персонажа или [Concept( 'county', 'графства' )|E].\n\n[opinions|E] персонажей разных культур друг о друге всегда ниже. Штраф можно снизить, увеличив [Concept( 'cultural_acceptance', 'терпимость культур' )|E]."
  game_concept_culture_desc:1 "$game_concept_culture$ представляет язык и обычаи персонажа или [Concept( 'county', 'графства' )|E].\n\n[opinions|E] персонажей разных культур друг о друге всегда ниже. Штраф можно снизить, увеличив [Concept( 'cultural_acceptance', 'терпимость культур' )|E]."
  game_concept_religion:0 "Религия"
  game_concept_religions:0 "Религии"
@@ -389,8 +391,13 @@
  game_concept_house_desc:1 "$game_concept_house$ — ветвь на генеалогическом древе [dynasties|El]. Дома создают [rulers|El], которые не желают, чтобы над ними и далее властвовал [house_head|El], и пытаются стать главами новых домов.\n\nУ каждого дома есть имя и герб, но [dynasty_prestige|El] у них все равно общий с династией, а [player_heirs|El] могут быть представителями других ветвей династии."
  game_concept_house_head:0 "Глава дома"
  game_concept_house_heads:0 "Главы дома"
+ game_concept_house_heads_possessive: "Главы дома"
  game_concept_house_head_head:0 "Глава"
- game_concept_house_head_desc:1 "Каждый [house|El] [dynasties|El] возглавляет $game_concept_house_head$, имеющий определенную власть над остальными его представителями.\n\nПримечательно, что глава дома может узаконивать [Concept( 'bastard', 'бастардов' )|E], созывать членов дома, если начнется [war|El], и требовать от них обращения. Глава дома получает [weak_hook|El] над всеми новорожденными представителями своего дома."
+ game_concept_house_head_desc: "Каждый [house|El] [dynasties|El] находится под управлением главы дома, имеющего определенную власть над остальными его представителями.\n\nПримечательно, что глава дома может узаконивать [Concept( 'bastard', 'бастардов' )|E], созывать членов дома, если начнется [war|El], и требовать обращения [Concept( 'landed', 'землевладельцев' )]. Глава дома получает [weak_hook|El] над всеми новорожденными представителями своего дома.\n\nУ [Concept( 'clan_house_heads', 'глав клановых домов' )|E] свои правила и привилегии."
+ game_concept_clan_house_head: "Глава кланового дома"
+ game_concept_clan_house_heads: "Главы кланового дома"
+ game_concept_clan_house_head_head: "$game_concept_house_head_head$"
+ game_concept_clan_house_head_desc: "Глава кланового дома во многом аналогичен обычному [Concept( 'house_head', 'главе дома' )|E], но есть и несколько важных отличий.\n\nГлава кланового дома не получает [Concept( 'weak_hook', 'слабое влияние' )|E] на всех представителей своего [Concept( 'house', 'дома' )|E]. У него больше влияния на [Concept( 'house_unity', 'единство дома' )|E], чем у других его представителей. Кроме того, любой представитель дома может бросить вызов его главе, чтобы узурпировать его место."
  game_concept_denounce:0 "Отвергнуть"
  game_concept_denouncement:0 "Отвержение"
  game_concept_denounce_desc:1 "[dynast|E] может потратить [dynasty_prestige|El], чтобы отвергнуть члена [dynasties|El].\n\nВсе члены этой династии (включая ее главу) получат [imprisonment_reason|El] отвергнутого персонажа."
@@ -621,7 +628,7 @@
  game_concept_learning:0 "Ученость"
  game_concept_learning_i:0 "@skill_learning_icon!"
  game_concept_learning_skill:0 "Навык «Ученость»"
- game_concept_learning_skill_desc:1 "$game_concept_learning$ — [skill|El], определяющий эрудицию и мудрость персонажа. Ученость [Concept( 'ruler', 'правителя' )|E] влияет на стоимость увеличения [Concept( 'crown_authority', 'авторитета короны' )|E], а также повышает ежемесячный прирост [Concept( 'piety', 'благочестия' )|El].\n\nПерсонажи с высоким показателем учености могут разбираться во всех основных дисциплинах, включая теологию, философию, языки и математику.\n\nСоответствующий [lifestyle|El] — [learning_lifestyle|El]."
+ game_concept_learning_skill_desc: "$game_concept_learning$ — [skill|El], определяющий эрудицию и мудрость персонажа. Ученость [Concept( 'ruler', 'правителя' )|E] влияет на стоимость увеличения [Concept( 'crown_authority', 'авторитета короны' )|E], а также повышает ежемесячный прирост [Concept( 'piety', 'благочестия' )|El].\n\nПерсонажи с высоким показателем учености могут разбираться во всех основных дисциплинах, включая теологию, философию, языки и математику.\n\nСоответствующий [lifestyle|El] — [learning_lifestyle|El]."
  PROWESS_MUSCLE_INFO:0 "При повышении доблести естественными способами #weak (без помощи [Concept( 'artifacts', 'артефактов' )|E])#! растет мышечная масса персонажа."
  PROWESS_MUSCLE_INFO_PERSONAL:0 "Ваша мышечная масса растет при повышении [Concept( 'prowess', 'доблести' )|E]"
  game_concept_prowess:0 "Доблесть"
@@ -696,7 +703,7 @@
  game_concept_hunt_dangerous:0 "Опасный"
  game_concept_hunt_danger_desc:1 "Непредсказуемость даже самой безобидной дичи и неразбериха погони убили не одного могучего воина.\n\nЧем опаснее зверь, тем больше [prestige_i|E][Concept( 'prestige', 'престижа' )|E] он принесет охотнику.\n\nПри выборе гостей не стоит забывать о том, что охота проходит в глухих местах и возможности на ней возникают самые разные..."
  game_concept_playdate:0 "$activity_playdate$"
- game_concept_playdate_desc:0 "[activity|E], когда молодые правители и их придворные собираются для игр, чтобы отвлечься от серых будней. \n\nУ участников встречи снижается [stress|El], а [opinion|El] об организаторе улучшается. Конечно, при таком крупном сборище детей без происшествий не обходится.\n\n$activity_playdate$ — это событие, на которое [ruler|El] приглашает гостей: среди них и [liege|El], и [vassals|El] (и разные [courtiers|El])."
+ game_concept_playdate_desc: "[activity|E], когда правители и их придворные, не достигшие [EmptyScope.ScriptValue('less_than_two_years_to_adulthood_value')|0V] лет, собираются для игр, чтобы отвлечься от серых будней.\n\nУ участников встречи снижается [stress|El], а [opinion|El] об организаторе улучшается. Конечно, при таком крупном сборище детей без происшествий не обходится.\n\n$activity_playdate$ — это событие, на которое [ruler|El] приглашает гостей: среди них и [liege|El], и [vassals|El] (и разные [courtiers|El])."
  game_concept_wedding_ceremony:0 "Церемония"
  game_concept_wedding_ceremony_desc:0 "Когда [GetActivityType('activity_wedding').GetName] доходит до этой [Concept( 'activity_phase', 'фазы' )|E], [Concept( 'spouses', 'супруги' )|El] клянутся друг другу в верности и [Concept( 'married', 'женятся' )|E]."
  game_concept_wedding_banquet:0 "Банкет"
@@ -732,8 +739,9 @@
  game_concept_tribal_desc:0 "Слабое [development|El] племенных держав позволяет использовать только [innovations|El], сделанные не позже племенной эры. Такие державы не могут создавать новые [holding|El] и обычно не могут менять [succession_law|El].\n\nТем не менее [prestige|El] у них ценится больше, чем [gold|El], при строительстве, и именно престижа требует [men_at_arms|El]. Племенные державы имеют больше [casus_belli|El], чем [feudal|El]. На их территории у враждебных армий снижается [supply_limit|El]."
 
  game_concept_clan:0 "Клановые"
+ game_concept_clans: "Кланы"
  game_concept_clan_government:0 "Клановый строй"
- game_concept_clan_desc:0 "Кланы — [government_form|El], при которой [levies|El] и [taxes|El], которые [Concept( 'liege', 'сюзерену' )|El] присылают [vassals|El], зависят от [opinions|El] вассалов о сюзерене. При этом [crown_authority|El] повышает минимальный уровень податей независимо от мнения."
+ game_concept_clan_desc: "Кланы — [government_form|El], при которой [levies|El] и [taxes|El], которые [Concept( 'liege', 'сюзерену' )|El] присылают [vassals|El], зависят от [Concept( 'aptitude', 'пригодности' )|E] [Concept( 'tax_collector', 'сборщика налогов' )|E], назначенного сюзереном. Кланы также используют механику [Concept( 'house_unity', 'единства дома' )|E]."
  game_concept_theocracy:0 "Теократия"
  game_concept_theocracies:0 "Теократии"
  game_concept_theocratic:0 "Теократический"
@@ -1125,8 +1133,8 @@
  game_concept_culture_pillar:0 "Культурный столп"
  game_concept_culture_pillars:0 "Культурные столпы"
  game_concept_culture_pillar_desc:1 "[SelectLocalization( HasDlcFeature( 'reform_culture' ), 'game_concept_culture_pillar_desc_REFORM_DLC', 'game_concept_culture_pillar_desc_NO_REFORM_DLC' )]"
- game_concept_culture_pillar_desc_REFORM_DLC:0 "Столпы представляют собой качества, отражающие происхождение [Concept( 'culture', 'культуры' )|E].\n\nВсего существует 4 столпа:\n$EFFECT_LIST_BULLET$[heritage|E]\n$EFFECT_LIST_BULLET$[language|E]\n$EFFECT_LIST_BULLET$[martial_custom|E]\n$EFFECT_LIST_BULLET$Эстетика\n\n[culture_head|E] может изменить язык и военные традиции при помощи [Concept( 'reformation', 'реформации' )|E]."
- game_concept_culture_pillar_desc_NO_REFORM_DLC:0 "Столпы представляют собой неизменные качества, отражающие происхождение [Concept( 'culture', 'культуры' )|E].\n\nВсего существует 4 столпа:\n$EFFECT_LIST_BULLET$[heritage|E]\n$EFFECT_LIST_BULLET$[language|E]\n$EFFECT_LIST_BULLET$[martial_custom|E]\n$EFFECT_LIST_BULLET$Эстетика"
+ game_concept_culture_pillar_desc_REFORM_DLC: "Столпы представляют собой качества, отражающие происхождение [Concept( 'culture', 'культуры' )|E].\n\nВсего существует 5 столпов:\n$EFFECT_LIST_BULLET$[ethos|E]\n$EFFECT_LIST_BULLET$[heritage|E]\n$EFFECT_LIST_BULLET$[language|E]\n$EFFECT_LIST_BULLET$[martial_custom|E]\n$EFFECT_LIST_BULLET$Эстетика\n\n[culture_head|E] может изменить моральные принципы, язык и военные традиции при помощи [Concept( 'reformation', 'реформации' )|E]."
+ game_concept_culture_pillar_desc_NO_REFORM_DLC: "Столпы представляют собой неизменные качества, отражающие происхождение [Concept( 'culture', 'культуры' )|E].\n\nВсего существует 5 столпов:\n$EFFECT_LIST_BULLET$[ethos|E]\n$EFFECT_LIST_BULLET$[heritage|E]\n$EFFECT_LIST_BULLET$[language|E]\n$EFFECT_LIST_BULLET$[martial_custom|E]\n$EFFECT_LIST_BULLET$Эстетика"
  game_concept_culture_tradition:0 "Культурные традиции"
  game_concept_culture_traditions:0 "Культурные традиции"
  game_concept_tradition:0 "Традиция"
@@ -1567,6 +1575,9 @@
  
  game_concept_convert_county:0 "$task_conversion$"
  game_concept_convert_county_desc:0 "[councillor_task|E], которое выполняет [court_chaplain|El], направлено на [county|El] с вероисповеданием иным, чем у [Concept( 'liege', 'сюзерена' )|El].\nПрогресс растет с каждым месяцем, и при достижении 100% большая часть населения графства переходит в конфессию сюзерена.\n\nНа скорость обращения влияет множество факторов, в том числе [learning_skill|El] [Concept( 'councillor', 'советника' )|El] и [fervor|El] обеих конфессий."
+ game_concept_convert: "Обратить"
+ game_concept_converted: "Обращение"
+ game_concept_converting: "Обращение"
 
  game_concept_commission_epic:0 "$commission_epic_decision$"
  game_concept_commission_epic_decision:0 "Решение: $commission_epic_decision$"
@@ -1637,17 +1648,12 @@
  game_concept_highlighted_text_example:0 "Мило!"
  game_concept_highlighted_text_example_desc:0 "Крутота!"
 
- #game_concept_camera:0 "" Delete this
- #game_concept_camera_desc:2 "" Delete this
- 
  game_concept_detail_zoom:1 "$ZOOM_LEVEL_DETAILS$"
  game_concept_detail_zoom_desc:1 "$ZOOM_LEVEL_DETAILS_TOOLTIP$"
  game_concept_political_zoom:0 "$ZOOM_LEVEL_POLITICAL$"
  game_concept_political_zoom_desc:0 "$ZOOM_LEVEL_POLITICAL_TOOLTIP$"
  game_concept_paper_zoom:0 "$ZOOM_LEVEL_PAPER_MAP$"
  game_concept_paper_zoom_desc:0 "$ZOOM_LEVEL_PAPER_MAP_TOOLTIP$"
- #game_concept_world_realms_zoom:0 ""  Delete this
- #game_concept_world_realms_zoom_desc:0 ""  Delete this
 
  game_concept_tutorial_education_trait:0 "Свойство образования"
  game_concept_tutorial_education_trait_i:0 "@tutorial_education_trait_icon!"
@@ -1838,11 +1844,11 @@
  game_concept_winter:0 "Зимний мороз"
  game_concept_winter_desc:0 "Зима постепенно расходует [Concept( 'supply', 'припасы' )|E], из-за чего армии теряют припасы, находясь в баронствах, подверженных влиянию зимы. Штраф к припасам растет в зависимости от зимних морозов. Зимние морозы могут быть [Concept( 'winter_severity_mild', 'мягкими' )|E], [Concept( 'winter_severity_normal', 'обычнымиl' )|E] и [Concept( 'winter_severity_harsh', 'суровыми' )|E]."
  game_concept_winter_severity_mild:0 "Мягкая зима"
- game_concept_winter_severity_mild_desc:0 "[GetModifier( 'winter_mild_modifier' ).GetDesc]"
+ game_concept_winter_severity_mild_desc: "[GetModifier( 'winter_mild_modifier' ).GetDescWithEffects]"
  game_concept_winter_severity_normal:0 "Нормальная зима"
- game_concept_winter_severity_normal_desc:0 "[GetModifier( 'winter_normal_modifier' ).GetDesc]"
+ game_concept_winter_severity_normal_desc: "[GetModifier( 'winter_normal_modifier' ).GetDescWithEffects]"
  game_concept_winter_severity_harsh:0 "Суровая зима"
- game_concept_winter_severity_harsh_desc:0 "[GetModifier( 'winter_harsh_modifier' ).GetDesc]"
+ game_concept_winter_severity_harsh_desc: "[GetModifier( 'winter_harsh_modifier' ).GetDescWithEffects]"
 
  game_concept_deceitful_progress_hostile_schemes_decision:0 "Решение: $deceitful_progress_hostile_schemes_decision$"
  game_concept_deceitful_progress_hostile_schemes_decision_desc:1 "[decision|E], позволяющее повысить эффективность [Concept( 'hostile_scheme', 'враждебных происков' )|E]. Увеличивает [Concept( 'success_chance', 'шанс успеха' )|E] и [Concept( 'scheme_power', 'силу происков' )|E] ценой роста [Concept( 'stress', 'стресса' )|E]."
@@ -1909,6 +1915,30 @@
  game_concept_board_game_type_hnefatafl_desc:1 "$game_concept_board_game_type_desc_guts$\n\n$game_concept_board_game_type_hnefatafl$:\n$EFFECT_LIST_BULLET$ [Concept( 'intrigue', 'интриги' )|E] [Concept( 'board_game_type_counter', 'противодействуют' )|E] [Concept( 'martial', 'военному делу' )|E]\n$EFFECT_LIST_BULLET$ [martial|E] [Concept( 'board_game_type_counter', 'противодействует' )|E] [Concept( 'prowess', 'доблести' )|E]\n$EFFECT_LIST_BULLET$ [prowess|E] [Concept( 'board_game_type_counter', 'противодействует' )|E] [Concept( 'intrigue', 'интригам' )|E]"
  game_concept_board_game_type_tabula:0 "Табула"
  game_concept_board_game_type_tabula_desc:1 "$game_concept_board_game_type_desc_guts$\n\n$game_concept_board_game_type_tabula$:\n$EFFECT_LIST_BULLET$ [Concept( 'intrigue', 'интриги' )|E] [Concept( 'board_game_type_counter', 'противодействуют' )|E] [Concept('learning', 'учености' )|E]\n$EFFECT_LIST_BULLET$ [learning|E] [Concept( 'board_game_type_counter', 'противодействует' )|E] [Concept( 'stewardship', 'управлению' )|E]\n$EFFECT_LIST_BULLET$ [stewardship|E] [Concept( 'board_game_type_counter', 'противодействует' )|E] [Concept( 'intrigue', 'интригам' )|E]"
+
+ game_concept_house_unity: "Единство дома"
+ game_concept_unity: "Единство"
+ game_concept_house_unity_i: "@dynasty_house_unity!"
+ game_concept_house_unity_desc: "Единство дома является показателем отношений внутри [Concept( 'clan', 'кланового' )|E] [Concept( 'house', 'дома' )|E] и мнения его представителей друг о друге.\n\nСуществует несколько [Concept( 'house_unity_levels', 'уровней единства' )|E], каждый из которых предоставляет членам дома ряд преимуществ и штрафов.\n\nЕдинство меняется в зависимости от действий представителей дома по отношению друг к другу. [house_unity_unifying_actions|E] зачастую будут повышать единство, а [house_unity_devisive_actions|El] будут его снижать. [house_head|E], как правило, имеет больше возможностей влиять на единство дома."
+ game_concept_house_unity_level: "Уровень единства дома"
+ game_concept_house_unity_levels: "Уровни единства дома"
+ game_concept_house_unity_level_desc: "Уровень единства дома — это текущее [Concept( 'house_unity', 'единство дома' )|E]. Уровень меняется по мере того, как единство увеличивается при помощи [Concept( 'house_unity_unifying_actions', 'объединяющих действий' )|E] или снижается посредством [Concept( 'house_unity_devisive_actions', 'разобщающих' )|E], и каждый уровень предоставляет всем членам [Concept( 'house', 'дома' )|E] различные преимущества и штрафы.\n\nВсего доступно пять уровней единства:\n[GetCurrentHouseUnityStagesDescForLocalPlayer]\n\nС каждым уровнем связан свой [Concept( 'succession_law', 'закон о наследовании' )|E]."
+
+ game_concept_house_unity_unifying_actions: "Объединяющие действия"
+ game_concept_house_unity_unifying_actions_desc: "Объединяющие действия в отношении представителей вашего [Concept( 'house', 'дома' )|E] увеличат его [Concept( 'house_unity', 'единство' )|E].\n\n[house_heads|E] могут использовать [Concept( 'decision', 'решение' )|E] #V $unity_steer_house_direction_decision$#! и [Concept( 'interaction', 'взаимодействие' )|E] #V $extoll_virtuousness_interaction$#!, чтобы значительно увеличить единство.\n\n#weak Примерами объединяющих действий могут служить: $house_unity_increase_examples$#!"
+
+ game_concept_house_unity_devisive_actions: "Разобщающие действия"
+ game_concept_house_unity_devisive_actions_desc: "Разобщающие действия в отношении представителей вашего [Concept( 'house', 'дома' )|E] снизят его [Concept( 'house_unity', 'единство' )|E].\n\n[house_heads|E] могут использовать [Concept( 'decision', 'решение' )|E] #V $unity_steer_house_direction_decision$#! и [Concept( 'interaction', 'взаимодействие' )|E] #V $accuse_of_decandence_interaction$#!, чтобы значительно снизить единство.\n\n#weak Примерами разобщающих действий могут служить: $house_unity_decrease_examples$#!"
+
+ game_concept_house_succession_law: "Закон о наследовании дома"
+ game_concept_house_succession_law_desc: "В [Concept( 'realms', 'державах' )|E] с формой правления «[GetGovernment('clan_government').GetName]» [Concept( 'succession_law', 'закон о наследовании' )|E] определяется [Concept( 'house_unity_level', 'уровнем единства дома' )|E].\n\nКланы могут перейти на закон о наследовании «$SUCCESSION_LAW_CHANGE_WINDOW_SINGLE_HEIR_LAWS$», что избавит их от влияния [Concept( 'house_unity', 'единства дома' )|E], но сделать это сложнее обычного."
+
+ house_unity_increase_examples: "\n$EFFECT_LIST_BULLET$ $negotiate_alliance_interaction$\n$EFFECT_LIST_BULLET$ $join_war_interaction$\n$EFFECT_LIST_BULLET$ $gift_artifact_interaction$\n$EFFECT_LIST_BULLET$ $pay_ransom_interaction$\n$EFFECT_LIST_BULLET$ $offer_guardianship_interaction$\n$EFFECT_LIST_BULLET$ $send_to_holy_order_interaction$\n$EFFECT_LIST_BULLET$ $restore_inheritance_interaction$\n$EFFECT_LIST_BULLET$ $abandon_hook_interaction$\n$EFFECT_LIST_BULLET$ $stop_attacker_vassal_war_interaction$\n$EFFECT_LIST_BULLET$ $fund_inspiration_interaction$\n$EFFECT_LIST_BULLET$ $propose_best_friendship_interaction$"
+ house_unity_decrease_examples: "\n$EFFECT_LIST_BULLET$ $revoke_title_interaction$\n$EFFECT_LIST_BULLET$ $declare_war_interaction$\n$EFFECT_LIST_BULLET$ $imprison_interaction$\n$EFFECT_LIST_BULLET$ $move_to_dungeon_interaction$\n$EFFECT_LIST_BULLET$ $force_join_faction_interaction$\n$EFFECT_LIST_BULLET$ $disinherit_interaction$\n$EFFECT_LIST_BULLET$ $denounce_interaction$\n$EFFECT_LIST_BULLET$ $expose_secret_interaction$\n$EFFECT_LIST_BULLET$ $blackmail_interaction$\n$EFFECT_LIST_BULLET$ $break_betrothal_interaction$\n$EFFECT_LIST_BULLET$ $join_independence_faction_interaction$\n$EFFECT_LIST_BULLET$ $sumptuary_law_debate_interaction$\n$EFFECT_LIST_BULLET$ $vassal_claim_liege_title_interaction$"
+
+ game_concept_dreams: "Сны"
+ game_concept_dreams_desc: "Персонажи, исповедующие конфессию с догматом предсказаний, могут время от времени видеть сны. Мистик может истолковать значение этих снов, что может привести к самым разным последствиям, как хорошим, так и плохим."
+
  game_concept_board_game_type_go:0 "Го"
  game_concept_board_game_type_go_desc:0 "$game_concept_board_game_type_desc_guts$\n\nГо:\n$EFFECT_LIST_BULLET$ [Concept( 'learning', 'Ученость' )|E] противодействует [Concept( 'martial', 'военному делу' )|E]\n$EFFECT_LIST_BULLET$ [Concept( 'martial', 'Военное дело' )|E] противодействует [Concept( 'intrigue', 'интригам' )]\n$EFFECT_LIST_BULLET$ [Concept( 'intrigue', 'Интриги' )] противодействуют [Concept( 'learning', 'учености' )|E]"
  game_concept_board_game_type_fidchell:0 "Фидхелл"
@@ -1924,7 +1954,7 @@
  game_concept_diarchies:0 "Наделение полномочиями"
  game_concept_sharing_power:0 "Передача полномочий"
  game_concept_power_sharing:0 "Разделение полномочий"
- game_concept_diarchy_desc:2 "Разделение полномочий возникает, когда [Concept( 'ruler', 'правитель' )|E] делится своей властью с одним из собственных [Concept('vassals', 'вассалов' )|E] или [Concept( 'courtiers', 'придворных' )|E], возвышая того до ранга [Concept( 'diarch', 'диарха' )|E].\n\nПравитель, разделивший свои полномочия, может выдавать [Concept( 'mandates', 'мандаты' )|E] диарху, а диарх может использовать особые [Concept( 'diarch_powers', 'возложенные полномочия' )|E]\n\n[Concept( 'scales_of_power', 'Равновесие сил' )|E] показывает, у кого больше власти — у правителя или диарха."
+ game_concept_diarchy_desc: "Разделение полномочий возникает, когда [Concept( 'ruler', 'правитель' )|E] делится своей властью с одним из собственных [Concept('vassals', 'вассалов' )|E] или [Concept( 'courtiers', 'придворных' )|E], возвышая того до ранга [Concept( 'diarch', 'диарха' )|E].\n\nПравитель, разделивший свои полномочия, может выдавать [Concept( 'mandates', 'мандаты' )|E] диарху, а диарх может использовать особые [Concept( 'diarch_powers', 'возложенные полномочия' )|E]\n\n[Concept( 'scales_of_power', 'Равновесие сил' )|E] показывает, у кого больше власти — у правителя или диарха."
 
  game_concept_diarch:0 "Диарх"
  game_concept_diarchs:0 "Диархи"
@@ -1938,6 +1968,23 @@
  game_concept_regents_possessive:0 "Регентов"
  game_concept_regent_desc:0 "Регентом называют [Concept( 'diarch', 'диарха' )|E] в период  [Concept( 'regency', 'регентства' )|E].\n\n[Concept( 'ruler', 'Правитель' )|E] может назначить регента заранее, в противном случае им сразу же становится кандидат, у которого больше всего [Concept( 'regent_succession_score', 'очков наследования' )|E]."
 
+ #For stapling to the bottom of new diarchy types.
+ variant_diarchs_replace_regents_boilerplate: "#WEAK Поскольку у правителя не может быть больше одного диарха единовременно, текущий диарх сохранит свое положение, если начнется [Concept( 'regency', 'регентство' )|E].#!"
+
+ game_concept_vizier: "Визирь"
+ game_concept_viziers: "Визири"
+ game_concept_vizierate: "Визирство"
+ game_concept_vizier_desc: "Визирь — это [Concept( 'diarch', 'диарх' )|E], которого [Concept( 'clan', 'клановые' )|E] [Concept(  'rulers', 'правители' )|E] при желании могут назначить, чтобы увеличить свои [Concept( 'income', 'доходы' )|E]. У визирей меньше [Concept( 'diarch_powers', 'полномочий' )|E], но их сложнее снять с должности.\n\nВизирь предоставляет [Concept( 'liege', 'сюзерену' )|E] дополнительные [Concept( 'tax_jurisdictions', 'налоговые юрисдикции' )|E] в зависимости от своего навыка [Concept( 'stewardship', 'управления' )|E] и увеличивает [Concept( 'aptitude', 'пригодность' )|E] [Concept( 'tax_collectors', 'сборщиков налогов' )|E] в зависимости от того, как сильно сдвинуто [Concept( 'scales_of_power', 'равновесие сил' )|E] в пользу визиря.\n\nОсобенно важно отметить, что сюзерен может отнять у визиря [gold_i][gold|El] с помощью [Concept( 'interaction', 'взаимодействия' )|E] «$mulct_vizier_interaction$».\n\n#WEAK Визири по своей сути являются чиновниками с обширными полномочиями, а потому эта должность, несмотря на прилагающееся к ней влияние, не считается престижной среди [Concept( 'nobles', 'дворян' )|E]. Преемник на должность визиря определяется в соответствии с [Concept( 'vizier_succession_score', 'очками наследования визиря' )|E].#!\n\n$variant_diarchs_replace_regents_boilerplate$"
+
+ game_concept_vizier_succession_score: "Очки наследования визиря"
+ game_concept_vizier_succession_score_desc: "В [Concept( 'vizierate', 'визирстве' )|E] следующий визирь выбирается исходя из того, кто из кандидатов обладает наибольшим количеством очков наследования.\n\nВозможные кандидаты могут попытать убедить [Concept( 'ruler', 'правителя' )|E] позволить им заменить действующего визиря в обмен на [Concept( 'gold', 'золото' )|E].\n\n#WEAK Эту должность могут занимать только безземельные [Concept( 'characters', 'персонажи' )|E] или [Concept( 'baron', 'бароны' )|E], и предпочтение отдается персонажам с развитыми навыками [Concept( 'diplomacy', 'дипломатии' )|E], [Concept( 'stewardship', 'управления' )|E] и [Concept( 'intrigue', 'интриг' )|E], а также со [Concept( 'traits', 'свойствами' )|E], подходящими для службы чиновником.\n\n[relations|E] с действующим визирем, [Concept( 'spouses', 'супругами' )|E], [Concept( 'concubines', 'наложницами' )|E] и [Concept( 'adult', 'взрослыми' )|E] безземельными [Concept( 'children', 'детьми' )|E] [Concept( 'liege', 'сюзерена' )|E] также сильно влияют на очки наследования.#!"
+
+ game_concept_vizier_extravagance: "Излишество визиря"
+ game_concept_vizier_extravagances: "Излишества визиря"
+ game_concept_vizier_extravagance_extravagance: "Излишество"
+ game_concept_vizier_extravagance_extravagances: "Излишества"
+ game_concept_vizier_extravagance_desc: "Занимая свой пост, [viziers|El] будут тратить [Concept( 'gold', 'золото' )|E] на все более замысловатые [modifiers|El] излишеств, балуя себя и элиту общества в [Concept( 'capital', 'столице' )|E] [Concept( 'liege', 'сюзерена' )|E].\n\nСюзерен может разорить эти модификаторы с помощью [Concept( 'interaction', 'взаимодействия' )|E] «$mulct_vizier_interaction$», превратив их в золото, которое визирь должен будет выплатить.\n\n#WEAK Когда визирь лишается [Concept( 'sharing_power', 'полномочий' )|E], он теряет возможность поддерживать свой полный излишеств образ жизни, и все оставшиеся модификаторы будут потеряны.\n\nРазорение более высоких уровней приносит больше золота. Всего в игре четыре уровня излишеств:\n$EFFECT_LIST_BULLET$ $vizier_extravagance_t1_title$\n$EFFECT_LIST_BULLET$ $vizier_extravagance_t2_title$\n$EFFECT_LIST_BULLET$ $vizier_extravagance_t3_title$\n$EFFECT_LIST_BULLET$ $vizier_extravagance_t4_title$#!"
+
  game_concept_regency:0 "Регентство"
  game_concept_regencies:0 "Регентства"
  game_concept_regency_possessive:0 "Регентства"
@@ -1949,7 +1996,7 @@
  game_concept_regency_veto_desc:0 "Когда [Concept( 'diarch', 'диарх' )|E] использует [Concept( 'diarch_powers', 'возложенные на него полномочия' )|E], [Concept( 'liege', 'сюзерен' )|E] может наложить вето на решение диарха, потратив для этого очки [Concept( 'prestige', 'престижа' )|E]"
 
  game_concept_regent_succession_score:0 "Очки наследования регента"
- game_concept_regent_succession_score_desc:0 "В случае наступления [Concept( 'regency', 'регентства' )|E] следующим [Concept( 'regent', 'регентом' )|E] становится кандидат с самым большим количеством очков наследования регента.\n\nКроме того, [Concept( 'ruler', 'правитель' )|E] [Concept( 'realm', 'державы' )|E] может самостоятельно выбрать регента, изменив тем самым обычный порядок наследования."
+ game_concept_regent_succession_score_desc: "В случае наступления [Concept( 'regency', 'регентства' )|E] следующим [Concept( 'regent', 'регентом' )|E] становится кандидат с самым большим количеством очков наследования регента.\n\nКроме того, [Concept( 'ruler', 'правитель' )|E] [Concept( 'realm', 'державы' )|E] может самостоятельно выбрать регента, изменив тем самым обычный порядок наследования.\n\n#WEAK Предпочтение отдается [Concept( 'characters', 'персонажам' )|E], состоящим в родстве с правителем, особенно политически подкованным безземельным членам [Concept( 'family', 'семьи' )|E], находящимся при [Concept( 'court', 'дворе' )|E].#!"
 
  game_concept_diarch_power:0 "Возложенные полномочия"
  game_concept_diarch_powers:0 "Возложенные полномочия"
@@ -2177,6 +2224,33 @@
 
  game_concept_glory:0 "Слава"
  game_concept_glory_desc:1 "Уровень славы [Concept( 'accolade', 'акколады' )|E] увеличивает её [Concept( 'accolade_rank', 'ранг' )|E].\n\n[Concept( 'acclaimed_knight', 'Именитый рыцарь' )|E] может покрыть свое имя славой, побеждая в [Concept( 'battles', 'битвах' )|E], поражая воинов, участвуя в [GetActivityType( 'activity_tournament' ).GetName] [Concept( 'contests', 'состязаниях' )|E] и посещая [Concept( 'activities', 'занятия' )|E].\n\nКроме того, именитый рыцарь может снизить уровень славы акколады, если потерпит поражение в битве или при [Concept( 'accolade_succession', 'наследовании акколады' )|e], а также если акколада станет [Concept( 'inactive_accolade', 'неактивной' )|E]."
+
+ game_concept_tax_collector: "Сборщик налогов"
+ game_concept_tax_collector_desc: "Сборщик налогов позволяет использовать [Concept( 'tax_jurisdictions', 'налоговые юрисдикции' )|E].\n\nЕго [Concept( 'aptitude', 'пригодность' )|E] определяет количество [Concept( 'taxes', 'налогов' )|E] и [Concept( 'levies', 'ополчения' )|E], собираемых для [Concept( 'liege', 'сюзерена' )|E]."
+ game_concept_tax_collectors: "Сборщики налогов"
+
+ game_concept_tax_decree: "Налоговый указ"
+ game_concept_tax_decree_desc: "Каждой [Concept( 'tax_jurisdiction', 'налоговой юрисдикции' )|E] доступно несколько указов, которые изменяют количество [Concept( 'taxes', 'налогов' )|E] и [Concept( 'levies', 'ополчения' )|E], предоставляемое [Concept( 'taxpayers', 'налогоплательщиками' )|E].\n\nВ большинстве случаев налоговые указы изменяют [Concept( 'obligations', 'обязательства' )|E], взамен накладывая штраф или бонус."
+ game_concept_tax_decrees: "Налоговые указы"
+
+ game_concept_tax_jurisdiction: "Налоговая юрисдикция"
+ game_concept_tax_jurisdictions: "Налоговые юрисдикции"
+ game_concept_tax_jurisdiction_desc: "Налоговая юрисдикция включает в себя группу [Concept( 'taxpayers', 'налогоплательщиков' )|E] из числа [Concept( 'clan', 'клановых' )|E] [Concept('vassals', 'вассалов' )|E]. Каждая юрисдикция поддерживает до #V 12#! налогоплательщиков.\n\nДля любой из юрисдикций можно издать [Concept( 'tax_decree', 'налоговый указ' )|E].\n\nКоличество доступных налоговых юрисдикций зависит от [Concept( 'rank', 'ранга' )|E], [Concept( 'traditions', 'традиций' )|E] и [Concept( 'innovations', 'инноваций' )|E].\n\nК каждой юрисдикции необходимо приписать [Concept( 'tax_collector', 'сборщика налогов' )|E]."
+
+ game_concept_untaxed_jurisdiction: "Не облагаемая налогами юрисдикция"
+ game_concept_untaxed_jurisdictions: "Не облагаемые налогами юрисдикции"
+ game_concept_untaxed_jurisdiction_short: "Без налогов"
+ game_concept_untaxed_jurisdiction_desc: "Юрисдикцией без налогов считается [Concept( 'tax_jurisdiction', 'налоговая юрисдикция' )|E], не имеющая [Concept( 'tax_collector', 'сборщика налогов' )|E]. Это означает, что приписанные к ней [Concept( 'taxpayers', 'налогоплательщики' )|E] не платят [Concept( 'taxes', 'налоги' )|E] и не предоставляют [Concept( 'levies', 'ополчение' )|E] [Concept( 'liege', 'сюзерену' )|E]."
+
+ game_concept_taxpayer: "Налогоплательщик"
+ game_concept_taxpayers: "Налогоплательщики"
+ game_concept_taxpayer_desc: "Налогоплательщики — это [Concept( 'clan', 'клановые' )|E] [Concept('vassals', 'вассалы' )|E], приписанные к [Concept( 'tax_jurisdiction', 'налоговой юрисдикции' )|E]. Они будут предоставлять ежемесячный доход от [Concept( 'tax', 'налогов' )|E] и [Concept( 'levies', 'ополчение' )|E] при условии, что вы назначили [Concept( 'tax_collector', 'сборщика налогов' )|E]."
+ game_concept_taxpayer_i: "@tax_collector_icon!"
+
+ game_concept_unassigned_vassal: "Вассал без налогов"
+ game_concept_unassigned_vassals: "Вассалы без налогов"
+ game_concept_unassigned_vassal_short: "Без налогов"
+ game_concept_unassigned_vassal_desc: "Вассалами без налогов называются [Concept( 'clan', 'клановые' )|E] [Concept('vassals', 'вассалы' )|E], не приписанные к [Concept( 'tax_jurisdiction', 'налоговой юрисдикции' )|E] в качестве [Concept( 'taxpayers', 'налогоплательщиков' )|E], а потому не передающие сюзерену [Concept( 'taxes', 'налоги' )|E] и [Concept( 'levies', 'ополчение' )|E].\n\nОни начнут делать ежемесячные выплаты, если приписать их в юрисдикции со [Concept( 'tax_collector', 'сборщиком налогов' )|E]."
 
  game_concept_retinue_maa:0 "Свита профессионалов"
  game_concept_retinue_maa_desc:0 "Некоторые [Concept( 'accolade_types', 'типы акколад' )|E] позволяют нанять [Concept( 'men_at_arms', 'профессионалов' )|E]. Такая возможность появляется, когда [Concept( 'acclaimed_knight', 'именитый рыцарь' )|E] достигает определенного прогресса в [Concept( 'trait_level_track', 'направлении свойства' )|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» соответствующем [Concept( 'commander_trait', 'свойстве командира' )|E].\n\n$game_concept_men_at_arms|U$ в свите ограничены одним [Concept( 'regiment', 'полком' )|E], их количество не может превышать определенное значение. Они в два раза эффективнее других [Concept( 'men_at_arms', 'профессионалов' )|E] и становятся всё лучше с каждой эпохой."

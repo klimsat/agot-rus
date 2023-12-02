@@ -150,6 +150,7 @@
  fund_inspiration.0071.crown:0 "Царственную корону, достойную моей головы!"
  fund_inspiration.0071.goblet:0 "Богатый кубок."
  fund_inspiration.0071.aquamanile:0 "Резную акваманилу для ритуальных омовений."
+ fund_inspiration.0071.incense_burner_sculpture: "Изящная курительница благовоний."
 
  fund_inspiration.0072.t:0 "Поддержка вдохновения художественной ковки"
 
@@ -251,6 +252,7 @@
  fund_inspiration.9001.desc_artisan:0 "Теперь я никогда не узнаю, какой шедевр [inspiration_owner.GetSheHe] [Select_CString(inspiration_owner.IsFemale, 'могла', 'мог' )] бы создать..."
  fund_inspiration.9001.desc_smith:0 "Теперь я никогда не узнаю, какой шедевр [inspiration_owner.GetSheHe] [Select_CString(inspiration_owner.IsFemale, 'могла', 'мог' )] бы выковать..."
  fund_inspiration.9001.desc_alchemy:0 "Теперь я никогда не узнаю, какое чудесное открытие [inspiration_owner.GetSheHe] [Select_CString(inspiration_owner.IsFemale, 'могла', 'мог' )] бы совершить..."
+ fund_inspiration.9001.desc_research: "Теперь я никогда не узнаю, какие открытия [inspiration_owner.GetSheHe] [Select_CString(inspiration_owner.IsFemale, 'могла', 'мог' )] бы совершить..."
  fund_inspiration.9001.a:0 "Какая трагедия!"
  fund_inspiration.9001.a_tt:0 "Вы прекратили поддерживать вдохновение персонажа [inspiration_owner.GetTitledFirstName]"
 
@@ -263,6 +265,7 @@
  fund_inspiration.9002.desc_artisan:0 "создать что-то великолепное."
  fund_inspiration.9002.desc_smith:0 "выковать шедевр."
  fund_inspiration.9002.desc_alchemy:0 "открыть тайны мироздания"
+ fund_inspiration.9002.desc_research: "дальнейшие научные инновации."
 
  fund_inspiration.9003.desc:1 "[inspiration_owner.Custom2('MyCharacterIntroduction', ROOT.Char)|U] больше не служит у меня при дворе, поэтому я больше не могу поддерживать [inspiration_owner.GetHerHis] мечту"
  
@@ -472,9 +475,12 @@
  fund_inspiration.2100.failure:0 "Вы усиливаете вражду"
 
  fund_inspiration.2110.t:0 "$fund_inspiration.title$ Как ценитель ценителю"
- fund_inspiration.2110.desc:0 "Меня приветствует [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('generous_vassal'))], [generous_vassal.GetTitledFirstName]: «Какая встреча, [generous_vassal.Custom2('RelationToMeShort', ROOT.Char)]! Говорят, [inspiration_owner.Custom('GetInspirationOwnerType')] [inspiration_owner.GetFirstName] удобно [Select_CString(inspiration_owner.IsFemale, 'устроилась', 'устроился' )] у вас под крылом? Поговаривают, будто [inspiration_owner.GetSheHe] — [inspiration_owner.Custom('InspirationTypeDescription')], [Select_CString(inspiration_owner.IsFemale, 'которой', 'которым' )] может гордиться даже [ROOT.Char.GetTitleAsNameNoTooltip|l]». \n\n«Прошу, возьмите это и передайте [inspiration_owner.GetHerHim]. Я ни за что не упущу возможность поучаствовать в сотворении шедевра!!»\n\n"
+ fund_inspiration.2110.desc: "Меня приветствует [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('generous_vassal'))], [generous_vassal.GetTitledFirstName]: «Какая встреча, [generous_vassal.Custom2('RelationToMeShort', ROOT.Char)]! Говорят, [inspiration_owner.Custom('GetInspirationOwnerType')] [inspiration_owner.GetFirstName] удобно [Select_CString(inspiration_owner.IsFemale, 'устроилась', 'устроился' )] у вас под крылом? Поговаривают, будто [inspiration_owner.GetSheHe] — [inspiration_owner.Custom('InspirationTypeDescription')], [Select_CString(inspiration_owner.IsFemale, 'которой', 'которым' )] может гордиться даже [ROOT.Char.GetTitleAsNameNoTooltip|l]». \n\nПрошу, возьмите это и передайте [inspiration_owner.GetHerHim]. "
+ fund_inspiration.2110.desc.part.2: "Я ни за что не упущу возможность поучаствовать в сотворении шедевра! \n\n"
+ fund_inspiration.2110.desc.part.2.research: "Я ни за что не упущу возможность поучаствовать в научном открытии!\n\n"
  fund_inspiration.2110.desc.generous:0 "[generous_vassal.GetFirstNameNoTooltip] славится своей щедростью, и, похоже, [generous_vassal.GetSheHe] [Select_CString(generous_vassal.IsFemale, 'нашла', 'нашел' )] для нее новую цель..."
  fund_inspiration.2110.desc.dweeb:0 "[generous_vassal.GetFirstNameNoTooltip] интересуется многими вещами, и среди них — драгоценные артефакты и великие умы, что их порождают..."
+ fund_inspiration.2110.desc.dweeb.research: "[generous_vassal.GetFirstNameNoTooltip] интересуется многими вещами, и среди них — технологии и великие умы, что стоят за ними..."
  fund_inspiration.2110.desc.friend:0 "[generous_vassal.GetFirstNameNoTooltip] тепло улыбается, из руки у н[generous_vassal.GetHerHis] свисает мешочек с монетами."
  fund_inspiration.2110.desc.rich:0 "Бедняга [generous_vassal.GetFirstNameNoTooltip], должно быть, [generous_vassal.GetSheHe] понятия не имеет, что делать со свалившимся на н[inspiration_owner.GetHerHis] богатством..."
  fund_inspiration.2110.a:0 "«Какая щедрость!»"
@@ -1090,6 +1096,7 @@
  inspiration_owner_type_artisan:0 "[ROOT.Char.Custom('InspirationArtisanJobType')]"
  inspiration_owner_type_metalsmith:0 "мастер художественной ковки"
  inspiration_owner_type_alchemist:0 "алхимик"
+ inspiration_owner_type_researcher: "исследователь"
  inspiration_owner_type_fallback:0 "подопечный"
  inspiration_type_tool_quill:0 "перо"
  inspiration_type_tool_tongs:0 "щипцы"
@@ -1106,6 +1113,7 @@
  inspiration_type_tool_pestle:0 "пестик"
  inspiration_type_tool_mortar:0 "ступка"
  inspiration_type_tool_mold:0 "форма"
+ inspiration_type_tool_books: "книги"
  inspiration_type_tool_fallback:0 "инструмент"
  inspiration_type_station_desk:0 "стол"
  inspiration_type_station_bellows:0 "мехи"
@@ -1116,6 +1124,7 @@
  inspiration_type_station_bench:0 "верстак"
  inspiration_type_station_cauldron:0 "котел"
  inspiration_type_station_alembic:0 "перегонный куб"
+ inspiration_type_station_library: "библиотека"
  inspiration_type_station_fallback:0 "рабочее место"
  inspiration_type_room_study:0 "кабинет"
  inspiration_type_room_smithy:0 "кузница"
@@ -1133,6 +1142,7 @@
  inspiration_type_verb_create:0 "[ROOT.Char.Custom('InspirationCreatePresentFuture')]"
  inspiration_type_verb_make:0 "[ROOT.Char.Custom('InspirationMakePresentFuture')]"
  inspiration_type_verb_study:0 "[ROOT.Char.Custom('InspirationStudyPresentFuture')]"
+ inspiration_type_verb_research: "исследование"
  inspiration_type_object_book:0 "книга"
  inspiration_type_object_weapon:0 "[ROOT.Char.Custom('ArtifactWeaponBaseType')]"
  inspiration_type_object_armor:0 "[ROOT.Char.Custom('ArtifactArmorTypeLowercase')]"
