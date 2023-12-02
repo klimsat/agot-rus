@@ -369,7 +369,7 @@
  nick_the_judge: "Судия"
  nick_the_judge_desc: "Израилю регулярно требуются справедливые и честные судьи. В их числе регулярно вспоминают и [Select_CString( CHARACTER.IsLocalPlayer, 'вас', CHARACTER.GetHerHis)]."
  nick_the_saoshyant: "Саошьянт"
- nick_the_saoshyant_desc: "Когда весь мир, казалось, был поглощен Ахриманом, [Select_CString( CHARACTER.IsLocalPlayer, 'вы смогли', 'этот человек смог')] вернуть свет."
+ nick_the_saoshyant_desc: "Когда казалось, что [CHARACTER.GetFaith.DevilName] вот-вот поглотит весь мир, [Select_CString( CHARACTER.IsLocalPlayer, 'вы смогли', 'этот человек смог')] вернуть свет."
  nick_the_timely_rain: "Долгожданный Дождь"
  nick_the_timely_rain_desc: "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] [Select_CString( CHARACTER.IsLocalPlayer, 'славитесь', 'славится' )] щедростью и уважительным отношением."
  nick_the_jade_unicorn: "Нефритовый Единорог"
@@ -712,6 +712,8 @@
  nick_the_heart_throb_desc: "Мало у кого сердце не начинает стучать чаще, когда [Select_CString(CHARACTER.IsLocalPlayer, 'вы', Select_CString(CHARACTER.IsFemale, 'она', 'он' ))] рядом."
  nick_the_beautiful: "[Select_CString(CHARACTER.IsFemale, 'Прекрасная', 'Прекрасный' )]"
  nick_the_beautiful_desc: "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] [Select_CString( CHARACTER.IsLocalPlayer, 'отличаетесь', 'отличается' )] неземной красотой, привлекая всеобщее внимание."
+ nick_the_beautiful_generous: "[Select_CString(CHARACTER.IsFemale, 'Прекрасная', 'Прекрасный' )]"
+ nick_the_beautiful_desc_generous: "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] [CharAreIs(CHARACTER)] — возможно, не образец красоты в традиционном понимании, но прозвище все равно прилипло. Что и неудивительно."
  nick_the_blushing: "[Select_CString(CHARACTER.IsFemale, 'Скромница', 'Скромник' )]"
  nick_the_blushing_desc: "Общение с другими людьми всегда озаряет улыбкой лицо [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]."
  nick_the_stutterer: "Заика"
@@ -746,6 +748,8 @@
  nick_the_pragmatic_desc: "Лучшее решение — это самое подходящее здесь и сейчас решение."
  nick_the_equitable: "[Select_CString(CHARACTER.IsFemale, 'Беспристрастная', 'Беспристрастный' )]"
  nick_the_equitable_desc: "[Select_CString( CHARACTER.IsLocalPlayer, 'Вы', Select_CString(CHARACTER.IsFemale, 'Она', 'Он' ))] [Select_CString( CHARACTER.IsLocalPlayer, 'предпочитаете', 'предпочитает' )] делить всё честно и поровну."
+ nick_the_crownless: "без короны"
+ nick_the_crownless_desc: "Хоть эпитет, автор которого — [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонаж' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )], и не особенно поэтичен, но зато он нагляден, выразителен и хлесток."
 
  #BP1
  nick_the_real: "[Select_CString(CHARACTER.IsFemale, 'Настоящая', 'Настоящий' )]"
@@ -768,7 +772,6 @@
  nick_the_smelly_desc: "Впрочем, почему-то он #EMP до сих пор#! не выветрился."
  nick_the_venator: "[Select_CString(CHARACTER.IsFemale, 'Охотница', 'Охотник' )]"
  nick_the_venator_desc: "Охотничьи инстинкты [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] остры и не оставляют шансов ни одному зверю."
-
 
  #EP2
  nick_the_dirty: "[Select_CString(CHARACTER.IsFemale, 'Грязная', 'Грязный' )]"
@@ -1041,6 +1044,36 @@
  nick_the_abominable_desc: "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] своим ужасающим обликом [Select_CString( CHARACTER.IsLocalPlayer, 'вызываете', 'вызывает' )] ассоциации с жуткими зверями."
  nick_bloody_hand: "Кровавая рука"
  nick_bloody_hand_desc: "[CHARACTER.GetShortUINameNoTooltipNoFormat] [Select_CString(CHARACTER.IsLocalPlayer, 'совершили', Select_CString(CHARACTER.IsFemale, 'совершила', 'совершил' ))] отчаянный акт членовредительства, заслужив тем самым прозвище [CHARACTER.GetNicknameNoTooltip]."
+
+ #FP3
+ nick_the_coppersmith: "[Select_CString(CHARACTER.IsFemale, 'Медница', 'Медник' )]"
+ nick_the_eagle_of_arasbaran: "[Select_CString(CHARACTER.IsFemale, 'Орлица Арасбарана', 'Орёл Арасбарана' )]"
+ nick_the_eagle_of_arasbaran_desc: "[Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж' )][CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] восстановил большую крепость в горах Арасбарана."
+ nick_the_fortress_builder: "[Select_CString(CHARACTER.IsFemale, 'Строительница крепостей', 'Строитель крепостей' )]"
+ nick_the_fortress_builder_desc: "[Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж' )][CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] отстроил заново большую крепость в горах."
+ nick_the_fire_quencher: "[Select_CString(CHARACTER.IsFemale, 'Гасящая пламя', 'Гасящий пламя' )]"
+ nick_the_fire_quencher_desc: "[Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж' )][CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] известен тем, что погасил священные огни."
+ nick_the_firekeeper: "[Select_CString(CHARACTER.IsFemale, 'Хранительница огня', 'Хранитель огня' )]"
+ nick_the_firekeper_desc: "[Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж' )][CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] известен тем, что преобразовал [CHARACTER.GetFaith.GetAdjective], но спас священные огни."
+ nick_the_fortunate: "[Select_CString(CHARACTER.IsFemale, 'Удачливая', 'Удачливый' )]"
+ nick_the_ambidextrous: "[Select_CString(CHARACTER.IsFemale, 'Амбидекстр', 'Амбидекстр' )]"
+ nick_the_lute_player: "[Select_CString(CHARACTER.IsFemale, 'Лютнистка', 'Лютнист' )]"
+ nick_the_lute_player_desc: "[Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж' )][CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] известен своей мастерской игрой на лютне."
+ nick_the_rekindler_of_iran: "Пламя Персии"
+ nick_the_rekindler_of_iran_desc: "[Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж' )][CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] восстановил персидскую независимость после нескольких веков арабского владычества."
+
+ nick_the_righteous_caliph: "[Select_CString(CHARACTER.IsFemale, 'Праведница', 'Праведник' )]"
+ nick_the_righteous_caliph_desc: "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] [Select_CString( CHARACTER.IsLocalPlayer, 'славитесь', 'славится' )] праведностью и справедливостью в глазах божества [CHARACTER.GetFaith.HighGodNameAlternate]."
+ nick_the_conceding: "[Select_CString(CHARACTER.IsFemale, 'Уступчивая', 'Уступчивый' )]"
+ nick_the_conceding_desc: "[Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж' )][CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] был вынужден пойти на уступки, чтобы остаться у власти."
+ nick_order_of_the_realm: "[Select_CString(CHARACTER.IsFemale, 'Опора государства', 'Опора государства' )]"
+ nick_order_of_the_realm_desc: "[Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж' )][CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] — один из лучших, самых способных и самых одаренных чиновников державы."
+ nick_the_martyr_king: "[Select_CString(CHARACTER.IsFemale, 'Мученица', 'Мученик' )]"
+ nick_the_younger_missionary: "[Select_CString(CHARACTER.IsFemale, 'Юная проповедница', 'Юный проповедник' )]"
+ nick_the_younger_missionary_desc: "[Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж' )][CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] известен своей приверженностью #L [CHARACTER.GetFaith.GetName|l]ой#! вере и верностью ее идеалам — хоть и в меньшей степени, чем брат."
+ nick_the_caliph_protector: "[Select_CString(CHARACTER.IsFemale, 'Защитница Халифата', 'Защитник Халифата' )]"
+ nick_the_caliph_protector_desc: "[Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж' )][CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] подчинил суннитский халифат."
+
  nick_the_nameless: "[Select_CString( CHARACTER.IsFemale, 'Безымянная', 'Безымянный' )]"
  nick_the_nameless_desc: "Кто?"
  nick_the_true_culture: "по-настоящему [CHARACTER.GetCulture.GetCollectiveNounNoTooltip][Select_CString(CHARACTER.IsFemale, 'ая', 'ий' )]"
@@ -1056,3 +1089,9 @@
  nick_the_castle_builder_desc: "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] [Select_CString( CHARACTER.IsLocalPlayer, 'славитесь', 'славится' )] познаниями в возведении прочных и надежных замков."
  nick_the_temple_builder: "Строитель Храмов"
  nick_the_temple_builder_desc: "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] [Select_CString( CHARACTER.IsLocalPlayer, 'демонстрируете', 'демонстрирует' )] свою верность высшим силам, возводя монументы на земле."
+
+
+ nick_chief_of_the_zanj: "Сахиб аз-Зиндж"
+ nick_chief_of_the_zanj_desc: "[Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж' )][CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] принят угнетенными зинджами в качестве вождя, что ведет их в борьбу за свободу. Теперь он известен как Вождь зинджей."
+ nick_albaghid: "Альбагид"
+ nick_albaghid_desc: "Кто-то считает, что [CHARACTER.GetShortUINameNoTooltipNoFormat|U] — идеалист и революционер. На деле же постоянное бегство от властей после неудавшихся переворотов принесло ему прозвище «Альбагид» — «Презренный»."
