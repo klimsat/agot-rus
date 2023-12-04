@@ -95,7 +95,7 @@
  set_relation_bodyguard_first: "[TARGET_CHARACTER.GetUIName] будет защищать персонажа [CHARACTER.GetUIName]."
 
  agot_kingsguard.2002.title:0 "[ROOT.Char.Custom('KingsguardName')]-ренегат!"
- agot_kingsguard.2002.desc:0 "[recipient.GetTitledFirstName] сумел избежать захвата и скрылся в городе! Возможно, ещё есть время пресечь [kingsguard.GetHerHis] бегство.\n\n[kingsguard.GetName] стоит на страже и может перехватить беглеца [recipient.GetName], либо я могу послать весточку, чтобы [goldcloaks.GetName] направили всех в городе на его поиски."
+ agot_kingsguard.2002.desc:0 "[recipient.GetTitledFirstName] сумел избежать захвата и скрылся в городе! Возможно, ещё есть время пресечь [recipient.GetHerHis] бегство.\n\n[kingsguard.GetName] стоит на страже и может перехватить беглеца [recipient.GetNameNoTooltip], либо я могу послать весточку, чтобы [goldcloaks.GetName] направили всю городскую стражу на его поиски."
  agot_kingsguard.2002.a:0 "[kingsguard.GetName], приведи своего присягнувшего брата ко мне!"
  agot_kingsguard.2002.a.failure:0 "[recipient.GetName] сбежал"
  agot_kingsguard.2002.b:0 "[goldcloaks.GetTitledFirstName], схватить его!"
@@ -125,8 +125,8 @@
  agot_kingsguard.3002.b:0 "Я бы лучше [Select_CString(ROOT.Char.IsFemale, 'поговорила', 'поговорил' )] о своей любимой теме - [Select_CString(ROOT.Char.IsFemale, 'самой', 'самом' )] себе."
 
  agot_kingsguard.3003.t:0 "[ROOT.Char.Custom('KingsguardName')|U]: пойман с поличным"
- agot_kingsguard.3003.desc_bedroom:0 "Ваша Милость, ваш [ROOT.Char.Custom('KingsguardName')] [lusty_kingsguard.GetName] был обнаружен в своих покоях, развлекающимся с персонажем [lusty_lover.GetFullName]. [lusty_kingsguard.GetSheHe|U] нарушил свои клятвы!"
- agot_kingsguard.3003.desc_brothel:0 "Ваша Милость, ваш [ROOT.Char.Custom('KingsguardName')] [lusty_kingsguard.GetName] был обнаружен в борделе, кувыркающимся с известной шлюхой [lusty_lover.GetName]."
+ agot_kingsguard.3003.desc_bedroom:0 "«Ваша Милость, ваш [ROOT.Char.Custom('KingsguardName')] [lusty_kingsguard.GetName] был обнаружен в своих покоях, развлекающимся с персонажем [lusty_lover.GetFullName].»\n\n[lusty_kingsguard.GetSheHe|U] нарушил свои клятвы!"
+ agot_kingsguard.3003.desc_brothel:0 "«Ваша Милость, ваш [ROOT.Char.Custom('KingsguardName')] [lusty_kingsguard.GetName] был обнаружен в борделе, кувыркающимся с известной блудницей [lusty_lover.GetName]!»"
  agot_kingsguard.3003.a:0 "Бросить [lusty_kingsguard.GetHerHis] в темницу, пока я не решу, что делать с [Select_CString(lusty_kingsguard.IsFemale, 'этой клятвопреступницей', 'этим клятвопреступником' )]."
  agot_kingsguard.3003.b:0 "Оскопить [lusty_kingsguard.GetHerHim] и выслать в Ночной Дозор."
  agot_kingsguard.3003.c:0 "Лишить [lusty_kingsguard.GetHerHis] белого плаща."
@@ -180,7 +180,7 @@
  agot_kingsguard.3011.c:0 "Никто не смеет сомневаться в тех, кого я [Select_CString(ROOT.Char.IsFemale, 'назначила', 'назначил' )]. Стража!"
 
  agot_kingsguard.3012.t:0 "Разбитая мечта"
- agot_kingsguard.3012.desc:0 "Я смотрю с галереи, как [Select_CString(failed_kingsguard.IsFemale, 'моя', 'мой' )] [failed_kingsguard.Custom('GetDaughterSon')] слоняется по двору. [Select_CString(failed_kingsguard.IsFemale, 'Она', 'Он' )] неуклюже мечется по двору, не выказывая никакого прогресса с тех пор, как [Select_CString(failed_kingsguard.IsFemale, 'она решила', 'он решил' )] присоединиться к престижной гвардии нашего сюзерена. Возможно, мне следует вмешаться. В конце концов, позволять [Select_CString(failed_kingsguard.IsFemale, 'ей', 'ему' )] и дальше питать ложные надежды будет куда более жестоко, чем пресечь [Select_CString(failed_kingsguard.IsFemale, 'её', 'его' )] глупости здесь и сейчас?"
+ agot_kingsguard.3012.desc:0 "Я смотрю с галереи, как [Select_CString(failed_kingsguard.IsFemale, 'моя', 'мой' )] [failed_kingsguard.Custom('GetDaughterSon')] слоняется по двору. [Select_CString(failed_kingsguard.IsFemale, 'Она', 'Он' )] неуклюже мечется по двору, не выказывая никакого прогресса с тех пор, как [Select_CString(failed_kingsguard.IsFemale, 'она решила', 'он решил' )] присоединиться к престижной гвардии [ruler.GetHerHis] Милости. Возможно, мне следует вмешаться. В конце концов, позволять [Select_CString(failed_kingsguard.IsFemale, 'ей', 'ему' )] и дальше питать ложные надежды будет куда более жестоко, чем пресечь [Select_CString(failed_kingsguard.IsFemale, 'её', 'его' )] глупости здесь и сейчас?"
  agot_kingsguard.3012.a:0 "Пришло время двигаться дальше."
  agot_kingsguard.3012.b:0 "Ночной Дозор всегда нуждается в хороших людях!"
  agot_kingsguard.3012.c:0 "У тебя всё получится!"
