@@ -5,8 +5,8 @@
  AGOT_CANNOT_BANISH_PEER_FAMILY:0 "[recipient.GetSheHe|U] принадлежит к влиятельной семье: $VALUE|=+0$"
  AGOT_CANNOT_BANISH_OUTSIDER:0 "[recipient.GetSheHe|U] - посторонний человек: $VALUE|=+0$"
 
- character_to_knight_exists:1 "При дворе персонажа [CHARACTER.GetShortUINamePossessiveNoTooltip] нет доступных рыцарей"
- character_to_squire_exists:0 "Никто при [Concept( 'court', 'дворе' )|E] персонажа [TARGET_CHARACTER.GetShortUINamePossessiveNoTooltip] не может стать [Concept( 'squire', 'оруженосцем' )|E]"
+ character_to_knight_exists:1 "При дворе [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] нет доступных рыцарей"
+ character_to_squire_exists:0 "Никто при [Concept( 'court', 'дворе' )|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )] не может стать [Concept( 'squire', 'оруженосцем' )|E]"
  
  CONVINCING_PERK:1 "Убедительность: $VALUE|=+0$"
  CHARISMATIC_PERK:1 "Харизма: $VALUE|=+0$" 
