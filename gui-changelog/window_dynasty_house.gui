@@ -768,7 +768,9 @@ window = {
 									}
 
 									hbox = {
-										visible = "[GreaterThan_int32( GetDataModelSize( Dynasty.GetDynastyHouses ), '(int32)2' )]"
+										#AGOT Modified - Vanilla Bugfix
+										#visible = "[GreaterThan_int32( GetDataModelSize( Dynasty.GetDynastyHouses ), '(int32)2' )]"
+										visible = "[GreaterThanOrEqualTo_int32( GetDataModelSize( Dynasty.GetDynastyHouses ), '(int32)2' )]"
 										layoutpolicy_horizontal = expanding
 
 										expand = {}
