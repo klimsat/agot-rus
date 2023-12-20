@@ -13,7 +13,7 @@
 
  trait_mute:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Немая', 'Немой' )]"
  trait_mute_desc:0 "Этот персонаж не способен высказывать своё мнение и вообще не способен говорить."
- trait_mute_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] не [Select_CString( ROOT.GetCharacter.IsFemale, 'способна', 'способен' )] выражать свои мысли, вообще ничего не может сказать."
+ trait_mute_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] не [Select_CString( ROOT.GetCharacter.IsFemale, 'способна', 'способен' )] выражать свои мысли, не может произнести ни слова."
 
 
  #Fame traits
@@ -22,12 +22,14 @@
  trait_black_brother_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] надел чёрное и присоединился к Ночному дозору."
 
  #Faith of the Seven traits
- trait_devoted_male:0 "Святой брат"
- trait_devoted_female:0 "Святая сестра"
+# trait_devoted_faith_of_the_seven_male:0 "Святой брат" #задвоение
+# trait_devoted_faith_of_the_seven_female:0 "Святая сестра" #задвоение
  trait_devoted_faith_of_the_seven_male:0 "Святой брат"
  trait_devoted_faith_of_the_seven_female:0 "Святая сестра"
  trait_devoted_faith_of_the_seven_male_desc:0 "Этот мужчина дал обет бедности и посвятил свою жизнь служению Семерым."
  trait_devoted_faith_of_the_seven_female_desc:0 "Эта женщина дала обет бедности и посвятила свою жизнь служению Семерым."
+ trait_devoted_faith_of_the_seven_child:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Обещана', 'Обещан' )] Вере"
+ trait_devoted_faith_of_the_seven_child_desc:0 "Этот ребёнок обещан Вере и со временем посвятит свою жизнь служению высшим силам."
 
  trait_septon_male:0 "Септон"
  trait_septon_male_desc:0 "Этот персонаж принял обет септона и отказался от своего родового имени."
@@ -58,8 +60,8 @@
 
 
  trait_most_devout_member:0 "Праведный"
- trait_most_devout_member_desc:0 "[collegeofcardinals|E], высший религиозный орган церкви Семерых, приняли этого персонажа в свои ряды и, таким образом, сделали выборщиком Верховного септона."
- trait_most_devout_member_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] был принят в [collegeofcardinals|E], высший религиозный орган церкви Семерых и, таким образом, является выборщиком Верховного септона."
+ trait_most_devout_member_desc:0 "Этот персонаж принят в ряды Праведных, высший религиозный орган Веры в Семерых, и, таким образом, стал выборщиком Верховного септона."
+ trait_most_devout_member_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] был принят в ряды Праведных, высший религиозный орган Веры в Семерых и, таким образом, является выборщиком Верховного септона."
 
  #Nightswatch traits
  trait_nightswatch:0 "Чёрный брат"
@@ -112,18 +114,18 @@
  trait_knight:0 "Рыцарь"
  trait_knight_questionable:0 "Рыцарь?"
 
- trait_knight_desc:0 "Этот персонаж был посвящён в рыцари и поклялся перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим капитанам, сюзерену, королю, храбро сражаться и выполнять другие возложенные на себя задачи, какими бы трудными, скромными или опасными они ни были."
+ trait_knight_desc:0 "Этот персонаж был посвящён в рыцари и поклялся перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим командирам, сюзерену, королю, храбро сражаться и выполнять другие возложенные на него задачи, какими бы трудными, скромными или опасными они ни были."
 
- trait_knight_unique_desc:0 "Этот персонаж был посвящён в рыцари и поклялся перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим капитанам, сюзерену, королю, храбро сражаться и выполнять другие возложенные на себя задачи, какими бы трудными, скромными или опасными они ни были."
+ trait_knight_unique_desc:0 "Этот персонаж был посвящён в рыцари и поклялся перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим командирам, сюзерену, королю, храбро сражаться и выполнять другие возложенные на него задачи, какими бы трудными, скромными или опасными они ни были."
 
- trait_knight_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'была посвящена', 'был посвящен' )] в рыцари и [Select_CString( ROOT.GetCharacter.IsFemale, 'поклялась', 'поклялся' )] перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим капитанам, сюзерену, королю, храбро сражаться и выполнять другие возложенные на [Select_CString( ROOT.GetCharacter.IsFemale, 'неё', 'него' )] задачи, какими бы трудными, скромными или опасными они ни были."
+ trait_knight_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'была посвящена', 'был посвящен' )] в рыцари и [Select_CString( ROOT.GetCharacter.IsFemale, 'поклялась', 'поклялся' )] перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим командирам, сюзерену, королю, храбро сражаться и выполнять другие возложенные на [Select_CString( ROOT.GetCharacter.IsFemale, 'неё', 'него' )] задачи, какими бы трудными, скромными или опасными они ни были."
 
  trait_squire:0 "Оруженосец"
  trait_squire_desc:0 "Оруженосец - это [agot_knight|El], пока ещё проходящий обучение. Он сопровождает рыцаря, помогая ему со всеми его обязанностями."
  trait_squire_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] сопровождает рыцаря в надежде однажды [Select_CString( ROOT.GetCharacter.IsFemale, 'самой', 'самому' )] стать рыцарем."
- trait_squire_no_knight_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] проходит обучение на рыцаря; однако, [ROOT.GetCharacter.GetHerHis] рыцарь #N умер, приостановив [ROOT.GetCharacter.GetHerHis] совершенствование#!."
+ trait_squire_no_knight_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] проходит рыцарское обучение; однако, [ROOT.GetCharacter.GetHerHis] рыцарь #N умер, приостановив [ROOT.GetCharacter.GetHerHis] совершенствование#!."
  trait_prefers_being_a_squire_desc:0 "Вместо того, чтобы стремиться к рыцарскому титулу, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'заявила', 'заявил' )], что будет отныне и навсегда оруженосцем"
- trait_squire_unique_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] проходит обучение на рыцаря; однако, [ROOT.GetCharacter.GetHerHis] рыцарь #N умер, приостановив [ROOT.GetCharacter.GetHerHis] совершенствование#!."
+ trait_squire_unique_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] проходит рыцарское обучение; однако, [ROOT.GetCharacter.GetHerHis] рыцарь #N умер, приостановив [ROOT.GetCharacter.GetHerHis] совершенствование#!."
 
  trait_track_knight:0 "Рыцарство"
  trait_track_knight_desc:0 "Благородство. Честь. Слава. Быть рыцарем - значит быть прославленным воином."
