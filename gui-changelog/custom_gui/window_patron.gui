@@ -15,11 +15,11 @@ types PatronWindow {
 		#margin_right = 0
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
-		
+
 		scrollbox = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
-			
+
 			blockoverride "scrollbox_content"
 			{
 				vbox = {
@@ -27,11 +27,11 @@ types PatronWindow {
 					margin_bottom = 30
 					margin_top = 5
 					layoutpolicy_horizontal = expanding
-					
+
 					## Faith of the Seven
-					
+
 					datamodel = "[GetPlayer.MakeScope.GetList('patron_gods')]"
-					
+
 					item = {
 						vbox = {
 							vbox = {
@@ -43,7 +43,7 @@ types PatronWindow {
 									datacontext = "[GetModifier(Concatenate('patron_', Concatenate(Scope.GetFlagName ,'_modifier')))]"
 								}
 							}
-							
+
 							divider_light = {
 								layoutpolicy_horizontal = expanding
 							}
@@ -56,12 +56,9 @@ types PatronWindow {
 
 	type patron_selection = widget {
 		name = "patron_view"
-		widgetid = "patron_view"	
+		widgetid = "patron_view"
 		size = { 720 120 }
-		# tooltip = ""
-		#raw_toolip = "Placeholder" # AGOT TODO, what is this for?
-		# enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-		
+
 		margin_widget = {
 			size = { 100% 100% }
 			margin = { 3 3 }
@@ -77,7 +74,7 @@ types PatronWindow {
 				}
 			}
 		}
-		
+
 		background = {
 			visible = "[EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName)]"
 			size = { 100% 100% }
@@ -88,12 +85,12 @@ types PatronWindow {
 			shaderfile = "gfx/FX/pdxgui_default.shader"
 			color = { 1.0 1.0 0.9 0.4 }
 		}
-		
+
 		button_standard = {
 			size = { 720 120 }
 			#onclick = "[ExecuteConsoleCommand('gui.createwidget gui/custom_gui/window_patron.gui select_patron_confirm')]"
-			enabled = "[Not(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName))]"
-			
+			enabled = "[Or(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName), ScriptedGui.IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).End))]"
+
 			modify_texture = {
 				name = "overlay"
 				texture = "gfx/interface/buttons/button_standard_overlay.dds"
@@ -101,8 +98,9 @@ types PatronWindow {
 				spriteborder = { 3 3 }
 				blend_mode = overlay
 			}
-			
+
 			tooltip = PATRON_SELECTION_TOOLTIP
+			tooltip_enabled = "[Not(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName))]"
 
 			onclick = "[GetVariableSystem.Set('selected_patron', Scope.GetFlagName)]"
 			onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag( GetVariableSystem.Get( 'selected_patron' ))).End )]"
@@ -110,7 +108,7 @@ types PatronWindow {
 			hbox = {
 				icon = {
 					size = { 120 120 }
-	
+
 					block "patron_icon" {
 						text_single = {
 							visible = "[Not(Or(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName), GetVariableSystem.HasValue( 'show_patron_modifiers', StaticModifier.GetName )))]"
@@ -143,7 +141,7 @@ types PatronWindow {
 					vbox = {
 						widget = { # Patron name text
 							size = { 320 26 }
-						
+
 							text_single = {
 								default_format = "#clickable"
 								block "choose_patron_text" {
@@ -163,7 +161,7 @@ types PatronWindow {
 								texture_density = 2
 							}
 						}
-						
+
 						widget = {
 							size = { 320 60 }
 
@@ -196,19 +194,19 @@ types PatronWindow {
 								max_width = 320
 							}
 						}
-						
+
 						expand = {}
 					}
 				}
-				
+
 				widget = {
 					size = { 260 120 }
-					
+
 					vbox = {
 						widget = { # Patron name text
 							size = { 260 26 }
 							#using = debug_square
-						
+
 							text_single = {
 								default_format = "#clickable"
 								raw_text = PATRON_SELECTION_MODIFIERS
@@ -226,11 +224,11 @@ types PatronWindow {
 								texture_density = 2
 							}
 						}
-						
+
 						widget = {
 							size = { 260 114 }
 							#using = debug_square
-						
+
 							text_single = { # Show modifiers
 								#visible = "[Or( GetVariableSystem.HasValue( 'show_patron_modifiers_effect', 'true' ), And( GetVariableSystem.HasValue( 'show_patron_modifiers', StaticModifier.GetName ), ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))) ]"
 								#parentanchor = left
@@ -267,7 +265,7 @@ types PatronWindow {
 					default_format = "#clickable;italic"
 					align = left|nobaseline
 					margin_left = 5
-					
+
 
 					#icon = {
 					#	name = "dread_icon"
@@ -409,7 +407,7 @@ types PatronWindow {
 			alpha = 0
 			on_start = "[GetScriptedGui('clear_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 		}
-		
+
 		background = {
 			texture = "[Illustration.GetTexture( FaithWindow.GetFaith.MakeScope )]"
 			alpha = 0.5
@@ -420,9 +418,9 @@ types PatronWindow {
 				blend_mode = alphamultiply
 			}
 		}
-		
+
 		patron_menu = {
-		
+
 		}
 	}
 
@@ -433,9 +431,9 @@ types PatronWindow {
 		parentanchor = left
 
 		character_subheading_patron_button = {}
-		
+
 		# # Extra Icon - purpose TBD
-		# vbox = {			
+		# vbox = {
 		# 	button_standard_hover  = {
 		# 		layoutpolicy_horizontal = expanding
 		# 		size = { 30 30 }
@@ -443,21 +441,21 @@ types PatronWindow {
 		# 		default_format = "#clickable;italic"
 		# 		align = left|nobaseline
 		# 		margin_left = 5
-				
+
 		# 		visible = no
-				
+
 		# 		icon = {
 		# 			name = "dread_icon"
 		# 			size = { 30 30 }
 		# 			texture = "gfx/interface/icons/icon_dread.dds"
 		# 		}
-				
+
 		# 		tooltipwidget = { }
 		# 	}
 		# }
-		
+
 		# # Extra Icon - purpose TBD
-		# vbox = {			
+		# vbox = {
 		# 	button_standard_hover  = {
 		# 		layoutpolicy_horizontal = expanding
 		# 		size = { 30 30 }
@@ -465,15 +463,15 @@ types PatronWindow {
 		# 		default_format = "#clickable;italic"
 		# 		align = left|nobaseline
 		# 		margin_left = 5
-				
+
 		# 		visible = no
-				
+
 		# 		icon = {
 		# 			name = "dread_icon"
 		# 			size = { 30 30 }
 		# 			texture = "gfx/interface/icons/icon_dread.dds"
 		# 		}
-				
+
 		# 		tooltipwidget = { }
 		# 	}
 		# }
