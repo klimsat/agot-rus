@@ -13,10 +13,10 @@ types MegaWarsTypes {
 
 			text = MW_GUI_JOIN_SIDE
 
-			visible = "[GetScriptedGui('mw_gui_join_selected_leader').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('selected_leader', WarOverviewWindow.GetLeftSideLeaderItem.GetCharacter.MakeScope).End)]"
-			#enabled = "[GetScriptedGui('mw_gui_join_selected_leader').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('selected_leader', WarOverviewWindow.GetLeftSideLeaderItem.GetCharacter.MakeScope).End)]"
+			visible = "[GetScriptedGui('agot_mw_gui_join_selected_leader').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('selected_leader', WarOverviewWindow.GetLeftSideLeaderItem.GetCharacter.MakeScope).End)]"
+			#enabled = "[GetScriptedGui('agot_mw_gui_join_selected_leader').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('selected_leader', WarOverviewWindow.GetLeftSideLeaderItem.GetCharacter.MakeScope).End)]"
 
-			onclick = "[GetScriptedGui('mw_gui_join_selected_leader').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('selected_leader', WarOverviewWindow.GetLeftSideLeaderItem.GetCharacter.MakeScope).End)]"
+			onclick = "[GetScriptedGui('agot_mw_gui_join_selected_leader').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('selected_leader', WarOverviewWindow.GetLeftSideLeaderItem.GetCharacter.MakeScope).End)]"
 
 			#tooltip = MEGA_WARS_GUI_JOIN_REBELS
 		}
@@ -30,13 +30,13 @@ types MegaWarsTypes {
 
 			text = MW_GUI_JOIN_SIDE
 
-			visible = "[GetScriptedGui('mw_gui_join_selected_leader').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('selected_leader', WarOverviewWindow.GetRightSideLeaderItem.GetCharacter.MakeScope).End)]"
-			#enabled = "[GetScriptedGui('mw_gui_join_selected_leader').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('selected_leader', WarOverviewWindow.GetRightSideLeaderItem.GetCharacter.MakeScope).End)]"
+			visible = "[GetScriptedGui('agot_mw_gui_join_selected_leader').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('selected_leader', WarOverviewWindow.GetRightSideLeaderItem.GetCharacter.MakeScope).End)]"
+			#enabled = "[GetScriptedGui('agot_mw_gui_join_selected_leader').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('selected_leader', WarOverviewWindow.GetRightSideLeaderItem.GetCharacter.MakeScope).End)]"
 
-			onclick = "[GetScriptedGui('mw_gui_join_selected_leader').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('selected_leader', WarOverviewWindow.GetRightSideLeaderItem.GetCharacter.MakeScope).End)]"
+			onclick = "[GetScriptedGui('agot_mw_gui_join_selected_leader').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('selected_leader', WarOverviewWindow.GetRightSideLeaderItem.GetCharacter.MakeScope).End)]"
 
 			#tooltip = MEGA_WARS_GUI_JOIN_LOYALISTS
-			tooltip = "[GetScriptedGui('mw_gui_join_selected_leader').BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) ]"
+			tooltip = "[GetScriptedGui('agot_mw_gui_join_selected_leader').BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).End ) ]"
 		}
 	}
 
@@ -172,7 +172,7 @@ types MegaWarsTypes {
 						text_single = {
 							name = "Punishment box"
 							size = { 480 200 }
-							text = "[GetScriptedGui('mw_gui_punish_traitor').BuildTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End ) ]"
+							text = "[GetScriptedGui('agot_mw_gui_punish_traitor').BuildTooltip(GuiScope.SetRoot(GetPlayer.MakeScope).End ) ]"
 						}
 					}
 				}
@@ -189,18 +189,18 @@ types MegaWarsTypes {
 				parentanchor = left
 				blockoverride "size" { size = { 160 30 } }
 				blockoverride "text" { text = MW_GUI_TAKE_TITLES }
-				#datacontext = "[GetScriptedGui('mw_gui_traitors_take_titles')]"
-				enabled = "[GetScriptedGui( 'mw_gui_traitors_take_titles' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				onclick = "[GetScriptedGui( 'mw_gui_traitors_take_titles' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				down = "[GetScriptedGui( 'mw_gui_traitors_take_titles' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				#datacontext = "[GetScriptedGui('agot_mw_gui_traitors_take_titles')]"
+				enabled = "[GetScriptedGui( 'agot_mw_gui_traitors_take_titles' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				onclick = "[GetScriptedGui( 'agot_mw_gui_traitors_take_titles' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				down = "[GetScriptedGui( 'agot_mw_gui_traitors_take_titles' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 			}
 			MegaWarsTraitorsButton = { # Misc
 				parentanchor = left
 				blockoverride "size" { size = { 160 30 } }
 				blockoverride "text" { text = MW_GUI_MISC }
-				enabled = "[GetScriptedGui( 'mw_gui_traitors_misc' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				onclick = "[GetScriptedGui( 'mw_gui_traitors_misc' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				down = "[GetScriptedGui( 'mw_gui_traitors_misc' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				enabled = "[GetScriptedGui( 'agot_mw_gui_traitors_misc' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				onclick = "[GetScriptedGui( 'agot_mw_gui_traitors_misc' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				down = "[GetScriptedGui( 'agot_mw_gui_traitors_misc' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 			}
 		}
 		vbox = {
@@ -209,18 +209,18 @@ types MegaWarsTypes {
 
 				blockoverride "size" { size = { 160 30 } }
 				blockoverride "text" { text = MW_GUI_BANISHMENT }
-				enabled = "[GetScriptedGui( 'mw_gui_traitors_banishment' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				onclick = "[GetScriptedGui( 'mw_gui_traitors_banishment' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				down = "[GetScriptedGui( 'mw_gui_traitors_banishment' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				enabled = "[GetScriptedGui( 'agot_mw_gui_traitors_banishment' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				onclick = "[GetScriptedGui( 'agot_mw_gui_traitors_banishment' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				down = "[GetScriptedGui( 'agot_mw_gui_traitors_banishment' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 			}
 			MegaWarsTraitorsButton = { # Execution
 				parentanchor = left
 
 				blockoverride "size" { size = { 160 30 } }
 				blockoverride "text" { text = MW_GUI_EXECUTION }
-				enabled = "[GetScriptedGui( 'mw_gui_traitors_execution' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				onclick = "[GetScriptedGui( 'mw_gui_traitors_execution' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-				down = "[GetScriptedGui( 'mw_gui_traitors_execution' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				enabled = "[GetScriptedGui( 'agot_mw_gui_traitors_execution' ).IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				onclick = "[GetScriptedGui( 'agot_mw_gui_traitors_execution' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				down = "[GetScriptedGui( 'agot_mw_gui_traitors_execution' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 			}
 		}
 	}
@@ -240,7 +240,7 @@ types MegaWarsTypes {
 				}
 
 				vbox = {
-					visible = "[GetScriptedGui( 'mw_gui_traitors_take_titles' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[GetScriptedGui( 'agot_mw_gui_traitors_take_titles' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 
 					widget = {
 						size = { 190 30 }
@@ -249,14 +249,14 @@ types MegaWarsTypes {
 
 							blockoverride "size" { size = { 160 30 } }
 							blockoverride "text" { text = MW_GUI_TAKE_SPECIFIC_TITLE }
-							datacontext = "[GetScriptedGui( 'mw_gui_traitors_take_specific_title' )]"
+							datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_take_specific_title' )]"
 							down = "[GetPlayer.MakeScope.Var( 'take_specific_title' ).IsSet]"
 						}
 						MegaWarsTraitorsButton = { # Clear Selection
 							parentanchor = right
 
 							blockoverride "size" { size = { 30 30 } }
-							datacontext = "[GetScriptedGui( 'mw_gui_traitors_take_specific_title_clear' )]"
+							datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_take_specific_title_clear' )]"
 
 							icon = {
 								size = { 30 30 }
@@ -267,12 +267,12 @@ types MegaWarsTypes {
 					}
 					MegaWarsTraitorsButton = { # Take primary title (all titles of primary title tier)
 						blockoverride "text" { text = MW_GUI_TAKE_MAIN_TITLES }
-						datacontext = "[GetScriptedGui( 'mw_gui_traitors_take_main_titles' )]"
+						datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_take_main_titles' )]"
 						down = "[GetPlayer.MakeScope.Var( 'take_main_titles' ).IsSet]"
 					}
 					MegaWarsTraitorsButton = { # Take secondary titles
 						blockoverride "text" { text = MW_GUI_TAKE_SECONDARY_TITLES }
-						datacontext = "[GetScriptedGui( 'mw_gui_traitors_take_secondary_titles' )]"
+						datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_take_secondary_titles' )]"
 						down = "[GetPlayer.MakeScope.Var( 'take_secondary_titles' ).IsSet]"
 					}
 					widget = {
@@ -282,14 +282,14 @@ types MegaWarsTypes {
 
 							blockoverride "size" { size = { 160 30 } }
 							blockoverride "text" { text = MW_GUI_TAKE_ENTIRE_DEMESNE}
-							datacontext = "[GetScriptedGui( 'mw_gui_traitors_take_entire_demesne' )]"
+							datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_take_entire_demesne' )]"
 							down = "[GetPlayer.MakeScope.Var( 'take_entire_demesne' ).IsSet]"
 						}
 						MegaWarsTraitorsButton = { # Take entire demesne except capital
 							parentanchor = right
 
 							blockoverride "size" { size = { 30 30 } }
-							datacontext = "[GetScriptedGui( 'mw_gui_traitors_take_entire_demesne_except_capital' )]"
+							datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_take_entire_demesne_except_capital' )]"
 							down = "[GetPlayer.MakeScope.Var( 'take_entire_demesne_except_capital' ).IsSet]"
 
 							icon = {
@@ -301,12 +301,12 @@ types MegaWarsTypes {
 					}
 					MegaWarsTraitorsButton = { # Take half demesne
 						blockoverride "text" { text = MW_GUI_TAKE_HALF_DEMESNE }
-						datacontext = "[GetScriptedGui( 'mw_gui_traitors_take_half_demesne' )]"
+						datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_take_half_demesne' )]"
 						down = "[GetPlayer.MakeScope.Var( 'take_half_demesne' ).IsSet]"
 					}
 				}
 				vbox = {
-					visible = "[GetScriptedGui( 'mw_gui_traitors_misc' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[GetScriptedGui( 'agot_mw_gui_traitors_misc' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 
 					widget = {
 						size = { 190 30 }
@@ -315,14 +315,14 @@ types MegaWarsTypes {
 
 							blockoverride "size" { size = { 160 30 } }
 							blockoverride "text" { text = MW_GUI_SELECT_HOSTAGE }
-							datacontext = "[GetScriptedGui( 'mw_gui_traitors_take_hostage' )]"
+							datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_take_hostage' )]"
 							down = "[GetPlayer.MakeScope.Var( 'take_hostage' ).IsSet]"
 						}
 						MegaWarsTraitorsButton = { # Clear Selection
 							parentanchor = right
 
 							blockoverride "size" { size = { 30 30 } }
-							datacontext = "[GetScriptedGui( 'mw_gui_traitors_take_hostage_clear' )]"
+							datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_take_hostage_clear' )]"
 
 							icon = {
 								size = { 30 30 }
@@ -334,52 +334,52 @@ types MegaWarsTypes {
 
 					MegaWarsTraitorsButton = { # Take artifact
 						blockoverride "text" { text = MW_GUI_TAKE_ARTIFACT }
-						datacontext = "[GetScriptedGui( 'mw_gui_traitors_take_artifact' )]"
+						datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_take_artifact' )]"
 						down = "[GetPlayer.MakeScope.Var( 'take_artifact' ).IsSet]"
 					}
 				}
 				vbox = {
-					visible = "[GetScriptedGui( 'mw_gui_traitors_execution' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[GetScriptedGui( 'agot_mw_gui_traitors_execution' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 
 					MegaWarsTraitorsButton = { # Execute selected traitor
 						blockoverride "text" { text = MW_GUI_EXECUTE_TRAITOR }
-						datacontext = "[GetScriptedGui( 'mw_gui_traitors_execute' )]"
+						datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_execute' )]"
 						down = "[GetPlayer.MakeScope.Var( 'execution_traitor' ).IsSet]"
 					}
 					MegaWarsTraitorsButton = { # Execute selected traitor's close family members
 						blockoverride "text" { text = MW_GUI_EXECUTE_TRAITORS_FAMILY }
-						datacontext = "[GetScriptedGui( 'mw_gui_traitors_execution_family' )]"
+						datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_execution_family' )]"
 						down = "[GetPlayer.MakeScope.Var( 'execution_family' ).IsSet]"
 					}
 					MegaWarsTraitorsButton = { # Execute selected traitor's dynasty members
 						blockoverride "text" { text = MW_GUI_EXECUTE_TRAITORS_HOUSE }
-						datacontext = "[GetScriptedGui( 'mw_gui_traitors_execution_house' )]"
+						datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_execution_house' )]"
 						down = "[GetPlayer.MakeScope.Var( 'execution_house' ).IsSet]"
 					}
 				}
 				vbox = {
-					visible = "[GetScriptedGui( 'mw_gui_traitors_banishment' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[GetScriptedGui( 'agot_mw_gui_traitors_banishment' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 
 					layoutpolicy_vertical = expanding
 
 					MegaWarsTraitorsButton = { # Send selected traitor to the Wall
 						blockoverride "text" { text = MW_GUI_SEND_TO_WALL }
-						datacontext = "[GetScriptedGui( 'mw_gui_traitors_wall' )]"
+						datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_wall' )]"
 						down = "[GetPlayer.MakeScope.Var( 'sent_to_wall' ).IsSet]"
 					}
 					MegaWarsTraitorsButton = { # Expel selected traitor
 						blockoverride "text" { text = MW_GUI_EXPEL_TRAITOR }
-						datacontext = "[GetScriptedGui( 'mw_gui_traitors_expel' )]"
+						datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_expel' )]"
 						down = "[GetPlayer.MakeScope.Var( 'expel' ).IsSet]"
 					}
 					MegaWarsTraitorsButton = { # Expel selected traitor's close family members
 						blockoverride "text" { text = MW_GUI_EXPEL_TRAITORS_FAMILY }
-						datacontext = "[GetScriptedGui( 'mw_gui_traitors_expel_family' )]"
+						datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_expel_family' )]"
 						down = "[GetPlayer.MakeScope.Var( 'expel_family' ).IsSet]"
 					}
 					MegaWarsTraitorsButton = { # Expel selected traitor's dynasty members
 						blockoverride "text" { text = MW_GUI_EXPEL_TRAITORS_HOUSE }
-						datacontext = "[GetScriptedGui( 'mw_gui_traitors_expel_house' )]"
+						datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_expel_house' )]"
 						down = "[GetPlayer.MakeScope.Var( 'expel_house' ).IsSet]"
 					}
 				}
@@ -392,16 +392,16 @@ types MegaWarsTypes {
 					parentanchor = top|left
 					background = { using = Background_Area_Dark }
 
-					visible = "[GetScriptedGui( 'mw_gui_traitors_take_hostage_trigger' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[GetScriptedGui( 'agot_mw_gui_traitors_take_hostage_trigger' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 
 					blockoverride "size_icon" { size = { 90 90 } }
-					blockoverride "close_button" { onclick = "[GetScriptedGui( 'mw_gui_traitors_take_hostage_clear' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" }
+					blockoverride "close_button" { onclick = "[GetScriptedGui( 'agot_mw_gui_traitors_take_hostage_clear' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" }
 					blockoverride "scrollbox_header" { text = MW_GUI_AVAILABLE_HOSTAGES }
 					blockoverride "scrollbox_content_datamodel" { datamodel = "[Scope.GetList( 'mw_traitors_hostage_list' )]" }
 					blockoverride "size_button" { size = { 450 90 } }
 					blockoverride "button_datacontext" { datacontext = "[Scope.GetCharacter]" }
-					blockoverride "down" { down = "[GetScriptedGui( 'mw_gui_traitors_take_hostage_selecting' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_hostage', Character.MakeScope ).End )]" }
-					blockoverride "onclick" { onclick = "[GetScriptedGui( 'mw_gui_traitors_take_hostage_selecting' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_hostage', Character.MakeScope ).End )]" }
+					blockoverride "down" { down = "[GetScriptedGui( 'agot_mw_gui_traitors_take_hostage_selecting' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_hostage', Character.MakeScope ).End )]" }
+					blockoverride "onclick" { onclick = "[GetScriptedGui( 'agot_mw_gui_traitors_take_hostage_selecting' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_hostage', Character.MakeScope ).End )]" }
 					blockoverride "left_side_icon" { portrait_head_small = { } }
 					blockoverride "button_item_text" { text = "[Scope.GetCharacter.GetNameNoTooltip]" }
 				}
@@ -409,17 +409,17 @@ types MegaWarsTypes {
 					parentanchor = top|left
 					background = { using = Background_Area_Dark }
 
-					visible = "[GetScriptedGui( 'mw_gui_traitors_take_specific_title_trigger' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[GetScriptedGui( 'agot_mw_gui_traitors_take_specific_title_trigger' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 
 					blockoverride "size_icon" { size = { 60 60 } }
 					blockoverride "size_text" { size = { 390 60 } }
-					blockoverride "close_button" { onclick = "[GetScriptedGui( 'mw_gui_traitors_take_specific_title_clear' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" }
+					blockoverride "close_button" { onclick = "[GetScriptedGui( 'agot_mw_gui_traitors_take_specific_title_clear' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" }
 					blockoverride "scrollbox_header" { text = MW_GUI_AVAILABLE_TITLES }
 					blockoverride "size_button" { size = { 450 60 } }
 					blockoverride "scrollbox_content_datamodel" { datamodel = "[Scope.GetList( 'mw_traitors_demesne_list' )]" }
 					blockoverride "button_datacontext" { datacontext = "[Scope.Title]" }
-					blockoverride "down" { down = "[GetScriptedGui( 'mw_gui_traitors_take_specific_title_selecting' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_specific_title', Title.MakeScope ).End )]" }
-					blockoverride "onclick" { onclick = "[GetScriptedGui( 'mw_gui_traitors_take_specific_title_selecting' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_specific_title', Title.MakeScope ).End )]" }
+					blockoverride "down" { down = "[GetScriptedGui( 'agot_mw_gui_traitors_take_specific_title_selecting' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_specific_title', Title.MakeScope ).End )]" }
+					blockoverride "onclick" { onclick = "[GetScriptedGui( 'agot_mw_gui_traitors_take_specific_title_selecting' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_specific_title', Title.MakeScope ).End )]" }
 					blockoverride "left_side_icon" { coa_title_tiny_crown = { parentanchor = center } }
 					blockoverride "button_item_text" { text = "[Scope.Title.GetNameNoTooltip]" }
 				}
@@ -427,16 +427,16 @@ types MegaWarsTypes {
 					parentanchor = top|left
 					background = { using = Background_Area_Dark }
 
-					visible = "[GetScriptedGui( 'mw_gui_traitors_take_artifact_trigger' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+					visible = "[GetScriptedGui( 'agot_mw_gui_traitors_take_artifact_trigger' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 
 					blockoverride "size_icon" { size = { 90 90 } }
-					blockoverride "close_button" { onclick = "[GetScriptedGui( 'mw_gui_traitors_take_artifact_clear' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" }
+					blockoverride "close_button" { onclick = "[GetScriptedGui( 'agot_mw_gui_traitors_take_artifact_clear' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]" }
 					blockoverride "scrollbox_header" { text = MW_GUI_AVAILABLE_ARTIFACTS }
 					blockoverride "size_button" { size = { 450 90 } }
 					blockoverride "scrollbox_content_datamodel" { datamodel = "[Scope.GetList('mw_traitor_artifact_list')]" }
 					blockoverride "button_datacontext" { datacontext = "[Scope.Artifact]" }
-					blockoverride "down" { down = "[GetScriptedGui( 'mw_gui_traitors_take_artifact_selecting' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_artifact', Artifact.MakeScope ).End )]" }
-					blockoverride "onclick" { onclick = "[GetScriptedGui( 'mw_gui_traitors_take_artifact_selecting' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_artifact', Artifact.MakeScope ).End )]" }
+					blockoverride "down" { down = "[GetScriptedGui( 'agot_mw_gui_traitors_take_artifact_selecting' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_artifact', Artifact.MakeScope ).End )]" }
+					blockoverride "onclick" { onclick = "[GetScriptedGui( 'agot_mw_gui_traitors_take_artifact_selecting' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_artifact', Artifact.MakeScope ).End )]" }
 					blockoverride "left_side_icon" { icon_artifact = {} }
 					blockoverride "button_item_text" { text = "[Scope.Artifact.GetName]" }
 				}
