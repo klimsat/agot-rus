@@ -51,6 +51,7 @@ types PatronWindow {
 					}
 				}
 			}
+			patron_select_confirm = { }
 		}
 	}
 
@@ -103,7 +104,8 @@ types PatronWindow {
 			tooltip_enabled = "[Not(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName))]"
 
 			onclick = "[GetVariableSystem.Set('selected_patron', Scope.GetFlagName)]"
-			onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag( GetVariableSystem.Get( 'selected_patron' ))).End )]"
+			onclick = "[GetVariableSystem.Set('show_patron_select_confirm', 'true')]"
+			#onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag( GetVariableSystem.Get( 'selected_patron' ))).End )]"
 
 			hbox = {
 				icon = {
@@ -171,7 +173,7 @@ types PatronWindow {
 								parentanchor = left
 								default_format = "#low"
 								block "flavor_text" {
-									text = "[Localize( Concatenate( 'patron_god_desc_', Scope.GetFlagName )))]"
+									text = "[Localize( Concatenate( 'patron_god_desc_', Scope.GetFlagName ))]"
 								}
 								autoresize = yes
 								fontsize = 14
@@ -185,7 +187,7 @@ types PatronWindow {
 								parentanchor = left
 								default_format = "#high"
 								block "flavor_text" {
-									text = "[Localize( Concatenate( 'patron_god_desc_', Scope.GetFlagName )))]"
+									text = "[Localize( Concatenate( 'patron_god_desc_', Scope.GetFlagName ))]"
 								}
 								autoresize = yes
 								fontsize = 14
@@ -238,6 +240,84 @@ types PatronWindow {
 								}
 							}
 						}
+					}
+				}
+			}
+		}
+	}
+
+	type patron_select_confirm = widget {
+		name = "patron_select_confirm"
+
+		visible = "[And(GetVariableSystem.HasValue('show_patron_select_confirm','true'), Not(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName,GetVariableSystem.Get('selected_patron'))))]"
+
+		datacontext = "[GetVariableSystem]"
+		datacontext = "[GetScriptedGui('choose_patron_generic')]"
+
+		allow_outside = yes
+		position = { 0 -60 }
+		parentanchor = center
+		size = { 80% 43% }
+		using = Window_Background
+		using = Window_Decoration_Spike
+		
+		# if need to be a modal can be enable by uncommenting the line below
+		#modal = yes
+		#modality = all
+	
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+			using = Sound_WindowShow_Standard
+		}
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+			using = Sound_WindowHide_Standard
+		}
+	
+		vbox = {
+			using = Window_Margins
+			
+			header_pattern = {
+				layoutpolicy_horizontal = expanding
+			
+				blockoverride "button_close"
+				{
+					onclick = "[GetVariableSystem.Set('show_patron_select_confirm', 'false')]"
+				}
+			
+				blockoverride "header_text"
+				{
+					text = "[Localize(Concatenate('patron_god_', GetVariableSystem.Get('selected_patron')))]"
+				}
+			}
+			
+			vbox = {
+				layoutpolicy_vertical = expanding
+				layoutpolicy_horizontal = expanding
+
+				text_multi = {
+					autoresize = yes
+					using = Font_Size_Medium
+					text = "[Concatenate(Concatenate(Localize('select_patron_confirm_text_1'), Localize(Concatenate('patron_god_', GetVariableSystem.Get('selected_patron')))), Localize('select_patron_confirm_text_2'))]"
+				}
+				text_multi = {
+					autoresize = yes
+					using = Font_Size_Medium
+					text = "[GetModifier(Concatenate('patron_', Concatenate(GetVariableSystem.Get('selected_patron') ,'_modifier'))).GetDescWithEffects]"
+				}
+				text_multi = {
+					autoresize = yes
+					text = PATRON_SELECTION_TOOLTIP
+				}
+
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					button_primary_big = {
+						text = patron_select_confirm
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('patron_name', MakeScopeFlag(GetVariableSystem.Get('selected_patron'))).End )]"
+						onclick = "[GetVariableSystem.Set('show_patron_select_confirm', 'false')]"
 					}
 				}
 			}

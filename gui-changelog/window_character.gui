@@ -1164,7 +1164,9 @@ window = {
 				name = "house"
 				datacontext = "[Character.GetHouse]"
 				layoutpolicy_vertical = expanding
-				size = { 125 0 }
+				# AGOT MODIFIED
+				#size = { 125 0 }
+				size = { 120 0 }
 
 				using = Animation_Character_Window_Refresh
 
@@ -1202,7 +1204,6 @@ window = {
 							}
 						}
 					}
-
 					text_multi = {
 						autoresize = yes
 						maximumsize = { 118 50 }
@@ -1221,6 +1222,32 @@ window = {
 					}
 
 					expand = {}
+				}
+				# AGOT ADDED
+				# Personal Coat of Arms
+				agot_coa_house_small = {
+					visible = "[GetScriptedGui('agot_has_personal_coa').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+					datacontext = "[CharacterWindow.GetCharacter.GetRelationOfType( GetRelation( 'agot_personal_coa_slave' ) ).GetHouse]"
+					position = { -33 55 }
+					blockoverride "coa_tooltip" {
+					}
+					tooltipwidget = {
+						using = agot_personal_coa_tooltip
+					}
+					blockoverride "coa_button" {
+					}
+					flowcontainer = {
+						parentanchor = bottom|right
+						position = { 0 5 }
+						ignoreinvisible = yes
+						button_find_title = {
+							visible = "[Character.IsPlayer]"
+							onmousehierarchyenter = "[GetScriptedGui('agot_summon_personal_coa_slave').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+							onclick = "[OpenHouseCustomizationWindow(DynastyHouse.Self)]"
+							tooltip = CUSTOMIZE_PERSONAL_ARMS
+							size = { 22 22 }
+						}
+					}
 				}
 			}
 		}
@@ -1258,7 +1285,6 @@ window = {
 					using = Mask_Rough_Edges
 				}
 			}
-
 			hbox = {
 				name = "realm_info"
 
@@ -2025,7 +2051,7 @@ window = {
 								}
 								blockoverride "remaining_items"
 								{
-									visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'paramour' ) ) ), '(int32)5' ) )]"
+									visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'paramour' ) ) ), '(int32)5' )]"
 									margin = { 167 }
 									text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'paramour' ) ) ), '(int32)5' )|=]"
 								}
@@ -2492,7 +2518,7 @@ window = {
 								}
 								blockoverride "remaining_items"
 								{
-									visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_squire' ) ) ), '(int32)5' ) )]"
+									visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_squire' ) ) ), '(int32)5' )]"
 									margin = { 167 }
 									text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_squire' ) ) ), '(int32)5' )|=]"
 								}
@@ -2584,7 +2610,7 @@ window = {
 								}
 								blockoverride "remaining_items"
 								{
-									visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_knight' ) ) ), '(int32)5' ) )]"
+									visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_knight' ) ) ), '(int32)5' )]"
 									margin = { 167 }
 									text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_knight' ) ) ), '(int32)5' )|=]"
 								}
@@ -4365,7 +4391,9 @@ types CharacterWindow
 	}
 
 	type vbox_titles_claims_box = vbox {
-
+		#AGOT ADDED
+		name = "titles_and_claims"
+		
 		## Titles
 		vbox = {
 			name = "titles"
@@ -4407,6 +4435,7 @@ types CharacterWindow
 				}
 			}
 
+			# Titles - Shield
 			hbox = {
 				layoutpolicy_horizontal = expanding
 
@@ -4447,7 +4476,7 @@ types CharacterWindow
 			}
 		}
 
-		## Claims
+		## Claims - Shield Icons
 		vbox = {
 			name = "claims"
 			visible = "[Not(IsDataModelEmpty(CharacterWindow.GetClaims))]"

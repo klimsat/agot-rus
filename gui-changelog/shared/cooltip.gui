@@ -3320,6 +3320,34 @@ template dynasty_house_tooltip {
 		}
 	}
 }
+# AGOT ADDED
+template agot_personal_coa_tooltip {
+	object_tooltip_pop_out = {
+		datacontext = "[DynastyHouse]"
+
+		blockoverride "header_additions" {
+			margin_right = 10
+			margin_top = 8
+			margin_left = -4
+
+			agot_coa_house_small = {
+				blockoverride "coa_tooltip" {}
+			}
+		}
+		blockoverride "title_text" {
+			text = "PERSONAL_ARMS_COOLTIP"
+		}
+		blockoverride "concept_link" {
+			text = [agot_personal_coa|E]
+			margin_top = 7
+		}
+		blockoverride "extra_data" {
+			agot_coa_house_huge = {
+				blockoverride "coa_tooltip" {}
+			}
+		}
+	}
+}
 
 container = {
 	alwaystransparent = no
