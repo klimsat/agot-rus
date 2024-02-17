@@ -859,6 +859,14 @@ window = {
 								onclick = "[TitleViewWindow.ToggleFindVassalListWindow]"
 								tooltip = "FIND_VASSAL_BUTTON_TOOLTIP"
 							}
+
+							# AGOT ADDED
+							button_tertiary = {
+								name = "three_daughters"
+								text = "HIGH_COUNCIL_TRIARCHY"
+								visible = "[GetScriptedGui('is_three_daughters').IsShown(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End)]"
+								onclick = "[GetVariableSystem.Toggle('window_three_daughters')]"
+							}
 						}
 
 						hbox = {
