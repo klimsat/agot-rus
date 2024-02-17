@@ -1,0 +1,31 @@
+﻿l_russian:
+
+ GOVERNMENT_HAS_FLAG_TRIGGER: "$FLAG$"
+ GOVERNMENT_HAS_FLAG_TRIGGER_FIRST: "$FLAG$ у вас"
+ GOVERNMENT_HAS_FLAG_TRIGGER_THIRD: "$FLAG$ [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+
+ #AGOT Modified
+ #NOT_GOVERNMENT_HAS_FLAG_TRIGGER: "Требуется, чтобы $FLAG$"
+ #NOT_GOVERNMENT_HAS_FLAG_TRIGGER_FIRST: "Требуется, чтобы $FLAG$ у вас"
+ #NOT_GOVERNMENT_HAS_FLAG_TRIGGER_THIRD: "Требуется, чтобы $FLAG$ у [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ NOT_GOVERNMENT_HAS_FLAG_TRIGGER:0 "$FLAG$ #bold не#! у вас"
+ NOT_GOVERNMENT_HAS_FLAG_TRIGGER_FIRST:0 "$FLAG$ #bold не#! у вас"
+ NOT_GOVERNMENT_HAS_FLAG_TRIGGER_THIRD:0 "$FLAG$ #bold не#! у вас"
+
+ GOVERNMENT_ALLOWS_TRIGGER: "[government|E] позволяет: $RULE|V$"
+ THEIR_GOVERNMENT_ALLOWS_TRIGGER: "[government|E], которым управляет [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонаж' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )], позволяет: $RULE|V$"
+
+ GOVERNMENT_DISALLOWS_TRIGGER: "[government|E] запрещает: $RULE|V$"
+
+ HAS_GOVERNMENT_TRIGGER_GLOBAL: "Тип правления — $GOVERNMENT|V$"
+ NOT_HAS_GOVERNMENT_TRIGGER_GLOBAL: "#bold Не#! имеет форму правления «$GOVERNMENT|V$»"
+ HAS_GOVERNMENT_TRIGGER_FIRST: "Ваша форма правления — «$GOVERNMENT|V$»"
+ NOT_HAS_GOVERNMENT_TRIGGER_FIRST: "Ваша форма правления #bold не#! «$GOVERNMENT|V$»"
+ HAS_GOVERNMENT_TRIGGER_THIRD: "[CHARACTER.GetShortUIName|V]: тип правления — $GOVERNMENT|V$"
+ NOT_HAS_GOVERNMENT_TRIGGER_THIRD: "Форма правления персонажа [CHARACTER.GetShortUIName|V] — #bold не#! «$GOVERNMENT|V$»"
+
+ HAS_SAME_GOVERNMENT_TRIGGER: "Имеет то же правительство, что и [TARGET_CHARACTER.GetShortUIName]"
+
+ MUST_HAVE_MALE_DOMINATED_OR_EQUAL: "[CHARACTER.GetFaith.GetAdjective] не имеет доктрины [GetFaithDoctrine('doctrine_gender_equal').GetBaseName] или [GetFaithDoctrine('doctrine_gender_male_dominated').GetBaseName]"
+ MUST_HAVE_FEMALE_DOMINATED_OR_EQUAL: "[CHARACTER.GetFaith.GetAdjective] не имеет доктрины [GetFaithDoctrine('doctrine_gender_equal').GetBaseName] или [GetFaithDoctrine('doctrine_gender_female_dominated').GetBaseName]"
+ has_law_allowing_succession_law_change: "[crown_authority|E] — [high|El] и выше или [tribal_authority|E] — [limited_tribal|El] и выше"
