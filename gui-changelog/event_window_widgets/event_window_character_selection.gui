@@ -15,7 +15,9 @@ widget = {
 			scrollbox = {
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
-				minimumsize = { 480 239 }
+				#AGOT Modified
+				# minimumsize = { 480 239 }
+				minimumsize = { 460 239 }
 				blockoverride "scrollbox_margins"
 				{
 					margin = { 10 15 }
@@ -42,7 +44,9 @@ widget = {
 								tooltip_verticalbehavior = slide
 								tooltip_horizontalbehavior = mirror
 								name = "background_button"
-								size = { 450 66 }
+								#AGOT Modified
+								# size = { 450 66 }
+								size = { 425 66 }
 								#onclick = "[GetVariableSystem.Set('si_highlighted_character', Character.GetUIName)]"
 								onclick = "[GetScriptedGui('si_set_selected_character').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_char', Character.MakeScope).End)]"
 								down = "[Scope.Var('si_selecting_character').IsSet]"
