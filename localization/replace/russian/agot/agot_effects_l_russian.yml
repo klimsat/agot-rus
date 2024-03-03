@@ -4,17 +4,17 @@
  #KNIGHTING#
  ###########
 
- GET_AGOT_SQUIRE:0 "[TARGET_CHARACTER.GetShortUIName] станет #V [Concept('squire', 'оруженосцем')|E]#!"
+ GET_AGOT_SQUIRE:0 "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString( TARGET_CHARACTER.IsLocalPlayer, 'станете', 'станет')] #V [Concept('squire', 'оруженосцем')|E]#!"
  I_GET_AGOT_SQUIRE:1 "[TARGET_CHARACTER.GetShortUIName|U] становится вашим #V [Concept('squire', 'оруженосцем')|E]#!"
  I_GOT_AGOT_SQUIRE:1 "[TARGET_CHARACTER.GetShortUIName|U] стал вашим #V [Concept('squire', 'оруженосцем')|E]#!"
- THEY_GET_AGOT_SQUIRE:0 "[TARGET_CHARACTER.GetShortUIName|U] станет #V [Concept('squire', 'оруженосцем')|E]#! персонажа [CHARACTER.GetShortUINamePossessive]"
+ THEY_GET_AGOT_SQUIRE:0 "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString( TARGET_CHARACTER.IsLocalPlayer, 'станете', 'станет')] #V [Concept('squire', 'оруженосцем')|E]#! персонажа [CHARACTER.GetShortUINamePossessive]"
  THEY_GOT_AGOT_SQUIRE:0 "[TARGET_CHARACTER.GetShortUIName|U] стал #V [Concept('squire', 'оруженосцем')|E]#! персонажа [CHARACTER.GetShortUIName]"
  LOSE_AGOT_SQUIRE:0 "[TARGET_CHARACTER.GetShortUIName] перестаёт быть вашим #V [Concept('squire', 'оруженосцем')|E]#!"
  I_LOSE_AGOT_SQUIRE:1 "[TARGET_CHARACTER.GetShortUIName|U] более не является вашим #V [Concept('squire', 'оруженосцем')|E]#!"
  THEY_LOSE_AGOT_SQUIRE:0 "[TARGET_CHARACTER.GetShortUIName|U] более не является #V [Concept('squire', 'оруженосцем')|E]#! персонажа [CHARACTER.GetShortUIName]"
 
 
- GET_AGOT_KNIGHT:0 "[TARGET_CHARACTER.GetShortUIName] станет #V [Concept('agot_knight', 'рыцарем-наставником')|E]#!"
+ GET_AGOT_KNIGHT:0 "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString( TARGET_CHARACTER.IsLocalPlayer, 'станете', 'станет')] #V [Concept('agot_knight', 'рыцарем-наставником')|E]#!"
  I_GET_AGOT_KNIGHT:1 "[TARGET_CHARACTER.GetShortUIName|U] становится вашим #V [Concept('agot_knight', 'рыцарем-наставником')|E]#!"
  I_GOT_AGOT_KNIGHT:1 "[TARGET_CHARACTER.GetShortUIName|U] стал вашим #V [Concept('agot_knight', 'рыцарем-наставником')|E]#!"
  THEY_GET_AGOT_KNIGHT:0 "[TARGET_CHARACTER.GetShortUIName|U] становится #V [Concept('agot_knight', 'рыцарем-наставником')|E]#! персонажа [CHARACTER.GetShortUINamePossessive]"
@@ -24,10 +24,10 @@
  THEY_LOSE_AGOT_KNIGHT:0 "[TARGET_CHARACTER.GetShortUIName|U] более не является #V [Concept('agot_knight', 'рыцарем-наставником')|E]#! персонажа [CHARACTER.GetShortUIName]"
 
 #Paramours
- GET_PARAMOUR:0 "[TARGET_CHARACTER.GetShortUIName] станет [Select_CString(TARGET_CHARACTER.IsFemale, 'любовницей', 'любовником' )]"
+ GET_PARAMOUR:0 "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString( TARGET_CHARACTER.IsLocalPlayer, 'станете', 'станет')] [Select_CString(TARGET_CHARACTER.IsFemale, 'любовницей', 'любовником' )]"
  I_GET_PARAMOUR:1 "[TARGET_CHARACTER.GetShortUIName|U] станет [Select_CString(TARGET_CHARACTER.IsFemale, 'вашей любовницей', 'вашим любовником' )]"
  I_GOT_PARAMOUR:1 "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString(TARGET_CHARACTER.IsFemale, 'стала вашей любовницей', 'стал вашим любовником' )]"
- THEY_GET_PARAMOUR:0 "[TARGET_CHARACTER.GetShortUIName|U] станет [Select_CString(TARGET_CHARACTER.IsFemale, 'любовницей', 'любовником' )] персонажа [CHARACTER.GetShortUINamePossessive]"
+ THEY_GET_PARAMOUR:0 "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString( TARGET_CHARACTER.IsLocalPlayer, 'станете', 'станет')] [Select_CString(TARGET_CHARACTER.IsFemale, 'любовницей', 'любовником' )] персонажа [CHARACTER.GetShortUINamePossessive]"
  THEY_GOT_PARAMOUR:0 "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString(TARGET_CHARACTER.IsFemale, 'стала любовницей', 'стал любовником' )] персонажа [CHARACTER.GetShortUIName]"
  LOSE_PARAMOUR:0 "[TARGET_CHARACTER.GetShortUIName] перестаёт быть [Select_CString(TARGET_CHARACTER.IsFemale, 'любовницей', 'любовником' )]"
  I_LOSE_PARAMOUR:1 "[TARGET_CHARACTER.GetShortUIName|U] более не является [Select_CString(TARGET_CHARACTER.IsFemale, 'вашей любовницей', 'вашим любовником' )]"
