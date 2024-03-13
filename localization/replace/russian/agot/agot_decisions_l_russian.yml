@@ -69,11 +69,11 @@
  ############################
  ## Show Valyrian Steel Loc ##
  ############################
- show_valyrian_steel_decision:0 "Показать клинки из валирийской стали"
- show_valyrian_steel_decision_desc:0 "Покажите мне список всех известных клинков из валирийской стали."
- show_valyrian_steel_decision.tt:0 "Вам будет представлен список всех, кто владеет мечами из валирийской стали"
- show_valyrian_steel_decision_confirm:0 "Покажите мне!"
- show_valyrian_steel_decision_tooltip:0 "Вам будет представлен список всех известных владельцев мечей из валирийской стали"
+ #show_valyrian_steel_decision:0 "Показать клинки из валирийской стали"
+ #show_valyrian_steel_decision_desc:0 "Покажите мне список всех известных клинков из валирийской стали."
+ #show_valyrian_steel_decision.tt:0 "Вам будет представлен список всех, кто владеет мечами из валирийской стали"
+ #show_valyrian_steel_decision_confirm:0 "Покажите мне!"
+ #show_valyrian_steel_decision_tooltip:0 "Вам будет представлен список всех известных владельцев мечей из валирийской стали"
 
  reforge_valyrian_steel_decision:0 "Перековать валирийский меч"
  reforge_valyrian_steel_decision_desc:0 "Я хочу выковать новый клинок по своему вкусу"
@@ -92,30 +92,41 @@
  claim_dawn_worthy_decision_tooltip:0 "Выдвинуть претензию на владение легендарным клинком Рассвет"
  claim_dawn_worthy_decision_confirm:0 "Я [Select_CString(ROOT.Char.IsFemale, 'достойна', 'достоин' )]!"
 
-#Global events config decision
- configure_global_events_decision:0 "Управление письмами"
- configure_global_events_decision_desc:0 "Сообщить слугам, что вы не желаете, чтобы вас беспокоили вестями о некоторых событиях в государстве."
- configure_global_events_decision_tooltip:0 "Выберите события, о которых вы хотите получать уведомления"
- configure_global_events_decision_confirm:0 "Вызвать слугу."
- global_events_settings.0001.t:0 "Дела государства"
+###############################################################
+## Manage Realm Affairs - World Notification Config Decision ##
+###############################################################
+ #Decision localization
+ manage_realm_affairs_decision:0 "Управление делами державы"
+ manage_realm_affairs_decision_desc:0 "Просители, наследование за пределами моих владений... повседневные решения могут надоесть. Действительно ли мне нужно беспокоиться обо всем этом?\n\nЯ могу уведомить своих слуг, что не желаю, чтобы меня беспокоили пустяковыми новостями."
+ manage_realm_affairs_decision_tooltip:0 "Повседневные решения стали надоедать. Призовите слугу и сообщите ему, что не желаете, чтобы вас больше беспокоили по пустякам."
+ manage_realm_affairs_decision_confirm:0 "Вызвать слугу."
+ manage_realm_affairs_decision_effect:0 "Выберите, какие вопросы будут вынесены непосредственно на ваше рассмотрение, или узнайте больше о сообщениях со всего мира"
+ CHOOSE_REALM_AFFAIRS_DECISION_NEXT_STEP_BUTTON:0 "Выберите тему"
+
+ choose_petitionners_and_homage_name:0 "Просители и выказывание почтения"
+ choose_petitionners_and_homage_tooltip:0 "Выберите, хотите ли вы принимать просителей и выражение почтения"
+ choose_foreign_succession_name:0 "Чужеземное наследование"
+ choose_foreign_realms_succession_tooltip:0 "Выберите, хотите ли вы получать сообщения об чужеземном наследовании"
+ #choose_foreign_succession_desc:0 "Choose whether you wish to be informed of foreign succession"
+ choose_foreign_succession_invalid:0 "Вы уже правите Железным троном!"
+ choose_nights_watch_elections_name:0 "Выборы Ночного Дозора"
+ choose_nights_watch_elections_tooltip:0 "Выберите, хотите ли вы получать информацию о выборах нового Лорда-командующего Ночного Дозора"
+ choose_nights_watch_elections_invalid:0 "Вы уже являетесь Лордом-командующим!"
+ choose_show_valyrian_steel_name:0 "Показать клинки из валирийской стали"
+ choose_show_valyrian_steel_tooltip:0 "Вам будет представлен список всех, кто владеет мечами из валирийской стали"
+ #choose_show_valyrian_steel_desc:0 "You will be brought a list of all known Valyrian steel wielders"
+
+ #Fallback event
+ global_events_settings.0001.t:0 "Управление делами"
  global_events_settings.0001.desc:0 "Повседневные дела королевства отнимают у меня так много времени...\n\nПосле того, как один из моих слуг довёл до моего сведения очередное дело, я [Select_CString(ROOT.Char.IsFemale, 'задумалась', 'задумался' )] о том, действительно ли мне нужно беспокоиться обо всём этом."
- global_events_settings.0001.nw_toggle_on:0 "Меня интересуют дела Ночного Дозора."
- global_events_settings.0001.nw_toggle_on.tt:0 "В настоящее время #N #bold вы НЕ БУДЕТЕ#!#! получать информацию о выборах в Ночном Дозоре."
- global_events_settings.0001.nw_toggle_off:0 "Дела Ночного Дозора меня не касаются."
- global_events_settings.0001.nw_toggle_off.tt:0 "В настоящее время #P #bold вы БУДЕТЕ#!#! проинформированы, когда будет избран новый Лорд-командующий Ночного Дозора."
- global_events_settings.0001.it_toggle_on:0 "Держи меня в курсе событий, связанных с престолонаследием Железного трона."
- global_events_settings.0001.it_toggle_on.tt:0 "В настоящее время #N #bold ВЫ НЕ БУДЕТЕ#!#! получать информацию о престолонаследии Железного трона."
- global_events_settings.0001.it_toggle_off:0 "Престолонаследие Железного трона меня не касается."
- global_events_settings.0001.it_toggle_off.tt:0 "В настоящее время #P #bold ВЫ БУДЕТЕ#!#! проинформированы, когда новый правитель взойдёт на Железный трон."
- global_events_settings.0001.close:0 "Это всё."
-
-
- manage_petitioners_decision:0 "Управление делами державы"
- manage_petitioners_decision_desc:0 "Сообщите вассалам о своей готовности встретиться с просителями и принять их почтение."
- manage_petitioners_decision_tooltip:0 "Выберите, хотите ли вы принимать просителей, выражающих вам почтение"
- manage_petitioners_decision_confirm:0 "Разослать ворон"
- global_events_settings.0002.t:0 "Дела державы"
- global_events_settings.0002.desc:0 "Повседневные дела державы отнимают у меня так много времени...\n\nПока один из моих слуг доводит до моего сведения очередное дело, я размышляю, действительно ли мне нужно беспокоиться обо всём этом."
+ global_events_settings.0001.petitioners:0 "Насчёт просителей и выражения почтения..."
+ global_events_settings.0001.it_succession:0 "Насчёт Железного трона..."
+ global_events_settings.0001.nw_elections:0 "Насчет выборов Ночного Дозора..."
+ global_events_settings.main_screen:0 "Есть ещё кое-что..."
+ global_events_settings.dismiss:0 "Это всё."
+ #Petitioners & Homage
+ global_events_settings.0002.t:0 "$global_events_settings.0001.t$"
+ global_events_settings.0002.desc:0 "$global_events_settings.0001.desc$"
  global_events_settings.0002.less_homage:0 "Пусть мои вассалы выражают почтение в разумных пределах."
  global_events_settings.0002.less_homage.tt:0 "Разрешить обычное количество вассалов, выражающих почтение."
  global_events_settings.0002.more_homage:0 "Все должны выражать мне почтение."
@@ -128,6 +139,20 @@
  global_events_settings.0002.petitioners_on.tt:0 "#P #bold Разрешить#!#! подачу прошений."
  global_events_settings.0002.petitioners_off:0 "Я больше не буду выслушивать просителей."
  global_events_settings.0002.petitioners_off.tt:0 "#N #bold Запретить#!#! подачу прошений."
+ #Iron Throne Succession
+ global_events_settings.0003.t:0 "$global_events_settings.0002.t$"
+ global_events_settings.0003.desc:0 "$global_events_settings.0002.desc$"
+ global_events_settings.0003.it_toggle_on:0 "Держите меня в курсе престолонаследия Железного трона."
+ global_events_settings.0003.it_toggle_on.tt:0 "В настоящее время #N #bold ВЫ НЕ БУДЕТЕ#!#! получать информацию о престолонаследии Железного трона."
+ global_events_settings.0003.it_toggle_off:0 "Престолонаследие Железного трона меня не касается."
+ global_events_settings.0003.it_toggle_off.tt:0 "В настоящее время #P #bold ВЫ БУДЕТЕ#!#! проинформированы, когда новый правитель взойдёт на Железный трон."
+ #Night's Watch Elections
+ global_events_settings.0004.t:0 "$global_events_settings.0002.t$"
+ global_events_settings.0004.desc:0 "$global_events_settings.0002.desc$"
+ global_events_settings.0004.nw_toggle_on:0 "Меня интересуют дела Ночного Дозора."
+ global_events_settings.0004.nw_toggle_on.tt:0 "В настоящее время #N #bold вы НЕ БУДЕТЕ#!#! получать информацию о выборах в Ночном Дозоре."
+ global_events_settings.0004.nw_toggle_off:0 "Дела Ночного Дозора меня не касаются."
+ global_events_settings.0004.nw_toggle_off.tt:0 "В настоящее время #P #bold вы БУДЕТЕ#!#! проинформированы, когда будет избран новый Лорд-командующий Ночного Дозора."
 
  #####################################
  ## adopt_personal_coa Decision Loc ##
