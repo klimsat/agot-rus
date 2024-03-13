@@ -3,11 +3,8 @@
 ######################################################
 
 window = {
-	#AGOT Added for the Most Devout window
-	allow_outside = yes
-	#window_cardinals = {} #AGOT Cardinal System
-
 	name = "faith_window"
+	widgetid = "faith_window"
 	datacontext = "[FaithWindow.GetFaith]"
 	datacontext = "[GetVariableSystem]"
 	movable = no
@@ -677,6 +674,7 @@ window = {
 											}
 										}
 									}
+
 								}
 							}
 						}
@@ -1334,7 +1332,7 @@ window = {
 										text_single = {
 											name = "faith_name"
 											align = left|nobaseline
-											text = "FAITH_COOLTIP_GETNAME"
+											text = "[Faith.GetNameNoTooltip]"
 											using = Font_Size_Medium
 											default_format = "#high"
 											max_width = 240
