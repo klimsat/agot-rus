@@ -1,6 +1,7 @@
 window = {
 	gfxtype = windowgfx
 	name = "war_overview_window"
+	widgetid = "war_overview_window"
 	parentanchor = bottom|hcenter
 	size = { 100% 280 }
 	movable = no
@@ -12,21 +13,13 @@ window = {
 		name = _mouse_hierarchy_enter
 		start_sound = {
 			soundeffect = "event:/SFX/Snapshots/sfx_snapshots_WaroutcomeWindow"
-			soundparam = {
-				name = StateChange
-				value = 2.0
-			}
 		}
 	}
 
 	state = {
 		name = _mouse_hierarchy_leave
 		start_sound = {
-			soundeffect = "event:/SFX/Snapshots/sfx_snapshots_WaroutcomeWindow"
-			soundparam = {
-				name = StateChange
-				value = 1.0
-			}
+			soundeffect = "event:/SFX/Snapshots/sfx_snapshots_closeWarOutcome"
 		}
 	}
 

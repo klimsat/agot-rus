@@ -5,7 +5,7 @@
 
 window = {
 	name = "council_window"
-	widgetid = "council_window_id"
+	widgetid = "council_window"
 	parentanchor = top|right
 	layer = windows_layer
 	movable = no
@@ -18,7 +18,6 @@ window = {
 		using = Sound_WindowShow_Standard
 		using = Window_Position_MainTab
 
-		#AGOT ADDDED - defaults to the "my council" screen
 		on_start = "[GetVariableSystem.Set( 'council_tabs', 'my_council' )]"
 	}
 
@@ -643,7 +642,7 @@ types CouncilWindow
 
 					blockoverride "tooltip"
 					{
-						tooltip_enabled = "[And( ActiveCouncilTask.HasMainSkill, ActiveCouncilTask.HasCouncillor )]"
+						tooltip_visible = "[And( ActiveCouncilTask.HasMainSkill, ActiveCouncilTask.HasCouncillor )]"
 						tooltip = "[SkillItem.GetSkillBreakdownTooltip]"
 					}
 				}

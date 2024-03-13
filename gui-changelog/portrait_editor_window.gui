@@ -3,7 +3,7 @@ template preview_portrait_base
 	using = pe_standard_head
 	datacontext = [PortraitEditorWindow.GetPortraitDataContext]
 	portrait_texture = "[GetPortraitTextureFromDna('type=male|environment=environment_standard|camera=camera_head|dna=8gDwAAQGCAUAGAAZALAAsADPAM8A4QDhAKUApQDmAOYD0APQAP4A/gL9Av0AmQCZAHkAAAAAAAAAAAAAAAAAAAAAAAAA/wD/', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
-	tooltip_enabled = no
+	tooltip_visible = no
 	alwaystransparent = no
 }
 template preview_portrait_200
@@ -1321,7 +1321,7 @@ types PortraitEditorTypes
 				pop_out = no
 				datacontext = [PortraitEditorWindow.GetPortraitDataContext]
 				parentanchor = bottom|left
-				tooltip_enabled = yes
+				tooltip_visible = yes
 				raw_tooltip =  "Press to open 3D View"
 				alwaystransparent = no
 				block "portrait_texture" {}
@@ -1333,7 +1333,7 @@ types PortraitEditorTypes
 				pop_out = no
 				datacontext = [PortraitEditorWindow.GetPortraitDataContext]
 				parentanchor = bottom|left
-				tooltip_enabled = yes
+				tooltip_visible = yes
 				raw_tooltip =  "Press to open 3D View"
 				alwaystransparent = no
 
@@ -1346,7 +1346,7 @@ types PortraitEditorTypes
 				pop_out = no
 				datacontext = [PortraitEditorWindow.GetPortraitDataContext]
 				parentanchor = bottom|left
-				tooltip_enabled = yes
+				tooltip_visible = yes
 				raw_tooltip =  "Press to open 3D View"
 				alwaystransparent = no
 
@@ -2800,7 +2800,7 @@ types PortraitEditorTypes
 												onclick = "[ChildItem.CopyDnaToClipboard]"
 											}
 											alwaystransparent = no
-											tooltip_enabled = yes
+											tooltip_visible = yes
 											raw_tooltip =  "Click to copy DNA to clipboard"
 										}
 										button = {
@@ -2854,7 +2854,7 @@ types PortraitEditorTypes
 			parentanchor = bottom|left
 			size = { 100 150 }
 			portrait_texture = "[GetPortraitTextureFromDna(ChildItem.GetDnaForTexture('|environment=environment_standard|camera=camera_head|age=0.25'), PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
-			tooltip_enabled = no
+			tooltip_visible = no
 			alwaystransparent = no
 		}
 		button = {

@@ -101,7 +101,7 @@ types PatronWindow {
 			}
 
 			tooltip = PATRON_SELECTION_TOOLTIP
-			tooltip_enabled = "[Not(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName))]"
+			tooltip_visible = "[Not(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName))]"
 
 			onclick = "[GetVariableSystem.Set('selected_patron', Scope.GetFlagName)]"
 			onclick = "[GetVariableSystem.Set('show_patron_select_confirm', 'true')]"

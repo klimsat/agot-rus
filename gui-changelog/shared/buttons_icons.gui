@@ -96,6 +96,13 @@ types ButtonIcons
 		texture = "gfx/interface/icons/flat_icons/history.dds"
 	}
 
+	type button_promote = button_icon
+	{
+		texture = "gfx/interface/icons/flat_icons/prison_ransom.dds"
+
+		using = Placeholder_Pink_Texture
+	}
+
 	type button_play_sound = button_icon
 	{
 		texture = "gfx/interface/icons/flat_icons/play_sound.dds"
@@ -608,6 +615,30 @@ types ButtonIcons
 	type button_trait = button_group
 	{
 		icon_trait = {}
+	}
+
+	type button_epidemic = button
+	{
+		datacontext = "[Epidemic.GetType]"
+		texture = "[EpidemicType.GetIcon]"
+
+		size = { 35 35 }
+		
+		onclick = "[ToggleGameViewData( 'epidemics', Epidemic.Self )]"
+
+		tooltipwidget = epidemic_tooltip
+	}
+
+	type button_legend = button
+	{
+		datacontext = "[Legend.GetType]"
+		texture = "[LegendType.GetIcon]"
+
+		size = { 35 35 }
+
+		onclick = "[ToggleGameViewData( 'legends', Legend.Self )]"
+
+		tooltipwidget = legend_tooltip
 	}
 
 	type button_open_memories = button_normal

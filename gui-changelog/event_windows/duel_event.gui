@@ -51,6 +51,7 @@ window = {
 		name = show
 		trigger_on_create = yes
 		using = Animation_FadeIn_Standard
+	using = Sound_Panel_Popup_Snapshot
 		duration = 0.7
 
 		on_start = "[GetVariableSystem.Clear( 'event_window_mouse_leave')]"
@@ -239,7 +240,7 @@ window = {
 								{
 									portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('left_portrait', 'camera_event_duel_left', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 									alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
-									tooltip_enabled = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
+									tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
 									using = tooltip_ws
 									tooltip_offset = { -40 0 }
 								}
@@ -294,7 +295,7 @@ window = {
 								{
 									portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('right_portrait', 'camera_event_duel_right', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 									alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('right_portrait'))]"
-									tooltip_enabled = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
+									tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
 									using = tooltip_es
 									tooltip_offset = { -40 0 }
 								}
@@ -389,7 +390,7 @@ window = {
 										{
 											portrait_texture = "[EventWindowData.GetStaticEventPortraitTexture('lower_left_portrait', 'camera_shoulders', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 											alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('lower_left_portrait'))]"
-											tooltip_enabled = "[EventWindowData.ShouldShowPortraitInfo('lower_left_portrait')]"
+											tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('lower_left_portrait')]"
 										}
 
 										blockoverride "highlight_visible"
