@@ -99,6 +99,38 @@
  agot_valyrian_steel_default_desc:0 "Перекованный валирийский меч"
  event_window_widget_enter_name_prompt:0 "Выберите название артефакта:"
 
+#Artifact looted in battle/taken from captive
+ agot_valyrian_steel.1000.t:0 "Валирийская сталь у моих ног"
+ agot_valyrian_steel.1000.desc:0 "Когда пыл битвы спадает, я счищаю кровь врага со своего лица и вижу оружие, которое могло бы забрать мою жизнь, если бы не мое превосходное мастерство.\n\nПосреди грязи и бесчисленных тел лежит клинок из валирийской стали Дома [artifact_knight.GetHouse.GetBaseName]. Не имея владельца, который мог бы им завладеть, он принадлежит мне..."
+ agot_valyrian_steel.1000.a:0 "Я выиграл клинок, и заберу его!"
+ agot_valyrian_steel.1000.a.tt:0 "#v Дом [artifact_knight.GetHouse.GetBaseName] не скоро простит такое оскорбление!#!"
+ agot_valyrian_steel.1000.b:0 "Он не принадлежит мне."
+ agot_valyrian_steel.1000.b.tt:0 "[looted_vs_sword.GetName] будет возвращен в Дом [artifact_knight.GetHouse.GetBaseName]."
+
+ agot_valyrian_steel.1001.t:0 "Захвачен валирийский клинок"
+ agot_valyrian_steel.1001.desc:0 "Битва выиграна. Мои войска одержали победу, а враги бегут в полном беспорядке. Пока с поля боя собирают тела павших и берут пленных, [artifact_knight.GetName] предстает передо мной, лишенный своего престижного оружия одним из моих коварных воинов.\n\n[looted_vs_sword.GetName], клинок из валирийской стали Дома [артефакт-рыцарь.GetHouse.GetBaseName] находится в моей власти... Только глупец станет оспаривать мое право на него."
+ agot_valyrian_steel.1001.a:0 "Он будет отличным трофеем!"
+ agot_valyrian_steel.1001.b:0 "Такой поступок лишь опозорит мое имя!"
+
+ agot_valyrian_steel.1010.t:0 "[enemy_knight.Custom2('AppropriateGreeting', ROOT.Char)]"
+ agot_valyrian_steel.1010.desc:0 "Я, [enemy_knight.GetName], завладел священным мечом вашей семьи, [looted_vs_sword.GetName]\n\nЯ взял его из рук [artifact_knight.GetName], который сражался на противоположной стороне битвы от меня, [artifact_knight.GetHerHis] смерть прискорбна, и я не хочу позорить себя, лишая семью [artifact_knight.GetHerHis] их прав. [looted_vs_sword.GetNameNoTooltip] - ваш."
+ agot_valyrian_steel.1010.a:0 "[looted_vs_sword.GetNameNoTooltip] нашел дорогу домой."
+
+ agot_valyrian_steel.1011.t:0 "Украденная реликвия"
+ agot_valyrian_steel.1011.desc.prisoner:0 "Мерзкий [vs_artifact_thief.GetName] не только заковал меня в цепи, но и использовал мое заточение как возможность украсть [looted_vs_sword.GetName]! Меч Дома #italic [ROOT.Char.GetHouse.GetName]! #!\n\nЯ #italic должен#! получить его обратно! Ради моей чести и чести Дома [ROOT.Char.GetHouse.GetNameNoTooltip]."
+ agot_valyrian_steel.1011.desc.house_head:0 "Новости от [battle_memory.GetName] прибыли в руки измученного гонца.\n\nПодлый [vs_artifact_thief.GetName] не только заковал моего [ROOT.Char.Custom2('RelationToMeShort', SCOPE. sC('artifact_knight'))] [artifact_knight.GetName] в цепи, но и использовал [artifact_knight.GetHerHis] заточение как возможность украсть [looted_vs_sword.GetName]! Меч Дома #italic [ROOT.Char.GetHouse.GetName]!\n\nЯ #italic должен#! получить его обратно! Ради моей чести и чести Дома [ROOT.Char.GetHouse.GetNameNoTooltip]."
+ agot_valyrian_steel.1011.desc.slain:0 "В [battle_memory.GetName], [artifact_knight.GetName] погиб, бесславно сражаясь вместе с [artifact_knight.GetHerHis] людьми, срубленный в пылу битвы чудовищным [enemy_knight.GetName]\n\nНе только жизнь [artifact_knight.GetFirstNamePossessiveNoTooltip] была потеряна, но и [looted_vs_sword.GetName]. Заветная вещь Дома [artifact_knight.GetHouse.GetNameNoTooltip] была украдена [enemy_knight.GetNameNoTooltip] для использования и демонстрации в качестве [enemy_knight.GetHerHis] личного приза!"
+ agot_valyrian_steel.1011.tt.house_opinion_loss:0 "Все члены #v твоего#! Дома"
+ agot_valyrian_steel.1011.feud:0 "Дом [vs_artifact_thief.GetHouse.GetName] дорого заплатит за этот проступок!"
+ agot_valyrian_steel.1011.feud.tt:0 "У [scheme|E] будет больше [success_chance|E]."
+ agot_valyrian_steel.1011.a:0 "Я #italic должен#! вернуть [looted_vs_sword.GetName] домой, чего бы мне это ни стоило."
+ agot_valyrian_steel.1011.b:0 "Это не в моей власти... Я ничего не могу сделать."
+ agot_valyrian_steel.1011.c:0 "[looted_vs_sword.GetNameNoTooltip] будет сидеть рядом с [vs_artifact_thief.GetFirstNamePossessive], пока что..."
+
+ agot_valyrian_steel.1012.t:0 "[expected_vs_artifact_holder.Custom2('AppropriateGreetingNegative', ROOT.Char)]"
+ agot_valyrian_steel.1012.desc:0 "Ты бесчестный вор! Да будет известно, что [looted_vs_sword.GetName] принадлежит мне по праву! Я позабочусь о том, чтобы честь Дома [expected_vs_artifact_holder.GetHouse.GetName] была восстановлена, а [looted_vs_sword.GetNameNoTooltip] вернулся под опеку моей семьи."
+ agot_valyrian_steel.1012.a:0 "Пусть [expected_vs_artifact_holder.GetHerHim] скулит, [looted_vs_sword.GetNameNoTooltip] - мой!"
+
 #Show me Steel
  agot_valyrian_steel.9999.t:0 "Владельцы валирийской стали"
  agot_valyrian_steel.9999.desc:0 "Мой сюзерен, перед вами список всех обладателей валирийской стали в известном мире."
