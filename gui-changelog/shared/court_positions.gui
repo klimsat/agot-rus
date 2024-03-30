@@ -82,7 +82,7 @@ types CourtPositionItems
 					}
 					text_single = {
 						name = "ai_score"
-						visible = "[InDebugMode]"
+						visible = "[AIWatchWindowsEnabled]"
 						text = "[CourtPosition.GetAICandidateScore]"
 						default_format = "#D"
 						align = nobaseline
@@ -834,7 +834,9 @@ types CourtPositionItems
 			datacontext = "[EmptyCourtPosition.GetType]"
 			datacontext = "[EmptyCourtPosition.GetCourtOwner]"
 
-			size = "[Select_CVector2f( DataModelHasItems( CourtPositionType.GetTasks ), '(CVector2f)537,200', '(CVector2f)537,200' )]"
+			#AGOT Modified, Fit Maester Court Position Tasks 200 -> 240
+			# size = "[Select_CVector2f( DataModelHasItems( CourtPositionType.GetTasks ), '(CVector2f)537,200', '(CVector2f)537,200' )]"
+			size = "[Select_CVector2f( DataModelHasItems( CourtPositionType.GetTasks ), '(CVector2f)537,240', '(CVector2f)537,200' )]"
 
 			background = {
 				visible = "[And(Not( SelectedEmptyCourtPosition.SameAs( PdxGuiWidget.GetIndexInDataModel ) ), EmptyCourtPosition.CanHirePosition)]"
@@ -1180,7 +1182,7 @@ types CourtPositionItems
 					#### DEBUG AI SCORE ####
 					text_single = {
 						name = "ai_score"
-						visible = "[InDebugMode]"
+						visible = "[AIWatchWindowsEnabled]"
 						block "cp_ai_score"
 						{
 							text = ""
