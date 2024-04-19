@@ -126,26 +126,37 @@
  trait_rainbow_guard_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'надела', 'надел' )] радужный плащ и служит в Радужной гвардии."
 
  #Citadel/Maester traits
-
+ trait_novice:0 "Школяр"
+ trait_novice_desc:0 "Этот персонаж недавно начал обучение в Цитадели."
+ trait_novice_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] недавно начал обучение в Цитадели."
+ trait_acolyte:0 "Кандидат"
+ trait_acolyte_desc:0 "Этот персонаж выковал своё первое звено в Цитадели и стал кандидатом."
+ trait_acolyte_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] выковал своё первое звено в Цитадели и стал кандидатом."
  trait_maester:0 "Мейстер"
  trait_maester_desc:0 "Этот персонаж завершил свое обучение в Цитадели и стал мейстером."
  trait_maester_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'прошла', 'прошёл' )] обучение в Цитадели и [Select_CString( ROOT.GetCharacter.IsFemale, 'стала', 'стал' )] мейстером."
  trait_track_maester:0 "Обучение мейстера"
+ trait_track_maester_desc:0 "Учиться - значит совершенствоваться, а мейстеры - одни из самых образованных."
 
  trait_disgraced_maester:0 "Опальный мейстер"
  trait_disgraced_maester_desc:0 "Конклав Цитадели лишил этого персонажа мейстерской цепи."
  trait_disgraced_maester_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'лишилась', 'лишился' )] мейстерской цепи по приказу Конклава Цитадели."
 
- #Knighthood traits
+ archmaester:0 "Архимейстер"
+ trait_archmaester:0 "$archmaester$"
+ trait_archmaester_typed:0 "$archmaester$: [SelectLocalization(ROOT.GetCharacter.IsValid, ROOT.GetCharacter.Custom('GetSpecialtyField'),'')|U]"
+ trait_archmaester_desc:0 "Знаток в своей области знаний, этот персонаж теперь является архимейстером Цитадели."
+ trait_archmaester_character_desc:0 "Знаток в своей области знаний, [ROOT.GetCharacter.GetFirstNameNoTooltip] теперь является архимейстером Цитадели."
+ trait_archmaester_typed_desc:0 "Знаток в такой науке, как [ROOT.GetCharacter.Custom('GetSpecialtyFieldLower')|l], [ROOT.GetCharacter.GetFirstNameNoTooltip] теперь является архимейстером Цитадели."
+ trait_archmaester_typed_character_desc:0 "Знаток в такой науке, как [ROOT.GetCharacter.Custom('GetSpecialtyFieldLower')], [ROOT.GetCharacter.GetFirstNameNoTooltip] теперь является архимейстером Цитадели."
 
+ trait_citadel_desc:0 "Этот персонаж учился, чтобы стать мейстером в Цитадели."
+ #Knighthood traits
  trait_knighthood:0 "Рыцарство" #Trait group localization key
  trait_knight:0 "Рыцарь"
  trait_knight_questionable:0 "Рыцарь?"
 
  trait_knight_desc:0 "Этот персонаж был посвящён в рыцари и поклялся перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим командирам, сюзерену, королю, храбро сражаться и выполнять другие возложенные на него задачи, какими бы трудными, скромными или опасными они ни были."
-
- trait_knight_unique_desc:0 "Этот персонаж был посвящён в рыцари и поклялся перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим командирам, сюзерену, королю, храбро сражаться и выполнять другие возложенные на него задачи, какими бы трудными, скромными или опасными они ни были."
-
  trait_knight_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'была посвящена', 'был посвящен' )] в рыцари и [Select_CString( ROOT.GetCharacter.IsFemale, 'поклялась', 'поклялся' )] перед глазами богов и людей защищать тех, кто не может защитить себя сам, защищать всех женщин и детей, повиноваться своим командирам, сюзерену, королю, храбро сражаться и выполнять другие возложенные на [Select_CString( ROOT.GetCharacter.IsFemale, 'неё', 'него' )] задачи, какими бы трудными, скромными или опасными они ни были."
 
  trait_squire:0 "Оруженосец"
@@ -279,7 +290,7 @@
 
  trait_crippled:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Покалеченная', 'Покалеченный' )]"
  trait_crippled_desc:0 "Этот персонаж был парализован и больше не может двигать большей частью своего тела."
- trait_crippled_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'была парализована', 'был парализован' )]."
+ trait_crippled_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'была парализована', 'был парализован' )], и больше не может двигать большей частью своего тела."
 
  #Plague and diseases and malladies
  trait_dancing_plague:0 "Танцующая чума"
@@ -292,10 +303,10 @@
 
  trait_greyscale:0 "Серая хворь"
  trait_greyscale_desc:0 "Этот персонаж страдает от серой хвори. Потрескавшаяся, шелушащаяся и похожая на камень кожа покрывает большую часть его тела."
- trait_greyscale_character_desc:0 "Теперь нельзя отрицать, что [ROOT.GetCharacter.GetFirstNameNoTooltip] страдает от серой хвори. Потрескавшаяся, шелушащаяся и похожая на камень кожа покрывает большую часть [ROOT.GetCharacter.GetHerHis] тела."
+ trait_greyscale_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] страдает от серой хвори. Потрескавшаяся, шелушащаяся и похожая на камень кожа покрывает большую часть [ROOT.GetCharacter.GetHerHis] тела."
 
  trait_greyscale_2.desc:0 "Этот персонаж страдает от серой хвори. Потрескавшаяся, шелушащаяся и похожая на камень кожа покрывает большую часть его тела."
- trait_greyscale_2_character.desc:0 "Теперь уже нельзя отрицать, что [ROOT.GetCharacter.GetFirstNameNoTooltip] страдает от серой хвори. Потрескавшаяся, шелушащаяся и похожая на камень кожа покрывает большую часть [ROOT.GetCharacter.GetHerHis] тела."
+ trait_greyscale_2_character.desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] страдает от серой хвори. Потрескавшаяся, шелушащаяся и похожая на камень кожа покрывает большую часть [ROOT.GetCharacter.GetHerHis] тела."
 
  trait_greyscale_3:0 "Неподконтрольная серая хворь"
  trait_greyscale_3_desc:0 "Уже слишком поздно спасать этого персонажа. Серая хворь поглотила его до безумия. Она стала опасна для самого себя и всех тех, кто его окружает."
