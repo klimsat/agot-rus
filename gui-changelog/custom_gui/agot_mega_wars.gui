@@ -6,6 +6,7 @@ types MegaWarsTypes {
 	### Used in War Window
 	type MegaWarsJoinLeaderLeft = widget {
 		size = { 190 30 }
+		visible = [GetPlayer.IsValid]
 		button_standard = {
 			size = { 190 30 }
 			datacontext = "[WarOverviewWindow.GetLeftSideLeaderItem]"
@@ -23,6 +24,7 @@ types MegaWarsTypes {
 	}
 	type MegaWarsJoinLeaderRight = widget {
 		size = { 190 30 }
+		visible = [GetPlayer.IsValid]
 		button_standard = {
 			size = { 190 30 }
 			datacontext = "[WarOverviewWindow.GetRightSideLeaderItem]"

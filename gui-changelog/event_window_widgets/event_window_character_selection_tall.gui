@@ -1,37 +1,41 @@
 widget = {
 	allow_outside = yes
-	name = "event_window_character_selection"
-	size = { 480 239 }
+	name = "event_window_character_selection_tall"
+	size = { 480 320 } # Size of the insert into the event window which takes into account the margin below
+
 	container = {
 		allow_outside = yes
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
 		position = { 0 0 }
 		ignoreinvisible = yes
+
 		vbox = {
 			allow_outside = yes
-			margin = { 3 3 }
-			expand = {}
+			margin = { 0 -24 } # Pushes the box around
+
 			scrollbox = {
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
-				#AGOT Modified
-				# minimumsize = { 480 239 }
-				minimumsize = { 460 239 }
-				blockoverride "scrollbox_margins"
-				{
-					margin = { 10 15 }
-				}
+				minimumsize = { 460 347 } # Size of the container of characters
+
 				blockoverride "scrollbox_content"
 				{
 					vbox = {
 						datamodel = "[GetPlayer.MakeScope.GetList('possible_characters')]"
 						layoutpolicy_horizontal = expanding
+						margin = { -6 -8 }
 
 						item = {
 							button_standard = {
-								datacontext = "[Scope.GetCharacter]"
+								name = "background_button"
+								size = { 436 68 }
+								using = tooltip_ws
 								layoutpolicy_vertical = expanding
+								datacontext = "[Scope.GetCharacter]"
+								onclick = "[GetScriptedGui('si_set_selected_character').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_char', Character.MakeScope).End)]"
+								down = "[GetScriptedGui('si_set_selected_character').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_char', Character.MakeScope).End)]"
+
 								tooltipwidget = {
 									cooltip_type = {
 										blockoverride "interaction_info" {
@@ -39,18 +43,10 @@ widget = {
 										}
 									}
 								}
-								using = tooltip_ws
 								tooltip_offset = { 0 0 }
 								tooltip_verticalbehavior = slide
 								tooltip_horizontalbehavior = mirror
-								name = "background_button"
-								#AGOT Modified
-								# size = { 450 66 }
-								size = { 425 66 }
-								#onclick = "[GetVariableSystem.Set('si_highlighted_character', Character.GetUIName)]"
-								onclick = "[GetScriptedGui('si_set_selected_character').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_char', Character.MakeScope).End)]"
-								down = "[Scope.Var('si_selecting_character').IsSet]"
-								#down = "[GetVariableSystem.HasValue('si_highlighted_character', Character.GetUIName)]"
+
 								portrait_head_small = {
 									scale = 0.75
 									tooltip_visible = no
@@ -59,15 +55,12 @@ widget = {
 									name = "character_name"
 									text = "[Character.GetUINameNotMeNoTooltip]"
 									using = Font_Size_Medium
-									align = nobaseline
-
-									position = { 80 20 }
+									align = center
+									position = { 70 20 }
 								}
 								expand = {}
-
 							}
 						}
-
 						expand = {}
 					}
 				}

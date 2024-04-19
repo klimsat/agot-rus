@@ -927,6 +927,10 @@ types EpidemicsWindowTypes
 			}
 		}
 
+		#AGOT Added to prevent observer error log spam
+		vbox = {
+		visible = [GetPlayer.IsValid]
+
 		hbox_single_court_position_card = {
 			datacontext = "[GetCourtPositionType( 'court_physician_court_position' )]"
 			datacontext = "[GetPlayer]"
@@ -1006,6 +1010,9 @@ types EpidemicsWindowTypes
 			{
 				visible = "[GetVariableSystem.Exists( 'expand_epidemic_maester' )]"
 			}
+		}
+
+		#AGOT Added
 		}
 	}
 }

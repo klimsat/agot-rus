@@ -1798,7 +1798,7 @@ types CouncilTaskTypes
 					datacontext = "[ActiveCouncilTask.GetPositionType]"
 					datacontext = "[ActiveCouncilTask.GetCouncillor]"
 
-					visible = "[GetScriptedGui('admiral_tab').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					visible = "[Or( GetScriptedGui('admiral_tab').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End), GetScriptedGui('admiral_tab').IsShown(GuiScope.SetRoot(ActiveCouncilTask.GetCouncillor.GetLiege.MakeScope).End))]"
 					
 					background =  {
 						texture = "gfx/interface/illustrations/council/bg_council_admiral.dds"
@@ -1829,8 +1829,8 @@ types CouncilTaskTypes
 					#datacontext = "[GetIllustration( 'religion_interior' )]"
 					datacontext = "[GetIllustration('agot_chaplain')]"
 					#AGOT Added
-					visible = "[GetScriptedGui('agot_chaplain_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-
+					visible = "[Or( GetScriptedGui('agot_chaplain_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End), GetScriptedGui('agot_chaplain_position_valid').IsShown(GuiScope.SetRoot(ActiveCouncilTask.GetCouncillor.GetLiege.MakeScope).End))]"
+					
 					#AGOT MODIFIED 
 					background =  {
 						texture = "[Illustration.GetTexture( ActiveCouncilTask.GetCouncillor.GetFaith.MakeScope )]"

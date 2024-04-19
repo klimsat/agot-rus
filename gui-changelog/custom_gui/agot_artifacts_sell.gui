@@ -1,0 +1,903 @@
+﻿types artifacts_sell {
+
+	# I plead guilty for not having a single comment in this code block
+	type agot_artifact_market_window_open = window {
+		name = "agot_artifact_market_window_open"
+		allow_outside = yes
+		movable = yes
+		parentanchor = center
+		size = { 0 0 }
+
+		visible = "[And( Not( IsPauseMenuShown ), And(Or(Not(IsObserver), GetPlayer.IsValid), IsDefaultGUIMode))]"
+
+		agot_artifact_market_window = {}
+	}
+
+	type agot_artifact_market_window = window {
+		name = "agot_artifact_market_window"
+		allow_outside = yes
+		position = { 0 -60 }
+		movable = yes
+		parentanchor = center
+		size = { 1300 900 }
+		using = Window_Background
+		using = Window_Decoration_Spike
+
+		visible = "[GetScriptedGui('agot_artifact_market_window').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+
+
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+			using = Sound_WindowShow_Standard
+
+			on_start = "[GetScriptedGui('agot_get_market_artifacts').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		}
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+			using = Sound_WindowHide_Standard
+
+			on_start = "[GetScriptedGui('agot_clear_artifact_market_window_variables').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		}
+
+		vbox = {
+			using = Window_Margins
+			background = {
+				texture = "gfx/interface/component_masks/mask_brushed.dds"
+				color = { 0.2 0.2 0.31 0.5 }
+			}
+
+			header_pattern = {
+				layoutpolicy_horizontal = expanding
+
+				blockoverride "button_close"
+				{
+					datacontext = "[GetScriptedGui('agot_artifact_market_window')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+				}
+
+				blockoverride "header_text"
+				{
+					text = "sell_artifacts_head"
+				}
+			}
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+
+					header_standard = {
+						layoutpolicy_horizontal = expanding
+
+						blockoverride "header_text"
+						{
+							text = agot_artifact_on_market
+						}
+
+						blockoverride "button_close"
+						{
+							visible = no
+						}
+					}
+
+					scrollbox = {
+						size = { 550 590 }
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						blockoverride "scrollbox_content" {
+							vbox = {
+								datamodel = "[GetGlobalList('agot_market_artifacts')]"
+								layoutpolicy_horizontal = expanding
+
+								item = {
+									agot_artifact_info_button_buy = {
+										datacontext = "[Scope.Artifact]"
+										layoutpolicy_horizontal = expanding
+										size = {250 110 }
+									}
+								}
+							}
+						}
+
+						blockoverride "scrollbox_empty" {
+							layoutpolicy_vertical = expanding
+							visible = "[IsDataModelEmpty(GetGlobalList('agot_market_artifacts'))]"
+							text = "agot_no_artifacts_is_selling"
+						}
+					}
+
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+
+					}
+				}
+
+
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+							header_standard = {
+								layoutpolicy_horizontal = expanding
+
+								blockoverride "header_text"
+								{
+									text = agot_artifact_keeper_head_text
+								}
+
+								blockoverride "button_close"
+								{
+									visible = no
+								}
+							}
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = expanding
+								spacer = {
+									size = { 45 0 }
+								}
+								background = {
+									texture = "gfx/interface/component_tiles/header_full_window_background.dds"
+									color = { 0.2 0.2 0.31 0.5 }
+								}
+								vbox = {
+									agot_selling_artifact_seller_info = {
+										layoutpolicy_vertical = expanding
+										datacontext = "[GetGlobalVariable('agot_artifact_keeper').Char]"
+									}
+									hbox = {
+										layoutpolicy_vertical = expanding
+										icon = {
+											name = "icon_gold"
+											size = { 30 30 }
+											texture = "gfx/interface/icons/icon_gold.dds"
+										}
+										text_single = {
+											name = "name"
+											text = "[GetGlobalVariable('agot_artifact_keeper').Char.GetGold|0]"
+											margin_right = 10
+										}
+									}
+								}
+								spacer = {
+									size = { 35 0 }
+								}
+								text_multi = {
+									text = agot_artifact_welcome_word_text
+									default_format = "#low"
+									autoresize = yes
+									max_width = 400
+								}
+							}
+						}
+					}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+							header_standard = {
+								layoutpolicy_horizontal = expanding
+
+								blockoverride "header_text"
+								{
+									text = agot_artifact_seller_info_head_text
+								}
+
+								blockoverride "button_close"
+								{
+									visible = no
+								}
+							}
+							scrollbox = {
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = expanding
+								blockoverride "scrollbox_content" {
+									agot_selling_artifact_seller_info = {
+										layoutpolicy_horizontal = expanding
+										layoutpolicy_vertical = expanding
+										datacontext = "[GetPlayer.MakeScope.Var('agot_selected_artifact_buy').Var('agot_seller').Char]"
+									}
+								}
+							}
+						}
+						
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+							header_standard = {
+								layoutpolicy_horizontal = expanding
+
+								blockoverride "header_text"
+								{
+									text = agot_artifact_value_breakdown_head
+								}
+
+								blockoverride "button_close"
+								{
+									visible = no
+								}
+							}
+							scrollbox = {
+								size = { 250 322 }
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = expanding
+								blockoverride "scrollbox_content" {
+									vbox = {
+										layoutpolicy_horizontal = expanding
+										visible = "[GetScriptedGui('agot_check_selected_artifact_buy').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+										hbox = {
+											agot_selling_artifact_value_breakdown = {
+												datacontext = "[GuiScope.SetRoot(GetPlayer.MakeScope.Var('agot_selected_artifact_buy').Artifact.MakeScope).AddScope('actor', GetPlayer.MakeScope).GetScriptValueBreakdown('agot_artifact_ask_price_value')]"
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					spacer = { 
+						size = { 0 26 }
+					}
+				}
+				
+			}
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+			}
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				agot_selling_button_hover = {
+					size = {  345 80 }
+					text = sell_artifacts_to_market
+					tooltip_visible = "[GetScriptedGui('agot_check_sell_artifacts_cooldown').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+					tooltip = agot_sell_artifacts_cooldown_tooltip
+					enabled = "[GetScriptedGui('agot_check_sell_artifacts_cooldown').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+					datacontext = "[GetVariableSystem]"
+					onclick = "[VariableSystem.Set('show_agot_artifact_sell_window', 'true')]"
+					onclick = "[GetScriptedGui('agot_get_owned_artifacts').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+				}
+				agot_selling_button_hover = {
+					size = {  345 80 }
+					text = agot_buy_artifacts_from_market
+					onclick = "[GetScriptedGui('agot_buy_artifact').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+					onclick = "[GetScriptedGui('agot_get_market_artifacts').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+				}
+			}
+
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+			}
+		}
+		agot_artifact_sell_window = {}
+		agot_artifact_market_debug_window = {}
+	}
+
+	type agot_artifact_sell_window = window {
+		name = "agot_artifact_sell_window"
+		allow_outside = yes
+		position = { 0 0 }
+		parentanchor = center
+		size = { 700 800 }
+		using = Window_Background
+		using = Window_Decoration_Spike
+
+		datacontext = "[GetVariableSystem]"
+
+		visible = "[VariableSystem.HasValue('show_agot_artifact_sell_window','true')]"
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+			using = Sound_WindowShow_Standard
+		}
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+			using = Sound_WindowHide_Standard
+			on_start = "[GetScriptedGui('agot_clear_artifact_sell_window_variables').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		}
+		vbox = {
+			using = Window_Margins
+
+			background = {
+				texture = "gfx/interface/component_masks/mask_brushed.dds"
+				color = { 0.2 0.2 0.31 0.5 }
+			}
+
+			header_pattern = {
+				layoutpolicy_horizontal = expanding
+
+				blockoverride "button_close"
+				{
+					datacontext = "[GetVariableSystem]"
+					onclick = "[VariableSystem.Set('show_agot_artifact_sell_window', 'false')]"
+				}
+
+				blockoverride "header_text"
+				{
+					text = "sell_artifacts_head"
+				}
+			}
+
+			scrollbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				size = { 500 620 }
+
+				blockoverride "scrollbox_content" {
+					vbox = {
+						datamodel = "[GetPlayer.MakeScope.GetList('agot_owned_artifacts')]"
+						layoutpolicy_horizontal = expanding
+						#visible = "[GetScriptedGui('agot_owned_artifacts').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+
+						item = {
+							agot_artifact_info_button = {
+								datacontext = "[Scope.Artifact]"
+								layoutpolicy_horizontal = expanding
+								size = { 500 110 }
+							}
+						}
+					}
+				}
+
+				blockoverride "scrollbox_empty" {
+					layoutpolicy_vertical = expanding
+					visible = "[IsDataModelEmpty(GetPlayer.MakeScope.GetList('agot_owned_artifacts'))]"
+					text = "agot_no_artifacts_to_sell"
+				}
+			}
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+			}
+
+			agot_selling_button_hover = {
+				size = {  345 80 }
+				text = sell_artifacts_to_market_confirm
+				tooltip_visible = "[GetScriptedGui('agot_check_sell_artifacts_cooldown').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+				tooltip = agot_sell_artifacts_cooldown_tooltip
+				enabled = "[GetScriptedGui('agot_check_sell_artifacts_cooldown').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+				onclick = "[GetScriptedGui('agot_sell_artifact').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+				onclick = "[GetScriptedGui('agot_get_market_artifacts').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+			}
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+			}
+
+		}
+	}
+
+	type agot_artifact_info_button = button_standard_hover {
+		size = { 100% 100% }
+
+
+
+		block "artifact_select" {
+			down = "[GetScriptedGui('agot_select_sell_artifact').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('agot_selected_artifact', Scope.Artifact.MakeScope).End )]"
+			onclick = "[GetScriptedGui('agot_select_sell_artifact').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('agot_selected_artifact', Scope.Artifact.MakeScope).End )]"
+		}
+
+		block "button_content" {
+			agot_artifact_info_hbox = {
+				blockoverride "artifact_value" {
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						text = "[GuiScope.SetRoot(Artifact.MakeScope).AddScope('actor', GetPlayer.MakeScope).ScriptValue('agot_artifact_bid_price_value')|0]"
+						using = Font_Size_Small
+						align = right|nobaseline
+						autoresize = yes
+						#tooltip = "[SaveGameItem.GetMissingMods]"
+						using = tooltip_ne
+						tooltipwidget = {
+							widget_value_breakdown_tooltip = {
+								using = DefaultTooltipBackground
+								datacontext = "[GuiScope.SetRoot(Artifact.MakeScope).AddScope('actor', GetPlayer.MakeScope).GetScriptValueBreakdown('agot_artifact_bid_price_value')]"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	type agot_artifact_info_button_buy = button_standard_hover {
+		size = { 100% 100% }
+		block "artifact_select" {
+			down = "[GetScriptedGui('agot_select_buy_artifact').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('agot_selected_artifact', Scope.Artifact.MakeScope).End )]"
+			onclick = "[GetScriptedGui('agot_select_buy_artifact').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('agot_selected_artifact', Scope.Artifact.MakeScope).End )]"
+		}
+		block "button_content" {
+			agot_artifact_info_hbox = {
+				blockoverride "artifact_value" {
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						text = "[GuiScope.SetRoot(Artifact.MakeScope).AddScope('actor', GetPlayer.MakeScope).ScriptValue('agot_artifact_ask_price_value')|0]"
+						using = Font_Size_Small
+						align = right|nobaseline
+						autoresize = yes
+
+
+						using = tooltip_ne
+						tooltipwidget = {
+							widget_value_breakdown_tooltip = {
+								using = DefaultTooltipBackground
+								datacontext = "[GuiScope.SetRoot(Artifact.MakeScope).AddScope('actor', GetPlayer.MakeScope).GetScriptValueBreakdown('agot_artifact_ask_price_value')]"
+							}
+						}
+					}
+				}
+				blockoverride "artifact_owner" {
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						text = agot_artifact_vanilla_owner
+						using = Font_Size_Small
+						align = right|nobaseline
+						autoresize = yes
+					}
+				}
+			}
+		}
+	}
+
+	type agot_artifact_info_hbox = hbox {
+		datacontext = "[Scope.Artifact]"
+
+		widget = {
+			size = { 80 80 }
+			alwaystransparent = yes
+			button_artifact = {
+				size = { 100% 100% }
+			}
+		}
+
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+
+
+			expand = {}
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+
+				text_single = {
+					layoutpolicy_horizontal = expanding
+					text = "[Artifact.GetRarityAndSlotType]"
+					max_width = 300
+					using = Font_Size_Small
+				}
+
+				expand = {}
+
+
+			}
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+
+				text_multi = {
+					layoutpolicy_horizontal = expanding
+					text = "[Artifact.GetNameNoTooltip]"
+					max_width = 350
+					using = Font_Size_Medium
+					default_format = "#high"
+					autoresize = yes
+				}
+
+				expand = {}
+
+			}
+
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+
+				hbox_artifact_durability = {}
+
+				expand = {}
+
+				vbox = {
+					hbox = {
+						icon = {
+							name = "icon_gold"
+							size = { 30 30 }
+							texture = "gfx/interface/icons/icon_gold.dds"
+						}
+						block "artifact_value" {
+
+						}
+					}
+
+					block "artifact_owner" {
+						text_single = {
+							layoutpolicy_horizontal = expanding
+							text = agot_artifact_owner
+							using = Font_Size_Small
+							align = right|nobaseline
+							autoresize = yes
+						}
+					}
+
+				}
+
+				spacer = {
+					size = { 5% 0 }
+				}
+			}
+
+			expand = {}
+		}
+
+
+		expand = {}
+	}
+
+	type agot_selling_artifact_seller_info = vbox {
+		portrait_torso = {}
+	}
+
+	type agot_selling_artifact_value_breakdown = vbox {
+
+		datamodel = "[ValueBreakdown.GetSubValues]"
+		alwaystransparent = no
+		margin = { 17 10 }
+		spacing = 3
+		block "list" {}
+		block "header" {}
+		item = {
+			hbox = {
+				name = "value_breakdown"
+				layoutpolicy_horizontal = expanding
+				icon = {
+					name = "icon_gold"
+					size = { 30 30 }
+					texture = "gfx/interface/icons/icon_gold.dds"
+				}
+				text_single = {
+					name = "name"
+					layoutpolicy_horizontal = expanding
+					text = "[ValueBreakdown.GetName]"
+					min_width = 180
+					max_width = 275
+					fonttintcolor = "[TooltipInfo.GetTintColor]"
+					margin_right = 10
+				}
+				text_single= {
+					visible = "[And(ValueBreakdown.HasTooltip, ValueBreakdown.ShouldShowValue)]"
+					name = "value_with_tooltip"
+					text = "[ValueBreakdown.GetValue|L]"
+					align = right
+					fonttintcolor = "[TooltipInfo.GetTintColor]"
+					using = tooltip_below
+					tooltipwidget = {
+						recursive = yes
+						widget_value_breakdown_tooltip = {}
+					}
+				}
+				text_single = {
+					layoutpolicy_horizontal = expanding
+					visible = "[And( Not(ValueBreakdown.HasTooltip), ValueBreakdown.ShouldShowValue )]"
+					name = "value_with_no_tooltip"
+					text = "[ValueBreakdown.GetValue|1]"
+					align = right
+					fonttintcolor = "[TooltipInfo.GetTintColor]"
+				}
+			}
+		}
+
+	}
+
+	type agot_selling_button_hover = button_normal {
+
+		alpha = 0.9
+		size = {  345 80 }
+
+		background = {
+			texture = "gfx/interface/buttons/button_hold_court_bg.dds"
+		}
+
+		state = {
+			name = _mouse_enter
+			alpha = 1
+			duration = 0.2
+			using = Animation_Curve_Default
+		}
+
+		state = {
+			name = _mouse_leave
+			alpha = 0.7
+			duration = 0.7
+			using = Animation_Curve_Default
+		}
+
+	}
+
+	type agot_artifact_market_debug_window = window {
+		name = "agot_artifact_market_debug_window"
+		allow_outside = yes
+		position = { 0 -60 }
+		movable = yes
+		parentanchor = center
+		size = { 700 900 }
+		using = Window_Background
+		using = Window_Decoration_Spike
+
+		visible = no #"[InDebugMode]"
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+			using = Sound_WindowShow_Standard
+
+		}
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+			using = Sound_WindowHide_Standard
+
+		}
+
+		vbox = {
+			using = Window_Margins
+			background = {
+				texture = "gfx/interface/component_masks/mask_brushed.dds"
+				color = { 0.2 0.2 0.31 0.5 }
+			}
+
+			header_standard = {
+				layoutpolicy_horizontal = expanding
+				blockoverride "header_text"
+				{
+					text = agot_artifact_on_market_debug
+				}
+				blockoverride "button_close"
+				{
+					visible = no
+				}
+			}
+
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				text_single = {
+					text = agot_artifact_market_debug_text_buy
+				}
+				text_single = {
+					text = agot_artifact_market_debug_text_sold
+				}
+				text_single = {
+					text = agot_artifact_market_debug_text_sold_special
+				}
+
+				text_single = {
+					text = agot_artifact_market_debug_text_created
+				}
+				text_single = {
+					text = agot_artifact_market_debug_text_created_character
+				}
+				text_single = {
+					text = agot_artifact_market_debug_text_created_court
+				}
+				text_single = {
+					text = agot_artifact_market_debug_text_created_dargon_egg
+				}
+				text_single = {
+					text = agot_artifact_market_debug_text_created_valyrian_steel
+				}
+
+			}
+			scrollbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				size = { 600 620 }
+
+				blockoverride "scrollbox_content" {
+					vbox = {
+						datamodel = "[GetGlobalList('agot_artifact_market_transaction_recording')]"
+						layoutpolicy_horizontal = expanding
+
+						item = {
+							vbox = {
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = expanding
+								hbox = {
+									layoutpolicy_horizontal = expanding
+									background = {
+										texture = "gfx/interface/component_tiles/header_full_window_background.dds"
+										color = { 0.2 0.2 0.31 0.5 }
+									}
+
+									hbox = {
+										layoutpolicy_horizontal = expanding
+										text_single = {
+											layoutpolicy_horizontal = expanding
+											text = "[Scope.Char.MakeScope.Var('transaction_type').GetFlagName]"
+											max_width = 300
+											#using = Font_Size_Small
+										}
+
+										expand = {}
+
+									}
+
+									hbox = {
+										layoutpolicy_horizontal = expanding
+
+										text_single = {
+											layoutpolicy_horizontal = expanding
+											text = "[Scope.Char.MakeScope.Var('transaction_date').Char.GetDeathDate.GetString|V]"
+											max_width = 300
+											#using = Font_Size_Small
+										}
+
+										expand = {}
+
+									}
+								}
+
+								hbox = {
+									layoutpolicy_horizontal = expanding
+									vbox = {
+										portrait_head_small = {
+											datacontext = "[Scope.Char.MakeScope.Var('transaction_character').Char]"
+										}
+									}
+									widget = {
+										datacontext = "[Scope.Char.MakeScope.Var('transaction_artifact').Artifact]"
+										size = { 80 80 }
+										alwaystransparent = yes
+										button_artifact = {
+											size = { 100% 100% }
+										}
+									}
+
+									vbox = {
+										layoutpolicy_horizontal = expanding
+
+
+
+										expand = {}
+
+
+
+										hbox = {
+											layoutpolicy_horizontal = expanding
+
+											text_single = {
+												layoutpolicy_horizontal = expanding
+												text = "[Scope.Char.MakeScope.Var('transaction_artifact').Artifact.GetRarityAndSlotType]"
+												max_width = 300
+												using = Font_Size_Small
+											}
+
+											expand = {}
+
+										}
+
+										hbox = {
+											layoutpolicy_horizontal = expanding
+
+											text_multi = {
+												layoutpolicy_horizontal = expanding
+												text = "[Scope.Char.MakeScope.Var('transaction_artifact').Artifact.GetNameNoTooltip]"
+												max_width = 350
+												using = Font_Size_Medium
+												default_format = "#high"
+												autoresize = yes
+											}
+
+											expand = {}
+
+										}
+										hbox_artifact_durability = {
+											layoutpolicy_horizontal = expanding
+											datacontext = "[Scope.Char.MakeScope.Var('transaction_artifact').Artifact]"
+										}
+									}
+
+									vbox = {
+
+
+
+										hbox = {
+											layoutpolicy_horizontal = expanding
+
+
+
+											expand = {}
+
+											vbox = {
+												hbox = {
+													icon = {
+														name = "icon_gold"
+														size = { 30 30 }
+														texture = "gfx/interface/icons/icon_gold.dds"
+													}
+
+													text_single = {
+														layoutpolicy_horizontal = expanding
+														raw_text = "Before Gold: [Scope.Char.MakeScope.Var('transaction_character_gold_before').GetValue|0]"
+														using = Font_Size_Small
+														align = right|nobaseline
+														autoresize = yes
+														using = tooltip_ne
+													}
+
+												}
+												hbox = {
+													icon = {
+														name = "icon_gold"
+														size = { 30 30 }
+														texture = "gfx/interface/icons/icon_gold.dds"
+													}
+													text_single = {
+														layoutpolicy_horizontal = expanding
+														raw_text = "After Gold: [Scope.Char.MakeScope.Var('transaction_character_gold_after').GetValue|0]"
+														using = Font_Size_Small
+														align = right|nobaseline
+														autoresize = yes
+														using = tooltip_ne
+													}
+												}
+
+
+
+											}
+
+											spacer = {
+												size = { 5% 0 }
+											}
+										}
+
+										expand = {}
+									}
+
+
+
+									expand = {}
+								}
+								spacer = {
+									size = { 0 20 }
+								}
+							}
+						}
+					}
+				}
+			}
+
+			hbox = {
+
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+			}
+
+		}
+	}
+
+}
+
+agot_artifact_market_window_open = {}
