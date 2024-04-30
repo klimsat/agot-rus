@@ -46,7 +46,9 @@ window = {
 			name = "main_characters"
 			datacontext = "[GetIllustration( 'character_view_bg' )]"
 			layoutpolicy_horizontal = expanding
-			size = { 0 305 }
+			#AGOT Modified
+			# size = { 0 305 }
+			size = { 0 325 }
 
 
 			widget = {
@@ -110,13 +112,17 @@ window = {
 			### Primary Spouse
 			container_secondary = {
 				visible = "[CharacterWindow.ShouldShowSecondary]"
+				#AGOT Added
+				position = { 60 0 }
 			}
 
 			### Main Character
 			portrait_character_view_main = {
 				name = "tutorial_highlight_main_character_button"
 				parentanchor = bottom|left
-				position = { 0 0 }
+				#AGOT Modified
+				# position = { 0 0 }
+				position = { 60 0 }
 
 				using = Animation_Character_Window_Refresh_Short
 
@@ -791,6 +797,8 @@ window = {
 					layoutpolicy_horizontal = expanding
 
 					using = Animation_Character_Window_Refresh
+					#AGOT Added
+					margin = { 0 -2 }
 
 
 					vbox = {
@@ -798,13 +806,16 @@ window = {
 						layoutpolicy_horizontal = expanding
 						#AGOT Added
 						layoutpolicy_vertical = expanding
+						margin = { 0 2 }
 
 						## Name
 						hbox = {
 							layoutpolicy_horizontal = expanding
 							#AGOT Added
 							layoutpolicy_vertical = expanding
-							margin = { 3 0 }
+							#AGOT Modified
+							# margin = { 3 0 }
+							margin = { 3 -8 }
 							margin_top = 1
 
 							#AGOT Disabled for name flavourization
@@ -865,7 +876,7 @@ window = {
 								text_single = {
 									name = "character_name_maester"
 									visible = "[GetScriptedGui('agot_maester').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-									raw_text = "Мейстер [Character.GetTitledFirstNameNicknamedNoTooltip]"
+									raw_text = "[Character.Custom('MaesterCheck')] [Character.GetTitledFirstNameNicknamedNoTooltip]"
 									margin_left = 2
 									max_width = 398
 									fontsize = 20
@@ -950,6 +961,9 @@ window = {
 						hbox_character_relation_and_ai = {
 							name = "character_relation_and_ai"
 							margin = { 3 0 }
+							#AGOT Added
+							margin_top = 2
+							margin_bottom = -4
 						}
 					}
 
@@ -1423,7 +1437,9 @@ window = {
 						realm_name_and_type_vbox = {
 							visible = "[Character.HasLandedTitles]"
 							datacontext = "[Character.GetPrimaryTitle]"
-							max_width = 250
+							#AGOT Modified
+							# max_width = 250
+							max_width = 265
 						}
 
 						expand = {}
@@ -1845,6 +1861,8 @@ window = {
 			name = "tabs"
 			visible = "[CharacterWindow.AreNoneExpanded]"
 			layoutpolicy_horizontal = expanding
+			#AGOT Added
+			margin = { 0 -4 }
 
 			button_tab = {
 				name = "family_button"
