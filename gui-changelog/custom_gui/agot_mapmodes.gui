@@ -1,0 +1,128 @@
+####################################################
+################# AGOT MAP MODES ###################
+####################################################
+
+types MapModes
+{
+	type agot_roads_map_mode_legend = flowcontainer
+	{
+		name = "agot_roads_mapmode_legend"
+		visible = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') ), IsDefaultGUIMode ) )]"
+		parentanchor = top|right
+		position = { 0 -80 }
+		direction = vertical
+		ignoreinvisible = yes
+		min_width = 170
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Standard
+		}
+
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Standard
+		}
+
+		background = {
+			using = Background_Area_Dark
+			margin = { 10 10 }
+			margin_top = 5
+			color = { 0.15 0.15 0.15 0.75 }
+		}
+
+		text_single = {
+			parentanchor = hcenter
+			text = "AGOT_ROADS_MAP_LEGEND"
+			margin_bottom = 8
+			default_format = "#Bold #color_white"
+		}
+
+		flowcontainer = {
+			direction = vertical
+			spacing = 20
+			margin_bottom = 12
+			widget = {
+				hbox = {
+					icon = {
+						texture = "gfx/interface/colors/white.dds"
+						size = { 8 8 }
+						color = { 0.8 0 0 1 }
+					}
+					spacing = 5
+					text_single = {
+						margin_top = -6
+						align = center
+						text = "AGOT_ROADS_MAP_URBAN_TERRAIN"
+					}
+					expand = {}
+				}
+			}
+			widget = {
+				hbox = {
+					icon = {
+						texture = "gfx/interface/colors/white.dds"
+						size = { 8 8 }
+						color = { 0.9 0.8 0 1 }
+					}
+					spacing = 5
+					text_single = {
+						margin_top = -6
+						align = center
+						text = "AGOT_ROADS_MAP_MAJOR_ROAD"
+					}
+					expand = {}
+				}
+			}
+			widget = {
+				hbox = {
+					icon = {
+						texture = "gfx/interface/colors/white.dds"
+						size = { 8 8 }
+						color = { 1 0.95 0.75 1 }
+					}
+					spacing = 5
+					text_single = {
+						margin_top = -6
+						align = center
+						text = "AGOT_ROADS_MAP_MINOR_ROAD"
+					}
+					expand = {}
+				}
+			}
+		}
+	}
+
+	type agot_roads_map_mode_button = button_tertiary
+	{
+		name = "map_mode_agot_roads"
+		visible = "[CanChangeMapMode]"
+		parentanchor = hcenter
+
+		size = { 159 25 }
+		onclick = "[SetMapMode('agot_custom_mapmode')]"
+		onclick = "[GetScriptedGui('agot_roads_map').Execute(GuiScope.End)]"
+		down = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') )]"
+		enabled = "[GetScriptedGui('agot_roads_map').IsValid(GuiScope.End)]"
+
+		text = "AGOT_ROADS_MAP_HEADER"
+
+		tooltip = "AGOT_ROADS_MAP_TOOLTIP"
+		using = tooltip_ws
+
+		button_expand = {
+			visible = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') ), IsDefaultGUIMode ) )]"
+			size = { 15	15 }
+			parentanchor = left|vcenter
+			alwaystransparent = yes
+		}
+
+		button_expand = {
+			visible = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') ), IsDefaultGUIMode ) )]"
+			mirror = horizontal
+			size = { 15	15 }
+			parentanchor = right|vcenter
+			alwaystransparent = yes
+		}
+	}
+}

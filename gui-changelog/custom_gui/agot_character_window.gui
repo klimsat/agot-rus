@@ -1,0 +1,405 @@
+###########################################################
+################# AGOT CHARACTER WINDOW ###################
+###########################################################
+
+types CharacterWindow
+{
+	type agot_portrait_editor_button = button
+	{
+		name = "portrait_editor_button"
+		size = { 60 40 }
+		raw_text = "portrait"
+
+		using = editor_button
+		onclick = "[CharacterWindow.OnCopyPortrait]"
+		onclick = "[ExecuteConsoleCommand('pe')]"
+		visible = "[InDebugMode]"
+		fontcolor = { 1.0 1.0 1.0 1.0 }
+	}
+
+	type agot_ruins_character_view = vbox
+	{
+		name = "main_content_ruins"
+		using = Window_Margins_Sidebar
+		using = agot_character_is_ruin
+
+		# Character box
+		widget = {
+			size = { 600 40 }
+
+			buttons_window_control = {
+				parentanchor = top|right
+				position = { 10 -20 }
+
+				blockoverride "button_close"
+				{
+					onclick = "[CharacterWindow.Close]"
+				}
+
+				blockoverride "button_back"
+				{
+					visible = "[HasViewHistory]"
+					onclick = "[OpenFromViewHistory]"
+					tooltip = "[GetViewHistoryTooltip]"
+				}
+
+				blockoverride "button_me"
+				{
+					visible = "[Not(Character.IsLocalPlayer)]"
+					onclick = "[DefaultOnCharacterClick(GetPlayer.GetID)]"
+				}
+
+				blockoverride "button_pin" {}
+			}
+		}
+
+		vbox = {
+			layoutpolicy_horizontal = fixed
+			layoutpolicy_vertical = fixed
+			margin = { 320 120 }
+			spacing = 0
+
+			background = {
+				texture = "gfx/interface/illustrations/holding_types/ruin_generic.dds"
+				fittype = centercrop
+				margin = { -30 0 }
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_rough_edges.dds"
+					blend_mode = alphamultiply
+				}
+			}
+		}
+
+
+		vbox = {
+			name = "history"
+			layoutpolicy_horizontal = expanding
+
+			## Name
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				margin = { 0 0 }
+				margin_top = 0
+
+				text_multi = {
+					parentanchor = left|top
+					widgetanchor = left
+					text = "ruin_history_generic"
+					using = Font_Size_Big
+					size = { 560 460 }
+				}
+			}
+		}
+
+		### DEBUG STUFF, please make sure those are visible and usable, especially the watch button, type "watch" into the console to show it
+		flowcontainer = {
+			name = "debug_buttons"
+			parentanchor = top|left
+			ignoreinvisible = yes
+
+			# Debug personality
+			text_single = {
+				visible = "[InDebugMode]"
+				tooltip = "CHARACTER_AI_VALUES_DEBUG_TOOLTIP"
+				raw_text = "#D AIValue#!"
+				align = nobaseline
+			}
+
+			button = {
+				using = editor_button
+				name = "ai_watch_button"
+				size = { 60 40 }
+				raw_text = "AI Watch"
+				align = center|nobaseline
+				onclick = "[CharacterWindow.OnAIWatch]"
+				visible = "[AIWatchWindowsEnabled]"
+				fontcolor = { 1.0 1.0 1.0 1.0 }
+			}
+
+			watch_window_button = {
+				size = { 60 40 }
+				onclick = "[AddWatchWindow( CharacterWindow.GetCharacter.MakeScope )]"
+			}
+
+			button = {
+				using = editor_button
+				name = "copy_portrait_button"
+				parentanchor = right
+				size = { 60 40 }
+				raw_text = "portrait"
+				align = center|nobaseline
+				onclick = "[CharacterWindow.OnCopyPortrait]"
+				visible = "[IsGameViewOpen('portrait_editor')]"
+				fontcolor = { 1.0 1.0 1.0 1.0 }
+			}
+		}
+	}
+
+	type agot_name_flavorization = container
+	{
+		ignoreinvisible = yes
+
+		text_single = {
+			name = "character_name"
+			visible = "[GetScriptedGui('agot_name').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "[Character.GetUINameNotMeNoTooltip]"
+			max_width = 398
+			fontsize = 20
+			fontsize_min = 14
+			align = nobaseline
+			default_format = "#medium"
+			tooltip = "[Character.GetUINameNotMeNoTooltip]"
+		}
+
+		text_single = {
+			name = "character_name_high_septon"
+			visible = "[GetScriptedGui('agot_high_septon').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "[Character.GetNickname]"
+			margin_left = 0
+			max_width = 398
+			fontsize = 20
+			fontsize_min = 14
+			align = nobaseline
+			default_format = "#high"
+			tooltip = "[Character.GetNickname]"
+		}
+
+		text_single = {
+			name = "character_name_knight"
+			visible = "[GetScriptedGui('agot_ser_knight').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "Ser [Character.GetTitledFirstNameNicknamedNoTooltip] [Character.GetHouse.GetNameNoTooltip]"
+			margin_left = 2
+			max_width = 398
+			fontsize = 20
+			fontsize_min = 14
+			align = nobaseline
+			default_format = "#high"
+			tooltip = "[Character.GetUINameNotMeNoTooltip]"
+		}
+
+		text_single = {
+			name = "character_name_maester"
+			visible = "[GetScriptedGui('agot_maester').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "[Character.Custom('MaesterCheck')] [Character.GetTitledFirstNameNicknamedNoTooltip]"
+			margin_left = 2
+			max_width = 398
+			fontsize = 20
+			fontsize_min = 14
+			align = nobaseline
+			default_format = "#high"
+			tooltip = "[Character.GetUINameNotMeNoTooltip]"
+		}
+
+		text_single = {
+			name = "character_name_silent_sister"
+			visible = "[GetScriptedGui('agot_silent_sister').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "Silent Sister [Character.GetTitledFirstNameNicknamedNoTooltip]"
+			margin_left = 2
+			max_width = 398
+			fontsize = 20
+			fontsize_min = 14
+			align = nobaseline
+			default_format = "#high"
+			tooltip = "[Character.GetUINameNotMeNoTooltip]"
+		}
+
+		text_single = {
+			name = "character_name_bastard"
+			visible = "[GetScriptedGui('agot_name_bastard').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "[Character.GetTitledFirstNameNicknamedNoTooltip]"
+			margin_left = 2
+			max_width = 398
+			fontsize = 20
+			fontsize_min = 14
+			align = nobaseline
+			default_format = "#high"
+			tooltip = "[Character.GetUINameNotMeNoTooltip]"
+		}
+
+		text_single = {
+			name = "character_name_knight_bastard"
+			visible = "[GetScriptedGui('agot_ser_knight_bastard').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "Ser [Character.GetTitledFirstNameNicknamedNoTooltip]"
+			margin_left = 2
+			max_width = 398
+			fontsize = 20
+			fontsize_min = 14
+			align = nobaseline
+			default_format = "#high"
+			tooltip = "[Character.GetUINameNotMeNoTooltip]"
+		}
+	}
+
+	type agot_personal_coat_of_arms = agot_coa_house_small
+	{
+		visible = "[GetScriptedGui('agot_has_personal_coa').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+		datacontext = "[CharacterWindow.GetCharacter.GetRelationOfType( GetRelation( 'agot_personal_coa_slave' ) ).GetHouse]"
+		position = { -33 55 }
+		blockoverride "coa_tooltip" {
+		}
+		tooltipwidget = {
+			using = agot_personal_coa_tooltip
+		}
+		blockoverride "coa_button" {
+		}
+		flowcontainer = {
+			parentanchor = bottom|right
+			position = { 0 5 }
+			ignoreinvisible = yes
+			button_find_title = {
+				visible = "[Character.IsPlayer]"
+				onmousehierarchyenter = "[GetScriptedGui('agot_summon_personal_coa_slave').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				onclick = "[OpenHouseCustomizationWindow(DynastyHouse.Self)]"
+				tooltip = CUSTOMIZE_PERSONAL_ARMS
+				size = { 22 22 }
+			}
+		}
+	}
+
+	type agot_paramour_relationship_row = vbox_character_row_relationship_item
+	{
+		name = "Paramour"
+		visible = "[GetScriptedGui('agot_can_have_paramour').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+		layoutpolicy_vertical = expanding
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'paramour' ) )]"
+		}
+		blockoverride "header_text"
+		{
+			text = "PARAMOUR_LABEL"
+		}
+		blockoverride "expand_button" {}
+	}
+
+	type agot_squire_relationship_row = vbox_character_row_relationship_item
+	{
+		name = "squires"
+		visible = "[GetScriptedGui('agot_can_have_squire').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'agot_squire' ) )]"
+		}
+		blockoverride "header_text"
+		{
+			text = "SQUIRES_LABEL"
+		}
+		blockoverride "expand_button" {}
+		blockoverride "find_partner"
+		{
+			### FIND SQUIRE FOR ME
+			fixedgridbox = {
+				name = "educate_squire"
+				datamodel = "[GetNullCharacterDataModel( CharacterWindow.CalcUnusedRelationSlots( GetRelation( 'agot_squire' ), '(int32)1' ) )]"
+				visible = "[Character.IsPlayerInteractionShown('agot_offer_squirehood_interaction')]"
+				flipdirection = yes
+				addcolumn = 85
+				addrow = 90
+				maxverticalslots = 1
+				maxhorizontalslots = 1
+				item = {
+					container = {
+						portrait_head_small = {
+							blockoverride "portrait_button_template_onclick"
+							{
+								onclick = "[CharacterWindow.GetCharacter.OpenPlayerInteraction( 'agot_offer_squirehood_interaction' )]"
+								enabled = "[CharacterWindow.GetCharacter.IsPlayerInteractionValid( 'agot_offer_squirehood_interaction' )]"
+								button_icon = {
+									parentanchor = center
+									alwaystransparent = yes
+									size = { 26 26 }
+									position = {-2 -4}
+									texture = "gfx/interface/icons/flat_icons/plus.dds"
+								}
+							}
+							blockoverride "portrait_button_template_tooltip"
+							{
+								tooltip = "[CharacterWindow.GetCharacter.GetPlayerInteractionTooltip( 'agot_offer_squirehood_interaction' )]"
+							}
+						}
+					}
+				}
+			}
+			### FIND SQUIRE FOR COURTIER
+			fixedgridbox = {
+				name = "find_squire"
+				datamodel = "[GetNullCharacterDataModel( CharacterWindow.CalcUnusedRelationSlots( GetRelation( 'agot_squire' ), '(int32)1' ) )]"
+				visible = "[Character.IsPlayerInteractionShown('agot_offer_squire_interaction')]"
+				flipdirection = yes
+				addcolumn = 85
+				addrow = 90
+				maxverticalslots = 1
+				maxhorizontalslots = 1
+				item = {
+					container = {
+						portrait_head_small = {
+							blockoverride "portrait_button_template_onclick"
+							{
+								onclick = "[CharacterWindow.GetCharacter.OpenPlayerInteraction( 'agot_offer_squire_interaction' )]"
+								enabled = "[CharacterWindow.GetCharacter.IsPlayerInteractionValid( 'agot_offer_squire_interaction' )]"
+								button_icon = {
+									parentanchor = center
+									alwaystransparent = yes
+									size = { 20 20 }
+									position = {-2 -5}
+									texture = "gfx/interface/icons/flat_icons/plus.dds"
+								}
+							}
+							blockoverride "portrait_button_template_tooltip"
+							{
+								tooltip = "[CharacterWindow.GetCharacter.GetPlayerInteractionTooltip( 'agot_offer_squire_interaction' )]"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	type agot_knight_relationship_row = vbox_character_row_relationship_item
+	{
+		name = "knights"
+		visible = "[GetScriptedGui('agot_can_have_knight').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+		layoutpolicy_vertical = expanding
+		# layoutpolicy_horizontal = expanding
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'agot_knight' ) )]"
+		}
+		blockoverride "header_text"
+		{
+			text = "KNIGHT_LABEL"
+		}
+		blockoverride "expand_button" {}
+	}
+
+	type agot_bodyguard_relationship_row = vbox_character_row_relationship_item
+	{
+		name = "bodyguard"
+		visible = "[GetScriptedGui('agot_can_have_bodyguard').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+		layoutpolicy_vertical = expanding
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'bodyguard' ) )]"
+		}
+		blockoverride "header_text"
+		{
+			text = "BODYGUARD_LABEL"
+		}
+		blockoverride "expand_button" {}
+	}
+
+	type agot_bodyguard_target_relationship_row = vbox_character_row_relationship_item
+	{
+		name = "bodyguard_target"
+		visible = "[GetScriptedGui('agot_can_have_bodyguard_target').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+		layoutpolicy_vertical = expanding
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'bodyguard_target' ) )]"
+		}
+		blockoverride "header_text"
+		{
+			text = "BODYGUARD_TARGET_LABEL"
+		}
+		blockoverride "expand_button" {}
+	}
+}
