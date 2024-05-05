@@ -100,7 +100,7 @@
  agot_6th_blackfyre_rebellion_victory_desc: "Шестое восстание Блэкфайра разгромлено и [attacker.GetFullNameRegnal|U] попадает в тюрьму"
  agot_6th_blackfyre_realm_rebuild_loc: "Блэкфайры, после многих поколений борьбы и сражений, наконец-то воссядут на Железный трон."
 
- agot_faegon_landing_war_name: "Вторжение персонажа [ATTACKER.GetFullNameRegnal]" 
+ agot_faegon_landing_war_name: "Вторжение персонажа [ATTACKER.GetFullNameRegnal]"
  agot_faegon_landing_war_invalidated: "[attacker.GetFullNameRegnal|U] подходит к концу из-за смерти персонажа [attacker.GetFullNameRegnal|U]"
  agot_faegon_landing_war_white_peace_desc: "Вторжение Фейгона закончилось белым миром, что не должно происходить в моде. Пожалуйста, сообщите об ошибке"
  agot_faegon_landing_defeat_desc_defender: "[attacker.GetFullNameRegnal|U] [Select_CString(attacker.IsFemale, 'потерпела поражение', 'потерпел поражение' )]. [defender.GetPrimaryTitle.GetName] остаётся под моей властью"
@@ -122,3 +122,14 @@
  CB_COST_STRUGGLE_PHASE_HOSTILITY:0 "[struggle_phase_btw_hostility|E]"
  CB_COST_STRUGGLE_PHASE_COMPROMISE:0 "[struggle_phase_btw_compromise|E]"
  CB_COST_STRUGGLE_PHASE_CONCILIATION:0 "[struggle_phase_btw_conciliation|E]"
+
+ #Disrupt Piracy
+ DISRUPT_PIRACY_WAR_NAME:0 "Пресечение пиратства"
+ DISRUPT_PIRACY_WAR_NAME_BASE:0 "Война державы [ATTACKER.GetPrimaryTitle.GetAdjective] за пресечение пиратства в регионе [DEFENDER.GetPrimaryTitle.GetName]"
+ DISRUPT_PIRACY_CB:0 "Пресечь пиратство"
+ disrupt_piracy_defeat_desc:0 "Пираты в этом регионе осмелеют, что увеличит угрозу торговле и безопасности."
+ disrupt_piracy_victory_desc:0 "Держава пиратов уничтожена, и пиратству в регионе будет положен конец."
+ disrupt_piracy_white_peace_desc:0 "White peace shouldn't happen, if it does, report it to gaytriarch."
+ disrupt_piracy_invalidated_desc:0 "[ATTACKER.GetFullNameRegnalPossessive|U] умирает, война за пресечение пиратства прекращена."
+ DISRUPT_PIRACY_COASTAL_GOOD:0 "С уничтожение пиратов из державы [defender.GetPrimaryTitle.GetNameNoTier|U] ваши прибрежные [counties|El] стали более защищёнными от пиратов, увеличив [Concept( 'county_control', 'контроль над графством' )|E] на #V 2 года."
+ DISRUPT_PIRACY_COASTAL_BAD:0 "Из-за того, что их [Select_CString(attacker.IsFemale, 'леди', 'лорд' )] не в состоянии контролировать угрозу пиратов, некогда оживлённые верфи в ваших прибрежных [counties|E]графствах пустуют, что приводит к снижению [Concept( 'county_control', 'контроля над графством' )|E], [Concept( 'county_opinion', 'народного мнения' )|E] и [Concept( 'development', 'развития' )|E] на #V 2 года."
