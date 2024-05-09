@@ -47,23 +47,20 @@
  kingsguard_oathbreaker:0 "Kingsguard Oathbreaker"
  kingsguard_oathbreaker_desc:0 "This character has sullied their sacred oath and forsaken the Kingsguard."
 
-
  kingsguard_protection: "[councillor.GetModifierDescForTask('kingsguard_default_1')]"
+ task_kingsguard_bodyguard_effect_desc: "[Select_CString(councillor.GetRelationOfType(GetRelation('bodyguard_target')).IsValid, councillor.GetRelationOfType(GetRelation('bodyguard_target')).GetUIName, 'Guarded dynasty member')] gets [GetModifier('kingsguard_bodyguard').GetNameWithTooltip]"
+
+ valid_kingsguard_bodyguard_court: "There are no unguarded members of your dynasty in this court."
+ 
  kingsguard_bodyguard: "Bodyguard"
  kingsguard_bodyguard_desc: "This character is being guarded by a member of the Kingsguard"
 
-
-
-
-
-# Failed selection: Seems we cannot scope to the holding character from the modifier itself.
-#[SelectLocalization(ROOT.Char.MakeScope.Var('latest_kingsguard_bodyguard').IsSet,ROOT.Var('latest_kingsguard_bodyguard').Char.GetFirstName,'a member of the Kingsguard.'] x[Character.GetFirstName]y"
- kingsguard_bodyguard_1: "$kingsguard_bodyguard$"
- kingsguard_bodyguard_2: "$kingsguard_bodyguard$"
- kingsguard_bodyguard_3: "$kingsguard_bodyguard$"
- kingsguard_bodyguard_4: "$kingsguard_bodyguard$"
- kingsguard_bodyguard_5: "$kingsguard_bodyguard$"
- kingsguard_bodyguard_6: "$kingsguard_bodyguard$"
+ kingsguard_bodyguard_1: "Guard Dynasty Member"
+ kingsguard_bodyguard_2: "$kingsguard_bodyguard_1$"
+ kingsguard_bodyguard_3: "$kingsguard_bodyguard_1$"
+ kingsguard_bodyguard_4: "$kingsguard_bodyguard_1$"
+ kingsguard_bodyguard_5: "$kingsguard_bodyguard_1$"
+ kingsguard_bodyguard_6: "$kingsguard_bodyguard_1$"
 
  knight_hero: "Knight"
  knight_hero_possessive: "Knight's"
