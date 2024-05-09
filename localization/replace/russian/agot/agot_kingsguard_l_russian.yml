@@ -47,25 +47,22 @@
  kingsguard_oathbreaker:0 "Клятвопреступник Королевской гвардии"
  kingsguard_oathbreaker_desc:0 "Этот персонаж запятнал свою священную клятву и покинул Королевскую гвардию."
 
-
  kingsguard_protection: "[councillor.GetModifierDescForTask('kingsguard_default_1')]"
+ task_kingsguard_bodyguard_effect_desc: "[Select_CString(councillor.GetRelationOfType(GetRelation('bodyguard_target')).IsValid, councillor.GetRelationOfType(GetRelation('bodyguard_target')).GetUIName, 'Охраняемый член династии')] получает модификатор «[GetModifier('kingsguard_bodyguard').GetNameWithTooltip]»"
+
+ valid_kingsguard_bodyguard_court: "При этом дворе нет ни одного незащищённого члена вашей династии."
+
  kingsguard_bodyguard: "Телохранитель"
  kingsguard_bodyguard_desc: "Этого персонажа охраняет рыцарь Королевской гвардии"
 
+ kingsguard_bodyguard_1: "Защищать члена династии"
+ kingsguard_bodyguard_2: "$kingsguard_bodyguard_1$"
+ kingsguard_bodyguard_3: "$kingsguard_bodyguard_1$"
+ kingsguard_bodyguard_4: "$kingsguard_bodyguard_1$"
+ kingsguard_bodyguard_5: "$kingsguard_bodyguard_1$"
+ kingsguard_bodyguard_6: "$kingsguard_bodyguard_1$"
 
-
-
-
-# Failed selection: Seems we cannot scope to the holding character from the modifier itself.
-#[SelectLocalization(ROOT.Char.MakeScope.Var('latest_kingsguard_bodyguard').IsSet,ROOT.Var('latest_kingsguard_bodyguard').Char.GetFirstName,'a member of the Kingsguard.'] x[Character.GetFirstName]y"
- kingsguard_bodyguard_1: "$kingsguard_bodyguard$"
- kingsguard_bodyguard_2: "$kingsguard_bodyguard$"
- kingsguard_bodyguard_3: "$kingsguard_bodyguard$"
- kingsguard_bodyguard_4: "$kingsguard_bodyguard$"
- kingsguard_bodyguard_5: "$kingsguard_bodyguard$"
- kingsguard_bodyguard_6: "$kingsguard_bodyguard$"
-
- knight_hero:0 "[Concept( 'knight', '$knight_hero_no_tooltip$' )|E]"
+ knight_hero:0 "Рыцарь"
  knight_hero_possessive: "Рыцаря"
 
  kingsguard_lord_commander_default: "Обеспечение защиты"
