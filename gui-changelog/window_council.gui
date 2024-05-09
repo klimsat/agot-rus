@@ -392,6 +392,23 @@ types CouncilWindow
 				}
 			}
 		}
+
+		#AGOT Added: Show target court also for infinite tasks (e.g. Bodyguard)
+		vbox = {
+			visible = "[And(And(Not(CouncilTaskType.IsPercentageTask), Not(CouncilTaskType.IsValueTask)), ActiveCouncilTask.GetTargetCourt.IsValid)]"
+			layoutpolicy_horizontal = expanding
+			#AGOT Modified
+			#margin = { 5 3 }
+			margin = { 5 -5 }
+
+			text_single = {
+				name = "location"
+				layoutpolicy_horizontal = expanding
+				text = "[ActiveCouncilTask.GetTaskTarget]"
+				default_format = "#high"
+				autoresize = no
+			}
+		}
 	}
 
 	type widget_councillor_item = widget {
