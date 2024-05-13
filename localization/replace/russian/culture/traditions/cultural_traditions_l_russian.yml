@@ -364,7 +364,7 @@
  culture_parameter_cannot_divorce:0 "[interactions|E], связанные с [Concept( 'divorce', 'разводом' )|E], недоступны"
  culture_parameter_strong_traits_more_common:0 "[trait|E] «[GetTrait('strong').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_minimum_prowess_for_knights:0 "[knights|E] #EMP должны#! иметь не меньше [prowess_i]#V 12#! [Concept( 'prowess', 'доблести' )|E]"
- culture_parameter_blademaster_trait_bonuses:0 "[traits|E] «The [GetTrait('lifestyle_blademaster').GetName( GetNullCharacter )]» дают дополнительные бонусы"
+ culture_parameter_blademaster_trait_bonuses:0 "[trait|E] «[GetTrait('lifestyle_blademaster').GetName( GetNullCharacter )]» дают дополнительные бонусы"
  culture_parameter_prowess_from_martial_education:0 "[traits|E] [Concept( 'martial', 'военного' )|E] [Concept( 'education', 'образования' )|E] увеличивают [Concept( 'prowess', 'доблесть' )|E]"
  culture_parameter_martial_education_more_valued:0 "[traits|E] [Concept( 'martial', 'военного' )|E] [Concept( 'education', 'образования' )|E] ценятся выше"
  #AGOT MODIFIED INCREASED FROM 10
@@ -396,14 +396,14 @@
  culture_parameter_courtiers_less_likely_to_leave_same_culture_court:0 "Бездействующие [Concept( 'courtiers', 'придворные' )|E] с большей вероятностью станут [Concept( 'wanderers', 'скитальцами' )|E], если их [Concept( 'liege', 'сюзерен' )|E] принадлежит к той же [Concept( 'culture', 'культуре' )|E]"
  culture_parameter_dislikes_marrying_outside_of_culture:0 "Согласие на [Concept( 'marriage', 'брак' )|E] с представителями других [Concept( 'cultures', 'культур' )|E]: #N -50#!"
  culture_parameter_ai_doesnt_marry_outside_culture:0 "Крайне маловероятно заключить [Concept( 'marriages', 'брак' )|E] с представителями других [Concept( 'cultures', 'культур' )|E]"
- TRADITION_BONUS_WEDDING_CEREMONIES:0 "$tradition_wedding_ceremonies_name$ [culture_tradition|E]: $VALUE|+=0$"
+ TRADITION_BONUS_WEDDING_CEREMONIES:0 "[culture_tradition|E] $tradition_wedding_ceremonies_name$: $VALUE|+=0$"
  TRADITION_PENALTY_ISOLATIONIST:0 "[culture|E] изоляционистов: $VALUE|+=0$"
  culture_parameter_more_fame_for_successful_defensive_wars:0 "[prestige|E] от победы в оборонительных [Concept( 'wars', 'войнах' )|E]: [prestige_i]#P +100%#!"
  culture_parameter_more_gold_for_successful_defensive_wars:0 "[gold|E] от победы в оборонительных [Concept( 'wars', 'войнах' )|E]: [gold_i]#P +100%#!"
  culture_parameter_can_end_defensive_wars_earlier:0 "Согласие на мир в оборонительной [Concept( 'war', 'войне' )|E]: #P +10#!"
  culture_parameter_reduced_cost_for_conversion_to_pacifist_faith:0 "Стоимость обращения в пацифистскую конфессию: #P −25%#!"
  TRADITION_BONUS_DEFENSIVE_WARS:0 "Несгибаемость [Concept( 'culture', 'культуры' )|E]: $VALUE|+=0$"
- TRADITION_BONUS_WHITE_PEACE:0 "$tradition_astute_diplomats_name$ [culture_tradition|E]: $VALUE|+=0$"
+ TRADITION_BONUS_WHITE_PEACE:0 "[culture_tradition|E] $tradition_astute_diplomats_name$: $VALUE|+=0$"
  culture_parameter_rowdy_trait_more_common:0 "[children|E] с большей вероятностью получат [Concept( 'trait', 'свойство' )|E] «[GetTrait('rowdy').GetName( GetNullCharacter )]»"
  culture_parameter_pensive_trait_less_common:0 "[children|E] с меньшей вероятностью получат [Concept( 'trait', 'свойство' )|E] «[GetTrait('pensive').GetName( GetNullCharacter )]»"
  culture_parameter_pensive_trait_more_common:0 "[children|E] с большей вероятностью получат [Concept( 'trait', 'свойство' )|E] «[GetTrait('pensive').GetName( GetNullCharacter )]»"
@@ -524,43 +524,43 @@
  ### Decision loc
  recruit_winter_specialist_decision:0 "Нанять специалиста по зимней войне"
  recruit_winter_specialist_decision_desc:0 "Мой стойкий народ, [ROOT.Char.GetCulture.GetName|l], прекрасно приспособлен к морозам. Если мне потребуется опытный командир, способный командовать войсками в суровые зимние холода, достаточно будет лишь позвать и на мой зов откликнется множество закаленных морозами ветеранов."
- recruit_winter_specialist_decision.tt:0 "[commander|E] с высоким значением навыка «[martial|E]» и [Concept( 'trait', 'свойством' )|E] «[GetTrait('winter_soldier').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
+ recruit_winter_specialist_decision.tt:0 "[commander|E] с высоким значением [Concept( 'martial', 'военного дела' )|E] и [Concept( 'trait', 'свойством' )|E] «[GetTrait('winter_soldier').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
  recruit_winter_specialist_decision_tooltip:0 "$recruit_winter_specialist_decision.tt$"
  recruit_winter_specialist_decision_confirm:0 "$invite_knights_decision_confirm$"
 
  recruit_forest_specialist_decision:0 "Нанять специалиста по войне в лесах"
  recruit_forest_specialist_decision_desc:0 "[ROOT.Char.GetCulture.GetName] считают лес своим вторым домом. Он предлагает защиту, укрытие и топливо для очага. Если мне понадобится человек, способный провести мои войска через дремучие и опасные леса, к моим услугам бесчисленное множество охотников."
- recruit_forest_specialist_decision.tt:0 "[commander|E] с высоким значением навыка «[martial|E]» и [Concept( 'trait', 'свойством' )|E] «[GetTrait('forest_fighter').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
+ recruit_forest_specialist_decision.tt:0 "[commander|E] с высоким значением [Concept( 'martial', 'военного дела' )|E] и [Concept( 'trait', 'свойством' )|E] «[GetTrait('forest_fighter').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
  recruit_forest_specialist_decision_tooltip:0 "$recruit_forest_specialist_decision.tt$"
  recruit_forest_specialist_decision_confirm:0 "$invite_knights_decision_confirm$"
 
  recruit_mountain_specialist_decision:0 "Нанять специалиста по войне в горах"
  recruit_mountain_specialist_decision_desc:0 "Мой суровый народ, [ROOT.Char.GetCulture.GetName|l], сумеет преодолеть даже самый коварный горный перевал. Если я решу отправить войска в горы, к моим услугам всегда найдутся проводники, способные провести мою армию."
- recruit_mountain_specialist_decision.tt:0 "[commander|E] с высоким значением навыка «[martial|E]» и [Concept( 'trait', 'свойством' )|E] «[GetTrait('rough_terrain_expert').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
+ recruit_mountain_specialist_decision.tt:0 "[commander|E] с высоким значением [Concept( 'martial', 'военного дела' )|E] и [Concept( 'trait', 'свойством' )|E] «[GetTrait('rough_terrain_expert').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
  recruit_mountain_specialist_decision_tooltip:0 "$recruit_mountain_specialist_decision.tt$"
  recruit_mountain_specialist_decision_confirm:0 "$invite_knights_decision_confirm$"
  
  recruit_dry_specialist_decision:0 "Нанять специалиста по войне в засушливых землях"
  recruit_dry_specialist_decision_desc:0 "[ROOT.Char.GetCulture.GetName] привычны к дальним переходам под палящими лучами солнца. И чтобы мои армии не погибли на жаре, мне стоит обратиться за помощью к моему народу."
- recruit_dry_specialist_decision.tt:0 "[commander|E] с высоким значением навыка «[martial|E]» и [Concept( 'trait', 'свойством' )|E] «[GetTrait('desert_warrior').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
+ recruit_dry_specialist_decision.tt:0 "[commander|E] с высоким значением [Concept( 'martial', 'военного дела' )|E] и [Concept( 'trait', 'свойством' )|E] «[GetTrait('desert_warrior').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
  recruit_dry_specialist_decision_tooltip:0 "$recruit_dry_specialist_decision.tt$"
  recruit_dry_specialist_decision_confirm:0 "$invite_knights_decision_confirm$"
 
  recruit_hill_specialist_decision:0 "Нанять специалиста по войне в холмах"
  recruit_hill_specialist_decision_desc:0 "[ROOT.Char.GetCulture.GetName] чувствуют себя как дома среди холмов и долин, где они пасут свой скот и с легкостью могут прогнать хищников. У меня нет недостатка в умелых пастухах, которые смогут провести армию."
- recruit_hill_specialist_decision.tt:0 "[commander|E] с высоким значением навыка «[martial|E]» и [Concept( 'trait', 'свойством' )|E] «[GetTrait('rough_terrain_expert').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
+ recruit_hill_specialist_decision.tt:0 "[commander|E] с высоким значением [Concept( 'martial', 'военного дела' )|E] и [Concept( 'trait', 'свойством' )|E] «[GetTrait('rough_terrain_expert').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
  recruit_hill_specialist_decision_tooltip:0 "$recruit_hill_specialist_decision.tt$"
  recruit_hill_specialist_decision_confirm:0 "$invite_knights_decision_confirm$"
 
  recruit_jungle_specialist_decision:0 "Нанять специалиста по войне в джунглях"
  recruit_jungle_specialist_decision_desc:0 "Джунгли безжалостны и коварны, но мой народ, [ROOT.Char.GetCulture.GetName|l], прекрасно ориентируется в них. Опытные исследователи и проводники всегда к моим услугам, если мне понадобится провести войска через эти пышные и смертельно опасные леса."
- recruit_jungle_specialist_decision.tt:0 "[commander|E] с высоким значением навыка «[martial|E]» и [Concept( 'trait', 'свойством' )|E] «[GetTrait('jungle_stalker').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
+ recruit_jungle_specialist_decision.tt:0 "[commander|E] с высоким значением [Concept( 'martial', 'военного дела' )|E] и [Concept( 'trait', 'свойством' )|E] «[GetTrait('jungle_stalker').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
  recruit_jungle_specialist_decision_tooltip:0 "$recruit_jungle_specialist_decision.tt$"
  recruit_jungle_specialist_decision_confirm:0 "$invite_knights_decision_confirm$"
 
  recruit_open_specialist_decision:0 "Нанять специалиста по войне на равнинах"
  recruit_open_specialist_decision_desc:0 "В море травы маневрирование практически ничем не ограничено, и [ROOT.Char.GetCulture.GetName|l] прекрасно знают, как обратить это в преимущество. В рядах наших соплеменников мы легко найдем командиров, способных использовать наши войска для охвата и окружения."
- recruit_open_specialist_decision.tt:0 "[commander|E] с высоким значением навыка «[martial|E]» и [Concept( 'trait', 'свойством' )|E] «[GetTrait('open_terrain_expert').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
+ recruit_open_specialist_decision.tt:0 "[commander|E] с высоким значением [Concept( 'martial', 'военного дела' )|E] и [Concept( 'trait', 'свойством' )|E] «[GetTrait('open_terrain_expert').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
  recruit_open_specialist_decision_tooltip:0 "$recruit_open_specialist_decision.tt$"
  recruit_open_specialist_decision_confirm:0 "$invite_knights_decision_confirm$"
 
@@ -569,13 +569,13 @@
 
  recruit_gardener_decision:0 "Нанять садовода"
  recruit_gardener_decision_desc:0 "Мы, [ROOT.Char.GetCulture.GetName|l], многое знаем о том, как оформлять и ухаживать за садами всех типов. К моим услугам множество садовников, умениями которых я могу распорядиться с выгодой для себя."
- recruit_gardener_decision_tt:0 "[courtier|E] с высоким значением навыка «[stewardship|E]» и [Concept( 'trait', 'свойством' )|E] «[GetTrait('lifestyle_gardener').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
+ recruit_gardener_decision_tt:0 "[courtier|E] с высоким значением [Concept( 'stewardship', 'управления' )|E] и [Concept( 'trait', 'свойством' )|E] «[GetTrait('lifestyle_gardener').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
  recruit_gardener_decision_tooltip:0 "$recruit_gardener_decision_tt$"
  recruit_gardener_decision_confirm:0 "$invite_knights_decision_confirm$"
  gardener_recruited.t:0 "Садовод нанят"
 
  ## Interactions Desc
- offer_vassalization_interaction_determined_independence_tt:0 "[culture|E] [Select_CString(recipient.IsLocalPlayer, '', 'персонажа ' )] [recipient.GetNamePossessiveOrMy][Select_CString(recipient.IsLocalPlayer, 'его персонажа', '' )] имеет[Concept( 'culture_tradition', 'традицию' )|E] #high $tradition_determined_independence_name$#!: $VALUE|+=0$"
+ offer_vassalization_interaction_determined_independence_tt:0 "[culture|E] [Select_CString(recipient.IsLocalPlayer, '', 'персонажа ' )] [recipient.GetNamePossessiveOrMy][Select_CString(recipient.IsLocalPlayer, 'его персонажа', '' )] имеет [Concept( 'culture_tradition', 'традицию' )|E] #high $tradition_determined_independence_name$#!: $VALUE|+=0$"
  join_war_interaction_determined_independence:0 "[CHARACTER.GetUIName] обладает иной [Concept( 'culture', 'культурой' )|E]"
  merciful_blinding_interaction_tt:0 "Ослепление персонажа [recipient.GetUIName] вместо [Concept( 'executing', 'казни' )|E] будет воспринято как милосердие всеми [Concept( 'vassals', 'вассалами' )|E], кроме членов [recipient.GetHerHis] [Concept( 'close_family', 'семьи' )|E], поскольку [recipient.GetUINameNoTooltip] [Concept( 'claimant', 'претендует' )|E] на один из ваших [Concept( 'titles', 'титулов' )|E]"
  all_unrelated_vassals_to_recipient:0 "Все вассалы персонажа [THIS.GetCharacter.GetShortUIName], кроме членов [Concept( 'close_family', 'семьи' )|E] персонажа [recipient.GetShortUIName]"
@@ -752,7 +752,7 @@
  ACCEPTANCE_BASELINE_CLOSE_PLURALISTS:0 "[cultures|E] близки географически и в большинстве следуют [Concept( 'faiths', 'конфессиям' )|E] с доктриной [GetFaithDoctrine('doctrine_pluralism_pluralistic').GetBaseName]"
  ACCEPTANCE_BASELINE_FAITH:0 "[cultures|E] с общей преобладающей [Concept( 'faith', 'конфессией' )|E]"
  TRADITION_ASTUTE_DIPLOMATS_ACCEPTANCE_MODIFIER:0 "[tradition|E] «$tradition_astute_diplomats_name$»: $VALUE|=+0$"
- CULTURE_HARD_TO_CONVERT_REASON:0 "[culture_tradition|E] «$tradition_zealous_people_name$»: $VALUE|=+0$"
+ CULTURE_HARD_TO_CONVERT_REASON:0 "[culture_tradition|E] $tradition_zealous_people_name$: $VALUE|=+0$"
  TRADITION_RELIGION_BLENDING_CONVERSION_MODIFIER:0 "[culture_tradition|E] «$tradition_religion_blending_name$»"
  TRADITION_HARDER_TO_CONVERT_CONVERSION_MODIFIER:0 "$CULTURE_HARD_TO_CONVERT_REASON$"
  TRADITION_BREAKDOWN_LAW_REALM_SIZE_COST:0 "$KEY$: $VALUE|=-0$ #Weak ([traditions|E]: от #P -50%#!)#!"
@@ -1118,7 +1118,7 @@
  culture_tradition_events.0111.c:0 "Что это за бродяга в моем дома? Стража! НА ПОМОЩЬ!"
 
  culture_tradition_events.0121.t:0 "Услуги мистика"
- culture_tradition_events.0121.desc:0 "Такое нечасто встретишь среди мистиков, но [mendicant_mystic.GetFirstName] терпеливо [Select_CString(mendicant_mystic.IsFemale, 'ждала', 'ждал' )], пока я дам [mendicant_mystic.GetHerHim] аудиенцию.\n\n[mendicant_mystic.GetFaith.PriestNeuter|U] [Select_CString(mendicant_mystic.IsFemale, 'занервничала', 'занервничал' )] при виде меня, но все равно сходу [Select_CString(mendicant_mystic.IsFemale, 'обрушила', 'обрушил' )] на меня речь.\n\n«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], я уже долгое время странствую, и хотя такова воля [mendicant_mystic.GetFaith.HighGodNamePossessive], мои разум и тело устали, хоть душа и закалилась».\n\n«Примите меня в услужение, и я отложу свой посох и помогу вам всем чем смогу. В-вы возьмете меня к себе?»"
+ culture_tradition_events.0121.desc:0 "Такое нечасто встретишь среди мистиков, но [mendicant_mystic.GetFirstName] терпеливо [Select_CString(mendicant_mystic.IsFemale, 'ждала', 'ждал' )], пока я дам [mendicant_mystic.GetHerHim] аудиенцию.\n\n[mendicant_mystic.GetFaith.PriestNeuter|U] [Select_CString(mendicant_mystic.IsFemale, 'занервничала', 'занервничал' )] при виде меня, но все равно сходу [Select_CString(mendicant_mystic.IsFemale, 'обрушила', 'обрушил' )] на меня речь.\n\n«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], я уже долгое время странствую, и хотя такова воля [mendicant_mystic.GetFaith.HighGodNamePossessive], мои разум и тело устали, хоть душа и закалилась».\n\n«Примите меня в услужение, и я отложу свой посох и помогу вам всем чем смогу. В-вы возьмете меня к себе?»" #Миледи, Милорд - ру
  culture_tradition_events.0121.a:0 "Мне, несомненно, не помешает [mendicant_mystic.GetWomanMan] ваших талантов..."
  culture_tradition_events.0121.b:0 "Говорите, что [mendicant_mystic.GetFaith.PriestNeuter] будет мне служить..."
  culture_tradition_events.0121.c:0 "Вы хотите жить здесь с таким видом, с таким #EMP запахом#!?"
@@ -1169,7 +1169,7 @@
  culture_parameter_always_unlock_legendary_hunting_lodge:0 "[SelectLocalization( HasDlcFeature( 'legends' ), 'culture_parameter_always_unlock_legendary_hunting_lodge_HAS_LEGENDS_DLC', 'culture_parameter_always_unlock_legendary_hunting_lodge_NO_LEGENDS_DLC' )]"
  culture_parameter_always_unlock_legendary_hunting_lodge_NO_LEGENDS_DLC:0 ""
  culture_parameter_always_unlock_legendary_hunting_lodge_HAS_LEGENDS_DLC:0 "[Concept( 'rulers', 'Правители' )|E] этой [Concept( 'culture', 'культуры' )|E] всегда могут возводить легендарную охотничью заимку после завершения [Concept( 'legend', 'легенды' )|E]"
-
+ culture_parameter_less_plague_spread_culture:0 "[Concept( 'characters', 'Персонажи' )|E] этой [Concept( 'culture', 'культуры' )|E] могут с большей вероятностью избежать распространения [Concept( 'epidemics', 'поветрий' )|E] в своих землях"
 
  #BP2 Traditions
  tradition_noble_adoption_name:0 "Благородное усыновление"

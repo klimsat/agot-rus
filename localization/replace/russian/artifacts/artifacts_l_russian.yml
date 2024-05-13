@@ -393,12 +393,12 @@
  feature_decoration_pattern_floral:0 "узоры из цветов"
  feature_decoration_pattern_geometric:0 "геометрические формы"
  feature_decoration_pattern_wolf:0 "голова волка"
- feature_decoration_pattern_local_animal:0 "[Artifact.GetOwner.Custom('GetAnimalType')|U] во всех подробностях"
+ feature_decoration_pattern_local_animal:0 "[Artifact.GetOwner.Custom('GetAnimalType')] во всех подробностях"
  feature_decoration_pattern_war_god:0 "символы и слова, в которых славится [Artifact.GetOwner.GetFaith.WarGodName]"
  feature_decoration_pattern_religious_symbol:0 "[Artifact.GetOwner.GetFaith.ReligiousSymbol]"
  feature_decoration_pattern_gibberish:0 "символы, значение которых ведает лишь их создатель,"
  feature_decoration_pattern_bodies:0 "корчащиеся от боли тела"
- feature_decoration_pattern_culture_symbol:0 "символы, связанные с [Artifact.GetOwner.GetCulture.GetNameNoTooltip|l]ой культурой"
+ feature_decoration_pattern_culture_symbol:0 "символы, связанные с [Artifact.GetOwner.GetCulture.GetCollectiveNounNoTooltip|l]ой культурой"
  feature_decoration_pattern_culture_style:0 "орнаменты и узоры, свойственные [ROOT.Char.GetCulture.GetCollectiveNounNoTooltip|l]ому стилю"
  feature_decoration_pattern_shield:0 "герб дома [Artifact.GetOwner.GetHouse.GetBaseName]"
  feature_decoration_pattern_dynasty_shield:0 "$feature_decoration_pattern_shield$"
@@ -843,7 +843,7 @@
  ## Character Modifiers made to artifacts ##
 
  # From court_ongoing_1021
- artifact_necklace:1 "Украшение"
+ artifact_necklace:1 "Ожерелье"
  artifact_necklace_pedestal:0 "$artifact_necklace$"
  artifact_necklace_name:1 "Ожерелье из [newly_created_artifact.GetFeatureText( 'decoration_material_wire' )] и [newly_created_artifact.GetFeatureText( 'decoration_material_gem' )]"
  artifact_necklace_description:1 "[SCOPE.Custom('ArtifactArticleWealth')]ое, но изящное ожерелье [SCOPE.Custom('ArtifactQuality')] качества. Выковано из [newly_created_artifact.GetFeatureText( 'decoration_material_wire' )] и украшено великолепным кулоном из [newly_created_artifact.GetFeatureText( 'decoration_material_gem' )]."
@@ -858,7 +858,7 @@
 
  # From lover.3219
  lover_keepsake_hair_name:0 "Локон, который [Select_CString(original_lover.IsFemale, 'подарила', 'подарил' )] [original_lover.GetFirstNameNoTooltip]"
- lover_keepsake_hair_description:1 "Памятный подарок, который [original_lover.GetTitledFirstName] [Select_CString(original_lover.IsFemale, 'подарила', 'подарил' )] дорогому человеку. [lover.GetTitledFirstNameNoTooltip] живет далеко, но теперь у н[lover.GetHerHis] всегда будет при себе частичка [original_lover.IsFemale, 'возлюбленной', 'возлюбленного' )]."
+ lover_keepsake_hair_description:1 "Памятный подарок, который [original_lover.GetTitledFirstName] [Select_CString(original_lover.IsFemale, 'подарила', 'подарил' )] дорогому человеку. [lover.GetTitledFirstNameNoTooltip] живет далеко, но теперь у н[lover.GetHerHis] всегда будет при себе частичка [Select_CString(original_lover.IsFemale, 'возлюбленной', 'возлюбленного' )]."
  lover_keepsake_clothes_male_name:0 "Брэ, которые [Select_CString(original_lover.IsFemale, 'носила', 'носил' )] [original_lover.GetTitledFirstNameNoTooltip]"
  lover_keepsake_clothes_female_name:0 "Сорочка, которую [Select_CString(original_lover.IsFemale, 'носила', 'носил' )] [original_lover.GetTitledFirstNameNoTooltip]"
  lover_keepsake_clothes_description:1 "Самые интимные предметы туалета, которые [original_lover.GetTitledFirstName] [Select_CString(original_lover.IsFemale, 'отправила', 'отправил' )] дорогому человеку. [lover.GetTitledFirstNameNoTooltip] живет далеко, но теперь пламя, разожженное их подвигами в постели, долго не угаснет у н[lover.GetHerHis] в душе. "
@@ -867,7 +867,7 @@
 
 ## christian_saint_bone pilgrim reward
  christian_saint_bone_name:0 "[saint_bone_owner.Custom('RandomSaintBone')|U] [saint_bone_owner.Custom('RandomSaintNamePossessive')]"
- christian_saint_bone_description:0 "Знаменитые останки [saint_bone_owner.GetFaith.GetReligion.GetNameNoTooltip|l]ого предка, которые [saint_bone_owner.GetNameNoTooltip] [Select_CString(saint_bone_owner.IsFemale, 'добыла', 'добыл' )] во время паломничества. [christian_saint_bone_scope.MakeScope.Var('holy_site').GetProvince.GetCounty.GetTitle.GetNameNoTierNoTooltip] — святое место, и этот дар [saint_bone_owner.GetFaith.GetAdherentNamePluralNoTooltip|l] считают символом удачи и благочестия."
+ christian_saint_bone_description:0 "Знаменитые останки [saint_bone_owner.GetFaith.GetReligion.GetNameNoTooltip|l]ого святого, которые [saint_bone_owner.GetNameNoTooltip] [Select_CString(saint_bone_owner.IsFemale, 'добыла', 'добыл' )] во время паломничества. [christian_saint_bone_scope.MakeScope.Var('holy_site').GetProvince.GetCounty.GetTitle.GetNameNoTierNoTooltip] — святое место, и этот дар [saint_bone_owner.GetFaith.GetAdherentNamePluralNoTooltip|l] считают символом удачи и благочестия."
 # bones
  bone_type_knuckle:0 "фаланга пальца"
  bone_type_shin:0 "Шин"
@@ -1145,7 +1145,7 @@
  #Uncommon
  mythical_creature_horn:0 "Рог, что носит [ROOT.Char.Custom('HornedMythicalCreature')|U]"
  mythical_creature_horn.desc:0 "Кусок рога странной формы. Предположительно, такими рогами владеет [ROOT.Char.Custom('HornedMythicalCreature')]."
- mythical_creature_figurine:0 "[ROOT.Char.Custom('TrinketLookAdjective')|U]ая фигурка — [ROOT.Char.Custom('RegionalMythicalCreature')]"
+ mythical_creature_figurine:0 "Фигурка [ROOT.Char.Custom('TrinketLookAdjective')|l] — [ROOT.Char.Custom('RegionalMythicalCreature')]"
  mythical_creature_figurine.desc:1 "Эта фигурка передает образ мифологического существа. [ROOT.Char.Custom('RegionalMythicalCreature')] выглядит [ROOT.Char.Custom('TrinketLookAdverbFollowup')], с небольшими драгоценными камнями, которыми славится [target_location.GetNameNoTooltip]."
  #AGOT Modified
  st_davids_taper:1 "Свеча Старицы"
@@ -1155,7 +1155,7 @@
  #AGOT Modified
  jira_stick.desc:0 "Древний скипетр с изображением паука и змея, бьющихся друг с другом."
  lucky_coin:0 "Счастливая [ROOT.Char.GetCulture.GetCollectiveNounNoTooltip|l]ая монета"
- lucky_coin.desc:1 "[ROOT.Char.GetCulture.GetNameNoTooltip]ая монета, такие чеканит [target_location.GetNameNoTooltip].\n\nНекогда рифленая поверхность стала гладкой из-за частых касаний."
+ lucky_coin.desc:1 "[ROOT.Char.GetCulture.GetCollectiveNounNoTooltip]ая монета, такие чеканит [target_location.GetNameNoTooltip].\n\nНекогда рифленая поверхность стала гладкой из-за частых касаний."
  lavender_jade_pendant:0 "Лавандовый нефритовый талисман"
  lavender_jade_pendant.desc:0 "Яркие пурпурные полосы вызывают изумление."
  #Rare
@@ -1167,8 +1167,8 @@
  # Easter eggs
  easteregg_artifact_elisabeth_plush:0 "Лисье чучело Елизаветы"
  easteregg_artifact_elisabeth_plush_description:0 "Лисье чучело Елизаветы — любимая игрушка, сопровождавшая свою владелицу на протяжении почти всей жизни. Часто видели, как Елизавета общалась с лисой, составляя сложные шифры для своего нанимателя. Чучело успокаивает и вдохновляет владельца уподобиться в хитроумии лисе."
- easteregg_artifact_nicks_weapon:0 "Весёлый тюремщик"
- easteregg_artifact_nicks_weapon_description:0 "Поистине великолепное оружие, при виде которого любой лишится чувств. Небольшая надпись на рукояти гласит: «Когда уловки бессильны»."
+ easteregg_artifact_nicks_redolence:0 "Врачебный аромат"
+ easteregg_artifact_nicks_redolence_description:0 "Небольшой флакон с ароматической жидкостью, от запаха которой любой лишится чувств. Небольшая надпись на пробке гласит: «Для борьбы с недугами»."
  #AGOT Modified
  easteregg_artifact_chad_book:0 "«На краю света» с пометками"
  #AGOT Modified
@@ -1179,14 +1179,14 @@
  #AGOT Modified
  easteregg_artifact_veronica_book_description:0 "Слабо завуалированная отсылка в виде книги. Написана на языке, давно потерянном за морем."
 
- easteregg_artifact_jason_sword:0 "Меч Святого Мартина"
+ easteregg_artifact_jason_sword:0 "Меч св. Мартина"
  easteregg_artifact_jason_sword_description:0 "Вдоль дола клинка кто-то небрежно нацарапал: «Я то, что есть»."
 
  child_toy_template_tt:0 "Только [Concept( 'child', 'ребенок' )|E] может использовать этот [Concept( 'inventory_artifact', 'личный артефакт' )|E]"
 
  # Blessed Junk
- fp2_blessed_junk:0 "[ROOT.Char.Custom('TrinketLookAdjective')|U]ая фигурка — $blessed_artifact_modifier$"
- fp2_blessed_junk_desc:0 "[ROOT.Char.Custom('TrinketLookAdverbFollowup')|U] [ROOT.Char.Custom('TrinketLookAdjective')|l]ый, но в остальном бесполезный артефакт. $blessed_artifact_modifier_desc$."
+ fp2_blessed_junk:0 "Фигурка [ROOT.Char.Custom('TrinketLookAdjective')|l] — $blessed_artifact_modifier$"
+ fp2_blessed_junk_desc:0 "[ROOT.Char.Custom('TrinketLookAdverbFollowup')|U] [ROOT.Char.Custom('TrinketLookAdjective')|l], но в остальном бесполезный артефакт. $blessed_artifact_modifier_desc$."
  
  local_artisan_modifier:0 "Местный ремесленник"
  local_artisan_modifier_desc:0 "Этот персонаж — местный ремесленник, которого правитель убедил поступить к нему на службу.\n#weak Результаты его [Concept( 'inspirations', 'вдохновения' )|E] будут более низкого качества.#!"
