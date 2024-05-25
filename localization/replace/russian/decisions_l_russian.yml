@@ -134,8 +134,12 @@
  create_cadet_branch_decision_tooltip:1 "Вы создадите младшую ветвь"
  create_cadet_branch_decision_desc:0 "Пожалуй, настало время моему роду покинуть дом [ROOT.Char.GetHouse.GetNameNoTooltip] и начать собственную историю. Я стану главой новой ветви великой династии."
  create_cadet_branch_decision_confirm:0 "Создать младшую линию"
- I_CREATE_CADET_BRANCH_DECISION_SUCCESSION_LINE:1 "В линии наследования [Concept('title', 'титула')|El] вашего [Concept('house_head', 'главы дома')|El] вы на третьем месте или выше"
- I_NOT_CREATE_CADET_BRANCH_DECISION_SUCCESSION_LINE:1 "В линии наследования [Concept('title', 'титула')|El] вашего [Concept('house_head', 'главы дома')|El] вы #bold не#! на третьем месте или выше"
+ #AGOT MODIFED
+ #I_CREATE_CADET_BRANCH_DECISION_SUCCESSION_LINE:1 "В линии наследования [Concept('title', 'титула')|El] вашего [Concept('house_head', 'главы дома')|El] вы на третьем месте или выше"
+ I_CREATE_CADET_BRANCH_DECISION_SUCCESSION_LINE:1 "В линии наследования [Concept('title', 'титула')|El] вашего [Concept('house_head', 'главы дома')|El] вы на пятом месте или выше"
+ #AGOT MODIFED
+ #I_NOT_CREATE_CADET_BRANCH_DECISION_SUCCESSION_LINE:1 "В линии наследования [Concept('title', 'титула')|El] вашего [Concept('house_head', 'главы дома')|El] вы #bold не#! на третьем месте или выше"
+ I_NOT_CREATE_CADET_BRANCH_DECISION_SUCCESSION_LINE:1 "В линии наследования [Concept('title', 'титула')|El] вашего [Concept('house_head', 'главы дома')|El] вы #bold не#! на пятом месте или выше"
  I_CREATE_CADET_BRANCH_DECISION_ANCESTOR_IN_HOUSE:1 "Один из ваших предков принадлежит к вашему текущему [Concept('house', 'дому')|E]"
  I_NOT_CREATE_CADET_BRANCH_DECISION_ANCESTOR_IN_HOUSE:2 "Никто из ваших предков не принадлежит к вашему текущему [Concept('house', 'дому')|E]"
  created_cadet_branch_toast_new_house_desc:2 "Новый дом"
@@ -774,7 +778,7 @@
  SPECIAL_CREATED_TITLE_NAME:0 "[special_duchy.GetBaseNameNoTierNoTooltip]"
 
  #Guest decisions
- invite_knights_decision:1 "$knight_culture_player_plural_no_tooltip$ — пригласить"
+ invite_knights_decision:1 "Пригласить [AddTextIf(EqualTo_string('Рыцари',  GetPlayer.Custom( 'KnightCulturePluralNoTooltip' )), Concatenate(Localize('рыцарей'), ''))][AddTextIf(EqualTo_string('Фарысы',  GetPlayer.Custom( 'KnightCulturePluralNoTooltip' )), Concatenate(Localize('фарысов'), ''))][AddTextIf(EqualTo_string('Багатуры',  GetPlayer.Custom( 'KnightCulturePluralNoTooltip' )), Concatenate(Localize('багатуров'), ''))][AddTextIf(EqualTo_string('Шурвиры',  GetPlayer.Custom( 'KnightCulturePluralNoTooltip' )), Concatenate(Localize('шурвиров'), ''))][AddTextIf(EqualTo_string('Асвары',  GetPlayer.Custom( 'KnightCulturePluralNoTooltip' )), Concatenate(Localize('асваров'), ''))][AddTextIf(EqualTo_string('Гетайры',  GetPlayer.Custom( 'KnightCulturePluralNoTooltip' )), Concatenate(Localize('гейтар'), ''))][AddTextIf(EqualTo_string('Воители',  GetPlayer.Custom( 'KnightCulturePluralNoTooltip' )), Concatenate(Localize('воителей'), ''))][AddTextIf(EqualTo_string('Капитаны',  GetPlayer.Custom( 'KnightCulturePluralNoTooltip' )), Concatenate(Localize('капитанов'), ''))]"
  invite_knights_decision_desc:1 "[ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip] требует достойной защиты, и я как [ROOT.Char.GetTitleAsNameNoTooltip|l] ищу храбрецов для обороны моих границ и завоевания новых земель. Отправлю глашатая с вестью, что мне нужны опытные $knight_culture_player_plural_no_tooltip_lowercase$."
  invite_knights_decision.men.tt:0 "В ближайшие месяцы ко двору прибудут [guests|El]. Не менее #P 3#! крепких мужчин, чей показатель [Concept( 'prowess', 'доблести' )|E] от #V [SCOPE.ScriptValue('invite_knights_decision_standard_value')|0]#! и выше"
  invite_knights_decision.women.tt:0 "В ближайшие месяцы ко двору прибудут [guests|El]. Не менее #P 3#! крепких женщин, чей показатель [Concept( 'prowess', 'доблести' )|E] от #V [SCOPE.ScriptValue('invite_knights_decision_standard_value')|0]#! и выше"
@@ -885,7 +889,7 @@
  convert_to_local_culture_decision_desc:0 "По правде говоря, мои традиции мало отличаются от традиций жителей моей столицы. Мы отмечаем те же церковные и светские праздник, а наш язык стал практически одинаковым."
  convert_to_local_culture_decision_confirm:1 "Я признаю, кто я"
  convert_to_local_culture_decision_tooltip:0 "Ваша [culture|El] сменится на культуру вашей [Concept( 'capital', 'столицы' )|E]"
- converted_culture_msg_title:0 "[converting_character.GetShortUIName|U] [Select_CString(converting_character.IsFemale, 'сменила', 'сменил' )] культуру"
+ converted_culture_msg_title:0 "[converting_character.GetShortUIName|U] [Select_CString(converting_character.IsLocalPlayer, 'сменили', Select_CString(converting_character.IsFemale, 'сменила', 'сменил' ))] [Concept( 'culture', 'культуру' )]"
  converted_from_old_culture_to_new_culture_tt:0 "Культура сменилась с #L [old_culture.GetCollectiveNoun|l]ой#! на #L [new_culture.GetCollectiveNoun|l]ую#!"
  every_old_culture_vassal_holding_new_culture_land:0 "Все [Concept( 'vassal', 'вассалы' )|E], [culture|El] которых совпадает с вашей и у которых есть [counties|El] с новой культурой"
  every_close_family_member_sharing_your_culture:1 "Все [Concept( 'close_family', 'близкие родственники' )|E] с вашей [Concept( 'culture', 'культурой' )|E]"
@@ -1139,7 +1143,7 @@
  appoint_a_righteous_caliph_decision_desc:0 "[ROOT.Char.GetFaith.GetReligiousHead.GetTitledFirstName] далеко и не годится на роль главы уммы. Придерживаясь #L [ROOT.Char.GetFaith.GetReligiousHead.GetFaith.GetName|l]их#! взглядов, [ROOT.Char.GetFaith.GetReligiousHead.GetSheHe] попросту не #EMP видит#! зерна истины в #L [ROOT.Char.GetFaith.GetName|l]их#! идеях.\n\n[ROOT.Char.GetFaith.GetReligiousHead.GetSheHe|U] не понимает, зато #EMP я#! понимаю..."
  appoint_a_righteous_caliph_decision_confirm:0 "Меня ведет [ROOT.Char.GetFaith.PositiveAfterLife|U]!"
  appoint_a_righteous_caliph_decision_tooltip:0 "[ROOT.Char.GetFaith.GetAdjectiveNoTooltip] отойдет от #L [ROOT.Char.GetFaith.GetReligiousHead.GetFaith.GetNameNoTooltip|l]их#! воззрений"
- appoint_a_righteous_caliph_decision.tt.you_become_caliph:0 "[THIS.Char.GetShortUIName|U] теперь [Concept( 'head_of_faith', 'глава' )|E] #L [THIS.Char.GetFaith.GetName|l]ой#! конфессии"
+ appoint_a_righteous_caliph_decision.tt.you_become_caliph:0 "Вы стали новым [Concept( 'head_of_faith', 'главой конфессии' )|E]"
  appoint_a_righteous_caliph_decision.need_at_least_ten_same_faith_counties:0 "У вас есть хотя бы [EmptyScope.ScriptValue('appoint_a_righteous_caliph_decision_same_faith_county_count')|0] #L [CHARACTER.GetFaith.GetName|l]их#! [Concept( 'counties', 'графств' )|E]"
  appoint_a_righteous_caliph_decision.cant_be_caliphal_controller:0 "Вы не [Concept( 'liege', 'сюзерен' )|E] [Concept( 'head_of_faith', 'главы' )|E] вашей конфессии"
  appoint_a_righteous_caliph_decision.no_more_than_x_sinful_traits:0 "У вас не больше [EmptyScope.ScriptValue('appoint_a_righteous_caliph_decision_own_max_sins')|0] [Concept( 'sinful', 'греховных' )|E] [Concept( 'traits', 'свойств' )|E]"

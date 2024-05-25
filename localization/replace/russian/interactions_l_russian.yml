@@ -177,7 +177,7 @@
  break_betrothal_hook_used:0 "Вы не можете разорвать помолвку, для заключения которой было использовано [Concept( 'hook', 'влияние' )|E]"
  break_betrothal_gwedding_ongoing:0 "Вы не можете расторгнуть [Concept( 'grand_wedding_promised', 'гарантированную' )|E] [Concept( 'betrothal', 'помолвку' )|E], если [GetActivityType( 'activity_wedding' ).GetName|l] уже идет"
  marry_off_interaction:0 "Найти супруга/супругу"
- marry_off_interaction_desc:0 "Найти пару для персонажа [secondary_actor.GetShortUINameNoTooltip]"
+ marry_off_interaction_desc:0 "Найти пару для [Select_CString(secondary_actor.IsLocalPlayer, '', 'персонажа ' )][secondary_actor.GetNamePossessiveOrMy][Select_CString(secondary_actor.IsLocalPlayer, 'его персонажа', '' )]"
  marry_off_send:0 "Устроить брак"
  AI_EDUCATE_ME:0 "Обучает меня: $VALUE|=+0$"
  AI_MY_CHILD:0 "Их ребенок: $VALUE|=+0$"
@@ -199,10 +199,10 @@
  AI_GUARDIAN_SKILL_STEWARDSHIP:0 "[stewardship|E] опекуна: $VALUE|=+0$"
  AI_GUARDIAN_SKILL_INTRIGUE:0 "[intrigue|E] опекуна: $VALUE|=+0$"
  AI_GUARDIAN_SKILL_LEARNING:0 "[learning|E] опекуна: $VALUE|=+0$"
- arrange_marriage_interaction.tt.non_loyal_regents_refuse_to_be_married_off.actor:0 "Этот [actor.GetDiarchTitle] пока проявляет недостаточную [Concept( 'diarch_loyal', 'верность' )|E]), чтобы согласиться на брак"
- arrange_marriage_interaction.tt.non_loyal_regents_refuse_to_be_married_off.recipient:0 "Этот [actor.GetDiarchTitle] проявляет достаточную [Concept( 'diarch_loyal', 'верность' )|E]), чтобы согласиться на брак"
- arrange_marriage_interaction.tt.non_loyal_regents_refuse_to_be_married_off.secondary_actor:0 "Этот [secondary_actor.GetDiarchTitle] пока проявляет недостаточную [Concept( 'diarch_loyal', 'верность' )|E]), чтобы согласиться на брак"
- arrange_marriage_interaction.tt.non_loyal_regents_refuse_to_be_married_off.secondary_recipient:0 "Этот [secondary_recipient.GetDiarchTitle] пока проявляет недостаточную [Concept( 'diarch_loyal', 'верность' )|E]), чтобы согласиться на брак"
+ arrange_marriage_interaction.tt.non_loyal_regents_refuse_to_be_married_off.actor:0 "Этот [actor.GetDiarchTitle] пока проявляет недостаточную [Concept( 'diarch_loyal', 'верность' )|E], чтобы согласиться на брак"
+ arrange_marriage_interaction.tt.non_loyal_regents_refuse_to_be_married_off.recipient:0 "Этот [actor.GetDiarchTitle] проявляет достаточную [Concept( 'diarch_loyal', 'верность' )|E], чтобы согласиться на брак"
+ arrange_marriage_interaction.tt.non_loyal_regents_refuse_to_be_married_off.secondary_actor:0 "Этот [secondary_actor.GetDiarchTitle] пока проявляет недостаточную [Concept( 'diarch_loyal', 'верность' )|E], чтобы согласиться на брак"
+ arrange_marriage_interaction.tt.non_loyal_regents_refuse_to_be_married_off.secondary_recipient:0 "Этот [secondary_recipient.GetDiarchTitle] пока проявляет недостаточную [Concept( 'diarch_loyal', 'верность' )|E], чтобы согласиться на брак"
  
  educate_child_interaction:0 "Дать ребенку образование"
  educate_child_interaction_desc:0 "Выбрать у себя при [Concept( 'court', 'дворе' )|E] [Concept( 'ward', 'подопечного' )|E] и [Concept( 'guardian', 'опекуна' )|E]"
@@ -577,7 +577,7 @@
  TAKE_THE_VOWS_DRUNKARD:0 "[GetTrait('drunkard').GetName( recipient.Self )]: $VALUE|=+0$"
  TAKE_THE_VOWS_HASHISHIYAH:0 "[GetTrait('hashishiyah').GetName( recipient.Self )]: $VALUE|=+0$"
  TAKE_THE_VOWS_HOLY_WARRIOR:0 "[GetTrait('holy_warrior').GetName( recipient.Self )]: $VALUE|=+0$"
- TAKE_THE_VOWS_INHERITANCE:0 "Текущее наследство персонажа [recipient.GetHerHis|U]: $VALUE|=+0$"
+ TAKE_THE_VOWS_INHERITANCE:0 "[Select_CString(recipient.IsFemale, 'Ее', 'Его' )] текущее наследство: $VALUE|=+0$"
  TAKE_THE_VOWS_PRIMARY_HEIR:0 "[primary_heir|E]: $VALUE|=+0$"
  TAKE_THE_VOWS_SECOND_HEIR:0 "2-е место в очереди на [Concept( 'primary_title', 'первый титул' )|E]: $VALUE|=+0$"
  TAKE_THE_VOWS_THIRD_HEIR:0 "3-е место в очереди на [Concept( 'primary_title', 'первый титул' )|E]: $VALUE|=+0$"
@@ -659,7 +659,7 @@
  #Religious Interactions Descs
  ask_for_conversion_interaction:0 "Потребовать обращения"
  ask_for_conversion_interaction_desc:0 "Потребовать, чтобы [recipient.GetShortUINameNoTooltip] [Select_CString(recipient.IsFemale, 'обратилась', 'обратился' )] в вашу [Concept( 'faith', 'конфессию' )|E]\n#weak (Сменить [recipient.GetFaith.GetAdjective|l] на [actor.GetFaith.GetAdjective|l])#!"
- ask_for_conversion_interaction_accept_tooltip: "@warning_icon! #X [Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж' )][CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] может продолжать тайно исповедовать [recipient.GetSecretFaith.GetAdjective|l]#!"
+ ask_for_conversion_interaction_accept_tooltip: "@warning_icon! #X [THIS.Char.GetNamePossessiveOrMy|U][Select_CString(THIS.Char.IsLocalPlayer, ' персонаж', '' )] может продолжать тайно исповедовать [recipient.GetFaith.GetAdjective|l]#!"
  ask_for_conversion_courtier_interaction:0 "Потребовать обращения"
  ask_for_conversion_courtier_interaction_extra_icon:0 "$hook_extra_icon$"
  ask_for_conversion_courtier_interaction.tt:0 "Придворный соглашается на обращение"
@@ -682,7 +682,7 @@
  ASK_FOR_CONVERSION_RECIPIENT_IS_FICKLE: "[recipient.GetShortUIName|U] — [GetTrait('fickle').GetName( GetPlayer )]: $VALUE|=+0$"
  ASK_FOR_CONVERSION_RECIPIENT_IS_HERESIARCH:0 "[recipient.GetShortUIName|U] — [GetTrait('heresiarch').GetName( GetPlayer )]: $VALUE|=+0$"
  ASK_FOR_CONVERSION_RECIPIENT_IS_HERETIC:0 "[recipient.GetShortUIName|U] — [GetTrait('heretic').GetName( GetPlayer )]: $VALUE|=+0$"
- ASK_FOR_CONVERSION_RECIPIENT_IS_PIOUS: "[recipient.GetShortUIName|U] — $game_concept_pious$: $VALUE|=+0$"
+ ASK_FOR_CONVERSION_RECIPIENT_IS_PIOUS: "[Select_CString(recipient.IsLocalPlayer, '', 'Персонаж ' )][recipient.GetNamePossessiveOrMy|U][Select_CString(recipient.IsLocalPlayer, ' персонаж', '' )] отличается благочестием: $VALUE|=+0$"
  ASK_FOR_CONVERSION_SAME_CULTURE_PRESTIGE_LEVEL:0 "Общая #L [actor.GetCulture.GetCollectiveNoun|l]ая#! культура, и [actor.GetShortUIName] [Select_CString(actor.IsLocalPlayer, 'имеете', 'имеет' )] уровень репутации «[GetPrestigeLevelName( actor.GetPrestigeLevel )]»: $VALUE|=+0$"
  RELIGIOUS_HEAD_INTERACTION_SAVIOR:0 "Вы [GetTrait('savior').GetName( GetPlayer )] в #L [actor.GetFaith.GetName|l]ой#! конфессии: $VALUE|=+0$"
  RELIGIOUS_HEAD_INTERACTION_DIVINE_BLOOD:0 "У меня есть [GetTrait('divine_blood').GetName( GetPlayer )]: $VALUE|=+0$"
@@ -1058,7 +1058,7 @@
 
  I_AM_BLOCKED_FROM_SWAYING_THIS_CHARACTER:1 "Вы не сможете повлиять на н[TARGET_CHARACTER.GetHerHis], пока [TARGET_CHARACTER.GetShortUIName] злится на вас"
 
- MODIFY_VASSAL_CONTRACT_SELECT_DIFFERENT_OBLIGATION_LEVEL:2 "Вы должны внести изменения в новый [Concept( 'feudal_contract', 'вассальный договор' )|E]"
+ MODIFY_VASSAL_CONTRACT_SELECT_DIFFERENT_OBLIGATION_LEVEL:2 "Вы должны внести изменения в новый [feudal_contract|El]"
  VASSAL_MODIFY_VASSAL_CONTRACT_CANNOT_INCREASE_OBLIGATION_LEVEL:2 "Необходимо предложить равноценный обмен уровней обязательства и [Concept( 'hooks', 'влияния' )|E]. В настоящий момент в выигрышном положении находится [SelectLocalization( GreaterThan_CFixedPoint( '(CFixedPoint)$VALUE$', '(CFixedPoint)0.0' ), CHARACTER.GetShortUIName, TARGET_CHARACTER.GetShortUIName )]: [Abs_CFixedPoint( '(CFixedPoint)$VALUE$' )|V0]"
  vassal_modify_vassal_contract_obligation_change_limit:0 "Вы не можете предложить более #V [EmptyScope.ScriptValue('max_contract_changes')|0]#! изменений одновременно"
  vassal_modify_vassal_contract_unnecessary_hook_usage_vassal_favor:0 "Вы не можете использовать [Concept( 'hook', 'влияние' )|E] на договоре, который уже изменен в пользу [Concept( 'vassal', 'вассала' )|E]. [TARGET_CHARACTER.GetShortUIName] выигрывает от текущих изменений: $VALUE|V0$"
@@ -1388,7 +1388,7 @@
  execution_options_heading:0 "Способ казни"
  INTERACTION_REPLACE_SCHEME_HOSTILE:0 "[scheme_hostile|E]"
  INTERACTION_REPLACE_SCHEME_NON_HOSTILE:0 "[personal|E]"
- INTERACTION_REPLACE_SCHEME:2 "@warning_icon! #X Новые [SelectLocalization( InteractionSchemeInfo.GetScheme.IsHostile, 'INTERACTION_REPLACE_SCHEME_HOSTILE', 'INTERACTION_REPLACE_SCHEME_NON_HOSTILE' )|l] прекратят текущие происки [InteractionSchemeInfo.GetReplacedScheme.GetFullActionName|V]#!"
+ INTERACTION_REPLACE_SCHEME:2 "@warning_icon! #X Если начать новые [SelectLocalization( InteractionSchemeInfo.GetScheme.IsHostile, 'INTERACTION_REPLACE_SCHEME_HOSTILE', 'INTERACTION_REPLACE_SCHEME_NON_HOSTILE' )|l] происки, текущие происки с целью «[InteractionSchemeInfo.GetReplacedScheme.GetFullActionName|V]» будут прекращены#!"
  INTERACTION_TRANSFER_VASSAL_RIGHTFUL_LIEGE:0 "#T Получателем является [Concept( 'rightful_liege', 'законный сюзерен' )|E]#!"
 
  START_SCHEME:0 "Начать происки"
@@ -1611,7 +1611,7 @@
  demand_dynasty_banner_artifact_tt:0 "[artifact|E] должен быть знаменем вашей [Concept( 'dynasty', 'династии' )|E]"
  any_unequipped_artifact_tt:0 "Требуется неиспользуемый [artifact|El]"
 
- MODIFY_NON_FEUDAL_VASSAL_CONTRACT_SELECT_DIFFERENT_OBLIGATION_LEVEL:2 "Вы должны внести изменения в новый [Concept( 'feudal_contract', 'вассальный договор' )|E]"
+ MODIFY_NON_FEUDAL_VASSAL_CONTRACT_SELECT_DIFFERENT_OBLIGATION_LEVEL:2 "Вы должны внести изменения в новый [Concept( 'vassal_contract', 'вассальный договор' )]"
  INTERACTION_COST_MARRIAGE:0 "Цена: [CharacterInteractionConfirmationWindow.GetCostDescription]"
  ARTIFACT_USELESS_BANNER_REASON:0 "[recipient.GetShortUINameNoTooltip] не имеет ничего общего с этим знаменем: $VALUE|=+0$"
  artifact_gift_vassal_tt:0 "@warning_icon! #X [recipient.GetTitledFirstName] — ваш [vassal|El]#!"
@@ -1689,7 +1689,7 @@
 
  interactions_general.tt.must_select_one_option:0 "Вы должны выбрать хотя бы один вариант"
 
- find_suitable_accolade_successor_interaction:0 "Найти достойного преемника акколады"
+ find_suitable_accolade_successor_interaction:0 "Найти достойного преемника"
  find_suitable_accolade_successor_interaction_desc:0 "Призвать к своему [Concept( 'court', 'двору' )|E] подходящего [Concept( 'knight', 'рыцаря' )|E]"
  find_suitable_accolade_successor_interaction.tt:0 "[Concept( 'knight', 'Рыцарь' )|E], удовлетворяющий требованиям этой [Concept( 'accolade', 'акколады' )|E], присоединится к вашему [Concept( 'court', 'двору' )|E] в течение #high 6 месяцев#!\n\n@alert_icon! #alert_trial Решение «Найти достойного преемника акколады» будет недоступно в течение #high 2 лет#!#!"
 
@@ -1717,6 +1717,6 @@
  ward_travelling_tt: "[THIS.Char.GetShortUIName|U] в пути с целью стать [Concept( 'ward', 'подопечным' )|E]"
  guardian_travelling_tt: "[THIS.Char.GetShortUIName|U] в пути с целью стать [Concept( 'guardian', 'опекуном' )|E]"
 
- offer_vassalization_interaction_aibehavior_rival_tt_2: "[Select_CString(secondary_recipient.IsFemale, 'Она ваша', 'Он ваш' )] [Concept( 'rival', Select_CString(secondary_recipient.IsFemale, 'соперница' 'соперник' ))|E]: $VALUE|=+0$"
- offer_vassalization_interaction_aibehavior_nemesis_tt_2: "[Select_CString(secondary_recipient.IsFemale, 'Она', 'Он' )] ваш [Concept( 'nemesis', 'заклятый враг' )|E]: $VALUE|=+0$"
- offer_vassalization_interaction_aibehavior_dynasty_tt_2: "[Select_CString(secondary_recipient.IsFemale, 'Она', 'Он' )] принадлежит к вашей [Concept( 'dynasty', 'династии' )|E]: $VALUE|=+0$"
+ offer_vassalization_interaction_aibehavior_rival_tt_2:0 "[Select_CString(secondary_recipient.IsFemale, 'Она ваша', 'Он ваш' )] [Concept( 'rival', Select_CString(secondary_recipient.IsFemale, 'соперница' 'соперник' ))|E]: $VALUE|=+0$"
+ offer_vassalization_interaction_aibehavior_nemesis_tt_2:0 "[Select_CString(secondary_recipient.IsFemale, 'Она', 'Он' )] ваш [Concept( 'nemesis', 'заклятый враг' )|E]: $VALUE|=+0$"
+ offer_vassalization_interaction_aibehavior_dynasty_tt_2:0 "[Select_CString(secondary_recipient.IsFemale, 'Она', 'Он' )] принадлежит к вашей [Concept( 'dynasty', 'династии' )|E]: $VALUE|=+0$"

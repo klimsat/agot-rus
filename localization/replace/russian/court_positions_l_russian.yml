@@ -25,7 +25,7 @@
  APPOINT_COURT_POSITION_VIEW_REPLACE_CONSEQUENCE_FOR_REVOKE:0 "#T Снятие с должности будет иметь последствия:#!"
  APPOINT_COURT_POSITION_VIEW_REPLACE_CONSEQUENCE_FOR_REVOKE_TOOLTIP:0 "#X [AppointCourtPositionView.ReplaceRevokeText] #!"
  APPOINT_COURT_POSITION_VIEW_APTITUDE:0 "#L [AppointCourtPositionView.GetAptitudeTextFor(Character.Self)]#! [aptitude|El]"
- APPOINT_COURT_POSITION_VIEW_OPINION_BONUS:0 "[opinion|e] персонажа [AppointCourtPositionView.GetSelectedCharacter.GetShortUINameNoTooltip]: [AppointCourtPositionView.GetOpinionBonusForSelectedEmployee|=+]"
+ APPOINT_COURT_POSITION_VIEW_OPINION_BONUS:0 "[opinion|E] персонажа [AppointCourtPositionView.GetSelectedCharacter.GetShortUINameNoTooltip]: [AppointCourtPositionView.GetOpinionBonusForSelectedEmployee|=+]"
 
  COURT_POSITION_FOR_EMPLOYER:0 "— [CourtPosition.GetEmployer.GetUINameNoTooltip]"
 
@@ -166,7 +166,7 @@
  COURT_POSITION_APTITUDE_TOOLTIP_HEADER:0 "Пригодность"
  COURT_POSITION_aptitude_description_position:1 "[aptitude|E]: [CourtPosition.GetAptitudeText|V]"
  COURT_POSITION_aptitude_breakdown:0 "На [Concept( 'aptitude', 'пригодность' )|E] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] для должности $COURT_POSITION$ влияет:"
- COURT_POSITION_aptitude_character_possessive:0 "[aptitude|e] [Select_CString(Character.IsLocalPlayer, '', 'персонажа ' )][Character.GetNamePossessiveOrMy][Select_CString(Character.IsLocalPlayer, 'его персонажа', '' )]:"
+ COURT_POSITION_aptitude_character_possessive:0 "[aptitude|E] [Select_CString(Character.IsLocalPlayer, '', 'персонажа ' )][Character.GetNamePossessiveOrMy][Select_CString(Character.IsLocalPlayer, 'его персонажа', '' )]:"
 
  court_position_skill_learning:0 "Навык [Concept( 'learning', 'учености' )|E]"
  court_position_skill_martial:0 "Навык [Concept( 'martial', 'военного дела' )|E]"
@@ -324,7 +324,7 @@
  cupbearer_court_position_desc:1 "$cupbearer_court_position$ подает напитки к монаршему столу и следит за тем, чтобы кубки не пустовали."
  seneschal_court_position:0 "Сенешаль"
  seneschal_court_position_desc:1 "$seneschal_court_position$ играет важную роль в управлении монаршим домохозяйством, распоряжается слугами и следит за порядком."
- antiquarian_court_position:0 "Придворный кузнец"
+ antiquarian_court_position:0 "Хранитель древностей"
  antiquarian_court_position_desc:2 "$antiquarian_court_position$ отвечает за сохранность и приобретение придворных артефактов."
  court_tutor_court_position:0 "Придворный наставник"
  court_tutor_employer_custom_effect_description:2 "$BULLET$Улучшает результаты [Concept( 'education', 'обучения' )|E]\n$BULLET$Открывает [interaction|El] #V $make_child_learn_language_interaction$#!"
@@ -400,14 +400,14 @@
 
  travel_leader_court_position:0 "Караванщик"
  travel_leader_court_position_desc:0 "Караванщик помогает вам во время путешествия и прокладывает маршрут. Он отвечает за то, чтобы вы добрались до цели во время и без происшествий."
- hire_travel_leader_decision:0 "Караванщик: Искать"
+ hire_travel_leader_decision:0 "Найти караванщика"
  hire_travel_leader_decision_effect_tooltip:0 "Ваши слуги предложат несколько кандидатур, подходящих на должность [GetCourtPositionType('travel_leader_court_position').GetName()]"
  hire_travel_leader_decision_desc:0 "Хороший караванщик необходим для успешного путешествия. Я попрошу представить мне несколько кандидатур."
  hire_travel_leader_decision_confirm:0 "Начать поиски"
  wet_nurse_court_position:0 "Кормилица"
  wet_nurse_court_position_desc:0 "$wet_nurse_court_position$ заботится о ваших [Concept( 'children', 'детях' )|E] и детях, находящихся у вас в [Concept( 'hostages', 'заложниках' )|E]."
  wet_nurse_employer_custom_effect_description:0 "$BULLET$Сниженный шанс, что [children|El] подхватят [illnesses|El].\n$BULLET$Возможны события, развивающие [Concept( 'child', 'ребенка' )|E]"
- find_wet_nurse_decision:0 "Искать кормилицу"
+ find_wet_nurse_decision:0 "Найти кормилицу"
  find_wet_nurse_decision_desc:0 "$wet_nurse_court_position$ — символ достатка и благополучия двора. Отвечает за заботу о детях, оберегает их от болезней и следит за их развитием. Кандидатка должна быть крепкой и здоровой."
  find_wet_nurse_decision_effect_tooltip:0 "Ваши слуги предложат несколько кандидатур, подходящих на должность [GetCourtPositionType('wet_nurse_court_position').GetName()]"
  find_wet_nurse_decision_confirm:0 "Начать поиски"
