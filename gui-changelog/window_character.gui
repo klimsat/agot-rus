@@ -1888,7 +1888,9 @@ window = {
 
 				vbox = {
 					name = "family_main_view"
-					visible = "[Not( Or(CharacterWindow.IsRelationExpanded( 'children' ), CharacterWindow.IsRelationExpanded( 'siblings' ) ) )]"
+					#AGOT Modified
+					# visible = "[Not( Or(CharacterWindow.IsRelationExpanded( 'children' ), CharacterWindow.IsRelationExpanded( 'siblings' ) ) )]"
+					visible = "[And( Not( Or(CharacterWindow.IsRelationExpanded( 'children' ), CharacterWindow.IsRelationExpanded( 'siblings' ) )), Not( CharacterWindow.IsRelationExpanded( 'spouses' ) ))]"
 
 					widget = {
 						name = "parents_grandparents_spouses"
@@ -1978,14 +1980,30 @@ window = {
 
 								blockoverride "portrait_datamodel" {
 									datamodel = "[CharacterWindow.GetSecondarySpouses]"
+									#AGOT Added
+									maxhorizontalslots = 4
 								}
 
 								blockoverride "header_text"
 								{
-									text = "SECONDARY_SPOUSES"
+									#AGOT Modified
+									# text = "SECONDARY_SPOUSES"
+									text = "AGOT_SECONDARY_SPOUSES"
 								}
 
-								blockoverride "expand_button" {}
+								#AGOT Modified
+								# blockoverride "expand_button" {}
+								blockoverride "expand_button_inside" {
+									visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)4' )]"
+									onclick = "[CharacterWindow.ToggleExpandedRelation( 'spouses' )]"
+								}
+
+								#AGOT Added
+								blockoverride "remaining_items"
+								{
+									visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)4' )]"
+									text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)4' )|=]"
+								}
 
 								blockoverride "find_partner"
 								{
@@ -2234,6 +2252,37 @@ window = {
 							blockoverride "expand_button_inside" {
 								onclick = "[CharacterWindow.ToggleExpandedRelation( 'children' )]"
 								down = "[CharacterWindow.IsRelationExpanded( 'children' )]"
+							}
+
+							blockoverride "gridbox_slots" {}
+						}
+					}
+				}
+
+				#AGOT Added
+				scrollbox =	{
+					name = "family_spouses_expanded"
+					visible = "[CharacterWindow.IsRelationExpanded( 'spouses' )]"
+					size = { 100% 100% }
+
+					blockoverride "scrollbox_replace_vbox" {
+						vbox_character_row_item = {
+							name = "spouses"
+							margin_top = 10
+							spacing = 5
+
+							blockoverride "portrait_datamodel" {
+								datamodel = "[CharacterWindow.GetSecondarySpouses]"
+							}
+
+							blockoverride "header_text"
+							{
+								text = "AGOT_SECONDARY_SPOUSES"
+							}
+
+							blockoverride "expand_button_inside" {
+								onclick = "[CharacterWindow.ToggleExpandedRelation( 'spouses' )]"
+								down = "[CharacterWindow.IsRelationExpanded( 'spouses' )]"
 							}
 
 							blockoverride "gridbox_slots" {}
@@ -4614,6 +4663,9 @@ types CharacterWindow
 			allow_outside = yes
 			position = { 93 0 }
 			size = { 182 60 }
+			#AGOT Added
+			visible = "[Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_spouse').GetValue, '(CFixedPoint)0' ) )]"
+			using = Animation_ShowHide_Standard
 
 			flowcontainer = {
 				parentanchor = bottom
