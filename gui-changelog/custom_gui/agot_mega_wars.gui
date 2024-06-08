@@ -369,15 +369,10 @@ types MegaWarsTypes {
 						datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_wall' )]"
 						down = "[GetPlayer.MakeScope.Var( 'sent_to_wall' ).IsSet]"
 					}
-					MegaWarsTraitorsButton = { # Send selected traitor to the Wall
-						blockoverride "text" { text = MW_GUI_SEND_TO_ESSOS }
-						datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_essos' )]"
-						down = "[GetPlayer.MakeScope.Var( 'sent_to_essos' ).IsSet]"
-					}
 					MegaWarsTraitorsButton = { # Expel selected traitor
 						blockoverride "text" { text = MW_GUI_EXPEL_TRAITOR }
 						datacontext = "[GetScriptedGui( 'agot_mw_gui_traitors_expel' )]"
-						down = "[GetPlayer.MakeScope.Var( 'expel' ).IsSet]"
+						down = "[GetPlayer.MakeScope.Var( 'expel_traitor' ).IsSet]"
 					}
 					MegaWarsTraitorsButton = { # Expel selected traitor's close family members
 						blockoverride "text" { text = MW_GUI_EXPEL_TRAITORS_FAMILY }
