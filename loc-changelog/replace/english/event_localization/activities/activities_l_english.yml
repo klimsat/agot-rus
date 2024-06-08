@@ -3,7 +3,10 @@
  ACTIVITY_WAITING_TOOLTIP:0 "Hosted by [CHARACTER.GetName].\nWaiting for all invitations to be answered.\n$DESC|F$\n\n#I Click to show details#! "
  ACTIVITY_TIME_LEFT:0 "#D Will begin in $TIME|V$ days#!"
  ACTIVITY_OWNED_BY:0 "#D Owner: $NAME$#!"
- ACTIVITY_FULL_NAME:0 "[Character.GetShortUINamePossessiveNoTooltip] [ActivityType.GetNameNoTooltip]"
+
+ #AGOT Modified
+ #ACTIVITY_FULL_NAME:0 "[Character.GetShortUINamePossessiveNoTooltip] [ActivityType.GetNameNoTooltip]"
+ ACTIVITY_FULL_NAME:0 "[SelectLocalization(Character.GetInvolvedActivity.MakeScope.Var('body_to_bury').IsSet, Character.GetInvolvedActivity.MakeScope.Var('body_to_bury').Char.GetTitledFirstNamePossessive, Character.GetShortUINamePossessiveNoTooltip)] [ActivityType.GetNameNoTooltip|U]"
  ACTIVITY_SHORT_NAME:0 "[ActivityType.GetNameNoTooltip]"
 
  ACTIVITY_TYPE_DESC:0 "[AddLine(ActivityOption.GetIsValidDesc( GetPlayer, ActivityPlanner.GetSelectedSpecialOption ))]\n[ActivityOption.GetDescription]"
