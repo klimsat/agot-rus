@@ -37,10 +37,10 @@
  SQUIRE_ACTOR_CHILD_REQUEST:0 "Мне будет очень приятно, если вы позволите [secondary_actor.GetShortUIName] стать оруженосцем [recipient.Custom2('RelationToMe', SCOPE.sC('secondary_recipient'))] [secondary_recipient.GetShortUINamePossessive]."
  SQUIRE_ACTOR_REQUEST:0 "Я буду премного [Select_CString(recipient.IsFemale, 'благодарна', 'благодарен')], если [Select_CString(secondary_recipient.IsFemale, 'ваша', 'ваш')] [recipient.Custom2('RelationToMe', SCOPE.sC('secondary_recipient'))] [secondary_recipient.GetShortUINamePossessive] станет моим оруженосцем."
 
- EDUCATE_RECIPIENT_SQUIRE_PERSONALLY_REQUEST:0 "Я [Select_CString(recipient.IsFemale, 'хотела', 'хотел')] бы лично стать вашим [recipient.Custom2('RelationToMe', SCOPE.sC('secondary_recipient'))] [secondary_recipient.GetShortUINamePossessive] рыцарем, если это представляется вам разумным."
+ EDUCATE_RECIPIENT_SQUIRE_PERSONALLY_REQUEST:0 "Я бы [Select_CString(recipient.IsFemale, 'хотела', 'хотел')], чтобы [Select_CString(secondary_recipient.IsFemale, 'ваша', 'ваш')] [recipient.Custom2('RelationToMe', SCOPE.sC('secondary_recipient'))] [secondary_recipient.GetShortUINamePossessive] [Select_CString(secondary_recipient.IsFemale, 'стала', 'стал')] моим оруженосцем, если это представляется вам разумным."
  EDUCATE_SQUIRE_PERSONALLY_REQUEST:0 "Чтобы обеспечить наилучшую подготовку оруженосца, я бы лично [Select_CString(recipient.IsFemale, 'проследила', 'проследил')] за обучением - если вы позволите."
- EDUCATE_RECIPIENT_SQUIRE_REQUEST:0 "Я бы [Select_CString(recipient.IsFemale, 'хотела', 'хотел')], чтобы [Select_CString(secondary_recipient.IsFemale, 'ваша', 'ваш')] [recipient.Custom2('RelationToMe', SCOPE.sC('secondary_recipient'))] [secondary_recipient.GetShortUIName] [Select_CString(secondary_recipient.IsFemale, 'стала', 'стал')] оруженосцем [secondary_actor.GetShortUIName] — искуснейшего рыцаря!"
- EDUCATE_SQUIRE_REQUEST:0 "Если хочешь в один прекрасный день стать рыцарем, тебе придётся побыть оруженосцем [secondary_actor.GetShortUIName] — искуснейшего рыцаря!"
+ EDUCATE_RECIPIENT_SQUIRE_REQUEST:0 "Я бы [Select_CString(recipient.IsFemale, 'хотела', 'хотел')], чтобы [Select_CString(secondary_recipient.IsFemale, 'ваша', 'ваш')] [recipient.Custom2('RelationToMe', SCOPE.sC('secondary_recipient'))] [secondary_recipient.GetShortUIName] [Select_CString(secondary_recipient.IsFemale, 'стала', 'стал')] оруженосцем такого искуснейшего рыцаря, как [secondary_actor.GetShortUIName]!"
+ EDUCATE_SQUIRE_REQUEST:0 "Если хочешь в один прекрасный день стать рыцарем, тебе придётся побыть оруженосцем такого искуснейшего рыцаря, как [secondary_actor.GetShortUIName]!"
  educate_squire_interaction_notification:0 "Обучить оруженосца"
 
  offer_of_squirehood:0 "Предложение стать оруженосцем"
@@ -76,106 +76,106 @@
  agot_char_interaction.0081.desc:0 "К сожалению, нам не нравится ваше предложение."
  agot_char_interaction.0081.a:0 "Как жаль."
 
-agot_view_squire_progress_interaction:0 "Посмотреть прогресс оруженосца"
-agot_view_squire_progress_interaction_desc:0 "Посмотрите, как ваш оруженосец продвигается к рыцарскому званию."
+ agot_view_squire_progress_interaction:0 "Посмотреть прогресс оруженосца"
+ agot_view_squire_progress_interaction_desc:0 "Посмотрите, как ваш оруженосец продвигается к рыцарскому званию."
 
-view_progress_very_bad_ptk_tt:0 "Этот оруженосец #N очень плохо#! осваивает рыцарское дело. Его нынешняя форма никого не вдохновляет."
+ view_progress_very_bad_ptk_tt:0 "Этот оруженосец #N очень плохо#! осваивает рыцарское дело. Его нынешняя форма никого не вдохновляет."
 
-view_progress_bad_ptk_tt:0 "У этого [Concept( 'squire', 'оруженосца' )|E] возникли небольшие проблемы с освоением рыцарских традиций."
+ view_progress_bad_ptk_tt:0 "У этого [Concept( 'squire', 'оруженосца' )|E] возникли небольшие проблемы с освоением рыцарских традиций."
 
-view_progress_zero_ptk_tt:0 "Этот [Concept( 'squire', 'оруженосец' )|E] либо только начинает свой путь оруженосца, либо достиг минимального прогресса."
+ view_progress_zero_ptk_tt:0 "Этот [Concept( 'squire', 'оруженосец' )|E] либо только начинает свой путь оруженосца, либо достиг минимального прогресса."
 
-view_progress_basic_good_ptk_tt:0 "Этот [Concept( 'squire', 'оруженосец' )|E] демонстрирует базовое понимание рыцарства. [Select_CString(recipient.IsFemale, 'Ей', 'Ему')] ещё предстоит пройти долгий путь."
+ view_progress_basic_good_ptk_tt:0 "Этот [Concept( 'squire', 'оруженосец' )|E] демонстрирует базовое понимание рыцарства. [Select_CString(recipient.IsFemale, 'Ей', 'Ему')] ещё предстоит пройти долгий путь."
 
-view_progress_decent_ptk_tt:0 "Этот [Concept( 'squire', 'оруженосец' )|E] демонстрирует достойное понимание рыцарства. [Select_CString(recipient.IsFemale, 'Ей', 'Ему')] ещё есть к чему стремиться."
+ view_progress_decent_ptk_tt:0 "Этот [Concept( 'squire', 'оруженосец' )|E] демонстрирует достойное понимание рыцарства. [Select_CString(recipient.IsFemale, 'Ей', 'Ему')] ещё есть к чему стремиться."
 
-view_progress_good_ptk_tt:0 "Этот [Concept( 'squire', 'оруженосец' )|E] отлично справляется,  и скоро будет готов стать [Concept( 'agot_knight', 'рыцарем' )|E]!"
+ view_progress_good_ptk_tt:0 "Этот [Concept( 'squire', 'оруженосец' )|E] отлично справляется,  и скоро будет готов стать [Concept( 'agot_knight', 'рыцарем' )|E]!"
 
-view_progress_very_good_ptk_tt:0 "Этот [Concept( 'squire', 'оруженосец' )|E] изящно справляется. После нескольких месяцев обучения он будет готов к посвящению в рыцари."
+ view_progress_very_good_ptk_tt:0 "Этот [Concept( 'squire', 'оруженосец' )|E] изящно справляется. После нескольких месяцев обучения он будет готов к посвящению в рыцари."
 
-view_progress_knight_this_char_now_ptk_tt:0 "Этот [Concept( 'squire', 'оруженосец' )|E] имеет право стать [Concept( 'agot_knight', 'рыцарем' )|E], как только достигнет соответствующего возраста!"
+ view_progress_knight_this_char_now_ptk_tt:0 "Этот [Concept( 'squire', 'оруженосец' )|E] имеет право стать [Concept( 'agot_knight', 'рыцарем' )|E], как только достигнет соответствующего возраста!"
 
-OFFER_SQUIRE:0 "Предложить оруженосца"
-OFFER_KNIGHT_TUTELAGE:0 "Предложить рыцарское наставничество"
-OFFER_EDUCATE_SQUIRE:0 "Обучить оруженосца"
+ OFFER_SQUIRE:0 "Предложить оруженосца"
+ OFFER_KNIGHT_TUTELAGE:0 "Предложить рыцарское наставничество"
+ OFFER_EDUCATE_SQUIRE:0 "Обучить оруженосца"
 
-##
+ ##
 
-ACTOR_IS_MY_AGOT_KNIGHT_REASON:0 "[recipient.GetShortUIName|U] является оруженосцем [actor.GetShortUINamePossessive]: $VALUE|=+0$"
+ ACTOR_IS_MY_AGOT_KNIGHT_REASON:0 "[recipient.GetShortUIName|U] является оруженосцем персонажа [actor.GetShortUINamePossessive]: $VALUE|=+0$"
 
-LOWBORN_DESIRES_KNIGHTHOOD_REASON:0 "Как [Concept( 'lowborn', 'худородный' )|E], я более склонен принять повышение социального статуса: $VALUE|=+0$"
+ LOWBORN_DESIRES_KNIGHTHOOD_REASON:0 "Как [Concept( 'lowborn', 'худородный' )|E], я более склонен принять повышение социального статуса: $VALUE|=+0$"
 
-HIGHBORN_DISLIKES_LOWBORN_KNIGHT_OFFER:0 "[Concept( 'lowborn', 'Худородным' )|E] посвящать меня в рыцари было бы неуместно: $VALUE|=+0$"
+ HIGHBORN_DISLIKES_LOWBORN_KNIGHT_OFFER:0 "[Concept( 'lowborn', 'Худородным' )|E] посвящать меня в рыцари было бы неуместно: $VALUE|=+0$"
 
-HIGHBORN_IS_HUMBLE:0 "[actor.GetShortUIName|U] [Concept( 'lowborn', 'худородный' )|E], но я не возражаю, так как я скромный: $VALUE|=+0$"
+ HIGHBORN_IS_HUMBLE:0 "[actor.GetShortUIName|U] [Concept( 'lowborn', 'худородный' )|E], но я не возражаю, так как я скромный: $VALUE|=+0$"
 
-## PERSONALITY REASONS
+ ## PERSONALITY REASONS
 
-KNIGHTHOOD_LOW_BOLDNESS_REASON:0 "[personality|E] — #italic Рыцарство - это звучит страшно:#! $VALUE|=+0$"
+ KNIGHTHOOD_LOW_BOLDNESS_REASON:0 "[personality|E] — #italic Рыцарство - это звучит страшно:#! $VALUE|=+0$"
 
-KNIGHTHOOD_HIGH_BOLDNESS_REASON:0 "[personality|E] — #italic Я [Select_CString(recipient.IsFemale, 'рада', 'рад')] возможности доказать свою состоятельность, став рыцарем!:#! $VALUE|=+0$"
+ KNIGHTHOOD_HIGH_BOLDNESS_REASON:0 "[personality|E] — #italic Я [Select_CString(recipient.IsFemale, 'рада', 'рад')] возможности доказать свою состоятельность, став рыцарем!:#! $VALUE|=+0$"
 
-KNIGHTHOOD_FAITH_ZEALOUT_REASON:0 "[personality|E] — #italic Рыцарство - это свидетельство моей глубокой преданности:#! $VALUE|=+0$"
+ KNIGHTHOOD_FAITH_ZEALOUT_REASON:0 "[personality|E] — #italic Рыцарство - это свидетельство моей глубокой преданности:#! $VALUE|=+0$"
 
-KNIGHTHOOD_GREED_REASON:0 "[personality|E] — #italic Став рыцарем, я значительно повышу свой социальный статус:#! $VALUE|=+0$"
+ KNIGHTHOOD_GREED_REASON:0 "[personality|E] — #italic Став рыцарем, я значительно повышу свой социальный статус:#! $VALUE|=+0$"
 
-KNIGHTHOOD_ENERGY_REASON:0 "[personality|E] — #italic Рыцарство - это, похоже, большой труд:#! $VALUE|=+0$"
+ KNIGHTHOOD_ENERGY_REASON:0 "[personality|E] — #italic Рыцарство - это, похоже, большой труд:#! $VALUE|=+0$"
 
-KNIGHTHOOD_HONOR_REASON:0 "[personality|E] — #italic Стать рыцарем - великая честь:#! $VALUE|=+0$"
+ KNIGHTHOOD_HONOR_REASON:0 "[personality|E] — #italic Стать рыцарем - великая честь:#! $VALUE|=+0$"
 
-KNIGHTHOOD_LOW_SOCIABILITY:0 "[personality|E] — #italic Я [Select_CString(recipient.IsFemale, 'устала', 'устал')] от других:#! $VALUE|=+0$"
+ KNIGHTHOOD_LOW_SOCIABILITY:0 "[personality|E] — #italic Я [Select_CString(recipient.IsFemale, 'устала', 'устал')] от других:#! $VALUE|=+0$"
 
-## EDUCATION REASONS
+ ## EDUCATION REASONS
 
-KNIGHTHOOD_EDUCATION_MARTIAL_REASON:0 "[education|E]: У меня военное образование: $VALUE|=+0$"
+ KNIGHTHOOD_EDUCATION_MARTIAL_REASON:0 "[education|E]: У меня военное образование: $VALUE|=+0$"
 
-KNIGHTHOOD_EDUCATION_LEARNING_REASON:0 "[education|E]: Я учёный человек, а не воин!: $VALUE|=+0$"
+ KNIGHTHOOD_EDUCATION_LEARNING_REASON:0 "[education|E]: Я учёный человек, а не воин!: $VALUE|=+0$"
 
-KNIGHTHOOD_EDUCATION_NON_MARTIAL_REASON:0 "[education|E]: Я [Select_CString(recipient.IsFemale, 'получила', 'получил')] образование, отличное от военного: $VALUE|+=0$"
+ KNIGHTHOOD_EDUCATION_NON_MARTIAL_REASON:0 "[education|E]: Я [Select_CString(recipient.IsFemale, 'получила', 'получил')] образование, отличное от военного: $VALUE|+=0$"
 
-KNIGHTHOOD_I_AM_A_WARRIOR_REASON:0 "[education|E]: Я обученный воин, но ещё не рыцарь: $VALUE|+=0$"
+ KNIGHTHOOD_I_AM_A_WARRIOR_REASON:0 "[education|E]: Я обученный воин, но ещё не рыцарь: $VALUE|+=0$"
 
-KNIGHTHOOD_MY_FAITH_DOES_NOT_CARE:0 "[faith|E]: Вера [recipient.GetShortUINamePossessiveNoTooltip|U] не ценит рыцарства: $VALUE|+=0$"
+ KNIGHTHOOD_MY_FAITH_DOES_NOT_CARE:0 "[faith|E]: Конфессия персонажа [recipient.GetShortUINamePossessiveNoTooltip|U] не ценит рыцарства: $VALUE|+=0$"
 
-KNIGHTHOOD_HAS_KNIGHTHOOD_TENET_REASON:0 "[faith|e]: Вера [recipient.GetShortUINamePossessiveNoTooltip|U] ценит рыцарство: $VALUE|=+0$"
+ KNIGHTHOOD_HAS_KNIGHTHOOD_TENET_REASON:0 "[faith|e]: Конфессия персонажа [recipient.GetShortUINamePossessiveNoTooltip|U] ценит рыцарство: $VALUE|=+0$"
 
-## LANDED TITLES
+ ## LANDED TITLES
 
-OUR_HOUSES_ARE_FEUDING_REASON:0 "Наши дома враждуют между собой: $VALUE|=+0$"
+ OUR_HOUSES_ARE_FEUDING_REASON:0 "Наши дома враждуют между собой: $VALUE|=+0$"
 
-WE_COME_FROM_NEIGHBORING_COUNTIES:0 "[recipient.GetShortUINameNoTooltip|U] и [actor.GetShortUINameNoTooltip] родом из соседних земель: $VALUE|=+0$"
+ WE_COME_FROM_NEIGHBORING_COUNTIES:0 "[recipient.GetShortUINameNoTooltip|U] и [actor.GetShortUINameNoTooltip] родом из соседних земель: $VALUE|=+0$"
 
-KNIGHTING_THEY_ARE_MORE_POWERFUL_REASON:0 "[actor.GetShortUINameNoTooltip|U] могущественнее, чем [recipient.GetShortUINameNoTooltip]: $VALUE|=+0$"
+ KNIGHTING_THEY_ARE_MORE_POWERFUL_REASON:0 "[actor.GetShortUINameNoTooltip|U] могущественнее, чем [recipient.GetShortUINameNoTooltip]: $VALUE|=+0$"
 
-## PRESTIGE
+ ## PRESTIGE
 
-KNIGHTHOOD_THEY_HAVE_A_BAD_REPUTATION:0 "[actor.GetShortUINamePossessive|U] [prestige_level|E] бесчестен или имеет отрицательный престиж: $VALUE|=+0$"
+ KNIGHTHOOD_THEY_HAVE_A_BAD_REPUTATION:0 "[actor.GetShortUINamePossessive|U] имеет бесчестный [Concept( 'prestige_level', 'уровень репутации' )|E] или отрицательный престиж: $VALUE|=+0$"
 
-KNIGHTHOOD_THEY_HAVE_LOW_PRESTIGE:0 "[actor.GetShortUINamePossessive|U] [prestige_level|E] не имеет никакого значения: $VALUE|=+0$"
+ KNIGHTHOOD_THEY_HAVE_LOW_PRESTIGE:0 "[Concept( 'prestige_level', 'Уровень репутации' )|E] персонажа [actor.GetShortUINamePossessive|U] не имеет никакого значения: $VALUE|=+0$"
 
-KNIGHTHOOD_I_AM_MORE_FAMOUS_THAN_YOU:0 "[actor.GetShortUINamePossessive|U] [prestige_level|E] меньше моего: $VALUE|=+0$"
+ KNIGHTHOOD_I_AM_MORE_FAMOUS_THAN_YOU:0 "[Concept( 'prestige_level', 'Уровень репутации' )|E] персонажа [actor.GetShortUINamePossessive|U] ниже моего: $VALUE|=+0$"
 
-## OTHER
+ ## OTHER
 
-FAVORS_BEING_A_SQUIRE_REASON:0 "Я предпочитаю быть оруженосцем: $VALUE|=+0$"
+ FAVORS_BEING_A_SQUIRE_REASON:0 "Я предпочитаю быть оруженосцем: $VALUE|=+0$"
 
-### SQUIRE REASONS
+ ### SQUIRE REASONS
 
-SQUIREHOOD_I_AM_A_RULER_ALREADY:0 "[secondary_actor.GetShortUIName|U] является совершеннолетним правителем: $VALUE|=+0$"
+ SQUIREHOOD_I_AM_A_RULER_ALREADY:0 "[secondary_actor.GetShortUIName|U] является совершеннолетним правителем: $VALUE|=+0$"
 
-SQUIREHOOD_SQUIRE_CANDIDATE_IS_LOWBORN:0 "Предлагаемый оруженосец [Concept( 'lowborn', 'худородный' )|E]: $VALUE|=+0$"
+ SQUIREHOOD_SQUIRE_CANDIDATE_IS_LOWBORN:0 "Предлагаемый оруженосец [Concept( 'lowborn', 'худородный' )|E]: $VALUE|=+0$"
 
-SQUIREHOOD_SQUIRE_CANDIDATE_DOES_NOT_HAVE_KNIGHTHOOD_TENET:0 "[faith|E]: Вера предлагаемого оруженосца не ценит рыцарства: $VALUE|=+0$"
+ SQUIREHOOD_SQUIRE_CANDIDATE_DOES_NOT_HAVE_KNIGHTHOOD_TENET:0 "[faith|E]: Конфессия предлагаемого оруженосца не ценит рыцарства: $VALUE|=+0$"
 
-SQUIREHOOD_I_AM_OLD_ENOUGH_TO_BE_A_KNIGHT:0 "Предлагаемый оруженосец довольно взрослый, чтобы быть посвящённым в рыцари: $VALUE|=+0$"
+ SQUIREHOOD_I_AM_OLD_ENOUGH_TO_BE_A_KNIGHT:0 "Предлагаемый оруженосец довольно взрослый, чтобы быть посвящённым в рыцари: $VALUE|=+0$"
 
-SQUIREHOOD_SQUIRE_CANDIDATE_IS_NOT_RIGHT_IN_THE_HEAD:0 "Предлагаемый оруженосец не в своём уме: $VALUE|=+0$"
+ SQUIREHOOD_SQUIRE_CANDIDATE_IS_NOT_RIGHT_IN_THE_HEAD:0 "Предлагаемый оруженосец не в своём уме: $VALUE|=+0$"
 
-KNIGHTING_AI_GUARDIAN_SKILL_MARTIAL:0 "[martial|E] рыцаря: $VALUE|=+0$"
-KNIGHTING_AI_GUARDIAN_SKILL_PROWESS:0 "[prowess|E] рыцаря: $VALUE|=+0$"
+ KNIGHTING_AI_GUARDIAN_SKILL_MARTIAL:0 "[martial|E] рыцаря: $VALUE|=+0$"
+ KNIGHTING_AI_GUARDIAN_SKILL_PROWESS:0 "[prowess|E] рыцаря: $VALUE|=+0$"
 
-educate_squire_interaction_notification:0 "Обучить оруженосца"
+ educate_squire_interaction_notification:0 "Обучить оруженосца"
 
-## OTHER STUFF
+ ## OTHER STUFF
 
-THEY_ARE_MY_SQUIRE:0 "Это мой оруженосец, и он готов к рыцарству!"
+ THEY_ARE_MY_SQUIRE:0 "Это мой оруженосец, и он готов к рыцарству!"
