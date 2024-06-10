@@ -12,6 +12,7 @@
  agot_mega_wars.0002.t:0 "Королевство в состоянии войны"
  agot_mega_wars.0002.desc:0 "[ROOT.Char.GetPrimaryTitle.GetNameNoTier] находится в состоянии войны, мы должны послать воронов великим лордам, сплотив их на защиту короны."
  agot_mega_wars.0002.a:0 "Созвать знамена!"
+ agot_mega_wars.0002.a.tt:0 "[mw_rebel_leader.GetName] [Select_CString(mw_rebel_leader.IsFemale, 'начала', 'начал' )] против вас [Concept('agot_mw_mega_wars', 'мега-войну')|E]!"
  agot_mega_wars.0002.b:0 "Как устроены гражданские войны?"
  agot_mega_wars.0003.desc.a.1:0 "Наше время пришло! [mw_rebel_leader.GetTitledFirstName], [Select_CString(mw_rebel_leader.IsFemale, 'поддержанная', 'поддержанный' )] нами, [Select_CString(mw_rebel_leader.IsFemale, 'предъявила', 'предъявил' )] требования нашей фракции короне в лице персонажа [mw_crown.GetTitledFirstName]. Однако [mw_crown.GetNameRegnal] [Select_CString(mw_crown.IsFemale, 'отказала', 'отказал' )] нам. Чтобы получить желаемое, мы должны прибегнуть к дипломатии стали и железа..."
  agot_mega_wars.0003.desc.a.2:0 "[mw_rebel_leader.GetFullName] [Select_CString(mw_rebel_leader.IsFemale, 'восстала', 'восстал' )] против короны в лице персонажа [mw_crown.GetFullName] в восстании, известном как «[war.GetName]». Поскольку регенство над персонажем [mw_diarch_target.GetName] ложится на мои плечи, я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] решить, сохранят ли [mw_diarch_target.GetPrimaryTitle.GetNameNoTier] верность короне, которую олицетворяет [mw_crown.GetTitledFirstName], присоединятся ли к восставшим, коих возглавляет [mw_rebel_leader.GetTitledFirstName], или останутся нейтральными и позволят течению времени определить моё решение. Я также [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] решить, какова будет моя роль в этом противостоянии..."
@@ -24,13 +25,15 @@
  agot_mega_wars.0003.desc.f:0 "\n[ROOT.Char.GetLiege.GetTitledFirstName] решает провозгласить независимость..."
  agot_mega_wars.0003.a:0 "Восставшие дорого заплатят за это."
  agot_mega_wars.0003.a.tt:0 "Вы предаёте персонажа [mw_rebel_leader.GetFullName] и [mw_rebel_leader.GetHerHis] заговорщиков."
- agot_mega_wars.0003.b:0 "Я не вижу причин вмешиваться."
+ agot_mega_wars.0003.ba:0 "Я не вижу причин вмешиваться."
+ agot_mega_wars.0003.bb:0 "Пусть это решат приливы войны..."
  agot_mega_wars.0003.c:0 "Дело восстания праведно!"
  agot_mega_wars.0003.c.tt:0 "Вы присоединяетесь к восстанию на стороне персонажа [mw_rebel_leader.GetFullName]."
  agot_mega_wars.0003.c.tt.independence:0 "Поскольку эта война за независимость, вы также получите независимость, если одержите победу!"
  agot_mega_wars.0003.d:0 "Сейчас самое время проложить наш собственный путь!"
  agot_mega_wars.0003.d.tt:0 "Вы начинаете свою собственную войну за независимость против персонажа [mw_crown.GetFullName]."
  agot_mega_wars.0003.tt.negative:0 "Поскольку ранее я [Select_CString(ROOT.Char.IsFemale, 'поклялась', 'поклялся' )] в верности персонажу [mw_is_loyal_to.GetName], моё поведение будет расценено как бесчестное."
+ agot_mega_wars.0003.tt:0 "Началась [Concept('agot_mw_mega_wars', 'мега-война')|E]."
  MW_DEBUG_JOIN_LOYALISTS:0 "ИИ вероятно: #N Присоединится к лоялистам#!"
  MW_DEBUG_STAY_NEUTRAL:0 "ИИ вероятно: #N Сохранит нейтралитет#!"
  MW_DEBUG_JOIN_REBELS:0 "ИИ вероятно: #N Присоединится к восстанию#!"
@@ -65,6 +68,15 @@
  agot_mega_wars.0012.desc.b:0 "Чтобы предотвратить дальнейшее кровопролитие, у меня нет другого выбора, кроме как отказаться от своего суверенитета над верховным лордством [mw_independence_rebel_leader.GetPrimaryTitle.GetNameNoTier]."
  agot_mega_wars.0012.a:0 "Тогда это война!"
  agot_mega_wars.0012.b:0 "Мудрый выбор."
+
+ agot_mega_wars.0020.opening:0 "Вопрос верности..."
+ agot_mega_wars.0020.desc:0 "[Select_CString(ROOT.Char.IsFemale, 'Почтенная', 'Почтенный' )] [ROOT.Char.GetName], слишком долго [faction_target.GetName] правит державой [faction_targeted_title.GetName], хотя [Select_CString(ROOT.Char.IsFemale, 'наша законная', 'наш законный' )] [ROOT.Char.Custom('GetQueenKing')|l] - именно вы. Поэтому [faction_target.GetTitledFirstName] [Select_CString(faction_target.IsFemale, 'получила', 'получил' )] от нас требование отречься от трона в вашу пользу. К сожалению, [faction_target.GetSheHe] [Select_CString(faction_target.IsFemale, 'отказалась', 'отказался' )], и война теперь неизбежна.\nПоведёте ли вы нас в этой борьбе?"
+ agot_mega_wars.0020.a:0 "Я заберу то, что принадлежит мне по праву!"
+ agot_mega_wars.0020.b:0 "Это слишком рискованно. Не впутывайте меня в это..."
+ agot_mega_wars.0021.opening:0 "Вопрос верности..."
+ agot_mega_wars.0021.desc.a:0 "[Select_CString(ROOT.Char.IsFemale, 'Почтенная', 'Почтенный' )] [ROOT.Char.GetName] [ROOT.Char.GetName], наконец-то мои притязания будут удовлетворены. Пусть [faction_target.GetFirstName] довольствуется последними днями своего правления, скоро на трон взойдёт [faction_claimant.Custom('GetQueenKing')] [faction_claimant.GetFirstName].\Я приведу нас к победе!"
+ agot_mega_wars.0021.desc.b:0 "[Select_CString(ROOT.Char.IsFemale, 'Почтенная', 'Почтенный' )] [ROOT.Char.GetName] [ROOT.Char.GetName], наконец-то мои притязания будут удовлетворены.\nПри нынешнем положении дел я не могу поддержать вас в этой борьбе."
+ agot_mega_wars.0021.a:0 "Да будет так."
 
 # Mega War Aftermath
  agot_mega_wars.0500.t:0 "Быть королём или не быть им"
@@ -164,7 +176,6 @@
  agot_mega_wars.0603.desc.o:0 "\n\nМоя семья будет изгнана из державы [ROOT.Var('crown_target').Char.GetPrimaryTitle.GetNameNoTier]."
  agot_mega_wars.0603.desc.p:0 "\n\nВся моя династия будет изгнана из державы [ROOT.Var('crown_target').Char.GetPrimaryTitle.GetNameNoTier]."
  agot_mega_wars.0603.a.1a:0 "Я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] принять [ROOT.Var('crown_target').Char.GetHerHis] правосудие."
- agot_mega_wars.0603.desc.q:0 "\n\nЯ буду [Select_CString(ROOT.Char.IsFemale, 'изгнана', 'изгнан' )] в Эссос."
  agot_mega_wars.0603.a.1b:0 "Я мало что могу сделать."
  MEGA_WARS_0300_a1_IMPRISONED:0 "Поскольку вы заключены в тюрьму, вам не избежать наказания."
  MEGA_WARS_0300_b:0 "Если вы вступаете в войну и проигрываете, наказание неизбежно. Это легко может стать концом вашего рода, земель и наследия... Тщательно подумайте об этом."
@@ -181,12 +192,7 @@
 
  agot_mega_wars.0605.t:0 "Наказание изменников"
  agot_mega_wars.0605.desc:0 "Война окончена, я [Select_CString(ROOT.Char.IsFemale, 'победила', 'победил' )]. Итак, как наказать изменников?\nИзменник: [selected_traitor.GetName]"
- agot_mega_wars.0605.a:0 "Мягкого наказания будет достаточно." # Soft punishment
- agot_mega_wars.0605.b:0 "Наказание должно быть твердым." # Medium punishment
- agot_mega_wars.0605.c:0 "Наказание должно быть суровым." # Hard punishment
- agot_mega_wars.0605.d:0 "Ни один изменник больше не бросит вызов королевству." # REALLY Hard punishment
- agot_mega_wars.0605.e:0 "Отправить изменников на Стену." # Wall
- agot_mega_wars.0605.f:0 "Пусть решает Верховный лорд." # Let LP decide
+ agot_mega_wars.0605.a:0 "Вы не должны этого видеть."
 
  agot_mega_wars.9999.t:0 "FUN EVENT"
  agot_mega_wars.9999.desc:0 "FUN DESCRIPTION"
@@ -209,7 +215,10 @@
  AGOT_MW_TRAITORS_EXECUTION_TT:0 "Доступных персонажей нет."
  AGOT_MW_TRAITORS_EXECUTION_WALL_TT:0 "Вы уже отправляете этого персонажа на Стену."
  AGOT_MW_TRAITORS_CAN_SEND_TO_WALL_TT:0 "Вы можете отправить этого персонажа на Стену."
- AGOT_MW_TRAITORS_CAN_SEND_TO_ESSOS_TT:0 "Вы можете отправить этого персонажа в Эссос."
+ AGOT_MW_TRAITORS_EXPEL_TT:0 "[selected_traitor.GetFirstName] не может быть [Select_CString(selected_traitor.IsFemale, 'изгнана', 'изгнан' )], так как [selected_traitor.GetSheHe] уже [Select_CString(selected_traitor.IsFemale, 'приговорена', 'приговорён' )] к казни, отправке на Стену или уже является членом Ночного Дозора."
+ AGOT_MW_TRAITORS_EXPEL_FAMILY_TT:0 "В семье изменников нет ни одного доступного члена, которого можно было бы изгнать."
+ AGOT_MW_TRAITORS_EXPEL_HOUSE_TT:0 "В доме изменников нет ни одного доступного члена, которого можно было бы изгнать."
+ AGOT_MW_TRAITORS_EXPELLED_TO_ESSOS_TT:0 "[t_mw_expelled_char.GetFirstName] будет [Select_CString(t_mw_expelled_char.IsFemale, 'изгнана', 'изгнан' )] в Эссос."
 
  mw_tab_name_header:0 "Гражданская война"
  AGOT_MW_VIEW_GUI_LOYALIST:0 "Лоялисты"
