@@ -1355,8 +1355,9 @@ window = {
 
 								datacontext = "[Character.GetLegitimacyType]"
 								datacontext = "[Character.GetLegitimacyLevel]"
-
-								visible =  "[And( Character.IsAlive, And( Character.HasLandedTitles, And(Character.IsCountOrAbove, Character.GetGovernment.HasRule( 'legitimacy' ) ) ) )]"
+								#AGOT Modified
+								#visible =  "[And( Character.IsAlive, And( Character.HasLandedTitles, And(Character.IsCountOrAbove, Character.GetGovernment.HasRule( 'legitimacy' ) ) ) )]"
+								visible =  "[And( Character.IsAlive, And( Character.HasLandedTitles, And(Character.IsCountOrAbove, And(Character.GetGovernment.HasRule( 'legitimacy' ), GreaterThanOrEqualTo_int32( Subtract_int32( GetDataModelSize( LegitimacyType.GetLevels ), '(int32)1' ), '(int32)0' ) ) ) ) )]"
 								using = tooltip_ne
 
 								tooltipwidget = {
