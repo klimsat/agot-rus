@@ -70,12 +70,12 @@
  agot_mega_wars.0012.b:0 "Мудрый выбор."
 
  agot_mega_wars.0020.opening:0 "Вопрос верности..."
- agot_mega_wars.0020.desc:0 "[Select_CString(ROOT.Char.IsFemale, 'Почтенная', 'Почтенный' )] [ROOT.Char.GetName], слишком долго [faction_target.GetName] правит державой [faction_targeted_title.GetName], хотя [Select_CString(ROOT.Char.IsFemale, 'наша законная', 'наш законный' )] [ROOT.Char.Custom('GetQueenKing')|l] - именно вы. Поэтому [faction_target.GetTitledFirstName] [Select_CString(faction_target.IsFemale, 'получила', 'получил' )] от нас требование отречься от трона в вашу пользу. К сожалению, [faction_target.GetSheHe] [Select_CString(faction_target.IsFemale, 'отказалась', 'отказался' )], и война теперь неизбежна.\nПоведёте ли вы нас в этой борьбе?"
+ agot_mega_wars.0020.desc:0 "[ROOT.Char.Custom('ComplimentAdjective')] [ROOT.Char.GetName], слишком долго [faction_target.GetName] правит державой [faction_targeted_title.GetName], хотя [Select_CString(ROOT.Char.IsFemale, 'наша законная', 'наш законный' )] [ROOT.Char.Custom('GetQueenKing')|l] - именно вы. Поэтому [faction_target.GetTitledFirstName] [Select_CString(faction_target.IsFemale, 'получила', 'получил' )] от нас требование отречься от трона в вашу пользу. К сожалению, [faction_target.GetSheHe] [Select_CString(faction_target.IsFemale, 'отказалась', 'отказался' )], и война теперь неизбежна.\nПоведёте ли вы нас в этой борьбе?"
  agot_mega_wars.0020.a:0 "Я заберу то, что принадлежит мне по праву!"
  agot_mega_wars.0020.b:0 "Это слишком рискованно. Не впутывайте меня в это..."
  agot_mega_wars.0021.opening:0 "Вопрос верности..."
- agot_mega_wars.0021.desc.a:0 "[Select_CString(ROOT.Char.IsFemale, 'Почтенная', 'Почтенный' )] [ROOT.Char.GetName] [ROOT.Char.GetName], наконец-то мои притязания будут удовлетворены. Пусть [faction_target.GetFirstName] довольствуется последними днями своего правления, скоро на трон взойдёт [faction_claimant.Custom('GetQueenKing')] [faction_claimant.GetFirstName].\Я приведу нас к победе!"
- agot_mega_wars.0021.desc.b:0 "[Select_CString(ROOT.Char.IsFemale, 'Почтенная', 'Почтенный' )] [ROOT.Char.GetName] [ROOT.Char.GetName], наконец-то мои притязания будут удовлетворены.\nПри нынешнем положении дел я не могу поддержать вас в этой борьбе."
+ agot_mega_wars.0021.desc.a:0 "[ROOT.Char.Custom('ComplimentAdjective')] [ROOT.Char.GetName] [ROOT.Char.GetName], наконец-то мои притязания будут удовлетворены. Пусть [faction_target.GetFirstName] довольствуется последними днями своего правления, скоро на трон взойдёт [faction_claimant.Custom('GetQueenKing')] [faction_claimant.GetFirstName].\Я приведу нас к победе!"
+ agot_mega_wars.0021.desc.b:0 "[ROOT.Char.Custom('ComplimentAdjective')] [ROOT.Char.GetName] [ROOT.Char.GetName], наконец-то мои притязания будут удовлетворены.\nПри нынешнем положении дел я не могу поддержать вас в этой борьбе."
  agot_mega_wars.0021.a:0 "Да будет так."
 
 # Mega War Aftermath
@@ -142,7 +142,7 @@
  agot_mega_wars.0510.b:0 "Интересно, как [primary_target_title.GetHolder.GetTitledFirstName] будет править..."
 
  agot_mega_wars.0600.t:0 "Последствия войны"
- agot_mega_wars.0600.desc:0 "Наконец-то мы добились победы перед лицом тех, кто пытался восстать против меня и нарушить моё праведное правление. Теперь, когда изменники в пределах моей досягаемости, пришло время выбрать, какая судьба их постигнет. Проявить ли к ним милосердие, наказать ли за их прегрешения… "
+ agot_mega_wars.0600.desc:0 "Наконец-то мы добились победы перед лицом тех, кто пытался восстать против меня и нарушить моё праведное правление. Теперь, когда изменники в пределах моей досягаемости, пришло время выбрать, какая судьба их постигнет. Проявить ли к ним милосердие, наказать ли за их прегрешения... "
  agot_mega_wars.0600.a:0 "Привести их ко мне!"
 
  agot_mega_wars.0601.t:0 "Последствия войны"
@@ -167,7 +167,7 @@
  agot_mega_wars.0603.desc.f:0 "\n\nМой дом будет лишён всех земель и титулов."
  agot_mega_wars.0603.desc.g:0 "\n\nВсе мои титулы, кроме нынешнего, будут отозваны."
  agot_mega_wars.0603.desc.h:0 "\n\nЯ буду [Select_CString(ROOT.Char.IsFemale, 'лишена', 'лишён' )] половины своих земель."
- agot_mega_wars.0603.desc.i:0 "\n\nЯ [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] отдать персонажу [ROOT.Var('crown_target').Char.GetName] принадлежащий мне артефакт [ROOT.MakeScope.Var('taken_artifact').GetName]."
+ agot_mega_wars.0603.desc.i:0 "\n\nЯ [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] отдать персонажу [ROOT.Var('crown_target').Char.GetName] принадлежащий мне артефакт [ROOT.Char.MakeScope.Var('selected_artifact').Artifact.GetName]."
  agot_mega_wars.0603.desc.j:0 "\n\nЯ буду [Select_CString(ROOT.Char.IsFemale, 'казнена', 'казнён' )]."
  agot_mega_wars.0603.desc.k:0 "\n\nМоя семья будет казнена."
  agot_mega_wars.0603.desc.l:0 "\n\nВся моя династия будет уничтожена."
