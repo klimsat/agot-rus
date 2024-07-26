@@ -310,30 +310,11 @@ widget = {
 							spacing = 10
 							button_tertiary = {
 								size = { 200 40 }
-								text = smol_tol_gui
+								text = tol_gui
 								button_ignore = none
 								layoutpolicy_vertical = expanding
 								onclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'tol', MakeScopeBool('(bool)yes')).End )]"
 								onrightclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'tol', MakeScopeBool('(bool)no')).End )]"
-								tooltip = smol_tol_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'smol_tol' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','smol_tol')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = tol_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'smol_tol', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'smol_tol', MakeScopeBool('(bool)no')).End )]"
 								tooltip = tol_gui_tt
 								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
 								onclick = "[GetVariableSystem.Set( 'glow_button', 'tol' )]"
@@ -341,6 +322,25 @@ widget = {
 								glow = {
 									using = Color_Orange
 									visible = "[GetVariableSystem.HasValue('glow_button','tol')]"
+
+									glow_radius = 5
+									using = Glow_Standard
+								}
+							}
+							button_tertiary = {
+								size = { 200 40 }
+								text = smol_tol_gui
+								button_ignore = none
+								layoutpolicy_vertical = expanding
+								onclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'smol_tol', MakeScopeBool('(bool)yes')).End )]"
+								onrightclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'smol_tol', MakeScopeBool('(bool)no')).End )]"
+								tooltip = smol_tol_gui_tt
+								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+								onclick = "[GetVariableSystem.Set( 'glow_button', 'smol_tol' )]"
+								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+								glow = {
+									using = Color_Orange
+									visible = "[GetVariableSystem.HasValue('glow_button','smol_tol')]"
 
 									glow_radius = 5
 									using = Glow_Standard
