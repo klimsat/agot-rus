@@ -571,6 +571,8 @@ types MenAtArms
 		hbox = {
 			layoutpolicy_horizontal = expanding
 			visible = "[Not(IsDataModelEmpty(MenAtArmsType.GetTerrainModifiers))]"
+			#AGOT Added
+			margin_bottom = -5
 			
 			#AGOT Modifed to account for expanded terrains
 			#hbox = {
@@ -584,9 +586,9 @@ types MenAtArms
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
 				setitemsizefromcell = yes
-				addrow = 40
-				addcolumn = 40
-				datamodel_wrap = 10
+				addrow = 24
+				addcolumn = 24
+				datamodel_wrap = 16
 				flipdirection = yes
 				#AGOT End
 
@@ -603,7 +605,9 @@ types MenAtArms
 							texture = "gfx/interface/icons/symbols/icon_minus_small.dds"
 							parentanchor = bottom|right
 							position = { 0 5 }
-							size = { 25 25 }
+							#AGOT Modified
+							# size = { 25 25 }
+							size = { 18 18 }
 						}
 
 						icon = {
@@ -611,7 +615,9 @@ types MenAtArms
 							texture = "gfx/interface/icons/symbols/icon_plus_small.dds"
 							parentanchor = bottom|right
 							position = { 0 5 }
-							size = { 25 25 }
+							#AGOT Modified
+							# size = { 25 25 }
+							size = { 18 18 }
 						}
 					}
 				}
@@ -637,6 +643,8 @@ types MenAtArms
 		hbox = {
 			layoutpolicy_horizontal = expanding
 			visible = "[MenAtArmsType.HasWinterHarshModifier]"
+			#AGOT Added
+			margin_bottom = -5
 
 			maa_winter_effects_positive_icon = { # Positive Harsh Winter Effects
 				blockoverride "maa_has_winter_modifier" {
@@ -728,14 +736,18 @@ types MenAtArms
 		block "maa_has_winter_modifier" {}
 		icon = {
 			block "maa_has_winter_effect" {}
-			size = { 40 40 }
+			#AGOT Modified
+			# size = { 40 40 }
+			size = { 24 24 }
 			using = tooltip_below
 
 			icon = {
 				block "maa_winter_modifier_icon" {}
 				parentanchor = bottom|right
 				position = { 0 5 }
-				size = { 25 25 }
+				#AGOT Modified
+				# size = { 25 25 }
+				size = { 18 18 }
 			}
 		}
 	}
