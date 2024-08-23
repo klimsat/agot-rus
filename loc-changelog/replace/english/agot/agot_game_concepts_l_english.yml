@@ -26,6 +26,7 @@
  game_concept_kingsguard_desc:0 "The $game_concept_kingsguard$ is a coterie of the greatest warriors of the realm, sworn in service to their liege and pledged to trade their life for theirs."
 
  game_concept_maester:0 "Maester"
+ game_concept_maesters:0 "Maesters"
  game_concept_maester_desc:0 "The Westerosi Knights of the Mind; the Maesters of the Citadel are educated to the cutting edge of science and continue to push the boundaries. Around their necks they carry the burden of this teaching in metal links, representing their graft and their duty, which stoop their necks as they are assigned to courts throughout the Seven Kingdoms to serve the incumbent lords as healers, tutors, and adivsors. A network of learned men, who have put aside their own name for the greater good, holding chamber council with the powerful, for the sake of knowledge."
 
  game_concept_monastery_holding:0 "Monastery"
@@ -77,4 +78,66 @@
  game_concept_pirate_den:0 "Pirate Den"
  game_concept_pirate_dens:0 "Pirate Den Holdings"
  game_concept_pirate_den_holdings:0 "Pirate Den Holdings"
- game_concept_pirate_den_holding_desc:0 "Pirate dens are where pirates gather when forced to land." #Placeholder, vanilla example: "Castles are the most heavily fortified [holding_type|E] and the standard type for [feudal|E], [clan|E] and [tribal|E] [rulers|E], as well as [holy_orders|E]. They tend to provide more [levies|E] than [taxes|E]."
+ game_concept_pirate_den_holding_desc:0 "Pirate dens are the standard [holding_type|E], lightly fortified encampments where pirates gather when forced to land. It is the only type of holding available to [GetGovernment( 'pirate_government' ).GetName] [rulers|E]."
+
+ game_concept_dragon:0 "Dragon"
+ game_concept_dragons:0 "Dragons"
+ game_concept_dragon_desc: "$game_concept_dragons$ are magical beasts, famously used by the dragonlords of old Valyria in their conquest of the known world. To see one is to see fire made flesh, to ride one is to be a master of your destiny and a shaper of the world.\n\nEach dragon will have their own [personality|E], [traits|E], and [education|E], which will affect their [draconic_dread|E], [temperament|E], and [taming_chance|E]. A dragon's [dragon_combat_effectiveness|E] will affect its use in combat, and will increase as it ages and gains [dragon_size|E].\n\nThere are three [dragon_type|E]: [wild_dragon|E], [owned_dragon|E], and [tamed_dragon|E]. Tamed and owned dragons can be stored in a [dragonpit|E] if one is available."
+
+ game_concept_dragon_type:0 "Dragon Types"
+ game_concept_dragon_type_desc:0 "$game_concept_dragons$ come in three distinct types. These are [wild_dragons|E], [owned_dragons|E], and [tamed_dragons|E]. A dragon's type will affect how it interacts with the world, how a [ruler|e] can interact with it, and whether it can be used in combat."
+
+ game_concept_wild_dragon:0 "Wild Dragon"
+ game_concept_wild_dragons:0 "Wild Dragons"
+ game_concept_wild_dragon_desc:0 "$game_concept_wild_dragons$ are dragons that are not owned by any [ruler|E], living as they naturally do. They are free to roam the world, though prefer to stay near their lair. A wild dragon cannot be used in combat or to travel, and largely form a hazard to any [ruler|E] or [realm|E] within hunting range.\n\nThey are one of the three types of [dragon|E]. The other two are [owned_dragons|E] and [tamed_dragons|E].\n\nA ruler with a [dragonpit|E] may attempt to capture a $game_concept_wild_dragon$ to turn it into an $game_concept_owned_dragon$, while nearby rulers and [courtiers|E] may attempt to tame it directly."
+
+ game_concept_owned_dragon:0 "Owned Dragon"
+ game_concept_owned_dragons:0 "Owned Dragons"
+ game_concept_owned_dragon_desc:0 "$game_concept_owned_dragons$ are dragons that are owned by a [ruler|E] with a [dragonpit|E], but have not been tamed by a [GetTrait('dragonrider').GetName(GetNullCharacter)]. They will remain in their owner's capital. $game_concept_owned_dragons$ cannot be used in combat or to travel, but are easier to tame than $game_concept_wild_dragons$. Characters who have not tamed a [dragon|E] will be able to interact with an owned dragon in their court either to try to form a bond with them, or to tame them directly.\n\nThey are one of the three types of [dragon|E]. The other two are [wild_dragons|E] and [tamed_dragons|E]."
+
+ game_concept_tamed_dragon:0 "Tamed Dragon"
+ game_concept_tamed_dragons:0 "Tamed Dragons"
+ game_concept_tamed_dragon_desc:0 "$game_concept_tamed_dragons$ are dragons that have been tamed by a [GetTrait('dragonrider').GetName(GetNullCharacter)]. If their rider is a [ruler|E] they will remain in their capital, else they will remain in their rider's employer's capital. That is, unless they are in an [army|E] or being used to [travel|E].\n\nThey are one of the three types of [dragon|E]. The other two are [wild_dragons|E] and [owned_dragons|E]. Tamed dragons will become wild if their rider dies while they are not kept in a [dragonpit|E]."
+
+ game_concept_draconic_dread:0 "Draconic Dread"
+ game_concept_draconic_dread_desc:0 "$game_concept_draconic_dread$ is the [dread|E] that a [dragon|E], rather than a ruler, possesses. It represents the intrinsic fear that the creature strikes into the hearts of men. While largely reflecting the [dragons_size|E], it can also be affected by its [personality|E] and deeds."
+
+ game_concept_temperament:0 "Temperament"
+ game_concept_temperament_desc:0 "$game_concept_temperament$ is the general disposition and attitude that a [dragon|E] displays. Positive values indicate a more sociable dragon, while a dragon with a negative temperament is a more wild and willful beast. A dragon's temperament will be affected by their [education|E], [personality|E], and experiences."
+
+ game_concept_taming_chance:0 "Taming Chance"
+ game_concept_taming_chance_desc:0 "$game_concept_taming_chance$ is the innate likelihood of a [dragon|E] to be tamed and bonded with. A higher taming chance indicates a dragon more susceptible to human interaction, while a lower taming chance represents a dragon that all but the strongest wills will struggle to tame. A dragon's taming chance will be affected by their [education|E], [personality|E], and experiences."
+
+ game_concept_dragon_size:0 "Dragon Size"
+ game_concept_dragons_size:0 "Dragon's Size"
+ game_concept_dragon_size_desc:0 "$game_concept_dragon_size$ is the physical size of a [dragon|E]. It is a collective measure of the dragon's length, wingspan, and weight. A dragon's size will greatly affect its [dragon_combat_effectiveness|E] as well as its [draconic_dread|E] and [taming_chance|E].\n\nA dragon will never stop growing, but the rate at which they do so will slow as they age. Dragons kept in a man-made [dragonpit|E] will grow slower than those that grow in the wild or in a [natural_dragonpit|E]."
+
+ game_concept_dragon_combat_effectiveness:0 "Combat Effectiveness"
+ game_concept_dragon_combat_effectiveness_desc:0 "$game_concept_dragon_combat_effectiveness$ is a measure of how effective a [dragon|E] is in combat. It is largely affected by the [dragons_size|E], but may be influenced by [traits|E] and the experience of its [GetTrait('dragonrider').GetName(GetNullCharacter)]. A dragon with high combat effectiveness will be more effective in battle."
+
+ game_concept_dragonpit:0 "Dragonpit"
+ game_concept_dragonpits:0 "Dragonpits"
+ game_concept_dragonpit_desc:0 "A $game_concept_dragonpit$ is a [building|E] that is used to house both [owned_dragons|E] and [tamed_dragons|E]. These buildings are very expensive to construct, but once finished provide the holder with increased security for their dragons, unique interactions, and the ability to appoint a $head_dragonkeeper_court_position$ [court_position|E]. Notably, these are the only way to retain a tamed dragon as an owned dragon should its rider die.\n\nThe Dragonmont on Dragonstone acts as a [natural_dragonpit|E]; the only one of its kind."
+ game_concept_dragon_pit:0 "$game_concept_dragonpit$"
+ game_concept_dragon_pit_desc:0 "$game_concept_dragonpit_desc$"
+ game_concept_natural_dragonpit:0 "Natural Dragonpit"
+ game_concept_natural_dragonpits:0 "Natural Dragonpits"
+ game_concept_natural_dragonpit_desc:0 "A $game_concept_natural_dragonpit$ is a [dragonpit|E] where an order of [dragonkeepers|E] have made use of natural caverns to store and guard [dragons|E]. A [dragons_size|E] will not suffer as much as a dragon locked in an man-made dragonpit."
+
+ game_concept_anti_dragon_maa:0 "Anti-Dragon"
+ game_concept_anti_dragon_maa_desc:0 "Purpose-built [men_at_arms|E] to combat the threat of [dragons|E]. These regiments will not provide their worth unless faced with their intended foe, but little else can hope to protect an [army|E] when it is faced with a dragon."
+
+ game_concept_dragon_gender:0 "Dragon Gender"
+ game_concept_dragon_gender_desc:0 "The [maesters|E] of the Citadel have long debated the true nature of [dragons|E], some believing that they change as needed between male and female, and others believing them to have no particular gender at all. Historically, dragons that have been observed to lay eggs have been referred to as female, though some that are known as female have not done so.\n\nRegardless, the conventions of men hold that dragons are indeed distinguished by their sex, and so they are referred to as such until either rider or a clutch state otherwise."
+
+ game_concept_dragonblood:0 "Dragonblood"
+ game_concept_dragonblood_desc:0 "$game_concept_dragonblood$ is an indicator that a [character|e] is descended from either a [GetTrait('dragonrider').GetName( GetNullCharacter )|LV], or a [house|E] with the [GetModifier('dragonrider_house_modifier').GetNameWithTooltip|L] modifier, within 3 generations."
+
+ game_concept_authorized_tamer:0 "Authorized Tamer"
+ game_concept_authorized_tamer_desc:0 "An $game_concept_authorized_tamer$ is a [character|e] that has been granted special permission to access a specific [dragonpit|e] regardless of its laws. The dragonpit owner can remove this distinction at will.\n\nA character can only be an $game_concept_authorized_tamer$ of one dragonpit at a time."
+
+ game_concept_dragonkeeper:0 "Dragonkeeper"
+ game_concept_dragonkeepers:0 "Dragonkeepers"
+ game_concept_dragonkeeper_desc:0 "The Order of the $game_concept_dragonkeepers$ is charged with overseeing the maintenance of [dragonpits|E] and any housed [dragons|E]. The order is led by a $head_dragonkeeper_court_position$, who unlocks several [dragonpit_interactions|E] when employed."
+ game_concept_dragonpit_interactions:0 "Dragonpit Interactions"
+ game_concept_dragonpit_interactions_desc:0 "$game_concept_dragonpit_interactions$ are a set of [interactions|E] unlocked when a [character|E] employs the $head_dragonkeeper_court_position$ [court_position|E]. These interactions allow the owner of a [dragonpit|e] a finer degree of control.\n\n$EFFECT_LIST_BULLET$#V Teach Dragonlore #!Interaction - Teach children, grandchildren, or [house|E] members Dragonlore.\n$EFFECT_LIST_BULLET$#V Ban Access to Dragonpit #!Interaction - Restrict a character who normally has access to a dragonpit because of that pit's [laws|e].\n$EFFECT_LIST_BULLET$#V Lift Dragonpit Ban #!Interaction - Restore a character's access to a dragonpit they have been banned from.\n$EFFECT_LIST_BULLET$#V Grant Access to Dragonpit #!Interaction - Make a character an [authorized_tamer|E] of a specific dragonpit.\n$EFFECT_LIST_BULLET$#V Send Egg to Dragonpit #!Interaction - Send a dragon egg [artifact|e] to the pit where it may hatch on its own, or for safekeeping.\n$EFFECT_LIST_BULLET$#V Retrieve Egg from Dragonpit #!Interaction - Retrieve a pitted egg from the dragonpit."

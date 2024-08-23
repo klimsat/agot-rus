@@ -1,17 +1,17 @@
 ﻿l_english:
 
-#AGOT COURT POSITIONS 
+#AGOT COURT POSITIONS
 
-#King's Justice - Executioner re-flavour 
+#King's Justice - Executioner re-flavour
 #King's Counter/Sclaes?
 #Keeper of Keys?
 #Wardens of Mint?
-#Lord Confessor/Keeper of the Cells 
+#Lord Confessor/Keeper of the Cells
 #Gold Cloaks
-#Dragonmount Keeper / Dragon Pit Keeper? 
+#Head Dragonkeeper
 
 
-## TRAITS ##
+ ## TRAITS ##
 
  court_position_education_martial_1_trait:0 "[GetTrait('education_martial_1').GetName( ROOT.Char )]"
  court_position_education_martial_2_trait:0 "[GetTrait('education_martial_2').GetName( ROOT.Char )]"
@@ -24,6 +24,7 @@
  court_position_strong_trait:0 "[GetTrait('strong').GetName( ROOT.Char )]"
 
  court_position_authoritative_trait:0 "[GetTrait('authoritative').GetName( ROOT.Char )]"
+ court_position_inquisitve_trait:0 "[GetTrait('inquisitive').GetName( ROOT.Char )]"
  court_position_honorable_trait:0 "[GetTrait('honorable').GetName( ROOT.Char )]"
  court_position_rude_trait:0 "[GetTrait('rude').GetName( ROOT.Char )]"
  court_position_callous_trait:0 "[GetTrait('callous').GetName( ROOT.Char )]"
@@ -31,7 +32,7 @@
 
 
 
-#Positions 
+ #Positions
 
  maester_court_position:0 "Maester" #[CharacterWindow.GetCourtOwner.Custom('MaesterCourtPosition')]
  maester_tradition_bonus:0 "From [culture_tradition|E]"
@@ -71,8 +72,8 @@
  warden_of_the_west_court_position_desc:1 "The Warden of the West is charged with the defense of the West in cases of foreign threats or invasions."
  warden_of_the_south_court_position:0 "Warden of the South"
  warden_of_the_south_court_position_desc:1 "The Warden of the South is charged with the defense of the South in cases of foreign threats or invasions."
- 
- goldcloaks_court_position:0 "Commander of the Gold Cloaks"
+
+ goldcloaks_court_position:0 "Commander of the City Watch"
  goldcloaks_tradition_bonus:0 "From [culture_tradition|E]"
  goldcloaks_court_position_desc:0 "The $goldcloaks_court_position$ is the commander of King's Landing's City Watch, a position of significant prestige and importance."
  goldcloaks_employer_custom_effect_description:2 "#!\n@warning_icon!#X Powerful [agent|E] in [hostile_schemes|E] against you#!"
@@ -83,7 +84,7 @@
  court_smith_court_position:0 "Court Smith"
  court_smith_court_position_desc:2 "The $court_smith_court_position$ is responsible for the upkeep and care of metalworks"
 
-#NIGHTS WATCH
+ #NIGHTS WATCH
 
  nw_septon:0 "Septon"
  nw_septon_desc:0 "The resident septon serving the brothers of the Night's Watch who follow the Seven."
@@ -160,3 +161,16 @@
  b_greenguard_keeper:0 "Commander of Greenguard"
  b_greenguard_keeper_employer_custom_effect_description:0 "Keeps and protects the Greenguard"
  b_greenguard_keeper_desc:0 "Keeps and protects the Greenguard"
+
+ ################
+ # DRAGONKEEPER #
+ ################
+
+ head_dragonkeeper_court_position:0 "Head Dragonkeeper"
+ head_dragonkeeper_court_position_desc:1 "The $head_dragonkeeper_court_position$ is the head of the [dragonkeeper|E] order they serve. They will protect and raise [dragons|e] in the [dragonpit|e] to the best of their ability."
+ head_dragonkeeper_court_position_custom_effect_description:1 "Unlocks [dragonpit_interactions|E]"
+ court_position_knows_valyrian_language:0 "Knows Valyrian Tongue"
+ court_position_valyrian_heritage:0 "Has Valyrian Heritage"
+ court_position_blood_of_old_valyria:0 "Blood of Old Valyria"
+ deepen_bond_with_dragon_scheme_scheme_power_mult:0 "#V Deepen Bond with Your Dragon#! [scheme|E] power"
+ bond_with_dragon_scheme_scheme_power_mult:0 "#V Bond with Dragon#! [scheme|E] power"
