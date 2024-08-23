@@ -457,6 +457,14 @@ window = {
 									layoutpolicy_horizontal = expanding
 
 									soldiers_and_quality_small = {
+										#AGOT Added
+										visible = "[Not(GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End))]"
+										datacontext = "[WarOverviewWindow.GetLeftSideComposition]"
+									}
+
+									#AGOT Added
+									dragon_combined_soldiers_and_quality_small = {
+										visible = "[GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End)]"
 										datacontext = "[WarOverviewWindow.GetLeftSideComposition]"
 									}
 
@@ -517,7 +525,9 @@ window = {
 
 										blockoverride "portrait_button_template_tooltip"
 										{
-											tooltip = "[WarParticipantItem.GetParticipantTooltip]"
+											#AGOT Modified
+											# tooltip = "[WarParticipantItem.GetParticipantTooltip]"
+											tooltipwidget = { using = agot_war_portrait_dragon_army_comp }
 										}
 
 									}
@@ -631,7 +641,9 @@ window = {
 
 									blockoverride "portrait_button_template_tooltip"
 									{
-										tooltip = "[WarParticipantItem.GetParticipantTooltip]"
+										#AGOT Modified
+										# tooltip = "[WarParticipantItem.GetParticipantTooltip]"
+										tooltipwidget = { using = agot_war_portrait_dragon_army_comp }
 									}
 
 
@@ -809,7 +821,9 @@ window = {
 
 										frame = "[GuiMilitaryStrength.GetFrame]"
 
-										tooltip = "[GuiMilitaryStrength.GetRatioDescription]"
+										#AGOT Modified
+										# tooltip = "[GuiMilitaryStrength.GetRatioDescription]"
+										tooltipwidget = { using = agot_war_comparison_dragon_army_comp }
 										using = tooltip_se
 									}
 								}
@@ -829,6 +843,13 @@ window = {
 										layoutpolicy_horizontal = expanding
 
 										soldiers_and_quality_small = {
+											#AGOT Added
+											visible = "[Not(GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End))]"
+											datacontext = "[WarOverviewWindow.GetRightSideComposition]"
+										}
+										#AGOT Added
+										dragon_combined_soldiers_and_quality_small = {
+											visible = "[GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End)]"
 											datacontext = "[WarOverviewWindow.GetRightSideComposition]"
 										}
 										expand = {}
@@ -1474,7 +1495,9 @@ window = {
 									blockoverride "opinion_box" {}
 									blockoverride "portrait_button_template_tooltip"
 									{
-										tooltip = "[WarParticipantItem.GetParticipantTooltip]"
+										#AGOT Modified
+										# tooltip = "[WarParticipantItem.GetParticipantTooltip]"
+										tooltipwidget = { using = agot_war_portrait_dragon_army_comp }
 									}
 								}
 
@@ -1499,6 +1522,13 @@ window = {
 										layoutpolicy_vertical = growing
 
 										soldiers_and_quality_small = {
+											#AGOT Added
+											visible = "[Not(GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End))]"
+											datacontext = "[WarParticipantItem.GetComposition]"
+										}
+										#AGOT Added
+										dragon_soldiers_and_quality_small = {
+											visible = "[GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End)]"
 											datacontext = "[WarParticipantItem.GetComposition]"
 										}
 
@@ -1587,7 +1617,9 @@ window = {
 									blockoverride "opinion_box" {}
 									blockoverride "portrait_button_template_tooltip"
 									{
-										tooltip = "[WarParticipantItem.GetParticipantTooltip]"
+										#AGOT Modified
+										# tooltip = "[WarParticipantItem.GetParticipantTooltip]"
+										tooltipwidget = { using = agot_war_portrait_dragon_army_comp }
 									}
 								}
 
@@ -1612,6 +1644,13 @@ window = {
 										layoutpolicy_vertical = growing
 
 										soldiers_and_quality_small = {
+											#AGOT Added
+											visible = "[Not(GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End))]"
+											datacontext = "[WarParticipantItem.GetComposition]"
+										}
+										#AGOT Added
+										dragon_soldiers_and_quality_small = {
+											visible = "[GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End)]"
 											datacontext = "[WarParticipantItem.GetComposition]"
 										}
 
@@ -3553,4 +3592,3 @@ types WarOverView
 		}
 	}
 }
-

@@ -1,0 +1,178 @@
+###################################################################
+#################### AGOT DRAGON EVENT WINDOWS ####################
+###################################################################
+
+types Events
+{
+	# Dragon Duel Window
+	type agot_dragon_duel_standard_text = scrollarea
+	{
+		name = "dragon_duel_standard_scrollarea"
+		visible = "[Not(Or(GetScriptedGui('agot_dragon_event_check_if_day_flight').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End), GetScriptedGui('agot_dragon_event_check_if_night_flight').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		minimumsize = { 470 -1 }
+		maximumsize = { 470 -1 }
+
+		scrollbarpolicy_horizontal = always_off
+
+		scrollbar_vertical = {
+			using = Scrollbar_Vertical
+		}
+		scrollwidget = {
+			text_multi = {
+				name = "description_standard_text"
+				minimumsize = { 470 -1 }
+				maximumsize = { 470 -1 }
+				autoresize = yes
+				margin = { 20 4 }
+				text = "[EventWindowData.GetDescription]"
+				align = left
+				fontsize = 16
+			}
+		}
+	}
+
+	type agot_dragon_duel_dark_text = scrollarea
+	{
+		name = "dragon_duel_dark_scrollarea"
+		visible = "[GetScriptedGui('agot_dragon_event_check_if_day_flight').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		minimumsize = { 470 -1 }
+		maximumsize = { 470 -1 }
+
+		scrollbarpolicy_horizontal = always_off
+
+		scrollbar_vertical = {
+			using = Scrollbar_Vertical
+		}
+		scrollwidget = {
+			text_multi = {
+				name = "description_dark_text"
+				default_format = "#light_background"
+				minimumsize = { 470 -1 }
+				maximumsize = { 470 -1 }
+				autoresize = yes
+				margin = { 20 4 }
+				text = "[EventWindowData.GetDescription]"
+				align = left
+				fontsize = 16
+			}
+		}
+	}
+
+	type agot_dragon_duel_light_text = scrollarea
+	{
+		name = "dragon_duel_light_scrollarea"
+		visible = "[GetScriptedGui('agot_dragon_event_check_if_night_flight').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		minimumsize = { 470 -1 }
+		maximumsize = { 470 -1 }
+
+		scrollbarpolicy_horizontal = always_off
+
+		scrollbar_vertical = {
+			using = Scrollbar_Vertical
+		}
+		scrollwidget = {
+			text_multi = {
+				name = "description_light_text"
+				minimumsize = { 470 -1 }
+				maximumsize = { 470 -1 }
+				autoresize = yes
+				margin = { 20 4 }
+				text = "[EventWindowData.GetDescription]"
+				align = left
+				fontsize = 16
+			}
+		}
+	}
+
+	# Dragon Event Window
+	type agot_dragon_event_standard_text = scrollarea
+	{
+		name = "dragon_event_standard_scrollarea"
+		visible = "[Not(Or(GetScriptedGui('agot_dragon_event_check_if_day_flight').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End), GetScriptedGui('agot_dragon_event_check_if_night_flight').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		minimumsize = { 490 -1 }
+		maximumsize = { 490 -1 }
+
+		scrollbarpolicy_horizontal = always_off
+
+		scrollbar_vertical = {
+			using = Scrollbar_Vertical
+		}
+		scrollwidget = {
+			text_multi = {
+				name = "description_standard_text"
+				minimumsize = { 480 -1 }
+				maximumsize = { 480 -1 }
+				autoresize = yes
+				margin = { 20 4 }
+				text = "[EventWindowData.GetDescription]"
+				align = left
+				fontsize = 16
+			}
+		}
+	}
+
+	type agot_dragon_event_dark_text = scrollarea
+	{
+		name = "dragon_event_dark_scrollarea"
+		visible = "[GetScriptedGui('agot_dragon_event_check_if_day_flight').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		minimumsize = { 490 -1 }
+		maximumsize = { 490 -1 }
+
+		scrollbarpolicy_horizontal = always_off
+
+		scrollbar_vertical = {
+			using = Scrollbar_Vertical
+		}
+		scrollwidget = {
+			text_multi = {
+				name = "description_dark_text"
+				# default_format = "#light_background"
+				minimumsize = { 480 -1 }
+				maximumsize = { 480 -1 }
+				autoresize = yes
+				margin = { 20 4 }
+				text = "[EventWindowData.GetDescription]"
+				align = left
+				fontsize = 16
+			}
+		}
+	}
+
+	type agot_dragon_event_light_text = scrollarea
+	{
+		name = "dragon_event_light_scrollarea"
+		visible = "[GetScriptedGui('agot_dragon_event_check_if_night_flight').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		minimumsize = { 490 -1 }
+		maximumsize = { 490 -1 }
+
+		scrollbarpolicy_horizontal = always_off
+
+		scrollbar_vertical = {
+			using = Scrollbar_Vertical
+		}
+		scrollwidget = {
+			text_multi = {
+				name = "description_light_text"
+				minimumsize = { 480 -1 }
+				maximumsize = { 480 -1 }
+				autoresize = yes
+				margin = { 20 4 }
+				text = "[EventWindowData.GetDescription]"
+				align = left
+				fontsize = 16
+			}
+		}
+	}
+}

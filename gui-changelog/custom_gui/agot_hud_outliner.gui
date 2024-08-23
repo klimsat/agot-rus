@@ -1,0 +1,266 @@
+##########################################################
+################# AGOT OUTLINER WINDOW ##################
+##########################################################
+
+types Outliner
+{
+	type agot_dragon_pinned_relationbox = hbox
+	{
+		layoutpolicy_horizontal = expanding
+		using = visible_if_dragon
+
+		icon = {
+			name = "dragon_icon"
+			size = { 24 24 }
+			texture = "gfx/interface/icons/icon_dragon.dds"
+			visible = "[Character.IsAlive]"
+		}
+
+		agot_dragonrider_pinned_relation = {}
+		agot_bonded_pinned_relation = {}
+		agot_host_pinned_relation = {}
+		agot_freedom_pinned_relation = {}
+		agot_wild_pinned_relation = {}
+	}
+
+	# Dragon Relations
+	type agot_dragonrider_pinned_relation = text_single
+	{
+		name = "relation_to_dragon_rider"
+		visible = "[GetScriptedGui('agot_relation_check_rider').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		layoutpolicy_horizontal = expanding
+		text = "DRAGON_RELATION_HAS_RIDER"
+		tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		autoresize = no
+		align = nobaseline
+	}
+
+	type agot_bonded_pinned_relation = text_single
+	{
+		name = "relation_to_bonded_human"
+		visible = "[GetScriptedGui('agot_relation_check_bonded_human').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		layoutpolicy_horizontal = expanding
+		text = "DRAGON_RELATION_HAS_BONDED"
+		tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		autoresize = no
+		align = nobaseline
+	}
+
+	type agot_host_pinned_relation = text_single
+	{
+		name = "relation_to_host"
+		visible = "[GetScriptedGui('agot_relation_check_host').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		layoutpolicy_horizontal = expanding
+		text = "DRAGON_RELATION_IS_PITTED"
+		tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		autoresize = no
+		align = nobaseline
+	}
+
+	type agot_freedom_pinned_relation = text_single
+	{
+		name = "relation_to_freedom"
+		visible = "[GetScriptedGui('agot_relation_check_free').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		layoutpolicy_horizontal = expanding
+		text = "DRAGON_RELATION_IS_WANDERING"
+		tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		autoresize = no
+		align = nobaseline
+	}
+
+	type agot_wild_pinned_relation = text_single
+	{
+		name = "relation_to_wild"
+		visible = "[GetScriptedGui('agot_relation_check_wild').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		layoutpolicy_horizontal = expanding
+		text = "DRAGON_RELATION_IS_WANDERING"
+		tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		autoresize = no
+		align = nobaseline
+	}
+
+	type outliner_pinned_dragon_characters_info = vbox
+	{
+		name = "pinned_characters"
+		visible = "[Outliner.IsCategoryShown('pinned_character')]"
+		datamodel = "[Outliner.GetPinnedCharacters]"
+		layoutpolicy_horizontal = expanding
+		margin = { 5 5 }
+		margin_bottom = 4
+
+		hbox = {
+			layoutpolicy_horizontal = expanding
+
+			expand = {}
+
+			text_single = {
+				visible = "[And(Outliner.IsCategoryShown('pinned_character'), IsDataModelEmpty(Outliner.GetPinnedCharacters))]"
+				name = "no_pinned_characters"
+				text = "OUTLINER_NO_PINNED_CHARACTERS"
+				autoresize = yes
+				default_format = "#light_background;italic"
+			}
+
+			expand = {}
+		}
+
+		item = {
+			hbox = {
+				name = "pinned_character_item"
+				layoutpolicy_horizontal = expanding
+				using = character_tooltip
+				using = visible_if_dragon
+
+				background = {
+					using = Background_Area
+				}
+
+				button_list = {
+					name = "character_button"
+					size = { 0 54 }
+					layoutpolicy_horizontal = expanding
+
+					onclick = "[DefaultOnCharacterClick(Character.GetID)]"
+					down = "[Character.IsShownInCharacterWindow]"
+					onrightclick = "[DefaultOnCharacterRightClick(Character.GetID)]"
+					button_ignore = none
+
+					state = {
+						name = _mouse_hierarchy_enter
+						on_start = "[PdxGuiWidget.FindChild('button_unpin').TriggerAnimation('button_unpin_show')]"
+					}
+
+					state = {
+						name = _mouse_hierarchy_leave
+						on_start = "[PdxGuiWidget.FindChild('button_unpin').TriggerAnimation('button_unpin_hide')]"
+					}
+
+					hbox = {
+						margin = { 10 2 }
+
+						vbox = {
+							layoutpolicy_horizontal = expanding
+
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								spacing = 5
+
+								icon = {
+									visible = "[Character.IsDeadAndValid]"
+									size = { 20 20 }
+									texture = "[Character.GetDeathReasonIcon]"
+									tooltip = "CHARACTER_DEAD_TOOLTIP"
+								}
+
+								icon = {
+									visible = "[Not(Character.IsDeadAndValid)]"
+									size = { 23 23 }
+									framesize = { 60 60 }
+									frame = "[Character.GetHealthIconFrame]"
+									tooltip = "[Character.GetHealthInfo]"
+									using = tooltip_ws
+									texture = "gfx/interface/icons/character_status/icon_health.dds"
+								}
+
+								text_single = {
+									layoutpolicy_horizontal = expanding
+									autoresize = no
+									text = "OUTLINER_PINNED_CHARACTER"
+									align = nobaseline
+									default_format = "#high"
+								}
+
+								expand = {}
+
+								icon = {
+									visible = "[Character.IsInFactionTargetingPlayer]"
+									size = { 20 20 }
+
+									texture = "gfx/interface/icons/portraits/faction_member_small.dds"
+								}
+
+								icon = {
+									visible = "[And(Character.IsMyPowerfulVassal, Not(Character.IsInFactionTargetingPlayer))]"
+									size = { 20 20 }
+
+									texture = "gfx/interface/icons/portraits/powerful_vassal_small.dds"
+									framesize = { 28 28 }
+									frame = "[Character.GetPowerfulVassalFrame]"
+
+									tooltip = "[Character.GetPowerfulVassalTooltip]"
+
+								}
+							}
+
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								spacing = 5
+								margin_left = 3
+
+								text_single = {
+									text = "[Character.GetOpinionOf( GetPlayer )|=]"
+									fonttintcolor = "[Character.GetOpinionOfTint( GetPlayer )]"
+									default_format = "#medium;glow_color:{0.1,0.1,0.1,1}"
+									align = nobaseline
+									visible = "[Character.IsAlive]"
+
+									tooltipwidget = character_opinion_tooltip
+									using = tooltip_ws
+
+									background = {
+										name = "portrait_opinion_bg"
+										texture = "gfx/interface/component_tiles/solid_black_label.dds"
+										spritetype = Corneredtiled
+										spriteborder = { 20 20 }
+										margin = { 5 1 }
+										texture_density = 2
+									}
+								}
+
+								text_single = {
+									layoutpolicy_horizontal = expanding
+									text = "[Character.GetRelationToString( GetPlayer )]"
+									tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+									autoresize = no
+									align = nobaseline
+								}
+							}
+						}
+
+
+						button_round = {
+							name = "button_unpin"
+							size = { 30 30 }
+							onclick = "[Character.ToggleCharacterPinned]"
+							tooltip = "PIN_TT"
+							inherit_visual_state = no
+
+							alpha = 0.6
+
+							state = {
+								name = _mouse_enter
+								alpha = 1
+								duration = 0.1
+								using = Animation_Curve_Default
+							}
+
+							state = {
+								name = _mouse_leave
+								alpha = 0.6
+								duration = 0.2
+								using = Animation_Curve_Default
+							}
+
+							button_unpin = {
+								parentanchor = center
+								size = { 20 20 }
+								alwaystransparent = yes
+								inherit_visual_state = no
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

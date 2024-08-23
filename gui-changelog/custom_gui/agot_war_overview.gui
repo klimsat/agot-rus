@@ -1,0 +1,125 @@
+types WarOverView
+{
+	type dragon_soldiers_and_quality_small = hbox
+	{
+		margin = {5 5}
+		spacing = 5
+
+		tooltipwidget = { using = agot_war_allies_dragon_army_comp }
+
+		expand = {
+			layoutpolicy_horizontal = expanding
+		}
+
+		icon = {
+			name = "icon_soldier"
+			glow = {
+				color = { 1 0.5 0.1 0.8 }
+				glow_radius = 8
+				using = AGOT_Glow_Standard
+			}
+			texture = "gfx/interface/icons/icon_soldier.dds"
+			size = { 30 30 }
+		}
+
+		vbox = {
+
+			text_single = {
+				name = "strength"
+				text = "[ArmyComposition.GetSoldierCountString]"
+				default_format = "#high"
+				align = left|nobaseline
+				using = Font_Size_Medium
+			}
+
+			progressbar_standard = {
+				name = "soldiers_max"
+				visible = "[And( NotEqualTo_int32(ArmyComposition.GetCurrentNumberOfSoldiers, ArmyComposition.GetMaxNumberOfSoldiers), NotEqualTo_int32(ArmyComposition.GetMaxNumberOfSoldiers, '(int32)0' ) )]"
+
+				block "spacing"
+				{
+					size = { 50 8 }
+				}
+
+				min = 0
+				max = "[IntToFloat(ArmyComposition.GetMaxNumberOfSoldiers)]"
+				value = "[IntToFloat(ArmyComposition.GetCurrentNumberOfSoldiers)]"
+			}
+		}
+
+		army_quality_icon = {
+			tooltip_visible = no
+		}
+
+		expand = {
+			layoutpolicy_horizontal = expanding
+		}
+	}
+
+	type dragon_combined_soldiers_and_quality_small = hbox
+	{
+		margin = {5 5}
+		spacing = 5
+
+		tooltipwidget = { using = agot_war_combined_dragon_army_comp }
+
+		expand = {
+			layoutpolicy_horizontal = expanding
+		}
+
+		icon = {
+			name = "icon_soldier"
+			glow = {
+				color = { 1 0.5 0.1 0.8 }
+				glow_radius = 8
+				using = AGOT_Glow_Standard
+			}
+			texture = "gfx/interface/icons/icon_soldier.dds"
+			size = { 30 30 }
+		}
+
+		vbox = {
+
+			text_single = {
+				name = "strength"
+				text = "[ArmyComposition.GetSoldierCountString]"
+				default_format = "#high"
+				align = left|nobaseline
+				using = Font_Size_Medium
+			}
+
+			progressbar_standard = {
+				name = "soldiers_max"
+				visible = "[And( NotEqualTo_int32(ArmyComposition.GetCurrentNumberOfSoldiers, ArmyComposition.GetMaxNumberOfSoldiers), NotEqualTo_int32(ArmyComposition.GetMaxNumberOfSoldiers, '(int32)0' ) )]"
+
+				block "spacing"
+				{
+					size = { 50 8 }
+				}
+
+				min = 0
+				max = "[IntToFloat(ArmyComposition.GetMaxNumberOfSoldiers)]"
+				value = "[IntToFloat(ArmyComposition.GetCurrentNumberOfSoldiers)]"
+			}
+		}
+
+		army_quality_icon = {
+			tooltip_visible = no
+		}
+
+		expand = {
+			layoutpolicy_horizontal = expanding
+		}
+	}
+}
+
+### GLOW TEMPLATES
+template AGOT_Glow_Standard
+{
+    glow_generation_rules = {
+        glow_alpha_mask = 0 # Fades the overall strength and color intensity of the glow the higher you go
+        glow_blur_passes = 10 # Makes it smaller the higher you go
+        glow_texture_downscale = 0.1f # Blurs the edges more the higher you go, hardens edges lower you go
+        glow_ignore_inside_pixels = yes
+    }
+}

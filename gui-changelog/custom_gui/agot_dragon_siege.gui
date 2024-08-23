@@ -1,0 +1,225 @@
+###############################################################
+################# AGOT DRAGONS SIEGE WINDOW ###################
+###############################################################
+
+types SiegeWindow
+{
+	type agot_dragons_siege_button = button_tertiary
+	{
+		parentanchor = top|hcenter
+		position = { 0 5 }
+		size = { 150 40 }
+		datacontext = "[GetScriptedGui('siege_dragon')]"
+		visible = "[And(SiegeWindow.GetSiege.IsPlayerInAttackerSide, ScriptedGui.IsShown( GuiScope.SetRoot( SiegeWindow.GetSiege.GetCommander.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End))]"
+		tooltip = "[ScriptedGui.BuildTooltip( GuiScope.SetRoot( SiegeWindow.GetSiege.GetCommander.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End)]"
+
+		enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( SiegeWindow.GetSiege.GetCommander.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End)]"
+
+		background = {
+			using = Background_Area_Dark
+		}
+
+		onclick = "[GetScriptedGui('siege_dragon').Execute( GuiScope.SetRoot( SiegeWindow.GetSiege.GetCommander.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End)]"
+		using = Animation_ShowHide_Standard
+
+		state = {
+			name = _mouse_enter
+			on_start = "[PdxGuiTriggerAllAnimations('siege_dragon_button_enter')]"
+		}
+
+		state = {
+			name = _mouse_leave
+			on_start = "[PdxGuiTriggerAllAnimations('siege_dragon_button_leave')]"
+		}
+
+		state = {
+			name = _mouse_press
+			on_start = "[PdxGuiTriggerAllAnimations('siege_dragon_button_press')]"
+		}
+
+		widget = {
+			size = { 100% 100% }
+			scissor = yes
+			alwaystransparent = yes
+
+			button_normal = {
+				parentanchor = bottom|hcenter
+				alwaystransparent = yes
+				size = { 150% 150% }
+				position = { -20 0 }
+				framesize = { 200 110 }
+				texture = "gfx/interface/component_effects/fire_02.dds"
+				alpha = 0
+
+				effectname = "NoHighlight"
+
+				using = Animation_Frames_100
+
+				state = {
+					name = "siege_dragon_button_enter"
+					duration = 0.1
+					using = Animation_Curve_Default
+
+					alpha = 0.2
+				}
+
+				state = {
+					name = "siege_dragon_button_leave"
+					duration = 0.3
+					using = Animation_Curve_Default
+
+					alpha = 0
+				}
+			}
+		}
+
+		margin_widget = {
+			size = { 100% 100% }
+			scissor = yes
+
+			icon = {
+				parentanchor = center
+				size = { 150 50 }
+				texture = "gfx/interface/buttons/button_standard_aggressive.dds"
+				spriteType = corneredstretched
+				spriteborder = { 35 0 }
+				texture_density = 2
+				alpha = 0.3
+
+				state = {
+					name = "siege_dragon_button_enter"
+					duration = 0.1
+					using = Animation_Curve_Default
+					size = { 170 50 }
+
+					alpha = 0.5
+				}
+
+				state = {
+					name = "siege_dragon_button_leave"
+					duration = 0.2
+					using = Animation_Curve_Default
+					size = { 150 50 }
+
+					alpha = 0.3
+				}
+
+				state = {
+					name = "siege_dragon_button_press"
+					duration = 0.05
+					using = Animation_Curve_Default
+					size = { 150 50 }
+
+					alpha = 0.3
+				}
+			}
+		}
+
+		widget = {
+			visible = "[Siege.EnableAssaultButton]"
+			size = { 100% 100% }
+
+			state = {
+				name = "siege_dragon_button_enter"
+				duration = 0.2
+				using = Animation_Curve_Default
+				alpha = 0
+			}
+
+			state = {
+				name = "siege_dragon_button_leave"
+				duration = 0.3
+				using = Animation_Curve_Default
+				alpha = 1
+			}
+
+			icon = {
+				position = { 0 5 }
+				size = { 100% 100% }
+				texture = "gfx/interface/component_masks/mask_fade_circle.dds"
+				using = Color_Red
+				alpha = 0
+
+				state = {
+					name = a
+					next = b
+					trigger_on_create = yes
+					duration = 1.4
+					using = Animation_Curve_Default
+					alpha = 0.8
+				}
+
+				state = {
+					name = b
+					duration = 0.6
+					using = Animation_Curve_Default
+					alpha = 0
+				}
+			}
+		}
+
+		icon = {
+			parentanchor = center
+			alwaystransparent = yes
+			texture = "gfx/interface/icons/scheme_types/icon_scheme_dragon.dds"
+			scale = 0.4
+			alpha = 0.5
+
+			state = {
+				name = "siege_dragon_button_enter"
+				duration = 0.05
+				using = Animation_Curve_Default
+
+				scale = 0.8
+				alpha = 1
+			}
+
+			state = {
+				name = "siege_dragon_button_leave"
+				duration = 0.15
+				using = Animation_Curve_Default
+
+				scale = 0.4
+				alpha = 0.5
+			}
+
+			state = {
+				name = "siege_dragon_button_press"
+				duration = 0
+				using = Animation_Curve_Default
+
+				scale = 0.4
+				alpha = 0.5
+			}
+		}
+
+		icon = {
+			position = { 0 5 }
+			size = { 100% 100% }
+			texture = "gfx/interface/component_masks/mask_fade_circle.dds"
+			color = { 0.1 0.1 0.1 1 }
+			alpha = 0.2
+
+			state = {
+				name = "siege_dragon_button_enter"
+				duration = 0.05
+				using = Animation_Curve_Default
+				alpha = 0.8
+			}
+
+			state = {
+				name = "siege_dragon_button_leave"
+				duration = 0.15
+				using = Animation_Curve_Default
+				alpha = 0.2
+			}
+		}
+
+		text_single = {
+			parentanchor = center
+			text = "DRAGON_IN_SIEGE"
+			using = Font_Size_Medium
+			default_format = "#high;glow_color:{0,0,0,1}"
+		}
+	}
+}

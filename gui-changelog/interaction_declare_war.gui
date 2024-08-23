@@ -6,7 +6,7 @@
 window = {
 	name = "declare_war_window"
 	datacontext = "[DeclareWarInteractionWindow.GetCharacterInteractionConfirmationWindow]"
-	###AGOT ADDED - RV
+	###AGOT Added - RV
 	datacontext = "[DeclareWarInteractionWindow.GetDefenderCharacter]"
 	datacontext = "[CharacterItem.GetCharacter]"
 	parentanchor = top|right
@@ -29,7 +29,7 @@ window = {
 		name = _hide
 		using = Animation_FadeOut_Quick
 		using = Sound_WindowHide_Standard
-		###AGOT ADDED - RV
+		###AGOT Added - RV
 		on_start = "[GetScriptedGui('rv_clear_revenge_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 		on_start = "[GetScriptedGui('rv_clear_concubine_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 	}
@@ -211,16 +211,16 @@ window = {
 						text_multi = {
 							name = "comparison_text"
 							margin_top = 16
-							###AGOT ADDED - RV
+							###AGOT Added - RV
 							datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
 							visible = "[Not(Or(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel),EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel)))]"
-							###AGOT ADDED - RV
+							###AGOT Added - RV
 							text = "[DeclareWarInteractionWindow.GetMilitaryStrength]"
 							autoresize = yes
 							max_width = 210
 							align = center
 						}
-						###AGOT ADDED - RV
+						###AGOT Added - RV
 						text_multi = {
 							name = "rv_comparison_text"
 							margin_top = 16
@@ -312,11 +312,11 @@ window = {
 									down = "[CasusBelliItem.IsSelected]"
 									onclick = "[CasusBelliItem.OnClick]"
 									onclick = "[PdxGuiTriggerAllAnimations('declare_war_goal_refresh')]"
-									###AGOT ADDED - RV
+									###AGOT Added - RV
 									visible = "[Or(Not(EqualTo_string(Localize('rv_declare_private_war_interaction'),CharacterInteractionConfirmationWindow.GetSendName)),Or(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel),EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel)))]"
 									onclick = "[GetScriptedGui('rv_create_revenge_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_defender', Character.MakeScope ).End )]"
 									onclick = "[GetScriptedGui('rv_create_concubine_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_defender', Character.MakeScope ).End )]"
-									###AGOT ADDED - RV									
+									###AGOT Added - RV									
 
 									declare_war_casus_belli_item = {}
 								}
@@ -373,7 +373,7 @@ window = {
 				using = Animation_Tab_Switch
 
 
-				###AGOT ADDED - RV
+				###AGOT Added - RV
 				vbox = {
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
@@ -794,7 +794,7 @@ window = {
 										expand = {}
 									}
 
-									###AGOT ADDED - RV
+									###AGOT Added - RV
 									hbox = {
 										datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
 										visible = "[EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel)]"
@@ -817,16 +817,16 @@ window = {
 											}
 										}
 									}
-									###AGOT ADDED - RV
+									###AGOT Added - RV
 
 									vbox = {
 										text_multi = {
 											name = "other_end_war_effects"
-											###AGOT ADDED - RV
+											###AGOT Added - RV
 											datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
 											#visible = "[And(DeclareWarInteractionWindow.IsWarEffectsExpanded,Or(Not(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel)),Not(DeclareWarInteractionWindow.IsEffectsTabVictory)))]"
 											visible = "[And(DeclareWarInteractionWindow.IsWarEffectsExpanded, DeclareWarInteractionWindow.IsEffectsTabVictory)]"
-											###AGOT ADDED - RV
+											###AGOT Added - RV
 											layoutpolicy_horizontal = expanding
 											text = "[DeclareWarInteractionWindow.GetCurrentTabEffectsDescription]"
 											autoresize = yes
@@ -971,7 +971,7 @@ window = {
 				hbox = {
 					name = "tutorial_highlight_declare_war_send_button"
 
-					###AGOT ADDED - RV
+					###AGOT Added - RV
 					button_standard_big = {
 						name = "send_button"
 						enabled = "[DeclareWarInteractionWindow.CanSend]"
@@ -1035,7 +1035,7 @@ window = {
 							}
 						}
 					}
-					###AGOT ADDED - RV
+					###AGOT Added - RV
 				}
 			}
 		}
@@ -1461,7 +1461,7 @@ types CharacterGold
 	}
 }
 
-###AGOT ADDED - ESR
+###AGOT Added - ESR
 types rv_interaction_declare_war
 {
 	type rv_vbox_character_grid = vbox {
@@ -1560,5 +1560,5 @@ types rv_interaction_declare_war
 		expand = {}
 	}
 }
-###AGOT ADDED - ESR
+###AGOT Added - ESR
 

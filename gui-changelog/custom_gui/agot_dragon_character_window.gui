@@ -1,0 +1,2117 @@
+###################################################################
+################# AGOT DRAGONS CHARACTER WINDOW ###################
+###################################################################
+
+types CharacterWindow
+{
+	type agot_dragons_character_view = vbox {
+		name = "main_content_dragon"
+		using = Window_Margins_Sidebar
+		using = visible_if_dragon
+
+		###############
+		# Character box
+		widget = {
+			name = "main_characters_dragons"
+			datacontext = "[GetIllustration( 'character_view_bg' )]"
+			layoutpolicy_horizontal = expanding
+			size = { 0 520 }
+
+			# widget = {
+				# size = { 100% 100% }
+				# using = Animation_Character_Window_Refresh
+
+				# background = {
+					# texture = "[Illustration.GetTexture( Character.MakeScope )]"
+					# fittype = centercrop
+
+					# #ADD BELOW FOR DRAGONS ONLY THEN TWEAK UNTIL IT LOOKS RIGHT
+					# margin_top = "[Subtract_CFixedPoint('(CFixedPoint)250', Min_CFixedPoint('(CFixedPoint)250', Multiply_CFixedPoint(Character.MakeScope.ScriptValue('dragon_size'),'(CFixedPoint)1')))]"
+
+					# modify_texture = {
+						# texture = "gfx/interface/component_masks/mask_rough_edges_down_right.dds"
+						# spriteType = Corneredtiled
+						# spriteborder = { 20 20 }
+						# blend_mode = alphamultiply
+						# texture_density = 2
+					# }
+				# }
+			# }
+			agot_dragon_alive_background = {}
+			agot_dragon_dead_background = {}
+
+			buttons_window_control = {
+				parentanchor = top|right
+
+				blockoverride "button_close"
+				{
+					onclick = "[CharacterWindow.Close]"
+				}
+
+				blockoverride "button_back"
+				{
+					visible = "[HasViewHistory]"
+					onclick = "[OpenFromViewHistory]"
+					tooltip = "[GetViewHistoryTooltip]"
+				}
+
+				blockoverride "button_me"
+				{
+					visible = "[Not(Character.IsLocalPlayer)]"
+					onclick = "[DefaultOnCharacterClick(GetPlayer.GetID)]"
+				}
+
+				blockoverride "button_pin" {}
+
+				background = {
+					using = Background_Area_Solid
+					modify_texture = {
+						name = "mask"
+						texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_thick.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 0 0 }
+						blend_mode = alphamultiply
+					}
+					alpha = 0.7
+					margin_left = 30
+					margin_right = 30
+				}
+			}
+
+			### Main Dragon Character
+			portrait_character_view_main = {
+				name = "dragon_portrait_view"
+				parentanchor = hcenter|vcenter
+				position = { -20 90 }
+
+				using = Animation_Character_Window_Refresh_Short
+
+				blockoverride "portrait_opinion"
+				{
+					vassal_stance_icon = {
+						name = "vassal_stance"
+						size = { 20 20 }
+					}
+				}
+			}
+
+			### Host ###
+			container = {
+				name = "host"
+				datacontext = "[CharacterWindow.GetCharacter.GetLiegeEvenWhenDead]"
+				visible = "[GetScriptedGui('agot_check_host').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+				parentanchor = bottom|right
+				widgetanchor = top|left
+				position = { -105 -460 }
+				allow_outside = yes
+
+				using = Animation_Character_Window_Refresh
+
+				portrait_head_small = {
+					blockoverride "portrait_transformation"
+					{
+						portrait_scale = { -1 1 }
+						portrait_offset = { 1 0 }
+					}
+				}
+
+				text_label_center = {
+					parentanchor = top|hcenter
+					position = { 0 85 }
+					text = "CURRENT_HOST_LABEL"
+					allow_outside = yes
+				}
+			}
+
+			### Current Rider ###
+			container = {
+				name = "current_rider"
+				datacontext = "[CharacterWindow.GetCharacter.MakeScope.Var('current_rider').Char]"
+				visible = "[GetScriptedGui('agot_check_rider').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+				parentanchor = bottom|right
+				widgetanchor = top|left
+				position = { -105 -335 }
+				allow_outside = yes
+
+				using = Animation_Character_Window_Refresh
+
+				portrait_head_small = {
+					blockoverride "portrait_transformation"
+					{
+						portrait_scale = { -1 1 }
+						portrait_offset = { 1 0 }
+					}
+				}
+
+				text_label_center = {
+					parentanchor = top|hcenter
+					position = { 0 85 }
+					text = "CURRENT_RIDER_LABEL"
+					allow_outside = yes
+				}
+			}
+
+			### Current Landed Rider ###
+			container = {
+				name = "current_landed_rider"
+				datacontext = "[CharacterWindow.GetCharacter.MakeScope.Var('current_rider').Char]"
+				visible = "[GetScriptedGui('agot_check_landed_rider').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+				parentanchor = bottom|right
+				widgetanchor = top|left
+				position = { -105 -460 }
+				allow_outside = yes
+
+				using = Animation_Character_Window_Refresh
+
+				portrait_head_small = {
+					blockoverride "portrait_transformation"
+					{
+						portrait_scale = { -1 1 }
+						portrait_offset = { 1 0 }
+					}
+				}
+
+				text_label_center = {
+					parentanchor = top|hcenter
+					position = { 0 85 }
+					text = "CURRENT_RIDER_LABEL"
+					allow_outside = yes
+				}
+			}
+
+			### Bonded Human ###
+			container = {
+				name = "bonded_human"
+				datacontext = "[CharacterWindow.GetCharacter.GetRelationOfType( GetRelation( 'agot_dragon' ) ).MakeScope.GetCharacter]"
+				visible = "[GetScriptedGui('agot_check_bonded_human').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+				parentanchor = bottom|right
+				widgetanchor = top|left
+				position = { -105 -335 }
+				allow_outside = yes
+
+				using = Animation_Character_Window_Refresh
+
+				portrait_head_small = {
+					blockoverride "portrait_transformation"
+					{
+						portrait_scale = { -1 1 }
+						portrait_offset = { 1 0 }
+					}
+				}
+
+				text_label_center = {
+					parentanchor = top|hcenter
+					position = { 0 85 }
+					text = "CURRENT_BONDED_HUMAN_LABEL"
+					allow_outside = yes
+				}
+			}
+
+			### DEBUG STUFF, please make sure those are visible and usable, especially the watch button, type "watch" into the console to show it
+			flowcontainer = {
+				name = "debug_buttons"
+				parentanchor = bottom|right
+				position = { -20 -20 }
+				ignoreinvisible = yes
+
+				# Debug personality
+				text_single = {
+					visible = "[InDebugMode]"
+					tooltip = "CHARACTER_AI_VALUES_DEBUG_TOOLTIP"
+					raw_text = "#D AIValue#!"
+					align = nobaseline
+				}
+
+				button = {
+					using = editor_button
+					name = "ai_watch_button"
+					size = { 60 40 }
+					raw_text = "AI Watch"
+					align = center|nobaseline
+					onclick = "[CharacterWindow.OnAIWatch]"
+					visible = "[AIWatchWindowsEnabled]"
+					fontcolor = { 1.0 1.0 1.0 1.0 }
+				}
+
+				watch_window_button = {
+					size = { 60 40 }
+					onclick = "[AddWatchWindow( CharacterWindow.GetCharacter.MakeScope )]"
+				}
+
+				button = {
+					using = editor_button
+					name = "copy_portrait_button"
+					size = { 60 40 }
+					raw_text = "portrait"
+					align = center|nobaseline
+					onclick = "[CharacterWindow.OnCopyPortrait]"
+					onclick = "[ExecuteConsoleCommand('pe')]"
+					visible = "[InDebugMode]"
+					fontcolor = { 1.0 1.0 1.0 1.0 }
+				}
+			}
+
+			flowcontainer = {
+				parentanchor = bottom|left
+				position = { 5 -5 }
+				spacing = 5
+				ignoreinvisible = yes
+				direction = vertical
+
+				## barbershop button
+				button_normal = {
+					name = "open_barbershop"
+					visible = "[Character.CanCustomizePortrait]"
+					size = { 35 35 }
+					datacontext = "[CharacterWindow.AccessCharacter]"
+					tooltip = "CV_CUSTOMIZE_PORTRAIT"
+					using = tooltip_ne
+
+					icon = {
+						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
+						size = { 100% 100% }
+					}
+
+					button_barbershop = {
+						visible = "[Character.CanCustomizePortrait]"
+						onclick = "[Character.OnCustomizePortrait]"
+						onclick = "[CloseGameView( 'character_interaction_menu' )]"
+						size = { 25 25 }
+						parentanchor = center
+					}
+				}
+				#AGOT Added
+				button_normal = {
+					name = "dragon_edit"
+					visible = "[GetScriptedGui('agot_dragon_skin_color_menu').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
+					size = { 35 35 }
+					datacontext = "[CharacterWindow.AccessCharacter]"
+					tooltip = "CV_CUSTOMIZE_AGOT_DRAGON"
+					using = tooltip_ne
+
+					icon = {
+						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
+						size = { 100% 100% }
+					}
+
+					button_clear = {
+						name = "dragon_edit"
+						visible = "[GetScriptedGui('agot_dragon_skin_color_menu').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
+						onclick = "[GetScriptedGui('agot_dragon_skin_color_menu').Execute(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
+						onclick = "[CharacterInteractionMenuWindow.Close]"
+						size = { 30 30 }
+						parentanchor = center
+
+						tooltip = "CV_CUSTOMIZE_AGOT_DRAGON"
+						using = tooltip_ne
+					}
+				}
+				# Dragon kills button
+				button_normal = {
+					name = "open_kill_list"
+					visible = "[Character.HasKillsKnownTo( GetPlayer )]"
+					size = { 35 35 }
+					datacontext = "[Character]"
+					tooltip = "OPEN_KILL_LIST_TOOLTIP"
+					using = tooltip_es
+
+					icon = {
+						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
+						size = { 100% 100% }
+					}
+
+					button_kill_list = {
+						onclick = "[ToggleGameViewData( 'kill_list', Character.GetID  )]"
+						size = { 25 25 }
+						parentanchor = center
+
+						modify_texture = {
+							texture = "gfx/interface/icons/focuses/hud_icon_mask.dds"
+							blend_mode = alphamultiply
+						}
+					}
+				}
+
+				# Dragon memories button
+				button_normal = {
+					name = "open_memories"
+					size = { 35 35 }
+					datacontext = "[Character]"
+					tooltip = "OPEN_MEMORIES_TOOLTIP"
+					using = tooltip_es
+
+					icon = {
+						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
+						size = { 100% 100% }
+					}
+
+					button_memories = {
+						onclick = "[ToggleGameViewData( 'memories', Character.GetID  )]"
+						size = { 25 25 }
+						parentanchor = center
+					}
+				}
+
+				# Open past riders button
+				button_normal = {
+					name = "open_past_riders"
+					visible = "[Not(Character.IsAlive)]"
+					size = { 35 35 }
+					datacontext = "[Character]"
+					tooltip = "VIEW_PAST_RIDERS"
+					using = tooltip_es
+
+					icon = {
+						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
+						size = { 100% 100% }
+					}
+
+					button_past_dragonriders = {
+						onclick = "[GetScriptedGui('agot_show_dragon_past_rider_when_dead').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('dragon', CharacterWindow.GetCharacter.MakeScope).End)]"
+						size = { 25 25 }
+						parentanchor = center
+					}
+				}
+
+				# button_normal = {
+					# name = "open_focus_button"
+					# size = { 35 35 }
+					# visible = "[Or( Character.GetFocus.IsValid, Character.PlayerCanManageFocus )]"
+					# tooltip = "PLAYER_LIFESTYLE_TOOLTIP"
+					# using = tooltip_ne
+
+					# icon = {
+						# texture = "gfx/interface/buttons/button_lifestyles_base.dds"
+						# size = { 100% 100% }
+					# }
+
+					# highlight_icon_lifestyle_focus = {
+						# size = { 100% 100% }
+						# texture = "[CharacterWindow.GetCharacter.GetFocus.GetIcon]"
+						# onclick = "[CharacterWindow.OnClickFocusButton]"
+						# enabled = "[CharacterWindow.CanClickFocusButton]"
+						# tooltip = "[CharacterWindow.GetFocusButtonTooltip]"
+
+						# modify_texture = {
+							# texture = "gfx/interface/icons/focuses/hud_icon_mask.dds"
+							# blend_mode = alphamultiply
+						# }
+					# }
+				# }
+
+				# button_open_inventory = {
+					# visible = "[Character.IsAlive]"
+					# name = "open_inventory"
+					# size = { 35 35 }
+				# }
+
+				# Capture wild dragon button
+				button_normal = {
+					name = "CAPTURE_WILD_DRAGON"
+					datacontext = "[GetScriptedGui('capture_wild_dragon')]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
+					tooltip = "CAPTURE_WILD_DRAGON_TT"
+					position = { 5 5 }
+					size = { 35 35 }
+
+					icon = {
+						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
+						size = { 100% 100% }
+					}
+
+					button_capture_wild_dragon = {
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
+						size = { 35 35 }
+						parentanchor = center
+
+						modify_texture = {
+							texture = "gfx/interface/icons/focuses/hud_icon_mask.dds"
+							blend_mode = alphamultiply
+						}
+					}
+				}
+
+				# Send to dragonpit button
+				button_normal = {
+					name = "SEND_TO_DRAGONPIT"
+					datacontext = "[GetScriptedGui('send_to_dragonpit')]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope( 'owner', GetPlayer.MakeScope ).End)]"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope( 'owner', GetPlayer.MakeScope ).End)]"
+					tooltip = "SEND_TO_DRAGONPIT_TT"
+					position = { 5 5 }
+					size = { 35 35 }
+
+					icon = {
+						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
+						size = { 100% 100% }
+					}
+
+					button_send_to_dragonpit = {
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
+						size = { 35 35 }
+						parentanchor = center
+
+						modify_texture = {
+							texture = "gfx/interface/icons/focuses/hud_icon_mask.dds"
+							blend_mode = alphamultiply
+						}
+					}
+				}
+
+				# Remove from dragonpit button
+				button_normal = {
+					name = "REMOVE_FROM_DRAGONPIT"
+
+					datacontext = "[GetScriptedGui('remove_from_dragonpit')]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
+					tooltip = "REMOVE_FROM_DRAGONPIT_TT"
+					position = { 5 5 }
+					size = { 35 35 }
+
+					icon = {
+						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
+						size = { 100% 100% }
+					}
+
+					button_remove_from_dragonpit = {
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
+						size = { 35 35 }
+						parentanchor = center
+
+						modify_texture = {
+							texture = "gfx/interface/icons/focuses/hud_icon_mask.dds"
+							blend_mode = alphamultiply
+						}
+					}
+				}
+			}
+		}
+
+		############################
+		### Character internal info
+		hbox = {
+			name = "character_info"
+			layoutpolicy_horizontal = expanding
+			margin = { 0 4 }
+			margin_left = 5
+
+			background = {
+				using = Background_Area_Dark
+				margin_left = 5
+			}
+
+			vbox = {
+				layoutpolicy_horizontal = expanding
+
+				vbox = {
+					name = "name_and_traits"
+					layoutpolicy_horizontal = expanding
+					margin = { 0 -2 }
+
+					using = Animation_Character_Window_Refresh
+
+					vbox = {
+						name = "name_etc"
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						margin = { 0 2 }
+
+						## Name
+						hbox = {
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+							margin = { 0 -2 }
+							margin_top = 1
+
+							text_single = {
+								name = "character_name"
+								raw_text = "[Character.GetUINameNotMeNoTooltip], "
+								margin_left = 2
+								max_width = 400
+								fontsize = 20
+								fontsize_min = 14
+								align = nobaseline
+								default_format = "#medium"
+								tooltip = "[Character.GetUINameNotMeNoTooltip]"
+							}
+
+							text_single = {
+								name = "character_age"
+								raw_text = " [Character.GetAge]"
+								default_format = "#low"
+								tooltip = "[Character.GetDeathOrBirthDateInfo]"
+								fontsize = 20
+								align = nobaseline
+							}
+
+							hbox = {
+								margin_left = 4
+								spacing = -3
+
+								icon = {
+									visible = "[Not(Character.IsDeadAndValid)]"
+									size = { 23 23 }
+									framesize = { 60 60 }
+									frame = "[Character.GetHealthIconFrame]"
+									texture = "gfx/interface/icons/character_status/icon_health.dds"
+									tooltip = "[Character.GetHealthInfo]"
+								}
+
+								icon = {
+									visible = "[Character.IsDeadAndValid]"
+									size = { 23 23 }
+									texture = "gfx/interface/icons/character_status/icon_dead.dds"
+									tooltip = "CHARACTER_DEAD_TOOLTIP"
+								}
+							}
+							expand = {}
+						}
+
+						hbox_dragon_character_relation_and_ai = {
+							name = "dragon_character_relation_and_ai"
+							margin = { 3 0 }
+						}
+					}
+
+					vbox = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+
+						hbox = {
+							name = "skills_culture_religion"
+							layoutpolicy_horizontal = expanding
+
+							## Traits
+							hbox_dragon_traits_list = {
+								name = "tutorial_highlight_traits"
+								datacontext = "[CharacterWindow.GetTraitArrays]"
+								margin_top = 3
+								margin_bottom = 2
+							}
+
+							background = {
+								using = Background_Area
+							}
+
+							vbox = {
+								layoutpolicy_vertical = expanding
+								margin = { -2 7 }
+
+								using = Animation_Character_Window_Refresh
+
+								fixedgridbox = {
+									name = "modifiers_grid"
+									datamodel = "[CharacterWindow.GetTimedModifiers]"
+									addcolumn = 22
+									addrow = 23
+									datamodel_wrap = 2
+									maxhorizontalslots = 2
+
+									item = {
+										modifier_item_icon = {
+											size = { 22 22 }
+
+											blockoverride "input_info_text" {
+												text = "CHARACTER_WINDOW_MODIFIERS"
+											}
+										}
+									}
+								}
+								expand = {}
+							}
+
+							hbox = {
+								# Divider
+								spacer = {
+									size = { 4 4 }
+								}
+
+								divider_light = {
+									layoutpolicy_vertical = expanding
+									visible = "[Not(Character.IsDeadAndValid)]"
+								}
+
+								spacer = {
+									size = { 4 4 }
+								}
+
+								# Dragon size
+								vbox = {
+									tooltip = "[dragon_size|E]"
+									visible = "[Not(Character.IsDeadAndValid)]"
+									using = tooltip_ne
+									spacing = -3
+									margin_top = 10
+
+									using = Animation_Character_Window_Refresh
+
+									icon = {
+										name = "dragon_size_icon"
+										size = { 32 32 }
+										texture = "gfx/interface/icons/icon_dragon_size.dds"
+									}
+
+									text_single = {
+										name = "dragon_size_value"
+										text = "[CharacterWindow.GetCharacter.MakeScope.ScriptValue('dragon_size')|0]"
+										align = nobaseline
+									}
+								}
+
+								# Divider
+								spacer = {
+									size = { 4 4 }
+								}
+
+								divider_light = {
+									layoutpolicy_vertical = expanding
+									visible = "[Not(Character.IsDeadAndValid)]"
+								}
+
+								spacer = {
+									size = { 4 4 }
+								}
+
+								# Combat Effectiveness
+								vbox = {
+									tooltip = "[dragon_combat_effectiveness|E]"
+									visible = "[Not(Character.IsDeadAndValid)]"
+									using = tooltip_ne
+									spacing = -3
+									margin_top = 10
+
+									using = Animation_Character_Window_Refresh
+
+									icon = {
+										name = "dragon_combat_effectiveness_icon"
+										size = { 32 32 }
+										texture = "gfx/interface/icons/icon_dragon_combat_effectiveness.dds"
+									}
+
+									text_single = {
+										name = "dragon_combat_effectiveness_value"
+										text = "[CharacterWindow.GetCharacter.MakeScope.ScriptValue('dragon_combat_effectiveness')|0]"
+										align = nobaseline
+									}
+								}
+
+								# Divider
+								spacer = {
+									size = { 4 4 }
+								}
+
+								divider_light = {
+									layoutpolicy_vertical = expanding
+									visible = "[Not(Character.IsDeadAndValid)]"
+								}
+
+								spacer = {
+									size = { 4 4 }
+								}
+
+								# Draconic dread
+								vbox = {
+									tooltip = "[draconic_dread|E]"
+									visible = "[Not(Character.IsDeadAndValid)]"
+									using = tooltip_ne
+									spacing = -3
+									margin_top = 10
+
+									using = Animation_Character_Window_Refresh
+
+									icon = {
+										name = "draconic_dread_icon"
+										size = { 32 32 }
+										texture = "gfx/interface/icons/icon_draconic_dread.dds"
+									}
+
+									text_single = {
+										name = "draconic_dread_value"
+										text = "[CharacterWindow.GetCharacter.MakeScope.ScriptValue('draconic_dread')|0]"
+										align = nobaseline
+									}
+								}
+
+								# Divider
+								spacer = {
+									size = { 4 4 }
+								}
+
+								divider_light = {
+									layoutpolicy_vertical = expanding
+									visible = "[Not(Character.IsDeadAndValid)]"
+								}
+
+								spacer = {
+									size = { 4 4 }
+								}
+
+								# Temperament
+								vbox = {
+									tooltip = "[temperament|E]"
+									visible = "[Not(Character.IsDeadAndValid)]"
+									using = tooltip_ne
+									spacing = -3
+									margin_top = 10
+
+									using = Animation_Character_Window_Refresh
+
+									icon = {
+										name = "temperament_icon"
+										size = { 32 32 }
+										texture = "gfx/interface/icons/icon_draconic_temperament.dds"
+									}
+
+									text_single = {
+										name = "temperament_value"
+										text = "[CharacterWindow.GetCharacter.MakeScope.ScriptValue('temperament')|0]"
+										align = nobaseline
+									}
+								}
+
+								# Divider
+								spacer = {
+									size = { 4 4 }
+								}
+
+								divider_light = {
+									layoutpolicy_vertical = expanding
+									visible = "[Not(Character.IsDeadAndValid)]"
+								}
+
+								spacer = {
+									size = { 4 4 }
+								}
+							}
+							expand = {}
+						}
+					}
+				}
+			}
+		}
+
+		######################################################
+		################### BOTTOM AREA ######################
+		######################################################
+
+		widget = {
+			visible = "[CharacterWindow.AreNoneExpanded]"
+			layoutpolicy_vertical = preferred
+			layoutpolicy_horizontal = expanding
+			size = { 0 350 }
+
+			using = Animation_Tab_Switch
+
+			widget = {
+				name = "main_view"
+				size = { 100% 100% }
+
+				using = Animation_Tab_Switch
+
+				vbox = {
+					name = "dragon_main_view"
+					visible = "[And( Not( Or(CharacterWindow.IsRelationExpanded( 'children' ), CharacterWindow.IsRelationExpanded( 'siblings' ))), Not(CharacterWindow.AreRelationsExpanded( 'friends', 'rivals', 'lovers' )))]"
+
+					widget = {
+						name = "parents_grandparents_spouses"
+						layoutpolicy_vertical = expanding
+						layoutpolicy_horizontal = expanding
+						maximumsize = { -1 110 }
+						scissor = yes
+
+						hbox = {
+							vbox_character_row_item = {
+								name = "parents"
+								layoutpolicy_vertical = expanding
+
+								blockoverride "portrait_datamodel" {
+									datamodel = "[CharacterWindow.GetParents]"
+								}
+
+								blockoverride "header_text"
+								{
+									text = "PARENTS"
+								}
+
+								blockoverride "expand_button" {}
+
+								blockoverride "gridbox"
+								{
+									overlappingitembox = {
+										size = { 170 90 }
+
+										block "portrait_datamodel" {
+											datamodel = "[CharacterWindow.GetParents]"
+										}
+
+										item = {
+											portrait_head_small = {
+												blockoverride "portrait_button"
+												{
+													using = tooltip_ne
+												}
+											}
+										}
+									}
+								}
+							}
+
+							vbox_character_row_item = {
+								name = "grandparents"
+								visible = "[Not(Or(GreaterThan_int32( Character.GetMaxSpouses, '(int32)1' ), GreaterThan_int32( Character.GetMaxConsorts, '(int32)0' )))]"
+								layoutpolicy_vertical = expanding
+
+								blockoverride "portrait_datamodel" {
+									datamodel = "[CharacterWindow.GetGrandparents]"
+								}
+
+								blockoverride "header_text"
+								{
+									text = "GRANDPARENTS"
+								}
+
+								blockoverride "expand_button" {}
+
+								blockoverride "gridbox"
+								{
+									overlappingitembox = {
+										size = { 340 90 }
+
+										block "portrait_datamodel" {
+											datamodel = "[CharacterWindow.GetParents]"
+										}
+
+										item = {
+											portrait_head_small = {
+												blockoverride "portrait_button"
+												{
+													using = tooltip_ne
+												}
+											}
+										}
+									}
+								}
+							}
+
+							vbox_character_row_item = {
+								name = "grandparents_contracted"
+								visible = "[Or(GreaterThan_int32( Character.GetMaxSpouses, '(int32)1' ), GreaterThan_int32( Character.GetMaxConsorts, '(int32)0' ))]"
+								layoutpolicy_vertical = expanding
+
+								blockoverride "portrait_datamodel" {
+									datamodel = "[CharacterWindow.GetGrandparents]"
+								}
+
+								blockoverride "header_text"
+								{
+									text = "GRANDPARENTS"
+								}
+
+								blockoverride "expand_button" {}
+
+								blockoverride "gridbox"
+								{
+									overlappingitembox = {
+										size = { 170 90 }
+
+										block "portrait_datamodel" {
+											datamodel = "[CharacterWindow.GetParents]"
+										}
+
+										item = {
+											portrait_head_small = {
+												blockoverride "portrait_button"
+												{
+													using = tooltip_ne
+												}
+											}
+										}
+									}
+								}
+							}
+
+							# vbox_character_row_relationship_item = {
+								# name = "friends"
+								# layoutpolicy_vertical = expanding
+								# layoutpolicy_horizontal = expanding
+
+								# blockoverride "portrait_datamodel" {
+									# datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
+								# }
+
+								# blockoverride "header_text"
+								# {
+									# text = "FRIENDS_LABEL"
+								# }
+
+								# blockoverride "remaining_items"
+								# {
+									# visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)7' )]"
+									# text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)7' )|=]"
+								# }
+
+								# blockoverride "expand_button_inside" {
+									# visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)7' )]"
+									# onclick = "[CharacterWindow.ToggleExpandedRelation( 'friends' )]"
+								# }
+							# }
+
+							# vbox_character_row_relationship_item = {
+								# name = "rivals"
+								# layoutpolicy_vertical = expanding
+								# layoutpolicy_horizontal = expanding
+
+								# blockoverride "portrait_datamodel" {
+									# datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'rival' ) )]"
+								# }
+
+								# blockoverride "header_text"
+								# {
+									# text = "RIVALS_LABEL"
+								# }
+
+								# blockoverride "remaining_items"
+								# {
+									# visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'rival' ) )), '(int32)7' )]"
+									# text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'rival' ) )), '(int32)7' )|=]"
+								# }
+
+								# blockoverride "expand_button_inside" {
+									# visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'rival' ) )), '(int32)7' )]"
+									# onclick = "[CharacterWindow.ToggleExpandedRelation( 'rivals' )]"
+								# }
+							# }
+
+							vbox_character_row_relationship_item = {
+								name = "mated_dragon"
+								visible = "[CharacterWindow.GetCharacter.IsAdult]"
+								layoutpolicy_vertical = expanding
+
+								blockoverride "portrait_datamodel" {
+									datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) )]"
+								}
+
+								blockoverride "header_text"
+								{
+									text = "MATES_LABEL"
+								}
+
+								blockoverride "remaining_items"
+								{
+									visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)5' )]"
+									margin = { 167 }
+									text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)5' )|=]"
+								}
+
+								blockoverride "expand_button_inside" {
+									visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)5' )]"
+									onclick = "[CharacterWindow.ToggleExpandedRelation( 'lovers' )]"
+								}
+							}
+							expand = {}
+						}
+					}
+
+					widget = {
+						name = "children"
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						maximumsize = { -1 110 }
+						scissor = yes
+
+						vbox_character_row_item = {
+							name = "children"
+
+							blockoverride "portrait_datamodel" {
+								datamodel = "[CharacterWindow.GetChildren]"
+							}
+
+							blockoverride "header_text"
+							{
+								text = "CV_CHILDREN_HEADING"
+							}
+
+							blockoverride "remaining_items"
+							{
+								visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetChildren), '(int32)7' )]"
+								text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetChildren), '(int32)7' )|=]"
+							}
+
+							blockoverride "expand_button_inside" {
+								visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetChildren), '(int32)7' )]"
+								onclick = "[CharacterWindow.ToggleExpandedRelation( 'children' )]"
+							}
+						}
+					}
+
+					widget = {
+						name = "siblings"
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						maximumsize = { -1 110 }
+						scissor = yes
+
+						vbox_character_row_item = {
+							name = "siblings"
+
+							blockoverride "portrait_datamodel" {
+								datamodel = "[CharacterWindow.GetSiblings]"
+							}
+
+							blockoverride "header_text"
+							{
+								text = "CV_SIBLINGS_HEADING"
+							}
+
+							blockoverride "remaining_items"
+							{
+								visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetSiblings), '(int32)7' )]"
+								text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetSiblings), '(int32)7' )|=]"
+							}
+
+							blockoverride "expand_button_inside" {
+								visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetSiblings), '(int32)7' )]"
+								onclick = "[CharacterWindow.ToggleExpandedRelation( 'siblings' )]"
+							}
+						}
+					}
+
+					widget = {
+						name = "past_riders"
+						visible = "[Character.IsAlive]"
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						maximumsize = { -1 110 }
+						scissor = yes
+
+						hbox = {
+							vbox_character_row_item = {
+								name = "past_riders"
+								layoutpolicy_vertical = expanding
+								layoutpolicy_horizontal = expanding
+
+								blockoverride "gridbox"
+								{
+									fixedgridbox = {
+										flipdirection = yes
+										addcolumn = 85
+										addrow = 90
+										datamodel_wrap = 7
+										maxverticalslots = 1
+										datamodel = "[CharacterWindow.GetCharacter.MakeScope.GetList('past_riders')]"
+										item = {
+											portrait_head_small = {
+												datacontext = "[Scope.GetCharacter]"
+											}
+										}
+									}
+								}
+
+								blockoverride "header_text"
+								{
+									text = "PAST_RIDERS_LABEL"
+								}
+
+								blockoverride "remaining_items"
+								{
+									visible = "[GreaterThan_int32( GetDataModelSize(Character.MakeScope.GetList('past_riders')), '(int32)7' )]"
+									text = "[GetNumberAbove_int32( GetDataModelSize(Character.MakeScope.GetList('past_riders')), '(int32)7' )|=]"
+								}
+
+								blockoverride "expand_button_inside" {
+									visible = "[GreaterThan_int32( GetDataModelSize(Character.MakeScope.GetList('past_riders')), '(int32)7' )]"
+									onclick = "[CharacterWindow.ToggleExpandedRelation( 'past_riders' )]"
+								}
+							}
+						}
+					}
+					expand = {}
+				}
+
+				### SIBLINGS EXPANDED
+				scrollbox = {
+					name = "dragon_siblings_expanded"
+					visible = "[CharacterWindow.IsRelationExpanded( 'siblings' )]"
+					size = { 100% 100% }
+
+					blockoverride "scrollbox_replace_vbox" {
+						vbox_character_row_item = {
+							name = "siblings"
+							margin_top = 10
+							spacing = 5
+
+							blockoverride "portrait_datamodel" {
+								datamodel = "[CharacterWindow.GetSiblings]"
+							}
+
+							blockoverride "header_text"
+							{
+								text = "CV_SIBLINGS_HEADING"
+							}
+
+							blockoverride "expand_button_inside" {
+								onclick = "[CharacterWindow.ToggleExpandedRelation( 'siblings' )]"
+								down = "[CharacterWindow.IsRelationExpanded( 'siblings' )]"
+							}
+
+							blockoverride "gridbox_slots" {}
+						}
+					}
+				}
+
+				### CHILDREN EXPANDED
+				scrollbox = {
+					name = "dragon_children_expanded"
+					visible = "[CharacterWindow.IsRelationExpanded( 'children' )]"
+					size = { 100% 100% }
+
+					blockoverride "scrollbox_replace_vbox" {
+						vbox_character_row_item = {
+							name = "children"
+							margin_top = 10
+							spacing = 5
+
+							blockoverride "portrait_datamodel" {
+								datamodel = "[CharacterWindow.GetChildren]"
+							}
+
+							blockoverride "header_text"
+							{
+								text = "CV_CHILDREN_HEADING"
+							}
+
+							blockoverride "expand_button_inside" {
+								onclick = "[CharacterWindow.ToggleExpandedRelation( 'children' )]"
+								down = "[CharacterWindow.IsRelationExpanded( 'children' )]"
+							}
+
+							blockoverride "gridbox_slots" {}
+						}
+					}
+				}
+
+				### PAST RIDERS EXPANDED
+				scrollbox = {
+					name = "past_riders_expanded"
+					visible = "[CharacterWindow.IsRelationExpanded( 'past_riders' )]"
+					size = { 100% 100% }
+
+					blockoverride "scrollbox_replace_vbox" {
+						vbox_character_row_item = {
+							name = "past_riders"
+							margin_top = 10
+							spacing = 5
+
+							blockoverride "gridbox"
+							{
+								fixedgridbox = {
+									flipdirection = yes
+									addcolumn = 85
+									addrow = 90
+									datamodel_wrap = 7
+									maxverticalslots = 10
+									datamodel = "[CharacterWindow.GetCharacter.MakeScope.GetList('past_riders')]"
+									item = {
+										portrait_head_small = {
+											datacontext = "[Scope.GetCharacter]"
+										}
+									}
+								}
+							}
+
+							blockoverride "header_text"
+							{
+								text = "PAST_RIDERS_LABEL"
+							}
+
+							blockoverride "expand_button_inside" {
+								onclick = "[CharacterWindow.ToggleExpandedRelation( 'past_riders' )]"
+								down = "[CharacterWindow.IsRelationExpanded( 'past_riders' )]"
+							}
+
+							blockoverride "gridbox_slots" {}
+						}
+					}
+				}
+
+				### FRIENDS EXPANDED
+				# scrollbox = {
+					# name = "dragon_friends_expanded"
+					# visible = "[CharacterWindow.IsRelationExpanded( 'friends' )]"
+					# size = { 100% 100% }
+
+					# blockoverride "scrollbox_replace_vbox" {
+						# vbox_character_row_relationship_item = {
+							# name = "dragon_friends"
+							# margin_top = 10
+							# spacing = 5
+
+							# blockoverride "portrait_datamodel" {
+								# datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
+							# }
+
+							# blockoverride "header_text"
+							# {
+								# text = "FRIENDS_LABEL"
+							# }
+
+							# blockoverride "expand_button_inside" {
+								# onclick = "[CharacterWindow.ToggleExpandedRelation( 'friends' )]"
+								# down = "[CharacterWindow.IsRelationExpanded( 'friends' )]"
+							# }
+
+							# blockoverride "gridbox_slots" {}
+						# }
+					# }
+				# }
+
+				### RIVALS EXPANDED
+				# scrollbox = {
+					# name = "dragon_rivals_expanded"
+					# visible = "[CharacterWindow.IsRelationExpanded( 'rivals' )]"
+					# size = { 100% 100% }
+
+					# blockoverride "scrollbox_replace_vbox" {
+						# vbox_character_row_relationship_item = {
+							# name = "dragon_rivals"
+							# margin_top = 10
+							# spacing = 5
+
+							# blockoverride "portrait_datamodel" {
+								# datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'rival' ) )]"
+							# }
+
+							# blockoverride "header_text"
+							# {
+								# text = "RIVALS_LABEL"
+							# }
+
+							# blockoverride "expand_button_inside" {
+								# onclick = "[CharacterWindow.ToggleExpandedRelation( 'rivals' )]"
+								# down = "[CharacterWindow.IsRelationExpanded( 'rivals' )]"
+							# }
+
+							# blockoverride "gridbox_slots" {}
+						# }
+					# }
+				# }
+			}
+		}
+
+		### EXPANDED VIEWS
+
+		# TRAITS EXPANDED
+		# scrollbox = {
+			# name = "traits_expanded"
+			# visible = "[CharacterWindow.AreTraitsExpanded]"
+			# layoutpolicy_vertical = expanding
+			# layoutpolicy_horizontal = expanding
+
+			# using = Animation_Tab_Switch
+
+			# blockoverride "scrollbox_content"
+			# {
+				# spacing = 10
+
+				# vbox = {
+					# spacing = 10
+
+					# text_label_center = {
+						# text = "MODIFIERS"
+					# }
+
+					# text_single = {
+						# visible = "[IsDataModelEmpty(CharacterWindow.GetTimedModifiers)]"
+						# text = "CV_NO_MODIFIERS"
+						# default_format = "#low;italic"
+					# }
+
+					# dynamicgridbox = {
+						# name = "modifiers_grid"
+						# datamodel = "[CharacterWindow.GetTimedModifiers]"
+						# datamodel_wrap = 8
+						# flipdirection = yes
+
+						# item = {
+							# modifier_item_icon = {
+								# size = { 22 22 }
+
+								# blockoverride "input_info_text" {
+									# text = "CHARACTER_WINDOW_MODIFIERS"
+								# }
+							# }
+						# }
+					# }
+				# }
+
+				# divider_light = {
+					# layoutpolicy_horizontal = expanding
+				# }
+
+				# vbox = {
+					# spacing = 10
+					# datacontext = "[CharacterWindow.GetTraitArrays]"
+
+					# text_label_center = {
+						# text = "TRAITS"
+					# }
+
+					# fixedgridbox = {
+						# name = "personality_traits_grid"
+						# datamodel = "[TraitArrays.GetPersonalityTraits]"
+						# addcolumn = 85
+						# addrow = 105
+						# flipdirection = yes
+						# datamodel_wrap = 6
+
+						# item = {
+							# icon_trait = {
+								# text_multi = {
+									# parentanchor = bottom|hcenter
+									# widgetanchor = top|hcenter
+									# position = { 0 -5 }
+									# autoresize = yes
+									# max_width = 80
+									# text = "[Trait.GetNameNoTooltip(Character.Self)]"
+									# default_format = "#high"
+									# align = hcenter
+								# }
+							# }
+						# }
+					# }
+
+					# fixedgridbox = {
+						# name = "traits_grid"
+						# datamodel = "[TraitArrays.GetTraits]"
+						# addcolumn = 85
+						# addrow = 105
+						# flipdirection = yes
+						# datamodel_wrap = 6
+
+						# item = {
+							# icon_trait = {
+								# text_multi = {
+									# parentanchor = bottom|hcenter
+									# widgetanchor = top|hcenter
+									# position = { 0 -5 }
+									# autoresize = yes
+									# max_width = 80
+									# text = "[Trait.GetNameNoTooltip(Character.Self)]"
+									# default_format = "#high"
+									# align = hcenter
+								# }
+							# }
+						# }
+					# }
+				# }
+			# }
+		# }
+	}
+
+	type agot_dragon_alive_background = widget
+	{
+		visible = "[Character.IsAlive]"
+		size = { 100% 100% }
+		using = Animation_Character_Window_Refresh
+
+		background = {
+			texture = "[Illustration.GetTexture( Character.MakeScope )]"
+			fittype = centercrop
+
+			# Basically the expression below does the following:
+			# Check if dragon size is over 30.
+			# If it's over, the values are selected so that at size 300, the margin would equate to 0
+			# When dragon is at size 30, the margin equals to 250.
+			# If dragon is under size 30
+			# At size 0 the margin equates to 500
+			# At size 30 the margin equates to 250.
+
+			# This just scales the background at a different rate based on the size of the dragon since baby dragons scale up a lot faster than mature dragons.
+			margin_top = "[Select_CFixedPoint(GreaterThanOrEqualTo_CFixedPoint(Character.MakeScope.ScriptValue('dragon_size'),'(CFixedPoint)30'),Subtract_CFixedPoint('(CFixedPoint)166.667', Min_CFixedPoint('(CFixedPoint)166.667', Multiply_CFixedPoint(Character.MakeScope.ScriptValue('dragon_size'),'(CFixedPoint)0.55556'))),Subtract_CFixedPoint('(CFixedPoint)500', Multiply_CFixedPoint(Character.MakeScope.ScriptValue('dragon_size'),'(CFixedPoint)8.33333')))]"
+
+
+			modify_texture = {
+				texture = "gfx/interface/component_masks/mask_rough_edges_down_right.dds"
+				spriteType = Corneredtiled
+				spriteborder = { 20 20 }
+				blend_mode = alphamultiply
+				texture_density = 2
+			}
+		}
+	}
+
+	type agot_dragon_dead_background = widget
+	{
+		visible = "[Not(Character.IsAlive)]"
+		size = { 100% 100% }
+		using = Animation_Character_Window_Refresh
+
+		background = {
+			texture = "[Illustration.GetTexture( Character.MakeScope )]"
+			fittype = centercrop
+
+			margin_top = 0
+
+			modify_texture = {
+				texture = "gfx/interface/component_masks/mask_rough_edges_down_right.dds"
+				spriteType = Corneredtiled
+				spriteborder = { 20 20 }
+				blend_mode = alphamultiply
+				texture_density = 2
+			}
+		}
+	}
+
+	type agot_dragon_army_composition = vbox {
+		visible = "[And(Character.HasLandedTitles,GetScriptedGui('agot_can_see_dragon_military_view').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End ))]"
+		tooltipwidget = {
+			using = agot_dragon_army_comp
+		}
+		spacing = -2
+		min_width = 40
+
+		background = {
+			using = Background_Frame
+			margin = { 10 5 }
+			margin_bottom = 7
+			alpha = 0.7
+		}
+
+		icon = {
+			name = "icon_combat_strength"
+			glow = {
+				color = { 1 0.5 0.1 0.8 }
+				glow_radius = 6
+				using = AGOT_Glow_Standard
+			}
+			size = { 30 30 }
+			texture = "gfx/interface/icons/icon_soldier.dds"
+		}
+
+		text_single = {
+			name = "military_total_strength"
+			text = "[CharacterWindow.GetCachedMilitaryStrengthText]"
+			default_format = "#high"
+			align = center|nobaseline
+			fontsize_min = 12
+			max_width = 80
+
+			progressbar_standard = {
+				name = "soldiers_max"
+				parentanchor = bottom|hcenter
+				position = { 0 5 }
+				size = { 33 8 }
+				min = 0
+				max = "[IntToFloat(CharacterWindow.GetMaxSoldiers)]"
+				value = "[IntToFloat(CharacterWindow.GetCurrentSoldiers)]"
+			}
+		}
+	}
+
+	type agot_dragons_relationship_row = vbox_character_row_relationship_item
+	{
+		name = "dragons"
+		visible = "[GetScriptedGui('agot_can_have_dragon').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+		layoutpolicy_vertical = expanding
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) )]"
+		}
+		blockoverride "portrait_texture" {
+			#I'm scaling the portrait texture by the same amount here as in the below "portrait_transformation" to zoom in on the head. This couldn't be done with regular camera as the baby dragon would go off-frame
+			portrait_texture = "[Character.GetPortrait('environment_body', 'camera_dragon_small', 'dragon_head', Multiply_CVector2f( PdxGetWidgetScreenSize(PdxGuiWidget.Self) , '(CVector2f)9,9'))]"
+		}
+
+		blockoverride "header_text"
+		{
+			text = "DRAGON_LABEL"
+		}
+		blockoverride "remaining_items"
+		{
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) ) ), '(int32)3' )]"
+			margin = { 120 }
+			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) ) ), '(int32)3' )|=]"
+		}
+		blockoverride "expand_button_inside" {
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) ) ), '(int32)3' )]"
+			onclick = "[CharacterWindow.ToggleExpandedRelation( 'agot_dragons' )]"
+		}
+	}
+
+	type agot_friends_with_dragons = vbox_character_row_relationship_item
+	{
+		name = "friends_with_dragons"
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		visible = "[GreaterThanOrEqualTo_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) ) ), '(int32)1' )]"
+
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
+			maxhorizontalslots = 6
+		}
+
+		blockoverride "header_text"
+		{
+			text = "FRIENDS_LABEL"
+		}
+
+		blockoverride "remaining_items"
+		{
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )]"
+			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )|=]"
+		}
+
+		blockoverride "expand_button_inside" {
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )]"
+			onclick = "[CharacterWindow.ToggleExpandedRelation( 'friends' )]"
+		}
+	}
+
+	type hbox_dragon_character_relation_and_ai = hbox
+	{
+		layoutpolicy_horizontal = expanding
+		spacing = 2
+
+		hbox = {
+			maximumsize = { 620 -1 }
+
+			text_single = {
+				maximumsize = { 500 -1 }
+				name = "dragon_relation_to_rider"
+				visible = "[GetScriptedGui('agot_relation_check_rider').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+				text = "DRAGON_RELATION_HAS_RIDER"
+				tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+				using = tooltip_se
+
+				fontsize_min = 13
+				align = nobaseline
+			}
+
+			text_single = {
+				maximumsize = { 500 -1 }
+				name = "dragon_relation_to_bonded"
+				visible = "[GetScriptedGui('agot_relation_check_bonded_human').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+				text = "DRAGON_RELATION_HAS_BONDED"
+				tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+				using = tooltip_se
+
+				fontsize_min = 13
+				align = nobaseline
+			}
+
+			text_single = {
+				maximumsize = { 500 -1 }
+				name = "dragon_relation_to_host"
+				visible = "[GetScriptedGui('agot_relation_check_host').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+				text = "DRAGON_RELATION_IS_PITTED"
+				tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+				using = tooltip_se
+
+				fontsize_min = 13
+				align = nobaseline
+			}
+
+			text_single = {
+				maximumsize = { 500 -1 }
+				name = "dragon_relation_free"
+				visible = "[GetScriptedGui('agot_relation_check_free').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+				text = "DRAGON_RELATION_IS_WANDERING"
+				tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+				using = tooltip_se
+
+				fontsize_min = 13
+				align = nobaseline
+			}
+
+			text_single = {
+				maximumsize = { 500 -1 }
+				name = "dragon_relation_wild"
+				visible = "[GetScriptedGui('agot_relation_check_wild').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+				text = "DRAGON_RELATION_IS_WANDERING"
+				tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+				using = tooltip_se
+
+				fontsize_min = 13
+				align = nobaseline
+			}
+
+			text_single = {
+				maximumsize = { 149 -1 }
+				name = "other_player_name"
+				visible = "[And( Character.IsPlayer, Not( Character.IsLocalPlayer ) )]"
+
+				raw_text = " • #L [Character.GetHumanName]#!"
+				tooltip = "AI_PERSONALITY_IS_PLAYER_TOOLTIP"
+				using = tooltip_se
+
+				fontsize_min = 13
+				align = nobaseline
+			}
+
+			text_single = {
+				maximumsize = { 149 -1 }
+				name = "ai_personality"
+				visible = "[And( Not( Character.IsPlayer ), Not( Character.HasTrait( GetTrait('dragon') )))]"
+
+				raw_text = " • #L [Character.GetAIPersonalityNoTooltip]#!"
+				tooltip = "AI_PERSONALITY_TT"
+				using = tooltip_se
+
+				fontsize_min = 13
+				align = nobaseline
+			}
+
+			agot_dragon_relation_and_ai = {}
+			agot_dragon_dead_relation_and_ai = {}
+		}
+
+		icon = {
+			visible = "[GetScriptedGui('agot_male_gender_shown').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]"
+			size = { 20 20 }
+			framesize = { 40 40 }
+			frame = "[Character.GetSexualityFrame]"
+			texture = "gfx/interface/icons/character_status/sexuality_icons_male.dds"
+			tooltip = "SEXUALITY_TT"
+		}
+
+		icon = {
+			visible = "[GetScriptedGui('agot_female_gender_shown').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]" 
+			size = { 20 20 }
+			framesize = { 40 40 }
+			frame = "[Character.GetSexualityFrame]"
+			texture = "gfx/interface/icons/character_status/sexuality_icons_female.dds"
+			tooltip = "SEXUALITY_TT"
+		}
+
+		agot_dragon_unknown_gender_icon = {}
+		agot_dragon_male_gender_icon = {}
+		agot_dragon_female_gender_icon = {}
+
+		expand = {}
+	}
+
+	type hbox_dragon_traits_list = hbox
+	{
+		layoutpolicy_horizontal = expanding
+
+		widget = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 55 }
+
+			hbox = {
+				name = "3_personality_traits"
+				visible = "[LessThanOrEqualTo_int32(GetDataModelSize(TraitArrays.GetPersonalityTraits), '(int32)3')]"
+
+				fixedgridbox = {
+					name = "personality_traits"
+					datamodel = "[TraitArrays.GetPersonalityTraits]"
+					flipdirection = yes
+					addcolumn = 54
+					addrow = 55
+					maxhorizontalslots = 3
+
+					item = {
+						icon_trait = {
+							blockoverride "icon_size"
+							{
+								size = { 55 55 }
+							}
+						}
+					}
+				}
+
+				hbox = {
+					visible = "[Not(IsDataModelEmpty( TraitArrays.GetTraits ))]"
+					layoutpolicy_vertical = expanding
+					margin = { 5 10 }
+					margin_right = 3
+
+					divider_light = {
+						layoutpolicy_vertical = expanding
+					}
+				}
+
+				fixedgridbox = {
+					name = "traits_big"
+					datamodel = "[TraitArrays.GetTraits]"
+					visible = "[LessThanOrEqualTo_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)4')]"
+					flipdirection = yes
+					addcolumn = 54
+					addrow = 55
+					maxhorizontalslots = 4
+					maxverticalslots = 1
+
+					item = {
+						icon_trait = {
+							blockoverride "icon_size"
+							{
+								size = { 55 55 }
+							}
+						}
+					}
+				}
+
+				fixedgridbox = {
+					name = "traits_medium"
+					datamodel = "[TraitArrays.GetTraits]"
+					visible = "[And(GreaterThan_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)4'), LessThanOrEqualTo_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)5'))]"
+					flipdirection = yes
+					addcolumn = 45
+					addrow = 46
+					maxhorizontalslots = 5
+					maxverticalslots = 1
+
+					item = {
+						icon_trait = {
+							blockoverride "icon_size"
+							{
+								size = { 46 46 }
+							}
+
+							blockoverride "glow_radius"
+							{
+								glow_radius = 3
+							}
+						}
+					}
+				}
+
+				fixedgridbox = {
+					name = "traits_small"
+					datamodel = "[TraitArrays.GetTraits]"
+					visible = "[And(GreaterThan_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)5'), LessThanOrEqualTo_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)6'))]"
+					flipdirection = yes
+					addcolumn = 37
+					addrow = 38
+					maxhorizontalslots = 6
+					maxverticalslots = 1
+
+					item = {
+						icon_trait = {
+							blockoverride "icon_size"
+							{
+								size = { 38 38 }
+							}
+
+							blockoverride "glow_radius"
+							{
+								glow_radius = 3
+							}
+						}
+					}
+				}
+
+				fixedgridbox = {
+					name = "traits_tiny"
+					datamodel = "[TraitArrays.GetTraits]"
+					visible = "[And(GreaterThan_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)6'), LessThanOrEqualTo_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)7'))]"
+					flipdirection = yes
+					addcolumn = 32
+					addrow = 33
+					maxhorizontalslots = 7
+
+					item = {
+						icon_trait = {
+							blockoverride "icon_size"
+							{
+								size = { 33 33 }
+							}
+
+							blockoverride "glow_radius"
+							{
+								glow_radius = 3
+							}
+						}
+					}
+				}
+
+				fixedgridbox = {
+					name = "traits_more_tiny"
+					datamodel = "[TraitArrays.GetTraits]"
+					visible = "[And(GreaterThan_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)7'), LessThanOrEqualTo_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)8'))]"
+					flipdirection = yes
+					addcolumn = 28
+					addrow = 29
+					maxhorizontalslots = 8
+
+					item = {
+						icon_trait = {
+							blockoverride "icon_size"
+							{
+								size = { 29 29 }
+							}
+
+							blockoverride "glow_radius"
+							{
+								glow_radius = 3
+							}
+						}
+					}
+				}
+
+				fixedgridbox = {
+					name = "traits_overflow"
+					datamodel = "[TraitArrays.GetTraits]"
+					visible = "[GreaterThan_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)8')]"
+					flipdirection = yes
+					addcolumn = 28
+					addrow = 28
+					maxhorizontalslots = 8
+					datamodel_wrap = 8
+					maxverticalslots = 2
+
+					item = {
+						icon_trait = {
+							blockoverride "icon_size"
+							{
+								size = { 28 28 }
+							}
+
+							blockoverride "glow_radius"
+							{
+								glow_radius = 3
+							}
+						}
+					}
+				}
+
+				expand = {}
+			}
+
+			hbox = {
+				name = "4_personality_traits"
+				visible = "[GreaterThan_int32(GetDataModelSize(TraitArrays.GetPersonalityTraits), '(int32)3')]"
+
+				fixedgridbox = {
+					name = "personality_traits"
+					datamodel = "[TraitArrays.GetPersonalityTraits]"
+					flipdirection = yes
+					addcolumn = 54
+					addrow = 55
+					maxhorizontalslots = 4
+
+					item = {
+						icon_trait = {
+							blockoverride "icon_size"
+							{
+								size = { 55 55 }
+							}
+						}
+					}
+				}
+
+				hbox = {
+					visible = "[Not(IsDataModelEmpty( TraitArrays.GetTraits ))]"
+					layoutpolicy_vertical = expanding
+					margin = { 5 10 }
+					margin_right = 3
+
+					divider_light = {
+						layoutpolicy_vertical = expanding
+					}
+				}
+
+				fixedgridbox = {
+					name = "traits_big"
+					datamodel = "[TraitArrays.GetTraits]"
+					visible = "[LessThanOrEqualTo_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)3')]"
+					flipdirection = yes
+					addcolumn = 54
+					addrow = 55
+					maxhorizontalslots = 3
+					maxverticalslots = 1
+
+					item = {
+						icon_trait = {
+							blockoverride "icon_size"
+							{
+								size = { 55 55 }
+							}
+						}
+					}
+				}
+
+				fixedgridbox = {
+					name = "traits_medium"
+					datamodel = "[TraitArrays.GetTraits]"
+					visible = "[And(GreaterThan_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)3'), LessThanOrEqualTo_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)4'))]"
+					flipdirection = yes
+					addcolumn = 43
+					addrow = 44
+					maxhorizontalslots = 4
+					maxverticalslots = 1
+
+					item = {
+						icon_trait = {
+							blockoverride "icon_size"
+							{
+								size = { 44 44 }
+							}
+
+							blockoverride "glow_radius"
+							{
+								glow_radius = 4
+							}
+						}
+					}
+				}
+
+				fixedgridbox = {
+					name = "traits_small"
+					datamodel = "[TraitArrays.GetTraits]"
+					visible = "[And(GreaterThan_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)4'), LessThanOrEqualTo_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)5'))]"
+					flipdirection = yes
+					addcolumn = 34
+					addrow = 35
+					maxhorizontalslots = 5
+					maxverticalslots = 1
+
+					item = {
+						icon_trait = {
+							blockoverride "icon_size"
+							{
+								size = { 35 35 }
+							}
+
+							blockoverride "glow_radius"
+							{
+								glow_radius = 3
+							}
+						}
+					}
+				}
+
+				fixedgridbox = {
+					name = "traits_tiny"
+					datamodel = "[TraitArrays.GetTraits]"
+					visible = "[And(GreaterThan_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)5'), LessThanOrEqualTo_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)6'))]"
+					flipdirection = yes
+					addcolumn = 28
+					addrow = 29
+					maxhorizontalslots = 6
+					maxverticalslots = 1
+
+					item = {
+						icon_trait = {
+							blockoverride "icon_size"
+							{
+								size = { 29 29 }
+							}
+
+							blockoverride "glow_radius"
+							{
+								glow_radius = 3
+							}
+						}
+					}
+				}
+
+				fixedgridbox = {
+					name = "traits_overflow"
+					datamodel = "[TraitArrays.GetTraits]"
+					visible = "[GreaterThan_int32(GetDataModelSize(TraitArrays.GetTraits), '(int32)6')]"
+					flipdirection = yes
+					addcolumn = 28
+					addrow = 28
+					maxhorizontalslots = 6
+					datamodel_wrap = 6
+					maxverticalslots = 2
+
+					item = {
+						icon_trait = {
+							blockoverride "icon_size"
+							{
+								size = { 28 28 }
+							}
+
+							blockoverride "glow_radius"
+							{
+								glow_radius = 2
+							}
+						}
+					}
+				}
+
+				expand = {}
+			}
+		}
+		expand = {}
+	}
+
+	# Dragon Relations
+	type agot_dragon_relation_and_ai = text_single
+	{
+		maximumsize = { 149 -1 }
+		visible = "[And( Character.HasTrait( GetTrait('dragon') ), Character.IsAlive )]"
+		raw_text = " • [Character.Custom('GetDragonTypeGuiTooltip')]"
+		using = tooltip_se
+		fontsize_min = 13
+		align = nobaseline
+	}
+
+	type agot_dragon_dead_relation_and_ai = text_single
+	{
+		maximumsize = { 149 -1 }
+		visible = "[And( Character.HasTrait( GetTrait('dragon') ), Character.IsDeadAndValid )]"
+		raw_text = "[dragon|E;L]"
+		using = tooltip_se
+		fontsize_min = 13
+		align = nobaseline
+	}
+
+	# Dragon Gender Icons
+	type agot_dragon_unknown_gender_icon = icon
+	{
+		visible = "[GetScriptedGui('agot_unknown_gender_dragon_shown').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]" 
+		size = { 20 20 }
+		texture = "gfx/interface/icons/character_status/unknown_dragon.dds"
+		tooltip = "UNKNOWN_DRAGON_TOOLTIP"
+	}
+
+	type agot_dragon_male_gender_icon = icon
+	{
+		visible = "[GetScriptedGui('agot_male_gender_dragon_shown').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]" 
+		size = { 20 20 }
+		texture = "gfx/interface/icons/character_status/male_dragon.dds"
+		tooltip = "MALE_DRAGON_TOOLTIP"
+	}
+
+	type agot_dragon_female_gender_icon = icon
+	{
+		visible = "[GetScriptedGui('agot_female_gender_dragon_shown').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]" 
+		size = { 20 20 }
+		texture = "gfx/interface/icons/character_status/female_dragon.dds"
+		tooltip = "FEMALE_DRAGON_TOOLTIP"
+	}
+}
+
+template visible_if_dragon {
+    visible = "[Character.HasTrait(GetTrait('dragon').Self)]"
+}
+
+template visible_if_dragon_normal {
+	visible = "[GetScriptedGui('normal_size_dragon').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+}
+
+template visible_if_dragon_small {
+	visible = "[GetScriptedGui('small_size_dragon').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+}
+
+template visible_if_not_dragon {
+    visible = "[Not(Character.HasTrait(GetTrait('dragon').Self))]"
+}
+
+template visible_if_dragonrider_flight {
+	visible = "[GetScriptedGui('dragonrider_flight').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+}
+
+template visible_if_dragon_land {
+	visible = "[GetScriptedGui('dragon_land').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+}
+
+template visible_if_not_dragon_or_riding_dragon {
+	visible = "[GetScriptedGui('not_dragon_or_dragonrider').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+}
+
+template agot_character_standard {
+    visible = "[And(Not(Or( Character.HasTrait(GetTrait('dragon').Self), Character.HasTrait(GetTrait('ruin').Self) )), Not(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End )))]"
+}

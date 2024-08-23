@@ -1,0 +1,122 @@
+#############################################################
+################# AGOT COUNTY VIEW WINDOW ###################
+#############################################################
+
+types CountyViewTypes
+{
+	type agot_county_view_restore_ruins_button = button_standard_big
+	{
+		name = "restore_ruins"
+		datacontext = "[HoldingView.GetTitle]"
+		visible = "[GetScriptedGui('agot_is_ruin').IsShown( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).End)]"
+
+		parentanchor = bottom|left
+		position = { 5 -5 }
+		size = { 200 50 }
+		text = "agot_ruin_begin_reconstruction"
+		tooltip = "[HoldingView.GetProvince.Custom('RuinsReconstructTooltip')]"
+		enabled = "[GetScriptedGui('can_reconstruct_ruin').IsValid(GuiScope.SetRoot(HoldingView.GetProvince.MakeScope).AddScope('actor', GetPlayer.MakeScope ).End)]"
+		onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
+	}
+
+	type agot_county_view_dragonpit_button = widget
+	{
+		size = { 32 32 }
+		button_round = {
+			name = "VIEW_DRAGONPIT_DRAGONS"
+			datacontext = "[GetScriptedGui( 'agot_view_dragons_in_dragonpit' )]"
+			visible = "[GetScriptedGui('agot_view_dragons_in_dragonpit').IsShown( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).End)]"
+			tooltip = "VIEW_DRAGONPIT_DRAGONS_TT"
+			onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'dp_county', Province.MakeScope ).End)]"
+			position = { 0 0 }
+			parentanchor = center
+			size = { 35 35 }
+			button_icon_highlight = {
+				texture = "gfx/interface/icons/flat_icons/feudalize_tribe.dds"
+				parentanchor = center
+				alwaystransparent = yes
+				size = { 25 25 }
+			}
+		}
+	}
+
+	type agot_county_view_ruins_blocker = window
+	{
+		parentanchor = center
+		size = { 4000 4000 }
+		layer = confirmation
+		filter_mouse = all
+		movable = no
+		alwaystransparent = no
+		alpha = 0
+		using = Window_Background
+		visible = "[GetVariableSystem.Exists('window_ruins_confirm')]"
+		button_primary_big = {
+			size = { 100% 100% }
+			onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
+		}
+	}
+
+	type agot_county_view_ruins_reconstruct_confirm = window
+	{
+		allow_outside = yes
+		movable = no
+		parentanchor = center
+		position = { 640 -300 }
+		visible = "[GetVariableSystem.Exists('window_ruins_confirm')]"
+		alwaystransparent = no
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		using = Window_Background
+		using = Window_Decoration
+
+		vbox = {
+			set_parent_size_to_minimum = yes
+			margin = { 20 20 }
+
+			hbox = {
+				margin_bottom = -10
+				margin = { 20 0 }
+				layoutpolicy_horizontal = expanding
+				parentanchor = top
+
+				header_pattern = {
+					layoutpolicy_horizontal = expanding
+
+					blockoverride "header_text" {
+						text = "reconstruct_ruin_confirm_title"
+					}
+
+					blockoverride "button_close" {
+						visible = no
+					}
+				}
+			}
+
+			hbox = {
+				margin = { 40 20 }
+				text_single = {
+					multiline = yes
+					max_width = 500
+					align = center
+					text = "[HoldingView.GetProvince.Custom('RuinsReconstructDesc')]"
+				}
+			}
+
+			## Send Button
+			hbox = {
+				name = "confirm_button"
+				margin = { 20 10 }
+				margin_bottom = 15
+				spacing = 3
+
+				button_primary_big = {
+					text = "reconstruct_ruin_confirm_button"
+
+					onclick = "[GetScriptedGui('reconstruct_ruin').Execute( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).AddScope('actor', GetPlayer.MakeScope ).End)]"
+					onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
+				}
+			}
+		}
+	}
+}

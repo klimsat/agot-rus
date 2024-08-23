@@ -1521,7 +1521,9 @@ window = {
 
 						item = {
 							button_standard_hover = {
-								visible = "[DynastyHouse.HasBeenFounded]"
+								# AGOT Modified
+								#visible = "[DynastyHouse.HasBeenFounded]"
+								visible = "[And(DynastyHouse.HasBeenFounded,Not(GetScriptedGui('agot_hide_house').IsShown(GuiScope.SetRoot(DynastyHouse.MakeScope).End)))]"
 								layoutpolicy_horizontal = expanding
 								size = { 0 120 }
 
@@ -2245,7 +2247,7 @@ types DynastyView
 						}
 
 						spacer = {
-							#AGOT MODIFIED
+							#AGOT Modified
 							#size { 5 0 }
 							size = { 5 0 }
 						}

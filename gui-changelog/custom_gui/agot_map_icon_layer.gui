@@ -1,0 +1,41 @@
+#########################################################
+################# AGOT MAP ICON LAYER ###################
+#########################################################
+
+types MapIcons
+{
+	type agot_dragons_portrait_map_icon = portrait_button
+	{
+		using = visible_if_dragon
+		parentanchor = bottom|hcenter
+		# Using percentages so it's relative to the size of the top widget
+		size = { 95% 105% }
+		using = portrait_base
+		block "portrait_texture_dragon"
+		{
+			portrait_texture = "[Character.GetPortrait('environment_body', 'camera_dragon_head', 'dragon_head', Multiply_CVector2f( PdxGetWidgetScreenSize(PdxGuiWidget.Self) , '(CVector2f)6,6'))]"
+		}
+
+		mask = "gfx/portraits/portrait_mask_map.dds"
+		effectname = "NoHighlight"
+
+		using = Portrait_Background_Glows
+
+		highlight_icon = {
+			name = "prison_bars"
+			visible = "[Character.IsImprisoned]"
+			visible_at_creation = no
+			size = { 100% 100% }
+			parentanchor = center
+			effectname = "NoHighlight"
+			texture = "gfx/portraits/portrait_prison_shoulders.dds"
+
+			modify_texture = {
+				name = "mask"
+				texture =  "gfx/portraits/portrait_mask_map.dds"
+				spriteType = Corneredstretched
+				blend_mode = alphamultiply
+			}
+		}
+	}
+}

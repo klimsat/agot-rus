@@ -168,7 +168,7 @@ types CharacterWindow
 		text_single = {
 			name = "character_name_knight"
 			visible = "[GetScriptedGui('agot_ser_knight').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			raw_text = "Ser [Character.GetTitledFirstNameNicknamedNoTooltip] [Character.GetHouse.GetNameNoTooltip]"
+			text = "AGOT_NAME_SER"
 			margin_left = 2
 			max_width = 398
 			fontsize = 20
@@ -194,7 +194,7 @@ types CharacterWindow
 		text_single = {
 			name = "character_name_silent_sister"
 			visible = "[GetScriptedGui('agot_silent_sister').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			raw_text = "Silent Sister [Character.GetTitledFirstNameNicknamedNoTooltip]"
+			text = "AGOT_NAME_SILENT_SISTER"
 			margin_left = 2
 			max_width = 398
 			fontsize = 20
@@ -220,7 +220,7 @@ types CharacterWindow
 		text_single = {
 			name = "character_name_knight_bastard"
 			visible = "[GetScriptedGui('agot_ser_knight_bastard').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			raw_text = "Ser [Character.GetTitledFirstNameNicknamedNoTooltip]"
+			text = AGOT_NAME_SER_BASTARD
 			margin_left = 2
 			max_width = 398
 			fontsize = 20
@@ -277,7 +277,6 @@ types CharacterWindow
 		name = "squires"
 		visible = "[GetScriptedGui('agot_can_have_squire').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
 		layoutpolicy_vertical = expanding
-		layoutpolicy_horizontal = expanding
 		blockoverride "portrait_datamodel" {
 			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'agot_squire' ) )]"
 		}
@@ -362,7 +361,6 @@ types CharacterWindow
 		name = "knights"
 		visible = "[GetScriptedGui('agot_can_have_knight').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
 		layoutpolicy_vertical = expanding
-		# layoutpolicy_horizontal = expanding
 		blockoverride "portrait_datamodel" {
 			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'agot_knight' ) )]"
 		}
@@ -378,6 +376,8 @@ types CharacterWindow
 		name = "bodyguard"
 		visible = "[GetScriptedGui('agot_can_have_bodyguard').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
 		layoutpolicy_vertical = expanding
+		margin_right = -6
+		margin_left = -6
 		blockoverride "portrait_datamodel" {
 			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'bodyguard' ) )]"
 		}
@@ -393,6 +393,8 @@ types CharacterWindow
 		name = "bodyguard_target"
 		visible = "[GetScriptedGui('agot_can_have_bodyguard_target').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
 		layoutpolicy_vertical = expanding
+		margin_right = -6
+		margin_left = -6
 		blockoverride "portrait_datamodel" {
 			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'bodyguard_target' ) )]"
 		}

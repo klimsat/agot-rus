@@ -1,0 +1,174 @@
+#################################################################
+############### AGOT FAKE DEATH PORTRAIT TYPES #################
+#################################################################
+
+types PortraitTypes
+{
+	type agot_fake_death_portrait_character_view_main = portrait_button
+	{
+		size = { 300 421 }
+		position = { -30 10 }
+		parentanchor = bottom|hcenter
+		using = portrait_base
+
+		using = visible_if_not_dragon 
+		using = shown_if_fake_death
+
+		portrait_texture = "[Character.GetAnimatedPortrait(Illustration.GetEnvironment(Character.Self), 'camera_character_view_main', 'dead', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+		mask = "gfx/portraits/portrait_mask_character_view.dds"
+		effectname = "NoHighlight"
+
+		highlight_icon = {
+			name = "prison_bars"
+			visible = "[Character.IsImprisoned]"
+			visible_at_creation = no
+			size = { 100% 100% }
+			position = { 0 20 }
+
+			effectname = "NoHighlight"
+			texture = "gfx/portraits/portrait_prison_character_view.dds"
+
+			modify_texture = {
+				name = "mask"
+				texture = "gfx/portraits/portrait_mask_character_view.dds"
+				spriteType = Corneredstretched
+				blend_mode = alphamultiply
+			}
+		}
+
+		block "portrait_button" {}
+	}
+
+	type agot_fake_death_portrait_status_icons_small = flowcontainer
+	{
+		visible = "[Character.IsValid]"
+		ignoreinvisible = yes
+		direction = vertical
+		parentanchor = bottom
+		spacing = 1
+
+		background = {
+			using = Background_Area_Dark
+			margin = { 2 2 }
+		}
+
+		# sorted by priority, highest prio at the bottom
+		block "status_icons" {
+			icon = {
+				name = "is_dead_agot_tbc"
+				#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_tbc'))]"
+				visible = "[GetScriptedGui('fake_death_char_tbc').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				size = { 14 14 }
+				texture = "gfx/interface/icons/death_reason/death_murder.dds"
+				tooltip = "CHARACTER_DEAD_AGOT_RES_TBC_TOOLTIP"
+			}
+
+			icon = {
+				name = "is_dead_agot_battle"
+				#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_battle'))]"
+				visible = "[GetScriptedGui('fake_death_char_battle').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				size = { 14 14 }
+				texture = "gfx/interface/icons/death_reason/death_murder.dds"
+				tooltip = "CHARACTER_DEAD_AGOT_RES_BATTLE_TOOLTIP"
+			}
+
+			icon = {
+				name = "is_dead_agot_illness"
+				#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_illness'))]"
+				visible = "[GetScriptedGui('fake_death_char_illness').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				size = { 14 14 }
+				texture = "gfx/interface/icons/death_reason/death_disease.dds"
+				tooltip = "CHARACTER_DEAD_AGOT_RES_ILLNESS_TOOLTIP"
+			}
+
+			icon = {
+				name = "is_dead_agot_siege"
+				#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_siege'))]"
+				visible = "[GetScriptedGui('fake_death_char_siege').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				size = { 14 14 }
+				texture = "gfx/interface/icons/death_reason/death_murder.dds"
+				tooltip = "CHARACTER_DEAD_AGOT_RES_SIEGE_TOOLTIP"
+			}
+
+			icon = {
+				name = "is_dead_agot_accident"
+				#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_accident'))]"
+				visible = "[GetScriptedGui('fake_death_char_accident').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				size = { 14 14 }
+				texture = "gfx/interface/icons/death_reason/death_natural.dds"
+				tooltip = "CHARACTER_DEAD_AGOT_RES_ACCIDENT_TOOLTIP"
+			}
+		}
+	}
+
+	type agot_fake_death_portrait_status_icons = flowcontainer
+	{
+		ignoreinvisible = yes
+		visible = "[Character.IsValid]"
+
+		block "direction"
+		{
+			direction = vertical
+		}
+
+		# sorted by priority, highest prio at the bottom
+		block "status_icons" {
+			icon = {
+				name = "is_dead_agot_tbc"
+				#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_tbc'))]"
+				visible = "[GetScriptedGui('fake_death_char_tbc').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				size = { 20 20 }
+				texture = "gfx/interface/icons/death_reason/death_murder.dds"
+				tooltip = "CHARACTER_DEAD_AGOT_RES_TBC_TOOLTIP"
+			}
+
+			icon = {
+				name = "is_dead_agot_battle"
+				#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_battle'))]"
+				visible = "[GetScriptedGui('fake_death_char_battle').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				size = { 20 20 }
+				texture = "gfx/interface/icons/death_reason/death_murder.dds"
+				tooltip = "CHARACTER_DEAD_AGOT_RES_BATTLE_TOOLTIP"
+			}
+
+			icon = {
+				name = "is_dead_agot_illness"
+				#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_illness'))]"
+				visible = "[GetScriptedGui('fake_death_char_illness').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				size = { 20 20 }
+				texture = "gfx/interface/icons/death_reason/death_disease.dds"
+				tooltip = "CHARACTER_DEAD_AGOT_RES_ILLNESS_TOOLTIP"
+			}
+
+			icon = {
+				name = "is_dead_agot_siege"
+				#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_siege'))]"
+				visible = "[GetScriptedGui('fake_death_char_siege').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				size = { 20 20 }
+				texture = "gfx/interface/icons/death_reason/death_murder.dds"
+				tooltip = "CHARACTER_DEAD_AGOT_RES_SIEGE_TOOLTIP"
+			}
+
+			icon = {
+				name = "is_dead_agot_accident"
+				#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_accident'))]"
+				visible = "[GetScriptedGui('fake_death_char_accident').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+				size = { 20 20 }
+				texture = "gfx/interface/icons/death_reason/death_natural.dds"
+				tooltip = "CHARACTER_DEAD_AGOT_RES_ACCIDENT_TOOLTIP"
+			}
+		}
+	}
+}
+
+template shown_if_not_fake_death {
+	visible = "[Not(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End ))]"
+}
+
+template shown_if_fake_death {
+	visible = "[GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End )]"
+}
+
+template shown_if_not_fake_death_and_not_dragon {
+	visible = "[And(Not(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End )), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
+}

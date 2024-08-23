@@ -1,0 +1,313 @@
+#######################################################
+################# AGOT LISTS WINDOW ###################
+#######################################################
+
+types Lists
+{
+	# Dragon List Appearance COA
+	type agot_lists_dragon_rider_coa = coa_title_small_crown
+	{
+		datacontext = "[CharacterListItem.GetCharacter.GetCurrentLocation.GetCoATitle]"
+		visible = "[GetScriptedGui('agot_list_check_rider').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+		parentanchor = center
+		scale = 0.7
+	}
+
+	type agot_lists_dragon_bonded_coa = coa_title_small_crown
+	{
+		datacontext = "[CharacterListItem.GetCharacter.GetCurrentLocation.GetCoATitle]"
+		visible = "[GetScriptedGui('agot_list_check_bonded_human').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+		parentanchor = center
+		scale = 0.7
+	}
+
+	type agot_lists_dragon_host_coa = coa_title_small_crown
+	{
+		datacontext = "[CharacterListItem.GetCharacter.GetCurrentLocation.GetCoATitle]"
+		visible = "[GetScriptedGui('agot_list_check_host').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+		parentanchor = center
+		scale = 0.7
+	}
+
+	type agot_lists_dragon_roaming_coa = coa_title_small_crown
+	{
+		datacontext = "[CharacterListItem.GetCharacter.GetCurrentLocation.GetCoATitle]"
+		visible = "[GetScriptedGui('agot_list_check_roaming').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+		parentanchor = center
+		tooltipwidget = {
+			using = dragon_title_location_tooltip
+		}
+		scale = 0.7
+	}
+
+	# Dragon stats
+	type agot_lists_dragon_size_icon = vbox
+	{
+		using = visible_if_dragon
+		tooltip = "[dragon_size|E]"
+		using = tooltip_ne
+		spacing = -3
+		margin_top = 2
+
+		using = Animation_Character_Window_Refresh
+
+		icon = {
+			name = "dragon_size_icon"
+			size = { 24 24 }
+			texture = "gfx/interface/icons/icon_dragon_size.dds"
+		}
+	}
+
+	type agot_lists_dragon_size_text = vbox
+	{
+		using = visible_if_dragon
+		tooltip = "[dragon_size|E]"
+		using = tooltip_ne
+		spacing = -3
+		margin_top = 5
+		margin_right = 2
+
+		using = Animation_Character_Window_Refresh
+
+		text_single = {
+			name = "dragon_size_value"
+			text = "[CharacterListItem.GetCharacter.MakeScope.ScriptValue('dragon_size')|0]"
+			align = nobaseline
+			fontsize = 13
+		}
+	}
+
+	type agot_lists_dragon_combat_icon = vbox
+	{
+		using = visible_if_dragon
+		tooltip = "[dragon_combat_effectiveness|E]"
+		using = tooltip_ne
+		spacing = -3
+		margin_top = 2
+
+		using = Animation_Character_Window_Refresh
+
+		icon = {
+			name = "dragon_combat_effectiveness_icon"
+			size = { 24 24 }
+			texture = "gfx/interface/icons/icon_dragon_combat_effectiveness.dds"
+		}
+	}
+
+	type agot_lists_dragon_combat_text = vbox
+	{
+		using = visible_if_dragon
+		tooltip = "[dragon_combat_effectiveness|E]"
+		using = tooltip_ne
+		spacing = -3
+		margin_top = 5
+		margin_right = 2
+
+		using = Animation_Character_Window_Refresh
+
+		text_single = {
+			name = "dragon_combat_effectiveness_value"
+			text = "[CharacterListItem.GetCharacter.MakeScope.ScriptValue('dragon_combat_effectiveness')|0]"
+			align = nobaseline
+			fontsize = 13
+		}
+	}
+
+	type agot_lists_dragon_dread_icon = vbox
+	{
+		using = visible_if_dragon
+		tooltip = "[draconic_dread|E]"
+		using = tooltip_ne
+		spacing = -3
+		margin_top = 2
+
+		using = Animation_Character_Window_Refresh
+
+		icon = {
+			name = "draconic_dread_icon"
+			size = { 24 24 }
+			texture = "gfx/interface/icons/icon_draconic_dread.dds"
+		}
+	}
+
+	type agot_lists_dragon_dread_text = vbox
+	{
+		using = visible_if_dragon
+		tooltip = "[draconic_dread|E]"
+		using = tooltip_ne
+		spacing = -3
+		margin_top = 5
+		margin_right = 2
+
+		using = Animation_Character_Window_Refresh
+
+		text_single = {
+			name = "draconic_dread_value"
+			text = "[CharacterListItem.GetCharacter.MakeScope.ScriptValue('draconic_dread')|0]"
+			align = nobaseline
+			fontsize = 13
+		}
+	}
+
+	type agot_lists_dragon_temper_icon = vbox
+	{
+		using = visible_if_dragon
+		tooltip = "[temperament|E]"
+		using = tooltip_ne
+		spacing = -3
+		margin_top = 2
+
+		using = Animation_Character_Window_Refresh
+
+		icon = {
+			name = "temperament_icon"
+			size = { 24 24 }
+			texture = "gfx/interface/icons/icon_draconic_temperament.dds"
+		}
+	}
+
+	type agot_lists_dragon_temper_text = vbox
+	{
+		using = visible_if_dragon
+		tooltip = "[temperament|E]"
+		using = tooltip_ne
+		spacing = -3
+		margin_top = 5
+		margin_right = 2
+
+		using = Animation_Character_Window_Refresh
+
+		text_single = {
+			name = "temperament_value"
+			text = "[CharacterListItem.GetCharacter.MakeScope.ScriptValue('temperament')|0]"
+			align = nobaseline
+			fontsize = 13
+		}
+	}
+
+	# Dragonrider Icon/Dragon Combat Stat for Commander List
+	type agot_dragonrider_list_icon = hbox
+	{
+		datacontext = "[Scope.GetCharacter]"
+		visible = "[GetScriptedGui('agot_commander_list_check_rider').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+
+		using = Animation_Character_Window_Refresh
+
+		icon = {
+			name = "dragonrider_combat_effectiveness_icon"
+			size = { 35 35 }
+			texture = "gfx/interface/icons/icon_dragon_combat_effectiveness.dds"
+
+			button_standard_hover = {
+				using = tooltip_ne
+				parentanchor = center
+				button_ignore = none
+				onclick = "[DefaultOnCharacterClick(CharacterListItem.GetCharacter.MakeScope.Var('current_dragon').Char.GetID)]"
+				onrightclick = "[DefaultOnCharacterRightClick(CharacterListItem.GetCharacter.MakeScope.Var('current_dragon').Char.GetID)]"
+
+				state = {
+					name = _mouse_enter
+					on_start = "[Character.OnMouseEnter]"
+				}
+
+				state = {
+					name = _mouse_leave
+					on_start = "[Character.OnMouseLeave]"
+				}
+
+				block "button_size" { size = { 35 35 } }
+
+				tooltipwidget = { container_tp_dragon_character_tooltip = {} }
+				tooltip_visible = "[Not(IsInteractionMenuOpenForCharacter(CharacterListItem.GetCharacter.MakeScope.Var('current_dragon').Char.GetID))]"
+			}
+		}
+	}
+
+	type agot_dragonrider_dragon_combat_stat = hbox
+	{
+		visible = "[GetScriptedGui('agot_commander_list_check_rider').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		margin_top = 5
+		margin_left = -4
+
+		using = Animation_Character_Window_Refresh
+
+		text_single = {
+			name = "dragon_combat_effectiveness_value"
+			text = "[Character.MakeScope.Var('current_dragon').Char.MakeScope.ScriptValue('dragon_combat_effectiveness')|0]"
+			align = nobaseline
+			tooltip = "[dragon_combat_effectiveness|E]"
+			fontsize = 16
+		}
+	}
+
+	# Dragon Relations
+	type agot_dragonrider_list_relation = text_single
+	{
+		name = "relation_to_dragon_rider"
+		default_format = "#low"
+		align = nobaseline
+		max_width = 370
+		visible = "[GetScriptedGui('agot_relation_check_rider').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+
+		block "description_relation_text" {
+			text = "DRAGON_RELATION_HAS_RIDER"
+			tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		}
+	}
+
+	type agot_bonded_list_relation = text_single
+	{
+		name = "relation_to_bonded_human"
+		default_format = "#low"
+		align = nobaseline
+		max_width = 370
+		visible = "[GetScriptedGui('agot_relation_check_bonded_human').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+
+		block "description_relation_text" {
+			text = "DRAGON_RELATION_HAS_BONDED"
+			tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		}
+	}
+
+	type agot_host_list_relation = text_single
+	{
+		name = "relation_to_host"
+		default_format = "#low"
+		align = nobaseline
+		max_width = 370
+		visible = "[GetScriptedGui('agot_relation_check_host').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+
+		block "description_relation_text" {
+			text = "DRAGON_RELATION_IS_PITTED"
+			tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		}
+	}
+
+	type agot_freedom_list_relation = text_single
+	{
+		name = "relation_to_freedom"
+		default_format = "#low"
+		align = nobaseline
+		max_width = 370
+		visible = "[GetScriptedGui('agot_relation_check_free').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+
+		block "description_relation_text" {
+			text = "DRAGON_RELATION_IS_WANDERING"
+			tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		}
+	}
+
+	type agot_wild_list_relation = text_single
+	{
+		name = "relation_to_wild"
+		default_format = "#low"
+		align = nobaseline
+		max_width = 370
+		visible = "[GetScriptedGui('agot_relation_check_wild').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+
+		block "description_relation_text" {
+			text = "DRAGON_RELATION_IS_WANDERING"
+			tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		}
+	}
+}

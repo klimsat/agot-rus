@@ -7,7 +7,7 @@ types MapModes
 	type agot_roads_map_mode_legend = flowcontainer
 	{
 		name = "agot_roads_mapmode_legend"
-		visible = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') ), IsDefaultGUIMode ) )]"
+		visible = "[And( And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') ), IsDefaultGUIMode )]"
 		parentanchor = top|right
 		position = { 0 -80 }
 		direction = vertical
@@ -111,14 +111,14 @@ types MapModes
 		using = tooltip_ws
 
 		button_expand = {
-			visible = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') ), IsDefaultGUIMode ) )]"
+			visible = "[And( And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') ), IsDefaultGUIMode )]"
 			size = { 15	15 }
 			parentanchor = left|vcenter
 			alwaystransparent = yes
 		}
 
 		button_expand = {
-			visible = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') ), IsDefaultGUIMode ) )]"
+			visible = "[And( And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') ), IsDefaultGUIMode )]"
 			mirror = horizontal
 			size = { 15	15 }
 			parentanchor = right|vcenter
