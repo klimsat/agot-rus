@@ -433,6 +433,8 @@ container = {
 	alwaystransparent = no
 
 	container_character_tooltip = {}
+	#AGOT Added
+	container_dragon_character_tooltip = {}
 }
 
 
@@ -670,14 +672,18 @@ types GameTooltipTypes
 									margin_top = 3
 
 									portrait_opinion = {
-										visible = "[And( Character.IsAlive, Not( Character.IsPlayer ) )]"
+										#AGOT Modified
+										#visible = "[And( Character.IsAlive, Not( Character.IsPlayer ) )]"
+										visible = "[And( And( Character.IsAlive, Not( Character.HasTrait(GetTrait('dragon')) )), Not( Character.IsPlayer ) )]"
 									}
 
 									expand = {}
 								}
 
 								spacer = {
-									visible = "[And( Character.IsAlive, Not( Character.IsPlayer ) )]"
+									#AGOT Modified
+									#visible = "[And( Character.IsAlive, Not( Character.IsPlayer ) )]"
+									visible = "[And( And( Character.IsAlive, Not( Character.HasTrait(GetTrait('dragon')) )), Not( Character.IsPlayer ) )]"
 									size = { 8 5 }
 								}
 
@@ -693,15 +699,7 @@ types GameTooltipTypes
 								}
 
 								#AGOT Added agot_high_septon
-								text_multi = {
-									name = "character_name_high_septon"
-									visible = "[GetScriptedGui('agot_high_septon_tt').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-									text = "AGOT_CHARACTER_TT_NAME_AGE"
-									default_format = "#high"
-									using = Font_Size_Medium
-									max_width = 350
-									autoresize = yes
-								}
+								agot_high_septon_name_age = {}
 
 								vbox = {
 									layoutpolicy_vertical = expanding
@@ -728,6 +726,8 @@ types GameTooltipTypes
 						layoutpolicy_horizontal = expanding
 
 						text_multi = {
+							#AGOT Added
+							using = visible_if_not_dragon
 							name = "character_relation_to_you"
 							margin_top = 10
 							max_width = 308
@@ -737,6 +737,12 @@ types GameTooltipTypes
 							align = nobaseline
 							autoresize = yes
 						}
+						#AGOT Added
+						agot_dragonrider_tooltip_relation = {}
+						agot_bonded_tooltip_relation = {}
+						agot_host_tooltip_relation = {}
+						agot_freedom_tooltip_relation = {}
+						agot_wild_tooltip_relation = {}
 
 						expand = {}
 					}
@@ -752,18 +758,26 @@ types GameTooltipTypes
 							spacing = 2
 
 							text_single = {
-								visible = "[Not( Character.IsPlayer )]"
+								#AGOT Modified
+								#visible = "[Not( Character.IsPlayer )]"
+								visible = "[And( Not( Character.IsPlayer ), Not( Character.HasTrait( GetTrait('dragon') )))]"
 								text = "[Character.GetAIPersonalityNoTooltip]"
 								default_format = "#L"
 								tooltip = "AI_PERSONALITY_TT"
 								align = nobaseline
 							}
 
+							#AGOT Added
+							agot_dragon_type_living = {}
+							agot_dragon_type_dead = {}
+
 							hbox = {
 								layoutpolicy_horizontal = expanding
 
 								icon = {
-									visible = "[Not(Character.IsFemale)]"
+									#AGOT Modified
+									#visible = "[Not(Character.IsFemale)]"
+									visible = "[GetScriptedGui('agot_male_gender_shown').IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
 									size = { 20 20 }
 									framesize = { 40 40 }
 									frame = "[Character.GetSexualityFrame]"
@@ -772,13 +786,20 @@ types GameTooltipTypes
 								}
 
 								icon = {
-									visible = "[Character.IsFemale]"
+									#AGOT Modified
+									#visible = "[Character.IsFemale]"
+									visible = "[GetScriptedGui('agot_female_gender_shown').IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]" 
 									size = { 20 20 }
 									framesize = { 40 40 }
 									frame = "[Character.GetSexualityFrame]"
 									texture = "gfx/interface/icons/character_status/sexuality_icons_female.dds"
 									tooltip = "SEXUALITY_TT"
 								}
+
+								#AGOT Added
+								agot_dragon_unknown_gender_icon_tt = {}
+								agot_dragon_male_gender_icon_tt = {}
+								agot_dragon_female_gender_icon_tt = {}
 
 								portrait_status_icons = {
 									blockoverride "direction"
@@ -797,7 +818,9 @@ types GameTooltipTypes
 							layoutpolicy_horizontal = expanding
 
 							text_single = {
-								visible = "[Character.IsAlive]"
+								#AGOT Modified
+								#visible = "[Character.IsAlive]"
+								visible = "[And( Character.IsAlive, Not( Character.HasTrait( GetTrait('dragon') )))]"
 								text = "[Character.Custom('CooltipSpouseListing')]"
 								layoutpolicy_horizontal = expanding
 								align = nobaseline
@@ -824,6 +847,8 @@ types GameTooltipTypes
 					}
 
 					hbox = {
+						#AGOT Added
+						visible = "[Not( Character.HasTrait( GetTrait('dragon') ))]"
 						layoutpolicy_horizontal = expanding
 						spacing = 10
 
@@ -1069,7 +1094,6 @@ types GameTooltipTypes
 						#AGOT Modified
 						#name "character_age"
 						name = "character_age"
-
 						max_width = 335
 						text = "CHARACTER_TT_AGE"
 						align = nobaseline
@@ -1122,6 +1146,8 @@ types GameTooltipTypes
 		alwaystransparent = no
 
 		using = DefaultTooltipBackground
+		#AGOT Added
+		using = visible_if_not_dragon
 
 		flowcontainer = {
 			direction = vertical
@@ -2564,7 +2590,7 @@ types FaithTooltips
 						text_single = {
 							layoutpolicy_horizontal = expanding
 							name = "header"
-							text = "[Faith.GetAdjectiveNoTooltip]"
+							text = "FAITH_COOLTIP_GETNAME"
 							align = top
 							using = Font_Type_Flavor
 							using = Font_Size_Big
@@ -3346,34 +3372,6 @@ template dynasty_house_tooltip {
 		}
 	}
 }
-# AGOT ADDED
-template agot_personal_coa_tooltip {
-	object_tooltip_pop_out = {
-		datacontext = "[DynastyHouse]"
-
-		blockoverride "header_additions" {
-			margin_right = 10
-			margin_top = 8
-			margin_left = -4
-
-			agot_coa_house_small = {
-				blockoverride "coa_tooltip" {}
-			}
-		}
-		blockoverride "title_text" {
-			text = "PERSONAL_ARMS_COOLTIP"
-		}
-		blockoverride "concept_link" {
-			text = [agot_personal_coa|E]
-			margin_top = 7
-		}
-		blockoverride "extra_data" {
-			agot_coa_house_huge = {
-				blockoverride "coa_tooltip" {}
-			}
-		}
-	}
-}
 
 container = {
 	alwaystransparent = no
@@ -3381,6 +3379,12 @@ container = {
 	using = dynasty_house_tooltip
 }
 
+#AGOT Added
+container = {
+	alwaystransparent = no
+	name = "agot_dragon_army_comptooltip"
+	using = army_tooltip
+}
 ### These templates can very likely be extended to most custom tooltips with header, blocker, effects, flavor, etc
 
 local_template era_innov_blockers
