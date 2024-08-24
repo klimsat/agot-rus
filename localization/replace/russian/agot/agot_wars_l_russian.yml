@@ -107,6 +107,7 @@
  agot_6th_blackfyre_rebellion_victory_desc: "Шестое восстание Блэкфайра разгромлено и [attacker.GetFullNameRegnal|U] попадает в тюрьму"
  agot_6th_blackfyre_realm_rebuild_loc: "Блэкфайры, после многих поколений борьбы и сражений, наконец-то воссядут на Железный трон."
 
+ agot_faegon_landing: "Вторжение претендента"
  agot_faegon_landing_war_name: "Вторжение персонажа [ATTACKER.GetFullNameRegnal]"
  agot_faegon_landing_war_invalidated: "[attacker.GetFullNameRegnal|U] подходит к концу из-за смерти персонажа [attacker.GetFullNameRegnal|U]"
  agot_faegon_landing_war_white_peace_desc: "Вторжение Фейгона закончилось белым миром, что не должно происходить в моде. Пожалуйста, сообщите об ошибке"
@@ -147,7 +148,139 @@
  SHATTERED_CONQUEST_WAR_NAME_BASE:0 "#L [ATTACKER.GetPrimaryTitle.GetAdjective]ий#! домен [DEFENDER.GetPrimaryTitle.GetName]"
 
  #Crannogman Ambush
- CRANNOGMAN_AMBUSH_CB_NAME: "Засада в болоте"
- CRANNOGMAN_AMBUSH_CB_NAME_BASE: "Засада в болоте"
- CRANNOGMAN_AMBUSH_CB: "Засада в болоте"
- crannogman_ambush_cb: "Засада в болоте"
+ CRANNOGMAN_AMBUSH_CB_NAME:0 "Засада в болоте"
+ CRANNOGMAN_AMBUSH_CB_NAME_BASE:0 "Засада в болоте"
+ CRANNOGMAN_AMBUSH_CB:0 "Засада в болоте"
+ crannogman_ambush_cb:0 "Засада в болоте"
+
+ #Dragon Conquests
+ dragon_county_conquest_cb:1 "Draconically Conquer [county|E]"
+ dragon_duchy_conquest_cb:1 "Draconically Conquer [duchy|E]"
+ dragon_ducal_conquest_cb:1 "Draconically Unite [duchy|E]"
+ dragon_kingdom_conquest_cb:1 "Draconically Conquer [kingdom|E]"
+ dragon_subjugation_cb:0 "Draconic Subjugation"
+ DRAGON_CONQUEST_COUNTY_CB_NAME:1 "Draconically Conquer [county|E]"
+ DRAGON_CONQUEST_DUCHY_CB_NAME:1 "Draconically Conquer [duchy|E]"
+ DRAGON_CONQUEST_KINGDOM_CB_NAME:1 "Draconically Conquer [kingdom|E]"
+ DRAGON_CONQUEST_CB_NAME:0 "Draconically Conquer the [TITLE.GetBaseName]"
+ DRAGON_CONQUEST_WAR_NAME:0 "$ORDER$ [ATTACKER.GetPrimaryTitle.GetAdjective] Draconic Conquest of the [TITLE.GetBaseName]"
+ DRAGON_CONQUEST_WAR_NAME_BASE:0 "[ATTACKER.GetPrimaryTitle.GetAdjective][DEFENDER.GetPrimaryTitle.GetName]"
+ DRAGON_DUCAL_CONQUEST_CB_NAME:1 "Draconic [ducal_conquest|E] of [county|E]"
+ DRAGON_DUCAL_CONQUEST_WAR_NAME:2 "$ORDER$ [ATTACKER.GetPrimaryTitle.GetAdjectiveNoTooltip] Draconic Ducal Conquest of the [TITLE.GetBaseNameNoTooltip]"
+ DRAGON_DUCAL_CONQUEST_WAR_NAME_BASE:0 "[ATTACKER.GetPrimaryTitle.GetAdjective][DEFENDER.GetPrimaryTitle.GetName]"
+ DRAGON_SUBJUGATION_CB_NAME:0 "Draconically Subjugate [DEFENDER.GetShortUIName]"
+ DRAGON_SUBJUGATION_WAR_NAME:1 "$ORDER$ [ATTACKER.GetPrimaryTitle.GetPrefix]-[DEFENDER.GetPrimaryTitle.GetAdjective] Dragon Subjugation War"
+ DRAGON_SUBJUGATION_WAR_NAME_BASE:0 "[ATTACKER.GetPrimaryTitle.GetAdjective][DEFENDER.GetPrimaryTitle.GetName]"
+ declared_draconic_subjugation_war_flag_tt:0 "\n\n#X You may only attempt one Draconic Subjugation [war|e] per lifetime#!"
+ empire_destroyed_effect_tt:0 "@warning_icon! #X [de_jure_target_empire.GetName] will be destroyed and [de_jure_target.GetName] will be created to be taken in war.#!"
+
+ #Scenario Dragon Wars
+ truce_stepstones_holders_trp:0 " Events in the Stepstones have yet to be resolved."
+ daemon_stepstones_first_war:0 "Landing on the Stepstones"
+ DAEMON_FIRST_STEPSTONE_WAR_NAME:0 "[ATTACKER.GetFirstNamePossessive] Landing on the Stepstones"
+ DAEMON_FIRST_STEPSTONE_WAR_NAME_BASE:0 "[ATTACKER.GetFirstNamePossessive] Landing on the Stepstones"
+ DAEMON_FIRST_STEPSTONE_WAR_CB_NAME:0 "Landing on the Stepstones" # Should never be seen
+ daemon_stepstones_second_war:0 "War for the Stepstones"
+ DAEMON_SECOND_STEPSTONE_WAR_NAME:0 "[ATTACKER.GetFirstNamePossessive] War for the Stepstones"
+ DAEMON_SECOND_STEPSTONE_WAR_NAME_BASE:0 "[ATTACKER.GetFirstNamePossessive] War for the Stepstones"
+ DAEMON_SECOND_STEPSTONE_WAR_CB_NAME:0 "War for the Stepstones" # Should never be seen\
+ admiral_subjugation_cb:0 "Admiral Subjugation"
+
+ #Succession War
+ agot_succession_war: "War of Succession"
+ #agot_succession_war_name: "War of Succession"
+ agot_succession_war_name:0 "[ATTACKER.Custom('WarOfSuccessionNumbers')] [ATTACKER.Custom('WarOfSuccessionNames')]"
+ agot_war_of_succession_number_one:0 "The"
+ agot_war_of_succession_number_two:0 "The 2nd"
+ agot_war_of_succession_number_three:0 "The 3rd"
+ agot_war_of_succession_number_four:0 "The 4th"
+ agot_war_of_succession_number_five:0 "The 5th"
+ agot_war_of_succession_number_six:0 "The 6th"
+ agot_war_of_succession_number_seven:0 "The 7th"
+ agot_war_of_succession_number_eight:0 "The 8th"
+ agot_war_of_succession_number_nince:0 "The 9th"
+ agot_war_of_succession_number_ten:0 "The 10th"
+ agot_war_of_succession_number_eleven:0 "The 11th"
+ agot_war_of_succession_number_twelve:0 "The 12th"
+ agot_war_of_succession_number_thirteen:0 "The 13th"
+ agot_war_of_succession_number_fourteen:0 "The 14th"
+ agot_war_of_succession_number_fifteen:0 "The 15th"
+ agot_war_of_succession_number_sixteen:0 "The 16th"
+ agot_war_of_succession_number_seventeen:0 "The 17th"
+ agot_war_of_succession_number_eighteen:0 "The 18th"
+ agot_war_of_succession_number_nineteen:0 "The 19th"
+ agot_war_of_succession_number_twenty:0 "The 20th"
+ agot_war_of_succession_number_billion:0 "The Billionth"
+
+ #Crownlands
+ agot_war_of_succession_name_Targaryen:0 "Dance of the Dragons"
+ agot_war_of_succession_name_Valeryon:0 "Turning of Tides"
+ agot_war_of_succession_name_Celtigar:0 "Clack of Crabs"
+ agot_war_of_succession_name_Darklyn:0 "Dance for the Dusk" ###
+ agot_war_of_succession_name_Massey:0 "Dance of Stone" ###
+ #North
+ agot_war_of_succession_name_Stark:0 "War of the Wolves"
+ agot_war_of_succession_name_Mormont:0 "Wrath of the Bears"
+ agot_war_of_succession_name_Bolton:0 "Bloodletting"
+ agot_war_of_succession_name_Manderly:0 "Merman War"
+ agot_war_of_succession_name_Forrester:0 "Wrath of Iron" ###
+ agot_war_of_succession_name_Umber:0 "Wrath of the Giants" ###
+ agot_war_of_succession_name_Glover:0 "War of the Iron Fist" ###
+ agot_war_of_succession_name_Dustin:0 "Wrath of the Kings" ###
+ agot_war_of_succession_name_Ryswell:0 "Wrath of the Riders" ###
+ #Riverlands
+ agot_war_of_succession_name_Tully:0 "War of Duty and Honor"
+ agot_war_of_succession_name_Blackwood:0 "Wrath of the Ravens"
+ agot_war_of_succession_name_Bracken:0 "Thundering of the Hooves"
+ agot_war_of_succession_name_Frey:0 "Clash of the Crossing"
+ agot_war_of_succession_name_Darry:0 "Harvest of Havoc" ###
+ agot_war_of_succession_name_Strong:0 "Test of Strength" ###
+ #Vale
+ agot_war_of_succession_name_Arryn:0 "Flight of the Falcons"
+ agot_war_of_succession_name_Royce:0 "Bronze War"
+ agot_war_of_succession_name_Baelish:0 "War of the Mockingbirds"
+ agot_war_of_succession_name_Corbray:0 "War of the Heartseekers" ###
+ agot_war_of_succession_name_Sunderland:0 "Storm of the Sisters" ###
+ #Iron Islands
+ agot_war_of_succession_name_Greyjoy:0 "War of the Kraken"
+ agot_war_of_succession_name_Harlaw:0 "Great Threshing"
+ agot_war_of_succession_name_Goodbrother:0 "War of the Brothers"
+ agot_war_of_succession_name_Hoare:0 "Sowing of Salt" ###
+ agot_war_of_succession_name_Codd:0 "War of the Codfish" ###
+ #Stormlands
+ agot_war_of_succession_name_Baratheon:0 "Clash of Antlers"
+ agot_war_of_succession_name_Estermont:0 "Turtle War"
+ agot_war_of_succession_name_Dondarrion:0 "Stormlight War"
+ agot_war_of_succession_name_Tarth:0 "War of the Sun and Moon"
+ agot_war_of_succession_name_Seaworth:0 "Onslaught of Onions"
+ agot_war_of_succession_name_Connington:0 "Griffin's Grudge" ###
+ agot_war_of_succession_name_Swann:0 "Sowing of the Swans" ###
+ agot_war_of_succession_name_Selmy:0 "Bloody Harvest" ###
+ #Westerlands
+ agot_war_of_succession_name_Lannister:0 "Roar of Lions"
+ agot_war_of_succession_name_Reyne:0 "Red Lion War"
+ agot_war_of_succession_name_Clegane:0 "Dog Fight"
+ agot_war_of_succession_name_Lydden:0 "Brawl of the Badgers" ###
+ agot_war_of_succession_name_Brax:0 "Clash of Horns" ###
+ agot_war_of_succession_name_Crakehall:0 "Bleeding of the Boars" ###
+ agot_war_of_succession_name_Banefort:0 "War of the Hooded Ones" ###
+ #Reach
+ agot_war_of_succession_name_Tyrell:0 "War of the Roses"
+ agot_war_of_succession_name_Hightower:0 "Ballad of the Beacon"
+ agot_war_of_succession_name_Florent:0 "War of the Fox and Flowers"
+ agot_war_of_succession_name_Redwyne:0 "Bloody Vintage"
+ agot_war_of_succession_name_Tarly:0 "War of the Huntsman"
+ agot_war_of_succession_name_Gardener:0 "War of the Weeds" ###
+ #Dorne
+ agot_war_of_succession_name_Martell:0 "War of Sun and Spear"
+ agot_war_of_succession_name_Dayne:0 "War of the Morning"
+ agot_war_of_succession_name_Yronwood:0 "War of the Bloodroyal"
+ agot_war_of_succession_name_Qorgyle:0 "Stinging of the Scorpions" ###
+ agot_war_of_succession_name_Uller:0 "Living Hell" ###
+ agot_war_of_succession_name_Jordayne:0 "Quill Quarrel" ###
+ agot_war_of_succession_name_Toland:0 "Glimmer of the Ghosts" ###
+ agot_war_of_succession_name_Dalt:0 "Lemon War" ###
+ agot_war_of_succession_name_Fowler:0 "War of the Hooded Hawk" ###
+ agot_war_of_succession_name_Manwoody:0 "Skirmish of the Skulls" ###
+ #Fallback
+ agot_war_of_succession_name_fallback:0 "War of Succession"
