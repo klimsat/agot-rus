@@ -1,11 +1,11 @@
 ﻿l_russian:
  # Portraits / GUI
- MATES_LABEL:0 "Друг"
+ MATES_LABEL:0 "Пара"
  CURRENT_HOST_LABEL:0 "Хозяин"
  CURRENT_RIDER_LABEL:0 "Наездник"
- CURRENT_BONDED_HUMAN_LABEL:0 "Связан"
+ CURRENT_BONDED_HUMAN_LABEL:0 "Узы"
  PAST_RIDERS_LABEL:0 "Предыдущие наездники #weak ([GetDataModelSize(CharacterWindow.GetCharacter.MakeScope.GetList('past_riders'))])#!"
- UNKNOWN_DRAGON_TOOLTIP:0 "Пол: Мужской ([Concept('dragon_gender','предполагается')|E])"
+ UNKNOWN_DRAGON_TOOLTIP:0 "Пол: Мужской ([Concept('dragon_gender', 'предположительно')|E])"
  MALE_DRAGON_TOOLTIP:0 "Пол: Мужской"
  FEMALE_DRAGON_TOOLTIP:0 "Пол: Женский"
  DRAGON_TYPE_TOOLTIP:0 "[dragon_type|E]"
@@ -20,56 +20,56 @@
 
  # Notifications
  # Healing
- agot_dragon_healed.t:0 "[dragon.GetName] [Select_CString( dragon.IsFemale, 'выздоровела', 'выздоровел' )]"
- agot_dragon_healed.tt:0 "[dragon.GetName] [Select_CString( dragon.IsFemale, 'выздоровела', 'выздоровел' )] от [dragon.Custom('GetDragonHerHis')] ранения."
+ agot_dragon_healed.t:0 "[dragon.GetName] [Select_CString(dragon.IsFemale, 'выздоровела', 'выздоровел' )]"
+ agot_dragon_healed.tt:0 "[dragon.GetName] [Select_CString(dragon.IsFemale, 'оправилась', 'оправился' )] от раны."
  # Dragon must be in the same location alert
- agot_dragon_same_location.t:0 "Вернулся к дракону"
- agot_dragon_same_location.tt:0 "Вы оставили армию в [current_location.GetName] и вернулись к вашему дракону в [dragon_location.GetName]."
+ agot_dragon_same_location.t:0 "Возвращение к дракону"
+ agot_dragon_same_location.tt:0 "Вы покинули армию во владении [current_location.GetName] и вернулись к вашему дракону во владение [dragon_location.GetName]."
 
  # Wild dragon notifications
- wild_dragon_returned_home.t:0 "[dragon.GetName] [Select_CString( dragon.IsFemale, 'возвращена', 'возвращен' )]."
- wild_dragon_returned_home.desc:0 "[dragon.GetName] [Select_CString( dragon.IsFemale, 'была замечена возвращающейся', 'был замечен возвращающимся' )] в [dragon.Custom('GetDragonHerHis')] логово в [lair.GetName]"
- wild_dragon_returned_home_from.t:0 "[dragon.GetName] [Select_CString( dragon.IsFemale, 'полетела', 'полетел' )] домой"
- wild_dragon_returned_home_from.desc:0 "[dragon.GetName] [Select_CString( dragon.IsFemale, 'была замечена летящей', 'был замечен летящим' )] обратно в [dragon.Custom('GetDragonHerHis')] логово в [lair.GetName]"
+ wild_dragon_returned_home.t:0 "[dragon.GetName] [Select_CString(dragon.IsFemale, 'вернулась', 'вернулся' )]."
+ wild_dragon_returned_home.desc:0 "Было замечено, как [dragon.GetName] [Select_CString(dragon.IsFemale, 'вернулась', 'вернулся' )] в своё логово во владении [lair.GetName]"
+ wild_dragon_returned_home_from.t:0 "[dragon.GetName] [Select_CString(dragon.IsFemale, 'улетела', 'улетел' )] домой"
+ wild_dragon_returned_home_from.desc:0 "Было замечено, что [dragon.GetName] [Select_CString(dragon.IsFemale, 'улетела', 'улетел' )] обратно в своё логово во владении [lair.GetName]"
  wild_dragon_travelling_arrived.t:0 "[dragon.GetName] летает поблизости"
- wild_dragon_travelling_arrived.desc:0 "[dragon.GetName], логово [Select_CString( dragon.IsFemale, 'которой', 'которого' )] находится в провинции [lair.GetName], [Select_CString( dragon.IsFemale, 'была замечена летающей', 'был замечен летающим' )] около [destination.GetName]"
- wild_dragon_left.t:0 "[dragon.GetName] летает где-то еще"
- wild_dragon_left.desc:0 "[dragon.GetName] [Select_CString( dragon.IsFemale, 'была замечена улетающей', 'был замечен улетающим' )] в сторону провинции [destination.GetName]"
+ wild_dragon_travelling_arrived.desc:0 "[dragon.GetName], логово [Select_CString(dragon.IsFemale, 'которой', 'которого' )] находится в провинции [lair.GetName], [Select_CString( dragon.IsFemale, 'была замечена летающей', 'был замечен летающим' )] около владения [destination.GetName]"
+ wild_dragon_left.t:0 "[dragon.GetName] улетает"
+ wild_dragon_left.desc:0 "[dragon.GetName] [Select_CString(dragon.IsFemale, 'была замечена улетающей', 'был замечен улетающим' )] в сторону провинции [destination.GetName]"
  wild_dragon_left_lair.t:0 "[dragon.GetName] летает"
- wild_dragon_left_lair.desc:0 "[dragon.GetName] [Select_CString( dragon.IsFemale, 'была замечена покидающей', 'был замечен покидающим' )] [dragon.Custom('GetDragonHerHis')] логово в [lair.GetName] и [Select_CString( dragon.IsFemale, 'направляющейся', 'направляющимся' )] в провинцию [destination.GetName]
+ wild_dragon_left_lair.desc:0 "Было замечено, что [dragon.GetName] [Select_CString(dragon.IsFemale, 'покинула', 'покинул' )] своё логово в владении [lair.GetName] и [Select_CString(dragon.IsFemale, 'направилась', 'направился' )] в провинцию [destination.GetName]
 
  # Effects
  agot_spawn_dragon_effect.interface.t:0 "Дракон присоединился ко двору"
- agot_spawn_dragon_effect.interface.desc:0 "[dragon.GetName] [Select_CString( dragon.IsFemale, 'присоединась', 'присоединился' )] ко двору"
+ agot_spawn_dragon_effect.interface.desc:0 "[dragon.GetName] [Select_CString(dragon.IsFemale, 'присоединилась', 'присоединился' )] ко двору"
  agot_spawn_wild_dragon_effect.interface.t:0 "Появление дикого дракона"
- agot_spawn_wild_dragon_effect.interface.desc:0 "[dragon.GetName] [Select_CString( dragon.IsFemale, 'появилась', 'появился' )] в [dragon.GetCurrentLocation.GetName]"
- agot_reveal_dragon_gender_effect_tt_male:0 "Пол [dragon.GetNamePossessive] определен как мужской"
- agot_reveal_dragon_gender_effect_tt_female:0 "Пол [dragon.GetNamePossessive] определен как женский"
- dragonpit_was_ruinized_tt:0 "[Concept ('dragonpit', 'Драконье логово')|E] в этом владении будет уничтожено. Все запертые внутри [Concept ('dragons', 'драконы')|E] будут освобождены."
- free_dragon_tt:0 "[free_dragon_for_effect.GetFirstName] станет [Concept ('wild_dragon', 'диким драконом')|E]"
+ agot_spawn_wild_dragon_effect.interface.desc:0 "[dragon.GetName] [Select_CString(dragon.IsFemale, 'появилась', 'появился' )] во владении [dragon.GetCurrentLocation.GetName]"
+ agot_reveal_dragon_gender_effect_tt_male:0 "[dragon.GetNamePossessive] [Select_CString(dragon.IsFemale, 'оказалась', 'оказался' )] мужской особью"
+ agot_reveal_dragon_gender_effect_tt_female:0 "[dragon.GetNamePossessive] [Select_CString(dragon.IsFemale, 'оказалась', 'оказался' )] женской особью"
+ dragonpit_was_ruinized_tt:0 "[Concept ('dragonpit', 'Драконье логово')|E] в этом владении будет уничтожено. Все запертые внутри [Concept('dragons', 'драконы')|E] будут освобождены."
+ free_dragon_tt:0 "[free_dragon_for_effect.GetFirstName] становится [Concept('wild_dragon', 'диким драконом')|E]"
  #Dragon Mil Tooltip Stuff
- realm_dragons_faux_tt:0 "Владение [Concept ('dragons', 'драконов')|E]:"
+ realm_dragons_faux_tt:0 "[Concept('dragons', 'Драконы')|E] державы:"
  realm_dragons_faux_armies_tt:0 "Армии"
 
- building_dragonpit_effect:0 "Это здание действует как [Concept ('dragonpit', 'драконье логово')|e], что позволяет владельцу [Concept ('county', 'графства')|e] держать здесь [Concept ('dragons', 'драконов')|e]. Однако драконы, заключённые внутри, будут страдать от штрафов здоровья и роста."
- building_dragonmont_dragonpit_effect:0 "Это здание действует как [Concept ('natural_dragonpit', 'естественное логово')|e], что позволяет владельцу [Concept ('county', 'графства')|e] держать [Concept ('dragons', 'драконов')|e]. Запертые внутри драконы будут страдать значительно меньше, чем драконы в искусственном логове."
+ building_dragonpit_effect:0 "Это здание действует как [Concept('dragonpit', 'драконье логово')|E], что позволяет владельцу [Concept('county', 'графства')|E] содержать здесь [Concept('dragons', 'драконов')|E]. Однако на драконов, запертых внутри, будут наложены штрафы к здоровью и росту."
+ building_dragonmont_dragonpit_effect:0 "Это здание действует как [Concept('natural_dragonpit', 'естественное логово')|E], что позволяет владельцу [Concept('county', 'графства')|E] содержать здесь [Concept('dragons', 'драконов')|E]. Запертые внутри драконы будут страдать значительно меньше, чем драконы в искусственном логове."
 
  GET_DRAGON:0 "Становится наездником дракона [TARGET_CHARACTER.GetShortUINamePossessive]"
- GOT_DRAGON:0 "Стал наездником дракона [TARGET_CHARACTER.GetShortUINamePossessive]"
+ GOT_DRAGON:0 "Становится наездником дракона [TARGET_CHARACTER.GetShortUINamePossessive]"
  I_GET_DRAGON:1 "Вы становитесь наездником дракона [TARGET_CHARACTER.GetShortUINamePossessive]"
  THEY_GET_DRAGON:0 "[CHARACTER.GetShortUIName] становится наездником дракона [TARGET_CHARACTER.GetShortUINamePossessive]"
  I_GOT_DRAGON:1 "Вы стали наездником дракона [TARGET_CHARACTER.GetShortUINamePossessive]"
  THEY_GOT_DRAGON:1 "[CHARACTER.GetShortUIName] стал наездником дракона [TARGET_CHARACTER.GetShortUINamePossessive]"
 
-# Size checks
- dragon_size_at_least_10:0 "[Concept ('dragon_size', 'размер дракона')|E] хотя бы 10"
- dragon_size_at_least_20:0 "[Concept ('dragon_size', 'размер дракона')|E] хотя бы 20"
- dragon_size_at_least_30:0 "[Concept ('dragon_size', 'размер дракона')|E] хотя бы 30"
- dragon_size_at_least_40:0 "[Concept ('dragon_size', 'размер дракона')|E] хотя бы 40"
- recipient_dragon_size_at_least_10:0 "[recipient.GetFirstName] соответствует хотя бы [Concept ('dragon_size', 'размеру дракона')|E] 10"
- recipient_dragon_size_at_least_20:0 "[recipient.GetFirstName] соответствует хотя бы [Concept ('dragon_size', 'размеру дракона')|E] 20"
- recipient_dragon_size_at_least_30:0 "[recipient.GetFirstName] соответствует хотя бы [Concept ('dragon_size', 'размеру дракона')|E] 30"
- recipient_dragon_size_at_least_40:0 "[recipient.GetFirstName] соответствует хотя бы [Concept ('dragon_size', 'размеру дракона')|E] 40"
+ # Size checks
+ dragon_size_at_least_10:0 "[Concept('dragon_size', 'размер дракона')|E] равен по крайней мере 10 ед."
+ dragon_size_at_least_20:0 "[Concept('dragon_size', 'размер дракона')|E] равен по крайней мере 20 ед."
+ dragon_size_at_least_30:0 "[Concept('dragon_size', 'размер дракона')|E] равен по крайней мере 30 ед."
+ dragon_size_at_least_40:0 "[Concept('dragon_size', 'размер дракона')|E] равен по крайней мере 40 ед."
+ recipient_dragon_size_at_least_10:0 "[recipient.GetFirstName] имеет [Concept('dragon_size', 'размер дракона')|E], равный по крайней мере 10 ед."
+ recipient_dragon_size_at_least_20:0 "[recipient.GetFirstName] имеет [Concept('dragon_size', 'размер дракона')|E], равный по крайней мере 20 ед."
+ recipient_dragon_size_at_least_30:0 "[recipient.GetFirstName] имеет [Concept('dragon_size', 'размер дракона')|E], равный по крайней мере 30 ед."
+ recipient_dragon_size_at_least_40:0 "[recipient.GetFirstName] имеет [Concept('dragon_size', 'размер дракона')|E], равный по крайней мере 40 ед."
 
  # Color CusLoc Keys
  dragon_black_key:0 "черный"
@@ -83,7 +83,7 @@
  dragon_blue_key:0 "голубой"
  dragon_purple_key:0 "фиолетовый"
  dragon_pink_key:0 "розовый"
- dragon_fuschia_key:0 "фуксия"
+ dragon_fuschia_key:0 "фуксиевый"
  dragon_lightest_key:0 "бледный"
  dragon_lighter_key:0 "светлый"
  dragon_middle_key:0 "яркий"
@@ -111,12 +111,12 @@
  dragon_darkest_key_F:0 "dark" 
 
 
- tame_unbonded_dragon_scheme_scheme_power_mult:1 "[GetScheme('tame_unbonded_dragon_scheme').GetTypeName] [Concept ('scheme_power', 'сила интриги')|E]"
- steal_back_artifact_scheme_resistance_mult:1 "[GetScheme('steal_back_artifact').GetTypeName] [Concept ('scheme_resistance', 'сопротивление интригам')|E]"
+ tame_unbonded_dragon_scheme_scheme_power_mult:1 "[Concept('scheme_power', 'Сила происков')|E] «[GetScheme('tame_unbonded_dragon_scheme').GetTypeName]»"
+ steal_back_artifact_scheme_resistance_mult:1 "[Concept('scheme_resistance', 'Сопротивление проискам')|E] «[GetScheme('steal_back_artifact').GetTypeName]»"
 
- title_is_dragonpit_warning:0 "@warning_icon! #предупреждение [target.GetNameNoTier] владеет [Concept ('dragonpit', 'драконьим логовом')|e]. Отдав его, мы передадим контроль над ним другому правителю!#!"
- title_is_dragonpit_and_ruler_is_not_king_warning:0 "@warning_icon! #предупреждение [target.GetNameNoTier] владеет [Concept ('dragonpit', 'драконьим логовом')|e], [recipient.GetShortUIName] не является правителем королевского ранга, что ограничит его доступ к драконьему логову!#!"
+ title_is_dragonpit_warning:0 "@warning_icon! #warning Во владении [target.GetNameNoTier] находится [Concept('dragonpit', 'драконье логово')|e]. Даровав его, вы передадите контроль над ним другому правителю!#!"
+ title_is_dragonpit_and_ruler_is_not_king_warning:0 "@warning_icon! #warning Во владении [target.GetNameNoTier] находится [Concept('dragonpit', 'драконье логово')|e]. [recipient.GetShortUIName] не имеет титула королевского ранга, что ограничит [Select_CString(recipient.IsFemale, 'ей', 'ему' )] доступ к драконьему логову!#!"
 
- has_a_relation_dragon_trigger_tooltip:0 "Владеет [Concept ('tamed_dragon', 'прирученным драконом')|E]"
- has_a_dragon_egg_artifact_tooltip:0 "Владеет [Concept ('artifact', 'артефактом')|e] [Concept ('dragon', 'драконье')|E] яйцо"
- dragons_are_extant_desc_tooltip:0 "[Concept ('dragons', 'драконы')|E] существуют в мире!"
+ has_a_relation_dragon_trigger_tooltip:0 "Имеет [Concept('tamed_dragon', 'приручённого дракона')|E]"
+ has_a_dragon_egg_artifact_tooltip:0 "Владеет [Concept('dragon', 'драконьим')|E] яйцом ([artifact|El])"
+ dragons_are_extant_desc_tooltip:0 "[Concept('dragons', 'Драконы')|E] сохранились в мире"
