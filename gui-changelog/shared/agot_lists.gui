@@ -247,11 +247,12 @@ types Lists
 		default_format = "#low"
 		align = nobaseline
 		max_width = 370
+		fontsize = 12
+		fontsize_min = 11 # do not remove
 		visible = "[GetScriptedGui('agot_relation_check_rider').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
 
 		block "description_relation_text" {
 			text = "DRAGON_RELATION_HAS_RIDER"
-			tooltip = "EXTENDED_RELATIONS_TOOLTIP"
 		}
 	}
 
@@ -261,11 +262,12 @@ types Lists
 		default_format = "#low"
 		align = nobaseline
 		max_width = 370
+		fontsize = 12
+		fontsize_min = 11 # do not remove
 		visible = "[GetScriptedGui('agot_relation_check_bonded_human').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
 
 		block "description_relation_text" {
 			text = "DRAGON_RELATION_HAS_BONDED"
-			tooltip = "EXTENDED_RELATIONS_TOOLTIP"
 		}
 	}
 
@@ -275,11 +277,12 @@ types Lists
 		default_format = "#low"
 		align = nobaseline
 		max_width = 370
+		fontsize = 12
+		fontsize_min = 11 # do not remove
 		visible = "[GetScriptedGui('agot_relation_check_host').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
 
 		block "description_relation_text" {
 			text = "DRAGON_RELATION_IS_PITTED"
-			tooltip = "EXTENDED_RELATIONS_TOOLTIP"
 		}
 	}
 
@@ -289,11 +292,12 @@ types Lists
 		default_format = "#low"
 		align = nobaseline
 		max_width = 370
+		fontsize = 12
+		fontsize_min = 11 # do not remove
 		visible = "[GetScriptedGui('agot_relation_check_free').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
 
 		block "description_relation_text" {
 			text = "DRAGON_RELATION_IS_WANDERING"
-			tooltip = "EXTENDED_RELATIONS_TOOLTIP"
 		}
 	}
 
@@ -303,11 +307,78 @@ types Lists
 		default_format = "#low"
 		align = nobaseline
 		max_width = 370
+		fontsize = 12
+		fontsize_min = 11 # do not remove
 		visible = "[GetScriptedGui('agot_relation_check_wild').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
 
 		block "description_relation_text" {
 			text = "DRAGON_RELATION_IS_WANDERING"
-			tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		}
+	}
+
+	# Dragon Courtier List Relations
+	type agot_dragonrider_courtier_list_relation = text_single
+	{
+		name = "relation_to_dragon_rider"
+		default_format = "#low"
+		align = nobaseline
+		max_width = 370
+		visible = "[GetScriptedGui('agot_relation_check_rider').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+
+		block "description_relation_text" {
+			text = "DRAGON_RELATION_HAS_RIDER"
+		}
+	}
+
+	type agot_bonded_courtier_list_relation = text_single
+	{
+		name = "relation_to_bonded_human"
+		default_format = "#low"
+		align = nobaseline
+		max_width = 370
+		visible = "[GetScriptedGui('agot_relation_check_bonded_human').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+
+		block "description_relation_text" {
+			text = "DRAGON_RELATION_HAS_BONDED"
+		}
+	}
+
+	type agot_host_courtier_list_relation = text_single
+	{
+		name = "relation_to_host"
+		default_format = "#low"
+		align = nobaseline
+		max_width = 370
+		visible = "[GetScriptedGui('agot_relation_check_host').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+
+		block "description_relation_text" {
+			text = "DRAGON_RELATION_IS_PITTED"
+		}
+	}
+
+	type agot_freedom_courtier_list_relation = text_single
+	{
+		name = "relation_to_freedom"
+		default_format = "#low"
+		align = nobaseline
+		max_width = 370
+		visible = "[GetScriptedGui('agot_relation_check_free').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+
+		block "description_relation_text" {
+			text = "DRAGON_RELATION_IS_WANDERING"
+		}
+	}
+
+	type agot_wild_courtier_list_relation = text_single
+	{
+		name = "relation_to_wild"
+		default_format = "#low"
+		align = nobaseline
+		max_width = 370
+		visible = "[GetScriptedGui('agot_relation_check_wild').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+
+		block "description_relation_text" {
+			text = "DRAGON_RELATION_IS_WANDERING"
 		}
 	}
 }

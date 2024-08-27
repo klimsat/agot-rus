@@ -110,8 +110,8 @@ window = {
 						#AGOT Added
 						button_clear = {
 							name = "dragon_edit"
-							visible = "[GetScriptedGui('agot_dragon_skin_color_menu').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('dragon', Character.MakeScope).End)]"
-							onclick = "[GetScriptedGui('agot_dragon_skin_color_menu').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('dragon', Character.MakeScope).End)]"
+							visible = "[GetScriptedGui('agot_dragon_skin_color_menu').IsShown(GuiScope.SetRoot(CharacterInteractionMenuWindow.GetCharacter.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
+							onclick = "[GetScriptedGui('agot_dragon_skin_color_menu').Execute(GuiScope.SetRoot(CharacterInteractionMenuWindow.GetCharacter.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
 							onclick = "[CharacterInteractionMenuWindow.Close]"
 							size = { 25 25 }
 
