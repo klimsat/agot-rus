@@ -410,7 +410,8 @@ types CharacterWindow
 					name = "CAPTURE_WILD_DRAGON"
 					datacontext = "[GetScriptedGui('capture_wild_dragon')]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
-					tooltip = "CAPTURE_WILD_DRAGON_TT"
+					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
+					tooltip = "[ScriptedGui.BuildTooltip( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
 					position = { 5 5 }
 					size = { 35 35 }
 

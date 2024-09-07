@@ -2083,7 +2083,9 @@ types PortraitTypes
 
 		icon = {
 			block "dread_logic" {
-				visible = "[Character.ShouldShowDreadEffectIcon]"
+				#AGOT Modified
+				# visible = "[Character.ShouldShowDreadEffectIcon]"
+				visible = "[And( Not( Character.HasTrait( GetTrait('dragon') ) ), Character.ShouldShowDreadEffectIcon )]"
 				frame = "[Character.GetPlayerDreadEffectIconFrame]"
 				tooltip = "[Character.GetPlayerDreadEffectTooltip]"
 			}
@@ -2133,7 +2135,9 @@ types PortraitTypes
 
 		icon = {
 			name = "dread"
-			visible = "[Character.ShouldShowDreadEffectIcon]"
+			#AGOT Modified
+			# visible = "[Character.ShouldShowDreadEffectIcon]"
+			visible = "[And( Not( Character.HasTrait( GetTrait('dragon') ) ), Character.ShouldShowDreadEffectIcon )]"
 			size = { 16 16 }
 			texture = "gfx/interface/icons/portraits/dread_values.dds"
 			framesize = { 40 40 }

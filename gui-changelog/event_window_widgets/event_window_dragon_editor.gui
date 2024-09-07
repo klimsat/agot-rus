@@ -2137,6 +2137,210 @@ widget = {
 								}
 							}					
 						}
+						# dragon_main_horn_shape_value
+						hbox = {
+							spacing = 5
+							layoutpolicy_horizontal = expanding
+							tooltip = dragon_horn_template_shape_value_de_gui_tt
+
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_main_horn_shape_value_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
+
+							text_single = {
+								autoresize = yes
+								block "text" {
+									text = dragon_horn_template_shape_value_de_gui
+								}
+							}
+
+							expand = { }
+
+
+							button_replace = {
+								button_ignore = none
+								block "reset" {
+									onclick = "[GetScriptedGui('agot_main_horn_shape_value_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_main_horn_shape_value_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								tooltip = reset_de_gui_tt
+							}
+
+							button_round = {
+								block "tooltip" {
+									tooltip = decr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "minus" {
+									enabled = "[GetScriptedGui('agot_main_horn_shape_value_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_main_horn_shape_value_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_minus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+							button_round = {
+								block "tooltip" {
+									tooltip = incr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "plus" {
+									enabled = "[GetScriptedGui('agot_main_horn_shape_value_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_main_horn_shape_value_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_plus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}					
+						}
+						# dragon_main_horn_shape_shape
+						hbox = {
+							spacing = 5
+							layoutpolicy_horizontal = expanding
+							tooltip = dragon_horn_template_shape_template_de_gui_tt
+
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_main_horn_shape_template_svalue')|0]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
+
+							text_single = {
+								autoresize = yes
+								block "text" {
+									text = dragon_horn_template_shape_template_de_gui
+								}
+							}
+
+							expand = { }
+
+
+							button_replace = {
+								button_ignore = none
+								block "reset" {
+									onclick = "[GetScriptedGui('agot_main_horn_shape_template_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_main_horn_shape_template_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								tooltip = reset_de_gui_tt
+							}
+
+							button_round = {
+								block "tooltip" {
+									tooltip = decr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "minus" {
+									enabled = "[GetScriptedGui('agot_main_horn_shape_template_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_main_horn_shape_template_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_minus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+							button_round = {
+								block "tooltip" {
+									tooltip = incr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "plus" {
+									enabled = "[GetScriptedGui('agot_main_horn_shape_template_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_main_horn_shape_template_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_plus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}					
+						}
+						# dragon_snout_profile
+						hbox = {
+							spacing = 5
+							layoutpolicy_horizontal = expanding
+							tooltip = dragon_snoute_profile_de_gui_tt
+
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_profile_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
+
+							text_single = {
+								autoresize = yes
+								block "text" {
+									text = dragon_snout_profile_de_gui
+								}
+							}
+
+							expand = { }
+
+
+							button_replace = {
+								button_ignore = none
+								block "reset" {
+									onclick = "[GetScriptedGui('agot_dragon_snout_profile_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_snout_profile_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								tooltip = reset_de_gui_tt
+							}
+
+							button_round = {
+								block "tooltip" {
+									tooltip = decr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "minus" {
+									enabled = "[GetScriptedGui('agot_dragon_snout_profile_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_snout_profile_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_minus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+							button_round = {
+								block "tooltip" {
+									tooltip = incr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "plus" {
+									enabled = "[GetScriptedGui('agot_dragon_snout_profile_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_snout_profile_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_plus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}					
+						}
 						spacer = { size = { 0 20 } }
 					}
 				}
