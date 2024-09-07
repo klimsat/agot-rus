@@ -147,6 +147,8 @@
  agot_dragon_hatching.0009.opt.c_tt_2:0 "@warning_icon! #X Все присутствующие получат ранения#!"
  agot_dragon_hatching.0009.opt.d:0 "[prisoner_blood_sacrifice.GetFirstName] не сможет возразить..."
  agot_dragon_hatching.0009.opt.d_tt:0 "#bold;V Кровь персонажа [prisoner_blood_sacrifice.GetShortUINameNoTooltip]#! станет источником силы для выведения"
+ agot_dragon_hatching.0009.opt.e:0 "Если подумать, есть и другой способ."
+ agot_dragon_hatching.0009.opt.e_tt:0 "Вы вернетесь на экран параметров крови."
 
  agot_dragon_hatching.0010.t:0 "$agot_dragon_hatching.0009.t$"
  agot_dragon_hatching.0010.desc:0 "Хорошо известно, что валирийцы использовали магию крови, чтобы выводить своих драконов. Собравшиеся в зале ученые люди спорят, насколько сильно, в то время как более мистичные из нас уверены, что подобная жертва, скорее всего, приведёт к успеху.\n\nЯ [Select_CString(ROOT.Char.IsFemale, 'ожидала', 'ожидал' )], что [host.GetTitledFirstName] пустит кровь какому-нибудь животному или пленнику, но вместе этого [host.GetSheHe] [Select_CString(host.IsFemale, 'попросила', 'попросил' )] каждого из нас пожертвовать частичкой своей крови для церемонии!"
@@ -174,6 +176,8 @@
  agot_dragon_hatching.0011.opt.d_tt_unwilling_may_escape:0 "@warning_icon! #warning Возможно, им удастся сбежать#!"
  agot_dragon_hatching.0011.opt.e:0 "#N;bold Наша груда трупов станет пеплом, из которого возродится дракон!#!"
  agot_dragon_hatching.0011.opt.e_tt: "#warning Жизни всех присутствующих станут источником силы для выведения#!"
+ agot_dragon_hatching.0011.opt.f:0 "Если подумать, есть и другой способ."
+ agot_dragon_hatching.0011.opt.f_tt:0 "Вы вернетесь на экран параметров крови."
 
  agot_dragon_hatching.0012.t:0 "$agot_dragon_hatching.0011.t$"
  agot_dragon_hatching.0012.desc_knowledge:0 "Выбор узника - это тот вопрос, который я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] тщательно обдумать, поскольку многие из присутствующих уже испытывают беспокойство при мысли о том, что ради выведения дракона стоит отнимать жизнь. За тем, кого я выберу, будут наблюдать все, и я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] позаботиться о том, чтобы сделать мудрый выбор."
@@ -370,6 +374,7 @@
  agot_dragon_hatching.0018.opt.a_tt: "#bold;V The selected attendee's life#! will be the source of power for this hatching"
  agot_dragon_hatching.0018.opt.b:0 "On second thought, there are other options."
  agot_dragon_hatching.0018.opt.b_tt:0 "You will go back and choose another sacrifice"
+ agot_dragon_hatchling.0018.toast.sacrifice_dead:0 "Sacrifice Is Dead"
  agot_dragon_hatching.0019.t:0 "The Sacrifice, Me?"
  agot_dragon_hatching.0019.desc:0 "Nobody expected a dragon hatching to be without sacrifice, but as I see [host.GetTitledFirstNamePossessive] guards approach, I realize that I have been chosen!\n\nI have but a moment before I am taken — what shall I do?!"
  agot_dragon_hatching.0019.opt.escape.title:0 "Escape!"
@@ -451,6 +456,17 @@
  agot_dragon_hatching_dragonlore.0006.desc:0 "Трава уже давно отросла после того, как Эйгон и его сестры-жены выжгли ее во времена Завоевания. Тем не менее, на равнинах все еще витает дух смерти. \n\nТысячи людей погибли здесь, сожженные драконьим пламенем. Дом Гарденеров угас на этих полях, а Ланнистеры вскоре преклонили колено. \n\nТа битва была единственным случаем, когда все три завоевателя одновременно участвовали в битве, все три дракона сражались как один. Битва стала истинным отражением могущества драконов, управляемых тремя наездниками, выходцами с острова, которые стали самыми могущественными людьми в Семи королевствах, если не во всем мире."
  agot_dragon_hatching_dragonlore.0006.opt:0 "Сложно представить, что значит обладать хоть частичкой этой мощи!"
 
+ agot_dragon_hatching_dragonlore.0007.t:0 "Знания о драконах: Алое озеро"
+ agot_dragon_hatching_dragonlore.0007.desc:0 "Путешествуя по берегам Алого озера, я [Select_CString(ROOT.Char.IsFemale, 'воспользовалась', 'воспользовался' )] возможностью посетить каменистый остров в самом сердце бескрайних синих просторов. Хотя сейчас здесь царит спокойствие, когда-то здесь [Select_CString(EqualTo_string('он', silverwing.Custom('GetDragonSheHe')), 'обитал грозный', 'обитала грозная')] [silverwing.GetName].\n\nНесмотря на то, что зверь с серебряной чешуей привык к людям, [Select_CString(EqualTo_string('он', silverwing.Custom('GetDragonSheHe')), 'он одичал и устроил', 'она одичала и устроила')] своё логово на крошечном острове, когда умер [Select_CString(EqualTo_string('он', silverwing.Custom('GetDragonSheHe')), 'его', 'её')] последний наездник, [ulf.GetFullName].\n\nТанец драконов был одним из самых кровавых и бурных конфликтов в истории Семи королевств. С тех пор как валирийцы впервые приручили драконов среди огромных вулканических гор, известных как Четырнадцать Огней, эти величественные создания долгое время использовались в качестве ужасного орудия войны, и Танец - лишь одно из таких мрачных повествований среди многих."
+ agot_dragon_hatching_dragonlore.0007.a:0 "В самом деле, пламя и кровь."
+
+ agot_dragon_hatching_dragonlore.0008.t:0 "Знания о драконах: Логово"
+ agot_dragon_hatching_dragonlore.0008.desc_intro:0 "Как только я готовлюсь покинуть остров, мое внимание привлекает мерцание, похожее на зеркало.\n\n"
+ agot_dragon_hatching_dragonlore.0008.desc_clutch:0 "Я различаю три крупных и довольно необычных драгоценных камня, каждый из которых переливается разными цветами. Сначала я не могу поверить своим глазам, но когда я сажусь на корточки рядом с ними, на них видны крошечные чешуйки!\n\nПередо мной лежит целая кладка драконьих яиц!"
+ agot_dragon_hatching_dragonlore.0008.desc_pair:0 "Я осторожно приближаюсь и вижу два странных камня, покрытых коркой грязи. Когда я счищаю грязь, мое сердце учащенно бьется — под моими пальцами почва уступает место мерцающей чешуе, я держу в руках не обычный камень, а драконье яйцо!\n\nКак долго они прятались здесь?"
+ agot_dragon_hatching_dragonlore.0008.desc_single:0 "Я подхожу ближе и поднимаю тяжелый грязный камень, и когда я счищаю грязь, мое сердце начинает бешено колотиться, а пальцы начинают дрожать — я быстро понимаю, что держу в руках не просто камень, а драконье яйцо!\n\nКак долго оно оставалось здесь спрятанным?"
+ agot_dragon_hatching_dragonlore.0008.a:0 "Невероятно!"
+
  agot_dragon_hatching_dragonlore_increase:0 "Ваши познания о драконах увеличиваются"
 
  agot_dragon_egg_lay.female_revealed: "\n\nOf course, having laid a clutch, we now know that [dragon_parent.GetNameNoTooltip] is in fact a female dragon."
@@ -524,6 +540,20 @@
  agot_dragon_egg_cradling_birth.0004.t:0 "The Gender Is Obvious!"
  agot_dragon_egg_cradling_birth.0004.desc:0 "[dragon_gender|EU] is an intrinsically mysterious concept, but the mystery seems to have been avoided this time!\n\nI am told by [revealing.GetFullName] that [revealing.GetSheHe] is certain that [dragon.GetName] is a [dragon.Custom('DragonFemaleMale')] dragon based on the behavior [dragon.Custom('GetDragonSheHe')] has shown during [dragon.Custom('GetDragonHerHis')] first week of life."
  agot_dragon_egg_cradling_birth.0004.a:0 "Who's a good [dragon.Custom('DragonGirlBoy')]?"
+
+ agot_dragon_egg_cradling_birth.0010.t:0 "[dragon.GetNameNoTooltip], the Dragon"
+ agot_dragon_egg_cradling_birth.0010.desc.intro:0 "The egg [child.GetName] has been cradling has finally hatched! [child.GetNameNoTooltip] and [child.GetHerHis] [dragon.Custom('GetDragonColorFull')] dragon have been inseperable, and it is all [child.GetSheHe] talks about."
+ agot_dragon_egg_cradling_birth.0010.desc.child:0 "Today [child.GetNameNoTooltip], my [child.Custom2('RelationToMeShort', ROOT.Char)], made the most surprising declaration. While discussing the dragon with the child, [child.GetSheHe] boldly interjected "#italic the naaame#! is [dragon.GetName]!" "
+ agot_dragon_egg_cradling_birth.0010.desc.courtier:0 "Today [child.GetNameNoTooltip], my courtier, made the most surprising declaration. While discussing the dragon with the child, [child.GetSheHe] boldly interjected "#italic the naaame#! is [dragon.GetName]!" "
+ agot_dragon_egg_cradling_birth.0010.a:0 "[dragon.GetNameNoTooltip], what a fitting name."
+ agot_dragon_egg_cradling_birth.0010.b:0 "Wouldn't [dragon_baby_reference.GetNameNoTooltip] be more suitable?"
+ agot_dragon_egg_cradling_birth.0010.b.tt:0 "The dragon's name will become [dragon_baby_reference.GetNameNoTooltip]."
+ agot_dragon_egg_cradling_birth.0010.c:0 "This is not an appropriate name for a dragon, try instead..."
+ agot_dragon_egg_cradling_birth.0010.c.tt:0 "You will pick a new name for the dragon."
+
+ agot_dragon_egg_cradling_birth.0011.t:0 "$birth.9004.t$"
+ agot_dragon_egg_cradling_birth.0011.desc:0 "The dragon's name was nonsense, [child.GetName] will thank me when [child.GetSheHe] is old enough to understand."
+ agot_dragon_egg_cradling_birth.0011.a:0 "Much better."
 
  agot_dragon_egg_lay.0001.t:0 "[dragon_parent.GetNameNoTooltip] Lays an Egg!"
  agot_dragon_egg_lay.0001.desc:0 "[dragon_parent.GetName] has laid #bold an egg#!! My dragonkeepers were quick to hurry the egg to incubation as soon as [dragon_parent.GetNameNoTooltip] was ready to part with it. With so few dragon eggs left, and even fewer living dragons still, [dragon_parent.GetNamePossessiveNoTooltip] new gift is of incalculable value.\n\nEven a single egg could make me fabulously rich if I find the right buyer... Although it may be best to keep it to secure my family's future?\n\nPerhaps House [ROOT.Char.GetHouse.GetName] will have another dragon one day soon?"
