@@ -403,7 +403,7 @@ template agot_war_portrait_dragon_army_comp # Individual Participant Portrait Ar
 				size = { 0 4 }
 			}
 			cooltip_paragraph = {
-				raw_text = "Dragons:"
+				text = "dragons_military_war_participant_text"
 				visible = "[GetScriptedGui('agot_visible_dragons_military_war_participant').IsShown( GuiScope.SetRoot( WarParticipantItem.GetCharacter.MakeScope ).End )]"
 				default_format = "#bold"
 				fontsize = 18
@@ -432,7 +432,7 @@ template agot_war_allies_dragon_army_comp # Total Troop Count with Strength for 
 				size = { 0 4 }
 			}
 			cooltip_paragraph = {
-				raw_text = "Total Dragons:"
+				text = "dragons_military_war_overview_text"
 				visible = "[GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End)]"
 				default_format = "#bold"
 				fontsize = 18
@@ -465,7 +465,7 @@ template agot_war_combined_dragon_army_comp # Combined Total Troop Count with St
 				size = { 0 4 }
 			}
 			cooltip_paragraph = {
-				raw_text = "Total Dragons:"
+				text = "dragons_military_war_overview_text"
 				visible = "[GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End)]"
 				default_format = "#bold"
 				fontsize = 18
@@ -504,7 +504,7 @@ template agot_war_comparison_dragon_army_comp # Overall Versus Comparison Armies
 				size = { 0 4 }
 			}
 			cooltip_paragraph = {
-				raw_text = "Attackers' Dragons:"
+				text = "dragons_versus_war_overview_attacker_text"
 				visible = "[Or(GetScriptedGui('agot_dragons_versus_war_overview_attacker').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).End), GetScriptedGui('agot_dragons_versus_war_overview_defender').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).End))]"
 				default_format = "#bold"
 				fontsize = 18
@@ -519,7 +519,7 @@ template agot_war_comparison_dragon_army_comp # Overall Versus Comparison Armies
 				size = { 0 12 }
 			}
 			cooltip_paragraph = {
-				raw_text = "Defenders' Dragons:"
+				text = "dragons_versus_war_overview_defender_text"
 				visible = "[GetScriptedGui('agot_dragons_versus_war_overview_defender').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).End)]"
 				default_format = "#bold"
 				fontsize = 18
