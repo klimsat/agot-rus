@@ -11,7 +11,7 @@
  death_management.1000.a:0 "At least the memories remain."
  death_management.1000.b:0 "I hope you find peace, [dead_character.GetFirstNameNoTooltip]."
  death_management.1000.c:0 "Not one day too soon!"
- death_management.1000.tt:1 "Your spouse, [dead_character.GetTitledFirstName], has [THIS.Char.Custom('DiedHouse_arrest')]."
+ death_management.1000.tt:1 "Your spouse, [dead_character.GetTitledFirstName], has [dead_character.GetDeathReasonHideKiller]."
 
  death_management.1001.t:0 "Outliving a Child"
  death_management.1001.murder:0 "[dead_character.GetTitledFirstName] has been murdered!\n\n"
@@ -30,14 +30,14 @@
  death_management.1004.t:0 "The Void Left Behind"
  death_management.1004.desc:0 "There is a presence in my bed, just as intensely physical as your body used to feel when you wrapped your limbs around me. Yet, this presence is not you, [dead_character.GetFirstName], but all the longing and anguish you left behind. During the days I keep myself occupied, but here, where the memories are so vivid, there is no escape."
  death_management.1004.a:0 "Will the ache ever fade?"
- death_management.1004.a.tt:1 "Your lover, [dead_character.GetTitledFirstName], has [THIS.Char.Custom('DiedHouse_arrest')]."
+ death_management.1004.a.tt:1 "Your lover, [dead_character.GetTitledFirstName], [dead_character.GetDeathReasonHideKiller]."
  death_management.lover.desc:1 "Your lover, [dead_character.GetTitledFirstName], died."
 
  death_management.1005.t:0 "The Memories Remain"
  death_management.1005.desc:0 "Oh, [dead_character.GetFirstName]. If you were still with me, I know you would tell me to be strong. That things will get better. And you would be right, as you always were, but first I must curse and cry. How could I not when you are gone from this world?"
  death_management.1005.desc.ritual_best_friend:0 "[dead_character.GetFirstName] is dead! My best and truest friend cut down, taken by the cold embrace of [ROOT.Char.GetFaith.DeathDeityName] before [dead_character.GetHerHis] time. I weep, I wail, I tear at my hair and clothing, but I know I'll never see [dead_character.GetHerHim] again.\n\nHow... how can I can go on now?\n\n[dead_character.GetFirstNameNoTooltip], dear, sweet [dead_character.GetFirstNameNoTooltip] would want me to, and I have to hope that [dead_character.GetHerHis] memory can sustain me through these dark times, but life seems like a candle without a flame without [dead_character.GetHerHim]."
  death_management.1005.a:0 "You will never be forgotten, old friend."
- death_management.1005.a.tt:3 "Your friend, [dead_character.GetTitledFirstName], has [THIS.Char.Custom('DiedHouse_arrest')]."
+ death_management.1005.a.tt:3 "Your friend, [dead_character.GetTitledFirstName], [dead_character.GetDeathReasonHideKiller]."
  death_management.friend.desc:4 "Your friend, [dead_character.GetTitledFirstName], died."
 
  death_management.1007.t:0 "A Twist of Fate"
@@ -48,24 +48,26 @@
  death_management.1007.ruler:1 "We will never know what kind of ruler [dead_character.GetSheHe] would have become,"
  death_management.1007.end:4 "or if [dead_character.GetHerHis] death is a blessing or a curse on this [ROOT.Char.GetPrimaryTitle.GetTierAsNameNoTooltip]."
  death_management.1007.a:0 "One tale ends, and another begins."
- death_management.1007.a.tt:1 "Your heir, [dead_character.GetTitledFirstName], has [THIS.Char.Custom('DiedHouse_arrest')]."
+ death_management.1007.a.tt:1 "Your heir, [dead_character.GetTitledFirstName], [dead_character.GetDeathReasonHideKiller]."
 
  death_management.1006.t:0 "A Curse Undone"
  death_management.1006.desc:0 "The twist and turns of fate have not always been to my advantage – [ROOT.Char.GetFaith.HighGodName] knows that I was cursed the day I met [dead_character.GetTitledFirstName]. Today, however, that curse has been lifted! Fate has smiled upon me and brought that [dead_character.Custom('InsultAdjective')] [dead_character.Custom('InsultNoun')] to [dead_character.GetHerHis] grave!"
- death_management.1006.a.tt:1 "Your rival, [dead_character.GetTitledFirstName], has [THIS.Char.Custom('DiedHouse_arrest')]."
+ death_management.1006.a.tt:1 "Your [rival|E], [dead_character.GetFullName], [dead_character.GetDeathReasonHideKiller]."
 
- death_management.parent.desc:2 "Your [dead_character.Custom('MotherFather')], [dead_character.GetTitledFirstName], [dead_character.GetDeathReason]."
+ death_management.parent.desc:2 "Your [dead_character.Custom('MotherFather')], [dead_character.GetFullName], [dead_character.GetDeathReason]."
 
- death_management.sibling.desc:2 "Your [dead_character.Custom('SisterBrother')], [dead_character.GetTitledFirstNameNoTooltip], [dead_character.GetDeathReason]."
+ death_management.sibling.desc:2 "Your [dead_character.Custom('SisterBrother')], [dead_character.GetFullName], [dead_character.GetDeathReason]."
 
- death_management.betrothed.desc:2 "Your betrothed, [dead_character.GetFirstNameNoTooltip], [dead_character.GetDeathReason]."
+ death_management.betrothed.desc:2 "Your [betrothed|E], [dead_character.GetFullName], [dead_character.GetDeathReason]."
  #AGOT Modified
  #death_management.liege_councillor.desc:2 "Your [councillor|E], [dead_character.GetFirstNameNoTooltip], [dead_character.GetDeathReason]."
  death_management.liege_councillor.desc:2 "[dead_character.GetTitledFirstNameNicknamedNoTooltip] [dead_character.GetDeathReason]."
 
- death_management.liege.desc:2 "Your vassal, [dead_character.GetFirstNameNoTooltip], [dead_character.GetDeathReason]."
+ death_management.liege_councillor.desc:2 "Your [councillor|E], [dead_character.GetFullName], [dead_character.GetDeathReason]."
 
- death_management.pinned.desc:2 "A person of interest to you, [dead_character.GetFullNameNoTooltip], [dead_character.GetDeathReason]."
+ death_management.liege.desc:2 "Your [vassal|E], [dead_character.GetFullName], [dead_character.GetDeathReason]."
+
+ death_management.pinned.desc:2 "A person of interest to you, [dead_character.GetFullName], [dead_character.GetDeathReason]."
 
  death_management.1008.desc:0 "[dead_character.GetTitledFirstName], the spouse of my [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('spouse_of_dead_character'))] [spouse_of_dead_character.GetFirstName], has passed away. All those carefully crafted plans have been crushed by [ROOT.Char.GetFaith.DeathDeityNamePossessive] fickle impulse, though such complaints might seem petty and insubstantial compared to [dead_character.GetHerHis] family's pain..."
  death_management.1008.a:0 "Rest in peace."
@@ -196,7 +198,7 @@
  death_management.3002.tt:1 "Your [dead_character.Custom('MotherFather')], [dead_character.GetTitledFirstName], has died in your dungeon."
 
  death_management.3006.t:0 "Outliving My Rival"
- death_management.3006.desc:1 "When my gaoler brought the joyous news, I could scarce believe it! My rival, [dead_character.GetTitledFirstName], has finally perished in my dungeon.\n\nTo think that I will live in a world free from that [dead_character.Custom('InsultNoun')], and to think that I was the one who brought it about. I am so happy I could dance!"
+ death_management.3006.desc:1 "When my jailer brought the joyous news, I could scarce believe it! My rival, [dead_character.GetTitledFirstName], has finally perished in my dungeon.\n\nTo think that I will live in a world free from that [dead_character.Custom('InsultNoun')], and to think that I was the one who brought it about. I am so happy I could dance!"
  death_management.3006.a:0 "On [dead_character.GetHerHis] shallow grave!"
  death_management.3006.a.tt:2 "Your [rival|E] [dead_character.GetFirstNameNoTooltip] has died!"
 
@@ -229,6 +231,7 @@
  death_management.4007.start:1 "Today, with the passing of [dead_character.GetTitledFirstName] as a prisoner of [house_arrest_holder.GetTitledFirstName], the future of [ROOT.Char.GetPrimaryTitle.GetNameNoTier] has changed in its course. We will never know what kind of"
  death_management.4007.mytitle:1 "[ROOT.Char.GetTitleTierName]"
  death_management.4007.ruler:0 "ruler"
+ death_management.4007.end_adventurer: "[dead_character.GetSheHe] would have become, or if [dead_character.GetHerHis] death is a blessing or a curse for [dead_character.GetHerHis] followers."
  death_management.4007.end:1 "[dead_character.GetSheHe] would have become, or if [dead_character.GetHerHis] death is a blessing or a curse on this [ROOT.Char.GetPrimaryTitle.GetType.GetName]."
  death_management.4007.end.heir:0 "\n\nMy only hope is that my new heir [new_heir.GetTitledFirstName] is up to the task."
  death_management.4007.a:0 "One tale ends, and another begins."

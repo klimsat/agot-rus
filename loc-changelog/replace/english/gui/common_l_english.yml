@@ -83,7 +83,8 @@
  #click
  RIGHT_CLICK_DISMISS:0 "#I Right-click to dismiss#!"
  REALM_TOOLTIP_HOLDER:0 "[ruler|E]: [TITLE.GetHolder.GetName]\nCurrent [line_of_succession|E]:\n[TITLE.GetLineOfSuccessionDesc]\n"
- COA_REALM_TOOLTIP_CHARACTER:4 "#T [CHARACTER.GetPrimaryTitle.GetNameWithUnderlyingNoTooltip|U]#!\n[CHARACTER.GetGovernment.GetName] [CHARACTER.GetPrimaryTitle.GetRankConcept]-[rank|E] [realm|E]\n[ruler|E]: [CHARACTER.GetUIName|U]\nMilitary Strength: [CHARACTER.GetMilitaryStrengthText|V] [soldiers|E]\nRealm Size: [CHARACTER.RealmSize|V] [counties|E]\n\n#S Succession#!\nSuccession Law: $SUCCESSION_FORM_NAME$\n\n[line_of_succession|E]:\n[CHARACTER.GetPrimaryTitle.GetLineOfSuccessionDesc]"
+ COA_REALM_SIZE_TOOLTIP: "Realm Size: [Character.RealmSize|V] [counties|E]"
+ COA_REALM_TOOLTIP_CHARACTER:4 "#T [CHARACTER.GetPrimaryTitle.GetNameWithUnderlyingNoTooltip|U]#!\n[Character.Custom('GetRealmOrDomicileTooltip')]\n[holder|E]: [CHARACTER.GetUIName|U]\nMilitary Strength: [CHARACTER.GetMilitaryStrengthText|V] [soldiers|E]\n[SelectLocalization( GreaterThan_int32( CHARACTER.RealmSize, '(int32)0' ), 'COA_REALM_SIZE_TOOLTIP', 'CV_UNLANDED')]\n\n#S Succession#!\nSuccession Law: $SUCCESSION_FORM_NAME$\n\n[line_of_succession|E]:\n[CHARACTER.GetPrimaryTitle.GetLineOfSuccessionDesc]"
  CHARACTER_WINDOW_REALM_TOOLTIP:0 "[Character.GetDefaultRealmFlagTooltipNoClickInfo]\n\n[Title.GetClickInfo]"
  COA_REALM_TOOLTIP_CHARACTER_CLICK_INFO:0 "#I [Select_CString(CHARACTER.IsShownInCharacterWindow, 'Click to go to location', 'Click to view')]\nRight-click to interact with [CHARACTER.GetShortUINameNoTooltip]#!"
  COA_REALM_TOOLTIP_PRIMARY_TITLE_CLICK_INFO:0 "#I Click to view the Primary Title [CHARACTER.GetPrimaryTitle.GetNameNoTooltip|V]#!"

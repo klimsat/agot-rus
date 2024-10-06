@@ -414,6 +414,8 @@
  feature_decoration_pattern_bird:0 "a majestic bird"
 
  feature_decoration_material_inlay_HSB_placeholder:0 "#D PLACEHOLDER#!"
+ 
+ feature_icon_decoration_pattern_saint: "[Artifact.GetOwner.Custom('PredeterminedSaintName')]"
 
  ###########
  # Quality and wealth #
@@ -640,7 +642,6 @@
 
  create_artifact_regalia_tooltip:1 "[inspiration_owner.GetShortUIName] produced a regalia set of [SCOPE.Custom('ArtifactQuality')] craftsmanship"
 
-
  # Crowns
  artifact_crown_name:0 "$artifact_name_prefix$ Crown"
  artifact_crown_description:1 "[SCOPE.Custom('ArtifactArticleWealth')] crown of [SCOPE.Custom('ArtifactQuality')] craftsmanship. The crown is forged from [newly_created_artifact.GetFeatureText( 'decoration_material_wire' )] and [newly_created_artifact.GetFeatureText( 'crown_decoration' )]."
@@ -651,6 +652,9 @@
 
  create_artifact_crown_tooltip:1 "[inspiration_owner.GetShortUIName] produced a crown of [SCOPE.Custom('ArtifactQuality')] craftsmanship"
 
+ # Icons
+ artifact_icon_name: "Icon of [newly_created_artifact.GetFeatureText('icon_decoration')]"
+ artifact_icon_description: "[SCOPE.Custom('ArtifactArticleWealth')] icon of [SCOPE.Custom('ArtifactQuality')] craftsmanship depicting [newly_created_artifact.GetFeatureText('icon_decoration')]"
 
  # Brooches
  artifact_brooch:0 "Brooch"
@@ -710,7 +714,7 @@
  leopard_hat_name:0 "Leopard Hat"
  leopard_hat_description:0 "A hat made from the head of a leopard, slain by [inspiration_owner.GetTitledFirstName]."
  #AGOT Modified
- kurgan_ornament_name:0 "Panther Figurine"
+ kurgan_ornament_name:0 "Horse Figurine"
  #AGOT Modified
  kurgan_ornament_description:0 "A stone figurine looted by [inspiration_owner.GetTitledFirstName] from an old burial mound."
  #AGOT Modified
@@ -1039,7 +1043,7 @@
  artifact_zomorrodnegar_name:0 "Shamshir-e Zomorrodnegar"
  artifact_zomorrodnegar_description:0 "This emerald-studded sword is said to be the mythical blade of Solomon, used to kill the demon Fulad-zereh."
  artifact_muhammads_epistles_name:0 "Letter from Muhammad"
- artifact_muhammads_epistles_description:1 "This letter is part of the correspondence between the prophet Mohammad and the rulers of [THIS.Custom('EpistleReciever')|U]."
+ artifact_muhammads_epistles_description:1 "This letter is part of the correspondence between the prophet Mohammad and the rulers of [newly_created_artifact.Custom('EpistleReciever')|U]."
  epistle_syria:0 "Syria"
  epistle_arabia:0 "the Arabian tribes"
  epistle_persia:0 "Persia"
@@ -1308,3 +1312,11 @@ common_replica_sassanian_sword_description: "This poor imitation makes for a moc
 
  medicine_jar: "Medicinal Jar"
  medicine_jar_desc: "This thin-glazed earthenware contains rare and potent herbs, remedial minerals, and various dried animal parts - all used by physicians when treating diseases and balancing humors."
+ whale_fat_candles_name: "Whale-Fat Candles"
+ whale_fat_candles_description: "These candles have been rendered from the blubber of a terrible leviathan. They menace with spikes of whale fat."
+
+ warenne_coin: "Warenne Coin"
+ warenne_coin_description: "This coin bears the blue-and-yellow checkerboard insignia of the Warenne dynasty on the obverse. A dark splatter of blood marks its edge."
+
+ traitors_head: "Traitor's Head"
+ traitors_head_description: "A disembodied head, hacked neatly from its owner. It is more a message than a keepsake."

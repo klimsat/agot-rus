@@ -79,11 +79,11 @@
  epidemic_events.1020.a: "It's worth a try."
  epidemic_events.1020.b: "What a waste of gold."
  epidemic_events.1030.t: "Leeches!"
- epidemic_events.1030.desc: "Some learned members of court tell me that the tactical administration of leeches is a definite and sure treatment for imbalanced humors and corruption. However, as [leeched_courtier.GetFirstName] approaches me with a cold pale grin on [leeched_courtier.GetHerHis] face and a fistful of leeches held out to me, I can't help but wonder if this has all gone too far.\n\n"Leeches! Leeches are the only way to keep [epidemic_scope.GetName] at bay!"\n\nThis comes in direct contradiction with the general medical advice to only use leeches under the guidance of a physician, but in these desperate times, can we really afford to wait?"
- epidemic_events.1030.a: "Distribute leeches to everyone at court!"
+ epidemic_events.1030.desc: "Some learned members of the [ROOT.Char.Custom('GetCourt')] tell me that the administration of leeches is a definite and sure treatment for imbalanced humors and corruption. However, as [leeched_courtier.GetFirstName] approaches with a ghostly grin, fistful of leeches outstretched, I can't help but doubt if this has all gone too far.\n\n"Leeches! Leeches are the only way to keep [epidemic_scope.GetName] at bay!"\n\nIt contradicts the received wisdom to only use leeches under the guidance of a trained physic — but in these desperate times, can we really afford to wait?"
+ epidemic_events.1030.a: "Distribute leeches to everyone!"
  epidemic_events.1030.a.success: "The leeches prove successful"
  epidemic_events.1030.a.failure: "The leeches are harmful"
- epidemic_events.1030.b: "Let's follow the medical advice."
+ epidemic_events.1030.b: "Let's follow the established teachings."
  epidemic_events.1040.t: "Flagellants at Court"
  epidemic_events.1040.desc.intro: "[epidemic_scope.GetName|U] continues to sweep across my realm, devastating everything in its wake. A group of fanatics have come into prominence in the infected regions, claiming that salvation can be achieved through self-flagellation.\n\n"
  epidemic_events.1040.desc.mid.approves: "Worse still, [chaplain.Custom2('MyCharacterIntroduction', ROOT.Char)] approves of these practices and insists that everyone at court should follow in their example. [chaplain.GetSheHe|U] insists that I not only tolerate this behavior, but endorse it."
@@ -253,7 +253,7 @@
 
  every_family_member_of_lover: "Every family member of [dead_lover.GetFirstName]"
  every_infected_county: "Every infected county"
- every_infected_courtier_and_guest: "Every infected courtier and guest"
+ every_infected_courtier_and_guest: "Every infected [THIS.Char.Custom('GetCourtierConcept')] and [guest|E]"
 
  friend_revenants_nailed: "[CHARACTER.GetShortUIName|U] followed [TARGET_CHARACTER.GetShortUINamePossessive] advice and nailed coffins shut to prevent revenants from rising from their graves"
  friend_revenants_nailed_corresponding: "[TARGET_CHARACTER.GetShortUIName|U] followed [CHARACTER.GetShortUINamePossessive] advice and nailed coffins shut to prevent revenants from rising from their graves"
@@ -275,7 +275,7 @@
  third_impact: "Third Impact"
 
  epidemic_events.2001.t: "The Plague of War"
- epidemic_events.2001.desc: "[pleading_vassal.GetName|U] kneels in front of me. [pleading_vassal.GetHerHis|U] desperation fills the room like a miasma. [pleading_vassal.GetHerHis|U] lips tremble deliriously.\n\n"My liege, I plead for your intervention. Two plagues ravage my lands. [epidemic_scope.GetName|U] attacks from within, while [attacking_vassal.Custom('InsultAdjective')] [attacking_vassal.GetName] assaults me in[vassal_war.GetName]. I fear I can persevere with only one enemy. My people can not survive the devastation left by either of them.\n\nI have brought what gold I had as an offering. I place my hopes and the fate of my domain in your hands."
+ epidemic_events.2001.desc: "[pleading_vassal.GetName|U] kneels in front of me. [pleading_vassal.GetHerHis|U] desperation fills the room like a miasma. [pleading_vassal.GetHerHis|U] lips tremble deliriously.\n\n"My liege, I plead for your intervention. Two plagues ravage my lands. [epidemic_scope.GetName|U] attacks from within, while [attacking_vassal.Custom('InsultAdjective')] [attacking_vassal.GetName] assaults me in[vassal_war.GetName]. I fear I can persevere with only one enemy. My people cannot survive the devastation left by either of them.\n\nI have brought what gold I had as an offering. I place my hopes and the fate of my domain in your hands."
  epidemic_events.2001.a: "I will gladly pay to end this foolishness."
  epidemic_events.2001.b: "How dare you bring [epidemic_scope.GetName] to #EMP my#! doorstep!"
  epidemic_events.2001.b.desc: "Guards! #EMP Carefully#! arrest [pleading_vassal.GetFirstNameNoTooltip] then #EMP even more carefully#! wash everything [pleading_vassal.GetSheHe] touched!"
@@ -347,7 +347,7 @@
  ce1_meat_shower_desc_third_perspective: "[flinger.GetName] flung a corpse into [owner.GetNamePossessive] holding, reducing it to a shower of blood and gore"
 
  epidemic_events.5000.t: "Do Something!"
- epidemic_events.5000.desc: "More reports roll in from [infected_county.GetName] as the [epidemic.GetName] continues to rage. [church_person.GetTitledFirstName], having brought me the latest of the missives personally, slams a hand on to my desk.\n\n"The people expect us to be performing some acts to help them!" [church_person.GetSheHe|U] insists, gesturing at the message.\n\n"Now, I've seen this type before. All we need to do is purge some of the filthy animals that have been bedeviling the area. The affliction surely won't last without them!" [church_person.GetFirstNameNoTooltip|U] leans back in satisfaction as I ponder. "It is the will of [ROOT.Char.GetFaith.HighGodName].""
+ epidemic_events.5000.desc: "More reports roll in from the [infected_county.GetName] as the [epidemic.GetName] continues to rage. [church_person.GetTitledFirstName], having brought me the latest of the missives personally, slams a hand on to my desk.\n\n"The people expect us to be performing some acts to help them!" [church_person.GetSheHe|U] insists, gesturing at the message.\n\n"Now, I've seen this type before. All we need to do is purge some of the filthy animals that have been bedeviling the area. The affliction surely won't last without them!" [church_person.GetFirstNameNoTooltip|U] leans back in satisfaction as I ponder. "It is the will of [ROOT.Char.GetFaith.HighGodName].""
  epidemic_events.5000.a: "You know, those rats seem dirty enough..."
  epidemic_events.5000.b: "Cats get #EMP everywhere.#! They must be the culprits."
  epidemic_events.5000.c: "Dogs are constantly covered in filth. Get rid of them!"
@@ -355,9 +355,9 @@
  epidemic_events.5000.e: ""Don't be so ridiculous, [church_person.GetFirstNameNoTooltip].""
 
  epidemic_events.5001.t: "Bar The Doors!"
- epidemic_events.5001.desc: "A hurried slapping of feet gives me scant warning before the door bursts open and [courtier.GetFirstName], wild-eyed, barges into the room.\n\n"My [ROOT.Char.GetLadyLord]!" [courtier.GetSheHe|U] stammers, dumping an entire armful of [ROOT.Char.Custom('GetWritingMaterial')] missives on to my desk. "My [ROOT.Char.GetLadyLord], I have just returned from [province.GetName], and you would not #EMP believe#! the devastation! Death and destruction stalk the land! Thousands lie dead in the street!"\n\nSifting through the equally-hysterical piles of [ROOT.Char.Custom('GetWritingMaterial')], I try and make sense of it all. Last I had heard, the outbreak in [province.GetName] was fairly restricted..."
+ epidemic_events.5001.desc: "A hurried slapping of feet gives me scant warning before the door bursts open and [courtier.GetFirstName], wild-eyed, barges into the room.\n\n"My [ROOT.Char.GetLadyLord]!" [courtier.GetSheHe|U] stammers, dumping an entire armful of [ROOT.Char.Custom('GetWritingMaterial')] missives on to my desk. "My [ROOT.Char.GetLadyLord], I have just returned from [epidemic_county.GetNameNoTier], and you would not #EMP believe#! the devastation! Death and destruction stalk the land! Thousands lie dead in the street!"\n\nSifting through the equally-hysterical piles of [ROOT.Char.Custom('GetWritingMaterial')], I try and make sense of it all. Last I had heard, the outbreak in [epidemic_county.GetNameNoTierNoTooltip] was fairly restricted..."
  epidemic_events.5001.a: ""Shut it down! Shut down #EMP everything!#!""
- epidemic_events.5001.b: "I trust those in charge of [province.GetName]."
+ epidemic_events.5001.b: "I trust those in charge of [epidemic_county.GetName]."
  epidemic_events.5001.c: ""Don't you think I have enough to worry about, [courtier.Custom('InsultNoun')]?!""
  epidemic_events.5001.d: "Best to send some aid whilst the problem is merely nascent."
  epidemic_events.5001.e: "They will have to make do."
@@ -482,7 +482,7 @@
  epidemic_events.5902.d: "Let them through."
 
  epidemic_events.5903.t: "Simple Pleasures, Discarded"
- epidemic_events.5903.desc: ""[ROOT.Char.GetFirstName]! No!" The voice of [family.GetFirstName] rings out over the sound of my horse as it walks along the path. [family.GetSheHe|U] runs up beside me, glaring up reproachfully.\n\n"You've heard what's on the way. All that death and disease..." [family.GetSheHe] wrings [family.GetHerHis] hands unhappily. "You must stay here, safe and sound within the walls. Please."\n\nI can only sigh. If I'd just been a little quicker out of the gate I'd be riding in the countryside now, happily taking in nature." 
+ epidemic_events.5903.desc: ""[ROOT.Char.GetFirstName]! No!" The voice of [family.GetFirstName] rings out over the sound of my horse as it walks along the path. [family.GetSheHe|U] runs up beside me, glaring up reproachfully.\n\n"You've heard what's on the way. All that death and disease..." [family.GetSheHe] wrings [family.GetHerHis] hands unhappily. "You must stay here, safe and sound within the [SelectLocalization( IsLandlessAdventurer( ROOT.Char ), 'camp', 'walls')]. Please."\n\nI can only sigh. If I'd just been a little quicker out of the gate I'd be riding in the countryside now, happily taking in nature." 
  epidemic_events.5903.a: "[family.GetSheHe|U] is probably right."
  epidemic_events.5903.b: ""Bah, I'll be fine!""
 
@@ -530,7 +530,7 @@
  epidemic_events.5908.c: ""Bah! There are plenty more where you came from.""
 
  epidemic_events.5999.t: "The Darkening Horizon"
- epidemic_events.5999.desc: "Missives and messages sprawl across my desk. They are all about one particular subject. The panic seeps from the words, forming in turn a rapidly rising pool of dread in my stomach.\n\nThe sickness starts with chills and fever before necrotic buboes form beneath the unfortunate's armpits. Their breath comes in wretched gasps between explusions of blood, lips and toes turning a livid black. It then kills, indiscriminately; rich and poor, young and old, duke and downtrodden.\n\nThe reports are from far-flung lands for now, but my trembling fingers trace the dates.\n\nIt is getting closer."
+ epidemic_events.5999.desc: "Missives and messages sprawl across my desk. They are all about one particular subject. The panic seeps from the words, forming in turn a rapidly rising pool of dread in my stomach.\n\nThe sickness starts with chills and fever before necrotic buboes form beneath the unfortunate's armpits. Their breath comes in wretched gasps between expulsions of blood, lips and toes turning a livid black. It then kills, indiscriminately; rich and poor, young and old, duke and downtrodden.\n\nThe reports are from far-flung lands for now, but my trembling fingers trace the dates.\n\nIt is getting closer."
  epidemic_events.5999.a: "Hah! Let them die."
  epidemic_events.5999.a.tt: "It is so far away! We may as well rejoice in their misfortune."
  epidemic_events.5999.b: "We need to do something!"
@@ -546,10 +546,9 @@
  epidemic_events.0110.c: "There is nothing I can do."
  every_county_infected_10_years: "Every [county|E] which has been infected in the last 10 years"
 
- epidemic_events.alert_title: "Plague in [infected_county.GetName]"
- epidemic_events.alert_description: "A plague has appeared in [infected_county.GetName]"
-
+ epidemic_events.alert_title: "Plague Outbreak: [infected_county.GetNameNoTierNoTooltip]"
+ epidemic_events.alert_description: "A [epidemic|E] known as [epidemic.GetName] has struck the [infected_county.GetName]"
  msg_epidemic_infection: "[epidemic.GetNameNoTooltip] Spreads"
- msg_epidemic_infection_desc_1: "[epidemic.GetName] has spread in [LEFT_TITLE.GetName]"
- msg_epidemic_infection_desc_2: "[epidemic.GetName] has spread in [LEFT_TITLE.GetName] and [RIGHT_TITLE.GetName]"
- msg_epidemic_infection_desc: "[epidemic.GetName] has spread in [LEFT_TITLE.GetName], [RIGHT_TITLE.GetName], and $message_consolidation_others$"
+ msg_epidemic_infection_desc_1: "A [epidemic|E] known as [epidemic.GetName] has spread to [LEFT_TITLE.GetProvince.GetBaronyNameExplicitly]"
+ msg_epidemic_infection_desc_2: "A [epidemic|E] known as [epidemic.GetName] has spread to [LEFT_TITLE.GetProvince.GetBaronyNameExplicitly] and [RIGHT_TITLE.GetProvince.GetBaronyNameExplicitly]"
+ msg_epidemic_infection_desc: "A [epidemic|E] known as [epidemic.GetName] has spread to [LEFT_TITLE.GetProvince.GetBaronyNameExplicitly], [RIGHT_TITLE.GetProvince.GetBaronyNameExplicitly ], and $message_consolidation_others$"
