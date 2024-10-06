@@ -233,7 +233,9 @@ window = {
 								datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
 								visible = "[And(EventWindowData.HasPortraitCharacter('left_portrait'), EventWindowData.HasPortraitCharacter('right_portrait'))]"
 								parentanchor = bottom|left
-								position = { 20 0 }
+								#AGOT Modified
+								# position = { 20 0 }
+								position = { -30 0 }
 								size = { 930 490 }
 
 								blockoverride "portrait_button"
@@ -248,30 +250,32 @@ window = {
 								blockoverride "highlight_visible"
 								{
 									visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('left_portrait') ))]"
-									position = { -270 0 }
+									#AGOT Modified
+									# position = { -270 0 }
+									position = { -210 0 }
 								}
 
 								blockoverride "grayscale" {}
 
 								#AGOT Disabled
 								# highlight_icon = {
-								# 	name = "prison_bars"
-								# 	visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('left_portrait')))]"
-								# 	visible_at_creation = no
-								# 	parentanchor = bottom|left
-								# 	size = { 285 500 }
+									# name = "prison_bars"
+									# visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('left_portrait')))]"
+									# visible_at_creation = no
+									# parentanchor = bottom|left
+									# size = { 285 500 }
 
-								# 	texture = "gfx/portraits/portrait_prison_body.dds"
-								# 	effectname = "NoHighlight"
-								# 	spriteType = corneredTiled
-								# 	texture_density = 1.5
+									# texture = "gfx/portraits/portrait_prison_body.dds"
+									# effectname = "NoHighlight"
+									# spriteType = corneredTiled
+									# texture_density = 1.5
 
-								# 	modify_texture = {
-								# 		name = "mask"
-								# 		texture =  "gfx/portraits/portrait_mask_event.dds"
-								# 		spriteType = Corneredstretched
-								# 		blend_mode = alphamultiply
-								# 	}
+									# modify_texture = {
+										# name = "mask"
+										# texture =  "gfx/portraits/portrait_mask_event.dds"
+										# spriteType = Corneredstretched
+										# blend_mode = alphamultiply
+									# }
 								# }
 							}
 						}
@@ -288,7 +292,9 @@ window = {
 								datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
 								visible = "[EventWindowData.HasPortraitCharacter('right_portrait')]"
 								parentanchor = bottom|right
-								position = { -20 0 }
+								#AGOT Modified
+								# position = { -20 0 }
+								position = { -50 0 }
 								size = { 930 490 }
 
 								blockoverride "portrait_button"
@@ -303,30 +309,32 @@ window = {
 								blockoverride "highlight_visible"
 								{
 									visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('right_portrait') ))]"
-									position = { 270 }
+									#AGOT Modified
+									# position = { 270 }
+									position = { 210 0 }
 								}
 
 								blockoverride "grayscale" {}
 
 								#AGOT Disabled
 								# highlight_icon = {
-								# 	name = "prison_bars"
-								# 	visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('right_portrait')))]"
-								# 	visible_at_creation = no
-								# 	parentanchor = bottom|right
-								# 	size = { 285 500 }
+									# name = "prison_bars"
+									# visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('right_portrait')))]"
+									# visible_at_creation = no
+									# parentanchor = bottom|right
+									# size = { 285 500 }
 
-								# 	texture = "gfx/portraits/portrait_prison_body.dds"
-								# 	effectname = "NoHighlight"
-								# 	spriteType = corneredTiled
-								# 	texture_density = 1.5
+									# texture = "gfx/portraits/portrait_prison_body.dds"
+									# effectname = "NoHighlight"
+									# spriteType = corneredTiled
+									# texture_density = 1.5
 
-								# 	modify_texture = {
-								# 		name = "mask"
-								# 		texture =  "gfx/portraits/portrait_mask_event.dds"
-								# 		spriteType = Corneredstretched
-								# 		blend_mode = alphamultiply
-								# 	}
+									# modify_texture = {
+										# name = "mask"
+										# texture =  "gfx/portraits/portrait_mask_event.dds"
+										# spriteType = Corneredstretched
+										# blend_mode = alphamultiply
+									# }
 								# }
 							}
 						}
@@ -354,22 +362,23 @@ window = {
 									datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
 									visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
 
-									background = {
-										margin = { 5 5 }
-										texture = "gfx/interface/window_event/event_character_status_icons_bg.dds"
-										spriteType = Corneredtiled
-										spriteborder = { 20 20 }
-										shaderfile = "gfx/FX/pdxgui_default.shader"
-										alpha = 0.5
+									#AGOT Disabled
+									# background = {
+										# margin = { 5 5 }
+										# texture = "gfx/interface/window_event/event_character_status_icons_bg.dds"
+										# spriteType = Corneredtiled
+										# spriteborder = { 20 20 }
+										# shaderfile = "gfx/FX/pdxgui_default.shader"
+										# alpha = 0.5
 
-										modify_texture = {
-											texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
-											spriteType = Corneredstretched
-											spriteborder = { 0 0 }
-											blend_mode = overlay
-											alpha = 0.5
-										}
-									}
+										# modify_texture = {
+											# texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
+											# spriteType = Corneredstretched
+											# spriteborder = { 0 0 }
+											# blend_mode = overlay
+											# alpha = 0.5
+										# }
+									# }
 								}
 
 								spacer = {
@@ -451,22 +460,23 @@ window = {
 									visible = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
 									parentanchor = right
 
-									background = {
-										texture = "gfx/interface/window_event/event_character_status_icons_bg.dds"
-										spriteType = Corneredtiled
-										spriteborder = { 20 20 }
-										shaderfile = "gfx/FX/pdxgui_default.shader"
-										alpha = 0.5
-										margin = { 5 5 }
+									#AGOT Disabled
+									# background = {
+										# texture = "gfx/interface/window_event/event_character_status_icons_bg.dds"
+										# spriteType = Corneredtiled
+										# spriteborder = { 20 20 }
+										# shaderfile = "gfx/FX/pdxgui_default.shader"
+										# alpha = 0.5
+										# margin = { 5 5 }
 
-										modify_texture = {
-											texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
-											spriteType = Corneredstretched
-											spriteborder = { 0 0 }
-											blend_mode = overlay
-											alpha = 0.5
-										}
-									}
+										# modify_texture = {
+											# texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
+											# spriteType = Corneredstretched
+											# spriteborder = { 0 0 }
+											# blend_mode = overlay
+											# alpha = 0.5
+										# }
+									# }
 								}
 							}
 						}

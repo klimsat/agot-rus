@@ -4,7 +4,6 @@
 	parentanchor = center
 	widgetanchor = center
 	size = { 1220 585 }
-
 	layer = events
 	alpha = 1
 
@@ -44,6 +43,8 @@
 		on_start = "[GetVariableSystem.Set( 'event_window_mouse_leave', 'true' )]"
 	}
 
+	event_window_dimmer_widget = {}
+
 	widget = {
 		visible = "[Not(GameHasMultiplePlayers)]"
 		size = { 100% 100% }
@@ -82,9 +83,45 @@
 	}
 
 	dragon_event_window_background_widget = {
-		margin = { 30 20 }
+		margin = { 40 20 }
 
-		blockoverride "event_picture_properties" {}
+		state = {
+			name = _show
+			using = Animation_FadeIn_Standard
+			duration = 0.7
+		}
+
+		state = {
+			#TODO[WL]: TIT-53953 Add a trigger
+			name = background_shake_loop
+			next = background_shake_loop_1
+			duration = 0.0
+			alpha = 1.0
+		}
+
+		state = {
+			name = background_shake_loop_1
+			next = background_shake_loop_2
+			position = { -6 0 }
+			duration = 0.2
+		}
+
+		state = {
+			name = background_shake_loop_2
+			next = background_shake_loop_3
+			position = { 5 0 }
+			duration = 0.12
+		}
+
+		state = {
+			name = background_shake_loop_3
+			next = background_shake_loop_1
+			position = { 7 1 }
+			duration = 0.12
+		}
+
+		blockoverride "event_picture_properties"
+		{}
 	}
 
 	vbox = { # Event shaders (behind character portraits)
@@ -93,13 +130,20 @@
 		layoutpolicy_horizontal = expanding
 	}
 
+	#Background VFX
+	margin_widget = {
+		name = "background_shader_vfx_container"
+		position = { 40 20 }
+		size = { 100% 100% }
+		margin = { 40 20 }
+	}
+
 	###CHARACTERS
 	widget = {
-		name = "characters"
 		layoutstretchfactor_horizontal = 55
 		parentanchor = bottom|hcenter
-		size = { 100% 100% }
 		position = { -30 -15 }
+		size = { 100% 100% }
 		scissor = yes
 
 		state = {
@@ -109,6 +153,35 @@
 			using = Animation_Curve_Default
 			alpha = 1
 			duration = 0.5
+		}
+
+		state = {
+			# TODO[WL]: TIT-53953 Add a trigger
+			name = character_shake_loop
+			next = character_shake_loop_1
+			duration = 0.0
+			alpha = 1.0
+		}
+
+		state = {
+			name = character_shake_loop_1
+			next = character_shake_loop_2
+			position = { -35 -15 }
+			duration = 0.2
+		}
+
+		state = {
+			name = character_shake_loop_2
+			next = character_shake_loop_3
+			position = { -27 -15 }
+			duration = 0.12
+		}
+
+		state = {
+			name = character_shake_loop_3
+			next = character_shake_loop_1
+			position = { -25 -17 }
+			duration = 0.12
 		}
 
 		### RIGHT CHARACTER ###
@@ -183,6 +256,8 @@
 
 					tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
 					tooltip_offset = { -210 0 }
+					using = tooltip_es
+					tooltip_widgetanchor = center
 				}
 
 				blockoverride "highlight_visible"
@@ -291,8 +366,9 @@
 					alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
 
 					tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
-					using = tooltip_below
 					tooltip_widgetanchor = center
+					tooltip_offset = { 50 600 }
+					using = tooltip_ws
 				}
 
 				blockoverride "highlight_visible"
@@ -426,18 +502,12 @@
 		margin = { 30 17 }
 	}
 
-	# Window Edge Fade
-	icon = {
-		texture = "gfx/interface/colors/black.dds"
-		parentanchor = right|vcenter
-		position = { -22 0 }
-		size = {1% 96%}
-		using = Mask_Rough_Edges
-
-		modify_texture = {
-			texture = "gfx/interface/component_masks/mask_fade_horizontal.dds"
-			blend_mode = alphaMultiply
-		}
+	#Foreground VFX
+	margin_widget = {
+		name = "foreground_shader_vfx_container"
+		position = { 40 20 }
+		size = { 100% 100% }
+		margin = { 40 20 }
 	}
 
 	vbox = {
@@ -536,7 +606,6 @@
 								}
 							}
 
-
 							vbox = {
 								name = "custom_widgets_container"
 								layoutpolicy_horizontal = expanding
@@ -598,7 +667,13 @@
 
 												### Location Name
 												text_single = {
+													text = "[Province.GetNameNoTooltip]"
+													visible = "[Or( ObjectsEqual( Province.GetTerrain.GetName,  GetTerrain( 'coastal_sea' ).GetName ), ObjectsEqual( Province.GetTerrain.GetName, GetTerrain( 'sea' ).GetName ) ) ]"
+													align = left|nobaseline
+												}
+												text_single = {
 													text = "[Province.GetName]"
+													visible = "[Not( Or( ObjectsEqual( Province.GetTerrain.GetName,  GetTerrain( 'coastal_sea' ).GetName ), ObjectsEqual( Province.GetTerrain.GetName, GetTerrain( 'sea' ).GetName ) ) ) ]"
 													align = left|nobaseline
 												}
 
@@ -666,15 +741,21 @@
 								}
 							}
 
-							fixedgridbox = {
-								name = "option_grid"
-								addcolumn = 500
-								addrow = 42
-								datamodel = "[EventWindowData.GetOptions]"
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								margin_left = 10
 
-								item = {
-									dragon_button_eventoption = {}
+								fixedgridbox = {
+									name = "option_grid"
+									addcolumn = 500
+									addrow = 42
+									datamodel = "[EventWindowData.GetOptions]"
+
+									item = {
+										dragon_button_eventoption = {}
+									}
 								}
+								expand = {}
 							}
 						}
 					}
@@ -941,22 +1022,15 @@
 
 			icon = {
 				name = "theme_header"
-				position = { 24 6 }
-				size = { 1050 76 }
-				texture = "gfx/interface/window_event/header_neutral.dds"
+				position = { 24 20 }
+				size = { 1072 57 }
+				texture = "[EventWindowData.GetThemeHeader]"
 
 				modify_texture = {
 					name = overlay
 					texture = "gfx/interface/component_effects/effect_header_blue_shine.dds"
 					blend_mode = colordodge
 					translate_uv = { 0.6 0 }
-				}
-
-				modify_texture = {
-					name = mask
-					texture = "gfx/interface/component_masks/mask_fade_horizontal_right.dds"
-					blend_mode = alphamultiply
-					translate_uv = { 0.2 0 }
 				}
 
 				state = {

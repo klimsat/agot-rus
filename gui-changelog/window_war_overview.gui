@@ -2849,6 +2849,11 @@ types WarOverView
 				text = "WAR_OVERVIEW_HOSTAGES_DISALLOWED"
 				default_format = "#weak"
 			}
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				text = "WAR_OVERVIEW_HOSTAGES_DISALLOWED_LANDLESS_ADVENTURER"
+				default_format = "#weak"
+			}
 		}
 
 		vbox = {
@@ -2856,10 +2861,20 @@ types WarOverView
 			margin_top = 5
 			visible = "[WarOverviewWindow.DoesAllowHostages]"
 
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				visible = "[And( WarOverviewWindow.DoesAllowHostages, WarOverviewWindow.GetPlayer.GetGovernment.IsType( 'landless_adventurer_government' ))]"
+				margin = { 24 5 }
+				margin_top = 0
+				text = "WAR_OVERVIEW_HOSTAGES_DISALLOWED_LANDLESS_ADVENTURER"
+				default_format = "#weak"
+			}
+
 			hbox = {
 				name = "hostage_exchange"
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
+				visible = "[And( WarOverviewWindow.DoesAllowHostages, Not( WarOverviewWindow.GetPlayer.GetGovernment.IsType( 'landless_adventurer_government' )))]"
 
 				### HOSTAGE PORTRAIT LEFT ###
 				vbox = {

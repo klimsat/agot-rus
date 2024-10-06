@@ -1,0 +1,363 @@
+#############################################################
+################# AGOT DECLARE WAR WINDOW ###################
+#############################################################
+
+types DeclareWarTypes
+{
+	type agot_rv_comparison_text = text_multi
+	{
+		name = "rv_comparison_text"
+		margin_top = 16
+		datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
+		visible = "[Or(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel),EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel))]"
+		text = "[Localize('rv_liege_warning')]"
+		default_format = "#warning"
+		autoresize = yes
+		max_width = 210
+		align = center
+	}
+
+	type agot_rv_rescue_war_items_vbox = vbox
+	{
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
+		visible = "[EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel)]"
+		scrollbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			datacontext = "[DeclareWarInteractionWindow.GetDefenderCharacter]"
+			datacontext = "[CharacterItem.GetCharacter]"
+
+			blockoverride "scrollbox_margins"
+			{
+				margin = { 10 10 }
+			}
+
+			blockoverride "scrollbox_content"
+			{
+				vbox = {
+					name = "rv_prisoner_items"
+					datamodel = "[Character.GetPrisoners]"
+					spacing = 5
+					layoutpolicy_horizontal = expanding
+					state = {
+						name = "declare_war_goal_refresh"
+						using = Animation_Refresh_FadeOut
+					}
+
+					state = {
+						using = Animation_Refresh_FadeIn
+					}
+
+					item = {
+						button_standard = {
+							layoutpolicy_horizontal = expanding
+							size = { 550 45 }
+							visible =  "[GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
+							onclick = "[GetScriptedGui('rv_toggle_prisoner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
+							down =	"[GetScriptedGui('rv_rescue_trigger').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
+
+							hbox = {
+								name = "rv_prisoner_item"
+								margin = { 5 0 }
+								spacing = 5
+								alwaystransparent = yes
+								using = tooltip_es
+
+								using = rv_Relation_Icons_cb
+
+								text_single = {
+									name = "name"
+									layoutpolicy_horizontal = expanding
+									text = "[Character.GetUIName]"
+									align = left|nobaseline
+									autoresize = yes
+									alwaystransparent = yes
+								}
+
+								warning_icon = {
+									visible =  "[GetScriptedGui('rv_criminal_warning_icon_visible').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
+									size = { 25 25 }
+									alwaystransparent = yes
+									tooltip = "RV_IS_CRIMINAL"
+								}
+							}
+						}
+					}
+				}
+				vbox = {
+					name = "rv_concubine_items"
+					datamodel = "[GetPlayer.MakeScope.GetList('rv_defender_concubines')]"
+					spacing = 5
+					layoutpolicy_horizontal = expanding
+					state = {
+						name = "declare_war_goal_refresh"
+						using = Animation_Refresh_FadeOut
+					}
+
+					state = {
+						using = Animation_Refresh_FadeIn
+					}
+
+					item = {
+						button_standard = {
+							layoutpolicy_horizontal = expanding
+							size = { 550 45 }
+							datacontext = "[Scope.GetCharacter]"
+							visible =  "[GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
+							onclick = "[GetScriptedGui('rv_toggle_prisoner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
+							down =	"[GetScriptedGui('rv_rescue_trigger').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
+
+							hbox = {
+								name = "rv_concubine_item"
+								margin = { 5 0 }
+								spacing = 5
+								alwaystransparent = yes
+								using = tooltip_es
+
+								using = rv_Relation_Icons_cb
+
+								text_single = {
+									name = "name"
+									layoutpolicy_horizontal = expanding
+									text = "[Character.GetUIName]"
+									align = left|nobaseline
+									autoresize = yes
+									alwaystransparent = yes
+								}
+
+								warning_icon = {
+									visible =  "[GetScriptedGui('rv_criminal_warning_icon_visible').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
+									size = { 25 25 }
+									alwaystransparent = yes
+									tooltip = "RV_IS_CRIMINAL"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	type agot_rv_revenge_war_items_vbox = vbox
+	{
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
+		visible = "[EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel)]"
+
+		scrollbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			datacontext = "[DeclareWarInteractionWindow.GetAttackerCharacter]"
+			datacontext = "[CharacterItem.GetCharacter]"
+
+			blockoverride "scrollbox_replace_vbox" {
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					rv_vbox_character_grid = {
+						name = "revenge_target"
+						margin_top = 10
+						spacing = 6
+
+						blockoverride "portrait_datamodel" {
+							datamodel = "[Character.MakeScope.GetList('rv_to_be_revenged')]"
+						}
+
+						blockoverride "portrait_datacontext" {
+							datacontext = "[Scope.GetCharacter]"
+						}
+
+						blockoverride "header_text"
+						{
+							text = "REVENGE_LABEL"
+						}
+
+						blockoverride "gridbox_slots" {}
+					}
+					rv_vbox_character_grid = {
+						name = "revenge_target_lover"
+						spacing = 6
+						visible = no
+
+						blockoverride "portrait_datamodel" {
+							datamodel = "[Character.MakeScope.GetList('rv_revenging_dead_lovers')]"
+						}
+
+						blockoverride "portrait_datacontext" {
+							datacontext = "[Scope.GetCharacter]"
+						}
+
+						blockoverride "header_text"
+						{
+							raw_text = "Lover"
+						}
+
+						blockoverride "gridbox_slots" {}
+					}
+				}
+			}
+		}
+	}
+
+	type agot_rv_rescue_item_box = hbox
+	{
+		datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
+		visible = "[EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel)]"
+		layoutpolicy_horizontal = expanding
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			datamodel = "[GetPlayer.MakeScope.GetList('rv_rescue_list_temp')]"
+			visible = "[And(DeclareWarInteractionWindow.IsWarEffectsExpanded, DeclareWarInteractionWindow.IsEffectsTabVictory)]"
+			item = {
+				hbox = {
+					visible = "[GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Scope.GetCharacter.MakeScope ).End )]"
+					layoutpolicy_horizontal = expanding
+					text_multi = {
+						text = "rv_release_effect"
+						layoutpolicy_horizontal = expanding
+						autoresize = yes
+						max_width = 360
+					}
+				}
+			}
+		}
+	}
+
+	type agot_rv_declare_war_send_button = button_standard_big
+	{
+		name = "rv_send_button"
+		enabled =  "[GetScriptedGui('rv_can_send_rescue_war').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+		onclick = "[DeclareWarInteractionWindow.Send]"
+
+		datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
+		visible = "[EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel)]"
+
+		text = "[CharacterInteractionConfirmationWindow.GetSendName]"
+		default_format = "#high"
+
+		tooltip = "[DeclareWarInteractionWindow.GetDeclareWarButtonTooltip]"
+
+		clicksound = "[DeclareWarInteractionWindow.GetConfirmClickSound]"
+
+		animation_aggressive = {
+			visible = "[DeclareWarInteractionWindow.CanSend]"
+		}
+
+		hbox = {
+			margin_right = 10
+
+			expand = {}
+
+			warning_icon = {
+				name = "player_cost_ignore"
+				visible = "[And(DeclareWarInteractionWindow.HasSelectedCasusBelli, Or( Or( Not( DeclareWarInteractionWindow.CanAffordCosts ), DeclareWarInteractionWindow.IsBreakingTruce), DeclareWarInteractionWindow.IsBreakingAlliance))]"
+				size = { 30 30 }
+			}
+		}
+	}
+}
+
+
+# ESR
+types rv_interaction_declare_war
+{
+	type rv_vbox_character_grid = vbox {
+		spacing = -3
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+
+		widget = {
+			layoutpolicy_horizontal = expanding
+			size = { 0 25 }
+			min_width = 110
+
+			hbox = {
+				margin = { 10 0 }
+
+				background = {
+					using = Text_Label_Background
+					alpha = 0.5
+					margin = { 0 -2 }
+				}
+
+				text_single = {
+					align = nobaseline
+					fontsize = 14
+
+					block "header_text"
+					{
+						raw_text = "#D NEEDS TEXT#!"
+					}
+				}
+
+				expand = {}
+
+				text_single = {
+					align = nobaseline
+					default_format = "#weak"
+
+					block "remaining_items" {
+						visible = no
+					}
+				}
+			}
+		}
+
+		hbox = {
+			layoutpolicy_horizontal = expanding
+
+			using = Animation_Character_Window_Refresh
+
+			block "gridbox" {
+				dynamicgridbox = {
+					flipdirection = yes
+					datamodel_wrap = 6
+
+					block "gridbox_slots"
+					{
+						maxverticalslots = 1
+					}
+
+					block "portrait_datamodel" {
+					}
+
+					item = {
+						portrait_head_small = {
+							block "portrait_visibility"
+							{
+
+							}
+
+							block "portrait_datacontext"
+							{
+
+							}
+							blockoverride "portrait_button"
+							{
+								using = tooltip_ne
+							}
+							blockoverride "glow_visible"
+							{
+								visible = no
+							}
+							blockoverride "scripted_relation_status_icons" {
+
+							}
+						}
+					}
+					expand = {}
+				}
+			}
+
+			block "find_partner" {}
+
+			expand = {}
+		}
+
+		expand = {}
+	}
+}

@@ -1,4 +1,4 @@
-######################################################
+﻿######################################################
 #################### DECLARE WAR "####################
 ######################################################
 
@@ -6,7 +6,7 @@
 window = {
 	name = "declare_war_window"
 	datacontext = "[DeclareWarInteractionWindow.GetCharacterInteractionConfirmationWindow]"
-	###AGOT Added - RV
+	#AGOT Added - RV
 	datacontext = "[DeclareWarInteractionWindow.GetDefenderCharacter]"
 	datacontext = "[CharacterItem.GetCharacter]"
 	parentanchor = top|right
@@ -15,21 +15,20 @@ window = {
 	allow_outside = yes
 	movable = no
 	layer = middle
-	#widgetid = "rv_declare_war_window_id"
 
 	state = {
 		name = _show
 		using = Animation_FadeIn_Quick
 		using = Sound_WindowShow_Standard
+		#AGOT Added - RV
 		on_start = "[GetScriptedGui('rv_save_defender').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_defender', Character.MakeScope ).End )]"
-		#on_start = "[GetScriptedGui('rv_create_revenge_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_defender', Character.MakeScope ).End )]"
 	}
 
 	state = {
 		name = _hide
 		using = Animation_FadeOut_Quick
 		using = Sound_WindowHide_Standard
-		###AGOT Added - RV
+		#AGOT Added - RV
 		on_start = "[GetScriptedGui('rv_clear_revenge_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 		on_start = "[GetScriptedGui('rv_clear_concubine_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 	}
@@ -211,27 +210,16 @@ window = {
 						text_multi = {
 							name = "comparison_text"
 							margin_top = 16
-							###AGOT Added - RV
+							#AGOT Added - RV
 							datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
 							visible = "[Not(Or(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel),EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel)))]"
-							###AGOT Added - RV
 							text = "[DeclareWarInteractionWindow.GetMilitaryStrength]"
 							autoresize = yes
 							max_width = 210
 							align = center
 						}
-						###AGOT Added - RV
-						text_multi = {
-							name = "rv_comparison_text"
-							margin_top = 16
-							datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
-							visible = "[Or(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel),EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel))]"
-							text = "[Localize('rv_liege_warning')]"
-							default_format = "#warning"
-							autoresize = yes
-							max_width = 210
-							align = center
-						}
+						#AGOT Added
+						agot_rv_comparison_text = {}
 						expand = {}
 					}
 				}
@@ -312,11 +300,10 @@ window = {
 									down = "[CasusBelliItem.IsSelected]"
 									onclick = "[CasusBelliItem.OnClick]"
 									onclick = "[PdxGuiTriggerAllAnimations('declare_war_goal_refresh')]"
-									###AGOT Added - RV
+									#AGOT Added - RV
 									visible = "[Or(Not(EqualTo_string(Localize('rv_declare_private_war_interaction'),CharacterInteractionConfirmationWindow.GetSendName)),Or(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel),EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel)))]"
 									onclick = "[GetScriptedGui('rv_create_revenge_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_defender', Character.MakeScope ).End )]"
 									onclick = "[GetScriptedGui('rv_create_concubine_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_defender', Character.MakeScope ).End )]"
-									###AGOT Added - RV									
 
 									declare_war_casus_belli_item = {}
 								}
@@ -373,300 +360,79 @@ window = {
 				using = Animation_Tab_Switch
 
 
-				###AGOT Added - RV
 				vbox = {
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
 					spacing = 8
-					#datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
-					#visible = "[EqualTo_string(Localize('DEBUG_WAR_NAME_FALLBACK'),CasusBelliItem.GetLabel)]"
 
-					vbox = {
-						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
-						datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
-						visible = "[EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel)]"
-						scrollbox = {
-							#visible = "[Not(DeclareWarInteractionWindow.HasSelectedCasusBelli)]"
-							#[CasusBelliItem.GetLabel]
-							layoutpolicy_horizontal = expanding
-							layoutpolicy_vertical = expanding
-							#datacontext = "[GetPlayer]"
-							datacontext = "[DeclareWarInteractionWindow.GetDefenderCharacter]"
-							datacontext = "[CharacterItem.GetCharacter]"
-				
-							blockoverride "scrollbox_margins"
-							{
-								margin = { 10 10 }
-							}
-							
-				
-							blockoverride "scrollbox_empty"
-							{
-								text = NO_VALID_CASUS_BELLIS
-								visible = no
-							}
-				
-							blockoverride "scrollbox_content"
-							{
-								vbox = {
-									name = "rv_prisoner_items"
-									#datacontext = "[DeclareWarInteractionWindow.GetDefenderCharacter]"
-									datamodel = "[Character.GetPrisoners]"
-									#datamodel = "[DeclareWarInteractionWindow.GetTitleItems]"
-									spacing = 5
-									layoutpolicy_horizontal = expanding
-									#layoutpolicy_vertical = expanding
-									state = {
-										name = "declare_war_goal_refresh"
-										using = Animation_Refresh_FadeOut
-									}
-	
-									state = {
-										using = Animation_Refresh_FadeIn
-									}
-				
-									item = {
-										button_standard = {
-											layoutpolicy_horizontal = expanding
-											size = { 550 45 }
-											#down = "[CasusBelliItem.IsSelected]"
-											#onclick = "[CasusBelliItem.OnClick]"
-											#onclick = "[PdxGuiTriggerAllAnimations('declare_war_goal_refresh')]"
-											visible =  "[GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
-											onclick = "[GetScriptedGui('rv_toggle_prisoner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
-											#onclick = "[PdxGuiTriggerAllAnimations('declare_war_goal_refresh')]"
-											#onclick = "[CasusBelliTitleItem.OnClick]"
-											down =	"[GetScriptedGui('rv_rescue_trigger').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"										
-				
-											hbox = {
-												name = "rv_prisoner_item"
-												margin = { 5 0 }
-												spacing = 5
-												alwaystransparent = yes
-												using = tooltip_es
-												#visible = "[Or(ScriptedRelation.HasRelationBetween( GetPlayer, Character.Self ),ObjectsEqual( Character.GetDynasty.Self, GetPlayer.GetDynasty.Self ))]" # Not working, build a list with on_imprison 
-			
-												using = rv_Relation_Icons_cb
-										
-												text_single = {
-													name = "name"
-													layoutpolicy_horizontal = expanding
-													text = "[Character.GetUIName]"
-													align = left|nobaseline
-													autoresize = yes
-													alwaystransparent = yes
-												}
-										
-												warning_icon = {
-													visible =  "[GetScriptedGui('rv_criminal_warning_icon_visible').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
-													size = { 25 25 }
-													alwaystransparent = yes
-													tooltip = "RV_IS_CRIMINAL"
-												}
-											}
-										}
-									}
-									
-								}
-								vbox = {
-									name = "rv_concubine_items"
-									#datacontext = "[DeclareWarInteractionWindow.GetDefenderCharacter]"
-									datamodel = "[GetPlayer.MakeScope.GetList('rv_defender_concubines')]"
-									#datamodel = "[DeclareWarInteractionWindow.GetTitleItems]"
-									spacing = 5
-									layoutpolicy_horizontal = expanding
-									#layoutpolicy_vertical = expanding
-									state = {
-										name = "declare_war_goal_refresh"
-										using = Animation_Refresh_FadeOut
-									}
-	
-									state = {
-										using = Animation_Refresh_FadeIn
-									}
-				
-									item = {
-										button_standard = {
-											layoutpolicy_horizontal = expanding
-											size = { 550 45 }
-											datacontext = "[Scope.GetCharacter]"
-											#down = "[CasusBelliItem.IsSelected]"
-											#onclick = "[CasusBelliItem.OnClick]"
-											#onclick = "[PdxGuiTriggerAllAnimations('declare_war_goal_refresh')]"
-											visible =  "[GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
-											onclick = "[GetScriptedGui('rv_toggle_prisoner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
-											#onclick = "[PdxGuiTriggerAllAnimations('declare_war_goal_refresh')]"
-											#onclick = "[CasusBelliTitleItem.OnClick]"
-											down =	"[GetScriptedGui('rv_rescue_trigger').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"										
-				
-											hbox = {
-												name = "rv_concubine_item"
-												margin = { 5 0 }
-												spacing = 5
-												alwaystransparent = yes
-												using = tooltip_es
-												#visible = "[Or(ScriptedRelation.HasRelationBetween( GetPlayer, Character.Self ),ObjectsEqual( Character.GetDynasty.Self, GetPlayer.GetDynasty.Self ))]" # Not working, build a list with on_imprison 
-			
-												using = rv_Relation_Icons_cb
-										
-												text_single = {
-													name = "name"
-													layoutpolicy_horizontal = expanding
-													text = "[Character.GetUIName]"
-													align = left|nobaseline
-													autoresize = yes
-													alwaystransparent = yes
-												}
-										
-												warning_icon = {
-													visible =  "[GetScriptedGui('rv_criminal_warning_icon_visible').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
-													size = { 25 25 }
-													alwaystransparent = yes
-													tooltip = "RV_IS_CRIMINAL"
-												}
-											}
-										}
-									}
-									
-								}
-							}
-						}
+					#AGOT Added
+					agot_rv_rescue_war_items_vbox = {}
+					agot_rv_revenge_war_items_vbox = {}
 
-					}
-
-					vbox = {
-						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
-						datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
-						visible = "[EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel)]"
-
-						scrollbox = {
-							#visible = "[Not(DeclareWarInteractionWindow.HasSelectedCasusBelli)]"
-							#[CasusBelliItem.GetLabel]
-							layoutpolicy_horizontal = expanding
-							layoutpolicy_vertical = expanding
-							#datacontext = "[GetPlayer]"
-							datacontext = "[DeclareWarInteractionWindow.GetAttackerCharacter]"
-							datacontext = "[CharacterItem.GetCharacter]"
-				
-							blockoverride "scrollbox_replace_vbox" {
-								vbox = {
-									layoutpolicy_horizontal = expanding
-									layoutpolicy_vertical = expanding
-									rv_vbox_character_grid = {
-										name = "revenge_target"
-										margin_top = 10
-										spacing = 6
-										#visible = no
-		
-										blockoverride "portrait_datamodel" {
-											datamodel = "[Character.MakeScope.GetList('rv_to_be_revenged')]"
-										}
-	
-										blockoverride "portrait_datacontext" {
-											#visible = "[GetScriptedGui('rv_revenge_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_revenge_target', Character.MakeScope ).End )]"
-											datacontext = "[Scope.GetCharacter]"
-										}
-		
-										blockoverride "header_text"
-										{
-											text = "REVENGE_LABEL"
-										}
-		
-										blockoverride "gridbox_slots" {}
-									}
-									rv_vbox_character_grid = {
-										name = "revenge_target_lover"
-										#margin_top = 10
-										spacing = 6
-										visible = no
-		
-										blockoverride "portrait_datamodel" {
-											datamodel = "[Character.MakeScope.GetList('rv_revenging_dead_lovers')]"
-										}
-	
-										blockoverride "portrait_datacontext" {
-											#visible = "[GetScriptedGui('rv_revenge_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_revenge_target', Character.MakeScope ).End )]"
-											datacontext = "[Scope.GetCharacter]"
-										}
-		
-										blockoverride "header_text"
-										{
-											raw_text = "Lover"
-										}
-		
-										blockoverride "gridbox_slots" {}
-									}
-								}
-							}
-						}
-					}
-
+					#AGOT Added, vbox wrap/datacontext/visible/layoutpolicies
 					vbox = {
 						datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
 						visible = "[And(Not(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel)),Not(EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel)))]"
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
-						scrollbox = {
-							visible = "[DeclareWarInteractionWindow.CanShowWarGoalSubview]"
-							layoutpolicy_horizontal = expanding
-							layoutpolicy_vertical = expanding
-	
-							blockoverride "scrollbox_margins"
-							{
-								margin = { 10 10 }
-							}
-	
-							blockoverride "scrollbox_content"
-							{
-								fixedgridbox = {
-									datamodel = "[DeclareWarInteractionWindow.GetTitleItems]"
-									layoutpolicy_horizontal = expanding
-									addcolumn = 550
-									addrow = 51
-	
-									state = {
-										name = "declare_war_goal_refresh"
-										using = Animation_Refresh_FadeOut
-									}
-	
-									state = {
-										using = Animation_Refresh_FadeIn
-									}
-	
-									item = {
-										margin_widget = {
-											size = { 550 51 }
-											margin = { 0 3 }
-	
-											button_standard = {
-												layoutpolicy_horizontal = expanding
-												size = { 550 45 }
-												down = "[CasusBelliTitleItem.IsSelected]"
-												onclick = "[CasusBelliTitleItem.OnClick]"
-	
-												hbox = {
-	
-													widget = {
-														layoutpolicy_vertical = expanding
-														size = { 45 0 }
-	
-														coa_title_tiny_crown = {
-															datacontext = "[CasusBelliTitleItem.GetTitle]"
-															parentanchor = center
-															using = tooltip_ne
-														}
+					scrollbox = {
+						visible = "[DeclareWarInteractionWindow.CanShowWarGoalSubview]"
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+
+						blockoverride "scrollbox_margins"
+						{
+							margin = { 10 10 }
+						}
+
+						blockoverride "scrollbox_content"
+						{
+							fixedgridbox = {
+								datamodel = "[DeclareWarInteractionWindow.GetTitleItems]"
+								layoutpolicy_horizontal = expanding
+								addcolumn = 550
+								addrow = 51
+
+								state = {
+									name = "declare_war_goal_refresh"
+									using = Animation_Refresh_FadeOut
+								}
+
+								state = {
+									using = Animation_Refresh_FadeIn
+								}
+
+								item = {
+									margin_widget = {
+										size = { 550 51 }
+										margin = { 0 3 }
+
+										button_standard = {
+											layoutpolicy_horizontal = expanding
+											size = { 550 45 }
+											down = "[CasusBelliTitleItem.IsSelected]"
+											onclick = "[CasusBelliTitleItem.OnClick]"
+
+											hbox = {
+
+												widget = {
+													layoutpolicy_vertical = expanding
+													size = { 45 0 }
+
+													coa_title_tiny_crown = {
+														datacontext = "[CasusBelliTitleItem.GetTitle]"
+														parentanchor = center
+														using = tooltip_ne
 													}
-	
-													text_single = {
-														name = "text"
-														layoutpolicy_horizontal = expanding
-														text = "[CasusBelliTitleItem.GetName]"
-														autoresize = no
-														default_format = "#high"
-														align = nobaseline
-													}
+												}
+
+												text_single = {
+													name = "text"
+													layoutpolicy_horizontal = expanding
+													text = "[CasusBelliTitleItem.GetName]"
+													autoresize = no
+													default_format = "#high"
+													align = nobaseline
 												}
 											}
 										}
@@ -674,6 +440,7 @@ window = {
 								}
 							}
 						}
+					}
 					}
 
 					expand = {}
@@ -794,44 +561,22 @@ window = {
 										expand = {}
 									}
 
-									###AGOT Added - RV
-									hbox = {
-										datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
-										visible = "[EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel)]"
-										layoutpolicy_horizontal = expanding
-										vbox = {
-											layoutpolicy_horizontal = expanding
-											datamodel = "[GetPlayer.MakeScope.GetList('rv_rescue_list_temp')]"
-											visible = "[And(DeclareWarInteractionWindow.IsWarEffectsExpanded, DeclareWarInteractionWindow.IsEffectsTabVictory)]"
-											item = {
-												hbox = {
-													visible = "[GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Scope.GetCharacter.MakeScope ).End )]"
-													layoutpolicy_horizontal = expanding
-													text_multi = {
-														text = "rv_release_effect"
-														layoutpolicy_horizontal = expanding
-														autoresize = yes
-														max_width = 360
-													}
-												}
-											}
-										}
-									}
-									###AGOT Added - RV
+									#AGOT Added
+									agot_rv_rescue_item_box = {}
 
+									#AGOT Added, vbox wrap
 									vbox = {
-										text_multi = {
-											name = "other_end_war_effects"
-											###AGOT Added - RV
-											datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
-											#visible = "[And(DeclareWarInteractionWindow.IsWarEffectsExpanded,Or(Not(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel)),Not(DeclareWarInteractionWindow.IsEffectsTabVictory)))]"
-											visible = "[And(DeclareWarInteractionWindow.IsWarEffectsExpanded, DeclareWarInteractionWindow.IsEffectsTabVictory)]"
-											###AGOT Added - RV
-											layoutpolicy_horizontal = expanding
-											text = "[DeclareWarInteractionWindow.GetCurrentTabEffectsDescription]"
-											autoresize = yes
-											max_width = 360
-										}
+									text_multi = {
+										name = "other_end_war_effects"
+										#AGOT Modified, visible/datacontext
+										# visible = "[DeclareWarInteractionWindow.IsWarEffectsExpanded]"
+										visible = "[And(DeclareWarInteractionWindow.IsWarEffectsExpanded, DeclareWarInteractionWindow.IsEffectsTabVictory)]"
+										datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
+										layoutpolicy_horizontal = expanding
+										text = "[DeclareWarInteractionWindow.GetCurrentTabEffectsDescription]"
+										autoresize = yes
+										max_width = 360
+									}
 									}
 
 									expand = {}
@@ -899,13 +644,9 @@ window = {
 							margin_top = 2
 							margin_bottom = -5
 
-							warning_icon = {
-								size = { 25 25 }
-							}
-
 							text_multi = {
 								text = "[DeclareWarInteractionWindow.WriteAdditionalWarningMessage]"
-								max_width = 350
+								max_width = 520
 								autoresize = yes
 							}
 						}
@@ -971,46 +712,14 @@ window = {
 				hbox = {
 					name = "tutorial_highlight_declare_war_send_button"
 
-					###AGOT Added - RV
 					button_standard_big = {
 						name = "send_button"
 						enabled = "[DeclareWarInteractionWindow.CanSend]"
 						onclick = "[DeclareWarInteractionWindow.Send]"
 
+						#AGOT Added, datacontext/visible - RV
 						datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
 						visible = "[Not(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel))]"
-
-						text = "[CharacterInteractionConfirmationWindow.GetSendName]"
-						default_format = "#high"
-
-						tooltip = "[DeclareWarInteractionWindow.GetDeclareWarButtonTooltip]"
-
-						clicksound = "event:/SFX/UI/War/sfx_ui_war_declare_war"
-
-						animation_aggressive = {
-							visible = "[DeclareWarInteractionWindow.CanSend]"
-						}
-
-						hbox = {
-							margin_right = 10
-
-							expand = {}
-
-							warning_icon = {
-								name = "player_cost_ignore"
-								visible = "[And(DeclareWarInteractionWindow.HasSelectedCasusBelli, Or( Or( Not( DeclareWarInteractionWindow.CanAffordCosts ), DeclareWarInteractionWindow.IsBreakingTruce), DeclareWarInteractionWindow.IsBreakingAlliance))]"
-								size = { 30 30 }
-							}
-						}
-					}
-
-					button_standard_big = {
-						name = "rv_send_button"
-						enabled =  "[GetScriptedGui('rv_can_send_rescue_war').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-						onclick = "[DeclareWarInteractionWindow.Send]"
-
-						datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
-						visible = "[EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel)]"
 
 						text = "[CharacterInteractionConfirmationWindow.GetSendName]"
 						default_format = "#high"
@@ -1035,7 +744,8 @@ window = {
 							}
 						}
 					}
-					###AGOT Added - RV
+					#AGOT Added - RV
+					agot_rv_declare_war_send_button = {}
 				}
 			}
 		}
@@ -1216,6 +926,19 @@ types DeclareWarTypes
 				raw_text = "@dynasty_prestige_icon![DeclareWarInteractionWindow.GetSpecificCost( 'renown' )|0]"
 				align = nobaseline
 				using = Font_Size_Big
+				default_format = "#high"
+
+				tooltipwidget = { widget_value_breakdown_tooltip = {} }
+			}
+
+			text_single = {
+				name = "influence"
+				datacontext = "[DeclareWarInteractionWindow.GetCostBreakdown( 'influence' )]"
+				visible = "[NotEqualTo_CFixedPoint( DeclareWarInteractionWindow.GetSpecificCost( 'influence' ), '(CFixedPoint)0' )]"
+
+				raw_text = "@influence_icon![DeclareWarInteractionWindow.GetSpecificCost( 'influence' )|0]"
+				using = Font_Size_Big
+				align = nobaseline
 				default_format = "#high"
 
 				tooltipwidget = { widget_value_breakdown_tooltip = {} }
@@ -1460,105 +1183,3 @@ types CharacterGold
 		}
 	}
 }
-
-###AGOT Added - ESR
-types rv_interaction_declare_war
-{
-	type rv_vbox_character_grid = vbox {
-		spacing = -3
-		layoutpolicy_horizontal = expanding
-		layoutpolicy_vertical = expanding
-	
-		widget = {
-			layoutpolicy_horizontal = expanding
-			size = { 0 25 }
-			min_width = 110
-	
-			hbox = {
-				margin = { 10 0 }
-	
-				background = {
-					using = Text_Label_Background
-					alpha = 0.5
-					margin = { 0 -2 }
-				}
-	
-				text_single = {
-					align = nobaseline
-					fontsize = 14
-	
-					block "header_text"
-					{
-						raw_text = "#D NEEDS TEXT#!"
-					}
-				}
-	
-				expand = {}
-	
-				text_single = {
-					align = nobaseline
-					default_format = "#weak"
-	
-					block "remaining_items" {
-						visible = no
-					}
-				}
-			}
-		}
-	
-		hbox = {
-			layoutpolicy_horizontal = expanding
-	
-			using = Animation_Character_Window_Refresh
-	
-			block "gridbox" {
-				dynamicgridbox = {
-					flipdirection = yes
-					datamodel_wrap = 6
-	
-					block "gridbox_slots"
-					{
-						maxverticalslots = 1
-					}
-	
-					block "portrait_datamodel" {
-					}
-	
-					item = {
-						portrait_head_small_relationship = {
-							block "portrait_visibility"
-							{
-
-							}
-
-							block "portrait_datacontext"
-							{
-
-							}
-							blockoverride "portrait_button"
-							{
-								using = tooltip_ne
-							}
-							blockoverride "glow_visible"
-							{
-								visible = no
-							}
-							blockoverride "scripted_relation_status_icons" {
-
-							}
-						}
-					}
-					expand = {}
-				}
-			}
-	
-			block "find_partner" {}
-	
-			expand = {}
-		}
-	
-		expand = {}
-	}
-}
-###AGOT Added - ESR
-

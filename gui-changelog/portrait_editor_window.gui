@@ -135,7 +135,7 @@ template pe_background_outline
 
 widget = {
 	name = "portrait_editor_window"
-	size = { 1600 1000 }
+	size = { 1635 1000 }
 	filter_mouse = all
 	layoutpolicy_horizontal = expanding
 	layoutpolicy_vertical = expanding
@@ -311,9 +311,34 @@ types PortraitEditorTypes
 
 		}
 
-		pe_editor_tab_content = {
+		editor_scrollarea = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
+
+			blockoverride "content"
+			{
+				fixedgridbox = {
+					datamodel = "[PortraitEditorWindow.GetActiveTypes]"
+					addrow = 420
+					addcolumn = 520
+					datamodel_wrap = 2
+					flipdirection = yes
+
+					item = {
+						pe_editor_tab_portraits = {
+							blockoverride "label_text" { text = "[PortraitType.GetKey]" }
+							blockoverride "portrait_texture"
+							{
+								portrait_texture = "[PortraitEditorWindow.GetPortraitTexture( PortraitType.Self )]"
+								onclick = "[PortraitEditorWindow.Open3dView( PortraitType.Self )]"
+								raw_tooltip = "Click to open 3D view [Select_CString( ShouldShowAnimationInfo, PortraitEditorWindow.GetAnimationTooltip( PortraitType.Self ), '' )]"
+							}
+							blockoverride "open_preview" { onclick = "[PortraitEditorWindow.Open3dView( PortraitType.Self )]" }
+							blockoverride "copy_persistent_info" { onclick = "[PortraitEditorWindow.OnCopyPersistentPortraitInfo( PortraitType.Self )]" }
+						}
+					}
+				}
+			}
 		}
 
 		pe_editor_tab_reload = {
@@ -343,6 +368,47 @@ types PortraitEditorTypes
 					using = editor_font
 					fontsize = 25
 					raw_text =  "Portrait Editor"
+				}
+			}
+		}
+
+		# Portrait type group
+		aligned_left_widget_group = {
+			blockoverride "group_content"
+			{
+				aligned_left_widget = {
+					blockoverride "content"
+					{
+						pe_header_textbox = {
+							raw_text =  "Portrait Type Group:"
+						}
+					}
+				}
+
+				aligned_left_widget = {
+					blockoverride "content"
+					{
+						pe_button_left = {
+							onclick = "[PortraitEditorWindow.OnCyclePortraitTypeGroup( '(int32)-1' )]"
+						}
+
+						pe_select_box = {
+							name = "portrait_type_group_list"
+						}
+
+						pe_button_right = {
+							onclick = "[PortraitEditorWindow.OnCyclePortraitTypeGroup( '(int32)1' )]"
+						}
+
+						widget = {
+							size = { 8 0 }
+						}
+
+						pe_button_open_file = {
+							tooltip = "[PortraitEditorWindow.GetCurrentPortraitTypeGroupFileDesc]"
+							onclick = "[PortraitEditorWindow.OpenCurrentPortraitTypeGroupFile]"
+						}
+					}
 				}
 			}
 		}
@@ -405,7 +471,7 @@ types PortraitEditorTypes
 					blockoverride "content"
 					{
 						pe_button_left = {
-							onclick = "[PortraitEditorWindow.OnChangeEthnicityLeft]"
+							onclick = "[PortraitEditorWindow.OnCycleEthnicity( '(int32)-1' )]"
 						}
 
 						pe_select_box = {
@@ -413,7 +479,7 @@ types PortraitEditorTypes
 						}
 
 						pe_button_right = {
-							onclick = "[PortraitEditorWindow.OnChangeEthnicityRight]"
+							onclick = "[PortraitEditorWindow.OnCycleEthnicity( '(int32)1' )]"
 						}
 
 						widget = {
@@ -610,38 +676,6 @@ types PortraitEditorTypes
 			}
 		}
 
-		# Pose
-		aligned_left_widget_group = {
-			blockoverride "group_content"
-			{
-				aligned_left_widget = {
-					blockoverride "content"
-					{
-						pe_header_textbox = {
-							raw_text =  "Pose:"
-						}
-					}
-				}
-
-				aligned_left_widget = {
-					blockoverride "content"
-					{
-						pe_button_left = {
-							onclick = "[PortraitEditorWindow.OnChangePoseItemLeft]"
-						}
-
-						pe_select_box = {
-							name = "poses_list"
-						}
-
-						pe_button_right = {
-							onclick = "[PortraitEditorWindow.OnChangePoseItemRight]"
-						}
-					}
-				}
-			}
-		}
-
 		# Gene Extras
 		aligned_left_widget_group = {
 			layoutpolicy_vertical = expanding
@@ -707,17 +741,17 @@ types PortraitEditorTypes
 
 							flowcontainer = {
 								visible = "[Not(PortraitEditorWindow.IsSelectedColorGene)]"
-								spacing = 16
 
 								pe_button_left = {
 									onclick = "[PortraitEditorWindow.OnChangeSubGeneItemLeft]"
-
 								}
+
+								widget = { size = { 16 0 } }
 
 								dropDown = {
 									alwaystransparent = no
 									name = "gene_templates_dropdown"
-									size = { 250 20 }
+									size = { 192 20 }
 
 									active_item = {
 										hbox = {
@@ -982,10 +1016,6 @@ types PortraitEditorTypes
 					}
 				}
 
-				pe_margin_widget = {
-					size = { 1 10 }
-				}
-
 				aligned_left_widget = {
 					blockoverride "content"
 					{
@@ -1059,64 +1089,24 @@ types PortraitEditorTypes
 						}
 
 						flowcontainer = {
-							spacing = 2
+							datamodel = "[GetAllPortraitTypes]"
+							spacing = 10
 
-							checkbutton = {
-								using = editor_checkbutton
-								checked = "[PortraitEditorWindow.IsSliderPortraitType('male')]"
-								onclick = "[PortraitEditorWindow.SetSliderPortraitType('male')]"
-							}
+							item = {
+								flowcontainer = {
+									spacing = 2
 
-							textbox = {
-								using = pe_slider_checkbox_text
-								raw_text =  "Male"
-							}
-						}
+									checkbutton = {
+										using = editor_checkbutton
+										checked = "[PortraitEditorWindow.IsSliderPortraitType( PortraitType.Self )]"
+										onclick = "[PortraitEditorWindow.SetSliderPortraitType( PortraitType.Self )]"
+									}
 
-						flowcontainer = {
-							spacing = 2
-
-							checkbutton = {
-								using = editor_checkbutton
-								checked = "[PortraitEditorWindow.IsSliderPortraitType('female')]"
-								onclick = "[PortraitEditorWindow.SetSliderPortraitType('female')]"
-							}
-
-							textbox = {
-								using = pe_slider_checkbox_text
-								raw_text =  "Female"
-							}
-						}
-
-						flowcontainer = {
-							spacing = 2
-
-							checkbutton = {
-								using = editor_checkbutton
-								enabled = yes
-								checked = "[PortraitEditorWindow.IsSliderPortraitType('boy')]"
-								onclick = "[PortraitEditorWindow.SetSliderPortraitType('boy')]"
-							}
-							textbox = {
-								using = pe_slider_checkbox_text
-								enabled = yes
-								raw_text =  "Boy"
-							}
-						}
-
-						flowcontainer = {
-							spacing = 2
-
-							checkbutton = {
-								using = editor_checkbutton
-								enabled = yes
-								checked = "[PortraitEditorWindow.IsSliderPortraitType('girl')]"
-								onclick = "[PortraitEditorWindow.SetSliderPortraitType('girl')]"
-							}
-							textbox = {
-								using = pe_slider_checkbox_text
-								enabled = yes
-								raw_text =  "Girl"
+									textbox = {
+										using = pe_slider_checkbox_text
+										text =  "[PortraitType.GetKey]"
+									}
+								}
 							}
 						}
 					}
@@ -1152,8 +1142,7 @@ types PortraitEditorTypes
 
 				scrollarea = {
 					layoutpolicy_horizontal = expanding
-					maximumsize = { -1 320 }
-					autoresizescrollarea = yes
+					layoutpolicy_vertical = expanding
 					scrollbarpolicy_horizontal = always_off
 					alwaystransparent = no
 
@@ -1163,10 +1152,10 @@ types PortraitEditorTypes
 							addcolumn = 330
 							addrow = 15
 							setitemsizefromcell = yes
+							visible = "[PortraitEditorWindow.HasAnySliders]"
 
 							item = {
 								widget = {
-									enabled = "[Not(PortraitEditorWindow.IsSliderMode('none'))]"
 									hbox = {
 										spacing = 5
 
@@ -1245,73 +1234,12 @@ types PortraitEditorTypes
 
 		widget = {
 			name = "spacer"
-			layoutpolicy_vertical = expanding
+			layoutpolicy_vertical = preferred
 		}
 	}
 
-	type pe_editor_tab_content = vbox {
-		hbox = {
-			spacing = 5
-			pe_editor_tab_portraits = {
-				blockoverride "label_text" { raw_text =  "Male" }
-				blockoverride "portrait_texture"
-				{
-					portrait_texture = "[PortraitEditorWindow.GetPortraitTexture('male')]"
-					onclick = "[PortraitEditorWindow.Open3dView('male')]"
-					raw_tooltip = "Click to open 3D view [Select_CString( ShouldShowAnimationInfo, PortraitEditorWindow.GetAnimationTooltip( 'male' ), '' )]"
-				}
-				blockoverride "open_preview" { onclick = "[PortraitEditorWindow.Open3dView('male')]" }
-				blockoverride "copy_persistent_info" { onclick = "[PortraitEditorWindow.OnCopyPersistentPortraitInfo('male')]" }
-			}
-			pe_editor_tab_portraits = {
-				blockoverride "label_text" { raw_text =  "Female" }
-				blockoverride "portrait_texture"
-				{
-					portrait_texture = "[PortraitEditorWindow.GetPortraitTexture('female')]"
-					onclick = "[PortraitEditorWindow.Open3dView('female')]"
-					raw_tooltip = "Click to open 3D view. [Select_CString( ShouldShowAnimationInfo, PortraitEditorWindow.GetAnimationTooltip( 'female' ), '' )]"
-				}
-				blockoverride "open_preview" { onclick = "[PortraitEditorWindow.Open3dView('female')]" }
-				blockoverride "copy_persistent_info" { onclick = "[PortraitEditorWindow.OnCopyPersistentPortraitInfo('female')]" }
-			}
-		}
-
-		pe_margin_widget = {
-			size = { 100 1 }
-		}
-
-		hbox = {
-			spacing = 5
-			pe_editor_tab_portraits = {
-				blockoverride "label_text" { raw_text =  "Boy" }
-				blockoverride "portrait_texture"
-				{
-					portrait_texture = "[PortraitEditorWindow.GetPortraitTexture('boy')]"
-					onclick = "[PortraitEditorWindow.Open3dView('boy')]"
-					raw_tooltip = "Click to open 3D view [Select_CString( ShouldShowAnimationInfo, PortraitEditorWindow.GetAnimationTooltip( 'boy' ), '' )]"
-				}
-				blockoverride "open_preview" { onclick = "[PortraitEditorWindow.Open3dView('boy')]" }
-				blockoverride "copy_persistent_info" { onclick = "[PortraitEditorWindow.OnCopyPersistentPortraitInfo('boy')]" }
-			}
-			pe_editor_tab_portraits = {
-				blockoverride "label_text" { raw_text =  "Girl" }
-				blockoverride "portrait_texture"
-				{
-					portrait_texture = "[PortraitEditorWindow.GetPortraitTexture('girl')]"
-					onclick = "[PortraitEditorWindow.Open3dView('girl')]"
-					raw_tooltip = "Click to open 3D view [Select_CString( ShouldShowAnimationInfo, PortraitEditorWindow.GetAnimationTooltip( 'girl' ), '' )]"
-				}
-				blockoverride "open_preview" { onclick = "[PortraitEditorWindow.Open3dView('girl')]" }
-				blockoverride "copy_persistent_info" { onclick = "[PortraitEditorWindow.OnCopyPersistentPortraitInfo('girl')]" }
-			}
-		}
-
-		widget = {
-			layoutpolicy_vertical = expanding
-		}
-	}
-
-	type pe_editor_tab_portraits = container {
+	type pe_editor_tab_portraits = widget {
+		size = { 518 418 }
 		flowcontainer = {
 			direction = horizontal
 
@@ -1541,12 +1469,12 @@ types PortraitEditorTypes
 			onclick = "[PortraitEditorWindow.OnRunTextureOptimization]"
 			visible = "[PortraitEditorWindow.CanOptimize]"
 		}
-		
+
 		widget = { size = { 0 15 } }
-		
+
 		flowcontainer = {
 			direction = vertical
-			
+
 			textbox = {
 				size = { 75 35 }
 				fontsize = 24
@@ -1554,10 +1482,10 @@ types PortraitEditorTypes
 				using = editor_font
 				raw_text =  "Coa:"
 			}
-			
+
 			widget = {
-				name = "coa_search_list"	
-				size = { 230 30 }	
+				name = "coa_search_list"
+				size = { 230 30 }
 			}
 		}
 	}

@@ -8,7 +8,7 @@ window = {
 	datacontext = "[FaithWindow.GetFaith]"
 	datacontext = "[GetVariableSystem]"
 	movable = no
-	layer = windows_layer
+	layer = middle
 	#AGOT Added
 	size = { 42% 100% }
 
@@ -19,7 +19,7 @@ window = {
 		name = _show
 		position = { 0 0 }
 		#AGOT Disabled
-		#on_start = "[GetVariableSystem.Set( 'faith_view_tabs', 'beliefs' )]"
+		# on_start = "[GetVariableSystem.Set( 'faith_view_tabs', 'beliefs' )]"
 		on_start = "[GetVariableSystem.Set( 'hide_bottom_left_HUD', 'true' )]"
 
 		using = Animation_FadeIn_Quick
@@ -41,7 +41,7 @@ window = {
 		using = Window_Margins_Sidebar
 
 		### Header
-		header_with_picture = {
+		widget_header_with_picture = {
 			name = "header"
 			datacontext = "[GetIllustration( 'religion_interior' )]"
 			size = { 0 130 }
@@ -251,7 +251,7 @@ window = {
 			}
 
 			#AGOT Added
-			agot_patron_tab_button = { }
+			agot_patron_tab_button = {}
 		}
 
 		vbox = {
@@ -288,7 +288,7 @@ window = {
 					name = "doctrines_grid_core_tenets"
 					datamodel = "[FaithWindow.GetGroupingHelper( 'core_tenets' ).GetGrouping]"
 					#AGOT Disabled
-					#spacing = 52
+					# spacing = 52
 
 					state = {
 						name = "faith_view_refresh"
@@ -615,30 +615,30 @@ window = {
 
 								#AGOT Disabled
 								# item = {
-								# 	text_single = {
-								# 		layoutpolicy_horizontal = expanding
+									# text_single = {
+										# layoutpolicy_horizontal = expanding
 
 
-								# 		margin = { 17 0 }
-								# 		margin_top = 12
-								# 		margin_bottom = 13
+										# margin = { 17 0 }
+										# margin_top = 12
+										# margin_bottom = 13
 
-								# 		datacontext = "[GuiFaithDoctrineItem.GetDoctrine]"
-								# 		datacontext = "[GuiFaithDoctrineItem.GetFaith]"
+										# datacontext = "[GuiFaithDoctrineItem.GetDoctrine]"
+										# datacontext = "[GuiFaithDoctrineItem.GetFaith]"
 
-								# 		text = "[FaithDoctrine.GetNameNoTooltip( GuiFaithDoctrineItem.GetFaith )]"
-								# 		tooltip = "FAITH_WINDOW_DOCTRINE_TOOLTIP_WITH_FAITH"
+										# text = "[FaithDoctrine.GetNameNoTooltip( GuiFaithDoctrineItem.GetFaith )]"
+										# tooltip = "FAITH_WINDOW_DOCTRINE_TOOLTIP_WITH_FAITH"
 
-								# 		align = nobaseline
+										# align = nobaseline
 
-								# 		using = tooltip_es
+										# using = tooltip_es
 
-								# 		background = {
-								# 			using = Background_Area
-								# 		}
+										# background = {
+											# using = Background_Area
+										# }
 
 
-								# 	}
+									# }
 
 								# }
 								#AGOT Added
@@ -890,9 +890,6 @@ window = {
 					tooltip = "[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'faith', Faith.MakeScope ).End ) ]"
 					text = "RECREATE_TEMPORAL_HEAD_OF_FAITH_TITLE"
 				}
-
-				#AGOT Added
-				#open_cardinal_window_button = {}
 
 				expand = {}
 			}

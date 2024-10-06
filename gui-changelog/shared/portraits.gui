@@ -39,7 +39,7 @@ types PortraitTypes
 		}
 	}
 
-	# The standard portrait types. CoA, opinion and status icons are included by default; use blockovveride to disable them.
+	# The standard portrait types. CoA, opinion and status icons are included by default; use blockoverride to disable them.
 
 	## Extra small head portrait. These are smaller than we would like, so only use if you really, really have to.
 	type portrait_head_small = widget {
@@ -190,15 +190,307 @@ types PortraitTypes
 		}
 	}
 
+	### Portrait used in the relationship tab
+	# Has extra relationship icon from the view of the current character (not necessarily the player)
+	type portrait_head_small_relationship = widget {
+		size = { 85 90 }
+
+		background = {
+			using = Background_Area_Solid
+
+			modify_texture = {
+				texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+				blend_mode = alphamultiply
+				alpha = 0.2
+				mirror = vertical
+			}
+		}
+
+		background = {
+			block "empty_character" {}
+			visible = "[Not( Character.HasLandedTitles )]"
+			texture = "gfx/portraits/portrait_frame.dds"
+			using = Color_Grey
+			margin = { -4 -4 }
+			alpha = 0.4
+		}
+
+		widget = {
+			size = { 100% 100% }
+			using = Portrait_Background_Glows
+
+			block "empty_character" {}
+		}
+
+		portrait_button = {
+			#AGOT Added
+			using = visible_if_not_dragon
+			parentanchor = bottom|hcenter
+			size = { 80 100 }
+			using = portrait_base
+
+			block "portrait_texture"
+			{
+				portrait_texture = "[Character.GetPortrait('environment_head', 'camera_head', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+			}
+
+			mask = "gfx/portraits/portrait_mask_head_small.dds"
+			effectname = "NoHighlight"
+
+			highlight_icon = {
+				name = "prison_bars"
+				visible = "[Character.IsImprisoned]"
+				visible_at_creation = no
+				size = { 80 88 }
+				parentanchor = bottom
+				effectname = "NoHighlight"
+				texture = "gfx/portraits/portrait_prison_head.dds"
+
+				modify_texture = {
+					name = "mask"
+					texture = "gfx/portraits/portrait_mask_head_small.dds"
+					spriteType = Corneredstretched
+					blend_mode = alphamultiply
+				}
+			}
+
+			block "portrait_button" {}
+		}
+		#AGOT Added
+		agot_dragons_portrait_head_small_relationship = {}
+
+		widget_portrait_frame = {}
+
+		block "coa" {
+			coa_realm_tiny = {
+				visible = "[Character.HasLandedTitles]"
+				parentanchor = bottom|left
+				position = { 3 -2 }
+				scale = 0.85
+			}
+		}
+
+		widget = {
+			size = { 100% 100% }
+			visible = "[Not( Character.HasLandedTitles )]"
+			block "empty_character" {}
+
+			background = {
+				texture = "gfx/portraits/portrait_frame.dds"
+				using = Color_Grey
+				margin = { -4 -4 }
+				alpha = 0.4
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+					blend_mode = alphamultiply
+					mirror = vertical
+				}
+			}
+
+			background = {
+				visible = "[Character.IsHovered]"
+				texture = "gfx/portraits/portrait_frame.dds"
+				using = Color_Grey
+				alpha = 0.7
+				margin = { -4 -4 }
+			}
+		}
+
+		flowcontainer = {
+			visible = "[Character.IsValid]"
+			ignoreinvisible = yes
+			parentanchor = top|right
+
+			block "scripted_relation_status_icons"
+			{
+				using = Portrait_Relation_Icons_Character_Window
+			}
+
+			margin_right = 2
+
+			blockoverride "icon_size"
+			{
+				size = { 24 24 }
+			}
+
+			background = {
+				using = Background_Area_Dark
+				margin = { 2 2 }
+				alpha = 0.8
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_glow.dds"
+					blend_mode = alphamultiply
+				}
+			}
+		}
+
+		widget = {
+			size = { 85 68 }
+			scissor = yes
+			parentanchor = bottom
+
+			flowcontainer = {
+				parentanchor = bottom|right
+				ignoreinvisible = yes
+				direction = vertical
+
+				margin = { 4 0 }
+				margin_bottom = 4
+
+				flowcontainer = {
+					visible = "[Character.IsValid]"
+					ignoreinvisible = yes
+					direction = vertical
+					parentanchor = right
+					spacing = 1
+
+					margin_right = 2
+
+					background = {
+						using = Background_Area_Dark
+						margin = { 2 2 }
+					}
+
+					# sorted by priority, highest prio at the bottom
+					block "status_icons" {
+
+						icon = {
+							name = "relation_icon"
+							visible = "[LessThan_int32(Character.GetPlayerDynastyRelationFrame, '(int32)9')]"
+							size = { 14 14 }
+
+							texture = "gfx/interface/icons/portraits/relation_small.dds"
+							framesize = { 28 28 }
+							frame = "[Character.GetPlayerDynastyRelationFrame]"
+							tooltip = "[Character.GetPlayerDynastyRelationTooltip]"
+						}
+
+						icon = {
+							name = "incapable"
+							visible = "[Character.IsIncapable]"
+							size = { 14 14 }
+							texture = "gfx/interface/icons/portraits/incapable_small.dds"
+							tooltip = "trait_incapable"
+						}
+
+						block "inspiration_status_icons"
+						{
+							has_inspiration_status_icon = {
+								size = { 14 14 }
+								texture = "gfx/interface/icons/portraits/inspiration_small.dds"
+							}
+
+							has_completed_inspiration_status_icon = {
+								size = { 14 14 }
+								texture = "gfx/interface/icons/portraits/inspiration_complete_small.dds"
+							}
+						}
+
+						icon = {
+							name = "can_be_punished"
+							visible = "[Character.CanBePunished]"
+							size = { 14 14 }
+
+							texture = "gfx/interface/icons/portraits/punishment_small.dds"
+							tooltip = "[Character.PunishmentTooltip]"
+						}
+
+						icon = {
+							name = "hook"
+							visible = "[Character.PlayerHasHooksOrHookableSecrets]"
+							size = { 14 14 }
+
+							texture = "gfx/interface/icons/portraits/hook_secret_small.dds"
+							framesize = { 28 28 }
+							frame = "[Character.GetHookOrHookableSecretsFrame]"
+							tooltip = "[Character.HookTooltip]"
+						}
+
+						icon = {
+							name = "powerful_vassal"
+							visible = "[Character.IsMyPowerfulVassal]"
+							size = { 14 14 }
+
+							texture = "gfx/interface/icons/portraits/powerful_vassal_small.dds"
+							framesize = { 28 28 }
+							frame = "[Character.GetPowerfulVassalFrame]"
+							tooltip = "[Character.GetPowerfulVassalTooltip]"
+						}
+
+						icon = {
+							name = "head_icon"
+							visible = "[LessThan_int32(Character.GetDynastyHeadRelationFrame('(bool)yes'), '(int32)9')]"
+							size = { 14 14 }
+
+							texture = "gfx/interface/icons/portraits/relation_small.dds"
+							framesize = { 28 28 }
+							frame = "[Character.GetDynastyHeadRelationFrame('(bool)yes')]"
+							tooltip = "[Character.GetDynastyHeadRelationTooltip]"
+						}
+
+						icon = {
+							name = "playable_icon"
+							visible = "[ObjectsEqual( Character.Self, GetPlayer.GetPlayerHeir )]"
+							size = { 14 14 }
+							texture = "gfx/interface/icons/portraits/heir_small.dds"
+							tooltip = "[Character.GetPlayableFrameTooltip]"
+						}
+					}
+
+					block "dead_icon"
+					{
+						icon = {
+							name = "is_dead"
+							visible = "[Character.IsDeadAndValid]"
+							size = { 14 14 }
+
+							texture = "[Character.GetDeathReasonIcon]"
+							tooltip = "CHARACTER_DEAD_TOOLTIP"
+						}
+					}
+				}
+
+				block "opinion_box"
+				{
+					portrait_opinion_small = {
+						name = "tutorial_highlight_character_view_opinion_heir"
+					}
+				}
+			}
+		}
+
+
+		# Portrait unknown glow
+		highlight_icon = {
+			name = "portrait_unknown_head_small_glow"
+			parentanchor = center
+			position = { 3 -9 }
+			gfxtype = framedbuttongfx
+			effectname = "NoHighlight"
+			texture = "gfx/portraits/unknown_portraits/button_unknown_head.dds"
+			size = { 80 100 }
+			framesize = { 384 480 }
+			upframe = 1
+			overframe = 2
+
+			block "glow_visible"
+			{
+				visible = "[Not(Character.IsValid)]"
+			}
+
+			block "glow_flip" {}
+
+			block "onclick" {}
+		}
+	}
+
 	type portrait_head_small_legend = widget {
 		size = { 95 120 }
-		
+
 		background = {
 			texture = "gfx/interface/window_legend_chronicle/marginalia_portrait_gold_bg.dds"
-		}
-		
-		background = {
-			texture = "[GetIllustration( 'legend_chronicle_portrait_small_frame' ).GetTexture( Legend.MakeScope )]"
 		}
 
 		portrait_button = {
@@ -215,12 +507,11 @@ types PortraitTypes
 			block "portrait_texture"
 			{
 				portrait_texture = "[Character.GetPortrait('environment_head', 'camera_head', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
-				position = {0 -5}
 			}
 
-			mask = "gfx/portraits/portrait_mask_head_small.dds"
+			mask = "gfx/portraits/portrait_mask_head.dds"
 			effectname = "NoHighlight"
-			
+
 			highlight_icon = {
 				name = "prison_bars"
 				visible = "[Character.IsImprisoned]"
@@ -229,7 +520,7 @@ types PortraitTypes
 				parentanchor = center
 				effectname = "NoHighlight"
 				texture = "gfx/portraits/portrait_prison_head.dds"
-				
+
 				modify_texture = {
 					name = "mask"
 					texture = "gfx/portraits/portrait_mask_head_small.dds"
@@ -237,6 +528,11 @@ types PortraitTypes
 					blend_mode = alphamultiply
 				}
 			}
+		}
+
+		icon = {
+			size = { 95 120 }
+			texture = "[GetIllustration( 'legend_chronicle_portrait_small_frame' ).GetTexture( Legend.MakeScope )]"
 		}
 
 		block "coa" {
@@ -252,13 +548,13 @@ types PortraitTypes
 			size = { 100% 100% }
 			visible = "[Not( Character.HasLandedTitles )]"
 			block "empty_character" {}
-			
+
 			background = {
 				texture = "gfx/portraits/portrait_frame.dds"
 				using = Color_Grey
 				margin = { -4 -4 }
 				alpha = 0.4
-				
+
 				modify_texture = {
 					texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
 					blend_mode = alphamultiply
@@ -281,7 +577,7 @@ types PortraitTypes
 			direction = vertical
 			margin = { 4 0 }
 			margin_bottom = 5
-			
+
 			portrait_status_icons_small = {
 				parentanchor = right
 			}
@@ -305,13 +601,13 @@ types PortraitTypes
 			framesize = { 384 480 }
 			upframe = 1
 			overframe = 2
-			
+
 			block "glow_visible" {
 				visible = "[Not(Character.IsValid)]"
 			}
-			
+
 			block "glow_flip" {}
-			
+
 			block "onclick" {}
 		}
 	}
@@ -554,7 +850,12 @@ types PortraitTypes
 			{
 				portrait_texture = "[Character.GetPortrait('environment_torso', 'camera_torso', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 			}
-			mask = "gfx/portraits/portrait_mask_torso.dds"
+
+			block "portrait_mask"
+			{
+				mask = "gfx/portraits/portrait_mask_torso.dds"
+			}
+
 			effectname = "NoHighlight"
 
 			highlight_icon = {
@@ -578,15 +879,17 @@ types PortraitTypes
 		#AGOT Added
 		agot_dragons_portrait_torso = {}
 
-		portrait_status_icons = {
-			parentanchor = bottom|left
-			position = { 43 -6 }
-			scale = 0.85
+		block "portrait_status_icons" {
+			portrait_status_icons = {
+				parentanchor = bottom|left
+				position = { 43 -6 }
+				scale = 0.85
 
-			background = {
-				using = Background_Area_Dark
-				margin = { 2 3 }
-				alpha = 0.8
+				background = {
+					using = Background_Area_Dark
+					margin = { 2 3 }
+					alpha = 0.8
+				}
 			}
 		}
 
@@ -845,7 +1148,6 @@ types PortraitTypes
 	######## SPECIAL PORTRAITS #########
 	####################################
 
-	#AGOT MAP WIDGET - WIP - NOT DONE YET
 	type portrait_map = widget {
 		size = { 85 90 }
 
@@ -878,7 +1180,7 @@ types PortraitTypes
 		portrait_button = {
 			#AGOT Added
 			using = shown_if_not_fake_death_and_not_dragon
-			size = { 300 421 }
+			size = { 380 421 }
 			position = { -30 10 }
 			parentanchor = bottom|hcenter
 			using = portrait_base
@@ -913,7 +1215,9 @@ types PortraitTypes
 
 		portrait_status_icons = {
 			parentanchor = bottom|right
-			position = { -60 0 }
+			#AGOT Modified
+			# position = { -60 0 }
+			position = { -120 0 }
 
 			block "portrait_status_icons" {}
 		}
@@ -972,40 +1276,12 @@ types PortraitTypes
 		}
 		#AGOT WIP - NOT DONE YET
 		agot_dragons_portrait_character_view_spouse = {}
-
-		# flowcontainer = {
-		#     parentanchor = bottom|right
-		#     widgetanchor = bottom|left
-		#     position = { -18 0 }
-		#     ignoreinvisible = yes
-		#     margin_top = 5
-
-		#     coa_realm_small = {
-		#         visible = "[Character.HasLandedTitles]"
-
-		#         using = Animation_ShowHide_Standard
-		#     }
-
-		#     portrait_status_icons = {
-		#         parentanchor = bottom
-		#     }
-		# }
-
-		# block "opinion_box"
-		# {
-		#   portrait_opinion = {
-		#       position = { 5 -25 }
-		#       parentanchor = bottom|hcenter
-
-		#       block "portrait_opinion" {}
-		#    }
-		# }
 	}
 
 	type portrait_event = widget {
 
 		widget = {
-			size = { 500 558 }
+			size = { 500 490 }
 			parentanchor = bottom
 
 			icon = {
@@ -1210,6 +1486,7 @@ types PortraitTypes
 			size = { 100% 100% }
 			blockoverride "portrait_glows" {}
 		}
+		#AGOT Added
 		agot_dragons_portrait_event_small_button = {}
 	}
 
@@ -1248,6 +1525,43 @@ types PortraitTypes
 		portrait_shoulders = {
 			size = { 100% 100% }
 			blockoverride "portrait_glows" {}
+		}
+	}
+
+	type portrait_scheme_hud = widget {
+		size = { 90 112 }
+
+		portrait_button = {
+			alwaystransparent = yes
+			parentanchor = center
+			position = { 0 -9 }
+			size = { 90 112 }
+			using = portrait_base
+			
+			portrait_texture = "[Character.GetPortrait('environment_shoulders', 'camera_scheme_widget_microscopic', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+
+			mask = "gfx/portraits/scheme_hud_portrait_mask.dds"
+			effectname = "NoHighlight"
+
+			tooltip_visible = no
+
+			highlight_icon = {
+				name = "prison_bars"
+				visible = "[Character.IsImprisoned]"
+				visible_at_creation = no
+				size = { 100% 100% }
+				effectname = "NoHighlight"
+				texture = "gfx/portraits/portrait_prison_shoulders.dds"
+
+				modify_texture = {
+					name = "mask"
+					texture = "gfx/portraits/portrait_mask_shoulders.dds"
+					spriteType = Corneredstretched
+					blend_mode = alphamultiply
+				}
+			}
+
+			block "portrait_button" {}
 		}
 	}
 
@@ -1485,7 +1799,7 @@ types PortraitTypes
 
 	### Lifestyles portrait
 	type portrait_lifestyles = portrait_button {
-		size = { 500 1000 }
+		size = { 650 1000 }
 
 		effectname = "NoHighlight"
 		tooltip_visible = no
@@ -1554,301 +1868,6 @@ types PortraitTypes
 			visible = "[Character.IsHovered]"
 			using = Background_Portrait_Glow
 			color = { 0.9 0.8 0.6 0.6 }
-		}
-	}
-
-	type portrait_head_small_relationship = widget {
-		size = { 85 90 }
-
-		background = {
-			using = Background_Area_Solid
-
-			modify_texture = {
-				texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
-				blend_mode = alphamultiply
-				alpha = 0.2
-				mirror = vertical
-			}
-		}
-
-		background = {
-			block "empty_character" {}
-			visible = "[Not( Character.HasLandedTitles )]"
-			texture = "gfx/portraits/portrait_frame.dds"
-			using = Color_Grey
-			margin = { -4 -4 }
-			alpha = 0.4
-		}
-
-		widget = {
-			size = { 100% 100% }
-			using = Portrait_Background_Glows
-
-			block "empty_character" {}
-		}
-
-		portrait_button = {
-			parentanchor = bottom|hcenter
-			size = { 80 100 }
-			using = portrait_base
-			# AGOT Added
-			using = visible_if_not_dragon
-			block "portrait_texture"
-			{
-				portrait_texture = "[Character.GetPortrait('environment_head', 'camera_head', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
-			}
-
-			mask = "gfx/portraits/portrait_mask_head_small.dds"
-			effectname = "NoHighlight"
-
-			highlight_icon = {
-				name = "prison_bars"
-				visible = "[Character.IsImprisoned]"
-				visible_at_creation = no
-				size = { 80 88 }
-				parentanchor = bottom
-				effectname = "NoHighlight"
-				texture = "gfx/portraits/portrait_prison_head.dds"
-
-				modify_texture = {
-					name = "mask"
-					texture = "gfx/portraits/portrait_mask_head_small.dds"
-					spriteType = Corneredstretched
-					blend_mode = alphamultiply
-				}
-			}
-
-			block "portrait_button" {}
-		}
-		#AGOT Added
-		agot_dragons_portrait_head_small = {}
-
-		widget_portrait_frame = {}
-
-		block "coa" {
-			coa_realm_tiny = {
-				visible = "[Character.HasLandedTitles]"
-				parentanchor = bottom|left
-				position = { 3 -2 }
-				scale = 0.85
-			}
-		}
-
-		widget = {
-			size = { 100% 100% }
-			visible = "[Not( Character.HasLandedTitles )]"
-			block "empty_character" {}
-
-			background = {
-				texture = "gfx/portraits/portrait_frame.dds"
-				using = Color_Grey
-				margin = { -4 -4 }
-				alpha = 0.4
-
-				modify_texture = {
-					texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
-					blend_mode = alphamultiply
-					mirror = vertical
-				}
-			}
-
-			background = {
-				visible = "[Character.IsHovered]"
-				texture = "gfx/portraits/portrait_frame.dds"
-				using = Color_Grey
-				alpha = 0.7
-				margin = { -4 -4 }
-			}
-		}
-
-		flowcontainer = {
-			visible = "[Character.IsValid]"
-			ignoreinvisible = yes
-			parentanchor = top|right
-
-			block "scripted_relation_status_icons"
-			{
-				using = Portrait_Relation_Icons_Character_Window
-			}
-
-			margin_right = 2
-
-			blockoverride "icon_size"
-			{
-				size = { 24 24 }
-			}
-
-			background = {
-				using = Background_Area_Dark
-				margin = { 2 2 }
-				alpha = 0.8
-
-				modify_texture = {
-					texture = "gfx/interface/component_masks/mask_glow.dds"
-					blend_mode = alphamultiply
-				}
-			}
-		}
-
-		widget = {
-			size = { 85 68 }
-			scissor = yes
-			parentanchor = bottom
-
-			flowcontainer = {
-				parentanchor = bottom|right
-				ignoreinvisible = yes
-				direction = vertical
-
-				margin = { 4 0 }
-				margin_bottom = 4
-
-				flowcontainer = {
-					visible = "[Character.IsValid]"
-					ignoreinvisible = yes
-					direction = vertical
-					parentanchor = right
-					spacing = 1
-
-					margin_right = 2
-
-					background = {
-						using = Background_Area_Dark
-						margin = { 2 2 }
-					}
-
-					# sorted by priority, highest prio at the bottom
-					block "status_icons" {
-
-						icon = {
-							name = "relation_icon"
-							visible = "[LessThan_int32(Character.GetPlayerDynastyRelationFrame, '(int32)9')]"
-							size = { 14 14 }
-
-							texture = "gfx/interface/icons/portraits/relation_small.dds"
-							framesize = { 28 28 }
-							frame = "[Character.GetPlayerDynastyRelationFrame]"
-							tooltip = "[Character.GetPlayerDynastyRelationTooltip]"
-						}
-
-						icon = {
-							name = "incapable"
-							visible = "[Character.IsIncapable]"
-							size = { 14 14 }
-							texture = "gfx/interface/icons/portraits/incapable_small.dds"
-							tooltip = "trait_incapable"
-						}
-
-						block "inspiration_status_icons"
-						{
-							has_inspiration_status_icon = {
-								size = { 14 14 }
-								texture = "gfx/interface/icons/portraits/inspiration_small.dds"
-							}
-
-							has_completed_inspiration_status_icon = {
-								size = { 14 14 }
-								texture = "gfx/interface/icons/portraits/inspiration_complete_small.dds"
-							}
-						}
-
-						icon = {
-							name = "can_be_punished"
-							visible = "[Character.CanBePunished]"
-							size = { 14 14 }
-
-							texture = "gfx/interface/icons/portraits/punishment_small.dds"
-							tooltip = "[Character.PunishmentTooltip]"
-						}
-
-						icon = {
-							name = "hook"
-							visible = "[Character.PlayerHasHooksOrHookableSecrets]"
-							size = { 14 14 }
-
-							texture = "gfx/interface/icons/portraits/hook_secret_small.dds"
-							framesize = { 28 28 }
-							frame = "[Character.GetHookOrHookableSecretsFrame]"
-							tooltip = "[Character.HookTooltip]"
-						}
-
-						icon = {
-							name = "powerful_vassal"
-							visible = "[Character.IsMyPowerfulVassal]"
-							size = { 14 14 }
-
-							texture = "gfx/interface/icons/portraits/powerful_vassal_small.dds"
-							framesize = { 28 28 }
-							frame = "[Character.GetPowerfulVassalFrame]"
-							tooltip = "[Character.GetPowerfulVassalTooltip]"
-						}
-
-						icon = {
-							name = "head_icon"
-							visible = "[LessThan_int32(Character.GetDynastyHeadRelationFrame('(bool)yes'), '(int32)9')]"
-							size = { 14 14 }
-
-							texture = "gfx/interface/icons/portraits/relation_small.dds"
-							framesize = { 28 28 }
-							frame = "[Character.GetDynastyHeadRelationFrame('(bool)yes')]"
-							tooltip = "[Character.GetDynastyHeadRelationTooltip]"
-						}
-
-						icon = {
-							name = "playable_icon"
-							visible = "[ObjectsEqual( Character.Self, GetPlayer.GetPlayerHeir )]"
-							size = { 14 14 }
-							texture = "gfx/interface/icons/portraits/heir_small.dds"
-							tooltip = "[Character.GetPlayableFrameTooltip]"
-						}
-					}
-
-					block "dead_icon"
-					{
-						icon = {
-							name = "is_dead"
-							visible = "[Character.IsDeadAndValid]"
-							size = { 14 14 }
-
-							texture = "[Character.GetDeathReasonIcon]"
-							tooltip = "CHARACTER_DEAD_TOOLTIP"
-						}
-					}
-				}
-
-				block "opinion_box"
-				{
-					portrait_opinion_small = {
-						#AGOT Added
-						using = shown_if_not_fake_death
-						name = "tutorial_highlight_character_view_opinion_heir"
-					}
-				}
-			}
-		}
-
-
-		# Portrait unknown glow
-		highlight_icon = {
-			name = "portrait_unknown_head_small_glow"
-			parentanchor = center
-			position = { 3 -9 }
-			gfxtype = framedbuttongfx
-			effectname = "NoHighlight"
-			texture = "gfx/portraits/unknown_portraits/button_unknown_head.dds"
-			size = { 80 100 }
-			framesize = { 384 480 }
-			upframe = 1
-			overframe = 2
-
-			block "glow_visible"
-			{
-				visible = "[Not(Character.IsValid)]"
-			}
-
-			block "glow_flip" {}
-
-			block "onclick" {}
 		}
 	}
 
@@ -1957,109 +1976,6 @@ types PortraitTypes
 		}
 	}
 
-	type portrait_pin_vassal_map = widget {
-		size = { 81 93 }
-
-		icon = {
-			size = { 100% 100% }
-			texture = "gfx/interface/window_activities/pin_activity_location.dds"
-		}
-
-		#TODO[Oscar] Needs to choose vassal, the player portrait it uses now is just placeholder
-		portrait_button = {
-			datacontext = "[GetPlayer]"
-			visible = "[Not(Character.IsImprisoned)]"
-			parentanchor = center
-			size = { 81 93 }
-			using = portrait_base
-			portrait_texture = "[Character.GetPortrait('environment_head', 'camera_head', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
-			mask = "gfx/interface/component_masks/mask_circle.dds"
-			effectname = "NoHighlight"
-
-			block "portrait_button" {}
-
-			position = { 0 -10 }
-		}
-
-		widget = {
-			parentanchor = bottom|hcenter
-
-			# TODO[Oscar] Need to show vassal opinion
-			# portrait_opinion_small = {
-			#     name = "vassal_opinion"
-			#     parentanchor = bottom|hcenter
-			#     position = { 0 -5 }
-			# }
-
-			### Placeholder opinion instead of the opinion above
-			text_label_center = {
-				raw_text = "+100"
-				default_format = "#d"
-				parentanchor = bottom|right
-				position = { 15 -5 }
-			}
-
-			# TODO[Oscar] It needs to select the proper CoA
-			coa_title_tiny = {
-				name = "vassal_coa"
-				parentanchor = bottom|left
-				position = { -60 0 }
-			}
-		}
-	}
-
-	type portrait_pin_vassal_list = widget {
-		size = { 81 81 }
-
-		icon = {
-			size = { 100% 100% }
-			texture = "gfx/interface/window_activities/pin_activity_list.dds"
-		}
-
-		#TODO[Oscar] Needs to choose vassal, the player portrait it uses now is just placeholder
-		portrait_button = {
-			datacontext = "[GetPlayer]"
-			visible = "[Not(Character.IsImprisoned)]"
-			parentanchor = center
-			size = { 92 92 }
-			using = portrait_base
-			portrait_texture = "[Character.GetPortrait('environment_head', 'camera_head', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
-			mask = "gfx/interface/component_masks/mask_circle.dds"
-			effectname = "NoHighlight"
-
-			block "portrait_button" {}
-
-			position = { 0 -5 }
-		}
-
-		widget = {
-			parentanchor = bottom|hcenter
-			position = { 0 12 }
-
-			# TODO[Oscar] Need to show vassal opinion
-			# portrait_opinion_small = {
-			#     name = "vassal_opinion"
-			#     parentanchor = bottom|hcenter
-			#     position = { 0 -5 }
-			# }
-
-			### Placeholder opinion instead of the opinion above
-			text_label_center = {
-				raw_text = "+100"
-				default_format = "#d"
-				parentanchor = bottom|right
-				position = { 15 -5 }
-			}
-
-			# TODO[Oscar] It needs to select the proper CoA
-			coa_title_tiny = {
-				name = "vassal_coa"
-				parentanchor = bottom|left
-				position = { -60 0 }
-			}
-		}
-	}
-
 	####################################
 	########### ACCESSORIES ############
 	####################################
@@ -2067,7 +1983,7 @@ types PortraitTypes
 	## Opinion box for portraits
 	type portrait_opinion = flowcontainer {
 		name = "tutorial_highlight_portrait_opinion"
-		# AGOT Modified
+		#AGOT Modified
 		#visible = "[And(Character.IsValid, And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
 		visible = "[And( And( Character.IsValid, Not( Character.HasTrait(GetTrait('dragon')) )), And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
 		ignoreinvisible = yes
@@ -2095,6 +2011,14 @@ types PortraitTypes
 			framesize = { 40 40 }
 		}
 
+		icon = {
+			name = "historical_info_widget"
+			visible = "[GreaterThan_CFixedPoint( Character.MakeScope.Var('show_historical_gui').GetValue, '(CFixedPoint)0' )]"
+			size = { 20 20 }
+			texture = "gfx/interface/icons/historical_character.dds"
+			tooltip = "HISTORICAL_CHARACTER_TOOLTIP"
+		}
+
 		text_single = {
 			name = "tutorial_highlight_character_view_opinion"
 			#AGOT Modified
@@ -2118,7 +2042,7 @@ types PortraitTypes
 
 	type portrait_opinion_small = flowcontainer {
 		#name = "tutorial_highlight_portrait_opinion"
-		# AGOT Modified
+		#AGOT Modified
 		#visible = "[And(Character.IsValid, And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
 		visible = "[And( And( Character.IsValid, Not( Character.HasTrait(GetTrait('dragon')) )), And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
 		ignoreinvisible = yes
@@ -2221,13 +2145,13 @@ types PortraitTypes
 					tooltip = "[Character.GetPlayerDynastyRelationTooltip]"
 				}
 
-                icon = {
-                    name = "hostage_icon"
-                    visible = "[Character.IsHostage]"
-                    size = { 14 14 }
-                    texture = "gfx/interface/icons/character_interactions/icon_hostage.dds"
-                    tooltip = "[Character.GetHostageTooltip]"
-                }
+				icon = {
+					name = "hostage_icon"
+					visible = "[Character.IsHostage]"
+					size = { 14 14 }
+					texture = "gfx/interface/icons/character_interactions/icon_hostage.dds"
+					tooltip = "[Character.GetHostageTooltip]"
+				}
 
 				icon = {
 					name = "traveling_icon"
@@ -2242,7 +2166,7 @@ types PortraitTypes
 					visible = "[Character.IsIncapable]"
 					size = { 14 14 }
 					texture = "gfx/interface/icons/portraits/incapable_small.dds"
-					tooltip = "trait_incapable"
+					tooltip = "CHARACTER_INCAPABLE_TOOLTIP"
 				}
 
 				block "inspiration_status_icons"
@@ -2267,15 +2191,6 @@ types PortraitTypes
 					tooltip = "[Character.PunishmentTooltip]"
 				}
 
-				# TODO BP2: Add visible trigger and tooltip
-				icon = {
-					name = "hostage"
-					visible = no
-					size = { 14 14 }
-
-					texture = "gfx/interface/icons/portraits/hostage_small.dds"
-				}
-
 				icon = {
 					name = "hook"
 					visible = "[Character.PlayerHasHooksOrHookableSecrets]"
@@ -2296,6 +2211,27 @@ types PortraitTypes
 					framesize = { 28 28 }
 					frame = "[Character.GetPowerfulVassalFrame]"
 					tooltip = "[Character.GetPowerfulVassalTooltip]"
+				}
+
+				icon = {
+					name = "powerful_family"
+					visible = "[And( And( Character.IsHouseHead, Character.GetHouse.IsPowerful ), Character.IsVassalOf( GetPlayer ) )]"
+					size = { 14 14 }
+
+					texture = "gfx/interface/icons/portraits/powerful_family_head_small.dds"
+					framesize = { 28 28 }
+					tooltip = "FRAME_RELATION_POWERFUL_FAMILY"
+				}
+
+				icon = {
+					name = "dominant_family"
+					visible = "[And( And( Character.IsHouseHead, Character.GetHouse.IsDominant ), Character.IsVassalOf( GetPlayer ) )]"
+					size = { 14 14 }
+
+					texture = "gfx/interface/icons/portraits/powerful_family_head_small.dds"
+					framesize = { 28 28 }
+					frame = 2
+					tooltip = "FRAME_RELATION_DOMINANT_FAMILY"
 				}
 
 				icon = {
@@ -2362,13 +2298,13 @@ types PortraitTypes
 				tooltip = "[Character.GetPlayerDynastyRelationTooltip]"
 			}
 
-            icon = {
-                name = "hostage_icon"
-                visible = "[Character.IsHostage]"
-                size = { 20 20 }
-                texture = "gfx/interface/icons/character_interactions/icon_hostage.dds"
-                tooltip = "[Character.GetHostageTooltip]"
-            }
+			icon = {
+				name = "hostage_icon"
+				visible = "[Character.IsHostage]"
+				size = { 20 20 }
+				texture = "gfx/interface/icons/character_interactions/icon_hostage.dds"
+				tooltip = "[Character.GetHostageTooltip]"
+			}
 
 			icon = {
 				name = "traveling_icon"
@@ -2405,15 +2341,6 @@ types PortraitTypes
 				tooltip = "[Character.PunishmentTooltip]"
 			}
 
-			# TODO BP2: Add visible trigger and tooltip
-			icon = {
-				name = "hostage"
-				visible = no
-				size = { 20 20 }
-
-				texture = "gfx/interface/icons/portraits/hostage.dds"
-			}
-
 			icon = {
 				name = "hook"
 				visible = "[Character.PlayerHasHooksOrHookableSecrets]"
@@ -2446,6 +2373,27 @@ types PortraitTypes
 			}
 
 			icon = {
+				name = "powerful_family"
+				visible = "[And( And( Character.IsHouseHead, Character.GetHouse.IsPowerful ), Character.IsVassalOf( GetPlayer ) )]"
+				size = { 20 20 }
+
+				texture = "gfx/interface/icons/portraits/powerful_family_head.dds"
+				framesize = { 40 40 }
+				tooltip = "FRAME_RELATION_POWERFUL_FAMILY"
+			}
+
+			icon = {
+				name = "dominant_family"
+				visible = "[And( And( Character.IsHouseHead, Character.GetHouse.IsDominant ), Character.IsVassalOf( GetPlayer ) )]"
+				size = { 20 20 }
+
+				texture = "gfx/interface/icons/portraits/powerful_family_head.dds"
+				framesize = { 40 40 }
+				frame = 2
+				tooltip = "FRAME_RELATION_DOMINANT_FAMILY"
+			}
+
+			icon = {
 				name = "head_icon"
 				visible = "[LessThan_int32(Character.GetDynastyHeadRelationFrame('(bool)yes'), '(int32)9')]"
 				size = { 20 20 }
@@ -2454,6 +2402,14 @@ types PortraitTypes
 				framesize = { 40 40 }
 				frame = "[Character.GetDynastyHeadRelationFrame('(bool)yes')]"
 				tooltip = "[Character.GetDynastyHeadRelationTooltip]"
+			}
+
+			icon = {
+				name = "favorite_child"
+				visible = "[Character.IsFavoriteChildOf( GetPlayer )]"
+				size = { 20 20 }
+				texture = "gfx/interface/icons/character_interactions/designate_favorite.dds"
+				tooltip = "SUCCESSION_IS_FAVORITE_CHILD_TT"
 			}
 
 			icon = {
@@ -2750,6 +2706,20 @@ types portrait_icons
 		}
 	}
 
+	type grudge_relation_icon = icon
+	{
+		name = "grudge"
+
+		datacontext = "[GetRelation( 'grudge' )]"
+
+		texture = "gfx/interface/icons/portraits/rival_grudge.dds"
+		frame = 1
+
+		block "icon_template" {
+			using = Portrait_Relation_Icon_Normal_Size
+		}
+	}
+
 	# Small size icons
 	type lover_relation_icon_small = icon
 	{
@@ -2822,6 +2792,18 @@ types portrait_icons
 
 		using = Portrait_Relation_Icon_Small_Size
 	}
+
+	type grudge_relation_icon_small = icon
+	{
+		name = "grudge"
+
+		datacontext = "[GetRelation( 'grudge' )]"
+
+		texture = "gfx/interface/icons/portraits/rival_grudge_small.dds"
+		frame = 1
+
+		using = Portrait_Relation_Icon_Small_Size
+	}
 }
 
 template Portrait_Relation_Icons
@@ -2832,6 +2814,7 @@ template Portrait_Relation_Icons
 	soulmate_relation_icon = {}
 	best_friend_relation_icon = {}
 	nemesis_relation_icon = {}
+	grudge_relation_icon = {}
 }
 
 template Portrait_Relation_Icons_Small
@@ -2842,6 +2825,7 @@ template Portrait_Relation_Icons_Small
 	soulmate_relation_icon_small = {}
 	best_friend_relation_icon_small = {}
 	nemesis_relation_icon_small = {}
+	grudge_relation_icon_small = {}
 }
 
 template Portrait_Relation_Icons_Character_Window
@@ -2877,6 +2861,12 @@ template Portrait_Relation_Icons_Character_Window
 		}
 	}
 	nemesis_relation_icon = {
+		blockoverride "icon_template"
+		{
+			using = Character_Window_Relation_Icon
+		}
+	}
+	grudge_relation_icon = {
 		blockoverride "icon_template"
 		{
 			using = Character_Window_Relation_Icon

@@ -100,6 +100,7 @@
 							blockoverride "editbox_properties"
 							{
 								text = "[HouseCustomizationWindow.GetHouseNameText]"
+								focus_on_visible = yes
 								ontextedited = "[HouseCustomizationWindow.OnEditHouseNameText]"
 							}
 						}
@@ -152,9 +153,8 @@
 					enabled = "[HouseCustomizationWindow.CanClickFinish]"
 					tooltip = "[HouseCustomizationWindow.GetCanClickFinishText]"
 					onclick = "[HouseCustomizationWindow.OnClickFinish]"
-					# AGOT Added so coa updates after editor
+					#AGOT Added; so coa updates after editor and Send Away Your Personal COA Slave
 					onclick = "[GetScriptedGui('agot_gui_update_coa_house').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('edit_scope', HouseCustomizationWindow.GetHouse.MakeScope).End ) ]"
-					# AGOT Added - Send Away Your Personal COA Slave
 					onclick = "[GetScriptedGui('agot_send_away_coa_slave').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				}
 			}

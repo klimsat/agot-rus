@@ -21,11 +21,11 @@ window = {
 
 	### HIDE ALL UI FULLSCREEN ###
 	button_normal = {
-        visible = "[And( Not(BarbershopScreenshotHandler.IsScreenshotButtonVisible), Not(BarbershopScreenshotHandler.IsScreenshotBeingTaken) )]"
-        size = { 100% 100% }
-        shortcut = "close_window"
-        onclick = "[BarbershopScreenshotHandler.ToggleScreenshotButtons]"
-    }
+		visible = "[And( Not(BarbershopScreenshotHandler.IsScreenshotButtonVisible), Not(BarbershopScreenshotHandler.IsScreenshotBeingTaken) )]"
+		size = { 100% 100% }
+		shortcut = "close_window"
+		onclick = "[BarbershopScreenshotHandler.ToggleScreenshotButtons]"
+	}
 
 	### ALL CHARACTER PORTRAITS ###
 	widget = {
@@ -48,12 +48,14 @@ window = {
 		}
 
 		datamodel = "[BarbershopWindow.GetBarbershopCharacters]"
+
 		item = {
 			barbershop_portrait_window = {}
 		}
 
 		### MOVABLE COAT OF ARMS ###
 		datacontext = "[BarbershopWindow.GetCoAHandler]"
+
 		barbershop_coa_window = {
 			visible = "[And( BarbershopWindow.IsTabSceneVisible, BarbershopCoAHandler.IsTitleVisible )]"
 			position = { 520 80 }
@@ -65,12 +67,14 @@ window = {
 			{
 				visible = "[BarbershopCoAHandler.IsTitleWindowHovered]"
 			}
+
 			hbox = {
 				barbershop_coa_realm = {
 					datacontext = "[BarbershopWindow.GetMainCharacter.GetPrimaryTitle]"
 				}
 			}
 		}
+
 		barbershop_coa_window = {
 			visible = "[And( BarbershopWindow.IsTabSceneVisible, BarbershopCoAHandler.IsHouseVisible )]"
 			position = { 520 260 }
@@ -82,12 +86,14 @@ window = {
 			{
 				visible = "[BarbershopCoAHandler.IsHouseWindowHovered]"
 			}
+
 			hbox = {
 				barbershop_coa_house = {
 					datacontext = "[BarbershopWindow.GetMainCharacter.GetHouse]"
 				}
 			}
 		}
+
 		barbershop_coa_window = {
 			visible = "[And( BarbershopWindow.IsTabSceneVisible, BarbershopCoAHandler.IsDynastyVisible )]"
 			position = { 520 430 }
@@ -99,6 +105,7 @@ window = {
 			{
 				visible = "[BarbershopCoAHandler.IsDynastyWindowHovered]"
 			}
+
 			hbox = {
 				barbershop_coa_dynasty = {
 					datacontext = "[BarbershopWindow.GetMainCharacter.GetDynasty]"
@@ -107,14 +114,15 @@ window = {
 		}
 	}
 
-    widget = {
+	widget = {
 		size = { 1920 1080 }
 		scale = "[ScaleToFitElementInside('(int32)1920', '(int32)1080')]"
 		datamodel = "[BarbershopWindow.GetBarbershopCharacters]"
+
 		item = {
 			barbershop_name_window = {}
 		}
-    }
+	}
 
 	### SCENE TAB - Screenshot notification ###
 	container = {
@@ -182,12 +190,12 @@ window = {
 
 	### SCENE TAB - Screenshot button ###
 	vbox = {
-		expand = {}
-
 		name = "screenshot_box"
 		datacontext = "[BarbershopWindow.GetScreenshotHandler]"
 		visible = "[And( BarbershopScreenshotHandler.IsScreenshotButtonVisible, BarbershopWindow.IsTabSceneVisible )]"
 		margin_bottom = 30
+
+		expand = {}
 
 		hbox = {
 			min_width = 362
@@ -219,56 +227,9 @@ window = {
 		}
 	}
 
-
 	vbox = {
 		layoutpolicy_vertical = expanding
 		layoutpolicy_horizontal = expanding
-
-		margin_top = 8
-
-		#### WINDOW HEADER ####
-		header_standard = {
-			datacontext = "[BarbershopWindow.GetScreenshotHandler]"
-			visible = "[BarbershopScreenshotHandler.AreTabsVisible]"
-			layoutpolicy_horizontal = expanding
-
-	        state = {
-	            name = _show
-	            using = Animation_FadeIn_Quick
-	        }
-
-			state = {
-	            name = _hide
-	            using = Animation_FadeOut_Quick
-	        }
-
-			blockoverride "header_text"
-			{
-				text = "BARBERSHOP_TITLE"
-			}
-
-			blockoverride "button_close"
-			{
-				onclick = "[BarbershopWindow.CloseWithoutSave]"
-			}
-
-		    background = {
-		        texture = "gfx/interface/component_tiles/tile_window_background_no_edge.dds"
-		        spriteType = Corneredtiled
-		        spriteborder = { 18 0 }
-		        texture_density = 2
-
-		        modify_texture = {
-		            texture = "gfx/interface/component_overlay/overlay_effect.dds"
-		            blend_mode = overlay
-		        }
-
-		        block "bg_margins"
-		        {
-		            margin = { 20 8 }
-		        }
-		    }
-		}
 
 		#### UI ELEMENTS FLOW LAYOUT BEGINS HERE ####
 		hbox = {
@@ -276,41 +237,30 @@ window = {
 			visible = "[BarbershopScreenshotHandler.AreTabsVisible]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
-			margin_top = 6
-
-	        state = {
-	            name = _show
-	            using = Animation_FadeIn_Quick
-	        }
 
 			state = {
-	            name = _hide
-	            using = Animation_FadeOut_Quick
-	        }
+				name = _show
+				using = Animation_FadeIn_Quick
+			}
+
+			state = {
+				name = _hide
+				using = Animation_FadeOut_Quick
+			}
 
 			vbox = {
 				name = "left_panel"
 				layoutpolicy_vertical = expanding
 
-				minimumsize = { 500 0 }
+				#AGOT Modified
+				# minimumsize = { 500 0 }
+				minimumsize = { 575 0 }
 
-				margin_right = 15
 				margin_bottom = 25
 				spacing = 5
 
-				using = Window_Background_Sidebar_Multiplayer_Left
-
-				background = {
-					using = Background_Area_Dark
-					margin_right = 5
-
-					modify_texture = {
-						blend_mode = alphamultiply
-						alpha = 0.8
-						mirror = vertical
-						texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
-					}
-				}
+				using = Window_Background_Sidebar
+				using = Window_Margins_Sidebar
 
 				#### TABS HEADER ####
 				hbox = {
@@ -344,33 +294,63 @@ window = {
 					visible = "[BarbershopWindow.IsTabAppearanceVisible]"
 
 					datamodel = "[BarbershopWindow.GetAccessoryCategories]"
-					margin = { 10 10 }
-					spacing = 5
+					#AGOT Disabled
+					# margin = { 20 10 }
+					# spacing = 15
 
 					item = {
 						hbox = {
 							layoutpolicy_horizontal = expanding
 							spacing = 10
+
 							vbox = {
-								spacing = 0
+								#AGOT Modified
+								# spacing = 10
+								spacer = { size = { 0 10 } }
+
+								#AGOT Disabled; moved below
+								# hbox = {
+									# layoutpolicy_horizontal = expanding
+
+									# text_label_left = {
+										# text = "[BarbershopAccessoryCategory.GetName]"
+									# }
+
+									# expand = {}
+								# }
 
 								hbox = {
-									minimumsize = {433 -1}
+									#AGOT Modified
+									# spacing = 5
 									layoutpolicy_horizontal = expanding
 
-									text_label_left = {
-										text = "[BarbershopAccessoryCategory.GetName]"
-									}
+									#AGOT Disabled; replaced with hbox
+									# button_search = {
+										# size = { 30 30 }
+										# onclick = "[BarbershopWindow.ShowSearchFilter( PdxGuiWidget.GetIndexInDataModel )]"
 
-									expand = {}
-									
-									button_search = {
-										parentanchor=left
-										size = { 25 25 }
-										onclick = "[BarbershopWindow.ShowSearchFilter( PdxGuiWidget.GetIndexInDataModel )]"
+										# tooltip = "BARBERSHOP_FUZZY_SEARCH_TT"
+										# using = tooltip_ne
+									# }
 
-										tooltip = "BARBERSHOP_FUZZY_SEARCH_TT"
-										using = tooltip_ne
+									#AGOT Added; the hbox
+									hbox = {
+										minimumsize = { 137 -1 }
+										layoutpolicy_horizontal = expanding
+
+										text_label_left = {
+											text = "[BarbershopAccessoryCategory.GetName]"
+										}
+
+										expand = {}
+
+										button_search = {
+											size = { 25 25 }
+											onclick = "[BarbershopWindow.ShowSearchFilter( PdxGuiWidget.GetIndexInDataModel )]"
+
+											tooltip = "BARBERSHOP_FUZZY_SEARCH_TT"
+											using = tooltip_ne
+										}
 									}
 
 									dropdown_menu_standard = {
@@ -383,12 +363,16 @@ window = {
 
 										blockoverride "dropdown_size"
 										{
-											size = { 300 32 }
+											#AGOT Modified
+											# size = { 322 32 }
+											size = { 358 32 }
 										}
 
 										blockoverride "dropdown_list_maxsize"
 										{
-											maximumsize = { 291 550 }
+											#AGOT Modified
+											# maximumsize = { 314 490 }
+											maximumsize = { 350 600 }
 										}
 
 										blockoverride "dropdown_active_item_properties"
@@ -449,6 +433,7 @@ window = {
 													onmousehierarchyleave = "[BarbershopWindow.RestorePreviousPortraitModifierIndex]"
 
 													button_ignore = none
+													
 													text_single = {
 														text = "[BarbershopAccessoryItem.GetName]"
 														parentanchor = vcenter|left
@@ -465,28 +450,39 @@ window = {
 
 							vbox = {
 								visible = "[BarbershopAccessoryCategory.CanEditColor]"
-								background = {
-									using = Background_Area_Dark
-								}
+								#AGOT Disabled
+								# background = {
+									# using = Background_Area_Dark
+								# }
+								#AGOT Added
+								margin_top = 12
+
 								button_standard_clean = {
 									name = "color_button"
-									size = { 32	32 }
+									#AGOT Modified
+									# size = { 64 64 }
+									size = { 22 22 }
 									onclick = "[BarbershopAccessoryCategory.SelectColorPicker]"
 									down = "[BarbershopAccessoryCategory.IsActiveColorPicker]"
 
 									icon = {
 										parentanchor = center
-										size = { 32 32 }
+										#AGOT Modified
+										# size = { 58 58 }
+										size = { 16 16 }
 
 										texture = "gfx/interface/colors/white.dds"
 										tintcolor = "[BarbershopAccessoryCategory.GetCurrentColor]"
-										using = Mask_Rough_Edges
+										#AGOT Disabled
+										# using = Mask_Rough_Edges
 
 										tooltip = "BARBERSHOP_SELECT_COLOR_PICKER_TT"
 										using = tooltip_ne
 									}
 								}
 							}
+							#AGOT Added
+							expand = {}
 							expand = {}
 						}
 					}
@@ -496,9 +492,6 @@ window = {
 				vbox = {
 					name = "color_picker"
 					visible = "[BarbershopWindow.IsTabAppearanceVisible]"
-					scale = 0.8
-					margin = { 50 0 }
-					
 
 					hbox = {
 						text_label_center = {
@@ -539,6 +532,7 @@ window = {
 							}
 						}
 					}
+
 					barbershop_color_picker = {
 						visible = yes
 						color = "[BarbershopColorPickerHandler.GetColor]"
@@ -551,15 +545,16 @@ window = {
 					name = "scene_tab"
 					visible = "[BarbershopWindow.IsTabSceneVisible]"
 					layoutpolicy_vertical = expanding
+					margin_top = 10
 
 					hbox = {
 						layoutpolicy_horizontal = expanding
+
 						hbox = {
 							vbox = {
 								name = "backgrounds"
 								datacontext = "[BarbershopWindow.GetBackgroundCategory]"
 								margin = { 20 0 }
-								margin_top = 20
 								spacing = 10
 
 								hbox = {
@@ -574,6 +569,7 @@ window = {
 
 								hbox = {
 									spacing = 5
+									
 									button_search = {
 										size = { 30 30 }
 										onclick = "[BarbershopBackgroundCategory.ToggleTextSearch]"
@@ -679,11 +675,11 @@ window = {
 						}
 
 						expand = {}
+
 						hbox = {
 							vbox = {
 								name = "zoom"
 								datacontext = "[BarbershopWindow.GetBackgroundCategory]"
-								margin_top = 20
 								spacing = 10
 
 								hbox = {
@@ -698,7 +694,7 @@ window = {
 
 								hbox = {
 									name = "zoom_buttons"
-									layoutpolicy_horizontal = expanding
+									spacing = 20
 
 									barbershop_button_zoom_in = {
 										name = "zoom_in"
@@ -708,7 +704,6 @@ window = {
 										using = tooltip_se
 										tooltip = "BARBERSHOP_ZOOM_IN_TT"
 									}
-									expand = {}
 
 									barbershop_button_zoom_out = {
 										name = "zoom_out"
@@ -729,7 +724,6 @@ window = {
 						layoutpolicy_horizontal = expanding
 						margin = { 20 0 }
 						margin_top = 15
-						spacing = 10
 
 						hbox = {
 							layoutpolicy_horizontal = expanding
@@ -745,11 +739,6 @@ window = {
 							layoutpolicy_horizontal = expanding
 							margin = { 0 10 }
 
-							background = {
-								margin = { 20 0 }
-								using = Background_Area_Dark
-							}
-
 							onmousehierarchyenter = "[BarbershopWindow.ResetPortraitPositions('(bool)no')]"
 
 							datamodel = "[BarbershopWindow.GetPhotoPresets]"
@@ -764,10 +753,13 @@ window = {
 										{
 											frame = "[BoolTo1And2( BarbershopWindow.IsPhotoPresetSelected( BarbershopPhotoPreset.GetType ) )]"
 										}
+
 										blockoverride "text"
 										{
 											text = "[BarbershopPhotoPreset.GetName]"
+											max_width = 74
 										}
+
 										tooltip = "[BarbershopPhotoPreset.GetTooltip]"
 									}
 
@@ -780,17 +772,17 @@ window = {
 					vbox = {
 						name = "barbershop_characters"
 						layoutpolicy_horizontal = expanding
-						margin_top = 1
 
 						scrollbox = {
 							layoutpolicy_horizontal = expanding
-							size = { 480 520 }
+							size = { 480 644 }
 
 							blockoverride "scrollbox_content" {
 								vbox = {
 									layoutpolicy_horizontal = expanding
 
 									datamodel = "[BarbershopWindow.GetBarbershopCharacters]"
+
 									item = {
 										barbershop_character_list_item = {
 											layoutpolicy_horizontal = expanding
@@ -810,21 +802,27 @@ window = {
 						datacontext = "[BarbershopWindow.GetMainCharacter.GetDynasty]"
 						visible = "[Or( BarbershopWindow.HasPrimaryTitle, Or( DynastyHouse.IsValid, Dynasty.IsValid) )]"
 						layoutpolicy_horizontal = expanding
+
 						margin = { 20 0 }
 						margin_top = 15
 
 						hbox = {
 							layoutpolicy_horizontal = expanding
+
 							text_label_left = {
 								text = "COA_DESIGNER_HEADER"
 							}
+
 							expand = {}
 						}
+
 						hbox = {
 							layoutpolicy_horizontal = expanding
+
 							vbox = {
 								visible = "[BarbershopWindow.HasPrimaryTitle]"
 								margin_top = -17
+
 								coa_realm_small_crown = {
 									blockoverride "coa_hover_glow_visible" {
 										visible = no
@@ -835,31 +833,38 @@ window = {
 										onclick = "[BarbershopCoAHandler.ToggleTitle]"
 									}
 								}
+
 								tooltip = "BARBERSHOP_COA_TOGGLE_TT"
 								using = tooltip_se
 							}
+
 							vbox = {
 								visible = "[DynastyHouse.IsValid]"
+
 								coa_house_small = {
 									blockoverride "coa_tooltip" {}
 									blockoverride "coa_button" {
 										onclick = "[BarbershopCoAHandler.ToggleHouse]"
 									}
 								}
+
 								tooltip = "BARBERSHOP_COA_TOGGLE_TT"
 								using = tooltip_se
 							}
-	                        vbox = {
+
+							vbox = {
 								visible = "[Dynasty.IsValid]"
-	                        	coa_dynasty_small = {
+
+								coa_dynasty_small = {
 									blockoverride "coa_tooltip" {}
 									blockoverride "coa_button" {
 										onclick = "[BarbershopCoAHandler.ToggleDynasty]"
 									}
 								}
+
 								tooltip = "BARBERSHOP_COA_TOGGLE_TT"
 								using = tooltip_se
-		                    }
+							}
 							expand = {}
 						}
 					}
@@ -871,10 +876,11 @@ window = {
 				### Apply and Reset buttons ###
 				vbox = {
 					name = "apply_box"
-					# margin_top = 26
+					margin_top = 26
 
 					hbox = {
 						spacing = 22
+
 						button_standard = {
 							name = "reset_button_appearance"
 							visible = "[BarbershopWindow.IsTabAppearanceVisible]"
@@ -886,6 +892,7 @@ window = {
 							tooltip = "BARBERSHOP_RESET_CHANGES_APPEARANCE_TT"
 							using = tooltip_ne
 						}
+
 						button_standard = {
 							name = "reset_button_scene"
 							visible = "[BarbershopWindow.IsTabSceneVisible]"
@@ -897,6 +904,7 @@ window = {
 							tooltip = "BARBERSHOP_RESET_CHANGES_SCENE_TT"
 							using = tooltip_ne
 						}
+
 						button_primary = {
 							name = "apply_button"
 							visible = "[BarbershopWindow.IsTabAppearanceVisible]"
@@ -912,8 +920,60 @@ window = {
 			}
 
 			expand = {}
+
+
 		}
 		expand = {}
+	}
+
+	### HEADER
+	widget = {
+		datacontext = "[BarbershopWindow.GetScreenshotHandler]"
+		visible = "[BarbershopScreenshotHandler.AreTabsVisible]"
+		parentanchor = top|hcenter
+
+		size = { 350 52 }
+		position = { 0 10}
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+		}
+
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+		}
+
+		background = {
+			using = Background_Title
+		}
+
+		text_single = {
+			parentanchor = hcenter
+			text = "BARBERSHOP_TITLE"
+			align = center
+			using = Font_Type_Flavor
+			using = Barbershop_Font_Size_Huge
+		}
+	}
+
+	### CLOSE BUTTON
+	widget = {
+		visible = "[BarbershopScreenshotHandler.AreTabsVisible]"
+		parentanchor = top|right
+		position = { -10 10}
+		size = { 50 50 }
+
+		background = {
+			using = Background_Area_Dark
+		}
+
+		button_close = {
+			parentanchor = center
+			
+			onclick = "[BarbershopWindow.CloseWithoutSave]"
+		}
 	}
 }
 
@@ -983,28 +1043,35 @@ types BarbershopTypes {
 						parentanchor = center
 						alwaystransparent = yes
 						size = { 260 260 }
+
+						background = {
+							texture = "gfx/interface/component_tiles/tile_vignette_3px.dds"
+							spriteType = Corneredtiled
+							spriteborder = { 5 5 }
+							margin = { -2 -2 }
+						}
 					}
 				}
 
 				vbox = {
-					vbox = {
-						button_clear = {
-							name = "revert_to_default"
-							size = { 36 36 }
-							onclick = "[BarbershopColorPickerHandler.ResetColorToNatural]"
+					spacing = 5
+					
+					button_clear = {
+						name = "revert_to_default"
+						size = { 36 36 }
+						onclick = "[BarbershopColorPickerHandler.ResetColorToNatural]"
 
-							tooltip = "BARBERSHOP_RESET_NATURAL_COLORS_TT"
-							using = tooltip_ne
-						}
+						tooltip = "BARBERSHOP_RESET_NATURAL_COLORS_TT"
+						using = tooltip_ne
 					}
 
 					widget = {
 						name = "spectrum_icon"
-						size = { 32 220 }
+						size = { 32 216 }
 
 						icon = {
 							name = "color_slider"
-							size = { 32 220 }
+							size = { 32 216 }
 							shaderfile = "gfx/FX/pdxgui_colorpicker.shader"
 							effectname = "PdxGuiColorSlider"
 							texture = "gfx/editor_gui/editor_transparent.dds"
@@ -1026,7 +1093,14 @@ types BarbershopTypes {
 							name = "spectrum_border"
 							parentanchor = center
 							alwaystransparent = yes
-							size = { 36 224 }
+							size = { 36 220 }
+
+							background = {
+								texture = "gfx/interface/component_tiles/tile_vignette_3px.dds"
+								spriteType = Corneredtiled
+								spriteborder = { 5 5 }
+								margin = { -2 -2 }
+							}
 						}
 					}
 				}
@@ -1037,56 +1111,56 @@ types BarbershopTypes {
 	}
 	type barbershop_button_rotate_left = button {
 		texture = "gfx/interface/buttons/button_standard.dds"
-        spriteType = Corneredtiled
-        spriteborder = { 4 4 }
-        framesize = { 252 80 }
+		spriteType = Corneredtiled
+		spriteborder = { 4 4 }
+		framesize = { 252 80 }
 
 		button_icon = {
-            using = ButtonStandardIconProperties
-            size = { 20 20 }
+			using = ButtonStandardIconProperties
+			size = { 20 20 }
 
 			texture = "gfx/interface/icons/flat_icons/window_back.dds"
 		}
 		using = tooltip_ne
-    }
+	}
 	type barbershop_button_rotate_right = button {
 		texture = "gfx/interface/buttons/button_standard.dds"
-        spriteType = Corneredtiled
-        spriteborder = { 4 4 }
-        framesize = { 252 80 }
+		spriteType = Corneredtiled
+		spriteborder = { 4 4 }
+		framesize = { 252 80 }
 
 		button_icon = {
-            using = ButtonStandardIconProperties
-            size = { 20 20 }
+			using = ButtonStandardIconProperties
+			size = { 20 20 }
 
-            mirror = horizontal
+			mirror = horizontal
 			texture = "gfx/interface/icons/flat_icons/window_back.dds"
 		}
 		using = tooltip_ne
-    }
+	}
 	type barbershop_button_zoom_in = button_standard {
-        text = ""
+		text = ""
 		using = tooltip_ne
 
 		button_icon = {
-            using = ButtonStandardIconProperties
-            size = { 20 20 }
+			using = ButtonStandardIconProperties
+			size = { 20 20 }
 
 			texture = "gfx/interface/icons/flat_icons/plus.dds"
 		}
-    }
+	}
 	type barbershop_button_zoom_out = button_standard {
-        text = ""
+		text = ""
 		using = tooltip_ne
 
 		button_icon = {
-            using = ButtonStandardIconProperties
-            size = { 20 20 }
+			using = ButtonStandardIconProperties
+			size = { 20 20 }
 
 			texture = "gfx/interface/icons/flat_icons/minus.dds"
 		}
-    }
-    type barbershop_visibility_toggle = checkbutton {
+	}
+	type barbershop_visibility_toggle = checkbutton {
 		name = "button_checkbox"
 		texture = "gfx/interface/icons/flat_icons/observer.dds"
 		size = { 30 30 }
@@ -1122,7 +1196,7 @@ types BarbershopTypes {
 				layoutpolicy_horizontal = expanding
 				button_checkbox_label = {
 					name = "checkbox_coa_show_text"
-		            visible = "[BarbershopCoAHandler.IsTitleWindowHovered]"
+					visible = "[BarbershopCoAHandler.IsTitleWindowHovered]"
 					onclick = "[BarbershopCoAHandler.ToggleTitleText]"
 
 					blockoverride "checkbox"
@@ -1173,7 +1247,7 @@ types BarbershopTypes {
 				layoutpolicy_horizontal = expanding
 				button_checkbox_label = {
 					name = "checkbox_coa_show_text"
-		            visible = "[BarbershopCoAHandler.IsHouseWindowHovered]"
+					visible = "[BarbershopCoAHandler.IsHouseWindowHovered]"
 					onclick = "[BarbershopCoAHandler.ToggleHouseText]"
 
 					blockoverride "checkbox"
@@ -1224,7 +1298,7 @@ types BarbershopTypes {
 				layoutpolicy_horizontal = expanding
 				button_checkbox_label = {
 					name = "checkbox_coa_show_text"
-		            visible = "[BarbershopCoAHandler.IsDynastyWindowHovered]"
+					visible = "[BarbershopCoAHandler.IsDynastyWindowHovered]"
 					onclick = "[BarbershopCoAHandler.ToggleDynastyText]"
 
 					blockoverride "checkbox"
@@ -1448,7 +1522,6 @@ types BarbershopTypes {
 		datacontext = "[BarbershopCharacter.GetPortrait]"
 		datacontext = "[BarbershopCharacter.GetPoseSettings]"
 		layoutpolicy_horizontal = expanding
-		margin = { 0 5 }
 
 		minimumsize = { 0 102 }
 
@@ -1458,6 +1531,7 @@ types BarbershopTypes {
 			alpha = "[Select_float( BarbershopCharacter.IsCharacterVisible, '(float)1.0', '(float)0.6' )]"
 
 			portrait_head_small = {}
+
 			expand = {}
 		}
 
@@ -1465,12 +1539,24 @@ types BarbershopTypes {
 			name = "main_content"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
-			margin_left = 20
 
 			# Content top row
 			hbox = {
 				name = "heading"
 				layoutpolicy_horizontal = expanding
+				margin_top = 4
+				spacing = 5
+
+				background = {
+					using = Background_Area_Dark
+					margin_top = -4
+					alpha = 0.6
+
+					modify_texture = {
+						texture = "gfx/interface/component_masks/mask_fade_horizontal_extended.dds"
+						blend_mode = alphamultiply
+					}
+				}
 
 				# Toggle name
 				button_checkbox_label = {
@@ -1478,23 +1564,21 @@ types BarbershopTypes {
 
 					onclick = "[BarbershopCharacter.ToggleName]"
 					enabled = "[BarbershopCharacter.IsCharacterVisible]"
+					layoutpolicy_horizontal = expanding
 
 					blockoverride "checkbox"
 					{
 						checked = "[BarbershopCharacter.IsNameVisible]"
 					}
+
 					blockoverride "text"
 					{
 						maximumsize = { 260 30 }
 						text = "[Character.GetUINameNoTooltip|U]"
 					}
-					background = {
-						using = Background_Area_Dark
-					}
+
 					tooltip = "BARBERSHOP_TOGGLE_NAME_TT"
 				}
-
-				expand = {}
 
 				# Edit appearance
 				button_barbershop = {
@@ -1529,6 +1613,7 @@ types BarbershopTypes {
 
 				hbox = {
 					spacing = 5
+
 					button_search = {
 						size = { 30 30 }
 						onclick = "[BarbershopPoseSettings.ToggleTextSearch]"
@@ -1548,12 +1633,12 @@ types BarbershopTypes {
 
 						blockoverride "dropdown_size"
 						{
-							size = { 300 32 }
+							size = { 324 32 }
 						}
 
 						blockoverride "dropdown_list_maxsize"
 						{
-							maximumsize = { 291 320 }
+							maximumsize = { 316 320 }
 						}
 
 						blockoverride "dropdown_active_item_properties"

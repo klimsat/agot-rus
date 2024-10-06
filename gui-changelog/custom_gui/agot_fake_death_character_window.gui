@@ -8,7 +8,6 @@ types CharacterWindow
 	{
 		name = "main_content"
 		using = Window_Margins_Sidebar
-		#AGOT Added
 		using = visible_if_fake_death
 
 		###############
@@ -17,8 +16,6 @@ types CharacterWindow
 			name = "main_characters"
 			datacontext = "[GetIllustration( 'character_view_bg' )]"
 			layoutpolicy_horizontal = expanding
-			#AGOT Modified
-			# size = { 0 305 }
 			size = { 0 325 }
 
 
@@ -83,7 +80,6 @@ types CharacterWindow
 			### Primary Spouse
 			container_secondary = {
 				visible = "[CharacterWindow.ShouldShowSecondary]"
-				#AGOT Added
 				position = { 60 0 }
 			}
 
@@ -91,8 +87,6 @@ types CharacterWindow
 			portrait_character_view_main = {
 				name = "tutorial_highlight_main_character_button"
 				parentanchor = bottom|left
-				#AGOT Modified
-				# position = { 0 0 }
 				position = { 60 0 }
 
 				using = Animation_Character_Window_Refresh_Short
@@ -105,26 +99,6 @@ types CharacterWindow
 						size = { 20 20 }
 					}
 				}
-
-				# icon_button_small_round = {
-				# 	name = "interact_button"
-				# 	visible = "[Character.IsAlive]"
-				# 	parentanchor = bottom|right
-				# 	position = { -30 0 }
-				# 	size = { 35 35 }
-
-				# 	onclick = "[DefaultOnCharacterRightClick(Character.GetID)]"
-
-				# 	tooltip = "CV_TT_INTERACT"
-				# 	using = tooltip_ne
-
-				# 	icon = {
-				# 		name = "icon"
-				# 		texture = "gfx/interface/prototype/interact_temp.png"
-				# 		size = {18 18}
-				# 		parentanchor = center
-				# 	}
-				# }
 			}
 
 			expand = {}
@@ -132,9 +106,9 @@ types CharacterWindow
 			hbox = {
 				margin_top = 50
 				layoutpolicy_horizontal = expanding
-				expand = {}
-				#AGOT Added
 				using = visible_if_not_fake_death
+
+				expand = {}
 
 				### Jailor / Imprisoner / Imprisoned by
 				vbox = {
@@ -253,7 +227,6 @@ types CharacterWindow
 
 						datacontext = "[CharacterWindow.GetCharacter]"
 						visible = "[And( Character.GetLiege.IsValid, And( Character.IsAlive, Not(Character.IsLocalPlayer ) ) )]"
-						#AGOT Added
 						using = visible_if_not_fake_death
 
 						blockoverride "dread_logic" {
@@ -266,8 +239,6 @@ types CharacterWindow
 						{
 							text = "[Character.GetOpinionOf( Character.GetLiege )|=]"
 							fonttintcolor = "[Character.GetOpinionOfTint( CharacterWindow.GetCharacter.GetLiege )]"
-							#AGOT Added
-							# using = visible_if_not_fake_death
 						}
 
 						blockoverride "ott_heading_text"
@@ -319,8 +290,6 @@ types CharacterWindow
 				portrait_opinion = {
 					name = "liege_opinion"
 					datacontext = "[CharacterWindow.GetCharacter]"
-					#AGOT Added
-					# using = visible_if_not_fake_death
 					visible = "[And(And(Character.IsAlive, Not(Character.IsLocalPlayer)), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 					parentanchor = top|hcenter
 					position = { -10 110 }
@@ -384,8 +353,6 @@ types CharacterWindow
 			container = { # Primary Heir for everyone else
 				name = "heir_primary"
 				datacontext = "[CharacterWindow.GetCharacter.GetPrimaryTitle.GetHeir]"
-				#AGOT Modified
-				# visible = "[And( And( Character.IsValid, Not(CharacterWindow.GetCharacter.IsLocalPlayer) ), CharacterWindow.GetCharacter.IsAlive )]"
 				visible = "[Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End))]"
 				parentanchor = bottom|right
 				position = { -20 -6 }
@@ -439,7 +406,7 @@ types CharacterWindow
 					size = { 60 40 }
 					onclick = "[AddWatchWindow( CharacterWindow.GetCharacter.MakeScope )]"
 				}
-				#AGOT Added
+
 				agot_portrait_editor_button = {}
 			}
 
@@ -451,9 +418,6 @@ types CharacterWindow
 				direction = vertical
 
 				container = {
-					#AGOT Added
-					# using = visible_if_not_fake_death
-					# visible = "[And(Character.IsLocalPlayer]"
 					visible = "[And(Character.IsLocalPlayer, Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 					tooltip = "PLAYER_STRESS_TOOLTIP"
 					using = tooltip_es
@@ -547,13 +511,9 @@ types CharacterWindow
 				}
 
 				container = {
-					#AGOT Modified
-					# visible = "[And(GreaterThan_int32(GetDataModelSize(Character.GetKnownLanguages), '(int32)1')]"
 					visible = "[And(GreaterThan_int32(GetDataModelSize(Character.GetKnownLanguages), '(int32)1'), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 					parentanchor = hcenter
 					tooltip = "KNOWN_LANGUAGES_TOOLTIP"
-					#AGOT Added
-					# using = visible_if_not_fake_death
 					widget = {
 						size = { 100% 100%}
 
@@ -597,8 +557,6 @@ types CharacterWindow
 
 				button_normal = {
 					name = "open_kill_list"
-					#AGOT Modified
-					# visible = "[Character.HasKillsKnownTo( GetPlayer )]"
 					visible = "[And(Character.HasKillsKnownTo(GetPlayer), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 
 					size = { 35 35 }
@@ -649,9 +607,6 @@ types CharacterWindow
 					name = "open_focus_button"
 					size = { 35 35 }
 
-					#AGOT Added
-					# using = visible_if_not_fake_death
-					# visible = "[Or( Character.GetFocus.IsValid, Character.PlayerCanManageFocus )]"
 					visible = "[And(Or( Character.GetFocus.IsValid, Character.PlayerCanManageFocus ), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 					tooltip = "PLAYER_LIFESTYLE_TOOLTIP"
 					using = tooltip_ne
@@ -660,16 +615,12 @@ types CharacterWindow
 					icon = {
 						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
 						size = { 100% 100% }
-						#AGOT Added
-						# using = visible_if_not_fake_death
 					}
 
 					highlight_icon_lifestyle_focus = {
 						size = { 100% 100% }
 						visible = "[And(GreaterThan_int32( Character.GetTotalPerkPoints, '(int32)0' ), Character.IsLocalPlayer)]"
 						texture = "[CharacterWindow.GetCharacter.GetFocus.GetIcon]"
-						#AGOT Added
-						# using = visible_if_not_fake_death
 
 						modify_texture = {
 							texture = "gfx/interface/icons/focuses/hud_icon_mask.dds"
@@ -711,8 +662,6 @@ types CharacterWindow
 						onclick = "[CharacterWindow.OnClickFocusButton]"
 						enabled = "[CharacterWindow.CanClickFocusButton]"
 						tooltip = "[CharacterWindow.GetFocusButtonTooltip]"
-						#AGOT Added
-						# using = visible_if_not_fake_death
 
 						modify_texture = {
 							texture = "gfx/interface/icons/focuses/hud_icon_mask.dds"
@@ -722,8 +671,6 @@ types CharacterWindow
 				}
 
 				button_open_inventory = {
-					#AGOT Added
-					# using = visible_if_not_fake_death
 					visible = "[And(Character.IsAlive, Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 					name = "open_inventory"
 					size = { 35 35 }
@@ -733,8 +680,6 @@ types CharacterWindow
 			button_normal = {
 				name = "open_royal_court"
 				size = { 70 70 }
-				#AGOT Added
-				# using = visible_if_not_fake_death
 				visible = "[And(Character.HasRoyalCourt, Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 
 				position = { -30 -30 }
@@ -786,39 +731,21 @@ types CharacterWindow
 					layoutpolicy_horizontal = expanding
 
 					using = Animation_Character_Window_Refresh
-					#AGOT Added
 					margin = { 0 -2 }
 
 
 					vbox = {
 						name = "name_etc"
 						layoutpolicy_horizontal = expanding
-						#AGOT Added
 						layoutpolicy_vertical = expanding
 						margin = { 0 2 }
 
 						## Name
 						hbox = {
 							layoutpolicy_horizontal = expanding
-							#AGOT Added
 							layoutpolicy_vertical = expanding
-							#AGOT Modified
-							# margin = { 3 0 }
 							margin = { 3 -8 }
 							margin_top = 1
-
-							#AGOT Disabled for name flavourization
-							# text_single = {
-							# 	name = "character_name"
-							# 	raw_text = "[Character.GetUINameNotMeNoTooltip], "
-							# 	margin_left = 2
-							# 	max_width = 398
-							# 	fontsize = 20
-							# 	fontsize_min = 14
-							# 	align = nobaseline
-							# 	default_format = "#medium"
-							# 	tooltip = "[Character.GetUINameNotMeNoTooltip]"
-							# }
 
 							#AGOT Added for name flavourization, no touchy, please see Badger
 							agot_name_flavorization = {}
@@ -837,8 +764,6 @@ types CharacterWindow
 								spacing = -3
 
 								icon = {
-									#AGOT Modified
-									# visible = "[Not(Character.IsDeadAndValid)]"
 									visible = "[And(Not(Character.IsDeadAndValid), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 									size = { 23 23 }
 									framesize = { 60 60 }
@@ -862,12 +787,11 @@ types CharacterWindow
 						hbox_character_relation_and_ai = {
 							name = "character_relation_and_ai"
 							margin = { 3 0 }
-							#AGOT Added
 							using = visible_if_not_fake_death
 							margin_top = 2
 							margin_bottom = -4
 						}
-						#AGOT Added
+
 						agot_fake_death_hbox_character_relation_and_ai = {
 							name = "fake_death_character_relation_and_ai"
 							margin = { 3 0 }
@@ -1022,7 +946,6 @@ types CharacterWindow
 					vbox = {
 						layoutpolicy_vertical = expanding
 						margin = { 0 0 }
-						#AGOT Added
 						using = visible_if_not_fake_death
 
 						using = Animation_Character_Window_Refresh
@@ -1094,8 +1017,6 @@ types CharacterWindow
 				name = "house"
 				datacontext = "[Character.GetHouse]"
 				layoutpolicy_vertical = expanding
-				# AGOT Modified
-				#size = { 125 0 }
 				size = { 120 0 }
 
 				using = Animation_Character_Window_Refresh
@@ -1154,7 +1075,7 @@ types CharacterWindow
 
 					expand = {}
 				}
-				#AGOT Added
+
 				agot_personal_coat_of_arms = {}
 			}
 		}
@@ -1197,7 +1118,6 @@ types CharacterWindow
 				name = "realm_info"
 
 				vbox = {
-					#name = "realm_shield"
 					visible = "[Character.HasLandedTitles]"
 					layoutpolicy_vertical = expanding
 					spacing = 7
@@ -1231,7 +1151,6 @@ types CharacterWindow
 							name = "domain_icon"
 							size = { 30 30 }
 							texture = "gfx/interface/icons/icon_domain.dds"
-							#AGOT Added
 							using = visible_if_not_fake_death
 						}
 
@@ -1240,7 +1159,6 @@ types CharacterWindow
 							text = "[Character.GetDomainSize]/[Character.GetDomainLimit]"
 							default_format = "#high"
 							align = center|nobaseline
-							#AGOT Added
 							using = visible_if_not_fake_death
 						}
 					}
@@ -1304,8 +1222,6 @@ types CharacterWindow
 							layoutpolicy_horizontal = expanding
 							margin = { 10 0 }
 							max_width = 280
-							#AGOT Added
-							# using = visible_if_not_fake_death
 
 							text_single = {
 								name = "character_title"
@@ -1330,18 +1246,8 @@ types CharacterWindow
 						agot_fake_death_realm_name_and_type_vbox = {
 							visible = "[Character.HasLandedTitles]"
 							datacontext = "[Character.GetPrimaryTitle]"
-							#AGOT Modified
-							# max_width = 250
 							max_width = 265
 						}
-
-						# realm_name_and_type_vbox = {
-							# visible = "[Character.HasLandedTitles]"
-							# datacontext = "[Character.GetPrimaryTitle]"
-							# #AGOT Modified
-							# # max_width = 250
-							# max_width = 265
-						# }
 
 						expand = {}
 
@@ -1350,8 +1256,6 @@ types CharacterWindow
 							spacing = 8
 							margin_bottom = 6
 							margin_top = 3
-							#AGOT Modified
-							# visible = "[Character.IsAlive]"
 							visible = "[And(Character.IsAlive, Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 
 							vbox = {
@@ -1359,15 +1263,11 @@ types CharacterWindow
 								spacing = -2
 								min_width = 40
 								tooltip = "[Character.GetDreadBreakdown]"
-								#AGOT Added
-								# using = visible_if_not_fake_death
 
 								icon = {
 									name = "dread_icon"
 									size = { 30 30 }
 									texture = "gfx/interface/icons/icon_dread.dds"
-									#AGOT Added
-									# using = visible_if_not_fake_death
 								}
 
 								text_single = {
@@ -1377,8 +1277,6 @@ types CharacterWindow
 									align = center|nobaseline
 									fontsize_min = 12
 									max_width = 50
-									#AGOT Added
-									# using = visible_if_not_fake_death
 								}
 							}
 
@@ -1391,8 +1289,6 @@ types CharacterWindow
 
 								visible =  "[And( Character.IsAlive, And( Character.HasLandedTitles, And(Character.IsCountOrAbove, Character.GetGovernment.HasRule( 'legitimacy' ) ) ) )]"
 								using = tooltip_ne
-								#AGOT Added
-								# using = visible_if_not_fake_death
 
 								tooltipwidget = {
 									legitimacy_hud_tooltip = {
@@ -1406,15 +1302,11 @@ types CharacterWindow
 									texture = "gfx/interface/icons/legitimacy_level_icon.dds"
 									framesize = { 70 70 }
 									frame = "[IntToFrameIndex( LegitimacyLevel.GetIndex )]"
-									#AGOT Added
-									# using = visible_if_not_fake_death
 								}
 
 								text_single = {
 									text = CHARACTER_WINDOW_LEGITIMACY_LEVEL
 									align = nobaseline
-									#AGOT Added
-									# using = visible_if_not_fake_death
 								}
 							}
 
@@ -1422,8 +1314,6 @@ types CharacterWindow
 								tooltip = "[Character.GetGoldTooltipWithBalance]"
 								min_width = 40
 								spacing = -2
-								#AGOT Added
-								# using = visible_if_not_fake_death
 
 								icon = {
 									name = "icon_gold"
@@ -1445,8 +1335,6 @@ types CharacterWindow
 								tooltip = "[Character.GetPrestigeTooltipWithBalance]"
 								min_width = 40
 								spacing = -2
-								#AGOT Added
-								# using = visible_if_not_fake_death
 
 								icon = {
 									name = "icon_prestige"
@@ -1468,8 +1356,6 @@ types CharacterWindow
 								tooltip = "[Character.GetPietyTooltipWithBalance]"
 								min_width = 40
 								spacing = -2
-								#AGOT Added
-								# using = visible_if_not_fake_death
 
 								icon = {
 									name = "icon_piety"
@@ -1496,24 +1382,18 @@ types CharacterWindow
 								tooltip = "[CharacterWindow.GetMilitaryStrengthTooltip]"
 								spacing = -2
 								min_width = 40
-								#AGOT Added
-								# using = visible_if_not_fake_death
 
 								background = {
 									using = Background_Frame
 									margin = { 10 5 }
 									margin_bottom = 7
 									alpha = 0.7
-									#AGOT Added
-									# using = visible_if_not_fake_death
 								}
 
 								icon = {
 									name = "icon_combat_strength"
 									size = { 30 30 }
 									texture = "gfx/interface/icons/icon_soldier.dds"
-									#AGOT Added
-									# using = visible_if_not_fake_death
 								}
 
 								text_single = {
@@ -1523,8 +1403,6 @@ types CharacterWindow
 									align = center|nobaseline
 									fontsize_min = 12
 									max_width = 80
-									#AGOT Added
-									# using = visible_if_not_fake_death
 
 									progressbar_standard = {
 										name = "soldiers_max"
@@ -1549,8 +1427,6 @@ types CharacterWindow
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
 						margin_right = 3
-						#AGOT Added
-						# using = visible_if_not_fake_death
 
 						using = Animation_Character_Window_Refresh
 
@@ -1587,8 +1463,6 @@ types CharacterWindow
 							visible = "[And( Not( Character.GetPrimaryTitle.HasFaction ), LessThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)4'))]"
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding
-							#AGOT Added
-							# using = visible_if_not_fake_death
 
 							using = Animation_Character_Window_Refresh
 
@@ -1620,8 +1494,6 @@ types CharacterWindow
 							visible = "[And( Not( Character.GetPrimaryTitle.HasFaction ), And(GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)4'), LessThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)6')))]"
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding
-							#AGOT Added
-							# using = visible_if_not_fake_death
 
 							using = Animation_Character_Window_Refresh
 
@@ -1652,8 +1524,6 @@ types CharacterWindow
 							visible = "[And( Not( Character.GetPrimaryTitle.HasFaction ), And(GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)6'), LessThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)8')))]"
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding
-							#AGOT Added
-							# using = visible_if_not_fake_death
 
 							using = Animation_Character_Window_Refresh
 
@@ -1684,8 +1554,6 @@ types CharacterWindow
 							visible = "[And( Not( Character.GetPrimaryTitle.HasFaction ), GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)8'))]"
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding
-							#AGOT Added
-							# using = visible_if_not_fake_death
 
 							using = Animation_Character_Window_Refresh
 
@@ -1722,12 +1590,8 @@ types CharacterWindow
 						}
 
 						vbox_diplomacy_box = {
-							#AGOT Modified
-							# visible = "[And(Not(IsDataModelEmpty(CharacterWindow.GetDiplomacyItems)), LessThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)4'))]"
 							visible = "[And( And(Not(IsDataModelEmpty(CharacterWindow.GetDiplomacyItems)), LessThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)4')), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 							layoutpolicy_vertical = expanding
-							#AGOT Added
-							# using = visible_if_not_fake_death
 
 							using = Animation_Character_Window_Refresh
 
@@ -1740,12 +1604,8 @@ types CharacterWindow
 						}
 
 						vbox_diplomacy_box = {
-							#AGOT Modified
-							# visible = "[And(GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)4'), LessThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)6'))]"
                             visible = "[And( And(GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)4'), LessThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)6')), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 							layoutpolicy_vertical = expanding
-							#AGOT Added
-							# using = visible_if_not_fake_death
 
 							using = Animation_Character_Window_Refresh
 
@@ -1758,12 +1618,8 @@ types CharacterWindow
 						}
 
 						vbox_diplomacy_box = {
-							#AGOT Modified
-							# visible = "[And(GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)6'), LessThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)8'))]"
                             visible = "[And( And(GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)6'), LessThanOrEqualTo_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)8')), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 							layoutpolicy_vertical = expanding
-							#AGOT Added
-							# using = visible_if_not_fake_death
 
 							using = Animation_Character_Window_Refresh
 
@@ -1776,12 +1632,8 @@ types CharacterWindow
 						}
 
 						vbox_diplomacy_box = {
-							#AGOT Modified
-							# visible = "[GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)8')]"
 							visible = "[And( GreaterThan_int32(GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)8'), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 							layoutpolicy_vertical = expanding
-							#AGOT Added
-							# using = visible_if_not_fake_death
 
 							using = Animation_Character_Window_Refresh
 
@@ -1816,7 +1668,6 @@ types CharacterWindow
 			name = "tabs"
 			visible = "[CharacterWindow.AreNoneExpanded]"
 			layoutpolicy_horizontal = expanding
-			#AGOT Added
 			margin = { 0 -4 }
 
 			button_tab = {
@@ -1843,8 +1694,6 @@ types CharacterWindow
 						default_format = "#low"
 						margin_right = 15
 						min_width = 30
-						#AGOT Added
-						# using = visible_if_not_fake_death
 
 						using = Animation_Character_Window_Refresh
 					}
@@ -1875,7 +1724,6 @@ types CharacterWindow
 						default_format = "#low"
 						margin_right = 15
 						min_width = 30
-						#AGOT Added
 						using = visible_if_not_fake_death
 
 						using = Animation_Character_Window_Refresh
@@ -1896,7 +1744,6 @@ types CharacterWindow
 			button_tab = {
 				name = "court_button"
 				datacontext = "[CharacterWindow.GetCharacter]"
-				#	visible = "[Not(Character.IsPlayer)]"
 				layoutpolicy_horizontal = expanding
 
 				onclick = "[CharacterWindow.SetTab('court')]"
@@ -1918,7 +1765,6 @@ types CharacterWindow
 						default_format = "#low"
 						margin_right = 15
 						min_width = 30
-						#AGOT Added
 						using = visible_if_not_fake_death
 
 						using = Animation_Character_Window_Refresh
@@ -1939,10 +1785,7 @@ types CharacterWindow
 			button_tab = {
 				name = "vassals_button"
 				datacontext = "[CharacterWindow.GetCharacter]"
-				#AGOT Modified
-				# visible = "[Character.IsRuler]"
 				visible = "[And( Character.IsRuler, Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
-				#	visible = "[And(Character.IsRuler, Not(Character.IsPlayer))]"
 				layoutpolicy_horizontal = expanding
 
 				onclick = "[CharacterWindow.SetTab('vassals')]"
@@ -1964,8 +1807,6 @@ types CharacterWindow
 						default_format = "#low"
 						margin_right = 15
 						min_width = 30
-						#AGOT Added
-						# using = visible_if_not_fake_death
 
 						using = Animation_Character_Window_Refresh
 					}
@@ -2009,8 +1850,6 @@ types CharacterWindow
 							vbox_character_row_item = {
 								name = "children"
 								layoutpolicy_vertical = expanding
-								#AGOT Added
-								# using = visible_if_not_fake_death
 
 								blockoverride "portrait_datamodel" {
 									datamodel = "[CharacterWindow.GetParents]"
@@ -2028,8 +1867,6 @@ types CharacterWindow
 								name = "grandparents"
 								visible = "[Not(Or(GreaterThan_int32( Character.GetMaxSpouses, '(int32)1' ), GreaterThan_int32( Character.GetMaxConsorts, '(int32)0' )))]"
 								layoutpolicy_vertical = expanding
-								#AGOT Added
-								# using = visible_if_not_fake_death
 
 								blockoverride "portrait_datamodel" {
 									datamodel = "[CharacterWindow.GetGrandparents]"
@@ -2047,8 +1884,6 @@ types CharacterWindow
 								name = "grandparents_contracted"
 								visible = "[Or(GreaterThan_int32( Character.GetMaxSpouses, '(int32)1' ), GreaterThan_int32( Character.GetMaxConsorts, '(int32)0' ))]"
 								layoutpolicy_vertical = expanding
-								#AGOT Added
-								# using = visible_if_not_fake_death
 
 								blockoverride "portrait_datamodel" {
 									datamodel = "[CharacterWindow.GetGrandparents]"
@@ -2082,14 +1917,12 @@ types CharacterWindow
 									}
 								}
 							}
-							#AGOT Added; Paramours
+
 							agot_paramour_relationship_row = {}
 
 							vbox_character_row_item = {
 								name = "secondary_spouses"
 								visible = "[GreaterThan_int32( Character.GetMaxSpouses, '(int32)1' )]"
-								#AGOT Added
-								# using = visible_if_not_fake_death
 								layoutpolicy_vertical = expanding
 
 								blockoverride "portrait_datamodel" {
@@ -2173,8 +2006,6 @@ types CharacterWindow
 							vbox_character_row_item = {
 								name = "consorts"
 								visible = "[GreaterThan_int32( Character.GetMaxConsorts, '(int32)0' )]"
-								#AGOT Added
-								# using = visible_if_not_fake_death
 								layoutpolicy_vertical = expanding
 
 
@@ -2407,11 +2238,7 @@ types CharacterWindow
 									fixedgridbox = {
 										name = "educate_ward"
 										datamodel = "[GetNullCharacterDataModel( CharacterWindow.CalcUnusedRelationSlots( GetRelation( 'ward' ), '(int32)2' ) )]"
-										#AGOT Modified
-										# visible = "[Character.IsPlayerInteractionShown('offer_ward_interaction')]"
 										visible = "[And( Character.IsPlayerInteractionShown('educate_child_interaction'), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
-										#AGOT Added
-										# using = visible_if_not_fake_death
 
 										flipdirection = yes
 										addcolumn = 85
@@ -2446,10 +2273,7 @@ types CharacterWindow
 									fixedgridbox = {
 										name = "find_ward"
 										datamodel = "[GetNullCharacterDataModel( CharacterWindow.CalcUnusedRelationSlots( GetRelation( 'ward' ), '(int32)2' ) )]"
-										# visible = "[Character.IsPlayerInteractionShown('offer_ward_interaction')]"
 										visible = "[And( Character.IsPlayerInteractionShown('educate_child_interaction'), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
-										#AGOT Added
-										# using = visible_if_not_fake_death
 
 										flipdirection = yes
 										addcolumn = 85
@@ -2486,22 +2310,14 @@ types CharacterWindow
 							vbox_character_row_item = {
 								name = "diarch"
 								datacontext = "[CharacterWindow.GetCharacter.GetDiarchy.GetDiarch]"
-								#AGOT Modified
-								# visible = "[CharacterWindow.GetCharacter.HasActiveDiarchy]"
 								visible = "[And( CharacterWindow.GetCharacter.HasActiveDiarchy, Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
-								#AGOT Added
-								# using = visible_if_not_fake_death
 								layoutpolicy_vertical = expanding
 
-								
+
 								blockoverride "minimum_width" {}
 
 								blockoverride "gridbox" {
-									portrait_head_small_relationship = {
-
-
-										#AGOT Added
-										# using = visible_if_not_fake_death
+									portrait_head_small = {
 										blockoverride "portrait_button"
 										{
 											using = tooltip_ne
@@ -2522,11 +2338,9 @@ types CharacterWindow
 							}
 
 							### LOVERS 5 PORTRAITS
-							agot_fake_death_vbox_character_row_relationship_item = {
+							agot_fake_death_vbox_character_row_item = {
 								name = "lovers_no_diarchy"
 								visible = "[And( CharacterWindow.GetCharacter.IsAdult, Not( CharacterWindow.GetCharacter.HasActiveDiarchy ) )]"
-								#AGOT Added
-								# using = visible_if_not_fake_death
 								layoutpolicy_vertical = expanding
 								layoutpolicy_horizontal = expanding
 
@@ -2557,11 +2371,9 @@ types CharacterWindow
 							}
 
 							### LOVERS 4 PORTRAITS (FOR WHEN REGENT PORTRAIT IS VISIBLE)
-							agot_fake_death_vbox_character_row_relationship_item = {
+							agot_fake_death_vbox_character_row_item = {
 								name = "lovers_diarchy"
 								visible = "[And( CharacterWindow.GetCharacter.IsAdult, CharacterWindow.GetCharacter.HasActiveDiarchy )]"
-								#AGOT Added
-								# using = visible_if_not_fake_death
 								layoutpolicy_vertical = expanding
 								layoutpolicy_horizontal = expanding
 
@@ -2590,15 +2402,13 @@ types CharacterWindow
 									maxhorizontalslots = 4
 								}
 							}
-							#AGOT Added; Squires and Knights
+
 							agot_squire_relationship_row = {}
 							agot_knight_relationship_row = {}
 
 							vbox_character_row_item = {
 								name = "guardian"
 								visible = "[Not(CharacterWindow.GetCharacter.IsAdult)]"
-								#AGOT Added
-								# using = visible_if_not_fake_death
 								layoutpolicy_vertical = expanding
 
 								blockoverride "portrait_datamodel" {
@@ -2619,8 +2429,6 @@ types CharacterWindow
 									fixedgridbox = {
 										name = "educate_child"
 										datamodel = "[GetNullCharacterDataModel( CharacterWindow.CalcUnusedRelationSlots( GetRelation( 'guardian' ), '(int32)1' ) )]"
-										#AGOT Modified
-										# visible = "[Character.IsPlayerInteractionShown( 'educate_child_interaction' )]"
 										visible = "[And( Character.IsPlayerInteractionShown('educate_child_interaction'), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 
 										flipdirection = yes
@@ -2656,8 +2464,6 @@ types CharacterWindow
 									fixedgridbox = {
 										name = "find_guardian"
 										datamodel = "[GetNullCharacterDataModel( CharacterWindow.CalcUnusedRelationSlots( GetRelation( 'guardian' ), '(int32)1' ) )]"
-										#AGOT Modified
-										# visible = "[Character.IsPlayerInteractionShown( 'offer_guardianship_interaction' )]"
 										visible = "[And( Character.IsPlayerInteractionShown( 'offer_guardianship_interaction' ), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 
 										flipdirection = yes
@@ -2693,11 +2499,7 @@ types CharacterWindow
 
 							vbox_character_row_item = {
 								name = "crushes"
-								#AGOT Modified
-								# visible = "[Not(CharacterWindow.GetCharacter.IsAdult)]"
 								visible = "[And( Not(CharacterWindow.GetCharacter.IsAdult), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
-								#AGOT Added
-								# using = visible_if_not_fake_death
 								layoutpolicy_vertical = expanding
 
 								blockoverride "portrait_datamodel" {
@@ -2724,13 +2526,12 @@ types CharacterWindow
 						scissor = yes
 
 						hbox = {
-							agot_fake_death_vbox_character_row_relationship_item = {
+							agot_fake_death_vbox_character_row_item = {
 								name = "friends"
 								layoutpolicy_vertical = expanding
 								layoutpolicy_horizontal = expanding
 
 								blockoverride "portrait_datamodel" {
-									#AGOT Added
 									using = visible_if_not_fake_death
 									datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
 								}
@@ -2764,13 +2565,12 @@ types CharacterWindow
 						scissor = yes
 
 						hbox = {
-							agot_fake_death_vbox_character_row_relationship_item = {
+							agot_fake_death_vbox_character_row_item = {
 								name = "rivals"
 								layoutpolicy_vertical = expanding
 								layoutpolicy_horizontal = expanding
 
 								blockoverride "portrait_datamodel" {
-									#AGOT Added
 									using = visible_if_not_fake_death
 									datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'rival' ) )]"
 								}
@@ -2795,13 +2595,10 @@ types CharacterWindow
 							vbox_character_row_item = {
 								name = "bullies"
 								visible = "[Not( CharacterWindow.GetCharacter.IsAdult )]"
-								#AGOT Added
-								# using = visible_if_not_fake_death
 								layoutpolicy_vertical = expanding
 								layoutpolicy_horizontal = expanding
 
 								blockoverride "portrait_datamodel" {
-									#AGOT Added
 									using = visible_if_not_fake_death
 									datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'bully' ) )]"
 								}
@@ -2817,7 +2614,6 @@ types CharacterWindow
 							vbox_character_row_item = {
 								name = "victims"
 								visible = "[Not( CharacterWindow.GetCharacter.IsAdult )]"
-								#AGOT Added
 								using = visible_if_not_fake_death
 								layoutpolicy_vertical = expanding
 								layoutpolicy_horizontal = expanding
@@ -2847,7 +2643,7 @@ types CharacterWindow
 					size = { 100% 100% }
 
 					blockoverride "scrollbox_replace_vbox" {
-						agot_fake_death_vbox_character_row_relationship_item = {
+						agot_fake_death_vbox_character_row_item = {
 							name = "rivals"
 							margin_top = 10
 							spacing = 5
@@ -2879,7 +2675,7 @@ types CharacterWindow
 					size = { 100% 100% }
 
 					blockoverride "scrollbox_replace_vbox" {
-						agot_fake_death_vbox_character_row_relationship_item = {
+						agot_fake_death_vbox_character_row_item = {
 							name = "friends"
 							margin_top = 10
 							spacing = 5
@@ -2911,7 +2707,7 @@ types CharacterWindow
 					size = { 100% 100% }
 
 					blockoverride "scrollbox_replace_vbox" {
-						agot_fake_death_vbox_character_row_relationship_item = {
+						agot_fake_death_vbox_character_row_item = {
 							name = "friends"
 							margin_top = 10
 							spacing = 5
@@ -2960,8 +2756,6 @@ types CharacterWindow
 					fixedgridbox = {
 						name = "characters_grid"
 						datamodel = "[CharacterSelectionList.GetList]"
-						#AGOT Modified
-						# visible = "[And( Not(CharacterSelectionList.IsBuildingList)]"
 						visible = "[And( Not(CharacterSelectionList.IsBuildingList), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 						addcolumn = 560
 						addrow = 125
@@ -2970,12 +2764,6 @@ types CharacterWindow
 						item = {
 							widget_courtier_item = {
 								datacontext = "[CharacterListItem.GetCharacter]"
-								#AGOT Added
-								# using = visible_if_not_fake_death
-
-								# blockoverride "description_relation_text" {
-								# 	text = "[Character.GetSpecialGuestRelationDescription]"
-								# }
 
 								blockoverride "gridbox_items"
 								{
@@ -2996,7 +2784,6 @@ types CharacterWindow
 						margin = { 15 0 }
 						margin_bottom = 5
 						spacing = 5
-						#AGOT Added
 						using = visible_if_not_fake_death
 
 						block "bottom_bar" {}
@@ -3055,8 +2842,6 @@ types CharacterWindow
 						item = {
 							widget_vassal_list_item = {
 								datacontext = "[CharacterListItem.GetCharacter]"
-								#AGOT Added
-								# using = visible_if_not_fake_death
 
 								blockoverride "own_vassal" {}
 								blockoverride "realm_size_powerful_status" {
@@ -3094,8 +2879,6 @@ types CharacterWindow
 						margin = { 15 0 }
 						margin_bottom = 5
 						spacing = 5
-						#AGOT Added
-						# using = visible_if_not_fake_death
 
 						block "bottom_bar" {}
 
@@ -3366,8 +3149,6 @@ types CharacterWindow
 			visible = "[CharacterWindow.AreDiplomacyExpanded]"
 			layoutpolicy_vertical = expanding
 			layoutpolicy_horizontal = expanding
-			#AGOT Added
-			# using = visible_if_not_fake_death
 
 			using = Animation_Tab_Switch
 
@@ -3492,8 +3273,6 @@ types CharacterWindow
 			visible = "[CharacterWindow.AreModifiersExpanded]"
 			layoutpolicy_vertical = expanding
 			layoutpolicy_horizontal = expanding
-			#AGOT Added
-			# using = visible_if_not_fake_death
 
 			using = Animation_Tab_Switch
 
@@ -3647,7 +3426,6 @@ types CharacterWindow
 		spacing = -3
 
 		icon = {
-			#AGOT Modified
 			visible = "[And(Not(Character.IsDeadAndValid), Not(GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)))]"
 			size = { 23 23 }
 			framesize = { 60 60 }
@@ -3655,46 +3433,31 @@ types CharacterWindow
 			texture = "gfx/interface/icons/character_status/icon_health.dds"
 			tooltip = "[Character.GetHealthInfo]"
 		}
-		#AGOT Added
 		icon = {
-			#visible = "[GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_tbc'))]"
 			visible = "[GetScriptedGui('fake_death_char_tbc').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 			size = { 23 23 }
 			texture = "gfx/interface/icons/character_status/icon_dead.dds"
 			tooltip = "CHARACTER_DEAD_AGOT_RES_TBC_TOOLTIP"
 		}
-		#AGOT Added
 		icon = {
-			#visible = "[GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_battle'))]"
 			visible = "[GetScriptedGui('fake_death_char_battle').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 			size = { 23 23 }
 			texture = "gfx/interface/icons/character_status/icon_dead.dds"
 			tooltip = "CHARACTER_DEAD_AGOT_RES_BATTLE_TOOLTIP"
 		}
-		#AGOT Added
 		icon = {
-			#visible = "[GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_illness'))]"
 			visible = "[GetScriptedGui('fake_death_char_illness').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 			size = { 23 23 }
 			texture = "gfx/interface/icons/character_status/icon_dead.dds"
 			tooltip = "CHARACTER_DEAD_AGOT_RES_ILLNESS_TOOLTIP"
 		}
-		#AGOT Added
 		icon = {
-			#visible = "[GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_siege'))]"
 			visible = "[GetScriptedGui('fake_death_char_siege').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 			size = { 23 23 }
 			texture = "gfx/interface/icons/character_status/icon_dead.dds"
 			tooltip = "CHARACTER_DEAD_AGOT_RES_SIEGE_TOOLTIP"
 		}
-		#AGOT Added
 		icon = {
-			#visible = "[GetScriptedGui('fake_death_char').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			#visible = "[Character.HasTrait(GetTrait('fake_death_ongoing_accident'))]"
 			visible = "[GetScriptedGui('fake_death_char_accident').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 			size = { 23 23 }
 			texture = "gfx/interface/icons/character_status/icon_dead.dds"
@@ -3715,17 +3478,6 @@ types CharacterWindow
 
 		hbox = {
 			maximumsize = { 430 -1 }
-
-			# text_single = {
-				# maximumsize = { 281 -1 }
-				# name = "character_relation_to_you"
-				# text = "[Character.GetRelationToString( GetPlayer )]"
-				# tooltip = "EXTENDED_RELATIONS_TOOLTIP"
-				# using = tooltip_se
-
-				# fontsize_min = 13
-				# align = nobaseline
-			# }
 
 			text_single = {
 				maximumsize = { 149 -1 }
@@ -3775,7 +3527,7 @@ types CharacterWindow
 		expand = {}
 	}
 
-	type agot_fake_death_vbox_character_row_relationship_item = vbox {
+	type agot_fake_death_vbox_character_row_item = vbox {
 		spacing = -3
 
 		widget = {
@@ -3845,7 +3597,7 @@ types CharacterWindow
 					}
 
 					item = {
-						portrait_head_small_relationship = {
+						portrait_head_small = {
 							blockoverride "portrait_button"
 							{
 								using = tooltip_ne
@@ -3888,7 +3640,6 @@ types CharacterWindow
 		text_single = {
 			name = "faction"
 			visible = "[Title.HasFaction]"
-			#AGOT Added
 			using = visible_if_not_fake_death
 			layoutpolicy_horizontal = expanding
 			autoresize = no
@@ -3901,7 +3652,6 @@ types CharacterWindow
 		text_single = {
 			name = "government_type"
 			visible = "[Not( Title.HasFaction )]"
-			#AGOT Added
 			using = visible_if_not_fake_death
 			layoutpolicy_horizontal = expanding
 			autoresize = no

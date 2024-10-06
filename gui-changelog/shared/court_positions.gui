@@ -385,9 +385,9 @@ types CourtPositionItems
 			datacontext = "[CourtPosition.GetEmployee]"
 			datacontext = "[CourtPosition.GetPositionType]"
 
-			#AGOT Modified, Fit Maester Court Position Tasks 270 -> 340
-			# size = "[Select_CVector2f( DataModelHasItems( CourtPositionType.GetTasks ), '(CVector2f)537,270', '(CVector2f)537,210!' )]"
-			size = "[Select_CVector2f( DataModelHasItems( CourtPositionType.GetTasks ), '(CVector2f)537,340', '(CVector2f)537,210!' )]"
+			#AGOT Modified, Fit Hired Maester Court Position Tasks
+			# size = { 537 270 }
+			size = "[Select_CVector2f( DataModelHasItems( CourtPositionType.GetTasks ), '(CVector2f)537,340', '(CVector2f)537,270!' )]"
 
 			background = {
 				using = Background_Area_Light
@@ -416,7 +416,7 @@ types CourtPositionItems
 				button_change = {
 					parentanchor = center
 					alwaystransparent = yes
-					size = { 20 20 }
+					size = { 22 22 }
 				}
 			}
 
@@ -430,7 +430,7 @@ types CourtPositionItems
 				button_cancel = {
 					parentanchor = center
 					alwaystransparent = yes
-					size = { 20 20 }
+					size = { 24 24 }
 				}
 			}
 		}
@@ -445,8 +445,7 @@ types CourtPositionItems
 		{
 			margin_bottom = 4
 
-			portrait_head_small = {
-			}
+			portrait_head_small = {}
 		}
 
 		blockoverride "cp_ai_score"
@@ -457,8 +456,8 @@ types CourtPositionItems
 		blockoverride "cp_effects"
 		{
 			text = "[CourtPosition.GetEmployerBonuses]"
-			minimumsize = { 440 50 }
-			maximumsize = { 440 150 }
+			minimumsize = { 435 0 }
+			maximumsize = { 435 150 }
 			autoresize = yes
 		}
 
@@ -469,8 +468,8 @@ types CourtPositionItems
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
 				margin = { 8 4 }
-				minimumsize = { 440 50 }
-				maximumsize = { 440 150 }
+				minimumsize = { 435 0 }
+				maximumsize = { 435 100 }
 				autoresize = yes
 
 				align = top|left|nobaseline
@@ -483,7 +482,6 @@ types CourtPositionItems
 		{
 			vbox = {
 				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
 				margin = { 14 6 }
 
 				background = {
@@ -516,6 +514,7 @@ types CourtPositionItems
 
 				hbox = {
 					layoutpolicy_horizontal = expanding
+					
 					court_position_aptitude_text = {
 						name = "aptitude"
 					}
@@ -589,7 +588,9 @@ types CourtPositionItems
 									max_width = 140
 								}
 							}
+							
 							expand = {}
+							
 							vbox = {
 
 								max_width = 20
@@ -649,9 +650,12 @@ types CourtPositionItems
 								}
 
 							}
+							
 							expand = {}
 						}
+						
 						expand = {}
+						
 						vbox = {
 							expand = {}
 
@@ -665,6 +669,7 @@ types CourtPositionItems
 
 						}
 					}
+					
 					expand = {}
 				}
 
@@ -834,9 +839,9 @@ types CourtPositionItems
 			datacontext = "[EmptyCourtPosition.GetType]"
 			datacontext = "[EmptyCourtPosition.GetCourtOwner]"
 
-			#AGOT Modified, Fit Maester Court Position Tasks 200 -> 240
-			# size = "[Select_CVector2f( DataModelHasItems( CourtPositionType.GetTasks ), '(CVector2f)537,200', '(CVector2f)537,200' )]"
-			size = "[Select_CVector2f( DataModelHasItems( CourtPositionType.GetTasks ), '(CVector2f)537,240', '(CVector2f)537,200' )]"
+			#AGOT Modified, Fit Unhired Maester Court Position Tasks
+			# size = { 537 220 }
+			size = "[Select_CVector2f( DataModelHasItems( CourtPositionType.GetTasks ), '(CVector2f)537,240', '(CVector2f)537,220' )]"
 
 			background = {
 				visible = "[And(Not( SelectedEmptyCourtPosition.SameAs( PdxGuiWidget.GetIndexInDataModel ) ), EmptyCourtPosition.CanHirePosition)]"
@@ -898,8 +903,8 @@ types CourtPositionItems
 		blockoverride "cp_effects"
 		{
 			text = "[CourtPositionType.GetEmployerModifierDescription]"
-			minimumsize = { 440 50 }
-			maximumsize = { 440 150 }
+			minimumsize = { 435 0 }
+			maximumsize = { 435 150 }
 			autoresize = yes
 		}
 
@@ -912,8 +917,8 @@ types CourtPositionItems
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
 				margin = { 8 4 }
-				minimumsize = { 440 50 }
-				maximumsize = { 440 150 }
+				minimumsize = { 435 0 }
+				maximumsize = { 435 70 }
 				autoresize = yes
 
 				align = top|left|nobaseline
@@ -1059,8 +1064,8 @@ types CourtPositionItems
 		blockoverride "cp_effects"
 		{
 			text = "[CourtPosition.GetEmployeeBonuses]"
-			minimumsize = { 440 50 }
-			maximumsize = { 440 180 }
+			minimumsize = { 435 50 }
+			maximumsize = { 435 180 }
 			autoresize = yes
 		}
 
@@ -1071,8 +1076,8 @@ types CourtPositionItems
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
 				margin = { 8 4 }
-				minimumsize = { 440 50 }
-				maximumsize = { 440 150 }
+				minimumsize = { 435 50 }
+				maximumsize = { 435 150 }
 				autoresize = yes
 
 				align = top|left|nobaseline
@@ -1344,6 +1349,7 @@ types CourtPositionItems
 					hbox = {
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
+						
 						vbox = {
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding

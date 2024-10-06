@@ -111,17 +111,17 @@ window = {
 
 			#AGOT Disabled, no faith in struggle
 			# button_tab = {
-			# 	layoutpolicy_horizontal = expanding
-			# 	text = "game_concept_faiths"
-			# 	onclick = "[StruggleInvolvementWindow.SetShowFaiths]"
-			# 	down = "[StruggleInvolvementWindow.IsShowingFaiths]"
+				# layoutpolicy_horizontal = expanding
+				# text = "game_concept_faiths"
+				# onclick = "[StruggleInvolvementWindow.SetShowFaiths]"
+				# down = "[StruggleInvolvementWindow.IsShowingFaiths]"
 
-			# 	text_single = {
-			# 		parentanchor = vcenter|right
-			# 		position = { -12 -2 }
-			# 		text = "[GetDataModelSize(StruggleInvolvementWindow.GetInvolvedFaiths)]"
-			# 		default_format = "#low"
-			# 	}
+				# text_single = {
+					# parentanchor = vcenter|right
+					# position = { -12 -2 }
+					# text = "[GetDataModelSize(StruggleInvolvementWindow.GetInvolvedFaiths)]"
+					# default_format = "#low"
+				# }
 			# }
 
 			button_tab = {
@@ -284,21 +284,20 @@ window = {
 											}
 											#AGOT Disabled
 											# icon_trait = {
-											# 	datacontext = "[GetTrait( 'fp3_struggle_detractor' )]"
-											# 	visible = "[Character.HasTrait( GetTrait( 'fp3_struggle_detractor' ) )]"
-											# 	blockoverride "icon_size"
-											# 	{
-											# 		size = { 40 40 }
-											# 	}
+												# datacontext = "[GetTrait( 'fp3_struggle_detractor' )]"
+												# visible = "[Character.HasTrait( GetTrait( 'fp3_struggle_detractor' ) )]"
+												# blockoverride "icon_size"
+												# {
+													# size = { 40 40 }
+												# }
 											# }
-											#AGOT Disabled
 											# icon_trait = {
-											# 	datacontext = "[GetTrait( 'fp3_struggle_supporter' )]"
-											# 	visible = "[Character.HasTrait( GetTrait( 'fp3_struggle_supporter' ) )]"
-											# 	blockoverride "icon_size"
-											# 	{
-											# 		size = { 40 40 }
-											# 	}
+												# datacontext = "[GetTrait( 'fp3_struggle_supporter' )]"
+												# visible = "[Character.HasTrait( GetTrait( 'fp3_struggle_supporter' ) )]"
+												# blockoverride "icon_size"
+												# {
+													# size = { 40 40 }
+												# }
 											# }
 											expand = {}
 
@@ -429,116 +428,116 @@ window = {
 
 		#AGOT Disabled, no faith in struggle
 		# vbox = {
-		# 	name = "faith_section"
-		# 	visible = [StruggleInvolvementWindow.IsShowingFaiths]
-		# 	layoutpolicy_horizontal = expanding
-		# 	layoutpolicy_vertical = expanding
+			# name = "faith_section"
+			# visible = [StruggleInvolvementWindow.IsShowingFaiths]
+			# layoutpolicy_horizontal = expanding
+			# layoutpolicy_vertical = expanding
 
-		# 	hbox = {
-		# 		datacontext = "[GetPlayer.GetFaith]"
-		# 		layoutpolicy_horizontal = expanding
-		# 		margin = { 0 10 }
-		# 		margin_left = 20
+			# hbox = {
+				# datacontext = "[GetPlayer.GetFaith]"
+				# layoutpolicy_horizontal = expanding
+				# margin = { 0 10 }
+				# margin_left = 20
 
-		# 		icon = {
-		# 			texture = "[Faith.GetIcon]"
-		# 			size = { 44 44 }
-		# 		}
+				# icon = {
+					# texture = "[Faith.GetIcon]"
+					# size = { 44 44 }
+				# }
 
-		# 		text_multi = {
-		# 			layoutpolicy_horizontal = expanding
-		# 			layoutpolicy_vertical = expanding
-		# 			minimumsize = { 0 80 }
-		# 			margin = { 15 0 }
-		# 			text = "STRUGGLE_INVOLVEMENT_WINDOW_FAITH_DESC"
-		# 			align = nobaseline
-		# 		}
-		# 	}
+				# text_multi = {
+					# layoutpolicy_horizontal = expanding
+					# layoutpolicy_vertical = expanding
+					# minimumsize = { 0 80 }
+					# margin = { 15 0 }
+					# text = "STRUGGLE_INVOLVEMENT_WINDOW_FAITH_DESC"
+					# align = nobaseline
+				# }
+			# }
 
-		# 	scrollbox = {
-		# 		layoutpolicy_horizontal = expanding
-		# 		layoutpolicy_vertical = expanding
+			# scrollbox = {
+				# layoutpolicy_horizontal = expanding
+				# layoutpolicy_vertical = expanding
 
-		# 		blockoverride "scrollbox_content"
-		# 		{
-		# 			vbox = {
-		# 				layoutpolicy_horizontal = expanding
-		# 				datamodel = [StruggleInvolvementWindow.GetInvolvedFaiths]
-		# 				spacing = 12
-		# 				margin_left = 0
+				# blockoverride "scrollbox_content"
+				# {
+					# vbox = {
+						# layoutpolicy_horizontal = expanding
+						# datamodel = [StruggleInvolvementWindow.GetInvolvedFaiths]
+						# spacing = 12
+						# margin_left = 0
 
-		# 				item = {
-		# 					hbox = {
-		# 						layoutpolicy_horizontal = expanding
-		# 						layoutpolicy_vertical = expanding
-		# 						margin_bottom = 12
-		# 						margin_left = 14
+						# item = {
+							# hbox = {
+								# layoutpolicy_horizontal = expanding
+								# layoutpolicy_vertical = expanding
+								# margin_bottom = 12
+								# margin_left = 14
 
-		# 						background = {
-		# 							using = Background_Area
-		# 						}
+								# background = {
+									# using = Background_Area
+								# }
 
-		# 						vbox = {
-		# 							spacer = {
-		# 								size = { 0 13 }
-		# 							}
+								# vbox = {
+									# spacer = {
+										# size = { 0 13 }
+									# }
 
-		# 							icon = {
-		# 								texture = [Faith.GetIcon]
-		# 								size = { 50 50 }
+									# icon = {
+										# texture = [Faith.GetIcon]
+										# size = { 50 50 }
 
-		# 								tooltipwidget = {
-		# 									faith_tooltip = {}
-		# 								}
-		# 							}
-		# 						}
+										# tooltipwidget = {
+											# faith_tooltip = {}
+										# }
+									# }
+								# }
 
-		# 						vbox = {
-		# 							layoutpolicy_horizontal = expanding
-		# 							layoutpolicy_vertical = expanding
+								# vbox = {
+									# layoutpolicy_horizontal = expanding
+									# layoutpolicy_vertical = expanding
 
-		# 							hbox = {
-		# 								name = "faith_title"
-		# 								layoutpolicy_horizontal = expanding
-		# 								margin = { 10 8 }
+									# hbox = {
+										# name = "faith_title"
+										# layoutpolicy_horizontal = expanding
+										# margin = { 10 8 }
 
-		# 								background = {
-		# 									using = Background_Area_Dark
-		# 								}
+										# background = {
+											# using = Background_Area_Dark
+										# }
 
-		# 								text_single = {
-		# 									layoutpolicy_horizontal = expanding
-		# 									text = "[Faith.GetName]"
-		# 									max_width = 200
-		# 									align = nobaseline
-		# 									default_format = "#high"
-		# 									using = Font_Size_Medium
-		# 								}
+										# text_single = {
+											# layoutpolicy_horizontal = expanding
+											# text = "[Faith.GetName]"
+											# max_width = 200
+											# align = nobaseline
+											# default_format = "#high"
+											# using = Font_Size_Medium
+										# }
 
-		# 								expand = {}
+										# expand = {}
 
-		# 								text_single = {
-		# 									text = "[Faith.GetReligion.GetName]"
-		# 									align = nobaseline
-		# 									max_width = 200
-		# 									default_format = "#weak"
-		# 								}
-		# 							}
+										# text_single = {
+											# text = "[Faith.GetReligion.GetName]"
+											# align = nobaseline
+											# max_width = 200
+											# default_format = "#weak"
+										# }
+									# }
 
-		# 							expand = {}
+									# expand = {}
 
-		# 							text_single = {
-		# 								layoutpolicy_horizontal = expanding
-		# 								max_width = 440
-		# 								text = "STRUGGLE_INVOLVEMENT_WINDOW_FAITH_COUNT"
-		# 								align = nobaseline
-		# 							}
-		# 						}
-		# 					}
-		# 				}
-		# 			}
-		# 		}
-		# 	}
+									# text_single = {
+										# layoutpolicy_horizontal = expanding
+										# max_width = 440
+										# text = "STRUGGLE_INVOLVEMENT_WINDOW_FAITH_COUNT"
+										# align = nobaseline
+									# }
+								# }
+							# }
+						# }
+					# }
+				# }
+			# }
 		# }
 	}
 
