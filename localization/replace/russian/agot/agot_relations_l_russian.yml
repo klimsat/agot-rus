@@ -5,11 +5,14 @@
  agot_personal_coa_slave:0 "Владелец личного герба"
  paramour:0 "[Select_CString(TARGET_CHARACTER.IsFemale, 'Любовница', 'Любовник' )]"
  bodyguard:0 "Телохранитель"
+ agot_dragon:0 "Дракон"
 
- agot_squire_desc:0 "Это [squire|El] персонажа [CHARACTER.GetShortUINamePossessiveNoTooltip]"
- agot_knight_desc:0 "Это [agot_knight|El] персонажа [CHARACTER.GetShortUINamePossessiveNoTooltip]"
- paramour_desc:0 "Это [Select_CString(TARGET_CHARACTER.IsFemale, 'любовница', 'любовник' )] персонажа [CHARACTER.GetShortUINamePossessiveNoTooltip]"
- bodyguard_desc:0 "Это телохранитель персонажа [CHARACTER.GetShortUINamePossessiveNoTooltip]"
+ agot_squire_desc:0 "Это [squire|El] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ agot_knight_desc:0 "Это [agot_knight|El] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ paramour_desc:0 "Это [Select_CString(TARGET_CHARACTER.IsFemale, 'любовница', 'любовник' )] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ bodyguard_desc:0 "Это телохранитель [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ agot_dragon_desc:0 "Это [dragon|El], связанный узами с [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажем ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'им персонажем', '' )]"
+
 
  relation_court_physician_female:0 "мейстер"
  relation_court_physician_male:0 "мейстер"

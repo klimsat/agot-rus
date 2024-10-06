@@ -188,6 +188,11 @@
  trait_authoritative_desc:0 "Голос этого персонажа имеет вес, вселяя страх во многих и одновременно вдохновляя других."
  trait_authoritative_character_desc:0 "Голос персонажа [ROOT.GetCharacter.GetFirstNameNoTooltip] имеет вес, заставляя ужасаться одних и вдохновляя остальных."
 
+ trait_inquisitive:0 "Любознательность"
+ trait_inquisitive_desc:0 "Этот персонаж очарован тайнами мира."
+ trait_inquisitive_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'очарована', 'очарован' )] тайнами мира."
+ TRAIT_FLAG_DESC_more_xp_from_points_of_interest:0 "Получает на 50% больше опыта образа жизни от посещения [Concept('point_of_interest', 'точек интереса')|E]."
+
  trait_rude:0 "Грубость"
  trait_rude_desc:0 "Этот персонаж прямолинеен в своих словах, пренебрегая чувствами других в пользу того, чтобы говорить то, что ему заблагорассудится."
  trait_rude_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'прямолинейна', 'прямолинеен' )] в своих выражениях и пренебрегает чувствами других в пользу того, чтобы говорить то, что [ROOT.GetCharacter.GetHerHim] нравится."
@@ -212,19 +217,6 @@
  trait_two_headed_desc:0 "Этот персонаж родился с мертвой головой своего нерожденного близнеца, прикрепленной к его плечу, что делает его вид довольно гротескным."
  trait_two_headed_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'родилась', 'родился' )] с мёртвой головой своего нерождённого близнеца, прикреплённой к [Select_CString(ROOT.GetCharacter.IsFemale, 'её', 'его' )] плечу, что делает [Select_CString(ROOT.GetCharacter.IsFemale, 'её', 'его' )] вид довольно гротескным."
 
- #Dragon
- trait_dragon:0 "Дракон"
- trait_dragon_desc:0 "Dragon Placeholder Desc"
- trait_dragon_character_desc:0 "Dragon Placeholder Char Desc"
-
- #Dragon rider
- trait_dragon_rider:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Драконья наездница', 'Драконий наездник' )]"
- trait_dragon_rider_desc:0 "Связавшись с драконом, этот персонаж теперь способен ездить на нем верхом."
- trait_dragon_rider_character_desc:0 "Связавшись с драконом, [ROOT.GetCharacter.GetFirstNameNoTooltip] теперь [Select_CString( ROOT.GetCharacter.IsFemale, 'способна', 'способен' )] ездить на нем верхом."
-
- trait_dragon_slayer:0 "Убийца драконов"
- trait_dragon_slayer_desc:0 "Этот персонаж совершил экстраординарный подвиг - убил дракона."
- trait_dragon_slayer_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'совершила', 'совершил' )] экстраординарный подвиг - [Select_CString( ROOT.GetCharacter.IsFemale, 'убила', 'убил' )] дракона."
  #Others
  trait_white_walker:0 "Белый Ходок"
  trait_white_walker_desc:0 "Этот персонаж - неустрашимый белый ходок из легенд."
@@ -347,8 +339,12 @@
  trait_winter_fever_character_desc:0 "Лицо персонажа [ROOT.GetCharacter.GetFirstNameNoTooltip] покраснело от лихорадки, и [ROOT.GetCharacter.GetSheHe] сильно дрожит. Бред и холодный пот охватили [ROOT.GetCharacter.GetHerHis], и неизвестно, выживет ли [ROOT.GetCharacter.GetSheHe]."
 
  trait_burned:0 "[Select_CString( ROOT.GetCharacter.IsFemale, 'Обожжёная', 'Обожжёный' )]"
+ trait_burned_2:0 "Сильные ожоги"
+ trait_burned_3:0 "Тяжёлые ожоги"
  trait_burned_desc:0 "Этот персонаж был обожжён, и теперь на его обожжённой плоти остались шрамы на всю жизнь."
  trait_burned_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'была обожжена', 'был обожжён' )], и теперь на [ROOT.GetCharacter.GetHerHis] обожжённой плоти на всю жизнь остались шрамы."
+ trait_track_burned:0 "Ожоги"
+ trait_track_burned_desc:0 "Ожог - это ужасная вещь, на которую страшно смотреть. Конечно, это не всегда должно быть во вред..."
 
  trait_scurvy:0 "Цинга"
  trait_scurvy_desc:0 "У этого персонажа цинга, вызывающая усталость, частые кровотечения и пятна на коже, и, если её не лечить, может привести к потере зубов, лихорадке и, вероятно, к окончательной смерти этого персонажа."
@@ -443,8 +439,8 @@
  trait_one_eyed_purple_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString( ROOT.GetCharacter.IsFemale, 'заменила', 'заменил' )] свой отсутствующий глаз тёмным аметистом."
 
  trait_paramour:0 "Любовник"
- trait_paramour_desc:0 "Известно, что этот персонаж был любовником дорнийского дворянина."
- trait_paramour_character_desc:0 " О [ROOT.GetCharacter.GetFirstNameNoTooltip] известно, что [Select_CString( ROOT.GetCharacter.IsFemale, 'она была любовницей дорнийского дворянина', 'он был любовником дорнийской дворянки' )]."
+ trait_paramour_desc:0 "Известно, что этот персонаж был любовником дворянина."
+ trait_paramour_character_desc:0 "Известно, что [ROOT.GetCharacter.GetFirstNameNoTooltip], что [Select_CString( ROOT.GetCharacter.IsFemale, 'была любовницей дворянина', 'был любовником дворянки' )]."
 
  agot_fated_pregnancy_months:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] беременна в течение [ROOT.Var('agot_fated_pregnancy_months').GetValue] месяцев."
  agot_pregnancy_months_scripted_lyanna:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] беременна в течение [ROOT.Var('agot_rr_months_of_pregnancy_lyanna').GetValue] месяцев."

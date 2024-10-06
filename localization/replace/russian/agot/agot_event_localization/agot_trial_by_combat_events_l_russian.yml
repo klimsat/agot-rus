@@ -18,8 +18,11 @@
  agot_trial_by_combat.1000.c:0 "Я буду сражаться самолично."
  agot_trial_by_combat.1000.c.tt:0 "Вы станете бойцом в испытании поединком."
  agot_trial_by_combat.1000.d:0 "Огонь будет моим бойцом"
- agot_trial_by_combat.1000.d.targ:0 "Огонь - боец дома Таргариен"
+ agot_trial_by_combat.1000.d.targ:0 "Огонь - боец дома Таргариен!"
  agot_trial_by_combat.1000.d.tt:0 "[actor.GetTitledFirstName] и [actor.GetHerHis] боец сгорят оба."
+ agot_trial_by_combat.1000.e:0 "[dragon.GetFirstName] будет моим бойцом!"
+ agot_trial_by_combat.1000.e.targ:0 "Дракон - боец дома Таргариен!"
+ agot_trial_by_combat.1000.e.tt:0 "[actor.GetTitledFirstName] и [actor.GetHerHis] боец будут заживо сожжены драконом [dragon.GetName]."
 
  agot_trial_by_combat.1001.desc:0 "Чтобы завоевать свободу, сначала мне предстоит выиграть это испытание поединком.\n\nЯ могу выбрать бойца, который будет сражаться от моего имени, но кого выбрать?"
 
@@ -34,7 +37,7 @@
  agot_trial_by_combat.2000.a:0 "Пусть победит [Select_CString(actor_champion.IsFemale, 'лучшая', 'лучший' )]."
  agot_trial_by_combat.2000.a.tt:0 "Испытание поединком начинается!"
 
-  # TbC about to begin, accuser POV
+ # TbC about to begin, accuser POV
  agot_trial_by_combat.2001.t:0 "$agot_trial_by_combat.0000.t$: [duel_location.GetBaseNameNoTierNoTooltip]"
  agot_trial_by_combat.2001.desc.intro:0 "Я велю привести [Select_CString(actor.IsFemale, 'узницу', 'узника' )] [actor.GetTitledFirstName] в цепях на поле сражения возле графства [duel_location.GetBaseNameNoTier] для проведения [actor.GetHerHis] испытания."
  agot_trial_by_combat.2001.desc.actor_fighting:0 "[actor.GetSheHe|U] [Select_CString(ROOT.Char.IsFemale, 'решила', 'решил' )] сражаться лично в этом испытании, так что бойца ждать не придётся."
@@ -93,5 +96,17 @@
  agot_trial_by_combat.9001.tt:0 "[actor.GetTitledFirstName] и [actor.GetHerHis] боец, [actor_champion.GetTitledFirstName], оба умирают."
  agot_trial_by_combat.9001.tt.self_champion:0 "[actor.GetTitledFirstName] умирает."
  
+ agot_trial_by_combat.9100.t:0 "Испытание поединком"
+ agot_trial_by_combat.9100.desc:0 "Меня выводят из темницы в цепях к месту, где должно состояться моё испытание поединком. Однако вместо поля боя, я замечаю, что там стоит [recipient.GetTitledFirstName] и [recipient.GetHerHis] дракон [dragon.GetName]!\n\n\«[dragon.GetFirstNameNoTooltip] станет моим бойцом», - произносит [recipient.GetTitledFirstNameNoTooltip] с ухмылкой на лице. [actor_champion.GetFirstName] в ужасе от перспективы встретиться лицом к лицу с драконом."
+ agot_trial_by_combat.9100.desc.self_champion:0 "Меня выводят из темницы в цепях к месту, где должно состояться моё испытание поединком. Однако вместо поля боя, я замечаю, что там стоит [recipient.GetTitledFirstName] и [recipient.GetHerHis] дракон [dragon.GetName]!\n\n\«[dragon.GetFirstNameNoTooltip] станет моим бойцом», - произносит [recipient.GetTitledFirstNameNoTooltip] с кривой улыбкой, и ужас сжимает мое сердце, когда я понимаю, что мне предстоит встретиться с драконом лицом к лицу."
+ agot_trial_by_combat.9100.a:0 "Ох..."
+
+ agot_trial_by_combat.9101.t:0 "Испытание поединком"
+ agot_trial_by_combat.9101.desc:0 "[dragon.GetFirstName] негромко шипит, пробуя воздух на запах добычи. Когда появляется [actor_champion.GetTitledFirstName], выражение [actor_champion.GetHerHis] лица говорит само за себя. Надежда покидает их глаза, и в них остается только презрение и отчаяние.\n\n«[dragon.GetFirstNameNoTooltip] станет моим бойцом» - говорю я, констатируя то, что и так было ясно. «Приступим»."
+ agot_trial_by_combat.9101.desc.self_champion:0 "[dragon.GetFirstName] негромко шипит, пробуя воздух на запах добычи. Когда появляется [actor.GetTitledFirstName], выражение [actor.GetHerHis] лица говорит само за себя. Надежда покидает [actor.GetHerHis] глаза, и в них остается только презрение и отчаяние.\n\n«[dragon.GetFirstNameNoTooltip] станет моим бойцом», - Говорю я, констатируя то, что и так было ясно. «Приступим»."
+ agot_trial_by_combat.9101.a:0 "Исход был предрешен, но зрелище было неплохим."
+ agot_trial_by_combat.9101.tt:0 "[actor.GetTitledFirstName] и [actor.GetHerHis] боец [actor_champion.GetTitledFirstName] были заживо сожжены пламенем дракона [dragon.GetName]."
+ agot_trial_by_combat.9101.tt.self_champion:0 "[actor.GetTitledFirstName] заживо [Select_CString(actor.IsFemale, 'сожжена', 'сожжён' )] пламенем дракона [dragon.GetName]."
+
  lost_trial_by_combat_opinion:0 "Поражение в испытании поединком"
  denied_trial_by_combat_opinion:0 "Отказ в испытании поединком"

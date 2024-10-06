@@ -107,6 +107,7 @@
  agot_6th_blackfyre_rebellion_victory_desc: "Шестое восстание Блэкфайра разгромлено и [attacker.GetFullNameRegnal|U] попадает в тюрьму"
  agot_6th_blackfyre_realm_rebuild_loc: "Блэкфайры, после многих поколений борьбы и сражений, наконец-то воссядут на Железный трон."
 
+ agot_faegon_landing: "Вторжение претендента"
  agot_faegon_landing_war_name: "Вторжение персонажа [ATTACKER.GetFullNameRegnal]"
  agot_faegon_landing_war_invalidated: "[attacker.GetFullNameRegnal|U] подходит к концу из-за смерти персонажа [attacker.GetFullNameRegnal|U]"
  agot_faegon_landing_war_white_peace_desc: "Вторжение Фейгона закончилось белым миром, что не должно происходить в моде. Пожалуйста, сообщите об ошибке"
@@ -147,7 +148,139 @@
  SHATTERED_CONQUEST_WAR_NAME_BASE:0 "#L [ATTACKER.GetPrimaryTitle.GetAdjective]ий#! домен [DEFENDER.GetPrimaryTitle.GetName]"
 
  #Crannogman Ambush
- CRANNOGMAN_AMBUSH_CB_NAME: "Засада в болоте"
- CRANNOGMAN_AMBUSH_CB_NAME_BASE: "Засада в болоте"
- CRANNOGMAN_AMBUSH_CB: "Засада в болоте"
- crannogman_ambush_cb: "Засада в болоте"
+ CRANNOGMAN_AMBUSH_CB_NAME:0 "Засада в болоте"
+ CRANNOGMAN_AMBUSH_CB_NAME_BASE:0 "Засада в болоте"
+ CRANNOGMAN_AMBUSH_CB:0 "Засада в болоте"
+ crannogman_ambush_cb:0 "Засада в болоте"
+
+ #Dragon Conquests
+ dragon_county_conquest_cb:1 "Драконье завоевание [Concept('county', 'графства')|E]"
+ dragon_duchy_conquest_cb:1 "Драконье завоевание [Concept('duchy', 'герцогства')|E]"
+ dragon_ducal_conquest_cb:1 "Драконье объединение [Concept('duchy', 'герцогства')|E]"
+ dragon_kingdom_conquest_cb:1 "Драконье завоевание [Concept('kingdom', 'королевства')|E]"
+ dragon_subjugation_cb:0 "Драконье покорение"
+ DRAGON_CONQUEST_COUNTY_CB_NAME:1 "Драконье завоевание [Concept('county', 'графства')|E]"
+ DRAGON_CONQUEST_DUCHY_CB_NAME:1 "Драконье завоевание [Concept('duchy', 'герцогства')|E]"
+ DRAGON_CONQUEST_KINGDOM_CB_NAME:1 "Драконье завоевание [Concept('kingdom', 'королевства')|E]"
+ DRAGON_CONQUEST_CB_NAME:0 "Драконье завоевание домена [TITLE.GetBaseName]"
+ DRAGON_CONQUEST_WAR_NAME:0 "$ORDER$ #L [ATTACKER.GetPrimaryTitle.GetAdjective]ое#! драконье завоевание домена [TITLE.GetBaseName]"
+ DRAGON_CONQUEST_WAR_NAME_BASE:0 "#L[ATTACKER.GetPrimaryTitle.GetAdjective]ий#! домен [DEFENDER.GetPrimaryTitle.GetName]"
+ DRAGON_DUCAL_CONQUEST_CB_NAME:1 "Драконье [Concept('ducal_conquest', 'завоевание')|E] [counties|El]"
+ DRAGON_DUCAL_CONQUEST_WAR_NAME:2 "$ORDER$ #L [ATTACKER.GetPrimaryTitle.GetAdjectiveNoTooltip]ое#! драконье завоевание герцогства [TITLE.GetBaseNameNoTooltip]"
+ DRAGON_DUCAL_CONQUEST_WAR_NAME_BASE:0 "#L [ATTACKER.GetPrimaryTitle.GetAdjective]ий#! домен [DEFENDER.GetPrimaryTitle.GetName]"
+ DRAGON_SUBJUGATION_CB_NAME:0 "Драконье покорение персонажа [DEFENDER.GetShortUIName]"
+ DRAGON_SUBJUGATION_WAR_NAME:1 "$ORDER$ #L [ATTACKER.GetPrimaryTitle.GetPrefix]о-[DEFENDER.GetPrimaryTitle.GetAdjective]ая#! война за драконье покорение"
+ DRAGON_SUBJUGATION_WAR_NAME_BASE:0 "#L [ATTACKER.GetPrimaryTitle.GetAdjective]ий#! домен [DEFENDER.GetPrimaryTitle.GetName]"
+ declared_draconic_subjugation_war_flag_tt:0 "\n\n#X Вы можете развязать [Concept('war', 'войну')|E] за драконье покорение только один раз в жизни#!"
+ empire_destroyed_effect_tt:0 "@warning_icon! #X Титул [de_jure_target_empire.GetName] будет уничтожен, а [de_jure_target.GetName] будет создан, чтобы быть захваченным в войне.#!"
+
+ #Scenario Dragon Wars
+ truce_stepstones_holders_trp:0 " События на Ступенях ещё не разрешились."
+ daemon_stepstones_first_war:0 "Высадка на Ступени"
+ DAEMON_FIRST_STEPSTONE_WAR_NAME:0 "Высадка #L [ATTACKER.GetFirstName]а#! на Ступени"
+ DAEMON_FIRST_STEPSTONE_WAR_NAME_BASE:0 "Высадка #L [ATTACKER.GetFirstName]а#! на Ступени"
+ DAEMON_FIRST_STEPSTONE_WAR_CB_NAME:0 "Высадка на Ступени" # Should never be seen
+ daemon_stepstones_second_war:0 "Война за Ступени"
+ DAEMON_SECOND_STEPSTONE_WAR_NAME:0 "Война #L [ATTACKER.GetFirstName]а#! за Ступени"
+ DAEMON_SECOND_STEPSTONE_WAR_NAME_BASE:0 "Война #L [ATTACKER.GetFirstName]а#! за Ступени"
+ DAEMON_SECOND_STEPSTONE_WAR_CB_NAME:0 "Война за Ступени" # Should never be seen\
+ admiral_subjugation_cb:0 "Покорение адмирала"
+
+ #Succession War
+ agot_succession_war: "Война за престолонаследие"
+ #agot_succession_war_name: "War of Succession"
+ agot_succession_war_name:0 "[ATTACKER.Custom('WarOfSuccessionNumbers')] [ATTACKER.Custom('WarOfSuccessionNames')]"
+ agot_war_of_succession_number_one:0 ""
+ agot_war_of_succession_number_two:0 "II"
+ agot_war_of_succession_number_three:0 "III"
+ agot_war_of_succession_number_four:0 "IV"
+ agot_war_of_succession_number_five:0 "V"
+ agot_war_of_succession_number_six:0 "VI"
+ agot_war_of_succession_number_seven:0 "VII"
+ agot_war_of_succession_number_eight:0 "VIII"
+ agot_war_of_succession_number_nince:0 "IX"
+ agot_war_of_succession_number_ten:0 "X"
+ agot_war_of_succession_number_eleven:0 "XI"
+ agot_war_of_succession_number_twelve:0 "XII"
+ agot_war_of_succession_number_thirteen:0 "XIII"
+ agot_war_of_succession_number_fourteen:0 "XIV"
+ agot_war_of_succession_number_fifteen:0 "XV"
+ agot_war_of_succession_number_sixteen:0 "XVI"
+ agot_war_of_succession_number_seventeen:0 "XVII"
+ agot_war_of_succession_number_eighteen:0 "XVIII"
+ agot_war_of_succession_number_nineteen:0 "XIX"
+ agot_war_of_succession_number_twenty:0 "XX"
+ agot_war_of_succession_number_billion:0 "Бессчётная"
+
+ #Crownlands
+ agot_war_of_succession_name_Targaryen:0 "Танец Драконов"
+ agot_war_of_succession_name_Valeryon:0 "Переворот Приливов"
+ agot_war_of_succession_name_Celtigar:0 "Клацанье Крабов"
+ agot_war_of_succession_name_Darklyn:0 "Танец в Сумерках" ###
+ agot_war_of_succession_name_Massey:0 "Пляска Камней" ###
+ #North
+ agot_war_of_succession_name_Stark:0 "Война Волков"
+ agot_war_of_succession_name_Mormont:0 "Гнев Медведей"
+ agot_war_of_succession_name_Bolton:0 "Кровопускание"
+ agot_war_of_succession_name_Manderly:0 "Война Водяных"
+ agot_war_of_succession_name_Forrester:0 "Гнев Железа" ###
+ agot_war_of_succession_name_Umber:0 "Гнев Великанов" ###
+ agot_war_of_succession_name_Glover:0 "Война Железного Кулака" ###
+ agot_war_of_succession_name_Dustin:0 "Гнев Королей" ###
+ agot_war_of_succession_name_Ryswell:0 "Гнев Всадников" ###
+ #Riverlands
+ agot_war_of_succession_name_Tully:0 "Война Долга и Чести"
+ agot_war_of_succession_name_Blackwood:0 "Гнев Воронов"
+ agot_war_of_succession_name_Bracken:0 "Грохот Копыт"
+ agot_war_of_succession_name_Frey:0 "Битва на Переправе"
+ agot_war_of_succession_name_Darry:0 "Жатва Разрушений" ###
+ agot_war_of_succession_name_Strong:0 "Испытание Силы" ###
+ #Vale
+ agot_war_of_succession_name_Arryn:0 "Полёт Соколов"
+ agot_war_of_succession_name_Royce:0 "Бронзовая война"
+ agot_war_of_succession_name_Baelish:0 "Война Пересмешников"
+ agot_war_of_succession_name_Corbray:0 "Война Сердец" ###
+ agot_war_of_succession_name_Sunderland:0 "Буря Сестёр" ###
+ #Iron Islands
+ agot_war_of_succession_name_Greyjoy:0 "Война Кракена"
+ agot_war_of_succession_name_Harlaw:0 "Великая Жатва"
+ agot_war_of_succession_name_Goodbrother:0 "Братская война"
+ agot_war_of_succession_name_Hoare:0 "Засеивание Соли" ###
+ agot_war_of_succession_name_Codd:0 "Тресковая война" ###
+ #Stormlands
+ agot_war_of_succession_name_Baratheon:0 "Столкновение Рогов"
+ agot_war_of_succession_name_Estermont:0 "Война Черепах"
+ agot_war_of_succession_name_Dondarrion:0 "Война Молнии"
+ agot_war_of_succession_name_Tarth:0 "Война Солнца и Луны"
+ agot_war_of_succession_name_Seaworth:0 "Луковый Натиск"
+ agot_war_of_succession_name_Connington:0 "Обида Грифона" ###
+ agot_war_of_succession_name_Swann:0 "Лебединая Жатва" ###
+ agot_war_of_succession_name_Selmy:0 "Кровавая Жатва" ###
+ #Westerlands
+ agot_war_of_succession_name_Lannister:0 "Львиный Рёв"
+ agot_war_of_succession_name_Reyne:0 "Война Красного Льва"
+ agot_war_of_succession_name_Clegane:0 "Собачья Склока"
+ agot_war_of_succession_name_Lydden:0 "Драка Барсуков" ###
+ agot_war_of_succession_name_Brax:0 "Столкновение Рогов" ###
+ agot_war_of_succession_name_Crakehall:0 "Кровопускание Вепрей" ###
+ agot_war_of_succession_name_Banefort:0 "Война Капюшонов" ###
+ #Reach
+ agot_war_of_succession_name_Tyrell:0 "Война Роз"
+ agot_war_of_succession_name_Hightower:0 "Баллада Маяка"
+ agot_war_of_succession_name_Florent:0 "Война Лисицы и Цветка"
+ agot_war_of_succession_name_Redwyne:0 "Кровавое Вино"
+ agot_war_of_succession_name_Tarly:0 "Война Охотника"
+ agot_war_of_succession_name_Gardener:0 "Война Сорняков" ###
+ #Dorne
+ agot_war_of_succession_name_Martell:0 "Война Солнца и Копья"
+ agot_war_of_succession_name_Dayne:0 "Война Зари"
+ agot_war_of_succession_name_Yronwood:0 "Война Королевской крови"
+ agot_war_of_succession_name_Qorgyle:0 "Укус Скорпиона" ###
+ agot_war_of_succession_name_Uller:0 "Пекло во плоти" ###
+ agot_war_of_succession_name_Jordayne:0 "Ссора Перьев" ###
+ agot_war_of_succession_name_Toland:0 "Мерцание Призраков" ###
+ agot_war_of_succession_name_Dalt:0 "Лимонная война" ###
+ agot_war_of_succession_name_Fowler:0 "Война Ястреба в клобучке" ###
+ agot_war_of_succession_name_Manwoody:0 "Схватка Черепов" ###
+ #Fallback
+ agot_war_of_succession_name_fallback:0 "Война за престолонаследие"
