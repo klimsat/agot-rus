@@ -48,7 +48,10 @@
  agot_dragon_pits.1201.t:0 "Поимка дикого дракона"
  agot_dragon_pits.1201.desc:0 "Кто из моих капитанов возглавит поход по захвату дракона [wild_dragon.GetName]?"
  agot_dragon_pits.1201.a:0 "Я выбираю тебя..."
-
+ agot_dragon_pits.1201.refusal.t:0 "Требование захвата отвергнуто"
+ agot_dragon_pits.1201.refusal.desc:0 "[knight.GetName] #N отказывается#! захватить дракона [wild_dragon.GetName]"
+ agot_capture_dragon_cd_tt:0 "@warning_icon! #warning Вы не сможете захватывать других драконов в течение 1 года#!"
+ agot_capture_dragon_cd_gui_tt:0 "Вы не можете захватить дракона в течение еще [GetVarTimeRemaining( owner.MakeScope, 'capture_cd')] дней"
  agot_dragon_pits.1301.t:0 "[baby_dragon.GetNameNoTooltip] становится [Select_CString(EqualTo_string('он', baby_dragon.Custom('GetDragonSheHe')), 'беспокойным', 'беспокойной')]"
  agot_dragon_pits.1301.desc:0 "Три года я [Select_CString(ROOT.Char.IsFemale, 'наблюдала', 'наблюдал' )] за тем, как [Select_CString(EqualTo_string('он', baby_dragon.Custom('GetDragonSheHe')), 'рос', 'росла')] [baby_dragon.GetName], с тех пор как [baby_dragon.Custom('GetDragonSheHe')] [Select_CString(EqualTo_string('он', baby_dragon.Custom('GetDragonSheHe')), 'проклюнулся', 'проклюнулась')] из своего яйца. Но сейчас [baby_dragon.Custom('GetDragonSheHe')] в том возрасте, когда хаотичная и огненная натура действительно взяла верх.\n\nМейстеры пишут, что в трехлетнем возрасте склонность драконов к воровству и сжиганию скота, имущества и даже людей существенно возрастает.\n\nМогу ли я быть [Select_CString(ROOT.Char.IsFemale, 'уверена', 'уверен' )] в том, что [baby_dragon.GetNameNoTooltip] будет себя вести хорошо? Или мне следует изолировать [baby_dragon.Custom('GetDragonHerHis')] в моём драконьем логове, прежде чем [baby_dragon.Custom('GetDragonSheHe')] причинит кому-нибудь вред?"
  agot_dragon_pits.1301.a:0 "Сделать это, мы не можем рисковать!"
@@ -83,6 +86,34 @@
  agot_dragon_pits.2006.t:0 "Рождение дракона"
  agot_dragon_pits.2006.desc:0 "[head_dragonkeeper.GetFirstName] взволнованно подходит ко мне. «[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], вы должны поспешить в драконье логово - одно из яиц проклюнулось! Как мы [dragon.Custom('GetDragonHerHis')] назовем?»"
  agot_dragon_pits.2006.a:0 "Замечательно!"
+
+ agot_dragon_pits.3000.t:0 "Посещение драконьего логова: Дилемма"
+ agot_dragon_pits.3000.desc:0 "[recipient.GetName] [Select_CString(recipient.IsFemale, 'достигла', 'достиг' )] возраста, когда [recipient.GetSheHe] [Select_CString(recipient.IsFemale, 'готова', 'готов' )] осознать значение драконов для нашей семьи. Я [Select_CString(ROOT.Char.IsFemale, 'хотела', 'хотел' )] бы познакомить [recipient.GetHerHis] с чудесами драконьего рода, но мне придётся принимать решение. Мы можем посетить традиционное логово во владении [dp_county_option.GetNameNoTierNoTooltip], или отправиться на [dragonstone.GetNameNoTierNoTooltip], где драконы содержатся на свободе, становясь сильнее и необузданнее. Куда мы отправимся?"
+ agot_dragon_pits.3000.a:0 "[dragonstone.GetNameNoTierNoTooltip]."
+ agot_dragon_pits.3000.b:0 "[dp_county_option.GetNameNoTierNoTooltip]."
+
+ agot_dragon_pits.3002.t:0 "Посещение драконьего логова: Катастрофа!"
+ agot_dragon_pits.3002.desc:0 "Тяжёлые древние двери драконьего логова скрипят, когда мы входим. [recipient.GetName] идёт рядом со мной, стараясь казаться [Select_CString(recipient.IsFemale, 'храброй', 'храбрым' )], но я чувствую нервную дрожь в [recipient.GetHerHis] шагах. Когда мы приближаемся, [dragon.GetName] поднимает свою голову, раздувает ноздри, и в одно мгновение всё идёт наперекосяк. Зверь рычит с ужасающей яростью, из-за чего [recipient.GetNameNoTooltip] отступает, на [recipient.GetHerHis] лице написан ужас. Узы, на которые я [Select_CString(ROOT.Char.IsFemale, 'надеялась', 'надеялся' )], рушатся у меня на глазах, сменяясь слепым страхом. Что я [Select_CString(ROOT.Char.IsFemale, 'наделала', 'наделал' )]? Я [Select_CString(ROOT.Char.IsFemale, 'погубила', 'погубил' )] [recipient.GetHerHis]... [Select_CString(ROOT.Char.IsFemale, 'погубила', 'погубил' )] нас."
+ agot_dragon_pits.3002.a:0 "[Select_CString(ROOT.Char.IsFemale, 'Уверена', 'Уверен' )], [recipient.GetSheHe] со временем справится с этим..."
+
+ agot_dragon_pits.3003.t:0 "Посещение драконьего логова: Разочарование"
+ agot_dragon_pits.3003.desc:0 "Я чувствую напряжение в воздухе, когда я и [recipient.GetName] спускаемся в драконье логово, тяжелые каменные ступени эхом отдаются под нашими ногами. Я смотрю на н[recipient.GetHerHis], гадая, наступит ли день, когда [recipient.GetSheHe] выкует своё наследие. [dragon.GetName] шевелится в своём логове, когда мы приближаемся, [dragon.Custom('GetDragonHerHis')] чешуйки мерцают в тусклом свете. Но что-то не так. [recipient.GetNameNoTooltip] резко останавливается, обводя взглядом логово, но в [Select_CString(recipient.IsFemale, 'ней', 'нём' )] нет ни искры удивления и благоговения.\n\nЯ призываю [recipient.GetHerHis] идти вперёд, но [recipient.GetHerHis] шаги замедляются, [recipient.GetSheHe], нахмурившись, поворачивается ко мне. «Мне жаль, но если мне и предназначен дракон, то не думаю, что он здесь»."
+ agot_dragon_pits.3003.a:0 "Досадно."
+
+ agot_dragon_pits.3004.t:0 "Посещение драконьего логова: Успех!"
+ agot_dragon_pits.3004.desc:0 "В тот момент, когда мы ступаем в драконье логово, я понимаю, что все будет по-другому. Воздух потрескивает от энергии, и [recipient.GetName] идет рядом со мной с непоколебимой решимостью, которая наполняет меня гордостью. [recipient.GetSheHe|U] останавливается и оглядывается вокруг в спокойном раздумье, обдумывая свои варианты.\n\nВ конце концов, [recipient.GetHerHis] взгляд останавливается на драконе [dragon.GetName]. У меня перехватывает дыхание, когда огромный зверь поворачивает свою голову, а [recipient.GetFirstNamePossessiveNoTooltip] находится в [dragon.Custom('GetDragonHerHis')] поле зрения. Медленно и осторожно [recipient.GetNameNoTooltip] протягивает дрожащую руку, и дракон опускает свою морду. Время, кажется, останавливается. Дракон тихо урчит и принимает прикосновение. Мое сердце воспаряет. Это оно. Начало уз."
+ agot_dragon_pits.3004.a:0 "Отличная пара!"
+ child_is_bonding_dragon_tt:0 "[recipient.GetNameNoTooltip] начинает скреплять узы с драконом [dragon.GetNameNoTooltip]"
+
+ agot_dragon_pits.3005.t:0 "Посещение драконьего логова: Катастрофа!"
+ agot_dragon_pits.3005.desc:0 "Сегодня логово кажется еще мрачнее, и у меня появляются дурные предчувствия. Я с трудом сглатываю, надеясь, что [recipient.GetName] не заметит, как меня охватывает беспокойство. [recipient.GetSheHe|U] делает шаг вперёд, с решимостью в глазах, но я вижу, как напряжены [recipient.GetHerHis] плечи. [recipient.GetSheHe|U] протягивает руку к дракону [dragon.GetName], но что-то идёт не так. Дракон шипит, сузив глаза, и в мгновение ока [dragon.Custom('GetDragonSheHe')] резко взмахивает хвостом в знак отказа. [recipient.GetNameNoTooltip] отшатывается, [recipient.GetHerHis] лицо побледнело. Этим узам не суждено было возникнуть, и я вижу, как боль от неудачи запечатлевается в [recipient.GetHerHis] душе."
+ agot_dragon_pits.3005.a:0 "Что я [Select_CString(ROOT.Char.IsFemale, 'наделала', 'наделал' )]..."
+ child_failed_to_tame_tt:0 "[recipient.GetNameNoTooltip] не [Select_CString(recipient.IsFemale, 'сумела', 'сумел' )] приручить дракона [dragon.GetNameNoTooltip]"
+
+ agot_dragon_pits.3006.t:0 "Посещение драконьего логова: Успех!"
+ agot_dragon_pits.3006.desc:0 "Когда мы приближаемся к драконьему логову, в воздухе витает напряжение, но именно такое напряжение питает величие. [recipient.GetName] уверенно идёт рядом со мной, [recipient.GetHerHis] глаза блестят от предвкушения. Я ощущаю прилив надежды, когда мы входим в похожее на пещеру помещение, и [dragon.GetName] поворачивает свою голову, чтобы понаблюдать за нами.\n\n[recipient.GetNameNoTooltip] делает глубокий вдох и подходит к дракону [dragon.GetNameNoTooltip], [Select_CString(EqualTo_string('он', dragon.Custom('GetDragonSheHe')), 'который', 'которая')] наблюдает, как [recipient.GetSheHe] подходит ближе с лёгким любопытством. Медленно, методично [recipient.GetSheHe] протягивает руку, и к моему удивлению, дракон наклоняет свою голову. В этом нет ни колебания, ни страха - только уважения. Радость переполняет мою грудь. [recipient.GetNameNoTooltip] [Select_CString(recipient.IsFemale, 'сделала', 'сделал' )] это. [recipient.GetSheHe|U] [Select_CString(recipient.IsFemale, 'приручила', 'приручил' )] зверя."
+ agot_dragon_pits.3006.a:0 "Чудесно!"
+ child_succeeded_taming_tt:0 "[recipient.GetNameNoTooltip] [Select_CString(recipient.IsFemale, 'сумела', 'сумел' )] приручить дракона [dragon.GetNameNoTooltip]"
 
  agot_dragon_pits.failed_tame_attempt.title:0 "Неудачная попытка приручения в драконьем логове"
  agot_dragon_pits.failed_tame_attempt_tt:0 "[failure.GetFirstName] [Select_CString(failure.IsFemale, 'не смогла', 'не смог' )] приручить дракона [dragon.GetFirstName]!"

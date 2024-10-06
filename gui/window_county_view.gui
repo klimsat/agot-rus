@@ -966,7 +966,9 @@ window = {
 								texture = "gfx/interface/icons/flat_icons/move_capital.dds"
 								onclick = "[HoldingView.SetRealmCapital]"
 								tooltip = "[HoldingView.GetSetRealmCapitalTooltip]"
-								enabled = "[HoldingView.CanSetRealmCapital]"
+								#AGOT Modified
+								#enabled = "[HoldingView.CanSetRealmCapital]"
+								enabled = "[And(HoldingView.CanSetRealmCapital, GetScriptedGui('agot_can_set_realm_capital').IsValid(GuiScope.SetRoot(HoldingView.GetProvince.MakeScope).AddScope('actor', GetPlayer.MakeScope).End))]"
 							}
 
 							button_move_capital = {
