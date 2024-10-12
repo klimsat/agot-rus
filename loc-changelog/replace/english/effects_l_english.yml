@@ -628,14 +628,14 @@
  I_STRESS_IMPACT_GAIN_CRITICAL:1 "You gain [stress_critical_i]$VALUE|-0$ [stress|E] (critical) $TRAITS$"
  STRESS_IMPACT_GAIN_CRITICAL:0 "Gains [stress_critical_i]$VALUE|V0$ [stress|E] (critical) $TRAITS$"
 
- ADD_GUEST_COURTIER_EFFECT:0 "[COURTIER.GetUIName], from [EMPLOYER.GetShortUIName]'s court, becomes a guest in [HOST.GetShortUIName]'s court"
+ ADD_GUEST_COURTIER_EFFECT:0 "[COURTIER.GetUIName], from [EMPLOYER.GetShortUINamePossessive] court, becomes a guest in [HOST.GetShortUINamePossessive] court"
  STRESS_IMPACT_TRAIT_LIST:3 "because [Select_CString( CHARACTER.IsLocalPlayer, 'you', 'they' )] are $TRAITS$"
  STRESS_IMPACT_ONLY:0 "only "
  STRESS_IMPACT_INCREASED:0 ""
 
- RETURN_TO_COURT_EFFECT:2 "Returns to the [liege|E]'s [court|E]"
- I_RETURN_TO_COURT_EFFECT:2 "You return to your [liege|E]'s [court|E]"
- THEY_RETURN_TO_COURT_EFFECT:1 "[CHARACTER.GetUIName] returns to [CHARACTER.GetHerHis] [liege|E]'s [court|E]"
+ RETURN_TO_COURT_EFFECT:2 "Returns to the [liege_possessive|E] [court|E]"
+ I_RETURN_TO_COURT_EFFECT:2 "You return to your [liege_possessive|E] [court|E]"
+ THEY_RETURN_TO_COURT_EFFECT:1 "[CHARACTER.GetUIName] returns to [CHARACTER.GetHerHis] [liege_possessive|E] [court|E]"
 
  RETURNED_TO_COURT_EFFECT:0 "Returned to the employer's court"
  I_RETURNED_TO_COURT_EFFECT:1 "You returned to your employer's court"
@@ -663,7 +663,7 @@
  LOST_A_WARD:0 "Lost [TARGET_CHARACTER.GetShortUIName|U] as [CHARACTER.GetHerHis] [ward|E]"
 
  I_GAIN_MENTOR:1 "[TARGET_CHARACTER.GetShortUIName|U] becomes your Mentor"
- THEY_GET_MENTOR:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes [CHARACTER.GetShortUIName]'s Mentor"
+ THEY_GET_MENTOR:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes [CHARACTER.GetShortUINamePossessive] Mentor"
  I_GAIN_STUDENT:1 "[TARGET_CHARACTER.GetShortUIName|U] becomes your Student"
  I_LOSE_MENTOR:1 "[TARGET_CHARACTER.GetShortUIName|U] stops being your Mentor"
  I_LOSE_STUDENT:1 "[TARGET_CHARACTER.GetShortUIName|U] stops being your Student"
@@ -757,27 +757,28 @@
 
  GET_OAF:0 "Gets [TARGET_CHARACTER.GetShortUINamePossessive] as oaf"
  I_GET_OAF:1 "[TARGET_CHARACTER.GetShortUIName|U] becomes your oaf"
- THEY_GET_OAF:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes [CHARACTER.GetShortUIName]'s oaf"
+ THEY_GET_OAF:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes [CHARACTER.GetShortUINamePossessive] oaf"
  LOSE_OAF:0 "Stops having [TARGET_CHARACTER.GetShortUIName] as oaf"
  I_LOSE_OAF:1 "[TARGET_CHARACTER.GetShortUIName|U] stops being your oaf"
- THEY_LOSE_OAF:0 "[TARGET_CHARACTER.GetShortUIName|U] stops being [CHARACTER.GetShortUIName]'s oaf"
+ THEY_LOSE_OAF:0 "[TARGET_CHARACTER.GetShortUIName|U] stops being [CHARACTER.GetShortUINamePossessive] oaf"
 
  GET_BULLY:0 "Becomes [TARGET_CHARACTER.GetShortUINamePossessive] [victim|E]"
  I_GET_BULLY:1 "[TARGET_CHARACTER.GetShortUIName|U] becomes your [bully|E]"
  I_GOT_BULLY:0 "[TARGET_CHARACTER.GetShortUIName|U] became your [bully|E]"
- THEY_GET_BULLY:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes [CHARACTER.GetShortUIName]'s [bully|E]"
- THEY_GOT_BULLY:0 "[TARGET_CHARACTER.GetShortUIName|U] became [CHARACTER.GetShortUIName]'s [bully|E]"
+ THEY_GET_BULLY:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes [CHARACTER.GetShortUINamePossessive] [bully|E]"
+ THEY_GOT_BULLY:0 "[TARGET_CHARACTER.GetShortUIName|U] became [CHARACTER.GetShortUINamePossessive] [bully|E]"
  I_LOSE_BULLY:0 "[TARGET_CHARACTER.GetShortUIName|U] stops being my [bully|E]"
  REMOVE_BULLY:0 "Stops being [TARGET_CHARACTER.GetShortUINamePossessive] [victim|E]"
 
  GET_CRUSH:0 "Develops a [crush|E] on [TARGET_CHARACTER.GetShortUIName]"
  I_GET_CRUSH:1 "You get a [crush|E] on [TARGET_CHARACTER.GetShortUIName]"
+ THEY_GET_CRUSH: "[TARGET_CHARACTER.GetShortUIName|U] develops a [crush|E] on [CHARACTER.GetShortUIName]"
  LOSE_CRUSH:0 "Stops having a [crush|E] on [TARGET_CHARACTER.GetShortUIName]"
  I_LOSE_CRUSH:1 "You stop having a [crush|E] on [TARGET_CHARACTER.GetShortUIName]"
 
  GET_VICTIM:0 "Becomes [TARGET_CHARACTER.GetShortUINamePossessive] [bully|E]"
  I_GET_VICTIM:1 "[TARGET_CHARACTER.GetShortUIName|U] becomes your [victim|E]"
- THEY_GET_VICTIM:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes [CHARACTER.GetShortUIName]'s [victim|E]"
+ THEY_GET_VICTIM:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes [CHARACTER.GetShortUINamePossessive] [victim|E]"
  LOSE_VICTIM:0 "Stops being [TARGET_CHARACTER.GetShortUINamePossessive] [bully|E]"
  I_LOSE_VICTIM:1 "[TARGET_CHARACTER.GetShortUIName|U] is no longer your [victim|E]"
 
@@ -794,10 +795,10 @@
 
  GET_SOLDIER_FRIEND:0 "Becomes [TARGET_CHARACTER.GetShortUINamePossessive] soldier-friend"
  I_GET_SOLDIER_FRIEND:1 "[TARGET_CHARACTER.GetShortUIName|U] becomes your soldier-friend"
- THEY_GET_SOLDIER_FRIEND:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes [CHARACTER.GetShortUIName]'s soldier-friend"
+ THEY_GET_SOLDIER_FRIEND:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes [CHARACTER.GetShortUINamePossessive] soldier-friend"
  LOSE_SOLDIER_FRIEND:0 "Stops being [TARGET_CHARACTER.GetShortUINamePossessive] soldier-friend"
  I_LOSE_SOLDIER_FRIEND:1 "[TARGET_CHARACTER.GetShortUIName|U] is no longer your soldier-friend"
- THEY_LOSE_SOLDIER_FRIEND:1 "[TARGET_CHARACTER.GetShortUIName|U] [CharAreIs(CHARACTER)] no longer [CHARACTER.GetShortUIName]'s soldier-friend"
+ THEY_LOSE_SOLDIER_FRIEND:1 "[TARGET_CHARACTER.GetShortUIName|U] [CharAreIs(CHARACTER)] no longer [CHARACTER.GetShortUINamePossessive] soldier-friend"
 
  GET_RIVAL:0 "Becomes [TARGET_CHARACTER.GetShortUINamePossessive] [rival|E]"
  GOT_RIVAL:0 "Became [TARGET_CHARACTER.GetShortUINamePossessive] [rival|E]"
@@ -1200,21 +1201,21 @@
  THEIR_HOUSE_RECEIVED_MODIFIER_EFFECT:1 "[house|E] [DYNASTY_HOUSE.GetBaseName|V] gained $MODIFIER|V$"
  MY_HOUSE_RECEIVE_MODIFIER_EFFECT:1 "Your [house|E] gains $MODIFIER|V$"
  THEIR_HOUSE_RECEIVE_MODIFIER_EFFECT:1 "[house|E] [DYNASTY_HOUSE.GetBaseName|V] gains $MODIFIER|V$"
- HOUSE_RECEIVES_MODIFIER_EFFECT:1 "Gains $MODIFIER|V$"
+ HOUSE_RECEIVES_MODIFIER_EFFECT:1 "[house|E] [DYNASTY_HOUSE.GetBaseName|V] gains $MODIFIER|V$"
 
  ADDS_HOUSE_MODIFIER_UNTIL:0 "[house|E] [DYNASTY_HOUSE.GetBaseName|V] gains $MODIFIER|V$ for $DURATION|V$"
  MY_HOUSE_RECEIVED_MODIFIER_UNTIL_EFFECT:1 "Your [house|E] gained $MODIFIER|V$ for $DURATION|V$"
  THEIR_HOUSE_RECEIVED_MODIFIER_UNTIL_EFFECT:0 "[house|E] [DYNASTY_HOUSE.GetBaseName|V] gained $MODIFIER|V$ for $DURATION|V$"
  MY_HOUSE_RECEIVE_MODIFIER_UNTIL_EFFECT:1 "Your [house|E] gains $MODIFIER|V$ for $DURATION|V$"
  THEIR_HOUSE_RECEIVE_MODIFIER_UNTIL_EFFECT:0 "[house|E] [DYNASTY_HOUSE.GetBaseName|V] gains $MODIFIER|V$ for $DURATION|V$"
- HOUSE_RECEIVES_MODIFIER_UNTIL_EFFECT:1 "Gains $MODIFIER|V$ for $DURATION|V$"
+ HOUSE_RECEIVES_MODIFIER_UNTIL_EFFECT:1 "[house|E] [DYNASTY_HOUSE.GetBaseName|V] gains $MODIFIER|V$ for $DURATION|V$"
 
  REMOVES_HOUSE_MODIFIER:0 "[house|E] [DYNASTY_HOUSE.GetBaseName|V] loses $MODIFIER|V$"
  MY_HOUSE_LOST_MODIFIER_EFFECT:1 "Your [house|E] lost $MODIFIER|V$"
  THEIR_HOUSE_LOST_MODIFIER_EFFECT:0 "[house|E] [DYNASTY_HOUSE.GetBaseName|V] lost $MODIFIER|V$"
  MY_HOUSE_LOSES_MODIFIER_EFFECT:1 "Your [house|E] loses $MODIFIER|V$"
  THEIR_HOUSE_LOSE_MODIFIER_EFFECT:0 "[house|E] [DYNASTY_HOUSE.GetBaseName|V] loses $MODIFIER|V$"
- HOUSE_LOSES_MODIFIER_EFFECT:1 "Loses $MODIFIER|V$"
+ HOUSE_LOSES_MODIFIER_EFFECT:1 "[house|E] [DYNASTY_HOUSE.GetBaseName|V] loses $MODIFIER|V$"
 
  ADDS_DYNASTY_MODIFIER:1 "The [DYNASTY.GetBaseName|V] [dynasty|E] gains $MODIFIER|V$"
  MY_DYNASTY_RECEIVED_MODIFIER_EFFECT:1 "Your [dynasty|E] gained $MODIFIER|V$"
@@ -2497,6 +2498,10 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
 
  PAUSE_TRAVEL_PLAN_EFFECT:0 "The [travel|E] will be paused"
  PAUSE_TRAVEL_PLAN_EFFECT_PAST:0 "The [travel|E] was paused"
+ FIRST_PAUSE_TRAVEL_PLAN_EFFECT: "Your [travel|E] will be paused"
+ FIRST_PAUSE_TRAVEL_PLAN_EFFECT_PAST: "Your [travel|E] was paused"
+ THIRD_PAUSE_TRAVEL_PLAN_EFFECT: "[CHARACTER.GetNamePossessive] [travel|E] will be paused"
+ THIRD_PAUSE_TRAVEL_PLAN_EFFECT_PAST: "[CHARACTER.GetNamePossessive] [travel|E] was paused"
 
  RESUME_TRAVEL_PLAN_EFFECT:0 "The [travel|E] will be resumed"
  RESUME_TRAVEL_PLAN_EFFECT_PAST:0 "The [travel|E] was resumed"
@@ -2812,6 +2817,15 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  ARMY_WAS_DEPLETED: "$VALUE|-%0$ of [ARMY.GetName] was lost"
  ARMY_WAS_DEPLETED_GLOBAL: "$VALUE|-%0$ of [ARMY.GetName] was lost"
 
+ ARMY_ADD_SUPPLY: "[ARMY.GetName] gains $VALUE|-%0$  [supplies|e]"
+ ARMY_ADDED_SUPPLY: "[ARMY.GetName] gained $VALUE|-%0$  [supplies|e]"
+ ARMY_SUBTRACT_SUPPLY: "[ARMY.GetName] loses $VALUE|-%0$  [supplies|e]"
+ ARMY_SUBTRACTED_SUPPLY: "[ARMY.GetName] lost $VALUE|-%0$  [supplies|e]"
+ ARMY_CLEAR_SUPPLY: "[ARMY.GetName] loses all [supplies|e]"
+ ARMY_CLEARED_SUPPLY: "[ARMY.GetName] lost all [supplies|e]"
+ ARMY_REFILL_SUPPLY: "[ARMY.GetName] refills all [supplies|e]"
+ ARMY_REFILLED_SUPPLY: "[ARMY.GetName] refilled all [supplies|e]"
+
  # EP3 - Rebalancing Old Perks
  praetorian_guard_perk_effect: "Increased [GetCourtPositionType('bodyguard_court_position').GetName()] [aptitude|E]"
  INFLUENCE_CHILDREN_GROOMED_TO_RULE: "[influence_ward_personality|E] Acceptance: #P +[EmptyScope.ScriptValue('groomed_to_rule_value')|0]#!"
@@ -2820,3 +2834,10 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
 
  transfer_owned_maa_control_global: "[TITLE.GetHolder.GetShortUIName|U] transfer[_s(TITLE.GetHolder)] the [TITLE.GetAdjective] [army|E] to [TARGET_TITLE.GetNameNoTier] under [TARGET_TITLE.GetHolder.GetShortUINamePossessive] command"
  transfer_owned_maa_control_global_past: "[TITLE.GetHolder.GetShortUIName|U] transferred the [TITLE.GetAdjective] [army|E] to [TARGET_TITLE.GetNameNoTier] under [TARGET_TITLE.GetHolder.GetShortUINamePossessive] command"
+
+ force_step_down_landed_titles_first: "You step down and lose all landed titles"
+ force_step_down_landed_titles_third: "[CHARACTER.GetUIName] steps down and loses all landed titles"
+ force_step_down_landed_titles_global: "Will steps down and lose all landed titles"
+ force_step_down_landed_titles_first_past: "You stepped down and lost all landed titles"
+ force_step_down_landed_titles_third_past: "[CHARACTER.GetUIName] stepped down and lost all landed titles"
+ force_step_down_landed_titles_global_past: "Stepped down and lost all landed titles"

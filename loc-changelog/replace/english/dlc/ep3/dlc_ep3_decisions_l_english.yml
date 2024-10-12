@@ -161,6 +161,7 @@
  admin_confirmation_rank_tt: "You are a [governor|E]"
  admin_confirmation_liege_tt: "You are a [direct_vassal|E] of the [THIS.Char.GetTopLiege.GetTitleAsNameNoTooltip] ([THIS.Char.GetTopLiege.GetFirstNameRegnal])"
  admin_confirmation_time_tt: "You have held your [primary_title|E] for at least #V 1#! year ([THIS.Char.GetPrimaryTitle.GetNameNoTier])"
+ admin_confirmation_decision.tt.if_accepted: "If [CHARACTER.GetLiege.GetTitledFirstName] accepts your audience:"
 
  # General Loc Strings
  admin_confirmation_event_header: "Confirmation:"
@@ -331,6 +332,7 @@
  greek_backwater_modifier_region: "Greece"
  backwater_county_eligible_modifier_removal_tt: "The [development|E] of at least one sub-realm [county|E] with the [GetModifier('backwater_county_modifier').GetName] [county_modifier|E] is #V 50#! or higher"
  restored_greek_theme_modifier: "Restored Theme"
+ restored_greek_theme_modifier_desc: "This character has restored a Theme to surpass the golden days of old.\n[governor_efficiency|E]: @governor_efficiency!#P +10%#!"
 
  ep3_theme_not_backwater.t: "[target_theme.GetNameNoTierNoTooltip] Restored"
  ep3_theme_not_backwater.desc: "Every [county|E] in [target_theme.GetNameNoTierNoTooltip] lost the [GetModifier('backwater_county_modifier').GetName] [county_modifier|E]"
@@ -611,7 +613,7 @@
  convert_to_administrative_decision_tooltip: "Change [government|E] type by becoming [administrative|E]"
  king_tier_tt: "You are a [king|E]"
  empire_tier_tt: "You are an [emperor|E]"
- small_realm_size_tt: "Your [realm|E] consists of #EMP more#! than #V [EmptyScope.ScriptValue('small_empire_size_value')|0]#! [counties|E] #!"
+ small_realm_size_tt: "Your [realm|E] consists of #EMP more#! than #V [EmptyScope.ScriptValue('small_empire_size_value')|0]#! [counties|E] #! #weak (#color_white [root_scope.MakeScope.ScriptValue('current_size_empire_value')|0]#!)#!"
  all_powerful_vassals_required_tt: "All [powerful_vassals|E] must have an [opinion|E] with you of 50 or more."
 
 
@@ -723,7 +725,7 @@
  zealous_missionary_prep_decision: "The [ROOT.Char.GetFaith.GetAdherentNameNoTooltip] Path — Ascension"
  zealous_missionary_prep_decision_desc: "The continued existence of vile heretics and misguided heathens is an offense to any good [ROOT.Char.GetFaith.GetAdherentNameNoTooltip], to [ROOT.Char.GetFaith.HighGodName] [ROOT.Char.GetFaith.HighGodHerselfHimself|U]!"
  zealous_missionary_prep_decision_tooltip: "It is the time of the preacher"
- zealous_missionary_prep_decision_holy_site: "Your current location must be a [THIS.Char.GetFaith.GetAdjective] [holy_site|E] ruled by a [THIS.Char.GetFaith.GetAdjective] [top_liege|E]."
+ zealous_missionary_prep_decision_holy_site: "Your current [location|E] must be a [THIS.Char.GetFaith.GetAdjective] [holy_site|E], following [THIS.Char.GetFaith.GetName], ruled by a [THIS.Char.GetFaith.GetAdjective] [top_liege|E]."
  zealous_missionary_prep_decision_holy_sites_visited_req: "You completed [pilgrimages|E] to at least two unique [holy_sites|E]"
  zealous_missionary_prep_decision_reward_desc: "For the next decade, you will walk the path of a pious [THIS.Char.GetFaith.GetAdjectiveNoTooltip] missionary:\n#weak You will be able to convert counties you visit to [THIS.Char.GetFaith.GetName], either by the truth in your words or by the might of your sword.\n#bold Grave peril#! awaits those who will fail along the way, for only the worthy shall receive [THIS.Char.GetFaith.HighGodHerHis|U] reward in [THIS.Char.GetFaith.PositiveAfterLife|U].\n\n$EFFECT_LIST_BULLET$ @alert_icon! $ep3_laamp_decision_event.1103.difficulty.desc$\n$EFFECT_LIST_BULLET$ [learning_i] $ep3_laamp_decision_event.1103.a.desc$\n$EFFECT_LIST_BULLET$ [martial_i] $ep3_laamp_decision_event.1103.b.desc$"
  zealous_missionary_prep_decision_confirm: "[ROOT.Char.GetFaith.HighGodName] is great!"
@@ -789,7 +791,11 @@
  become_conqueror_decision_war: "You will start a war against [conq_war_target.GetName]"
 
  ep3_laamp_decision_event.1110.t: "$become_conqueror_decision$"
+ ep3_laamp_decision_event.1110.desc.has_kill: "I still remember [first_kill.GetTitledFirstNamePossessive] death, the first person I remember dying at my whim. Did I have a taste for it even then? Did this... #EMP hunger#! inside of me, this need for more, kindle at that instant, or simply burn bright enough to finally be seen?\n\nMany more have joined [first_kill.GetHerHim] since."
+ ep3_laamp_decision_event.1110.desc.hasnt_kill: "It's an odd thought, really. I've no strong recollection of the first person killed on my orders, let alone by my hand. You'd think it would stay with a [ROOT.Char.GetWomanMan], but I've never cared much for the faces or names of the dead.\n\nI cannot count how many I've sent to their graves, never mind exactly #EMP who#!."
+ ep3_laamp_decision_event.1110.desc.outro: "For most, such slaughter would be enough — but not for me.\n\nI cannot help but smile as I look to the horizon. Not for those who died. I smile for those that will."
  ep3_laamp_decision_event.1110.desc: "Years ago, I slew [first_kill.GetName] in battle. The memory has stayed with me since. [first_kill.GetHerHis|U] chest ripped apart by my blow, [first_kill.GetHerHis] eyes wide open in disbelief, [first_kill.GetHerHis] blood dripping to the ground, making the soil fertile.\n\nMany more have joined [first_kill.GetHerHim] since. For most, such slaughter would be enough. But not for me.\n\nI cannot help but smile as I look to the horizon. Not for those who died. I smile for those that will."
+ #ep3_laamp_decision_event.1110.desc: "Years ago, I slew [first_kill.GetName] in battle. The memory has stayed with me since. [first_kill.GetHerHis|U] chest ripped apart by my blow, [first_kill.GetHerHis] eyes wide open in disbelief, [first_kill.GetHerHis] blood dripping to the ground, making the soil fertile.\n\nMany more have joined [first_kill.GetHerHim] since. For most, such slaughter would be enough. But not for me.\n\nI cannot help but smile as I look to the horizon. Not for those who died. I smile for those that will."
  ep3_laamp_decision_event.1110.a: "Conquering the world on horseback is easy..."
  ep3_laamp_decision_event.1110.a.flavor: "...it is dismounting and governing that is hard."
  ep3_laamp_decision_event.1110.a.desc: "$become_conqueror_decision_reward$"
@@ -886,6 +892,24 @@
  ep3_decisions_event.4090.desc: "Beyond the walls of the estate, children shout while playing games, carts trip on bigger rocks, a merchant yells their wares.\n\nI have served [liege.GetTitledFirstName] for long enough.\n\nThese walls won't build themselves — and a house needs strong foundations, more than anything."
  ep3_decisions_event.4090.a: "I will be waiting."
  
+ # Change Imperial Aspirations
+ change_imperial_aspirations_decision: "Change [GetPlayer.GetTopLiege.Custom('GetRoyalCourtRank')|U] Aspirations"
+ change_imperial_aspirations_decision_desc: "Not everyone is suited, or even wants to, climb the ladder far enough to sit upon the throne. Why take the risk when I am perfectly content with my current position? Others can fight it out in this den of vipers!"
+ change_imperial_aspirations_decision_tooltip: "Take a stance to make it known if you desire the throne or not"
+ change_imperial_aspirations_decision_confirm: "Let my intentions be known"
+ admin_renounce_throne_personal_name: "Renounce personal ambition"
+ admin_renounce_throne_personal_desc: "Let it be known that you do #bold not#! want to compete for the throne."
+ admin_renounce_throne_personal_tooltip: "$admin_renounce_throne_personal_desc$"
+ admin_desire_throne_personal_name: "Proclaim personal ambition"
+ admin_desire_throne_personal_desc: "You will compete for the throne."
+ admin_desire_throne_personal_tooltip: "$admin_desire_throne_personal_desc$"
+ admin_renounce_throne_house_name: "Renounce house ambition"
+ admin_renounce_throne_house_desc: "Let it be known that you do #bold not#! allow #EMP anyone#! from [house|E] [GetPlayer.GetHouse.GetName] to compete for the throne."
+ admin_renounce_throne_house_tooltip: "$admin_renounce_throne_house_desc$"
+ admin_desire_throne_house_name: "Proclaim house ambition"
+ admin_desire_throne_house_desc: "All of [house|E] [GetPlayer.GetHouse.GetName] are allowed to compete for the throne."
+ admin_desire_throne_house_tooltip: "$admin_desire_throne_house_desc$"
+ 
  # The Knight of the Swan
  knight_errant_decision: "The $knight_culture_player_no_tooltip$ of the [ROOT.Char.CustomFixedRandom('GetKnightErrantAnimal')|U]"
  knight_errant_decision_desc: "It is said that a mysterious $knight_culture_player_no_tooltip_lowercase$ comes in a [ROOT.Char.CustomFixedRandom('GetKnightErrantAnimal')] driven boat to rescue those in danger.\n\nA little boat of pearly sheen, and a stately $knight_culture_player_no_tooltip_lowercase$ that sat therein."
@@ -979,6 +1003,7 @@
  
  # Hire Chief Eunuch
  hire_eunuch_decision: "Search for $chief_eunuch_court_position$"
+ hire_eunuch_decision_desc: "[GetCourtPositionType('chief_eunuch_court_position').GetDescription|U]"
  hire_eunuch_decision_tooltip: "Your servants will suggest a number of suitable candidates for the position of [GetCourtPositionType('chief_eunuch_court_position').GetName()]"
  ep3_decisions_event.5010.t: "A Worthy [GetCourtPositionType('chief_eunuch_court_position').GetNameNoTooltip|U]"
  ep3_decisions_event.5010.desc: "My servants have searched far and wide for a worthy $chief_eunuch_court_position$ to join my court.\n\nTwo candidates in particular have caught my eye: [mediocre_eunuch.GetFirstName] is fiercely determined to prove himself, but [good_eunuch.GetFirstName] seems to be more skilled."

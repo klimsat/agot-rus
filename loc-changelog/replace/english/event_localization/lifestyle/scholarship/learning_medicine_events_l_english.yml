@@ -142,7 +142,9 @@
 
  #Helping healing hand (medicine friend), by Mathilda Bjarnehed
  learning_medicine.2050.t:0 "Bleeding Out"
- learning_medicine.2050.start.desc:0 "I am inspecting the [Select_CString(IsLandlessAdventurer(ROOT.Char),'camps','barracks')] infirmary when a severely injured soldier is brought in. "[soldier.GetSheHe|U] is losing too much blood! Where is the physician?!"\n\n"
+ #AGOT Modified
+ #learning_medicine.2050.start.desc:0 "I am inspecting the [Select_CString(IsLandlessAdventurer(ROOT.Char),'camps','barracks')] infirmary when a severely injured soldier is brought in. "[soldier.GetSheHe|U] is losing too much blood! Where is the physician?!"\n\n"
+ learning_medicine.2050.start.desc:0 "I am inspecting the [Select_CString(IsLandlessAdventurer(ROOT.Char),'camps','barracks')] infirmary when a severely injured soldier is brought in. "[soldier.GetSheHe|U] is losing too much blood! Where is the [ROOT.Char.Custom('PhysicianOrMaester')]?!"\n\n"
  learning_medicine.2050.physician.desc:0 "[physician.GetTitledFirstName] is nowhere to be found."
  learning_medicine.2050.no_physician.desc:0 "The healer is nowhere to be found."
  learning_medicine.2050.end.desc:0 "A chill runs down my spine. #EMP I#! might be this [soldier.Custom('WomanManPossessive')] only hope.\n\nSuddenly, as if [helper.GetSheHe] stepped out of thin air, [helper.Custom2('MyCharacterIntroduction', ROOT.Char)] is at my side. [helper.GetSheHe|U] rolls up [helper.GetHerHis] sleeves and looks at me."
