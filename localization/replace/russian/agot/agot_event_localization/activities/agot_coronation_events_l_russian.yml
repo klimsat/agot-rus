@@ -33,6 +33,7 @@
  
  coronation.0001.a.good:0 "What a glorious day!"
  coronation.0001.a.bad:0 "I can't wait for this day to end."
+ coronation.0001.a.sabotage:0 "Time to ruin [center_portrait.GetFirstNamePossessiveNoTooltip] day!"
  coronation.0001.after.tt:0 "Ravens shall be sent to all who have been invited."
  
  # Officiant Replacement
@@ -132,6 +133,11 @@
  
  coronation.0150.desc_guests_self_crowner_no_crown_intro:1 "The ceremony has finally reached its climax. [coronation_target.GetTitledFirstName|U] has been anointed in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip], but there is no crown to be seen.\n\nTurnig toward us, [coronation_target.GetSheHe|l] simply proclaims:"
  
+ # Coronation Saboteur
+ coronation.0150.desc_saboteur_no_crown_intro:1 "The ceremony has finally reached its climax. [officiant.GetTitledFirstName|U] has anointed [coronation_target.GetTitledFirstName|U] in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip], but there is no crown to be seen. Those around me share confused glances as [officiant.GetTitledFirstNameNoTooltip|U] simply proclaims:"
+ 
+ coronation.0150.desc_saboteur_self_crowner_no_crown_intro:1 "The ceremony has finally reached its climax. [coronation_target.GetTitledFirstName|U] has been anointed in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip], but there is no crown to be seen.\n\nTurnig toward us, [coronation_target.GetSheHe|l] simply proclaims:"
+ 
  #Ruler's proclamation
  coronation.0150.desc_proclaimation_seven_kingdoms:0 "\n\n#italic "Before Gods and Men, I proclaim [coronation_target.GetFirstNameNoTooltipRegnal|U] of House [coronation_target.GetHouse.GetNameNoTooltip|U], [coronation_target.GetTitleAsNameNoTooltip|U] of the Andals, the Rhoynar, and the First Men, [coronation_target.GetLadyLord|U] of the Seven Kingdoms, and Protector of the Realm! Long may [coronation_target.GetSheHe] reign!" #!"
  coronation.0150.desc_proclaimation_seven_kingdoms_self:0 "\n\n#italic "I am [coronation_target.GetFirstNameNoTooltipRegnal|U] of House [coronation_target.GetHouse.GetNameNoTooltip|U], [coronation_target.GetTitleAsNameNoTooltip|U] of the Andals, the Rhoynar, and the First Men, [coronation_target.GetLadyLord|U] of the Seven Kingdoms, and Protector of the Realm! Long may I reign!" #!"
@@ -149,6 +155,7 @@
  coronation.0150.desc_guests_no_crown_outro:0 "\n\nFor several long moments, we do not make a noise before someone begins timidly clapping and we hesitantly join in."
  coronation.0150.desc_guests_self_crowner_outro:0 "$coronation.0150.desc_officiant_outro$"
  coronation.0150.desc_guests_self_crowner_no_crown_outro:0 "\n\nFor several long moments, we do not make a noise before someone begins timidly clapping and we hesitantly join in."
+ coronation.0150.desc_saboteur_no_crown_outro:0 "\n\nFor several long moments, no one makes a sound. A smile slowly grows on my face as I know this was my doing. Then, someone begins timidly clapping and the others hesitantly join in."
  
  coronation.0150.a:0 "Long may he reign!"
  coronation.0150.b:0 "Long may she reign!"
@@ -621,10 +628,10 @@
  coronation.1138.desc:0 "Just as I am preparing to make my way into the throne room, I am pulled into an adjacent chamber by [coronation_officiant.GetTitledFirstName|U]. [coronation_officiant.GetHerHis|U] face bears a wary expression as [coronation_officiant.GetSheHe|l] avoids my gaze.\n\n"Your Grace," [coronation_officiant.GetSheHe|l] finally says. "I have failed you. It appears your crown has been taken and I was unable to recover it. However, this need not interrupt the ceremony, we will just forego that... formality.""
  coronation.1138.a:0 ""You idiot! Someone else will have the honor of anointing me""
  coronation.1138.a.tt:0 "You will replace [coronation_officiant.GetShortUIName] as the officiant"
- coronation.1135.a.officiant_removed.tt:0 "coronation_target.GetShortUIName] removed [coronation_officiant.GetShortUIName] as the officiant"
+ coronation.1135.a.officiant_removed.tt:0 "[coronation_target.GetShortUIName] removed [coronation_officiant.GetShortUIName] as the officiant"
  coronation.1138.b:0 ""I suppose I don't need a crown to be [coronation_target.GetTitleAsNameNoTooltip|U]""
  coronation.1138.b.tt:0 "You will proceed with the ceremony"
- coronation.1135.a.carry_on.tt:0 "coronation_target.GetShortUIName] kept [coronation_officiant.GetShortUIName] as the officiant"
+ coronation.1135.a.carry_on.tt:0 "[coronation_target.GetShortUIName] kept [coronation_officiant.GetShortUIName] as the officiant"
  coronation.1138.c:0 "We're fortunate we have spares"
  coronation.1138.c.tt:0 "You will select a new crown to be crowned with"
  coronation.1138.d:0 ""We will cancel. Having no crown defeats the point of being #italic crowned#!""
@@ -677,3 +684,9 @@
  coronation.1143.b.tt:0 "You will remain silent about this for the duration of the ceremony"
  coronation.1143.b_failure:0 "[coronation_claimant.GetShortUIName|U] Decided not to Press [coronation_claimant.GetShortUINamePossessive|U] [claim|E]"
  coronation.1143.c:0 "[coronation_target.GetFirstNameNoTooltip] is the better ruler; I will renounce my claims instead"
+ 
+ coronation.1144.t:0 "Refusal"
+ coronation.1144.desc:0 "Despite my best efforts, [coronation_claimant.GetShortUINameNoFormat] failed to see reason and press his claim to [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip]. This was an unexpected setback. I will surely need to find some other way to ruin the day."
+ coronation.1144.a:0 "Damn you [coronation_claimant.GetFirstNameNoTooltip]"
+ coronation.1144.b:0 "Whatever, it matters little"
+ coronation.1144.b_failure:0 "[coronation_claimant.GetShortUINameNoFormat] decided not to press [coronation_claimant.GetHerHis|l] [claim|E]"
