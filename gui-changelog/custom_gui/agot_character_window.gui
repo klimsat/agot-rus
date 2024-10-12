@@ -291,7 +291,7 @@ types CharacterWindow
 			fixedgridbox = {
 				name = "educate_squire"
 				datamodel = "[GetNullCharacterDataModel( CharacterWindow.CalcUnusedRelationSlots( GetRelation( 'agot_squire' ), '(int32)1' ) )]"
-				visible = "[Character.IsPlayerInteractionValid('agot_offer_squirehood_interaction')]"
+				visible = "[Character.IsPlayerInteractionValid('agot_educate_squire_interaction')]"
 				flipdirection = yes
 				addcolumn = 85
 				addrow = 90
@@ -302,8 +302,8 @@ types CharacterWindow
 						portrait_head_small = {
 							blockoverride "portrait_button_template_onclick"
 							{
-								onclick = "[CharacterWindow.GetCharacter.OpenPlayerInteraction( 'agot_offer_squirehood_interaction' )]"
-								enabled = "[CharacterWindow.GetCharacter.IsPlayerInteractionValid( 'agot_offer_squirehood_interaction' )]"
+								onclick = "[CharacterWindow.GetCharacter.OpenPlayerInteraction( 'agot_educate_squire_interaction' )]"
+								enabled = "[CharacterWindow.GetCharacter.IsPlayerInteractionValid( 'agot_educate_squire_interaction' )]"
 								button_icon = {
 									parentanchor = center
 									alwaystransparent = yes
@@ -314,7 +314,7 @@ types CharacterWindow
 							}
 							blockoverride "portrait_button_template_tooltip"
 							{
-								tooltip = "[CharacterWindow.GetCharacter.GetPlayerInteractionTooltip( 'agot_offer_squirehood_interaction' )]"
+								tooltip = "[CharacterWindow.GetCharacter.GetPlayerInteractionTooltip( 'agot_educate_squire_interaction' )]"
 							}
 						}
 					}

@@ -46,37 +46,6 @@
 	event_window_dimmer_widget = {}
 
 	widget = {
-		visible = "[Not(GameHasMultiplePlayers)]"
-		size = { 100% 100% }
-
-		icon = {
-			visible = "[Not(GetVariableSystem.Exists( 'event_window_mouse_leave'))]"
-			parentanchor = center
-			size = { 200% 200% }
-			alwaystransparent = yes
-			texture = "gfx/interface/component_masks/mask_fade_circle.dds"
-			color = { 0.1 0.1 0.1 1 }
-			alpha = 0
-
-			state = {
-				name = appear
-				trigger_on_create = yes
-				delay = 0.2
-				using = Animation_Curve_Default
-				alpha = 0.6
-				duration = 0.8
-			}
-
-			state = {
-				name = _hide
-				using = Animation_Curve_Default
-				duration = 3
-				alpha = 0
-			}
-		}
-	}
-
-	widget = {
 		size = { 100% 100% }
 		using = Window_Background
 		using = Window_Decoration_Frontend_Flat
@@ -255,7 +224,7 @@
 					alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('right_portrait'))]"
 
 					tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
-					tooltip_offset = { -210 0 }
+					tooltip_offset = { 100 600 }
 					using = tooltip_es
 					tooltip_widgetanchor = center
 				}
@@ -499,7 +468,7 @@
 
 	# Event Effect Video
 	dragon_event_window_effect_2d_widget = {
-		margin = { 30 17 }
+		margin = { 40 20 }
 	}
 
 	#Foreground VFX
@@ -606,18 +575,25 @@
 								}
 							}
 
-							vbox = {
-								name = "custom_widgets_container"
+							# Has a parent hbox to hack around layout set in type so it can be placed differently here and in Activity events. 
+							hbox = {
 								layoutpolicy_horizontal = expanding
+								
+								hbox = {
+									name = "custom_widgets_container"
+									margin = { 15 0 }
 
-								state = {
-									trigger_on_create = yes
-									name = appear_test
-									delay = 0.8
-									using = Animation_Curve_Default
-									alpha = 1
-									duration = 0.6
+									state = {
+										trigger_on_create = yes
+										name = appear_test
+										delay = 0.8
+										using = Animation_Curve_Default
+										alpha = 1
+										duration = 0.6
+									}
 								}
+
+								expand = {}
 							}
 
 							vbox = {
@@ -788,7 +764,7 @@
 		}
 
 		flowcontainer = {
-			spacing = 100
+			spacing = 20
 			parentanchor = bottom|hcenter
 
 			flowcontainer = {
@@ -1076,7 +1052,7 @@
 			text_single = {
 				name = "title"
 				parentanchor = vcenter
-				position = { 110 4 }
+				position = { 128 7 }
 				fontsize = 29
 				fontsize_min = 16
 				text = "[EventWindowData.GetTitle]"
@@ -1099,8 +1075,8 @@
 			icon = {
 				name = "theme_icon"
 				parentanchor = vcenter
-				position = { 20 9 }
-				size = { 80 80 }
+				position = { 28 10 }
+				size = { 90 90 }
 				texture = "[EventWindowData.GetThemeIcon]"
 
 				modify_texture = {
@@ -1154,6 +1130,7 @@
 
 		expand = {}
 	}
+
 	icon = {
 		visible = "[And( EventWindowData.ShouldShowContentSource, EventWindowData.GetContentSourceDlc.HasEventDecoration )]"
 		name = "source_icon"

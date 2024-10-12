@@ -373,17 +373,15 @@ types CourtPositionItems
 	# Expects the following datacontexts:
 	#	EmployedPositionItem - The EmployedPositionItem that caches information
 	#		regarding this Court Position.
-	#	SelectedEmptyCourtPosition - The datacontext of the empty selection,
-	#		so we can clear selection if we have a empty court position
-	#		selected and click to replace a hired position.
 	#
 	type widget_hired_court_position_item = widget_court_position_entry_base
 	{
 		blockoverride "cp_root"
 		{
-			datacontext = "[EmployedPositionItem.GetPosition]"
-			datacontext = "[CourtPosition.GetEmployee]"
+			datacontext = "[CourtPositionListItem.GetObject]"
+			datacontext = "[CourtPositionItem.GetPosition]"
 			datacontext = "[CourtPosition.GetPositionType]"
+			datacontext = "[CourtPosition.GetEmployee]"
 
 			#AGOT Modified, Fit Hired Maester Court Position Tasks
 			# size = { 537 270 }
@@ -407,7 +405,7 @@ types CourtPositionItems
 		{
 			button_round = {
 				onclick = "[CourtPosition.OpenReplaceWindow]"
-				onclick = "[SelectedEmptyCourtPosition.Clear]"
+				onclick = "[CourtPositionsWindow.ClearSelectedPositionId]"
 				tooltip = "COURT_POSITION_REPLACE"
 				using = tooltip_ne
 
@@ -549,7 +547,6 @@ types CourtPositionItems
 
 
 					hbox = {
-						datacontext = "[EmployedPositionItem.GetPosition]"
 						layoutpolicy_vertical = expanding
 						layoutpolicy_horizontal = expanding
 
@@ -660,9 +657,9 @@ types CourtPositionItems
 							expand = {}
 
 							court_position_task_buttons_hbox = {
-								datamodel = "[EmployedPositionItem.GetTasks]"
-								datacontext = "[EmployedPositionItem.GetPosition]"
-								datacontext = "[EmployedPositionItem.GetPosition.GetPositionType]"
+								datamodel = "[CourtPositionItem.GetTasks]"
+								datacontext = "[CourtPositionItem.GetPosition]"
+								datacontext = "[CourtPositionItem.GetPositionType]"
 							}
 
 							expand = {layoutpolicy_vertical = expanding}
@@ -834,17 +831,20 @@ types CourtPositionItems
 	# Empty court position card that is part of a list.
 	type widget_empty_court_position_item = widget_court_position_entry_base
 	{
+		visible = "[Not( CourtPositionListItem.GetObject.IsEmployedPosition )]"
+
 		blockoverride "cp_root"
 		{
-			datacontext = "[EmptyCourtPosition.GetType]"
-			datacontext = "[EmptyCourtPosition.GetCourtOwner]"
+			datacontext = "[CourtPositionListItem.GetObject]"
+			datacontext = "[CourtPositionItem.GetPositionType]"
+			datacontext = "[CourtPositionItem.GetCourtOwner]"
 
 			#AGOT Modified, Fit Unhired Maester Court Position Tasks
 			# size = { 537 220 }
 			size = "[Select_CVector2f( DataModelHasItems( CourtPositionType.GetTasks ), '(CVector2f)537,240', '(CVector2f)537,220' )]"
 
 			background = {
-				visible = "[And(Not( SelectedEmptyCourtPosition.SameAs( PdxGuiWidget.GetIndexInDataModel ) ), EmptyCourtPosition.CanHirePosition)]"
+				visible = "[And( Not( CourtPositionsWindow.IsSelectedPosition( CourtPositionItem.GetListId ) ), CourtPositionItem.CanHirePosition )]"
 				using = Background_Area_Dark
 				using = Mask_Rough_Edges
 				alpha = 0.5
@@ -852,14 +852,14 @@ types CourtPositionItems
 			}
 
 			background = {
-				visible = "[Not(EmptyCourtPosition.CanHirePosition)]"
+				visible = "[Not( CourtPositionItem.CanHirePosition )]"
 				using = Background_Frame
 				alpha = 0.5
 				margin_right = -3
 			}
 
 			background = {
-				visible = "[SelectedEmptyCourtPosition.SameAs( PdxGuiWidget.GetIndexInDataModel )]"
+				visible = "[CourtPositionsWindow.IsSelectedPosition( CourtPositionItem.GetListId )]"
 				texture = "gfx/interface/colors/white.dds"
 				spriteType = Corneredtiled
 				using = Color_Blue
@@ -889,7 +889,6 @@ types CourtPositionItems
 			margin_bottom = 10
 
 			widget_empty_list_court_position_portrait = {
-				datacontext = "[EmptyCourtPosition]"
 				tooltip = "COURT_POSITIONS_WINDOW_EMPTY_POSITION_NO_ADD_TT"
 				using = tooltip_ws
 			}
@@ -897,7 +896,7 @@ types CourtPositionItems
 
 		blockoverride "cp_ai_score"
 		{
-			text = "[EmptyCourtPosition.GetAiCandidateScore]"
+			text = "[CourtPositionItem.GetAiCandidateScore]"
 		}
 
 		blockoverride "cp_effects"
@@ -966,7 +965,7 @@ types CourtPositionItems
 						expand = {}
 
 						hbox = {
-							datamodel = "[CourtPositionType.GetTasks]"
+							datamodel = "[CourtPositionItem.GetTasks]"
 							layoutpolicy_vertical = expanding
 							spacing = 8
 
@@ -1486,8 +1485,6 @@ types CourtPositionItems
 	# Expects the following datacontexts:
 	#	EmptyCourtPosition - List item that caches the various properties of
 	#		this court position.
-	#	SelectedEmptyCourtPosition - Datacontext to track which item is
-	#		selected.
 	#
 	type widget_empty_list_court_position_portrait = widget {
 		size = { 85 90 }
@@ -1517,12 +1514,12 @@ types CourtPositionItems
 		button = {
 			name = "position_portrait_tutorial_uses_this"
 			size = { 100% 100% }
-			enabled = "[And(EmptyCourtPosition.CanHirePosition, EmptyCourtPosition.HasValidCourtiers )]"
+			enabled = "[And( CourtPositionItem.CanHirePosition, CourtPositionItem.HasValidCourtiers )]"
 
 			block "portrait_button_onclick"
 			{
-				onclick = "[EmptyCourtPosition.OpenAppointWindow]"
-				onclick = "[SelectedEmptyCourtPosition.SetIndex( PdxGuiWidget.GetIndexInDataModel )]"
+				onclick = "[CourtPositionItem.OpenAppointWindow]"
+				onclick = "[CourtPositionsWindow.SetSelectedPositionId( CourtPositionItem.GetListId )]"
 			}
 
 			state = {
@@ -1550,14 +1547,14 @@ types CourtPositionItems
 			}
 
 			button_plus = {
-				visible = "[And(EmptyCourtPosition.CanHirePosition, EmptyCourtPosition.HasValidCourtiers )]"
+				visible = "[And(CourtPositionItem.CanHirePosition, CourtPositionItem.HasValidCourtiers )]"
 				parentanchor = center
 				position = { 0 0 }
 
 				block "portrait_button_onclick"
 				{
-					onclick = "[EmptyCourtPosition.OpenAppointWindow]"
-					onclick = "[SelectedEmptyCourtPosition.SetIndex( PdxGuiWidget.GetIndexInDataModel )]"
+					onclick = "[CourtPositionItem.OpenAppointWindow]"
+					onclick = "[CourtPositionsWindow.SetSelectedPositionId( CourtPositionItem.GetListId )]"
 				}
 			}
 
