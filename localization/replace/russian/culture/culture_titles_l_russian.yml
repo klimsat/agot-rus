@@ -339,6 +339,13 @@
  emperor_theocracy_female_christianity_religion:0 "Императрица-епископ"
  empire_theocracy_christianity_religion:0 "Имперская церковь"
 
+ king_theocracy_male_christianity_religion_orthodox: "$king_clan_male$"
+ king_theocracy_female_christianity_religion_orthodox: "$king_clan_female$"
+ kingdom_theocracy_christianity_religion_orthodox: "Патриархат"
+ emperor_theocracy_male_christianity_religion_orthodox: "$emperor_clan_male$"
+ emperor_theocracy_female_christianity_religion_orthodox: "$emperor_clan_female$"
+ empire_theocracy_christianity_religion_orthodox: "Великий патриархат"
+
 # Dualism
 #Same as Christianity
 
@@ -629,7 +636,7 @@
 
  #Viceroyalty
  duke_viceroyalty_male_byzantine_group:0 "Стратег"
- duke_viceroyalty_female_byzantine_group:0 "Стратегисса"
+ duke_viceroyalty_female_byzantine_group: "Стратегисса"
  duchy_viceroyalty_byzantine_group:0 "Фема"
  king_viceroyalty_male_byzantine_group:0 "Экзарх"
  king_viceroyalty_female_byzantine_group:0 "Экзархесса"
@@ -1206,4 +1213,98 @@
  count_republic_latin_male:0 "Подеста"
  count_republic_latin_female:0 "Подестаресса"
 
+ ### Administrative
 
+ baron_administrative_male_byzantine_group: "Архонт"
+ baron_administrative_female_byzantine_group: "Архонтесса"
+ barony_administrative_byzantine_group: "Архонтия"
+ count_administrative_male_byzantine_group: "Турмарх"
+ count_administrative_female_byzantine_group: "Турмарха"
+ county_administrative_byzantine_group: "Турма"
+ count_administrative_male: "Магистр"
+ count_administrative_female: "Магистра"
+ county_administrative: "Магистрат"
+ duke_administrative_male: "Губернатор"
+ duke_administrative_female: "Губернаторша"
+ duchy_administrative: "Провинция"
+ duke_administrative_male_byzantine_group: "Стратег"
+ duke_administrative_female_byzantine_group: "Стратегисса"
+ duchy_administrative_byzantine_group: "Фема"
+
+ king_administrative_male: "Вице-король"
+ king_administrative_female: "Вице-королева"
+ kingdom_administrative: "Вице-королевство"
+ kingdom_administrative_independent: "$kingdom_feudal$"
+ king_administrative_independent_male: "$king_feudal_male$"
+ king_administrative_independent_female: "$king_feudal_female$"
+ king_administrative_male_byzantine_group: "Катепан"
+ king_administrative_female_byzantine_group: "Катепанисса"
+ king_administrative_independent_male_byzantine_group: "Деспот"
+ king_administrative_independent_female_byzantine_group: "Деспотина"
+ kingdom_administrative_byzantine_group: "Катепанат"
+ kingdom_administrative_independent_byzantine_group: "Деспотат"
+ emperor_administrative_male_greek: "Василевс"
+ emperor_administrative_female_greek: "Василисса"
+
+ king_administrative_male_roman: "Префект"
+ king_administrative_female_roman: "Префекта"
+ king_administrative_independent_male_roman: "Царь"
+ king_administrative_independent_female_roman: "Царица"
+ kingdom_administrative_roman: "Префектура"
+ kingdom_administrative_independent_roman: "Царство"
+ emperor_administrative_male_roman: "Император"
+ emperor_administrative_female_roman: "Императрица"
+ empire_administrative_roman: "Империя"
+
+ co_ruler_male: "[SelectLocalization( Character.GetLiege.IsFemale, 'co_ruler_male_gender_fallback', 'co_ruler_actual')]-соправитель"
+ co_ruler_female: "[SelectLocalization( Character.GetLiege.IsFemale, 'co_ruler_actual', 'co_ruler_female_gender_fallback')]-соправительница"
+ co_ruler_actual: "[Character.GetLiege.GetTitleAsNameNoTooltip]"
+ co_ruler_male_gender_fallback: "[Character.Custom('GetCoRulerDiffGenderBestTitle')]"
+ co_ruler_female_gender_fallback: "[Character.Custom('GetCoRulerDiffGenderBestTitle')]"
+ GetCoRulerDiffGenderBestTitle_Spouse: "[Character.GetLiege.GetPrimarySpouse.GetTitleAsNameNoTooltip]"
+
+ custom_imperator_caesar_augustus: "Император Цезарь Август"
+
+ ### Landless Adventurer Camps
+ duke_landless_adventurer_male_camp: "Капитан"
+ duke_landless_adventurer_female_camp: "Капитанша"
+ duchy_landless_adventurer_camp: "Лагерь"
+ spouse_landless_adventurer_male: "Господин"
+ spouse_landless_adventurer_holder_female: "Госпожа"
+
+ duke_landless_adventurer_camp_mercenaries: "Капитан"
+ duke_landless_adventurer_camp_wanderers: "[Character.Custom('MistressMaster')|U]"
+ duke_landless_adventurer_camp_scholars: "[Character.Custom('MistressMaster')|U]"
+ duke_landless_adventurer_camp_explorers: "Предводитель"
+ duke_landless_adventurer_camp_brigands: "Главарь"
+ duke_landless_adventurer_camp_legitimists: "[Character.GetLadyLord|U]"
+
+ ### Estates
+ spouse_estate_holder_male: "Лорд"
+ spouse_estate_holder_female: "Леди"
+
+ ### Easter Eggs
+ lady_in_shadows: "Дама в тени"
+
+ ### Additional Flavor Titles
+ #Margraves
+ feudal_margrave_male: "Маркиз"
+ feudal_margrave_male_german_group: "Маркграф"
+ feudal_margrave_female: "Маркиза"
+ feudal_margrave_female_german_group: "Маркграфиня"
+ feudal_margrave_title: "Марка"
+ feudal_margrave_title_german_group: "Маркграфство"
+ #Palatins
+ feudal_palatinate_county_male: "Пфальцграф"
+ feudal_palatinate_county_female: "Пфальцграфиня"
+ feudal_palatinate_county_title: "Пфальцграфство"
+ feudal_palatinate_duchy_male: "Пфальцгерцог"
+ feudal_palatinate_duchy_female: "Пфальцгерцогиня"
+ feudal_palatinate_duchy_title: "Пфальцгерцогство"
+ #Burgraves
+ feudal_castellan_male: "Кастелян"
+ feudal_castellan_male_german_group: "Бургграф"
+ feudal_castellan_female: "Кастелянша"
+ feudal_castellan_female_german_group: "Бургграфиня"
+ feudal_castellan_title: "Кастелянство"
+ feudal_castellan_title_german_group: "Бургграфство"
