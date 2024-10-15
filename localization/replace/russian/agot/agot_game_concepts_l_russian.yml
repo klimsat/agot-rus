@@ -81,7 +81,7 @@
  game_concept_pirate_den_holding_desc:0 "Пиратские логова - стандартный [Concept('holding_type', 'тип владений')|E], слегка укреплённые лагеря, где собираются пираты, вынужденные сойти на берег. Это единственный тип владений, доступный #L [GetGovernment( 'pirate_government' ).GetAdjective]им#! [Concept('rulers', 'правителям')|E]."
 
  game_concept_dragon:0 "Дракон"
- game_concept_dragons:0 "Драконы"
+ game_concept_dragons_plural:0 "Драконы"
  game_concept_dragon_desc: "$game_concept_dragons$ - магические создания, при помощи которых драконьи владыки старой Валирии завоевали большую часть известного мира. Увидеть дракона - значит увидеть огонь во плоти, оседлать его - значит стать хозяином своей судьбы и перекроить мир.\n\nКаждый дракон имеет свою собственную [personality|El], [traits|El] и [education|El], которые влияют на его [draconic_dread|El], [temperament|El] и [taming_chance|El]. [dragon_combat_effectiveness|E] дракона влияет на его применение в бою и растёт с возрастом и увеличением [Concept('dragon_size', 'размера')|E].\n\nСуществует три [Concept('dragon_type', 'типа драконов')|E]: [Concept('wild_dragon', 'дикие')|E], [Concept('owned_dragon', 'одомашненные')|E] и [Concept('tamed_dragon', 'приручённые')|E] драконы. Приручённые и одомашненные драконы могут содержаться в [Concept('dragonpit', 'драконьем логове')|E], если таковое имеется."
 
  game_concept_dragon_type:0 "Типы драконов"
@@ -122,13 +122,13 @@
  game_concept_dragon_pit_desc:0 "$game_concept_dragonpit_desc$"
  game_concept_natural_dragonpit:0 "Естественное драконье логово"
  game_concept_natural_dragonpits:0 "Естественные драконьи логова"
- game_concept_natural_dragonpit_desc:0 "$game_concept_natural_dragonpit$ - это [dragonpit|El], в котором орден [Concept('dragonkeepers', 'Драконоблюстителей')|E] использует естественные пещеры для содержания и защиты [Concept('dragons', 'драконов')|E]. [Concept('dragons_size', 'Размер')|E] содержащихся в таких ямах драконов не будет подвергаться ограничениям, в отличие от тех, что содержатся в искусственных драконьих логовах."
+ game_concept_natural_dragonpit_desc:0 "$game_concept_natural_dragonpit$ - это [dragonpit|El], в котором орден [Concept('dragonkeepers', 'Драконоблюстителей')|E] использует естественные пещеры для содержания и защиты [Concept('dragons_plural', 'драконов')|E]. [Concept('dragons_size', 'Размер')|E] содержащихся в таких ямах драконов не будет подвергаться ограничениям, в отличие от тех, что содержатся в искусственных драконьих логовах."
 
  game_concept_anti_dragon_maa:0 "Истребители драконов"
- game_concept_anti_dragon_maa_desc:0 "Особые [Concept('men_at_arms', 'профессионалы')|E], предназначенные для борьбы с [Concept('dragons', 'драконами')|E]. Эти полки не принесут особой пользы, если используются не по прямому назначению, но мало кто ещё может надеяться защитить [Concept('army', 'войско')|E], столкнувшееся с драконом."
+ game_concept_anti_dragon_maa_desc:0 "Особые [Concept('men_at_arms', 'профессионалы')|E], предназначенные для борьбы с [Concept('dragons_plural', 'драконами')|E]. Эти полки не принесут особой пользы, если используются не по прямому назначению, но мало кто ещё может надеяться защитить [Concept('army', 'войско')|E], столкнувшееся с драконом."
 
  game_concept_dragon_gender:0 "Пол дракона"
- game_concept_dragon_gender_desc:0 "[maesters|E] Цитадели давно спорят об истинной природе [Concept('dragons', 'драконов')|E]: одни считают, что они сменяют пол по мере необходимости на мужской и женский, а другие полагают, что у них вообще нет определенного пола. Исторически сложилось так, что драконов, которые откладывали яйца, называли самками, хотя некоторые из предполагаемых самок не делали этого.\n\nВ любом случае, согласно человеческим представлениям, драконы действительно различаются по полу, и поэтому их называют таковыми до тех пор, пока всадник или кладка не заявят об обратном."
+ game_concept_dragon_gender_desc:0 "[maesters|E] Цитадели давно спорят об истинной природе [Concept('dragons_plural', 'драконов')|E]: одни считают, что они сменяют пол по мере необходимости на мужской и женский, а другие полагают, что у них вообще нет определенного пола. Исторически сложилось так, что драконов, которые откладывали яйца, называли самками, хотя некоторые из предполагаемых самок не делали этого.\n\nВ любом случае, согласно человеческим представлениям, драконы действительно различаются по полу, и поэтому их называют таковыми до тех пор, пока всадник или кладка не заявят об обратном."
 
  game_concept_dragonblood:0 "Драконья кровь"
  game_concept_dragonblood_desc:0 "$game_concept_dragonblood$ - это показатель того, что в роду [Concept('character', 'персонажа')|E] был [GetTrait('dragonrider').GetName( GetNullCharacter )|LV], или он происходит из [Concept('house', 'дома')|E] с модификатором «[GetModifier('dragonrider_house_modifier').GetNameWithTooltip|L]»."
@@ -138,6 +138,70 @@
 
  game_concept_dragonkeeper:0 "Драконоблюститель"
  game_concept_dragonkeepers:0 "Драконоблюстители"
- game_concept_dragonkeeper_desc:0 "Орден Драконоблюстителей отвечает за содержание [Concept('dragonpits', 'драконьего логова')|E] и всех размещённых в нём [Concept('dragons', 'драконов')|E]. Во главе ордена стоит $head_dragonkeeper_court_position$, при найме которого открываются некоторые [dragonpit_interactions|El]." #$game_concept_dragonkeepers$
+ game_concept_dragonkeeper_desc:0 "Орден Драконоблюстителей отвечает за содержание [Concept('dragonpits', 'драконьего логова')|E] и всех размещённых в нём [Concept('dragons_plural', 'драконов')|E]. Во главе ордена стоит $head_dragonkeeper_court_position$, при найме которого открываются некоторые [dragonpit_interactions|El]." #$game_concept_dragonkeepers$
  game_concept_dragonpit_interactions:0 "Взаимодействия драконьего логова"
  game_concept_dragonpit_interactions_desc:0 "$game_concept_dragonpit_interactions$ - это [Concept('interactions', 'взаимодействия')|E], которые открываются при назначении [Concept('character', 'персонажа')|E] на [Concept('court_position', 'придворную должность')|E] $head_dragonkeeper_court_position$. Эти взаимодействия предоставляют владельцу [Concept('dragonpit', 'драконьего логова')|E] более высокую степень контроля.\n\n$EFFECT_LIST_BULLET$Взаимодействие #V Обучить знаниям о драконах#! позволяет обучать детей, внуков или членов [Concept('house', 'дома')|E] знаниям о драконах.\n$EFFECT_LIST_BULLET$Взаимодействие #V Запретить доступ в драконье логово#! ограничивает доступ в логово персонажам, по-умолчанию имеющим доступ в зависимости от [Concept('laws', 'законов')|E].\n$EFFECT_LIST_BULLET$Взаимодействие #V Снять запрет на посещение драконьего логова#! восстанавливает доступ персонажа в драконье логово, в которое он не допускался.\n$EFFECT_LIST_BULLET$Взаимодействие #V Предоставить доступ в драконье логово#! предоставляет персонажу [Concept('authorized_tamer', 'доступ')|E] в определенное драконье логово.\n$EFFECT_LIST_BULLET$Взаимодействие #V Отправить яйцо в драконье логово#! позволяет отправить драконье яйцо ([artifact|El]) в логово, где оно может вылупиться самостоятельно или на хранение.\n$EFFECT_LIST_BULLET$Взаимодействие #V Забрать яйцо из драконьего логова#! позволяет забрать яйцо из драконьего логова."
+
+ ## GAME CONCEPTS LOC
+ game_concept_story_content_robert_baratheon_282:0 "$game_concept_story_generic_prefix$ $bookmark_282_robert_baratheon$"
+ game_concept_story_content_robert_baratheon_282_desc:0 "#tooltip_heading Story Style: Extensive#!\n\nAs Robert Baratheon, you will fight against Aerys 'the Mad King' Targaryen and his loyalists as the Seven Kingdoms are plunged into civil war.\n\nScripted story events will fire throughout the war, and your story will reach a climax with your success or failure against the Targaryen dynasty."
+
+ game_concept_story_content_rhaegar_targaryen_282:0 "$game_concept_story_generic_prefix$ $bookmark_282_rhaegar_targaryen$"
+ game_concept_story_content_rhaegar_targaryen_282_desc:0 "#tooltip_heading Story Style: Moderate#!\n\nAs Rhaegar Targaryen, you will fight against Robert Baratheon's rebels at the behest of your father and liege, Aerys Targaryen II.\n\nAs the son of Aerys Targaryen, you will be subject to story events related to the ongoing war. Should you or your father emerge victorious against your foes, scripted story events concerning the fate of Lyanna Stark and the realm will follow."
+
+ game_concept_story_content_aerys_targaryen_282:0 "$game_concept_story_generic_prefix$ $bookmark_282_aerys_targaryen$"
+ game_concept_story_content_aerys_targaryen_282_desc:0 "#tooltip_heading Story Style: Extensive#!\n\nAs Aerys Targaryen, you will fight against the forces of Robert Baratheon and his allies.\n\nScripted story events concerning the war, realm, and your family will fire throughout the conflict, and your story will culminate in your victory or defeat over the rebels."
+
+ game_concept_story_content_tywin_lannister_282:0 "$game_concept_story_generic_prefix$ $bookmark_282_tywin_lannister$"
+ game_concept_story_content_tywin_lannister_282_desc:0 "#tooltip_heading Story Style: Extensive#!\n\nAs Tywin Lannister, you are a neutral observer as your friend-turned-rival Aerys Targaryen fights in a war against an alliance of rebel lords led by Robert Baratheon.\n\nAs the war progresses, you may experience story events concerning your neutrality and willingness to participate in the war."
+
+ game_concept_story_content_eddard_stark_282:0 "$game_concept_story_generic_prefix$ $bookmark_282_eddard_stark$"
+ game_concept_story_content_eddard_stark_282_desc:0 "#tooltip_heading Story Style: Moderate#!\n\nAs Eddard Stark, you will fight against Aerys 'the Mad King' Targaryen alongside Robert Baratheon.\n\nShould you survive the conflict, you will experience scripted story events concerning the fate of your missing sister, Lyanna Stark."
+
+ game_concept_story_content_aegon_targaryen_259:0 "$game_concept_story_generic_prefix$ $bookmark_259_aegon_targaryen$"
+ game_concept_story_content_aegon_targaryen_259_desc:0 "#tooltip_heading Story Style: Extensive#!\n\nAs Aegon Targaryen, you must find balance between your family, realm, and your deepest dreams.\n\nWith news of an emerging Blackfyre threat becoming clearer, you will experience scripted story events concerning your family and realm."
+
+ game_concept_story_content_maelys_blackfyre_259:0 "$game_concept_story_generic_prefix$ $bookmark_259_maelys_blackfyre$"
+ game_concept_story_content_maelys_blackfyre_259_desc:0 "#tooltip_heading Story Style: Extensive#!\n\nAs Maelys Blackfyre, you will fight alongside your allies in order to take back what is yours: the Seven Kingdoms.\n\nYou will experience scripted story events concerning your conquests and ambitions to invade Westeros and the surrounding realms."
+
+ game_concept_story_content_viserys_targaryen_109:0 "$game_concept_story_generic_prefix$ $bookmark_106_viserys_targaryen$"
+ game_concept_story_content_viserys_targaryen_109_desc:0 "#tooltip_heading Story Style: Light#!\n\nAs Viserys Targaryen, you are the ruler of a realm at a peace.\n\nYou will experience scripted story events concerning your family and their exploits; namely, your heir, Rhaenyra Targaryen, and your brother, Prince Daemon Targaryen."
+
+ game_concept_story_content_daemon_targaryen_109:0 "$game_concept_story_generic_prefix$ $bookmark_106_daemon_targaryen$"
+ game_concept_story_content_daemon_targaryen_109_desc:0 "#tooltip_heading Story Style: Extensive#!\n\nAs Daemon Targaryen, you will fight against the villains and pirates laying claim to the Stepstones.\n\nAs your conquests progress, you will experience scripted story events concerning your realm, your position as a prince of the Iron Throne, and the Stepstones."
+
+ game_concept_story_content_corlys_velaryon_109:0 "$game_concept_story_generic_prefix$ $bookmark_106_corlys_velaryon$"
+ game_concept_story_content_corlys_velaryon_109_desc:0 "#tooltip_heading Story Style: Moderate#!\n\nAs Corlys Velaryon, you will fight alongside Daemon Targaryen against the villains and pirates laying claim to the Stepstones.\n\nAs your conquests progress, you will experience scripted story events related to the status of the Stepstones and your role in Daemon Targaryen's wars."
+
+ game_concept_story_content_craghas_drahar_109:0 "$game_concept_story_generic_prefix$ $bookmark_106_craghas_drahar$"
+ game_concept_story_content_craghas_drahar_109_desc:0 "#tooltip_heading Story Style: Light#!\n\nAs Craghas Drahar, you will fight against the invading force of Daemon Targaryen and Corlys Velaryon.\n\nYou will experience scripted story events concerning the war."
+
+ game_concept_story_content_tytos_lannister_259:0 "$game_concept_story_generic_prefix$ $bookmark_259_tytos_lannister$"
+ game_concept_story_content_tytos_lannister_259_desc:0 "#tooltip_heading Story Style: Moderate#!\n\nAs Tytos Lannister, you are a lord dealing with ambitious and arrogant vassals.\n\nYou will experience scripted story events concerning the status and position of several of your vassals."
+
+ game_concept_story_content_roger_reyne_259:0 "$game_concept_story_generic_prefix$ $bookmark_259_roger_reyne$"
+ game_concept_story_content_roger_reyne_259_desc:0 "#tooltip_heading Story Style: Light#!\n\nAs Roger Reyne, you are an ambitious lord with little respect for your liege, Tytos Lannister.\n\nYou will experience scripted story events concerning your role in the Westerlands."
+
+ game_concept_nw_govt:0 "Night's Watch"
+ game_concept_nw_govt_desc:0 "Under the $game_concept_nw_govt$ [government_form|E], the top [liege|E] distributes [land|E] to [vassals|E] to govern and protect. Only sworn brothers of the Night's Watch may hold titles under this government, and when they die, their titles revert to their liege."
+ game_concept_nw_govt_i:0 "@nights_watch_government!"
+
+ game_concept_pirate_govt:0 "Pirate"
+ game_concept_pirate_govt_desc:0 "Under the $game_concept_pirate_govt$ [government_form|E], [rulers|E] are constrained to an elective form of [succession|E], unique pirate [buildings|E], and are limited to [pirate_den_holdings|E]. Despite these constraints, pirate rulers are able to [raid|E] and use the conquest [casus_belli|E]."
+ game_concept_pirate_govt_i:0 "@pirate_government!"
+
+ game_concept_citadel_govt:0 "The Conclave"
+ game_concept_citadel_govt_desc:0 "The $game_concept_citadel_govt$ is a nonplayable government representing the order of maesters."
+ game_concept_citadel_govt_i:0 "@the_citadel_government!"
+
+ game_concept_kg_govt:0 "Kingsguard"
+ game_concept_kg_govt_desc:0 "The $game_concept_kg_govt$ is a nonplayable government representing the elite order of bodyguards of the Iron Throne's monarch."
+ game_concept_kg_govt_i:0 "@kingsguard_government!"
+
+ game_concept_silent_sisters_govt:0 "Silent Sisterhood"
+ game_concept_silent_sisters_govt_desc:0 "The $game_concept_silent_sisters_govt$ is a nonplayable government representing the order of women who attend to the dead in the Faith of the Seven religion."
+ game_concept_silent_sisters_govt_i:0 "@silent_sisters_government!"
+
+ game_concept_ruins_govt:0 "Ruin"
+ game_concept_ruins_govt_desc:0 "The $game_concept_ruins_govt$ is a nonplayable government representing realms that have fallen into ruin and are now tended by Wardens until they can be restored."
+ game_concept_ruins_govt_i:0 "@ruins_government!"

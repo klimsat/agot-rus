@@ -32,11 +32,12 @@
  unlocks_sailable_major_rivers:1 "Открывает возможность ходить по крупным рекам"
  unlock_wind_furnaces:0 "Открывает линейку [Concept( 'buildings', 'зданий' )|E] «$building_type_wind_furnace_01$» в прибрежных [Concept( 'holdings', 'владениях' )|E] региона [GetGeographicalRegion('world_india').GetName]"
 
- unlock_march_contract:0 "Открывает [feudal_contract|El] «#high $special_contract_march_short$#!»"
- unlock_scutage_contract:0 "Открывает [feudal_contract|El] «#high $special_contract_scutage_short$#!»"
- unlock_palatinate_contract:0 "Открывает [feudal_contract|El] «#high $special_contract_palatinate_short$#!»"
- unlock_fortification_rights_contract:0 "Открывает [feudal_contract|El] «#high $fortification_rights$#!»"
- unlock_coinage_rights_contract:0 "Открывает [feudal_contract|El] «#high $coinage_rights$#!»"
+ unlock_march_contract: "Открывает [Concept('vassal_contract','вассальный договор')|E] #high [GetVassalContractType( 'special_contract' ).GetObligationName( 'special_contract_march' )]#!"
+ unlock_castellan_contract: "Открывает [Concept('vassal_contract','вассальный договор')|E] #high [GetVassalContractType( 'special_contract' ).GetObligationName( 'special_contract_castellan' )]#!"
+ unlock_scutage_contract: "Открывает [Concept('vassal_contract','вассальный договор')|E] #high [GetVassalContractType( 'special_contract' ).GetObligationName( 'special_contract_scutage' )]#!"
+ unlock_palatinate_contract: "Открывает [Concept('vassal_contract','вассальный договор')|E] #high [GetVassalContractType( 'special_contract' ).GetObligationName( 'special_contract_palatinate' )]#!"
+ unlock_fortification_rights_contract: "Открывает [Concept('vassal_contract','вассальный договор')|E] #high [GetVassalContractType( 'fortification_rights' ).GetObligationName( 'fortification_rights_granted' )]#!"
+ unlock_coinage_rights_contract: "Открывает [Concept('vassal_contract','вассальный договор')|E] #high [GetVassalContractType( 'coinage_rights' ).GetObligationName( 'coinage_rights_granted' )]#!"
 
 ##############
 # Tribal Era #
@@ -63,6 +64,7 @@
  innovation_bannus_desc:0 "Именно на марках королевства рождаются самые выносливые бойцы. Пограничные земли первыми сталкиваются с набегами, битвами и нашествиями, поэтому люди там хорошо знакомы с невзгодами."
  eligible_accolade_vanguard_attribute_ACCOLADES_DLC:0 "[Concept('knights', 'Рыцари' )|E] этой [Concept('culture', 'культуры' )|E] могут получить [accolades|El] «[GetAccoladeType('vanguard_attribute').GetName]»"
  eligible_accolade_vanguard_attribute:1 "[AddLocalizationIf( HasDlcFeature( 'accolades' ), 'eligible_accolade_vanguard_attribute_ACCOLADES_DLC')]"
+ unlock_maa_armored_footmen: "Открывает [Concept( 'men_at_arms', 'профессиональное войско' )|E] «[GetMaA('armored_footmen').GetName]»"
 
  innovation_quilted_armor:0 "Стеганый доспех"
  innovation_quilted_armor_desc:0 "Сшитые из десятка и более слоев льна, эти куртки могут останавливать даже тяжелые стрелы. Это недорогой способ обеспечить броней целый полк."

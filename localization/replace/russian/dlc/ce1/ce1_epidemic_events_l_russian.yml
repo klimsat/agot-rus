@@ -79,11 +79,11 @@
  epidemic_events.1020.a:0 "Стоит попробовать."
  epidemic_events.1020.b:0 "Пустая трата золота."
  epidemic_events.1030.t:0 "Пиявки!"
- epidemic_events.1030.desc:0 "Некоторые из образованных придворных сообщают мне, что умелое приложение пиявок — верное средство от нарушения равновесия гуморов и упадка. Но когда [leeched_courtier.GetFirstName] подходит ко мне с холодной бледной улыбкой и полной горстью пиявок, я невольно задумываюсь, а не слишком ли далеко это зашло.\n\n«Пиявки! Пиявки нам помогут, и [epidemic_scope.GetName] прекратится!»\n\nЭто противоречит общеизвестной истине, что применять пиявок нужно только под присмотром врача, но можем ли мы позволить себе ожидание в столь отчаянные времена?"
+ epidemic_events.1030.desc: "Некоторые образованные люди [ROOT.Char.Custom('GetCourt_RU_Where')] утверждают, что приложение пиявок — надежное средство от нарушения равновесия гуморов и упадка. Но когда [leeched_courtier.GetFirstName] подходит ко мне с горстью пиявок и ледяной улыбкой на устах, я невольно задумываюсь, а не слишком ли далеко это зашло.\n\n«Пиявки! Пиявки нам помогут, и [epidemic_scope.GetName] прекратится!»\n\nЭто противоречит общеизвестной истине, что использовать пиявки нужно только под присмотром врача, но можем ли мы позволить себе ожидание в столь отчаянные времена?"
  epidemic_events.1030.a:0 "Раздать пиявок всем при дворе!"
  epidemic_events.1030.a.success:0 "Лечение пиявками оказывается успешным"
  epidemic_events.1030.a.failure:0 "Пиявки причиняют вред"
- epidemic_events.1030.b:0 "Последуем совету врачей."
+ epidemic_events.1030.b: "Будем следовать проверенным методам."
  epidemic_events.1040.t:0 "Самобичевание при дворе"
  epidemic_events.1040.desc.intro:0 "[epidemic_scope.GetName|U] продолжает распространяться по моей державе, опустошая все на своем пути. В зараженных регионах возникло набирающее силу движение фанатиков, утверждающих, что спасение лежит в самобичевании.\n\n"
  epidemic_events.1040.desc.mid.approves:0 "Более того, [chaplain.Custom2('MyCharacterIntroduction', ROOT.Char)] одобряет подобную практику и настаивает, что все при дворе должны следовать их примеру. [Select_CString(chaplain.IsFemale, 'Она', 'Он' )] утверждает, что мне нужно не просто терпеть подобную практику, но и поддерживать ее."
@@ -253,7 +253,7 @@
 
  every_family_member_of_lover:0 "Все родственники персонажа [dead_lover.GetFirstName]"
  every_infected_county:0 "Все зараженные графства"
- every_infected_courtier_and_guest:0 "Все зараженные придворные и гости"
+ every_infected_courtier_and_guest: "Все зараженные [THIS.Char.Custom('GetCourtierConceptPlural')|l] и [Concept('guest','гости')|E]"
 
  friend_revenants_nailed:0 "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'последовали', Select_CString(CHARACTER.IsFemale, 'последовала', 'последовал' ))] совету [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )], забив гвоздями крышки всех гробов, чтобы мертвецы не встали из могил."
  friend_revenants_nailed_corresponding:0 "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'последовали', Select_CString(TARGET_CHARACTER.IsFemale, 'последовала', 'последовал' ))] совету [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )], забив гвоздями крышки всех гробов, чтобы мертвецы не встали из могил"
@@ -275,7 +275,7 @@
  third_impact:0 "Третий удар"
 
  epidemic_events.2001.t:0 "Поветрие войны"
- epidemic_events.2001.desc:0 "[pleading_vassal.GetName|U] склоняется передо мной, источая миазмы отчаяния. [Select_CString(pleading_vassal.IsFemale, 'Его', 'Ее' )] губы дрожат.\n\n«Мой сюзерен, я молю вас вмешаться. Две напасти обрушились на мои земли. [epidemic_scope.GetName|U] атакует нас изнутри, а [attacking_vassal.Custom('InsultAdjective')|l] [attacking_vassal.GetName] осаждает мои владения снаружи, и [vassal_war.GetName] никак не заканчивается. Боюсь, с двумя врагами мне не совладать. Мои подданные не переживут опустошения, оставленного ими.\n\nЯ [Select_CString(pleading_vassal.IsFemale, 'принесла', 'принес' )] вам в дар все свое золото. Вверяю вам свою судьбу и судьбу моего домена»."
+ epidemic_events.2001.desc: "[pleading_vassal.GetName|U] склоняется передо мной, источая волны отчаяния. [Select_CString(pleading_vassal.IsFemale, 'Его', 'Ее' )] губы дрожат.\n\n«Мой сюзерен, я молю вас вмешаться. Две напасти обрушились на мои земли. [epidemic_scope.GetName|U] атакует нас изнутри, а [attacking_vassal.Custom('InsultAdjective')|l] [attacking_vassal.GetName] осаждает мои владения снаружи, и [vassal_war.GetName] никак не заканчивается. Боюсь, с двумя врагами мне не совладать. Мои подданные не переживут подобных невзгод.\n\nЯ [Select_CString(pleading_vassal.IsFemale, 'принесла', 'принес' )] вам в дар все свое золото. Вверяю вам свою судьбу и судьбу моего домена»."
  epidemic_events.2001.a:0 "Я охотно заплачу, чтобы покончить с этой глупостью."
  epidemic_events.2001.b:0 "Как вы смеете, теперь [epidemic_scope.GetName] стоит у #EMP моего#! порога!"
  epidemic_events.2001.b.desc:0 "Стража! #EMP Осторожно#! арестуйте [Select_CString(pleading_vassal.IsFemale, 'его', 'ее' )], а затем #EMP еще более осторожно#! вымойте все, до чего [Select_CString(pleading_vassal.IsFemale, 'она дотрагивалась', 'он дотрагивался' )]!"
@@ -347,7 +347,7 @@
  ce1_meat_shower_desc_third_perspective:0 "[flingee.GetName] [Select_CString(flingee.IsFemale, 'запустила', 'запустил' )] труп во владение, которым правит [owner.GetName], превратив его в дождь из крови и кусков тела"
 
  epidemic_events.5000.t:0 "Сделайте что-нибудь!"
- epidemic_events.5000.desc:0 "[epidemic.GetName|U] продолжает свирепствовать, и все больше докладов поступает из владения [infected_county.GetName]. [church_person.GetTitledFirstName] лично приносит мне свежие вести и бьет кулаком по столу.\n\n«Народ ждет, что мы предпримем что-нибудь для помощи пострадавшим!» — настаивает [Select_CString(church_person.IsFemale, 'она', 'он' )], указывая на послание.\n\n«Мне уже доводилось видеть подобное. Нам нужно лишь истребить грязных животных, оскверняющих эти земли. Без них зараза вряд ли задержится надолго! — [church_person.GetFirstNameNoTooltip] с довольным видом откидывается назад, пока я обдумываю предложение. — Так хочет [ROOT.Char.GetFaith.HighGodName]»."
+ epidemic_events.5000.desc: "[epidemic.GetName|U] продолжает свирепствовать, и все больше докладов поступает из владения [infected_county.GetName]. [church_person.GetTitledFirstName] лично приносит мне свежие вести и бьет кулаком по столу.\n\n«Народ ждет, что мы предпримем что-нибудь для помощи пострадавшим!» — настаивает [Select_CString(church_person.IsFemale, 'она', 'он' )], указывая на послание.\n\n«Мне уже доводилось видеть подобное. Нам нужно лишь истребить грязных животных, оскверняющих эти земли. Без них зараза вряд ли задержится надолго! — [church_person.GetFirstNameNoTooltip] с довольным видом откидывается назад, пока я обдумываю предложение. — Так хочет [ROOT.Char.GetFaith.HighGodName]»."
  epidemic_events.5000.a:0 "Знаете, крысы выглядят достаточно грязными..."
  epidemic_events.5000.b:0 "Кошки лезут #EMP всюду.#! Наверняка они и виноваты."
  epidemic_events.5000.c:0 "Собаки вечно в грязи. Избавьтесь от них!"
@@ -355,9 +355,9 @@
  epidemic_events.5000.e:0 "«Не говорите глупостей, [church_person.GetFirstNameNoTooltip]»."
 
  epidemic_events.5001.t:0 "Двери на засов!"
- epidemic_events.5001.desc:0 "Звук торопливых шагов предупреждает меня за мгновение до того, как [courtier.GetFirstName] с выпученными глазами распахивает двери и врывается в помещение.\n\n«[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetLadyLord]! — заикается [Select_CString(courtier.IsFemale, 'она', 'он' )], и [ROOT.Char.Custom('GetWritingMaterial')] потоком обрушивается на мой стол. — [Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetLadyLord], я только что из владения [province.GetName], и вы не #EMP поверите#!, как пострадала эта земля! Всюду смерть и запустение! Мертвые тысячами лежат на улицах!»\n\nПросматривая послания, полные столь же истеричных заявлений, я пытаюсь во всем разобраться. Не так давно мне сообщали, что вспышка заболевания во владении [province.GetName] носит незначительный характер..."
+ epidemic_events.5001.desc: "Звук торопливых шагов предупреждает меня за мгновения до того, как [courtier.GetFirstName] с выпученными глазами распахивает двери и врывается в помещение.\n\n«[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetLadyLord]! — заикается [Select_CString(courtier.IsFemale, 'она', 'он' )], и [ROOT.Char.Custom('GetWritingMaterial')] потоком обрушивается на мой стол. — [Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetLadyLord], я только что из владения [epidemic_county.GetNameNoTier], и вы не #EMP поверите#!, как пострадала эта земля! Всюду смерть и запустение! Мертвые тысячами лежат на улицах!»\n\nПросматривая послание, полные столь же истеричных заявлений, я пытаюсь во всем разобраться. Не так давно мне сообщали, что вспышка заболевания во владении [epidemic_county.GetNameNoTierNoTooltip] носит незначительный характер..."
  epidemic_events.5001.a:0 "«Перекрыть! #EMP Все#! перекрыть!»"
- epidemic_events.5001.b:0 "Я доверяю людям, поставленным управлять владением [province.GetName]."
+ epidemic_events.5001.b: "Я доверяю людям, поставленным управлять владением [epidemic_county.GetName]."
  epidemic_events.5001.c:0 "«У меня, что, по-твоему, других забот нет, [courtier.Custom('InsultNoun')]?!»"
  epidemic_events.5001.d:0 "Нужно отправить помощь, пока проблема еще только зарождается."
  epidemic_events.5001.e:0 "Им придется справиться самостоятельно."
@@ -482,7 +482,7 @@
  epidemic_events.5902.d:0 "Пусть пройдут."
 
  epidemic_events.5903.t:0 "Отказ от простых радостей"
- epidemic_events.5903.desc:0 "«[ROOT.Char.GetFirstName]! Нет!» — звенящим голосом кричит [family.GetFirstName], заглушая топот копыт. [Select_CString(family.IsFemale, 'Она', 'Он' )] подбегает ко мне, буравя меня осуждающим взглядом.\n\n«Вы же знаете, что там происходит. Все эти смерти и болезнь... — [Select_CString(family.IsFemale, 'она', 'он' )] с несчастным видом заламывает руки. — Лучше остаться здесь, за стенами, в безопасности. Пожалуйста».\n\nМне остается лишь вздохнуть. Будь я чуть быстрее при выезде из ворот, у меня была бы возможность прямо сейчас скакать по полям, наслаждаясь природой."
+ epidemic_events.5903.desc: "«[ROOT.Char.GetFirstName]! Нет!» — звенящим голосом кричит [family.GetFirstName], заглушая топот копыт. [Select_CString(family.IsFemale, 'Она', 'Он' )] подбегает ко мне, буравя меня осуждающим взглядом.\n\n«Вы же знаете, что там происходит. Все эти смерти и болезнь... — [Select_CString(family.IsFemale, 'она', 'он' )] с несчастным видом заламывает руки. — Лучше остаться здесь, [SelectLocalization( IsLandlessAdventurer( ROOT.Char ), 'в лагере', 'за стенами')], в безопасности. Пожалуйста».\n\nМне остается лишь вздохнуть. Будь я чуть быстрее при выезде из ворот, у меня была бы возможность прямо сейчас скакать по полям, наслаждаясь природой."
  epidemic_events.5903.a:0 "[Select_CString(family.IsFemale, 'Она, вероятно, права', 'Он, вероятно, прав' )]."
  epidemic_events.5903.b:0 "«Да все со мной будет нормально!»"
 
@@ -530,7 +530,7 @@
  epidemic_events.5908.c:0 "«Ха! Вас таких найдется еще немало»."
 
  epidemic_events.5999.t:0 "Потемневший горизонт"
- epidemic_events.5999.desc:0 "Мой стол завален письмами и посланиями. Все они посвящены одной конкретной теме. Слова пропитаны отчаянием, наполняя меня страхом.\n\nБолезнь начинается с озноба и лихорадки, а затем под мышками жертвы появляются омертвелые бубоны. Дыхание становится прерывистым, изо рта кровоточит, а губы и пальцы ног чернеют. А затем болезнь убивает всех без разбора, богатых и бедных, молодых и старых, великих и убогих.\n\nПока что отчеты приходят из далеких земель, но дрожащими пальцами я отслеживаю даты.\n\nЭта напасть приближается."
+ epidemic_events.5999.desc: "Мой стол завален письмами и посланиями. Все они посвящены одной конкретной теме. Слова пропитаны отчаянием, наполняя меня страхом.\n\nБолезнь начинается с озноба и лихорадки, а затем под мышками жертвы появляются омертвелые бубоны. Дыхание становится прерывистым, изо рта кровоточит, а губы и пальцы ног чернеют. А затем болезнь убивает всех без разбора, богатых и бедных, молодых и старых, великих и убогих.\n\nПока что отчеты приходят из далеких земель, но дрожащими пальцами я отслеживаю даты.\n\nЭта напасть приближается."
  epidemic_events.5999.a:0 "Ха! Пусть мрут!"
  epidemic_events.5999.a.tt:0 "Это так далеко! Мы можем смело радоваться их неудаче."
  epidemic_events.5999.b:0 "Нужно что-то сделать!"
@@ -546,10 +546,9 @@
  epidemic_events.0110.c:0 "Тут ничего не поделаешь."
  every_county_infected_10_years:0 "Каждое [Concept( 'county', 'графство' )|E], зараженное за последние 10 лет"
 
- epidemic_events.alert_title:0 "Моровое поветрие в графстве [infected_county.GetName]"
- epidemic_events.alert_description:0 "В графстве [infected_county.GetName] моровое поветрие"
-
- msg_epidemic_infection:0 "[epidemic.GetNameNoTooltip] распространяется"
- msg_epidemic_infection_desc_1:0 "[epidemic.GetName] распространяется в регионе [LEFT_TITLE.GetName]"
- msg_epidemic_infection_desc_2:0 "[epidemic.GetName] распространяется в регионах [LEFT_TITLE.GetName] и [RIGHT_TITLE.GetName]"
- msg_epidemic_infection_desc:0 "[epidemic.GetName] распространяется в регионах [LEFT_TITLE.GetName], [RIGHT_TITLE.GetName], а также $message_consolidation_others$"
+ epidemic_events.alert_title: "Вспышка поветрия: [infected_county.GetNameNoTierNoTooltip]"
+ epidemic_events.alert_description: "Во владении [infected_county.GetName] появилось [Concept( 'epidemic', 'поветрие' )|E], известное как «[epidemic.GetName]»"
+ msg_epidemic_infection: "[epidemic.GetNameNoTooltip] распространяется"
+ msg_epidemic_infection_desc_1: "[Concept( 'epidemic', 'Поветрие' )|E], известное как «[epidemic.GetName]», распространяется на владение [LEFT_TITLE.GetProvince.GetBaronyNameExplicitly]"
+ msg_epidemic_infection_desc_2: "[Concept( 'epidemic', 'Поветрие' )|E], известное как «[epidemic.GetName]», распространяется на владения [LEFT_TITLE.GetProvince.GetBaronyNameExplicitly] и [RIGHT_TITLE.GetProvince.GetBaronyNameExplicitly]"
+ msg_epidemic_infection_desc: "[Concept( 'epidemic', 'Поветрие' )|E], известное как «[epidemic.GetName]», распространяется на владения [LEFT_TITLE.GetProvince.GetBaronyNameExplicitly], [RIGHT_TITLE.GetProvince.GetBaronyNameExplicitly] и $message_consolidation_others$"
