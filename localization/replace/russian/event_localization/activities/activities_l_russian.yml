@@ -95,7 +95,7 @@
  honorary_guest_desc_for_host: "Без почетного гостя кровавых пиров не бывает. Организатор тщательно выбирает жертву и решает, погибнет только она или умрет вся свита. Но необходимо быть начеку: если кто-то упустит жертву, последствия могут быть совсем иными."
  honorary_guest_regular_desc: "$honorary_guest_desc$"
  honorary_guest_regular_desc_for_host: "$honorary_guest_desc$"
- activity_window_character_honorary_guest: "[SelectLocalization( ObjectsEqual(Activity.GetHost.Self, GetPlayer), '$honorary_guest_for_host$', '[honorary_guest|E]' )]\n[Character.GetShortUINameNoTooltip|U]"
+ activity_window_character_honorary_guest: "[SelectLocalization( ObjectsEqual(Activity.GetHost.Self, GetPlayer), '$honorary_guest_for_host|q$', 'Concept( 'honorary_guest', 'почетный гость' )|E' )]\n[Character.GetShortUINameNoTooltip|U]"
  activity_window_character_honorary_guest_regular: "[Concept( 'honorary_guest', 'Почетный гость' )|E]\n[Character.GetShortUINameNoTooltip|U]"
  feast_cost_discount_longhouses: "В этом месте есть $building_type_longhouses_01$"
  feast_cost_discount_farm_estates: "В этом месте есть $building_type_longhouses_01$"
@@ -156,7 +156,9 @@
  activity_hunt: "Охота"
  hunt_phase_desc: "Отправьтесь в погоню и решите, как именно убить добычу"
  activity_hunt_name: "[ACTIVITY.GetOwner.GetNamePossessiveOrMy|U][Select_CString(ACTIVITY.GetOwner.IsLocalPlayer, 'а охота', ' устраивает охоту')]"
- activity_hunt_desc: "Загонная охота — опасное, но увлекательное занятие, а заодно — прекрасная возможность отточить умение ездить верхом и стрелять из лука.\n\nОхотой заведует [GetCourtPositionType('master_of_hunt_court_position').GetName()|l]. Этот придворный будет сообщать обо всех [Concept( 'hunt_sightings_no_prefix', 'случаях обнаружения дичи' )|E] — простой, редкой и свирепой."
+ activity_hunt_desc: "[GetPlayer.Custom('GetHuntDesc')|U]"
+ activity_hunt_desc_regular: "Загонная охота — опасное, но увлекательное занятие, а заодно — прекрасная возможность отточить мастерство верховой езды и стрельбы из лука.\n\nОхотой заведует [GetCourtPositionType('master_of_hunt_court_position').GetName()|l]. Этот придворный будет сообщать обо всей [Concept( 'hunt_sightings_no_prefix', 'замеченной дичи' )|E] — простой, редкой и свирепой."
+ activity_hunt_desc_adventurer: "Загонная охота — опасное, но увлекательное занятие, а заодно — прекрасная возможность отточить мастерство верховой езды и стрельбы из лука.\n\nТак как вы — [GetGovernment('landless_adventurer_government').GetName|l], охота приносит вам меньше [prestige_i][Concept( 'prestige', 'престижа' )|E], зато вы получаете [provisions_i][Concept( 'provisions', 'припасы лагеря' )|E]. Охотой заведует [GetCourtPositionType('huntperson_camp_officer').GetName()|l].\n\nДля начала стоит приобрести право на охоту за [gold_i][Concept( 'gold', 'золото' )|E], иначе вы получите [Concept( 'trait_level_track_xp', 'опыт' )|E] [GetTrait( 'gallowsbait' ).GetTraitTrackByKey( 'poacher' ).GetName|l]а свойства «[GetTrait('gallowsbait').GetName( GetNullCharacter )]»."
  activity_hunt_owner: "Охотник"
  #Meditation
  activity_meditation: "Медитация в уединении"
@@ -180,11 +182,11 @@
  activity_adventure_owner: "Авантюрист"
 
  #Gruesome Festival (Blót)
- activity_gruesome_festival: "[GetPlayer.Custom('GruesomeFestivalName')|U]"
+ activity_gruesome_festival: "$tenet_gruesome_festivals_blot_name$"
  activity_gruesome_festival_selection_tooltip: "Вы приглашаете своих подданных принять участие в весьма дорогостоящем священном ритуале"
  activity_gruesome_festival_desc: "Пора всем жителям державы [GetPlayer.GetPrimaryTitle.GetNameNoTierNoTooltip] собраться для жертвоприношения. Эти ритуалы не только объединяют верующих, но и лишний раз подтверждают, что я [GetPlayer.GetTitleAsNameNoTooltip|l] всех этих земель."
  activity_gruesome_festival_owner: "Организатор"
- activity_gruesome_festival_host_desc: "\nВы устраиваете [GetPlayer.Custom('GruesomeFestivalName')], что подразумевает:\n#indent_newline:0 $EFFECT_LIST_BULLET$ Необходимость определиться с размахом празднества\n#indent_newline:0 $EFFECT_LIST_BULLET$ Необходимость выбрать жертвенных животных, среди которых могут быть даже [Concept( 'prisoners', 'узники' )|E], что будут принесены в жертву как [designate_chief_sacrifice_chief_sacrifice|El]\n#indent_newline:0 $EFFECT_LIST_BULLET$ Улучшение или ухудшение [Concept( 'county_opinion', 'мнения графства' )|E] и [Concept( 'opinion', 'мнения' )|E] [Concept( 'character', 'персонажа' )|E] в зависимости от [Concept( 'core_tenets', 'основных догматов' )|E] [Concept( 'faith', 'конфессии' )|E] ваших подданных."
+ activity_gruesome_festival_host_desc: "\nВы устраиваете праздник «$gruesomefestivalname_blot$», что подразумевает:\n#indent_newline:0 $EFFECT_LIST_BULLET$ Необходимость определиться с размахом празднества\n#indent_newline:0 $EFFECT_LIST_BULLET$ Необходимость выбрать жертвенных животных, среди которых могут быть даже [Concept('prisoners','узники')|E], что послужат [Concept('designate_chief_sacrifice_chief_sacrifice','главной жертвой')|E]\n#indent_newline:0 $EFFECT_LIST_BULLET$ Улучшение или ухудшение [Concept('county_opinion','мнения графства')|E] и [Concept('opinion','мнения')|E] [Concept('character','персонажа')|E] в зависимости от [Concept('core_tenets','основных догматов')|E] [Concept('faith','конфессии')|E] ваших подданных."
  activity_gruesome_festival_guest_help_text: "Приглашенные [Concept( 'guests', 'гости' )|E] примут участие в жертвоприношении и последующем пиру. Их [Concept( 'opinion', 'мнение' )|E] о вас либо вырастет, либо упадет в зависимости от [Concept( 'core_tenets', 'догматов' )|E] [Concept( 'faith', 'конфессии' )|E]."
  activity_gruesome_festival_province_desc: "$gruesome_festival_size_small_desc$"
  activity_gruesome_festival_fallback_name: "Ритуальное жертвоприношение"
@@ -214,6 +216,7 @@
  activity_invite_rule_vassals: "Вассалы"
  activity_invite_rule_vassals_no_default: "$activity_invite_rule_vassals$"
  activity_invite_rule_fellow_vassals: "Собратья-вассалы"
+ activity_invite_rule_vassals_and_below: "Все подданные"
  activity_invite_neighbouring_rulers: "Соседние правители"
  activity_invite_rule_knights: "Рыцари"
  activity_invite_rule_knights_no_default: "$activity_invite_rule_knights$"
@@ -309,3 +312,7 @@
 
  liege_accolades_glory_reward_tour_title: "Получена [glory|El]"
  liege_accolades_glory_reward_tour: "[root_scope.Custom('KnightCulturePluralNoTooltip')|U] [Select_CString(root_scope.IsLocalPlayer, '', 'персонажа ' )][root_scope.GetNamePossessiveOrMy][Select_CString(root_scope.IsLocalPlayer, 'его персонажа', '' )] промчались по этим землям, поразив всех величием и властностью"
+
+ #Chariot Race
+ activity_chariot_race_province_constantinople: "\n#P +++ Константинополь#!"
+ activity_chariot_race_province_capital: "\n#P ++ Это ваша столица#!"
