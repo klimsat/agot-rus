@@ -95,7 +95,7 @@
  agot_crown_theft.0110.b:0 "Я не должен провоцировать [Select_CString(crown_thief.IsFemale, 'новую королеву', 'нового короля' )]."
 
  #USURPER RECEIVES LETTER FROM LEGITIMATE HEIR: TO STEP DOWN, USURPER OFFERS SOME ARTIFACT OR LAND, OR NOTHING FOR LEGITIMATE HEIR AS A PRICE OF PEACE
- agot_crown_theft.0111.opening:0 "[Select_CString(crown_thief.IsFemale, 'Королеве-узурпаторше', 'Королю-узурпатору' )],"
+ agot_crown_theft.0111.opening:0 "[crown_thief.Custom('UsurperName')],"
  agot_crown_theft.0211.opening:0 "[Select_CString(usurper_guardian.IsFemale, 'Вероломная', 'Вероломный' )] [usurper_guardian.GetTitledFirstNameNoTooltip],"
  agot_crown_theft.0311.opening:0 "[Select_CString(crown_thief.IsFemale, 'Королеве', 'Королю' )]-бастарду,"
  agot_crown_theft.0411.opening:0 "[Select_CString(crown_thief.IsFemale, 'Королеве-самозванке', 'Королю-самозванцу' )],"
@@ -126,7 +126,7 @@
  agot_crown_theft.0113.b:0 "Отступите или готовьтесь к войне!"
 
  #USURPER RECEIVES LETTER FROM LEGITIMATE HEIR: ULTIMATUM RECEIVED: WAR OR ABDICATION
- agot_crown_theft.0114.opening:0 "[Select_CString(ROOT.Char.IsFemale, 'Узурпаторше', 'Узурпатору' )],"
+ agot_crown_theft.0114.opening:0 "[crown_thief.Custom('UsurperName')],"
  agot_crown_theft.0114.desc:0 "Отступи, или знай, что огонь войны поглотит тебя и твои амбиции. Выбирай мудро, это мое последнее предупреждение."
  agot_crown_theft.0114.a:0 "Значит, война."
  agot_crown_theft.0114.b:0 "Я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] сохранить мир, любой ценой."
@@ -215,13 +215,13 @@
  agot_crown_theft.0418.a:0 "Трон мой."
 
  #REALM NOTIFIED: BASTARD KING
- agot_crown_theft.0422.t:0 "[Select_CString(crown_thief.IsFemale, 'Узурпаторша', 'Узурпатор' )]"
+ agot_crown_theft.0422.t:0 "[crown_thief.Custom('UsurperName')]"
  agot_crown_theft.0422.desc:0 "Держава взбудоражена шепотом, когда поразительная правда разворачивается, словно знамя на ветру: бросив вызов условностям благородного происхождения, лишенный наследства член королевской семьи захватил трон.\n\nШок прокатился по придворным кругам и доходит до ушей простолюдинов, вызвав споры и поставив под сомнение легитимность нового правителя."
  agot_crown_theft.0422.a:0 "[Select_CString(crown_thief.IsFemale, 'Нелегитимная королева', 'Нелегитимный король' )]?"
 
  #The prince arrives
  agot_crown_theft.0523.t:0 "Убежище [Select_CString(crown_theft_king_legit_heir.IsFemale, 'опальной наследницы', 'опального наследника' )]"
- agot_crown_theft.0523.desc:0 "[crown_theft_king_legit_heir.GetTitledFirstName] и [crown_theft_king_legit_heir.GetHerHis] [Select_CString(crown_theft_king_legit_heir.IsFemale, 'супруг', 'супруга' )], [legit_spouse.GetTitledFirstName] прибыли к моему двору, уставшие и нищие, бежав из столицы. [Select_CString(crown_thief.IsFemale, 'Узурпаторша захватила', 'Узурпатор захватил' )] трон, отправив их в изгнание.\n\nТеперь они ищут моего совета и помощи, надеясь заручиться поддержкой, чтобы вернуть то, что принадлежит им по праву."
+ agot_crown_theft.0523.desc:0 "[crown_theft_king_legit_heir.GetTitledFirstName] и [crown_theft_king_legit_heir.GetHerHis] [Select_CString(crown_theft_king_legit_heir.IsFemale, 'супруг', 'супруга' )], [legit_spouse.GetTitledFirstName] прибыли к моему двору, уставшие и нищие, бежав из столицы. [crown_thief.Custom('UsurperName')] [Select_CString(crown_thief.IsFemale, 'захватила', 'захватил' )] трон, отправив их в изгнание.\n\nТеперь они ищут моего совета и помощи, надеясь заручиться поддержкой, чтобы вернуть то, что принадлежит им по праву."
  agot_crown_theft.0523.a:0 "Теперь они в безопасности."
 
  #Spouse's House Head decides about support
@@ -234,7 +234,7 @@
 
  #No Support
  agot_crown_theft.0519.t:0 "Разбитые надежды"
- agot_crown_theft.0519.desc:0 "Мое сердце замирает, когда [landed_helper.GetTitledFirstName] отклоняет мою просьбу о помощи в возвращении трона. Отказ лишает меня необходимой поддержки, чтобы оспорить власть [Select_CString(crown_thief.IsFemale, 'узурпаторши', 'узурпатора' )] над королевством.\n\nПуть к моему законному трону теперь кажется невозможным и тяжесть этой неудачи давит на меня. Мечта о справедливости и возвращении моего права по рождению должна быть отложена на время."
+ agot_crown_theft.0519.desc:0 "Мое сердце замирает, когда [landed_helper.GetTitledFirstName] отклоняет мою просьбу о помощи в возвращении трона. Отказ лишает меня необходимой поддержки, чтобы оспорить власть, которой обладает [crown_thief.Custom('UsurperName')] над королевством.\n\nПуть к моему законному трону теперь кажется невозможным и тяжесть этой неудачи давит на меня. Мечта о справедливости и возвращении моего права по рождению должна быть отложена на время."
  agot_crown_theft.0519.a:0 "Я выдержу."
 
  #Usurper Won
@@ -246,7 +246,7 @@
  agot_crown_theft.0520.t:0 "Война престолонаследия"
  agot_crown_theft.0520.desc:0 "Вороны бороздят небеса, разнося зловещие вести во все уголки державы. На горизонте надвигается буря, а барабаны войны звучат, возвещая о том, что вскоре соперничающие претенденты, [crown_thief.GetTitledFirstName] и [crown_theft_king_legit_heir.GetTitledFirstName]схлестнутся в противостоянии.\n\nШепот разносится по залам каждого замка, пересказывая историю узурпации, когда [crown_thief.GetTitledFirstNameNoTooltip] [Select_CString(crown_thief.IsFemale, 'захватила', 'захватил' )] корону, пока [crown_theft_king.GetTitledFirstName] [Select_CString(crown_theft_king.IsFemale, 'лежала', 'лежал' )] на смертном одре. Теперь [crown_theft_king_legit_heir.GetTitledFirstNameNoTooltip], [Select_CString(crown_theft_king_legit_heir.IsFemale, 'законная наследница, которую', 'законный наследник, которого' )] [Select_CString(landed_helper.IsFemale, 'поддержала', 'поддержал' )] [landed_helper.GetTitledFirstName], созывает знамёна, объявив войну, чтобы вернуть то, что по праву принадлежит [crown_theft_king_legit_heir.GetHerHim]."
 
- agot_crown_theft.0623.desc:0 "[crown_theft_king_legit_heir.GetTitledFirstName] прибывает к моему двору, [Select_CString(crown_theft_king_legit_heir.IsFemale, 'усталая и нищая', 'усталый и нищий' )], бежав из столицы. [Select_CString(crown_thief.IsFemale, 'Узурпаторша захватила', 'Узурпатор захватил' )] трон, отправив [crown_theft_king_legit_heir.GetHerHis] в изгнание.\n\nТеперь [crown_theft_king_legit_heir.GetSheHe] ищет у меня совета и помощи, надеясь собрать поддержку, чтобы вернуть то, что по праву принадлежит [crown_theft_king_legit_heir.GetHerHim]."
+ agot_crown_theft.0623.desc:0 "[crown_theft_king_legit_heir.GetTitledFirstName] прибывает к моему двору, [Select_CString(crown_theft_king_legit_heir.IsFemale, 'усталая и нищая', 'усталый и нищий' )], бежав из столицы. [crown_thief.Custom('UsurperName')] [Select_CString(crown_thief.IsFemale, 'захватила', 'захватил' )] трон, отправив [crown_theft_king_legit_heir.GetHerHis] в изгнание.\n\nТеперь [crown_theft_king_legit_heir.GetSheHe] ищет у меня совета и помощи, надеясь собрать поддержку, чтобы вернуть то, что по праву принадлежит [crown_theft_king_legit_heir.GetHerHim]."
  agot_crown_theft.0623.a:0 "[crown_theft_king_legit_heir.GetSheHe|U] теперь в безопасности."
 
  agot_crown_theft.0618.desc:0 "Пока [Select_CString(crown_theft_king_legit_heir.IsFemale, 'наследница', 'наследник' )] узурпированного трона ищет убежища при моем дворе, [crown_theft_king_legit_heir.GetSheHe] рассказывает мне о своём желании вернуть себе трон. Теперь бремя будущего державы ложится на мои плечи.\n\nБез моей поддержки [crown_theft_king_legit_heir.GetHerHis] дело кажется обреченным. [Select_CString(ROOT.Char.IsFemale, 'Должна', 'Должен' )] ли я предоставить [crown_theft_king_legit_heir.GetHerHim] свои войска и рискнуть стабильностью моих земель, или отказаться и сохранить мир в королевстве?"
@@ -279,7 +279,7 @@
  agot_crown_theft.9977.b:0 "[attacker.GetSheHe|U] может оставить их себе, пока что."
 
  agot_crown_theft.9978.t:0 "Капитуляция"
- agot_crown_theft.9978.desc:0 "[defender.GetTitledFirstName], [Select_CString(defender.IsFemale, 'узурпаторша, одержала', 'узурпатор, одержал' )] победу, и теперь [defender.GetSheHe] требует передать все мои земли.\n\nПоскольку у меня нет возможности защитить эти территории от [defender.GetHerHis] мощи, я [Select_CString(ROOT.Char.IsFemale, 'вынуждена', 'вынужден' )] подчиниться."
+ agot_crown_theft.9978.desc:0 "[defender.GetFirstName], [defender.Custom('UsurperName')], [Select_CString(defender.IsFemale, 'одержала', 'одержал' )] победу, и теперь [defender.GetSheHe] требует передать все мои земли.\n\nПоскольку у меня нет возможности защитить эти территории от [defender.GetHerHis] мощи, я [Select_CString(ROOT.Char.IsFemale, 'вынуждена', 'вынужден' )] подчиниться."
  agot_crown_theft.9978.a:0 "Как низко пал мир..."
 
  agot_crown_theft.9990.t:0 "Возвращение законных земель"
