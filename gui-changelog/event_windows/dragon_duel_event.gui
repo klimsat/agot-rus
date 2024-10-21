@@ -82,7 +82,7 @@ window = {
 
 	widget = {
 		layoutpolicy_horizontal = expanding
-		size = { 1240 134 }
+		size = { 1440 134 }
 
 		icon = {
 			name = "theme_header"
@@ -199,7 +199,7 @@ window = {
 				parentanchor = bottom
 				size = { 100% 100% }
 				scissor = yes
-				
+
 				alpha = 0
 
 				state = {
@@ -215,9 +215,9 @@ window = {
 				widget = {
 					name = "portrait_left"
 					parentanchor = bottom|left
-					position = { 40 0 }
+					position = { -85 0 } # 40 to -85
 					size = { 300 500 }
-					
+
 					allow_outside = no
 
 					portrait_event_duel = {
@@ -232,33 +232,13 @@ window = {
 						{
 							portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('left_portrait', 'camera_event_duel_left', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 							alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
-							
+
 							tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
 							using = tooltip_ws
 							tooltip_offset = { -150 0 }
 						}
 
 						blockoverride "grayscale" {}
-
-						highlight_icon = {
-							name = "prison_bars"
-							visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('left_portrait')))]"
-							visible_at_creation = no
-							parentanchor = bottom|left
-							size = { 285 500 }
-
-							texture = "gfx/portraits/portrait_prison_body.dds"
-							effectname = "NoHighlight"
-							spriteType = corneredTiled
-							texture_density = 1.5
-
-							modify_texture = {
-								name = "mask"
-								texture =  "gfx/portraits/portrait_mask_event.dds"
-								spriteType = Corneredstretched
-								blend_mode = alphamultiply
-							}
-						}
 					}
 				}
 
@@ -266,7 +246,7 @@ window = {
 				widget = {
 					name = "portrait_right"
 					parentanchor = bottom|right
-					position = { -40 0 }
+					position = { 145 0 } # -40 to 145
 					size = { 300 500 }
 
 					allow_outside = no
@@ -290,26 +270,6 @@ window = {
 						}
 
 						blockoverride "grayscale" {}
-
-						highlight_icon = {
-							name = "prison_bars"
-							visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('right_portrait')))]"
-							visible_at_creation = no
-							parentanchor = bottom|right
-							size = { 285 500 }
-
-							texture = "gfx/portraits/portrait_prison_body.dds"
-							effectname = "NoHighlight"
-							spriteType = corneredTiled
-							texture_density = 1.5
-
-							modify_texture = {
-								name = "mask"
-								texture =  "gfx/portraits/portrait_mask_event.dds"
-								spriteType = Corneredstretched
-								blend_mode = alphamultiply
-							}
-						}
 					}
 				}
 
@@ -318,11 +278,11 @@ window = {
 					name = "coa"
 					parentanchor = bottom|hcenter
 					size = { 100% 170 }
-					margin_bottom = 30
+					margin_bottom = 20 # 30 to 20
 					allow_outside = yes
 
 					flowcontainer = {
-						spacing = 920
+						spacing = 1150 # 920 to 1150
 						parentanchor = bottom|hcenter
 
 						flowcontainer = {

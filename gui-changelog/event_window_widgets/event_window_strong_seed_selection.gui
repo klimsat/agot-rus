@@ -93,6 +93,44 @@ widget = {
 							}
 							button_tertiary = {
 								size = { 200 40 }
+								text = silver_blonde_hair_gui
+								button_ignore = none
+								layoutpolicy_vertical = expanding
+								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'silver_blonde_hair', MakeScopeBool('(bool)yes')).End )]"
+								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'silver_blonde_hair', MakeScopeBool('(bool)no')).End )]"
+								tooltip = silver_blonde_hair_gui
+								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+								onclick = "[GetVariableSystem.Set( 'glow_button', 'silver_blonde_hair' )]"
+								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+								glow = {
+									using = Color_Orange
+									visible = "[GetVariableSystem.HasValue('glow_button','silver_blonde_hair')]"
+
+									glow_radius = 5
+									using = Glow_Standard
+								}
+							}
+							button_tertiary = {
+								size = { 200 40 }
+								text = silver_gold_hair_gui
+								button_ignore = none
+								layoutpolicy_vertical = expanding
+								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'silver_gold_hair', MakeScopeBool('(bool)yes')).End )]"
+								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'silver_golde_hair', MakeScopeBool('(bool)no')).End )]"
+								tooltip = silver_gold_hair_gui
+								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+								onclick = "[GetVariableSystem.Set( 'glow_button', 'silver_gold_hair' )]"
+								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+								glow = {
+									using = Color_Orange
+									visible = "[GetVariableSystem.HasValue('glow_button','silver_gold_hair')]"
+
+									glow_radius = 5
+									using = Glow_Standard
+								}
+							}
+							button_tertiary = {
+								size = { 200 40 }
 								text = black_hair_gui
 								button_ignore = none
 								layoutpolicy_vertical = expanding

@@ -1,5 +1,5 @@
 #################################################################
-############### AGOT FAKE DEATH PORTRAIT TYPES #################
+############### AGOT FAKE DEATH PORTRAIT TYPES ##################
 #################################################################
 
 types PortraitTypes
@@ -11,8 +11,7 @@ types PortraitTypes
 		parentanchor = bottom|hcenter
 		using = portrait_base
 
-		using = visible_if_not_dragon
-		using = shown_if_fake_death
+		using = shown_if_fake_death_and_not_dragon
 
 		portrait_texture = "[Character.GetAnimatedPortrait(Illustration.GetEnvironment(Character.Self), 'camera_character_view_main', 'dead', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 		mask = "gfx/portraits/portrait_mask_character_view.dds"
@@ -171,4 +170,8 @@ template shown_if_fake_death {
 
 template shown_if_not_fake_death_and_not_dragon {
 	visible = "[And(Not(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End )), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
+}
+
+template shown_if_fake_death_and_not_dragon {
+	visible = "[And(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End ), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
 }
