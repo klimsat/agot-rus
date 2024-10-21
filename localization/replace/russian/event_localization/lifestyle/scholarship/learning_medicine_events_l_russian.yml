@@ -142,7 +142,9 @@
 
  #Helping healing hand (medicine friend), by Mathilda Bjarnehed
  learning_medicine.2050.t: "Истекая кровью"
- learning_medicine.2050.start.desc: "Когда я в очередной раз осматриваю [Select_CString(IsLandlessAdventurer(ROOT.Char),'camps','barracks')] и лазарет при них, туда приносят тяжело раненного солдата. «[soldier.GetSheHe|U] теряет слишком много крови! Где врач?!»\n\n"
+ #AGOT Modified
+ #learning_medicine.2050.start.desc: "Когда я в очередной раз осматриваю [Select_CString(IsLandlessAdventurer(ROOT.Char),'camps','barracks')] и лазарет при них, туда приносят тяжело раненного солдата. «[soldier.GetSheHe|U] теряет слишком много крови! Где врач?!»\n\n"
+ learning_medicine.2050.start.desc: "Когда я в очередной раз осматриваю [Select_CString(IsLandlessAdventurer(ROOT.Char),'camps','barracks')] и лазарет при них, туда приносят тяжело раненного солдата. «[soldier.GetSheHe|U] теряет слишком много крови! Где [ROOT.Char.Custom('PhysicianOrMaester')]?!»\n\n"
  learning_medicine.2050.physician.desc: "[physician.GetTitledFirstName] куда-то [Select_CString(physician.IsFemale, 'запропастилась', 'запропастился' )]."
  learning_medicine.2050.no_physician.desc: "Лекаря нигде не найти."
  learning_medicine.2050.end.desc: "Холодок пробегает по моей спине. Возможно, #EMP я#! единственная надежда [Select_CString(soldier.IsFemale, 'этой женщины', 'этого мужчины' )].\n\nВнезапно, словно из ниоткуда, рядом со мной появляется [helper.Custom2('MyCharacterIntroduction', ROOT.Char)]. [helper.GetSheHe|U] закатывает рукава и смотрит на меня."
