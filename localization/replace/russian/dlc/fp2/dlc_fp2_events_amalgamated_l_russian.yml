@@ -276,7 +276,7 @@
 
 
  fp2_yearly.1008.t:0 "Время есть сыр"
- fp2_yearly.1008.desc:0 "Время пришло. Глубоко в моем погребе лежит голова самого прекраснейшего сыра во всем мире. Все это время он зрел и накапливал вкус.\n\nИ теперь я его съем."
+ fp2_yearly.1008.desc: "Время пришло. Глубоко в моих закромах лежит голова самого прекраснейшего сыра во всем мире. Все это время он зрел и накапливал вкус.\n\nИ теперь я его съем."
  fp2_yearly.1008.a:0 "[ROOT.Char.GetFaith.HealthGodName|U], как же вкусно! Отличный был сыр."
  fp2_yearly.1008.b:0 "Все-таки пусть еще полежит, позреет."
 
@@ -302,12 +302,12 @@
  not_my_problem_toast:0 "В будущем матери-одиночки и их дети будут голодать в вашей державе."
 
  fp2_struggle.1001.t:0 "Военные вдовы"
- fp2_struggle.1001.desc:0 "[expectant_courtier.GetTitledFirstName] беременна и прибыла сообщить мне о положении других матерей в наших землях, вынужденных в силу стечения обстоятельств или войны растить детей в одиночестве. «Мы могли бы создать особый фонд, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )], и платить из него матерям, лишенным иной поддержки. В конце концов, растить детей — это тоже тяжкий труд, достойный похвалы»."
+ fp2_struggle.1001.desc: "[expectant_courtier.GetTitledFirstName] беременна и прибыла сообщить мне о положении других матерей у нас в [SelectLocalization( IsLandlessAdventurer( ROOT.Char ), 'лагере', 'землях')], кто вынужден в силу стечения обстоятельств или войны растить детей в одиночестве. «Мы могли бы создать особый фонд, [ROOT.Char.GetLadyLord], и платить из него матерям, лишенным иной поддержки. В конце концов, растить детей — это тоже тяжкий труд, достойный похвалы»."
  fp2_struggle.1001.a:0 "Отличная идея! Я создам такой фонд."
  fp2_struggle.1001.b:1 "Только вдовы могут рассчитывать на поддержку."
  fp2_struggle.1001.b.tt:0 "Ваша конфессия с неодобрением относится к женщинам с внебрачными детьми."
- fp2_struggle.1001.c:0 "Они могут остаться у меня при дворе! Еды хватит на всех!"
- fp2_struggle.1001.c.tt:0 "Вы приглашаете всех бедных матерей-одиночек державы к своему двору."
+ fp2_struggle.1001.c: "Они могут остаться у меня [ROOT.Char.Custom('GetCourt_RU_5')]! Еды хватит на всех!"
+ fp2_struggle.1001.c.tt: "Вы приглашаете всех бедных матерей-одиночек державы [ROOT.Char.Custom('GetCourt_RU_6')]."
  fp2_struggle.1001.d:0 "Я не сомневаюсь, что мои добросердечные вассалы поддержат это начинание."
  fp2_struggle.1001.e:0 "Я [ROOT.Char.GetTitleTierName], а не нянька!"
  fp2_struggle.1001.specialdescpositive:0 "Вассалы, готовые оплатить ваш замысел, увеличат #color_light_blue мнение#! о вас на #positive_value 10#!"
@@ -551,14 +551,13 @@
  fp2_struggle.1050.a:0 "Ты занимаешься ведовством?"
  fp2_struggle.1050.b:0 "Соберись, это [ROOT.GetCharacter.GetFaith.HighGodName] испытывает тебя."
  fp2_struggle.1050.c:0 "Расскажи мне о своих видениях."
- fp2_struggle.1050.d:0 "Оставь меня в покое, я планирую новые завоевания."
+ fp2_struggle.1050.d: "Оставь меня в покое, я планирую новые завоевания."
  fp2_struggle.1050.spouse_imprisoned:0 "[visionary_spouse.GetTitledFirstNameNoTooltip] отправляется в темницу по подозрению в ведовстве"
  fp2_struggle.1050.condition_might_improve:0 "Возможно, [visionary_spouse.GetTitledFirstNameNoTooltip] придет в порядок"
  fp2_struggle.1050.condition_might_get_worse:0 "Возможно, [visionary_spouse.GetTitledFirstNameNoTooltip] продолжит видеть эти сны"
  fp2_struggle.1050.condition_might_get_very_worse:0 "Возможно, [visionary_spouse.GetTitledFirstNameNoTooltip] продолжит сходить с ума"
  comforting_spouse_visionary_toast.success:0 "[visionary_spouse.GetTitledFirstName] успокаивается, выслушав вас"
  comforting_spouse_visionary.failure:0 "[visionary_spouse.GetTitledFirstName] не верит вашим словам"
-
  fp2_yearly.8004.t:0 "Школа переводчиков в провинции [translation_capital.GetNameNoTierNoTooltip]"
  #AGOT Modified
  #fp2_yearly.8004.desc_opening:0 "Вдохновленные духом примирения в Иберии, ученые со всего полуострова собираются в библиотеках моего государства. Быть может, я смогу направить их силы на что-нибудь полезное...\n\n"
@@ -591,7 +590,7 @@
  fp2_yearly.8005.d:0 "Довольно! Я срублю это проклятое дерево."
 
  fp2_yearly.8002.t:0 "Есть или не есть?"
- fp2_yearly.8002.desc:0 "В провинции [beached_whale_province.GetName] двое детей собирали на пляже ракушки и наткнулись на невероятных размеров тушу. Местные жители уверяют, что мясо этого мертвого животного еще пригодно в пищу, и даже больше — оно #italic весьма#! приятно на вкус. Но во время заседания совета [Select_CString(preoccupied_ulama.IsFemale, 'моя', 'мой' )] [preoccupied_ulama.GetCouncilTitle] [preoccupied_ulama.GetFirstName] отводит меня в сторону. На лице [Select_CString(preoccupied_ulama.IsFemale, 'ее', 'его' )] читается озабоченность.\n\n«Можем ли мы, [ROOT.Char.GetFaith.GetAdherentNamePluralNoTooltip|l], есть китовое мясо? — размышляет [preoccupied_ulama.GetSheHe] вслух. — Тут я не могу дать ответа. Нужно дождаться решения одного очень уважаемого мудреца. Но до тех пор нужно запретить подданным есть мясо этого зверя — на всякий случай»."
+ fp2_yearly.8002.desc: "В провинции [beached_whale_province.GetName] двое детей собирали на пляже ракушки и наткнулись на невероятных размеров тушу. Местные жители уверяют, что мясо этого мертвого животного еще пригодно в пищу, и даже больше — оно #italic весьма#! приятно на вкус. Но во время заседания совета [Select_CString(preoccupied_ulama.IsFemale, 'моя', 'мой' )] [preoccupied_ulama.GetCouncilTitle] [preoccupied_ulama.GetFirstName] отводит меня в сторону. На лице [Select_CString(preoccupied_ulama.IsFemale, 'ее', 'его' )] читается озабоченность.\n\n«Можем ли мы, [ROOT.Char.GetFaith.GetAdherentNamePluralNoTooltip|l], есть китовое мясо? — размышляет [preoccupied_ulama.GetSheHe] вслух. — Тут я не могу дать ответа. Нужно дождаться решения одного очень уважаемого мудреца. Но до тех пор нужно запретить подданным есть мясо этого зверя — на всякий случай»."
  fp2_yearly.8002.a:0 "Как #italic я#! скажу, так и будет можно."
  fp2_yearly.8002.b:0 "Принесите мне этого мяса! Мне #italic нужно#! его попробовать."
  fp2_yearly.8002.c:0 "Ладно, давай дождемся решения."
@@ -988,7 +987,7 @@
  fp2_struggle.2005.t:0 "Флот, опередивший время"
  fp2_struggle.2005.t.alt:0 "Опытные мастера владения [fp2_2004_dockyards.GetNameNoTier]"
  fp2_struggle.2005.desc:0 "Новые корабли будут обладать следующими особенностями:"
- fp2_struggle.2005.desc.intro:0 "«Сюзерен, наконец-то наши корабли готовы выйти в море! — говорит [2005_scoped_steward.GetFirstName]. — Полагаю, их внешний вид вас весьма порадует».\n\n"
+ fp2_struggle.2005.desc.intro: "«Сюзерен, наконец-то наши корабли готовы выйти в море! — говорит [2005_scoped_steward.GetFirstName]. — Полагаю, их внешний вид вас весьма порадует».\n\n"
  fp2_struggle.2005.desc.cirt.notif:0 "Новый проект корабля оказался невероятно успешным! Более того, во владении [fp2_2004_dockyards.GetNameNoTier] пришлось строить новую верфь только для производства этих новых совершенных кораблей.\n\n"
  fp2_struggle.2005.desc.cirt.a.notif:0 "Увы, после начала строительства владение [fp2_2004_dockyards.GetName] оказалось в руках персонажа [fp2_2004_dockyards.GetHolder.GetName]. Мы сумели сохранить сведения о кораблях, но потеряли верфи.\n\n"
  fp2_struggle.2005.desc.newdesigner.notif:0 "Автор оригинального проекта, [2004_scoped_steward.GetFirstName], уже не с нами, но [2005_scoped_steward.GetFirstNameNicknamed] берет на себя ответственность и доводит дело до конца.\n\n"
@@ -1013,7 +1012,7 @@
  fp2_struggle.2005.a:0 "Вы хорошо потрудились."
  fp2_struggle.2005.a.a:0 "Жаль, что так вышло с верфью, но мы хотя бы сохранили корабли."
  fp2_struggle.2005.desc.alt.a:1 "Сереброкрушение"
- fp2_struggle.2005.desc.alt.a.desc:0 "Заранее зная, как меня огорчит эта новость, мой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('2005_scoped_steward'))] [2005_scoped_steward.GetFirstName] осторожно сообщает мне о том, чем закончились наши попытки заставить серебро плавать.\n\n«Как мы ни старались построить судно из металла, это совершенно невозможно. Мы вывели готовый корабль в море, но он тут же затонул. Большая часть нашей казны теперь покоится на дне морском. Мне очень жаль, мой сюзерен».\n\n"
+ fp2_struggle.2005.desc.alt.a.desc: "Заранее зная, как меня огорчит эта новость, мой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('2005_scoped_steward'))] [2005_scoped_steward.GetFirstName] осторожно сообщает мне о том, чем закончились наши попытки заставить серебро плавать.\n\n«Как мы ни старались построить судно из металла, это совершенно невозможно. Мы вывели готовый корабль в море, но он тут же затонул. Большая часть нашей казны теперь покоится на дне морском. Мне очень жаль, мой сюзерен».\n\n"
  fp2_struggle.2005.desc.alt.b:1 "Серебряные суда"
  fp2_struggle.2005.desc.alt.b.desc:0 "Мой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('2005_scoped_steward'))] [2005_scoped_steward.GetFirstName] с самого начала понял, что вся эта затея с серебряным кораблем — это обман, чтобы пустить пыль в глаза окружающим. Сколько ни выдумывай изобретений, из металла корабля никогда не построишь.\n\nПоэтому вместо того, чтобы пытаться делать невозможное, [2005_scoped_steward.GetSheHe] просто приказал обить деревянный корабль тонкими серебряными листами. Теперь о моем «металлическом корабле» говорят во всех лучших домах, а мне завидуют по всему миру!\n\n"
 
@@ -1022,9 +1021,9 @@
  fp2_struggle.2006.desc:0 "Мой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('fp2_2006_vassal_in_crisis'))] [fp2_2006_vassal_in_crisis.GetTitledFirstName] обращается ко мне в приватной беседе, и в [fp2_2006_vassal_in_crisis.GetHerHis] глазах читается сомнение.\n\n[fp2_2006_vassal_in_crisis.GetSheHe|U] объясняет мне, что [fp2_2006_vassal_in_crisis.GetHerHis] вера пошатнулась после [fp2_2006_vassal_in_crisis.GetHerHis] службы на границах с землями, где распространено [fp2_2006_foreign_faith.GetAdjectiveNoTooltip|l], и близкого знакомства с врагом. [fp2_2006_vassal_in_crisis.GetHerHis|U] тон показывает, что это не шутка. Похоже, [fp2_2006_vassal_in_crisis.GetHerHim] хватит и малейшей оплошности, чтобы отринуть [ROOT.Char.GetFaith.HighGodNamePossessive].\n\nИ всё же этот случай предоставляет возможность укрепить как наше рвение, так и отношения с соседями."
  fp2_struggle.2006.a:0 "«Срочно, священника сюда!»"
  fp2_struggle.2006.a.a:0 "[fp2_2006_vassal_in_crisis.GetTitledFirstNameNoTooltip] все еще мучается сомнениями."
- fp2_struggle.2006.a.b:0 "[fp2_2006_vassal_in_crisis.GetTitledFirstNameNoTooltip] нервничает оттого, что рядом находится [2006_scoped_chaplain.GetCouncilTitleFirstNameNoTooltip]"
+ fp2_struggle.2006.a.b: "[fp2_2006_vassal_in_crisis.GetTitledFirstNameNoTooltip] нервничает оттого, что рядом находится [2006_scoped_chaplain.GetTitledFirstNameNoTooltip]"
  fp2_struggle.2006.a.c:0 "[2006_scoped_chaplain.GetCouncilTitleFirstNameNoTooltip] предлагает свою помощь, и [fp2_2006_vassal_in_crisis.GetTitledFirstNameNoTooltip] укрепляется в своей вере"
- fp2_struggle.2006.a.desc:1 "На ваш зов является [2006_scoped_chaplain.GetCouncilTitleFirstNameNoTooltip], чтобы разобраться в проблеме. [fp2_2006_vassal_in_crisis.GetFirstNameNoTooltip] будет считать, что вы предали [fp2_2006_vassal_in_crisis.GetHerHis], сообщив окружающим о [fp2_2006_vassal_in_crisis.GetHerHis] проблемах."
+ fp2_struggle.2006.a.desc: "На ваш зов является [2006_scoped_chaplain.GetCouncilTitleFirstNameNoTooltip], чтобы разобраться в проблеме. [fp2_2006_vassal_in_crisis.GetFirstNameNoTooltip] будет считать, что вы предали [fp2_2006_vassal_in_crisis.GetHerHis], сообщив окружающим о [fp2_2006_vassal_in_crisis.GetHerHis] проблемах."
  fp2_struggle.2006.b:0 "Я лично подогрею [fp2_2006_vassal_in_crisis.GetHersHis] рвение."
  fp2_struggle.2006.b.a.desc:0 "[fp2_2006_vassal_in_crisis.GetFirstNameNoTooltip] сопротивляется попыткам"
  fp2_struggle.2006.b.b.desc:0 "Благодаря вам [fp2_2006_vassal_in_crisis.GetFirstNameNoTooltip] укрепляется в своей вере"
@@ -1057,7 +1056,7 @@
  fp2_epitaph_modifier:0 "Многоязычная эпитафия"
 
  fp2_flavor.3011.t:0 "Неожиданный ход"
- fp2_flavor.3011.desc:0 "[Select_CString(fp2_flavor_3011_best_friend.IsFemale, 'Моя лучшая подруга', 'Мой лучший друг' )] [fp2_flavor_3011_best_friend.GetFirstName] может входить в мои покои без стука, и [fp2_flavor_3011_best_friend.GetHerHis|l] веселая улыбка всегда радует меня. Но... сегодня что-то изменилось, [fp2_flavor_3011_best_friend.GetHerHis|l] волосы идеально уложены, а наряд роскошен и безупречен.\n\n«[ROOT.Char.GetFirstNameNoTooltip], [Select_CString(ROOT.Char.IsFemale, 'дорогая подруга', 'дорогой друг' )]! Такой большой замок... а рядом с тобой никого! Ничто меня так не радует, как твое бесценное общество. Ах как бы мне хотелось проводить все дни и ночи с тобой, в этой самой комнате»."
+ fp2_flavor.3011.desc: "[Select_CString(fp2_flavor_3011_best_friend.IsFemale, 'Моя лучшая подруга', 'Мой лучший друг' )] может входить ко мне в [ROOT.Char.Custom('GetChamber_RU_1')] без официального объявления, и [Select_CString(fp2_flavor_3011_best_friend.IsFemale, 'ее', 'его' )] веселая улыбка всегда радует меня. Но... сегодня что-то изменилось, [Select_CString(fp2_flavor_3011_best_friend.IsFemale, 'ее', 'его' )] волосы идеально уложены, а наряд роскошен и безупречен.\n\n«[ROOT.Char.GetFirstNameNoTooltip], [Select_CString(ROOT.Char.IsFemale, 'дорогая подруга', 'дорогой друг' )]! [ROOT.Char.Custom('ResidenceBuilding')|U]... столько места... а рядом с тобой никого! Ничто меня так не радует, как твое бесценное общество. Ах как бы мне хотелось проводить все дни и ночи с тобой в [ROOT.Char.Custom('GetChamber_RU_4')]»."
  fp2_flavor.3011.a:0 "А кровать всего одна."
  fp2_flavor.3011.b:0 "Я найду тебе подобающие покои!"
  fp2_flavor.3011.c_spouse:0 "У меня есть супруг!"
@@ -1123,7 +1122,7 @@
 
  # fp2_nick_events (all three files)
  fp2_yearly.4001.t:0 "Шестой час"
- fp2_yearly.4001.desc:0 "Ну и ну! Нелегкая это работа — править. Весь день и изрядную часть ночи приходится трудиться не покладая рук, заботиться о владениях. Если подумать, крестьянам живется прекрасно: их плечи свободны от тяжкого бремени ответственности!\n\nМожет, стоит немного поспать? Сон поможет восстановить силы после обеда, и я куда решительнее встречу всё, что принесет остаток дня!"
+ fp2_yearly.4001.desc: "Ну и ну! Нелегкая это работа — править. Весь день и изрядную часть ночи приходится трудиться не покладая рук, чтобы ничего не упустить. Если подумать, крестьянам живется прекрасно: их плечи свободны от тяжкого бремени ответственности!\n\nМожет, стоит немного поспать? Сон поможет восстановить силы после обеда, и я куда решительнее встречу все, что принесет остаток дня!"
  fp2_yearly.4001.a:0 "Нет! Нужно работать!"
  fp2_yearly.4001.b:0 "М-м, #EMP прекрасно.#!"
 

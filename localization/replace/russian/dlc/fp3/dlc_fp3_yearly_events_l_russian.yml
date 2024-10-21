@@ -190,7 +190,7 @@
  fp3_yearly.8009.qurans.flavor: "[righteous_caliph.GetFaith.ReligiousText] переводится на [righteous_caliph.GetCulture.GetLanguage.GetNameNoTooltip] язык, а оплачиваете этот труд вы."
  fp3_yearly.8009.a: "На их примере я преподам урок всем остальным."
  fp3_yearly.8009.b: "Тексты на правильном языке покажут народу путь."
- fp3_yearly.8009.c: "Я могу приказать: пусть мой [loyal_chaplain.GetCouncilTitle] [loyal_chaplain.GetFirstName] отправляется проповедовать им."
+ fp3_yearly.8009.c: "Мой [loyal_chaplain.GetCouncilTitle] [loyal_chaplain.GetFirstNameNoTooltip] отправится проповедовать им."
  fp3_yearly.8009.d: "Увы, у меня есть более срочные дела."
  cultural_acceptance_gain_arabic_books: "Книги изданы на арабском языке"
  dealing_with_frontier_heresy_toast.success: "[loyal_chaplain.GetTitledFirstNameNoTooltip] добивается определенного успеха в своей миссии"
@@ -216,7 +216,7 @@
  fp3_caliph_dead.desc: "Ваш предыдущий глава конфессии более не доступен, и клятва о завоевании, которую вы ему дали, теперь недействительна."
 
  fp3_yearly.8012.t: "Обещание выполнено"
- fp3_yearly.8012.desc: "«Похоже, — замечает [righteous_caliph.GetTitleTierName] [righteous_caliph.GetFirstName], — ты [Select_CString(ROOT.Char.IsFemale, 'решила', 'решил' )] выполнить свою клятву завоевать округ [pagan_county.GetNameNoTier] во имя нашей веры незамедлительно. Поистине ты — [Select_CString(ROOT.Char.IsFemale, 'надежная правительница', 'надежный правитель' )] и ревностный приверженец #L [ROOT.Char.GetFaith.GetName|l]ой#! веры. Мы этого не забудем»."
+ fp3_yearly.8012.desc: "«Похоже, — замечает [righteous_caliph.GetTitleTierName] [righteous_caliph.GetFirstName], — ты [Select_CString(ROOT.Char.IsFemale, 'решила','решил')] выполнить свою клятву завоевать округ [pagan_county.GetNameNoTier] во имя нашей веры незамедлительно. Поистине ты — [Select_CString(ROOT.Char.IsFemale, 'надежная правительница','надежный правитель')] и ревностный приверженец [ROOT.Char.GetFaith.GetReligion.GetNameNoTooltip|l]ой веры. Мы этого не забудем»."
  fp3_yearly.8012.a: "Я [Select_CString(ROOT.Char.IsFemale, 'сделала', 'сделал' )] то, что сделал бы любой, кто исповедует [ROOT.Char.GetFaith.GetReligion.GetAdjective]."
  become_faith_warrior.toast: "Вы стали [Select_CString(ROOT.Char.IsFemale, 'воительницей', 'воителем' )] #L [ROOT.Char.GetFaith.GetName|l]ой#! веры"
 
@@ -247,7 +247,7 @@
 
  #Hyrcanian Havoc, by Ola Jentzsch
  fp3_yearly.8017.t: "Гирканский хаос"
- fp3_yearly.8017.desc: "Беда пришла! [runestone_county.GetNameNoTier] горюет — гневные воины #italic Руси#! налетели туда, как стервятники на труп, вырезая все на своем пути. [hyrcanian_vassal.GetTitledFirstName] тоже не [Select_CString(hyrcanian_vassal.IsFemale, 'убереглась — она попала', 'уберегся — он попал' )] под удар топора и теперь очень [Select_CString(hyrcanian_vassal.IsFemale, 'плоха и сильно покалечена', 'плох и сильно покалечен' )]. Налетчики, впрочем, ушли так же быстро, как и пришли, вернулись на свои корабли и исчезли в утреннем тумане Каспийского моря.\n\nСреди выживших ходят слухи, что нападавшие мстили за то давнее осквернение рунических камней русов, что [Select_CString(hyrcanian_vassal.IsFemale, 'устроила', 'устроил' )] [hyrcanian_vassal.GetFirstNameNoTooltip] годы тому назад..."
+ fp3_yearly.8017.desc: "Беда пришла! [runestone_county.GetNameNoTier] горюет — гневные воины #italic Руси#! налетели туда, как стервятники на труп, вырезая все на своем пути. [hyrcanian_vassal.GetTitledFirstName] тоже не [Select_CString(hyrcanian_vassal.IsFemale, 'убереглась', 'уберегся' )]: после удара топором [Select_CString(hyrcanian_vassal.IsFemale, 'она едва жива', 'он едва жив' )]. Налетчики, впрочем, ушли так же быстро, как и пришли: вернулись на свои корабли и исчезли в утреннем тумане Каспийского моря.\n\nСреди выживших ходят слухи, что нападавшие мстили за давнее осквернение рунических камней русов, что [Select_CString(hyrcanian_vassal.IsFemale, 'устроила', 'устроил' )] [hyrcanian_vassal.GetFirstNameNoTooltip] годы тому назад..."
  fp3_yearly.8017.a: "[ROOT.Char.GetFaith.HighGodNameAlternate], чем же мы прогневали тебя?"
  fp3_yearly.8017.b: "Я отправлю немного золота, если это поможет."
  fp3_yearly.8017.c: "Не к добру это. Я верну камни обратно. [runestone_county.GetNameNoTierNoTooltip] — их дом."
@@ -535,7 +535,7 @@
  fp3_yearly.8036.d: "Стоит прочесть молитву, на всякий случай."
 
  fp3_yearly.8037.t: "Лекарство от уныния"
- fp3_yearly.8037.desc: "Я бесцельно брожу по залитому лунным светом коридору, когда ко мне подходит [Select_CString(court_physician.IsFemale, 'моя', 'мой' )] [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('court_physician'))] [court_physician.GetTitledFirstName].\n\n«[Select_CString(ROOT.Char.IsFemale, 'Великая', 'Великий' )] [ROOT.Char.GetTitleTierName], — говорит [court_physician.GetSheHe]. — В последнее время вы выглядите подавленно. Я не [Select_CString(court_physician.IsFemale, 'удержалась и попыталась', 'удержался и попытался' )] поставить вам диагноз... полагаю, вы страдаете от уныния, крайне неприятного и тоскливого состояния, которое часто охватывает отшельников и мудрецов. Но есть [Select_CString(persian_polymath.IsFemale, 'одна ученая, ее', 'один ученый, его' )] зовут [persian_polymath.GetName]. [persian_polymath.GetSheHe|U] превосходит меня как врач и недавно [Select_CString(persian_polymath.IsFemale, 'написала', 'написал' )] книгу о болезнях разума. Возможно, [persian_polymath.GetSheHe] сумеет вам помочь»."
+ fp3_yearly.8037.desc: "Я бесцельно брожу в лунном свете, когда ко мне подходит [Select_CString(court_physician.IsFemale, 'моя', 'мой' )] [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('court_physician'))] [court_physician.GetTitledFirstName].\n\n«[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetTitleAsNameNoTooltip|l], — говорит [Select_CString(court_physician.IsFemale, 'она', 'он' )]. — В последнее время вы выглядите подавленно. Я не [Select_CString(court_physician.IsFemale, 'удержалась и попыталась', 'удержался и попытался' )] поставить вам диагноз... полагаю, вы страдаете от уныния, крайне неприятного и тоскливого состояния, которое часто охватывает отшельников и мудрецов. Но есть [Select_CString(persian_polymath.IsFemale, 'одна ученая, ее', 'один ученый, его' )] зовут [persian_polymath.GetName]. [Select_CString(persian_polymath.IsFemale, 'Она', 'Он' )] превосходит меня как врач и недавно [Select_CString(persian_polymath.IsFemale, 'написала', 'написал' )] книгу о болезнях разума. Возможно, [Select_CString(persian_polymath.IsFemale, 'она', 'он' )] сумеет вам помочь»."
  fp3_yearly.8037.a: "Пригласите [Select_CString(persian_polymath.IsFemale, 'ее', 'его' )] сюда и не жалейте средств."
  fp3_yearly.8037.b: "Оставьте меня в покое."
 
@@ -546,7 +546,7 @@
  lackluster_diet.tt: "Вы не сможете использовать [Concept( 'decision', 'решение' )|E] «Предаться обжорству» во время диеты"
 
  fp3_yearly.8039.t: "Травы и гуморы"
- fp3_yearly.8039.desc: "[persian_polymath.GetFirstName] выглядит задумчиво. «Предписанная мной диета не оказала видимого воздействия, [ROOT.Char.GetLadyLord|l]. Но не спешите искать спасения в луне и звездах, в амулетах и прочих примитивных лекарствах. От них проку не будет. Я могу предложить вам каждый день употреблять определенные лекарственные травы: стебельки фенхеля, огурцы и ладан. Они могут помочь против черной желчи, восстановят баланс гуморов и укрепят ваши духовные силы, что пойдет вам только на пользу»."
+ fp3_yearly.8039.desc: "[persian_polymath.GetFirstName] выглядит задумчиво. «Предписанная мной диета не оказала видимого воздействия, [Select_CString(ROOT.Char.IsFemale, 'госпожа', 'господин' )]. Но не спешите искать спасения в луне и звездах, в амулетах и прочих примитивных лекарствах. От них проку не будет. Я могу предложить вам каждый день употреблять определенные лекарственные травы: стебельки фенхеля, огурцы и ладан. Они могут помочь против черной желчи, восстановят баланс гуморов и укрепят ваши духовные силы, что пойдет вам только на пользу»."
  fp3_yearly.8039.a: "Стоит попытаться."
  fp3_yearly.8039.b: "Я верю в назначенную диету и предпочту поддерживать ее чуть дольше."
  fp3_yearly.8039.c: "Мне надоели ваши недействующие лекарства. Оставьте меня."
@@ -744,7 +744,7 @@
  fp3_scholarship.8000.a.tt: "[court_scholar.GetFirstNameNoTooltip] начнет [Concept( 'research_project', 'исследовательский проект' )|E]"
 
  fp3_scholarship.8500.t: "Манящее золото"
- fp3_scholarship.8500.desc: "«Я [Select_CString(court_scholar.IsFemale, 'уверена', 'уверен' )], что смогу разгадать тайны самого мироздания, если вы предоставите мне подходящие инструменты и помощников!»\n\n[court_scholar.GetName], мой придворный ученый, говорит уже довольно долго. [court_scholar.GetSheHe|U] упрашивает меня позволить [Select_CString(court_scholar.IsFemale, 'ей', 'ему' )] потратить #EMP мое золото и серебро#! на попытки раскрыть тайны создания элементов, таких как #EMP золото#! и #EMP серебро#!.\n\n[court_scholar.GetFirstNameNoTooltip] не скрывает своего возбуждения, и меня действительно впечатлило, что [Select_CString(court_scholar.IsFemale, 'ей', 'ему' )] удалось расшифровать весьма запутанные тексты по этой теме, но пока неясно, будет ли это выгодно мне."
+ fp3_scholarship.8500.desc: "«Я [Select_CString(court_scholar.IsFemale, 'уверена', 'уверен' )], что смогу разгадать тайны самого мироздания, если вы предоставите мне подходящие инструменты и помощников!»\n\n[court_scholar.GetName], мой придворный ученый, вещает уже довольно долго. [court_scholar.GetSheHe|U] просит позволения потратить #EMP мое золото и серебро#! на тайны создания элементов, таких как #EMP золото#! и #EMP серебро#!.\n\n[court_scholar.GetFirstNameNoTooltip] не скрывает своего возбуждения, и меня действительно впечатлило, что [Select_CString(court_scholar.IsFemale, 'ей', 'ему' )] удалось расшифровать весьма запутанные тексты по этой теме, но пока неясно, будет ли это выгодно мне."
  fp3_scholarship.8500.a.tt: "[court_scholar.GetFirstNameNoTooltip] начнет алхимическое [Concept( 'inspiration', 'вдохновение' )|E]"
 
  fp3_scholarship.8600.t: "Что написано пером..."
