@@ -415,6 +415,8 @@
 
  feature_decoration_material_inlay_HSB_placeholder:0 "ЗАГЛУШКА"
 
+ feature_icon_decoration_pattern_saint: "[Artifact.GetOwner.Custom('PredeterminedSaintName')]"
+
  ###########
  # Quality and wealth #
  ###########
@@ -640,7 +642,6 @@
 
  create_artifact_regalia_tooltip:1 "[inspiration_owner.GetShortUIName] [Select_CString(inspiration_owner.IsFemale, 'изготовила', 'изготовил' )] набор регалий [SCOPE.Custom('ArtifactQuality')] качества"
 
-
  # Crowns
  artifact_crown_name:0 "Венец $artifact_name_prefix$"
  artifact_crown_description:1 "[SCOPE.Custom('ArtifactArticleWealth')]ый венец [SCOPE.Custom('ArtifactQuality')] качества. Выкован из [newly_created_artifact.GetFeatureText( 'decoration_material_wire' )] и [newly_created_artifact.GetFeatureText( 'crown_decoration' )]."
@@ -651,6 +652,9 @@
 
  create_artifact_crown_tooltip:1 "[inspiration_owner.GetShortUIName] [Select_CString(inspiration_owner.IsFemale, 'выковала', 'выковал' )] венец [SCOPE.Custom('ArtifactQuality')] качества"
 
+ #Icons
+ artifact_icon_name: "Икона: [newly_created_artifact.GetFeatureText('icon_decoration')]"
+ artifact_icon_description: "[SCOPE.Custom('ArtifactArticleWealth')]ая икона [SCOPE.Custom('ArtifactQuality')] качества. С иконы взирает священный лик — [newly_created_artifact.GetFeatureText('icon_decoration')]"
 
  # Brooches
  artifact_brooch:0 "Брошь"
@@ -710,7 +714,7 @@
  leopard_hat_name:0 "Леопардовый шлем"
  leopard_hat_description:0 "Головной убор из головы леопарда, которого [Select_CString(inspiration_owner.IsFemale, 'сразила', 'сразил' )] [inspiration_owner.GetTitledFirstName]."
  #AGOT Modified
- kurgan_ornament_name:0 "Фигура пантеры"
+ kurgan_ornament_name:0 "Фигура лошади"
  #AGOT Modified
  kurgan_ornament_description:0 "Каменная фигура, которую [inspiration_owner.GetTitledFirstName] [Select_CString(inspiration_owner.IsFemale, 'добыла', 'добыл' )] в кургане."
  #AGOT Modified
@@ -1039,7 +1043,7 @@
  artifact_zomorrodnegar_name:0 "Шамшир-е Зоморроднегар"
  artifact_zomorrodnegar_description:0 "Меч с изумрудом, по слухам, являющийся легендарным мечом Соломона, от которого пал демон Фулад-Зерех."
  artifact_muhammads_epistles_name:0 "Письмо Мухаммеда"
- artifact_muhammads_epistles_description:1 "Это письмо является частью переписки между пророком Мухаммедом и правителями [THIS.Custom('EpistleReciever')|U]."
+ artifact_muhammads_epistles_description: "Это письмо является частью переписки между пророком Мухаммедом и правителями, в чьих руках находится [newly_created_artifact.Custom('EpistleReciever')|U]."
  epistle_syria:0 "Сирии"
  epistle_arabia:0 "аравийских племен"
  epistle_persia:0 "Персии"
@@ -1282,7 +1286,9 @@
  artifact_oxus_bracelet_description:0 "Говорят, что этот великолепно изготовленный браслет прибыл из земель Гиркуна. Хотя украшавшие его эмаль и полудрагоценные камни давно утеряны, золото не утратило свой блеск. В древности при дворе царей Сарнора подобные браслеты были почётными дарами, и, возможно, этот браслет когда-то красовался на руке знатного вельможи."
  fp3_incense_burner_sculpture:0 "Скульптура-курительница"
  fp3_incense_burner_sculpture_desc:0 "Курительница в форме кошки испускает дым из множества отверстий. В голове с глазами-самоцветами есть шарнир, позволяющий поместить внутрь кошки горящие благовония."
- fp3_ancient_drinking_vessel:0 "Ахеменидский питейный сосуд"
+ #AGOT Modified
+ #fp3_ancient_drinking_vessel:0 "Ахеменидский питейный сосуд"
+ fp3_ancient_drinking_vessel:0 "Квохорский питейный сосуд"
  fp3_ancient_drinking_vessel_desc:0 "Эта узорная чаша заканчивается изображением козы. Она была выполнена в незапамятные времена, но красота изделия не померкла."
  #AGOT Modified
  #artifact_sassanian_sword_name:0 "Сасанидский меч"
@@ -1308,3 +1314,11 @@
 
  medicine_jar:0 "Лечебный кувшин"
  medicine_jar_desc:0 "Это керамическое изделие, покрытое тонким слоем глазури, содержит смесь редких и сильнодействующих трав, лечебных солей и различные засушенные части животных — все это используется врачами, чтобы лечить болезни и восстанавливать равновесие гуморов."
+ whale_fat_candles_name: "Свечи из ворвани"
+ whale_fat_candles_description: "Эти свечи изготовлены из подкожного жира ужасного левиафана."
+
+ warenne_coin: "Монета Вареннов"
+ warenne_coin_description: "Эта монета окрашена в сине-желтую шахматную клетку с герба династии Вареннов. Кромку монеты покрывают темные пятна крови."
+
+ traitors_head: "Голова предателя"
+ traitors_head_description: "Отсеченная голова. Скорее послание, чем сувенир."
