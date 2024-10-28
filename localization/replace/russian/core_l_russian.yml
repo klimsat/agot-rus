@@ -128,7 +128,7 @@
  #CHARACTER_INTERACTION_REPLY_BLOCKED:3 "" # <DELETE THIS KEY>
  CHARACTER_INTERACTION_CANT_SEND_RECIPIENT_REJECTS:1 "@warning_icon! #X [CHARACTER.GetShortUIName] не примет подобное предложение#!"
  CHARACTER_INTERACTION_ALREADY_CONSIDERING_WARNING:0 "@warning_icon! #X $CHARACTER_INTERACTION_ALREADY_CONSIDERING$#! "
- CHARACTER_INTERACTION_ALREADY_CONSIDERING:1 "[CHARACTER.GetUIName|U] уже [Select_CString(CHARACTER.IsLocalPlayer, 'рассматриваете', 'рассматривает' )] предложение [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ CHARACTER_INTERACTION_ALREADY_CONSIDERING: "[CHARACTER.GetUIName|U] уже [Select_CString(CHARACTER.IsLocalPlayer, 'рассматриваете', 'рассматривает' )] предложение [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  CHARACTER_INTERACTION_NO_TARGET_SELECTED:0 "@warning_icon! #X Цель не выбрана#! "
  CHARACTER_OTHER_PLAYER_TOOLTIP:0 "[Character.PlayerName] управляет этим персонажем."
  BASE_COLON:0 "Базовое: $VALUE|V0$"
@@ -379,7 +379,6 @@
  GAME_RULE_BLOCKS_ACHIEVEMENTS_ENTRY:0 "#indent_newline:2 $EFFECT_LIST_BULLET$[GAME_RULE.GetName]: [GAME_RULE_SETTING.GetName]#!"
  GAME_CHECKSUM_CHANGED_FROM_SAVE_FILE:0 "@warning_icon! #X Контрольная сумма достижений неверна#!\nДостижения в этом сохранении имеют другую контрольную сумму. Если вы загрузите это сохранение, достижения будут отключены."
  TIER_TYPE: "[ConceptByKey('$TIER_KEY|q$')|E]"
- DYNASTY_MEMBERS:0 "Члены династии «$DYNASTY$»: \n$LIST$"
  GOOD_COLOR:0 "$KEY|P$"
  BAD_COLOR:0 "$KEY|N$"
  NEUTRAL_COLOR:0 "$KEY|Z$"
@@ -631,7 +630,7 @@
  TRAIT_FLAG_DESC_immortal_visuals: "Нет внешних признаков старения"
  TRAIT_FLAG_DESC_immortal_fertility: "[Concept('fertility','Плодовитость')|E] зависит от визуального возраста [Concept('character','персонажа')|E]"
  TRAIT_FLAG_DESC_immortal_incapability: "Нельзя получить свойство «[GetTrait('incapable').GetName( GetNullCharacter )]»"
- TRAIT_BLOCK_INHERITANCE:0 "@warning_icon! #X Не может наследовать титулы#!"
+ TRAIT_BLOCK_INHERITANCE: "@warning_icon! #X Нельзя наследовать [Concept('titles','титулы')|E]#!"
  TRAIT_FLAVOR_DESC:0 "$DESC|F$"
  FERTILITY_COLON:0 "[fertility|E]: $VALUE|V$"
  #AGOT Modified
@@ -823,6 +822,7 @@
  RENAME_STRING_ENDS_WITH_SPACE_NAMED:0 "@warning_icon! #X $NAME$ заканчивается пробелом#!"
  DEFAULT_TEXT:0 "#D ТЕКСТ ПО УМОЛЧАНИЮ#!"
 
+ MUSIC_PLAYER_NAME: "Проигрыватель"
  MUSIC_PLAYER_VOLUME_VALUE: "[MusicPlayer.GetVolumeString]"
  MUSIC_PLAYER_SETTING_MUSIC_DENSITY_VALUE: "[MusicPlayer.GetMusicDensityString]"
  MUSIC_PLAYER_CATEGORY_ENABLED_CK3: "#P $MUSIC_PLAYER_CATEGORY_ENABLED$#!"
