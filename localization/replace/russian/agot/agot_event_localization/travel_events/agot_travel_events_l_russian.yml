@@ -185,8 +185,8 @@
  # Maester Court Position Option
  maester_option_tt: "Вам потребуется [GetCourtPositionType('maester_court_position').GetName] с возможностью путешествовать"
 
- agot_travel_events.2000.t:0 "[Select_CString(wild_dragon.IsFemale, 'Зловещая', 'Зловещий' )] [wild_dragon.GetNameNoTooltip]: Засада"
- agot_travel_events.2000.desc:0 "Путешествие через владение [location.GetNameNoTooltip] до сих пор проходило спокойно, без всяких затруднений. Однако лошади заметно забеспокоились. Я узнаю причину слишком поздно...\n\nПриближаясь к нам, дракон [wild_dragon.GetNameNicknamed] властно рассекает небо. Хуже того, судя по [Select_CString(wild_dragon.IsFemale, 'её', 'его' )] движениям, мы не остались незамеченными."
+ agot_travel_events.2000.t:0 "[Select_CString(EqualTo_string('он', wild_dragon.Custom('GetDragonSheHe')), 'Зловещий', 'Зловещая')] [wild_dragon.GetNameNoTooltip]: Засада"
+ agot_travel_events.2000.desc:0 "Путешествие через владение [location.GetNameNoTooltip] до сих пор проходило спокойно, без всяких затруднений. Однако лошади заметно забеспокоились. Я узнаю причину слишком поздно...\n\nПриближаясь к нам, [wild_dragon.GetNameNicknamed] властно рассекает небо. Хуже того, судя по [Select_CString(EqualTo_string('он', wild_dragon.Custom('GetDragonSheHe')), 'его', 'её')] движениям, мы не остались незамеченными."
  agot_travel_events.2000.fight:0 "Слишком поздно, приготовиться к бою."
  agot_travel_events.2000.fight.tt:0 "Вы вступите в бой с драконом [wild_dragon.GetNameNoTooltip]"
  agot_travel_events.2000.run:0 "БЕГИТЕ!"
