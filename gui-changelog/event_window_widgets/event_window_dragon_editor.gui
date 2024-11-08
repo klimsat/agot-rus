@@ -41,10 +41,10 @@ widget = {
 						hbox = {
 							spacing = 5
 							layoutpolicy_horizontal = expanding
-							tooltip = dragon_skin_value_de_gui_tt
+							tooltip = dragon_primary_color_value_de_gui_tt
 							text_single = {
 								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_skin_value_svalue')|0%]"
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_primary_color_value_svalue')|0%]"
 								}
 								autoresize = yes
 								min_width = 40
@@ -54,7 +54,7 @@ widget = {
 							text_single = {
 								autoresize = yes
 								block "text" {
-									text = dragon_skin_value_de_gui
+									text = dragon_primary_color_value_de_gui
 								}
 							}
 							expand = { }
@@ -102,11 +102,11 @@ widget = {
 						hbox = {
 							spacing = 5
 							layoutpolicy_horizontal = expanding
-							tooltip = dragon_skin_hue_de_gui
+							tooltip = dragon_primary_color_hue_de_gui
 
 							text_single = {
 								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_skin_hue_svalue')|0%]"
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_primary_color_hue_svalue')|0%]"
 								}
 								autoresize = yes
 								min_width = 40
@@ -117,7 +117,7 @@ widget = {
 							text_single = {
 								autoresize = yes
 								block "text" {
-									text = dragon_skin_hue_de_gui
+									text = dragon_primary_color_hue_de_gui
 								}
 							}
 
@@ -127,8 +127,8 @@ widget = {
 							button_replace = {
 								button_ignore = none
 								block "reset" {
-									onclick = "[GetScriptedGui('agot_dragon_skin_hue_color_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									enabled = "[GetScriptedGui('agot_dragon_skin_hue_color_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_primary_color_hue_color_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_primary_color_hue_color_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								tooltip = reset_de_gui_tt
 							}
@@ -139,8 +139,8 @@ widget = {
 								}
 								size = { 28 28 }
 								block "minus" {
-									enabled = "[GetScriptedGui('agot_dragon_skin_hue_color_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[GetScriptedGui('agot_dragon_skin_hue_color_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('dragon',Scope.GetCharacter.MakeScope).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_primary_color_hue_color_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_primary_color_hue_color_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('dragon',Scope.GetCharacter.MakeScope).End)]"
 								}
 								button_ignore = none
 
@@ -155,8 +155,8 @@ widget = {
 								}
 								size = { 28 28 }
 								block "plus" {
-									enabled = "[GetScriptedGui('agot_dragon_skin_hue_color_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[GetScriptedGui('agot_dragon_skin_hue_color_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('dragon',Scope.GetCharacter.MakeScope).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_primary_color_hue_color_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_primary_color_hue_color_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('dragon',Scope.GetCharacter.MakeScope).End)]"
 								}
 								button_ignore = none
 
@@ -170,11 +170,11 @@ widget = {
 						hbox = {
 							spacing = 5
 							layoutpolicy_horizontal = expanding
-							tooltip = dragon_skin_highlight_value_de_gui_tt
+							tooltip = dragon_secondary_value_de_gui_tt
 
 							text_single = {
 								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_highlight_value_svalue')|0%]"
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_secondary_value_svalue')|0%]"
 								}
 								autoresize = yes
 								min_width = 40
@@ -185,7 +185,7 @@ widget = {
 							text_single = {
 								autoresize = yes
 								block "text" {
-									text = dragon_skin_highlight_value_de_gui
+									text = dragon_secondary_value_de_gui
 								}
 							}
 
@@ -194,8 +194,8 @@ widget = {
 							button_replace = {
 								button_ignore = none
 								block "reset" {
-									onclick = "[GetScriptedGui('agot_dragon_highlight_value_color_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									enabled = "[GetScriptedGui('agot_dragon_highlight_value_color_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_secondary_value_color_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_secondary_value_color_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								tooltip = reset_de_gui_tt
 							}
@@ -206,8 +206,8 @@ widget = {
 								}
 								size = { 28 28 }
 								block "minus" {
-									enabled = "[GetScriptedGui('agot_dragon_highlight_value_color_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[GetScriptedGui('agot_dragon_highlight_value_color_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_secondary_value_color_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_secondary_value_color_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								button_ignore = none
 
@@ -222,8 +222,8 @@ widget = {
 								}
 								size = { 28 28 }
 								block "plus" {
-									enabled = "[GetScriptedGui('agot_dragon_highlight_value_color_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[GetScriptedGui('agot_dragon_highlight_value_color_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_secondary_value_color_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_secondary_value_color_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								button_ignore = none
 
@@ -237,11 +237,11 @@ widget = {
 						hbox = {
 							spacing = 5
 							layoutpolicy_horizontal = expanding
-							tooltip = dragon_skin_highlight_hue_de_gui_tt
+							tooltip = dragon_secondary_hue_de_gui_tt
 
 							text_single = {
 								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_highlight_hue_svalue')|0%]"
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_secondary_hue_svalue')|0%]"
 								}
 								autoresize = yes
 								min_width = 40
@@ -252,7 +252,7 @@ widget = {
 							text_single = {
 								autoresize = yes
 								block "text" {
-									text = dragon_skin_highlight_hue_de_gui
+									text = dragon_secondary_hue_de_gui
 								}
 							}
 
@@ -262,8 +262,8 @@ widget = {
 							button_replace = {
 								button_ignore = none
 								block "reset" {
-									onclick = "[GetScriptedGui('agot_dragon_highlight_hue_color_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									enabled = "[GetScriptedGui('agot_dragon_highlight_hue_color_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_secondary_hue_color_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_secondary_hue_color_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								tooltip = reset_de_gui_tt
 							}
@@ -274,8 +274,8 @@ widget = {
 								}
 								size = { 28 28 }
 								block "minus" {
-									enabled = "[GetScriptedGui('agot_dragon_highlight_hue_color_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[GetScriptedGui('agot_dragon_highlight_hue_color_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('dragon',Scope.GetCharacter.MakeScope).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_secondary_hue_color_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_secondary_hue_color_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('dragon',Scope.GetCharacter.MakeScope).End)]"
 								}
 								button_ignore = none
 
@@ -290,8 +290,8 @@ widget = {
 								}
 								size = { 28 28 }
 								block "plus" {
-									enabled = "[GetScriptedGui('agot_dragon_highlight_hue_color_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[GetScriptedGui('agot_dragon_highlight_hue_color_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('dragon',Scope.GetCharacter.MakeScope).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_secondary_hue_color_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_secondary_hue_color_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('dragon',Scope.GetCharacter.MakeScope).End)]"
 								}
 								button_ignore = none
 
@@ -305,11 +305,11 @@ widget = {
 						hbox = {
 							spacing = 5
 							layoutpolicy_horizontal = expanding
-							tooltip = dragon_skin_horn_value_de_gui_tt
+							tooltip = dragon_horn_color_value_de_gui_tt
 
 							text_single = {
 								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horn_value_svalue')|0%]"
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horn_color_value_svalue')|0%]"
 								}
 								autoresize = yes
 								min_width = 40
@@ -320,7 +320,7 @@ widget = {
 							text_single = {
 								autoresize = yes
 								block "text" {
-									text = dragon_skin_horn_value_de_gui
+									text = dragon_horn_color_value_de_gui
 								}
 							}
 
@@ -330,8 +330,8 @@ widget = {
 							button_replace = {
 								button_ignore = none
 								block "reset" {
-									onclick = "[GetScriptedGui('agot_dragon_horn_value_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									enabled = "[GetScriptedGui('agot_dragon_horn_value_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_horn_color_value_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_horn_color_value_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								tooltip = reset_de_gui_tt
 							}
@@ -342,8 +342,8 @@ widget = {
 								}
 								size = { 28 28 }
 								block "minus" {
-									enabled = "[GetScriptedGui('agot_dragon_horn_value_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[GetScriptedGui('agot_dragon_horn_value_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_horn_color_value_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_horn_color_value_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								button_ignore = none
 
@@ -358,8 +358,8 @@ widget = {
 								}
 								size = { 28 28 }
 								block "plus" {
-									enabled = "[GetScriptedGui('agot_dragon_horn_value_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[GetScriptedGui('agot_dragon_horn_value_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_horn_color_value_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_horn_color_value_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								button_ignore = none
 
@@ -373,11 +373,11 @@ widget = {
 						hbox = {
 							spacing = 5
 							layoutpolicy_horizontal = expanding
-							tooltip = dragon_skin_horn_hue_de_gui_tt
+							tooltip = dragon_horn_color_hue_de_gui_tt
 
 							text_single = {
 								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horn_hue_svalue')|0%]"
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horn_color_hue_svalue')|0%]"
 								}
 								autoresize = yes
 								min_width = 40
@@ -388,7 +388,7 @@ widget = {
 							text_single = {
 								autoresize = yes
 								block "text" {
-									text = dragon_skin_horn_hue_de_gui
+									text = dragon_horn_color_hue_de_gui
 								}
 							}
 
@@ -398,8 +398,8 @@ widget = {
 							button_replace = {
 								button_ignore = none
 								block "reset" {
-									onclick = "[GetScriptedGui('agot_dragon_horn_hue_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									enabled = "[GetScriptedGui('agot_dragon_horn_hue_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_horn_color_hue_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_horn_color_hue_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								tooltip = reset_de_gui_tt
 							}
@@ -410,8 +410,8 @@ widget = {
 								}
 								size = { 28 28 }
 								block "minus" {
-									enabled = "[GetScriptedGui('agot_dragon_horn_hue_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[GetScriptedGui('agot_dragon_horn_hue_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_horn_color_hue_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_horn_color_hue_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								button_ignore = none
 
@@ -426,8 +426,8 @@ widget = {
 								}
 								size = { 28 28 }
 								block "plus" {
-									enabled = "[GetScriptedGui('agot_dragon_horn_hue_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[GetScriptedGui('agot_dragon_horn_hue_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_horn_color_hue_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_horn_color_hue_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								button_ignore = none
 
@@ -437,15 +437,15 @@ widget = {
 								}
 							}
 						}
-						# dragon_eye_value
+						# dragon_eye_color_value
 						hbox = {
 							spacing = 5
 							layoutpolicy_horizontal = expanding
-							tooltip = dragon_eye_value_de_gui_tt
+							tooltip = dragon_eye_color_value_de_gui_tt
 
 							text_single = {
 								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_eye_value_svalue')|0%]"
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_eye_color_value_svalue')|0%]"
 								}
 								autoresize = yes
 								min_width = 40
@@ -456,7 +456,7 @@ widget = {
 							text_single = {
 								autoresize = yes
 								block "text" {
-									text = dragon_eye_value_de_gui
+									text = dragon_eye_color_value_de_gui
 								}
 							}
 
@@ -466,8 +466,8 @@ widget = {
 							button_replace = {
 								button_ignore = none
 								block "reset" {
-									onclick = "[GetScriptedGui('agot_dragon_eye_value_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									enabled = "[GetScriptedGui('agot_dragon_eye_value_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_eye_color_value_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_eye_color_value_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								tooltip = reset_de_gui_tt
 							}
@@ -478,8 +478,8 @@ widget = {
 								}
 								size = { 28 28 }
 								block "minus" {
-									enabled = "[GetScriptedGui('agot_dragon_eye_value_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[GetScriptedGui('agot_dragon_eye_value_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_eye_color_value_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_eye_color_value_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								button_ignore = none
 
@@ -494,8 +494,8 @@ widget = {
 								}
 								size = { 28 28 }
 								block "plus" {
-									enabled = "[GetScriptedGui('agot_dragon_eye_value_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[GetScriptedGui('agot_dragon_eye_value_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_eye_color_value_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_eye_color_value_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								button_ignore = none
 
@@ -505,15 +505,15 @@ widget = {
 								}
 							}
 						}
-						# dragon_eye_hue
+						# dragon_eye_color_hue
 						hbox = {
 							spacing = 5
 							layoutpolicy_horizontal = expanding
-							tooltip = dragon_eye_hue_de_gui_tt
+							tooltip = dragon_eye_color_hue_de_gui_tt
 
 							text_single = {
 								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_eye_hue_svalue')|0%]"
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_eye_color_hue_svalue')|0%]"
 								}
 								autoresize = yes
 								min_width = 40
@@ -524,7 +524,7 @@ widget = {
 							text_single = {
 								autoresize = yes
 								block "text" {
-									text = dragon_eye_hue_de_gui
+									text = dragon_eye_color_hue_de_gui
 								}
 							}
 
@@ -534,8 +534,8 @@ widget = {
 							button_replace = {
 								button_ignore = none
 								block "reset" {
-									onclick = "[GetScriptedGui('agot_dragon_eye_hue_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									enabled = "[GetScriptedGui('agot_dragon_eye_hue_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_eye_color_hue_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_eye_color_hue_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								tooltip = reset_de_gui_tt
 							}
@@ -546,8 +546,8 @@ widget = {
 								}
 								size = { 28 28 }
 								block "minus" {
-									enabled = "[GetScriptedGui('agot_dragon_eye_hue_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[GetScriptedGui('agot_dragon_eye_hue_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_eye_color_hue_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_eye_color_hue_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								button_ignore = none
 
@@ -562,8 +562,8 @@ widget = {
 								}
 								size = { 28 28 }
 								block "plus" {
-									enabled = "[GetScriptedGui('agot_dragon_eye_hue_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[GetScriptedGui('agot_dragon_eye_hue_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_eye_color_hue_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_eye_color_hue_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 								}
 								button_ignore = none
 
