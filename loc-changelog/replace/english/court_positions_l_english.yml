@@ -205,6 +205,7 @@
  court_position_strong_trait: "[GetTrait('strong').GetName( ROOT.Char )]"
  court_position_loyal_trait: "[GetTrait('loyal').GetName( ROOT.Char )]"
  court_position_patient_trait:0 "[GetTrait('patient').GetName( ROOT.Char )]"
+ court_position_calm_trait: "[GetTrait('calm').GetName( ROOT.Char )]"
  court_position_impatient_trait:0 "[GetTrait('impatient').GetName( ROOT.Char )]"
  court_position_generous_trait:0 "[GetTrait('generous').GetName( ROOT.Char )]"
  court_position_greedy_trait:0 "[GetTrait('greedy').GetName( ROOT.Char )]"
@@ -243,6 +244,7 @@
  court_position_gardener_trait:0 "[GetTrait('lifestyle_gardener').GetName( ROOT.Char )]"
  court_position_herbalist_trait:0 "[GetTrait('lifestyle_herbalist').GetName( ROOT.Char )]"
  court_position_overseer_trait:0 "[GetTrait('overseer').GetName( ROOT.Char )]"
+ court_position_organizer_trait: "[GetTrait('organizer').GetName( ROOT.Char )]"
  court_position_gallant_trait:0 "[GetTrait('gallant').GetName( ROOT.Char )]"
  court_position_tradition_music_theory:0 "$tradition_music_theory_name$ [culture_tradition|E]"
  court_position_just_trait:0 "[GetTrait('just').GetName( ROOT.Char )]"
@@ -290,6 +292,7 @@
  court_position_traveler_trait:0 "[GetTrait('lifestyle_traveler').GetName( ROOT.Char )]"
  court_position_traveler_trait_experienced:0 "[GetTrait('lifestyle_traveler').GetName( ROOT.Char )]"
  court_position_traveler_trait_experienced_danger:0 "[GetTrait('lifestyle_traveler').GetName( ROOT.Char )]"
+ court_position_humble_trait: "[GetTrait('humble').GetName( ROOT.Char )]"
  court_position_beastmaster_modifier:0 "$ep2_beastmaster_modifier$"
  court_position_speed:0 "[travel_speed|E] Contribution"
  court_position_safety:0 "[travel_safety|E] Contribution"
@@ -424,7 +427,7 @@
  hire_travel_leader_decision_confirm:0 "Start the search"
  wet_nurse_court_position: "Wet Nurse"
  wet_nurse_court_position_desc: "A $wet_nurse_court_position$ is a caretaker of your [children|E] and child [hostages|E]."
- wet_nurse_employer_custom_effect_description: "$BULLET$Reduces chance for [children|E] to contract [illnesses|E].\n$BULLET$Possibility for [child|E] development events"
+ wet_nurse_employer_custom_effect_description: "$BULLET$Reduces chance for [children|E] to contract [illnesses|E]\n$BULLET$Possibility for [child|E] development events"
  find_wet_nurse_decision: "Search for $wet_nurse_court_position$"
  find_wet_nurse_decision_desc: "A $wet_nurse_court_position$ is a symbol of the court's wealth and prosperity: a woman tasked with nursing children, shielding them from disease, and minding their development. A hale and healthful candidate is essential."
  find_wet_nurse_decision_tooltip: "Your servants will suggest a number of suitable candidates for the position of [GetCourtPositionType('wet_nurse_court_position').GetName()]"
@@ -479,6 +482,19 @@ charioteer_employer_custom_effect_description: "$BULLET$Placing 3rd or higher du
  akolouthos_court_position_desc: "The $akolouthos_court_position$ commands much of the Byzantine imperial guard, including the famed Varangians, who are most willing to die honorably for their master."
 
  court_position_akolouthos_bonus: "[GetCourtPositionType('akolouthos_court_position').GetName()]"
+
+ court_brewmaster_court_position: "Court Brewmaster"
+ court_brewmaster_court_position_desc: "The $court_brewmaster_court_position$ is a representative chosen to interact directly with the brewers of the realm, to ensure the liege can get their hands on the best of brews."
+ court_brewmaster_employer_custom_effect_description: "$BULLET$[GetActivityType( 'activity_feast' ).GetName] costs reduced by #positive_value @gold_icon!-5%#! to #positive_value @gold_icon!-25%#! (based on [aptitude|E])\n$BULLET$[GetActivityType( 'activity_feast' ).GetName] rewards increased by #positive_value +5%#! to #positive_value +25%#! (based on [aptitude|E])"
+ court_brewmaster_popular_opinion: "Empty the Cellars"
+ court_brewmaster_popular_opinion_desc: "Increase production across the realm so we can regularly share some of our better brews with our people."
+ court_brewmaster_court_opinion: "Share with the Court"
+ court_brewmaster_court_opinion_desc: "Bring out some of the best brews so the court can see what we have."
+ court_brewmaster_experimental_brew: "Experimental Brew"
+ court_brewmaster_experimental_brew_desc: "The brewmaster has put together something truly unique and memorable, though... Not necessarily good."
+ court_brewmaster_experimental_brew_tt: "You gain an #color_yellow Experimental Brew#! for #color_white 6 months#!\n#color_yellow Experimental Brew#! will be changed every #color_white 6 months#!"
+ court_brewmaster_explanation: "[GetCourtPositionType('court_brewmaster_court_position').GetName]"
+ court_brewmaster_task_cooldown: "This task cannot be initiated until #color_white [GetCurrentDateWithDiff( GetVarTimeRemaining( liege.MakeScope, 'experimental_brew_cooldown') )]#!"
 
  court_position_palace_politics: "[GetCultureTradition('tradition_ep3_palace_politics').GetName]"
  court_position_north_germanic: "$heritage_north_germanic_name$ [heritage|E]"
@@ -567,3 +583,9 @@ charioteer_employer_custom_effect_description: "$BULLET$Placing 3rd or higher du
 
  court_position_bodyguard_modifier: "[GetPerk('praetorian_guard_perk').GetName( GetNullCharacter )]"
  court_position_bodyguard_liege_modifier: "Employer has [GetPerk('praetorian_guard_perk').GetName( GetNullCharacter )]"
+
+ # BP3
+ court_position_travel_companion_modifier: "[GetPerk('travel_companion_perk').GetName( GetNullCharacter )]"
+ court_position_travel_companion_liege_modifier: "Employer has [GetPerk('travel_companion_perk').GetName( GetNullCharacter )]"
+ gracious_host_impeccable_guest_perk_bonus: "[GetPerk('gracious_host_impeccable_guest_perk').GetName( GetNullCharacter )]"
+

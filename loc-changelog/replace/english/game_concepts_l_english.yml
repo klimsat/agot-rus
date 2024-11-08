@@ -16,6 +16,7 @@
  game_concept_rulerpossessive:0 "Ruler's"
  game_concept_ruler_desc:1 "A $game_concept_ruler$ is a [character|E] who holds at least one [title|E]."
  game_concept_title:0 "Title"
+ game_concept_title_i: "@titles_icon!"
  game_concept_titles:0 "Titles"
  game_concept_titlepossessive:0 "Title's"
  game_concept_title_desc:1 "A $game_concept_title$ is essentially a certificate of land ownership.\n\nThe smallest unit of land on the map is the [barony|E]. Baronies are organized into larger areas called [counties|E]. Counties [de_jure|E] belong to a [duchy|E], duchies to a [kingdom|E], and Kingdoms to an [empire|E].\n\nDuchies, Kingdoms and Empires do not always have a [holder|E], but are Titles that can be [created|E] by a ruler who controls enough of the corresponding territory."
@@ -396,6 +397,7 @@
  game_concept_prestigious:0 "Prestigious"
  game_concept_prestige_i:0 "@prestige_icon!"
  game_concept_prestige_desc:0 "$game_concept_prestige$ represents a Character's fame and social standing.\n\nPrestige can be spent on various worldly matters depending on [government_form|E], [doctrines|E], et cetera.\n\nEvery time a Character gains Prestige, they also progress toward the next [prestige_level|E]."
+ game_concept_prestige_experience_i: "$game_concept_prestige_i$"
  game_concept_prestige_experience:0 "Fame"
  game_concept_prestige_experience_desc:0 "Each point of Fame a character gets increases their progress towards the next [prestige_level|E]. When a character gains [prestige|E] they also gain an equal amount of Fame."
  game_concept_prestige_level:0 "Level of Fame"
@@ -526,6 +528,7 @@
  game_concept_stress_i:0 "@stress_icon!"
  game_concept_stress_gain_i:0 "@stress_gain_icon!"
  game_concept_stress_loss_i:0 "@stress_loss_icon!"
+ game_concept_stress_loss: "Stress Loss"
  game_concept_stress_critical_i:0 "@stress_critical_icon!"
  game_concept_stress_desc:2 "Characters gain Stress when taking actions that conflict with their [personality_traits|E].\n\nCharacters who gain enough Stress will also gain a [stress_level|E], causing various negative effects on their mental health that persist until they manage to reduce their Stress.\n\nA straight-forward way to relieve Stress is to partake in [activities|E] such as a [GetActivityType( 'activity_hunt' ).GetName]."
  game_concept_adult:0 "Adult"
@@ -685,7 +688,7 @@
  game_concept_natural_prowess:0 "Natural Prowess"
  game_concept_lifestyle:0 "Lifestyle"
  game_concept_lifestyles:0 "Lifestyles"
- game_concept_lifestyle_desc:2 "[adult|E] [rulers|E] may choose a $game_concept_lifestyle$, which will in turn allow them to select a [focus|E] and start gaining [perks|E].\n\nEach $game_concept_lifestyle$ has its own type of [experience|E], which is used to purchase $game_concept_perks$. For example, Experience in the [intrigue_lifestyle|E] is necessary to gain $game_concept_perks$ such as [GetPerk( 'dreadful_perk' ).GetName( GetNullCharacter )] or [GetPerk( 'like_weed_in_a_garden_perk' ).GetName( GetNullCharacter )].\n\nThe $game_concept_lifestyles$ are:\n$BULLET_WITH_TAB$ [diplomacy_lifestyle|E]\n$BULLET_WITH_TAB$ [stewardship_lifestyle|E]\n$BULLET_WITH_TAB$ [martial_lifestyle|E]\n$BULLET_WITH_TAB$ [intrigue_lifestyle|E]\n$BULLET_WITH_TAB$ [learning_lifestyle|E]"
+ game_concept_lifestyle_desc:2 "[adult|E] [rulers|E] may choose a $game_concept_lifestyle$, which will in turn allow them to select a [focus|E] and start gaining [perks|E].\n\nEach $game_concept_lifestyle$ has its own type of [experience|E], which is used to purchase $game_concept_perks$. For example, Experience in the [intrigue_lifestyle|E] is necessary to gain $game_concept_perks$ such as [GetPerk( 'dreadful_perk' ).GetName( GetNullCharacter )] or [GetPerk( 'like_weed_in_a_garden_perk' ).GetName( GetNullCharacter )].\n\nThe $game_concept_lifestyles$ are:\n$BULLET_WITH_TAB$ [diplomacy_lifestyle|E]\n$BULLET_WITH_TAB$ [stewardship_lifestyle|E]\n$BULLET_WITH_TAB$ [martial_lifestyle|E]\n$BULLET_WITH_TAB$ [intrigue_lifestyle|E]\n$BULLET_WITH_TAB$ [learning_lifestyle|E]\n$BULLET_WITH_TAB$ [wanderer_lifestyle|E]"
  game_concept_lifestyle_experience:0 "Lifestyle Experience"
  game_concept_experience:0 "Experience"
  game_concept_lifestyle_experience_desc:0 "$game_concept_lifestyle_experience$ is accumulated passively by having a [focus|E] selected, or granted by events. There are different types of $game_concept_lifestyle_experience$, one per [lifestyle|E] category.\n\nGaining enough $game_concept_lifestyle_experience$ within a category will award a [perk|E]."
@@ -765,9 +768,9 @@
  game_concept_taxation:0 "Taxation"
  game_concept_taxes_desc:1 "$game_concept_taxes$ are the most important monthly source of [gold|E] [income|E] for [rulers|E].\n\nEvery [holding|E] a ruler has provides them with some [domain_taxes|E] every month. In addition, most [vassals|E] have an [obligation|E] to pay a portion of their own collected Taxes to their [liege|E] in the form of [liege_taxes|E]."
  game_concept_dread:0 "Dread"
- game_concept_dread_i: "@dread_icon!"
  game_concept_dreadful:0 "Dreadful"
  game_concept_dreaded:0 "Dreaded"
+ game_concept_dread_i: "@dread_icon!"
  game_concept_dread_desc:4 "$game_concept_dread$ is a measure of how feared a [ruler|E] is.\n\nRulers increase $game_concept_dread$ by performing cruel and heinous acts such as torturing and executing [prisoners|E].\n\nDread makes it viable to play as a [tyrant|E], because unruly [vassals|E] can become [intimidated|E] or [cowed|E], making them too scared to oppose you.\n\nA character's Dread can range from 0 to 100. Over time, their Dread will tend towards their Natural Dread, which is defined by their [personality_traits|E].\n\n#high A Dreadful [ruler] reaps the following benefits:#!\n$BULLET_WITH_TAB$[vassals] are discouraged from joining [factions|E]\n$BULLET_WITH_TAB$[vassals] are discouraged from [scheming|E]\n$BULLET_WITH_TAB$Increases [vassal] acceptance #weak (E.g. Title Revocation)#!\n$BULLET_WITH_TAB$Increases [offer_vassalization|E] acceptance\n$BULLET_WITH_TAB$Makes [electors|E] more likely to vote as you do\n$BULLET_WITH_TAB$Makes vassals unlikely to oppose [law|E] changes\n\n#weak Note that brave and bold [vassals] are less affected by Dread!#!"
  game_concept_truce:0 "Truce"
  game_concept_truces:0 "Truces"
@@ -857,6 +860,7 @@
  game_concept_advantage_rolls:0 "Advantage Rolls"
  game_concept_combat_roll_desc:0 "[advantage|E] Rolls are made by each [commander|E] during [battle|E]. These are done on a scale from 0-10 and are completely random, but can have a decisive effect on the outcome of the $game_concept_battle$."
  game_concept_terrain:0 "Terrain"
+ game_concept_terrains: "Terrains"
  game_concept_terrain_desc:1 "Each [barony|E] has a specific dominant Terrain which can affect things like [supply|E], movement speed of [armies|E], the efficacy of the various types of [men_at_arms|E] [regiments|E] in [battle|E] and the [buildings|E] that can be constructed there.\n\nMany [commander_traits|E] also deal with Terrain."
  game_concept_independent_ruler:0 "Independent Ruler"
  game_concept_independent_ruler_desc:0 "$game_concept_independent$ [rulers|E] have no [liege|E] and thus enjoy greater freedom of action (e.g. in declaring [wars|E]).\n\nHowever, unlike [vassals|E] they can also be directly attacked by foreign [rulers|E]."
@@ -954,6 +958,8 @@
  game_concept_learning_lifestyle:0 "Learning Lifestyle"
  game_concept_learning_lifestyle_i: "@learning_lifestyle_icon!"
  game_concept_learning_lifestyle_desc:0 "The $game_concept_learning_lifestyle$ is suitable for Characters who want to live long and healthy lives, gain [piety|E], or gain additional bonuses from their [faith|E]."
+ game_concept_wanderer_lifestyle: "Wandering Lifestyle"
+ game_concept_wanderer_lifestyle_desc: "The $game_concept_wanderer_lifestyle$ is suitable for Characters who want to see [points_of_interest|E], or gain additional bonuses from [traveling|E]."
  game_concept_crime:0 "Crime"
  game_concept_crimes:0 "Crimes"
  game_concept_criminal:0 "Criminal"
@@ -1684,7 +1690,15 @@
  
  game_concept_commission_epic:0 "$commission_epic_decision$"
  game_concept_commission_epic_decision:0 "$commission_epic_decision$ Decision"
- game_concept_commission_epic_desc:0 "A [decision|E] that lets a character trade [gold|E] for [prestige|E], by commissioning a family epic."
+ game_concept_commission_epic_desc:0 "A [decision|E] that lets a character trade [gold|E] for an [artifact|E], by commissioning a family epic.\nThe epic will give [dynasty_prestige|E] and can give also give other bonuses depending on your choices."
+
+ game_concept_draw_up_new_charts:0 "$draw_up_new_charts_decision$"
+ game_concept_draw_up_new_charts_decision:0 "$draw_up_new_charts_decision$ Decision"
+ game_concept_draw_up_new_charts_desc:0 "A [decision|E] that lets a character trade [gold|E] for an [artifact|E], by commissioning a travel itinerary describing places they have visited.\nThe itinerary [artifact|E] will give different effects depending on where you have been and what choices you make."
+
+ game_concept_local_arbitration:0 "$local_arbitration_decision$"
+ game_concept_local_arbitration_decision:0 "$local_arbitration_decision$ Decision"
+ game_concept_local_arbitration_desc:0 "A [decision|E] that lets a character improve a [county|E] in their current location."
 
  game_concept_exceptional_epic:0 "Exceptional Epic"
  game_concept_exceptional_epic_desc:0 "A Family Epic written through the $commission_epic_decision$ Decision has a chance of being an Exceptional Epic, which confers greater bonuses than a normal epic.\n\nThe chance of the Epic being Exceptional can be affected by event choices."
@@ -2248,14 +2262,15 @@
  game_concept_locale_desc:3 "You may choose how you explore the [GetActivityType( 'activity_tournament').GetName] while the [contests|E] are being prepared.\n\nEach Locale offers opportunities to socialize with guests, improve [progress_to_victory|E], or sabotage [contestants|E].\n\nIf a Locale is not selected, you will visit one at random after a short period of time."
 
  game_concept_travel:0 "Travel"
- game_concept_traveled: "Traveled"
  game_concept_travels:0 "Travels"
  game_concept_traveling:0 "Traveling"
+ game_concept_traveled: "Traveled"
  game_concept_travel_desc:0 "$game_concept_travel$ is the means by which a [character|E] gets from one [location|E] to another, primarily to attend [activities|E].\n\nThere are numerous ways to plan your journey like choosing a [GetCourtPositionType('travel_leader_court_position').GetName()] to hire, selecting [travel_options|E], and customizing your route. You will meet many interesting characters along your path, but be wary of [travel_danger|E] that may lay in wait."
  game_concept_travel_option:0 "Travel Option"
  game_concept_travel_options:0 "Travel Options"
  game_concept_travel_option_desc:0 "An option you pick when planning your [travel|E] to enhance or modify the journey you are about to set out on."
  game_concept_travel_danger:0 "Danger"
+ game_concept_travel_danger_i: "@travel_danger_icon!"
  game_concept_travel_danger_desc:0 "On your [travels|E] you might pass through dangerous lands, for example deserts or swamps, that might impede your journey.\n\nYou can mitigate the risks of Danger by improving your [travel_safety|E]. You do this by investing in [travel_options|E] or by hiring a [GetCourtPositionType('travel_leader_court_position').GetName()].\n\nSeveral [culture_traditions|E] reduce or remove the risks of certain types of Danger."
  game_concept_travel_safety:0 "Safety"
  game_concept_travel_safety_desc:0 "Having a high Safety value will help you avoid [travel_danger|E] during your [travels|E]. Your Safety is affected by your [skills|E] as well as those of your [GetCourtPositionType('travel_leader_court_position').GetName()].\n\n$min_travel_contribution$"
@@ -2507,6 +2522,12 @@
  game_concept_scheme_breaches: "Scheme Breaches"
  game_concept_scheme_breach_desc: "A $game_concept_scheme_breach_short$ represents a complication in a [secret_scheme|e]. When a [scheme|e] is breached, its [success_chance|e] is reduced. The penalty to $game_concept_success_chance$ increases for each cumulative $game_concept_scheme_breach_short$. Once a $game_concept_scheme$ reaches #V 5#! $game_concept_scheme_breaches_short$, it will automatically fail.\n\n#WEAK $game_concept_schemes$ also check their $game_concept_secrecy$ when they are finally executed — breaches have no effect on this one way or another."
 
+ game_concept_influence_ward_personality: "Influence Ward's Personality"
+ game_concept_influence_ward_personality_desc: "An [interaction|E] where one can attempt to influence a [ward|E] to pick up a [personality_trait|E] akin to one's own. "
+
+ game_concept_faction_commitment: "Faction Commitment"
+ game_concept_faction_commitment_desc: "The likelihood of a [character|E] supporting a [faction|E] against their [liege|E].\n\nIt can be affected by a multitude of reasons, the most common being [personality|E], [opinion|E], and [culture|E]."
+
  game_concept_state_faith: "State Faith"
  game_concept_state_faith_desc: "$game_concept_state_faith$ is the [faith|E] supported and condoned by an [administrative_government|E]. This faith is attached to the [title|E] and not to any one specific [character|E]. It is easier to convert characters in the [realm|E] to the state faith and very difficult to convert them away from it.\n\nOnly the [ruler|E] of an Administrative Realm may change the State Faith, but [governors|E] may freely convert to it."
 
@@ -2520,12 +2541,6 @@
  game_concept_story_content_wallada_desc: "#tooltip_heading Story Style: Moderate#!\n\nAs Wallada, you will level up the bespoke [GetTrait('violet_poet').GetName( GetNullCharacter )] by writing poetry and founding lyrical salons across the world, improving a unique tome as you go.\n\nYour story's conclusion is as dramatic as you choose to make it, but despite being childless, you will be given ways to continue playing.\n\n$game_concept_story_generic_desc_boilerplate$"
  game_concept_story_content_hasan: "$game_concept_story_generic_prefix$ $bookmark_laamps_hassan_sabbah$"
  game_concept_story_content_hasan_desc: "#tooltip_heading Story Style: Moderate#!\n\nAs Hasan, you will be guided down a path of religious fanaticism, picking a place to bring the light of the True Faith to and converting [counties|E] out from under their [rulers|E].\n\nEventually, your story will culminate with a major religious uprising against your chosen foe.\n\n$game_concept_story_generic_desc_boilerplate$"
- 
- game_concept_influence_ward_personality: "Influence Ward's Personality"
- game_concept_influence_ward_personality_desc: "An [interaction|E] where one can attempt to influence a [ward|E] to pick up a [personality_trait|E] akin to one's own. "
-
- game_concept_faction_commitment: "Faction Commitment"
- game_concept_faction_commitment_desc: "The likelihood of a [character|E] supporting a [faction|E] against their [liege|E].\n\nIt can be affected by a multitude of reasons, the most common being [personality|E], [opinion|E], and [culture|E]."
  
  game_concept_harrying_widget_i: "@harrying_widget!"
  game_concept_harrying_widget: "@harrying_widget! Harrying of the North"
@@ -2543,3 +2558,42 @@
  game_concept_game_rule_unique_i: "@alert_icon!"
  game_concept_game_rule_unique: "Unique Game Rule"
  game_concept_game_rule_unique_desc: "This Game Rule #bold significantly#! alters the gameplay experience."
+
+ ### BP3
+ game_concept_swing_scales_of_power: "$swing_scales_currency_interaction$"
+ game_concept_swing_scales_of_power_interaction: "$game_concept_swing_scales_of_power$"
+ game_concept_swing_scales_of_power_desc: "At the cost of [prestige|E], [piety|E], or [gold|E], a [liege|E] or a [diarch|E] can move the [scales_of_power|E] in their favor."
+
+ game_concept_destination: "Destination"
+ game_concept_travel_destination: "Travel Destination"
+ game_concept_destination_desc: "The Destination is the objective whilst [traveling|E], or one of several objectives. For a [pilgrimage|E] it would be the [holy_site|E] that is Traveled to, whereas for a [tour|E] every single [vassal|E] that is being visited would be considered a Destination."
+
+ game_concept_roaming_longer_length_travel: "Long Hike"
+ game_concept_roaming_longer_length_travel_desc: "Long Hike is an [activity_option|E] for the [GetActivityType('activity_roaming').GetName] [activity|E]. The character will spend a significantly longer time with the activity, and will be given more opportunities."
+ 
+ game_concept_inspection_success_chance: "Inspection Success Chance"
+ game_concept_inspection_success_chance_no_prefix: "Success Chance"
+ game_concept_inspection_success_chance_desc: "Success is not a given when undertaking an [inspection|E]. The main factors affecting these odds are:\n$BULLET_WITH_TAB$@skill_learning_icon![skills|E]\n$BULLET_WITH_TAB$@control_icon![county_control|E]\n$BULLET_WITH_TAB$@county_icon!Bordering Foreign [realm|E]\n\nInspection Success Chance can never be higher than #bold 95#!."
+
+ game_concept_inspection: "Inspection"
+ game_concept_inspections: "Inspections"
+ game_concept_inspection_i: "@activity_inspection!"
+ game_concept_inspection_desc: "An activity where the [liege|E] travel to a [county|E] in the [realm|E] to oversee the local magnates and nobles.\n\nThey will have opportunities in one of the following focus areas: $rewards_inspection_tt$"
+
+ game_concept_skill_challenges: "Skill Challenges"
+ game_concept_skill_challenges_no_prefix: "Challenges"
+ game_concept_skill_challenges_desc: "Skill challenges are moments where a character has a chance to use one of their [skills|E] to affect the outcome of an event. The higher the skill, or skills, the more likely the character will get their will or a beneficial outcome will happen."
+
+ game_concept_hike: "Hike"
+ game_concept_hike_i: "@activity_hike!"
+ game_concept_hike_desc: "Set out on a solitary expedition to take a break from the pressure of courtly existence.\n\nAnticipated rewards:\n$activity_roaming_host_desc$"
+
+ game_concept_monument_expedition: "Monument Expedition"
+ game_concept_monument_expedition_i: "@activity_monument_expedition!"
+ game_concept_monument_expedition_desc: "An activity where a character chooses to travel to a famous monument or landmark to improve themselves, by delving into its history, knowledge, and mysteries.\n\nAnticipated rewards:\n\t$BULLET_WITH_TAB$[intrigue_i|E][diplomacy_i|E][martial_i|E][learning_i|E][stewardship_i|E] [skill|E] Points\n$BULLET_WITH_TAB$[court_position_i]Excellent-[aptitude|E] [court_positions|E]\n$BULLET_WITH_TAB$[prestige_i|E][prestige|E]"
+
+ game_concept_designated_terrain: "Designated Terrain"
+ game_concept_designated_terrain_desc: "A [decision|E] unlocked from the [wanderer_lifestyle|E] tree, where you can choose a [terrain|E] group to specialize in. Certain [perks|E] will provide different boons to the terrain group chosen.\n\nTerrain groups one can choose from:\n$BULLET_WITH_TAB$@forest! Forests / @jungle! Jungles / @taiga! Taiga / @wetlands! Wetlands\n$BULLET_WITH_TAB$@mountains! Mountains / @hills! Hills / @desert_mountains! Desert Mountains\n$BULLET_WITH_TAB$@plains! Plains / @steppe! Steppe / @farmlands! Farmlands / @floodplains! Floodplains\n$BULLET_WITH_TAB$@desert! Deserts / @drylands! Drylands / @oasis! Oasis"
+
+ game_concept_master_terrain: "Master Terrain"
+ game_concept_master_terrain_desc: "A [decision|E] unlocked from the [wanderer_lifestyle|E] tree, where you can choose a [terrain|E] to specialize in, based on the group one chose in [designated_terrain|E].\n\nThis decision will give significant boons for the terrain chosen, giving bonuses such as increased [advantage|E], improved [combat_roll|E], reducing [attrition|E], and increased [prestige|E] and [prestige_experience|E] from [battle|E]."
