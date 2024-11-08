@@ -16,6 +16,7 @@
  game_concept_rulerpossessive: "правителя"
  game_concept_ruler_desc: "$game_concept_ruler$ — [character|E], у которого есть хотя бы 1 [title|El]."
  game_concept_title: "Титул"
+ game_concept_title_i: "@titles_icon!"
  game_concept_titles: "Титулы"
  game_concept_titlepossessive: "Титула"
  game_concept_title_desc: "$game_concept_title$ — это, в сущности, статус землевладельца.\n\nНаименьшим земельным наделом считается [barony|El]. Из баронств состоят более крупные территории, называемые [counties|El]. Графствами [de_jure|El] владеет [duchy|El], герцогствами — [kingdom|El], а над королевством простирает власть [empire|El].\n\nУ герцогств, королевств и империй не всегда есть [holder|El], но такой титул может [Concept( 'created', 'создать')|E] правитель, контролирующий достаточное количество соответствующих территорий."
@@ -398,6 +399,7 @@
  game_concept_prestigious: "Престиж"
  game_concept_prestige_i: "@prestige_icon!"
  game_concept_prestige_desc: "$game_concept_prestige$ отражает славу и социальное положение персонажа.\n\nПрестиж используется в решении различных мирских вопросов, среди которых [government_form|El], [doctrines|El] и т. д.\n\nЗа определенное количество очков престижа персонаж получает новый [prestige_level|El]."
+ game_concept_prestige_experience_i: "$game_concept_prestige_i$"
  game_concept_prestige_experience: "Репутация"
  game_concept_prestige_experience_desc: "[prestige_level|E] растет одновременно с репутацией. При получении очков [Concept( 'prestige', 'престижа' )|E] персонаж получает равное количество репутации."
  game_concept_prestige_level: "Уровень репутации"
@@ -527,6 +529,7 @@
  game_concept_stress_i: "@stress_icon!"
  game_concept_stress_gain_i: "@stress_gain_icon!"
  game_concept_stress_loss_i: "@stress_loss_icon!"
+ game_concept_stress_loss: "Снижение стресса"
  game_concept_stress_critical_i: "@stress_critical_icon!"
  game_concept_stress_desc: "Стресс растет, когда действия персонажей идут вразрез с их [Concept( 'personality_traits', 'личностными свойствами' )|E].\n\nОпределенное количество стресса повышает [Concept( 'stress_level', 'уровень стресса' )|E], что вызывает различные отрицательные эффекты, которые не исчезают, пока стресс не снизится.\n\nСамый простой способ избавиться от стресса — это такие [Concept( 'activities', 'занятия' )|E], как [GetActivityType( 'activity_hunt' ).GetName|l]."
  game_concept_adult: "Взрослый"
@@ -686,7 +689,7 @@
  game_concept_natural_prowess: "Естественная доблесть"
  game_concept_lifestyle: "Образ жизни"
  game_concept_lifestyles: "Образы жизни"
- game_concept_lifestyle_desc: "[Concept( 'adult', 'Взрослый' )|E] [ruler|El] может вести [Concept( 'lifestyle', 'образ жизни' )|E], позволяющий выбрать [focus|El] и начать получать [perks|El].\n\nКаждый [Concept( 'lifestyle', 'образ жизни' )|E] использует свой тип [Concept( 'experience', 'опыта' )|E], чтобы приобретать [Concept( 'perks', 'достоинства' )|E]. Например, [intrigue_lifestyle|El] нужен, чтобы получить такие [Concept( 'perks', 'достоинства' )|E], как [GetPerk( 'dreadful_perk' ).GetName( GetNullCharacter )] или [GetPerk( 'like_weed_in_a_garden_perk' ).GetName( GetNullCharacter )].\n\n$game_concept_lifestyles$:\n$BULLET_WITH_TAB$ [diplomacy_lifestyle|E]\n$BULLET_WITH_TAB$ [stewardship_lifestyle|E]\n$BULLET_WITH_TAB$ [martial_lifestyle|E]\n$BULLET_WITH_TAB$ [intrigue_lifestyle|E]\n$BULLET_WITH_TAB$ [learning_lifestyle|E]"
+ game_concept_lifestyle_desc: "[Concept( 'adult', 'Взрослый' )|E] [Concept('rulers','правитель')|E] может выбрать для себя образ жизни, а затем выбрать [Concept('focus','фокус')|E] и начать получать [Concept('perks','достоинства')|E].\n\nНакапливая [Concept( 'experience', 'опыт' )|E] определенного [Concept( 'lifestyle', 'пути' )|E], правитель приобретает его [Concept( 'perks', 'достоинства' )|E]. Например, к [Concept( 'perks', 'достоинствам' )|E] [Concept('intrigue_lifestyle','пути интриг')|E] относятся «[GetPerk( 'dreadful_perk' ).GetName( GetNullCharacter )]» и «[GetPerk( 'like_weed_in_a_garden_perk' ).GetName( GetNullCharacter )]».\n\nДоступные пути:\n$BULLET_WITH_TAB$ [diplomacy_lifestyle|E]\n$BULLET_WITH_TAB$ [stewardship_lifestyle|E]\n$BULLET_WITH_TAB$ [martial_lifestyle|E]\n$BULLET_WITH_TAB$ [intrigue_lifestyle|E]\n$BULLET_WITH_TAB$ [learning_lifestyle|E]\n$BULLET_WITH_TAB$ [wanderer_lifestyle|E]"
  game_concept_lifestyle_experience: "Жизненный опыт"
  game_concept_experience: "Опыт"
  game_concept_lifestyle_experience_desc: "$game_concept_lifestyle_experience$ постепенно накапливается сам по себе после выбора [Concept( 'focus', 'фокуса' )|El] или во время событий. $game_concept_lifestyle_experience$ имеет несколько разновидностей, каждой из которых соответствует свой [lifestyle|El].\n\nЗа определенное количество $game_concept_lifestyle_experience$а в категории можно получить [perk|El]."
@@ -767,9 +770,9 @@
  game_concept_taxation: "Налогообложение"
  game_concept_taxes_desc: "$game_concept_taxes$ являются важнейшим ежемесячным источником [Concept('income','дохода')|E] в [Concept('gold','золоте')|E] для [Concept('rulers','правителей')|E].\n\nКаждое [Concept('holding','владение')|E] правителя ежемесячно предоставляет ему часть [Concept('domain_taxes','налогов домена')|E]. Кроме того, у большинства [Concept('vassals','вассалов')|E] есть [Concept('obligations','обязательства')|E] перед [Concept('liege','сюзереном')|E]: они должны передать часть собранных податей в виде [Concept('liege_taxes','налогов')|E] [Concept('liege','сюзерену')|E]."
  game_concept_dread: "Ужас"
- game_concept_dread_i: "@dread_icon!"
  game_concept_dreadful: "Ужасающ"
  game_concept_dreaded: "В ужасе"
+ game_concept_dread_i: "@dread_icon!"
  game_concept_dread_desc: "$game_concept_dread$ отражает, насколько сильный страх внушает [Concept('ruler','правитель')|E].\n\nПравители наводят ужас, совершая жестокие и отвратительные деяния, такие как пытки и казни [Concept('prisoners','пленников')|E].\n\nУжас способствует игре за [Concept('tyrant','тирана')|E]: неуправляемых [Concept('vassals','вассалов')|El] можно [Concept('intimidated','запугать')|El] или [Concept('cowed','устрашить')|El], чтобы они боялись выступить против вас.\n\nУровень ужаса может меняться от 0 до 100. Со временем ужас будет изменяться в сторону естественного ужаса, определяемого [Concept('personality_traits','свойствами')|E] персонажа.\n\n#high Ужасающий [Concept('ruler','правитель')|E] получает следующие выгоды:#!\n$BULLET_WITH_TAB$ [Concept('vassals','Вассалы')|E] не хотят вступать во [factions|El]\n$BULLET_WITH_TAB$ [Concept('vassals','Вассалы')|E] не хотят плести [scheming|El]\n$BULLET_WITH_TAB$ Повышается принятие вассалов #weak (например, при лишении титулов)#!\n$BULLET_WITH_TAB$ Повышается принятие [Concept('offer_vassalization','предложения вассализации')|E]\n$BULLET_WITH_TAB$ Голоса [Concept('electors','выборщиков')|El] чаще согласуются с вашим мнением\n$BULLET_WITH_TAB$ Вассалы реже сопротивляются изменениям [Concept('law','законов')|E]\n\n#weak Отважные и дерзкие [Concept('vassals','вассалы')|El] менее подвержены влиянию ужаса!#!"
  game_concept_truce: "Перемирие"
  game_concept_truces: "Перемирия"
@@ -859,6 +862,7 @@
  game_concept_advantage_rolls: "Броски на преимущество"
  game_concept_combat_roll_desc: "Броски на [advantage|El] делает каждый [commander|El] во время [battles|El]. Результат выбирается случайным образом в диапазоне от 0 до 10 и может оказать решающее влияние на исход битвы."
  game_concept_terrain: "Тип местности"
+ game_concept_terrains: "Типы местности"
  game_concept_terrain_desc: "У каждого [baronies|El] есть основной тип местности, который влияет на [supply|El], скорость перемещения [armies|El], на то, как покажут себя [Concept('regiments','полки')|E] [Concept('men_at_arms','профессионалов')|E] во время [battles|El], и на постройку [Concept('buildings','зданий')|El].\n\nМногие [commander_traits|El] также зависят от типа местности."
  game_concept_independent_ruler: "Независимый правитель"
  game_concept_independent_ruler_desc: "$game_concept_independent$ [ruler|El] не имеет [Concept( 'liege', 'сюзерена' )|El] и пользуется большой свободой действий (например, при объявлении [wars|El]).\n\nОднако, в отличие от [Concept( 'vassal', 'вассалов' )|El], он может подвергаться прямому нападению чужеземных правителей."
@@ -956,6 +960,8 @@
  game_concept_learning_lifestyle: "Путь познания"
  game_concept_learning_lifestyle_i: "@learning_lifestyle_icon!"
  game_concept_learning_lifestyle_desc: "$game_concept_learning_lifestyle$ подойдет персонажам, которые хотят прожить долгую и здоровую жизнь, повысить [Concept( 'piety', 'благочестие' )|E] или получить дополнительные блага от своей [Concept( 'faith', 'конфессии' )|E]."
+ game_concept_wanderer_lifestyle: "Путь странника"
+ game_concept_wanderer_lifestyle_desc: "Путь странника подходит персонажам, которые хотят посетить [Concept('points_of_interest','интересные места')|E] или получить дополнительные бонусы от [Concept('traveling','путешествия')|E]."
  game_concept_crime: "Преступление"
  game_concept_crimes: "Преступления"
  game_concept_criminal: "Преступник"
@@ -1687,7 +1693,15 @@
 
  game_concept_commission_epic: "$commission_epic_decision$"
  game_concept_commission_epic_decision: "$commission_epic_decision$"
- game_concept_commission_epic_desc: "Это [decision|El] позволяет персонажу продавать семейные реликвии и получать [gold|El] в обмен на [prestige|El]."
+ game_concept_commission_epic_desc: "Это [Concept('decision','решение')|E] позволяет персонажу потратить [Concept('gold','золото')|E], чтобы заказать [Concept('artifact','артефакт')|E] — семейный эпос.\nЭпос увеличит [Concept('dynasty_prestige','признание')|E] и может предоставить иные бонусы в зависимости от ваших решений."
+
+ game_concept_draw_up_new_charts: "$draw_up_new_charts_decision$"
+ game_concept_draw_up_new_charts_decision: "Решение: $draw_up_new_charts_decision$"
+ game_concept_draw_up_new_charts_desc: "Это [Concept('decision','решение')|E] позволяет персонажу потратить [Concept('gold','золото')|E], чтобы создать [Concept('artifact','артефакт')|E] — путевой журнал с описанием мест, в которых ему довелось побывать.\nЭтот [Concept('artifact','артефакт')|E] предоставляет разные эффекты в зависимости от мест, где вы побывали, и принятых вами решений."
+
+ game_concept_local_arbitration: "$local_arbitration_decision$"
+ game_concept_local_arbitration_decision: "Решение: $local_arbitration_decision$"
+ game_concept_local_arbitration_desc: "Это [Concept('decision','решение')|E] позволяет персонажу улучшить [Concept('county','графство')|E], в котором он сейчас находится."
 
  game_concept_exceptional_epic: "Выдающийся эпос"
  game_concept_exceptional_epic_desc: "Семейный эпос, созданный по решению $commission_epic_decision$, с некоторой вероятностью может стать выдающимся и таким образом принести более значительные бонусы, чем обычный эпос.\n\nНа вероятность получить выдающийся эпос могут влиять ваши решения во время событий."
@@ -2249,14 +2263,15 @@
  game_concept_locale_desc:3 "[GetActivityType( 'activity_tournament').GetName] уже собирается, но [contests|El] еще не начались. Значит, пока что можно погулять по месту проведения мероприятия.\n\nВ каждом из мест у вас будет возможность пообщаться с гостями, повысить [progress_to_victory|El] и навредить [Concept( 'contestants', 'соперникам' )|E].\n\nЕсли вы не знаете, куда отправиться, место будет выбрано случайно."
 
  game_concept_travel: "Путешествие"
- game_concept_traveled: "Уже посещалось"
  game_concept_travels: "Путешествия"
  game_concept_traveling: "Путешествия"
+ game_concept_traveled: "Уже посещалось"
  game_concept_travel_desc: "Путешествие позволяет [Concept( 'character', 'персонажу' )|E] переместиться из одной [Concept( 'location', 'локации' )|E] в другую, как правило, ради [Concept( 'activities', 'занятий' )|E].\n\nЕсть множество способов спланировать путешествие. Например, можно нанять #L [GetCourtPositionType('travel_leader_court_position').GetName()|l]а#!, выбрать [Concept( 'travel_options', 'варианты путешествия' )|E] и изменить маршрут. В дороге вас ждёт множество интересных встреч, но помните — [Concept( 'travel_danger', 'опасности' )|E] могут скрываться за каждым поворотом."
  game_concept_travel_option: "Вариант путешествия"
  game_concept_travel_options: "Варианты путешествия"
  game_concept_travel_option_desc: "Вариант, который вы выбираете при планировании [Concept( 'travel', 'путешествия' )|E], чтобы улучшить или изменить его."
  game_concept_travel_danger: "Опасность"
+ game_concept_travel_danger_i: "@travel_danger_icon!"
  game_concept_travel_danger_desc: "Ваши [travels|El] могут завести вас в опасные места — например, в пустыни или болота, — которые могут осложнить вам путь.\n\nСнизить опасность можно, повысив [travel_safety|El]. Для этого выбирайте соответствующие [travel_options|El]. Кроме того, помочь вам может [GetCourtPositionType('travel_leader_court_position').GetName()|l].\n\nНекоторые [culture_traditions|El] снижают или вовсе устраняют риск возникновения некоторых типов опасности."
  game_concept_travel_safety: "Безопасность в пути"
  game_concept_travel_safety_desc: "Высокая безопасность в пути поможет вам избегать [Concept( 'travel_danger', 'опасностей' )|E] во время [Concept( 'travels', 'путешествий' )|E]. Ваша безопасность зависит от ваших [Concept( 'skills', 'навыков' )|E], а также от навыков вашего [GetCourtPositionType('travel_leader_court_position').GetName()|l]а.\n\n$min_travel_contribution$"
@@ -2507,6 +2522,12 @@
  game_concept_scheme_breaches: "Бреши в происках"
  game_concept_scheme_breach_desc: "Брешь в происках — фактор, усложняющий [Concept('secret_scheme','тайные происки')|E]. Если в [Concept('scheme','происках')|E] возникает брешь, [Concept('success_chance','шанс их успеха')|e] уменьшается. Штраф к шансу успеха происков увеличивается с каждой брешью. Происки, в которых возникает #V 5#! брешей, автоматически проваливаются.\n\n#WEAK При исполнении происков также проверяется их секретность. В данном случае бреши уже не имеют значения.#!"
 
+ game_concept_influence_ward_personality: "Повлиять на личность подопечного"
+ game_concept_influence_ward_personality_desc: "Это [Concept('interaction','взаимодействие')|E] позволяет убедить [Concept('ward','подопечного')|E] выбрать [Concept('personality_trait','свойство личности')|E], схожее с собственным."
+
+ game_concept_faction_commitment: "Преданность фракции"
+ game_concept_faction_commitment_desc: "Вероятность того, что [Concept('characters','персонаж')|E] поддержит действия [Concept('faction','фракции')|E] против [Concept('liege','сюзерена')|E].\n\nНа преданность фракции влияют [Concept('personality','личность')|E], [Concept('opinion','мнение')|E], [Concept('culture','культура')|E] и другие причины."
+
  game_concept_state_faith: "Государственная религия"
  game_concept_state_faith_desc: "$game_concept_state_faith$ — [Concept('faith','конфессия')|E], которую поддерживает и одобряет [Concept('administrative_government','бюрократическое правительство')|E]. Такая конфессия привязана к [Concept('title','титулу')|E], а не к конкретному [Concept('characters','персонажу')|E]. Персонажей в [Concept('realm','державе')|E] легко приобщить к государственной религии и очень сложно заставить отречься от нее.\n\nИзменить государственную религию может только [Concept('ruler','правитель')|E] бюрократической державы, но [Concept('governors','губернаторы')|E] могут принимать ее по желанию."
 
@@ -2520,12 +2541,6 @@
  game_concept_story_content_wallada_desc: "#tooltip_heading Сюжет: небольшой#!\n\nВы будете писать стихи и откроете поэтические салоны в разных уголках мира, совершенствуя свой особый талант. Вас будут знать под именем «[GetTrait('violet_poet').GetName( GetNullCharacter )]».\n\nВаша история будет полна ярких событий, если на то будет ваша воля. Вы не оставите детей, но у вас всё же будет возможность продолжить игру.\n\n$game_concept_story_generic_desc_boilerplate$"
  game_concept_story_content_hasan: "История Хасана Саббаха"
  game_concept_story_content_hasan_desc: "#tooltip_heading Сюжет: небольшой#!\n\nБудучи неистово преданным своей религии, вы будете нести свет истинной веры и обращать целые [Concept('counties','графства')|E] против своих [Concept('rulers','правителей')|E].\n\nВ конце концов вы поднимете масштабное религиозное восстание против своего врага.\n\n$game_concept_story_generic_desc_boilerplate$"
-
- game_concept_influence_ward_personality: "Повлиять на личность подопечного"
- game_concept_influence_ward_personality_desc: "Это [Concept('interaction','взаимодействие')|E] позволяет убедить [Concept('ward','подопечного')|E] выбрать [Concept('personality_trait','свойство личности')|E], схожее с собственным."
-
- game_concept_faction_commitment: "Преданность фракции"
- game_concept_faction_commitment_desc: "Вероятность того, что [Concept('characters','персонаж')|E] поддержит действия [Concept('faction','фракции')|E] против [Concept('liege','сюзерена')|E].\n\nНа преданность фракции влияют [Concept('personality','личность')|E], [Concept('opinion','мнение')|E], [Concept('culture','культура')|E] и другие причины."
 
  game_concept_harrying_widget_i: "@harrying_widget!"
  game_concept_harrying_widget: "@harrying_widget! Разорение севера"
@@ -2543,3 +2558,42 @@
  game_concept_game_rule_unique_i: "@alert_icon!"
  game_concept_game_rule_unique: "Уникальная игра"
  game_concept_game_rule_unique_desc: "Это правило #bold сильно#! видоизменяет игровой опыт."
+
+ ### BP3
+ game_concept_swing_scales_of_power: "$swing_scales_currency_interaction$"
+ game_concept_swing_scales_of_power_interaction: "$game_concept_swing_scales_of_power$"
+ game_concept_swing_scales_of_power_desc: "Потратив [Concept('prestige','престиж')|E], [Concept('piety','благочестие')|E] или [Concept('gold','золото')|E], [Concept('liege','сюзерен')|E] и [Concept('diarch','диарх')|E] могут сдвинуть [Concept('scales_of_power','равновесие сил')|E] в свою пользу."
+
+ game_concept_destination: "Пункт назначения"
+ game_concept_travel_destination: "Цель путешествия"
+ game_concept_destination_desc: "Пункт назначения — это конечная цель [Concept('traveling','путешествия')|E] или одна из нескольких целей. В случае [Concept('pilgrimage','паломничества')|E] пунктом назначения является [Concept('holy_site','священное место')|E], а во время [Concept('tour','тура')|E] каждый [Concept('vassal','вассал')|E], удостоенный посещения, будет считаться пунктом назначения."
+
+ game_concept_roaming_longer_length_travel: "Долгая прогулка"
+ game_concept_roaming_longer_length_travel_desc: "Долгая прогулка — это [Concept('activity_option','параметр')|E] #L #TOOLTIP:ACTIVITY,activity_roaming прогулки#!#!. Персонаж потратит на [Concept('activity','занятие')|E] значительно больше времени и получит больше возможностей."
+
+ game_concept_inspection_success_chance: "Шанс успеха осмотра"
+ game_concept_inspection_success_chance_no_prefix: "Шанс успеха"
+ game_concept_inspection_success_chance_desc: "При проведении [Concept('inspection','проверки')|E] успех не гарантирован. Главным образом его определяют:\n$BULLET_WITH_TAB$@skill_learning_icon![Concept('skills','навыки')|E]\n$BULLET_WITH_TAB$@control_icon![Concept('county_control','контроль над графством')|E]\n$BULLET_WITH_TAB$@county_icon!наличие границы с другой [Concept('realm','державой')|E]\n\nШанс успеха проверки не может превышать #bold 95%#!."
+
+ game_concept_inspection: "Осмотр"
+ game_concept_inspections: "Осмотры"
+ game_concept_inspection_i: "@activity_inspection!"
+ game_concept_inspection_desc: "Занятие, в ходе которого [Concept('liege','сюзерен')|E] отправляется в [Concept('county','графство')|E] в [Concept('realm','державе')|E], чтобы уделить внимание местным вельможам и дворянам.\n\nСюзерен получит возможность сосредоточиться на одном из следующих вопросов: $rewards_inspection_tt$"
+
+ game_concept_skill_challenges: "Проверки навыков"
+ game_concept_skill_challenges_no_prefix: "Проверки"
+ game_concept_skill_challenges_desc: "В ходе проверок навыков персонаж может использовать один из своих [Concept('skills','навыков')|E], чтобы повлиять на исход события. Чем выше навык или навыки, тем выше шанс того, что персонаж навяжет свою волю или получит желаемый исход."
+
+ game_concept_hike: "Прогулка"
+ game_concept_hike_i: "@activity_hike!"
+ game_concept_hike_desc: "Отправиться в одиночный поход, чтобы отдохнуть от тягот придворной жизни.\n\nОжидаемые награды:\n$activity_roaming_host_desc$"
+
+ game_concept_monument_expedition: "Поход к монументу"
+ game_concept_monument_expedition_i: "@activity_monument_expedition!"
+ game_concept_monument_expedition_desc: "Занятие, в ходе которого персонаж путешествует к знаменитому монументу или достопримечательности, чтобы изучить историю, обрести знания или погрузиться в тайны.\n\nОжидаемые награды\n\t$BULLET_WITH_TAB$очки [Concept('skill','навыков')|E] [intrigue_i|E][diplomacy_i|E][martial_i|E][learning_i|E][stewardship_i|E]\n$BULLET_WITH_TAB$[court_position_i][Concept('court_positions','придворные должности')|E] с отличной [Concept('aptitude','пригодностью')|E]\n$BULLET_WITH_TAB$[prestige_i|E][Concept('prestige','престиж')|E]"
+
+ game_concept_designated_terrain: "Предпочтительная местность"
+ game_concept_designated_terrain_desc: "[Concept('decision','Решение')|E] из [Concept('wanderer_lifestyle','пути странника')|E], которое позволяет выбрать группу [Concept('terrain','типов местности')|E], на которых вы будете специализироваться. Ряд [Concept('perks','достоинств')|E] предоставят различные бонусы к выбранным типам.\n\nДоступные группы типов местности: \n$BULLET_WITH_TAB$@forest! леса / @jungle! джунгли / @taiga! тайга / @wetlands! болота\n$BULLET_WITH_TAB$@mountains! горы / @hills! холмы / @desert_mountains! пустынные горы\n$BULLET_WITH_TAB$@plains! равнины / @steppe! степи / @farmlands! пашни / @floodplains! поймы рек\n$BULLET_WITH_TAB$@desert! пустыни / @drylands! засушливые земли / @oasis! оазисы"
+
+ game_concept_master_terrain: "Излюбленная местность"
+ game_concept_master_terrain_desc: "[Concept('decision','Решение')|E] из [Concept('wanderer_lifestyle','пути странника')|E], которое позволяет выбрать [Concept('terrain','тип местности')|E], на котором вы будете специализироваться, в зависимости от [Concept('designated_terrain','предпочтительной местности')|E].\n\nЭто решение дает значительные бонусы для выбранной местности, например, дополнительное [Concept('advantage','преимущество')|E], лучшие [Concept('combat_roll','броски на результаты боя')|E], снижение [Concept('attrition','потерь')|E] и прирост [Concept('prestige','престижа')|E] и [Concept('prestige_experience','репутации')|E] от [Concept('battle','битв')|E]."

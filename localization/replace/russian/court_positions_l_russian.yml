@@ -205,6 +205,7 @@
  court_position_strong_trait:0 "[GetTrait('strong').GetName( ROOT.Char )]"
  court_position_loyal_trait:0 "[GetTrait('loyal').GetName( ROOT.Char )]"
  court_position_patient_trait:0 "[GetTrait('patient').GetName( ROOT.Char )]"
+ court_position_calm_trait: "[GetTrait('calm').GetName( ROOT.Char )]"
  court_position_impatient_trait:0 "[GetTrait('impatient').GetName( ROOT.Char )]"
  court_position_generous_trait:0 "[GetTrait('generous').GetName( ROOT.Char )]"
  court_position_greedy_trait:0 "[GetTrait('greedy').GetName( ROOT.Char )]"
@@ -243,6 +244,7 @@
  court_position_gardener_trait:0 "[GetTrait('lifestyle_gardener').GetName( ROOT.Char )]"
  court_position_herbalist_trait:0 "[GetTrait('lifestyle_herbalist').GetName( ROOT.Char )]"
  court_position_overseer_trait:0 "[GetTrait('overseer').GetName( ROOT.Char )]"
+ court_position_organizer_trait: "[GetTrait('organizer').GetName( ROOT.Char )]"
  court_position_gallant_trait:0 "[GetTrait('gallant').GetName( ROOT.Char )]"
  court_position_tradition_music_theory:0 "[culture_tradition|E] «$tradition_music_theory_name$»"
  court_position_just_trait:0 "[GetTrait('just').GetName( ROOT.Char )]"
@@ -290,6 +292,7 @@
  court_position_traveler_trait:0 "[GetTrait('lifestyle_traveler').GetName( ROOT.Char )]"
  court_position_traveler_trait_experienced:0 "[GetTrait('lifestyle_traveler').GetName( ROOT.Char )]"
  court_position_traveler_trait_experienced_danger:0 "[GetTrait('lifestyle_traveler').GetName( ROOT.Char )]"
+ court_position_humble_trait: "[GetTrait('humble').GetName( ROOT.Char )]"
  court_position_beastmaster_modifier:0 "$ep2_beastmaster_modifier$"
  court_position_speed:0 "Вклад в [Concept( 'travel_speed', 'скорость' )|E] путешествия"
  court_position_safety:0 "Вклад в [Concept( 'travel_safety', 'безопасность в пути' )|E]"
@@ -424,7 +427,7 @@
  hire_travel_leader_decision_confirm:0 "Начать поиски"
  wet_nurse_court_position:0 "Кормилица"
  wet_nurse_court_position_desc:0 "$wet_nurse_court_position$ заботится о ваших [Concept( 'children', 'детях' )|E] и детях, находящихся у вас в [Concept( 'hostages', 'заложниках' )|E]."
- wet_nurse_employer_custom_effect_description:0 "$BULLET$Сниженный шанс, что [children|El] подхватят [illnesses|El].\n$BULLET$Возможны события, развивающие [Concept( 'child', 'ребенка' )|E]"
+ wet_nurse_employer_custom_effect_description: "$BULLET$Сниженный шанс, что [Concept('children','дети')|E] подхватят [Concept('illnesses','хвори')|E]\n$BULLET$Возможны события, развивающие [Concept( 'child', 'ребенка' )|E]"
  find_wet_nurse_decision:0 "Найти кормилицу"
  find_wet_nurse_decision_desc:0 "$wet_nurse_court_position$ — символ достатка и благополучия двора. Отвечает за заботу о детях, оберегает их от болезней и следит за их развитием. Кандидатка должна быть крепкой и здоровой."
  find_wet_nurse_decision_tooltip:0 "Ваши слуги предложат несколько кандидатур, подходящих на должность [GetCourtPositionType('wet_nurse_court_position').GetName()]"
@@ -479,6 +482,19 @@
  akolouthos_court_position_desc: "$akolouthos_court_position$ командует большей частью византийской имперской гвардии, включая знаменитых варягов, которые мечтают с честью умереть за своего господина."
 
  court_position_akolouthos_bonus: "[GetCourtPositionType('akolouthos_court_position').GetName()]"
+
+ court_brewmaster_court_position: "Придворный пивовар"
+ court_brewmaster_court_position_desc: "Придворному пивовару доверено взаимодействие с пивоварами державы, чтобы в распоряжении сюзерена всегда были лучшие напитки."
+ court_brewmaster_employer_custom_effect_description: "$BULLET$[GetActivityType( 'activity_feast' ).GetName] стоит на #positive_value @gold_icon!5%#!-#positive_value @gold_icon!25%#! дешевле (в зависимости от [Concept('aptitude','пригодности')|E])$BULLET$[GetActivityType( 'activity_feast' ).GetName] дает на #positive_value 5%#!-#positive_value 25%#! большие награды (в зависимости от [Concept('aptitude','пригодности')|E])"
+ court_brewmaster_popular_opinion: "Опустошить погреба"
+ court_brewmaster_popular_opinion_desc: "Увеличить производство по всей державе, чтобы мы могли регулярно делиться лучшими напитками с народом."
+ court_brewmaster_court_opinion: "Поделиться с двором"
+ court_brewmaster_court_opinion_desc: "Достать лучшие напитки, чтобы двор увидел, чем мы располагаем."
+ court_brewmaster_experimental_brew: "Экспериментальный напиток"
+ court_brewmaster_experimental_brew_desc: "Придворный пивовар изготовил нечто поистине уникальное и запоминающееся... но не обязательно вкусное."
+ court_brewmaster_experimental_brew_tt: "Вы получите #color_yellow экспериментальный напиток#! на #color_white 6 месяцев#!\n#color_yellow Экспериментальный напиток#! будет меняться раз в #color_white 6 месяцев#!"
+ court_brewmaster_explanation: "[GetCourtPositionType('court_brewmaster_court_position').GetName]"
+ court_brewmaster_task_cooldown: "Это поручение нельзя начать до #color_white [GetCurrentDateWithDiff( GetVarTimeRemaining( liege.MakeScope, 'experimental_brew_cooldown') )]#!"
 
  court_position_palace_politics: "[GetCultureTradition('tradition_ep3_palace_politics').GetName]"
  court_position_north_germanic: "[heritage|E]: $heritage_north_germanic_name$"
@@ -567,3 +583,8 @@
 
  court_position_bodyguard_modifier: "[GetPerk('praetorian_guard_perk').GetName( GetNullCharacter )]"
  court_position_bodyguard_liege_modifier: "У нанимателя есть достоинство «[GetPerk('praetorian_guard_perk').GetName( GetNullCharacter )]»"
+
+ #BP3
+ court_position_travel_companion_modifier: "[GetPerk('travel_companion_perk').GetName( GetNullCharacter )]"
+ court_position_travel_companion_liege_modifier: "Наниматель — [GetPerk('travel_companion_perk').GetName( GetNullCharacter )|l]"
+ gracious_host_impeccable_guest_perk_bonus: "[GetPerk('gracious_host_impeccable_guest_perk').GetName( GetNullCharacter )]"

@@ -1046,7 +1046,7 @@
  culture_emergence_events.0001.desc:0 "Я принадлежу к #L [ROOT.Char.GetCulture.GetCollectiveNoun|l]ому#! народу, но моя столица, [capital_county_scope.GetBaseName], населена #L [hybdridization_offer_culture.GetCollectiveNoun|l]ими#! людьми. В последнее время я часто вижу, как мои [hybdridization_offer_culture.GetCollectiveNounNoTooltip|l]ие подданные подражают мне и [ROOT.Char.GetCulture.GetCollectiveNounNoTooltip|l]им обычаям.\n\nОни смешивают наши традиции. Какие-то из них новые, какие-то старые, но важно то, что они с большей охотой принимают мое правление!\n\nВозможно, это стоит поощрять?"
  culture_emergence_events.0001.a:0 "Раз они подражают мне, я буду подражать им. Вскоре мы станем единым целым."
  culture_emergence_events.0001.b:0 "Достаточно их восхищения!"
- cultural_acceptance_gain_event:0 "От событий" #TODO AO does 'Events in the realm of [hybridizer.GetUIName]' work?
+ cultural_acceptance_gain_event:0 "От событий"
  new_hybrid_culture_tt:0 "Появится [Concept( 'hybrid_culture', 'гибридная культура' )|E], вобравшая в себя [Concept( 'traditions', 'традиции' )|E] и [Concept( 'culture_pillars', 'столпы' )|E] #L [ROOT.Char.GetCulture.GetCollectiveNoun|l]ой#! и #L [hybdridization_offer_culture.GetCollectiveNoun|l]ой#! [Concept( 'culture', 'культур' )|E]."
  culture_emergence_events.0001.existing_hybrid:0 "Вы и ваши земли примете #L [existing_hybrid_culture.GetCollectiveNoun|l]ую#! [Concept( 'culture', 'культуру' )|E]"
  culture_emergence_events.0001.new_hybrid:0 "Вы и ваши земли примете новую [Concept( 'hybrid_culture', 'гибридную культуру' )|E]"
@@ -1318,3 +1318,10 @@
  culture_parameter_resistant_to_desert_privation: ""
  culture_parameter_resistant_to_mountain_privation: ""
  culture_parameter_resistant_to_winter_privation: ""
+
+ allows_brewery: "Открывает линейку [Concept( 'buildings', 'зданий' )|E] #color_white $building_type_breweries_01$#!"
+ culture_parameter_allows_brewery: "$allows_brewery$ для [Concept('city_holdings','городских владений')|E]"
+ culture_parameter_brewery_farming_bonus: "Цепочки [Concept('buildings','зданий')|E] #color_white $building_type_cereal_fields_01$#! и #color_white $building_type_farm_estates_01$#! предоставляют бонусы [Concept('county_opinion','народного мнения')|E]"
+ tradition_brewery_name: "Культура пивоваров"
+ tradition_brewery_desc: "Приготовление и распитие алкоголя играют важную роль в праздниках и повседневной жизни представителей этой культуры."
+ culture_in_farm_or_mansion_count_desc: "[culture|E] не распространена хотя бы в #V 5#! [Concept( 'counties', 'графствах' )|E] со [Concept('building','зданиями')|E] #color_white $building_type_cereal_fields_01$#! или #color_white $building_type_farm_estates_01$#!"

@@ -1809,6 +1809,7 @@
  VASSALS_REFUSAL_indomitable_azatani: "[GetCultureTradition('tradition_ep3_indomitable_azatani').GetName]: $VALUE|=+0$"
  cowed_from_visit_interaction_reason: "[recipient.GetShortUIName] [Select_CString(recipient.IsFemale, 'устрашена', 'устрашен' )] визитом императора: $VALUE|=+0$"
  ELUDING_CASTRATOR: "Шанс избежать попытки кастрации: $VALUE|=+0$"
+
  laamp_from_contact_list_reason: "[recipient.GetShortUIName] [Select_CString(recipient.IsLocalPlayer, 'присутствуете', 'присутствует')] в списке [Concept( 'contact_list', 'покровителей' )|E] [Select_CString(actor.IsLocalPlayer, '', 'персонажа ' )][actor.GetNamePossessiveOrMy][Select_CString(actor.IsLocalPlayer, 'его персонажа', '' )]: $VALUE|=+0$"
 
  prison_break_contract_interaction: "Начать договор по организации побега из тюрьмы"
@@ -1824,11 +1825,11 @@
  TAKE_VOWS_CYNICAL_REASON: "У [Select_CString(recipient.IsFemale, 'нее', 'него' )] есть свойство «[GetTrait('cynical').GetName( GetNullCharacter )]»: $VALUE|=+0$"
 
  joining_vassal_count_tt: "[actor.MakeScope.Var('joining_vassal_count').GetValue]"
-
  will_lose_administrative_government_type_tt: "@alert_icon! #alert_trial Форма правления персонажа [recipient.GetName] — не «[actor.GetGovernment.GetName|E]», поэтому вы утратите текущее правительство и перейдете на [Concept('government','форму правления')|E] «[recipient.GetGovernment.GetName|E]»#!"
  will_change_from_administrative_tt: "Принимает форму [Concept( 'government', 'правления' )|E] «[recipient.GetGovernment.GetName|E]»"
 
  #EP3 - Rebalancing Old Perks
  influence_children_groomed_to_rule_perk_tt: "У вас есть достоинство «[GetPerk( 'groomed_to_rule_perk' ).GetName( GetPlayer )]»: $VALUE|=+0$"
+
  distrust_laamps_for_marriage_tt: "[actor.GetGovernment.GetName|E]: $VALUE|=+0$"
  laamp_has_soldiers_negotiate_settlement_tt: "$SORT_MILITARY_STRENGTH$: $VALUE|=+0$"
