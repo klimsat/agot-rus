@@ -1,14 +1,14 @@
 ﻿l_russian:
  court_position_desc_master_of_arms:0 "ведущий гербовые списки и возвещающий о вашем прибытии"
- hold_court_8090_interest_master_of_arms:0 "\n\n"У меня большие познания в оружейном деле государства, я - очевидный выбор.""
+ hold_court_8090_interest_master_of_arms:0 "\n\n«У меня большие познания в оружейном деле государства, я - очевидный выбор»."
  court_position_master_of_arms:0 "[GetCourtPositionType('master_of_arms_court_position').GetName()]"
 
  #Gaoler
- gaoler_aptitude_tooltip:0 "[candidate.GetHerHisMy|U] [aptitude|E] is [candidate.GetCourtPositionAptitude( GetCourtPositionType( 'gaoler_court_position' ) )]"
- gaoler_old_holder_aptitude_tooltip:0 "[candidate.GetHerHisMy|U] [aptitude|E] is [candidate.GetCourtPositionAptitude( GetCourtPositionType( 'gaoler_court_position' ) )] #weak ([old_holder.GetFirstName] [old_holder.GetCourtPositionAptitude( GetCourtPositionType( 'gaoler_court_position' ) )])#!"
- gaoler_salary_tooltip:0 "[GetCourtPositionType( 'gaoler_court_position' ).GetName()] has a monthly salary of [gold_i][SCOPE.ScriptValue('medium_court_position_salary')|2]"
+ gaoler_aptitude_tooltip:0 "[Select_CString(candidate.IsLocalPlayer, 'Ваша', Select_CString(candidate.IsFemale, 'Ее', 'Его' ))] [Concept( 'aptitude', 'пригодность' )|E] — [candidate.GetCourtPositionAptitude( GetCourtPositionType( 'gaoler_court_position' ) )]"
+ gaoler_old_holder_aptitude_tooltip:0 "[Select_CString(candidate.IsLocalPlayer, 'Ваша', Select_CString(candidate.IsFemale, 'Ее', 'Его' ))] [Concept( 'aptitude', 'пригодность' )|E] — [candidate.GetCourtPositionAptitude( GetCourtPositionType( 'gaoler_court_position' ) )] #weak ([old_holder.GetFirstName] — [old_holder.GetCourtPositionAptitude( GetCourtPositionType( 'gaoler_court_position' ) )])#!"
+ gaoler_salary_tooltip:0 "[GetCourtPositionType( 'gaoler_court_position' ).GetName()] получает ежемесячное жалованье — [SCOPE.ScriptValue('medium_court_position_salary')|2] [gold_i]"
 
  #Household_Guard
- household_guard_aptitude_tooltip:0 "[candidate.GetHerHisMy|U] [aptitude|E] is [candidate.GetCourtPositionAptitude( GetCourtPositionType( 'household_guard_court_position' ) )]"
- household_guard_old_holder_aptitude_tooltip:0 "[candidate.GetHerHisMy|U] [aptitude|E] is [candidate.GetCourtPositionAptitude( GetCourtPositionType( 'household_guard_court_position' ) )] #weak ([old_holder.GetFirstName] [old_holder.GetCourtPositionAptitude( GetCourtPositionType( 'household_guard_court_position' ) )])#!"
- household_guard_salary_tooltip:0 "[GetCourtPositionType( 'household_guard_court_position' ).GetName()] has a monthly salary of [gold_i][SCOPE.ScriptValue('medium_court_position_salary')|2]"
+ household_guard_aptitude_tooltip:0 "[Select_CString(candidate.IsLocalPlayer, 'Ваша', Select_CString(candidate.IsFemale, 'Ее', 'Его' ))] [Concept( 'aptitude', 'пригодность' )|E] — [candidate.GetCourtPositionAptitude( GetCourtPositionType( 'household_guard_court_position' ) )]"
+ household_guard_old_holder_aptitude_tooltip:0 "[Select_CString(candidate.IsLocalPlayer, 'Ваша', Select_CString(candidate.IsFemale, 'Ее', 'Его' ))] [Concept( 'aptitude', 'пригодность' )|E] — [candidate.GetCourtPositionAptitude( GetCourtPositionType( 'household_guard_court_position' ) )] #weak ([old_holder.GetFirstName] — [old_holder.GetCourtPositionAptitude( GetCourtPositionType( 'household_guard_court_position' ) )])#!"
+ household_guard_salary_tooltip:0 "[GetCourtPositionType( 'household_guard_court_position' ).GetName()] получает ежемесячное жалованье — [SCOPE.ScriptValue('medium_court_position_salary')|2] [gold_i]"
