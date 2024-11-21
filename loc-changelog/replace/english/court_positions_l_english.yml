@@ -1,5 +1,7 @@
 ﻿l_english:
- APPOINT_COURT_POSITION_VIEW_replace_character_header:2 "Replace [AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee.GetShortUINameNoTooltip] as [AppointCourtPositionView.GetCourtPositionType.GetName]"
+ #AGOT Modified
+ #APPOINT_COURT_POSITION_VIEW_replace_character_header:2 "Replace [AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee.GetShortUINameNoTooltip] as [AppointCourtPositionView.GetCourtPositionType.GetName]"
+ APPOINT_COURT_POSITION_VIEW_replace_character_header:2 "Replace #high [AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee.Custom('AGOTCustomGetTitledFullNameDynasty')]#! as [AppointCourtPositionView.GetCourtPositionType.GetName]"
  APPOINT_COURT_POSITION_VIEW_select_character_header:2 "Appoint [AppointCourtPositionView.GetCourtPositionType.GetName]"
  APPOINT_COURT_POSITION_VIEW_salary:3 "Monthly salary: [CourtPositionType.GetSalaryTextFor( Character.Self )]"
  APPOINT_COURT_POSITION_VIEW_salary_per_travel:0 "Salary when a travel starts: [Character.GetTravelLeaderCost|U]"
@@ -30,8 +32,12 @@
  COURT_POSITION_FOR_EMPLOYER:1 "For [CourtPosition.GetEmployer.GetUINameNoTooltip]"
 
  COURT_WINDOW_COURT_POSITIONS:0 "[CourtWindow.GetCourtOwner.Custom('GetCourtPositionPlural')|U]"
- COURT_POSITION_REPLACE:0 "#T Replace [Character.GetShortUINameNoTooltip]#!"
- COURT_POSITION_REVOKE:0 "#T Fire [Character.GetShortUINameNoTooltip]#!"
+ #AGOT Modified
+ #COURT_POSITION_REPLACE:0 "#T Replace [Character.GetShortUINameNoTooltip]#!"
+ COURT_POSITION_REPLACE:0 "#T Replace #high [Character.Custom('AGOTCustomGetTitledFullNameDynasty')]#!#!"
+ #AGOT Modified
+ #COURT_POSITION_REVOKE:0 "#T Fire [Character.GetShortUINameNoTooltip]#!"
+ COURT_POSITION_REVOKE:0 "#T Fire #high [Character.Custom('AGOTCustomGetTitledFullNameDynasty')]#!#!"
  COURT_POSITION_POWERFUL_AGENT:0 "@alert_icon! #alert_trial Powerful [agent|E] in [hostile_schemes|E] against you#!"
  COURT_POSITION_OPINION_BONUS:0 "[opinion|e] Bonus: [CourtPosition.GetOpinionBonus|=+]"
 

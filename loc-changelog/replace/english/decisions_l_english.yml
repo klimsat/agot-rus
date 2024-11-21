@@ -339,7 +339,7 @@
  decision_embrace_english_culture_get_innovations:1 "The English [culture|E] gains all Norman and Anglo-Saxon [innovations|E]"
  MY_CAPITAL_IS_IN_ENGLAND:1 "Your [realm_capital|E] is in England"
  HARRYING_ENDED: "The Harrying of the North has ended"
- HIGH_PACIFICATION: "The Harrying of the North's [harrying_pacification|E] has been:\n$EFFECT_LIST_BULLET$Higher than [harrying_resistance|E]\n$EFFECT_LIST_BULLET$Over #V 16#! for at least #V 1#! year"
+ HIGH_PACIFICATION: "The Harrying of the North's [harrying_pacification|E] has been:\n$EFFECT_LIST_BULLET$Higher than [harrying_resistance|E]\n$EFFECT_LIST_BULLET$Over #V 14#! for at least #V 1#! year"
 
  restore_dumnonia_decision:0 "Restore the Kingdom of Cornwall"
  restore_dumnonia_decision_desc:0 "The spirit of ancient Dumnonia has burned in our breasts since Brutus first landed on Britannia's misty shores. It will burn brighter yet."
@@ -1445,3 +1445,74 @@
  roman_restoration.1213.desc.outro.no_territory_left: "\n\nWithout so much as a single Roman city remaining in the lost lands, there is simply no one left to mourn the death of Justinian's dream."
  roman_restoration.1213.a: "Good riddance!"
  roman_restoration.1213.b: "What dark times we live in..."
+
+ # BP3
+ local_arbitration_decision: "Local Arbitration"
+ local_arbitration_decision_desc: "At times it is necessary to meet the local sheriffs and mayors to ensure every step of the hierarchy works as intended. The subjects are sure to appreciate the gesture."
+ local_arbitration_decision_tooltip: "You work on improving the [county|E] in your current location"
+ local_arbitration_decision_confirm: "Begin Arbitration"
+ inside_realm_trigger: "Must be inside your own [realm|E]"
+ local_arbitration_key: "[GetDecisionWithKey('local_arbitration_decision').GetName]"
+ local_arbitration_modifier_1: "Inspired Levies"
+ local_arbitration_modifier_1_desc: "After a local liege visited the province, there has been an increased interest in joining the army and protecting the realm."
+ local_arbitration_modifier_2: "Hampering Corruption"
+ local_arbitration_modifier_2_desc: "Particular effort has been taken to ensure that there's no local "extra tax" on the tax."
+ local_arbitration_modifier_3: "Investing in Development"
+ local_arbitration_modifier_3_desc: "Time and money has been invested into developing this province, both by the liege and several local landholders."
+ has_locations_to_map_tt: "Maps can only be made to visited locations that are:\n[points_of_interest|E]\nForeign [kingdom|E] [capital|E]\nIn your own [domain|E]\nAn own [vassal|E] [capital|E]"
+ draw_up_new_charts_decision: "Create Travel Itinerary"
+ draw_up_new_charts_decision_key: "[GetDecisionWithKey('draw_up_new_charts_decision').GetName]"
+ draw_up_new_charts_decision_desc: "The insights I have collected during my travels can be condensed into an itinerary, for others to follow and admire."
+ draw_up_new_charts_decision_tooltip: "You create an itinerary and a map over a traveled region."
+ draw_up_new_charts_artifact_tt: "This will produce an [artifact|E], effects will depend on choices you make related to the traveled region."
+ draw_up_new_charts_decision_confirm: "Draw up Itinerary"
+
+ form_bosporan_kingdom_decision: "Restore the Bosporan Kingdom"
+ form_bosporan_kingdom_decision_confirm: "Restore Kingdom"
+ form_bosporan_kingdom_decision_desc: "We will once again be rulers of the Black Sea, capturing its wealth and becoming renowned far beyond our borders."
+ form_bosporan_kingdom_decision_tooltip: "Restore the borders of the former kingdom of Cimmerian Bosporus."
+
+ bp3_bosporan_kingdom_modifier: "Rulers of the Black Sea"
+ bp3_bosporan_kingdom_modifier_desc: "This family has gained a significant presence in the Black Sea, and aims at taking control of all its wealth and riches.\n\n"
+ black_sea_coast_region: "Black Sea"
+ modifier_bosporan_kingdom_desc: "Increased for every [county|E]"
+ MODIFIER_DEFINITION_BOSPORAN_KINGDOM: "This modifier is increased for every held [county|E] in the [GetGeographicalRegion('black_sea_coast_region').GetName] [region|E]"
+ unlocks_black_sea_naval_conquest: "Unlocks the #emp County Expansion#! and #emp Naval County Expansion#! [casus_belli|E] in the [GetGeographicalRegion('black_sea_coast_region').GetName] [region|E] for the duration of the [house|E] [modifier|E]"
+ bp3_conqueror_black_sea_modifier: "Conqueror of the Black Sea"
+ bp3_conqueror_black_sea_modifier_desc: "The Black Sea is awaiting the return of its rightful king."
+
+ merge_aquitaine_decision: "[GetTitleByKey('k_france').GetNameNoTierNoTooltip] as One"
+ merge_aquitaine_decision_alt: "[GetTitleByKey('k_aquitaine').GetNameNoTierNoTooltip] as One"
+ merge_aquitaine_decision_desc: "The people of [GetTitleByKey('k_france').GetNameNoTierNoTooltip] has been split for too long, squabbling over borders and land."
+ merge_aquitaine_decision_desc_aquitaine: "The people of [GetTitleByKey('k_aquitaine').GetNameNoTierNoTooltip] has been split for too long, squabbling over borders and land."
+ merge_aquitaine_decision_desc_outro: "From the Seine in the north to the Pyrenees in the south, they shall all answer to their one true [ROOT.Char.GetTitleAsNameNoTooltip] - #emp me#!."
+ merge_aquitaine_decision_tooltip: "Gather all the lands of [GetTitleByKey('k_france').GetNameNoTier] and [GetTitleByKey('k_aquitaine').GetNameNoTier] under one [title|E]"
+
+ merge_aquitaine_vassal: "$BULLET$Every [de_jure|E] [vassal|E] in"
+ merge_aquitaine_decision_vassal_original: "$merge_aquitaine_vassal$ [GetTitleByKey('k_france').GetName]"
+ merge_aquitaine_decision_vassal_alt: "$merge_aquitaine_vassal$ [GetTitleByKey('k_aquitaine').GetName]"
+
+ merge_aquitaine_opinion: "Gains #p 20#! [opinion|E] of #color_white you#! #weak (-1.20/year) ($rightful_king_opinion$)#!"
+
+ merge_aquitaine_title: "$BULLET$Every [de_jure|E] [duchy|E] in"
+ merge_aquitaine_decision_tooltip_original: "$merge_aquitaine_title$ [GetTitleByKey('k_aquitaine').GetName]"
+ merge_aquitaine_decision_tooltip_alt: "$merge_aquitaine_title$ [GetTitleByKey('k_france').GetName]"
+
+ merge_aquitaine_de_jure_title: "becomes [de_jure|E] [liege|E] of this [duchy|E]"
+ merge_aquitaine_decision_tooltip_2_original: "[GetTitleByKey('k_france').GetName] $merge_aquitaine_de_jure_title$"
+ merge_aquitaine_decision_tooltip_2_alt: "[GetTitleByKey('k_aquitaine').GetName] $merge_aquitaine_de_jure_title$"
+ merge_aquitaine_decision_confirm: "It is Time"
+
+ merge_aquitane_culture: "$BULLET$Every non-[GetTitleByKey('k_aquitaine').GetHolder.GetCulture.GetName] [culture|E] in"
+ merge_aquitane_culture_tooltip_original: "$merge_aquitane_culture$ [GetTitleByKey('k_aquitaine').GetName]"
+ merge_aquitane_culture_tooltip_alt: "$merge_aquitane_culture$ [GetTitleByKey('k_france').GetName]"
+ merge_aquitaine_culture_tooltip: "The [cultural_acceptance|E] decreases by #n 25%#!"
+
+ cultural_acceptance_merge_aquitaine: "Forcibly Put Under Liege"
+
+ rightful_king_opinion: "Rightful Liege"
+
+ major_decisions.3200.t: "[rightful_title.GetNameNoTierNoTooltip] as One"
+ major_decisions.3200.desc: "As the [rightful_liege.Custom('GetQueenKing')|l] of the thrones of [rightful_title.GetNameNoTier] and [destroyed_title.GetNameNoTier], [rightful_liege.GetTitledFirstName] has decided it is time to rule them both from [rightful_liege.GetCapitalLocation.GetTitle.GetNameNoTier].\n\nNo longer shall [rightful_liege.GetHerHis] vassals be seen as two people ruled by one [rightful_liege.Custom('GetQueenKing')|l], but rather as the people of one kingdom."
+ major_decisions.3200.a: "And so continues the rule of the [rightful_liege.GetCulture.GetNameNoTooltip] tyrant..."
+ major_decisions.3200.b: "For the betterment of all of [rightful_title.GetNameNoTierNoTooltip]."

@@ -1,16 +1,34 @@
 ﻿l_english:
  CHARACTER_DEATH_EFFECT:1 "@death_icon! Dies"
- CHARACTER_DEATH_EFFECT_THIRD:1 "@death_icon! [CHARACTER.GetShortUIName|U] dies"
+ #AGOT Modified
+ #CHARACTER_DEATH_EFFECT_THIRD:1 "@death_icon! [CHARACTER.GetShortUIName|U] dies"
+ CHARACTER_DEATH_EFFECT_THIRD:1 "@death_icon! #high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! dies"
  CHARACTER_DEATH_EFFECT_FIRST:1 "@death_icon! You die"
- CHARACTER_DIED_EFFECT:1 "@death_icon! [CHARACTER.GetShortUIName|U] died"
- CHARACTER_DIED_EFFECT_THIRD:1 "@death_icon! [CHARACTER.GetShortUIName|U] died"
+ #AGOT Modified
+ #CHARACTER_DIED_EFFECT:1 "@death_icon! [CHARACTER.GetShortUIName|U] died"
+ CHARACTER_DIED_EFFECT:1 "@death_icon! #high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! died"
+ #AGOT Modified
+ #CHARACTER_DIED_EFFECT_THIRD:1 "@death_icon! [CHARACTER.GetShortUIName|U] died"
+ CHARACTER_DIED_EFFECT_THIRD:1 "@death_icon! #high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! died"
  CHARACTER_DIED_EFFECT_FIRST:2 "@death_icon! You died"
- CHARACTER_DEATH_EFFECT_KILLER:1 "@death_icon! Is killed by [TARGET_CHARACTER.GetShortUIName]"
- CHARACTER_DEATH_EFFECT_KILLER_THIRD:1 "@death_icon! [CHARACTER.GetShortUIName|U] is killed by [TARGET_CHARACTER.GetShortUIName]"
- CHARACTER_DEATH_EFFECT_KILLER_FIRST:2 "@death_icon! You are killed by [TARGET_CHARACTER.GetShortUIName]"
- CHARACTER_DIED_EFFECT_KILLER:0 "[CHARACTER.GetShortUIName|U] was killed by [TARGET_CHARACTER.GetShortUIName]"
- CHARACTER_DIED_EFFECT_KILLER_THIRD:1 "@death_icon! [CHARACTER.GetShortUIName|U] was killed by [TARGET_CHARACTER.GetShortUIName]"
- CHARACTER_DIED_EFFECT_KILLER_FIRST:2 "@death_icon! You were killed by [TARGET_CHARACTER.GetShortUIName]"
+ #AGOT Modified
+ #CHARACTER_DEATH_EFFECT_KILLER:1 "@death_icon! Is killed by [TARGET_CHARACTER.GetShortUIName]"
+ CHARACTER_DEATH_EFFECT_KILLER:1 "@death_icon! Is killed by #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
+ #AGOT Modified
+ #CHARACTER_DEATH_EFFECT_KILLER_THIRD:1 "@death_icon! [CHARACTER.GetShortUIName|U] is killed by [TARGET_CHARACTER.GetShortUIName]"
+ CHARACTER_DEATH_EFFECT_KILLER_THIRD:1 "@death_icon! #high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! is killed by #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
+ #AGOT Modified
+ #CHARACTER_DEATH_EFFECT_KILLER_FIRST:2 "@death_icon! You are killed by [TARGET_CHARACTER.GetShortUIName]"
+ CHARACTER_DEATH_EFFECT_KILLER_FIRST:2 "@death_icon! You are killed by #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
+ #AGOT Modified
+ #CHARACTER_DIED_EFFECT_KILLER:0 "[CHARACTER.GetShortUIName|U] was killed by [TARGET_CHARACTER.GetShortUIName]"
+ CHARACTER_DIED_EFFECT_KILLER:0 "#high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! was killed by #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
+ #AGOT Modified
+ #CHARACTER_DIED_EFFECT_KILLER_THIRD:1 "@death_icon! [CHARACTER.GetShortUIName|U] was killed by [TARGET_CHARACTER.GetShortUIName]"
+ CHARACTER_DIED_EFFECT_KILLER_THIRD:1 "@death_icon! #high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! was killed by #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
+ #AGOT Modified
+ #CHARACTER_DIED_EFFECT_KILLER_FIRST:2 "@death_icon! You were killed by [TARGET_CHARACTER.GetShortUIName]"
+ CHARACTER_DIED_EFFECT_KILLER_FIRST:2 "@death_icon! You were killed by #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
  RANDOM_LIST_EFFECT:0 "1 of $SIZE$ things will happen: \n"
  RANDOM_EFFECT:0 "$CHANCE$% chance of: "
  NO_EFFECT:0 "#weak Nothing happens#!"
@@ -44,43 +62,111 @@
  SET_EMPLOYER_EFFECT:1 "$COURTIER$ becomes a [courtier|E] in $EMPLOYER$'s court"
  REMOVE_COURT_CHARACTER_EFFECT:1 "[TARGET_CHARACTER.GetUIName] leaves [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourt')|l]"
  REMOVED_COURT_CHARACTER_EFFECT:0 "[TARGET_CHARACTER.GetUIName] left [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourt')|l]"
- GAIN_HOOK_EFFECT:0 "Gets a [weak_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- GAINED_HOOK_EFFECT:0 "Got a [weak_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- I_GAIN_HOOK_EFFECT:1 "You get a [weak_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- I_GAINED_HOOK_EFFECT:1 "You got a [weak_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- THEY_GAIN_HOOK_EFFECT:0 "[CHARACTER.GetShortUIName|U] gets a [weak_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- THEY_GAINED_HOOK_EFFECT:0 "[CHARACTER.GetShortUIName|U] got a [weak_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- GAIN_HOOK_EFFECT_STRONG:0 "Gets a [strong_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- GAINED_HOOK_EFFECT_STRONG:0 "Got a [strong_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- I_GAIN_HOOK_EFFECT_STRONG:1 "You get a [strong_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- I_GAINED_HOOK_EFFECT_STRONG:1 "You got a [strong_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- THEY_GAIN_HOOK_EFFECT_STRONG:0 "[CHARACTER.GetShortUIName|U] gets a [strong_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- THEY_GAINED_HOOK_EFFECT_STRONG:0 "[CHARACTER.GetShortUIName|U] got a [strong_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- GAIN_HOOK_EFFECT_PERPETUAL: "Gets a [perpetual_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- GAINED_HOOK_EFFECT_PERPETUAL: "Got a [perpetual_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- I_GAIN_HOOK_EFFECT_PERPETUAL: "You get a [perpetual_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- I_GAINED_HOOK_EFFECT_PERPETUAL: "You got a [perpetual_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- THEY_GAIN_HOOK_EFFECT_PERPETUAL: "[CHARACTER.GetShortUIName|U] gets a [perpetual_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
- THEY_GAINED_HOOK_EFFECT_PERPETUAL: "[CHARACTER.GetShortUIName|U] got a [perpetual_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ #AGOT Modified
+ #GAIN_HOOK_EFFECT:0 "Gets a [weak_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ GAIN_HOOK_EFFECT:0 "Gets a [weak_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #GAINED_HOOK_EFFECT:0 "Got a [weak_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ GAINED_HOOK_EFFECT:0 "Got a [weak_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #I_GAIN_HOOK_EFFECT:1 "You get a [weak_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ I_GAIN_HOOK_EFFECT:1 "You get a [weak_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #I_GAINED_HOOK_EFFECT:1 "You got a [weak_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ I_GAINED_HOOK_EFFECT:1 "You got a [weak_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #THEY_GAIN_HOOK_EFFECT:0 "[CHARACTER.GetShortUIName|U] gets a [weak_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ THEY_GAIN_HOOK_EFFECT:0 "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! gets a [weak_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #THEY_GAINED_HOOK_EFFECT:0 "[CHARACTER.GetShortUIName|U] got a [weak_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ THEY_GAINED_HOOK_EFFECT:0 "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! got a [weak_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #GAIN_HOOK_EFFECT_STRONG:0 "Gets a [strong_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ GAIN_HOOK_EFFECT_STRONG:0 "Gets a [strong_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #GAINED_HOOK_EFFECT_STRONG:0 "Got a [strong_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ GAINED_HOOK_EFFECT_STRONG:0 "Got a [strong_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #I_GAIN_HOOK_EFFECT_STRONG:1 "You get a [strong_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ I_GAIN_HOOK_EFFECT_STRONG:1 "You get a [strong_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #I_GAINED_HOOK_EFFECT_STRONG:1 "You got a [strong_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ I_GAINED_HOOK_EFFECT_STRONG:1 "You got a [strong_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #THEY_GAIN_HOOK_EFFECT_STRONG:0 "[CHARACTER.GetShortUIName|U] gets a [strong_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ THEY_GAIN_HOOK_EFFECT_STRONG:0 "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! gets a [strong_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #THEY_GAINED_HOOK_EFFECT_STRONG:0 "[CHARACTER.GetShortUIName|U] got a [strong_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ THEY_GAINED_HOOK_EFFECT_STRONG:0 "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! got a [strong_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #GAIN_HOOK_EFFECT_PERPETUAL: "Gets a [perpetual_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ GAIN_HOOK_EFFECT_PERPETUAL: "Gets a [perpetual_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #GAINED_HOOK_EFFECT_PERPETUAL: "Got a [perpetual_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ GAINED_HOOK_EFFECT_PERPETUAL: "Got a [perpetual_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #I_GAIN_HOOK_EFFECT_PERPETUAL: "You get a [perpetual_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ I_GAIN_HOOK_EFFECT_PERPETUAL: "You get a [perpetual_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #I_GAINED_HOOK_EFFECT_PERPETUAL: "You got a [perpetual_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ I_GAINED_HOOK_EFFECT_PERPETUAL: "You got a [perpetual_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #THEY_GAIN_HOOK_EFFECT_PERPETUAL: "[CHARACTER.GetShortUIName|U] gets a [perpetual_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ THEY_GAIN_HOOK_EFFECT_PERPETUAL: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! gets a [perpetual_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #THEY_GAINED_HOOK_EFFECT_PERPETUAL: "[CHARACTER.GetShortUIName|U] got a [perpetual_hook|E] #weak ($TYPE$)#! on [TARGET_CHARACTER.GetShortUIName]"
+ THEY_GAINED_HOOK_EFFECT_PERPETUAL: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! got a [perpetual_hook|E] #weak ($TYPE$)#! on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
 
- REMOVE_HOOK_EFFECT:0 "Loses a $TYPE$ [hook|E] on [TARGET_CHARACTER.GetShortUIName]"
- REMOVE_HOOK_EFFECT_THIRD:0 "[CHARACTER.GetShortUIName|U] loses a $TYPE$ [hook|E] on [TARGET_CHARACTER.GetShortUIName]"
- REMOVE_HOOK_EFFECT_FIRST:2 "You lose your $TYPE$ [hook|E] on [TARGET_CHARACTER.GetShortUIName]"
- REMOVED_HOOK_EFFECT_FIRST:0 "You lost your $TYPE$ [hook|E] on [TARGET_CHARACTER.GetShortUIName]"
+ #AGOT Modified
+ #REMOVE_HOOK_EFFECT:0 "Loses a $TYPE$ [hook|E] on [TARGET_CHARACTER.GetShortUIName]"
+ REMOVE_HOOK_EFFECT:0 "Loses a $TYPE$ [hook|E] on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #REMOVE_HOOK_EFFECT_THIRD:0 "[CHARACTER.GetShortUIName|U] loses a $TYPE$ [hook|E] on [TARGET_CHARACTER.GetShortUIName]"
+ REMOVE_HOOK_EFFECT_THIRD:0 "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! loses a $TYPE$ [hook|E] on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #REMOVE_HOOK_EFFECT_FIRST:2 "You lose your $TYPE$ [hook|E] on [TARGET_CHARACTER.GetShortUIName]"
+ REMOVE_HOOK_EFFECT_FIRST:2 "You lose your $TYPE$ [hook|E] on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #REMOVED_HOOK_EFFECT_FIRST:0 "You lost your $TYPE$ [hook|E] on [TARGET_CHARACTER.GetShortUIName]"
+ REMOVED_HOOK_EFFECT_FIRST:0 "You lost your $TYPE$ [hook|E] on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
 
- USE_HOOK_EFFECT:1 "Uses Weak [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName]"
- USE_HOOK_EFFECT_THIRD:0 "[CHARACTER.GetShortUIName|U] uses [CHARACTER.GetHerHis] Weak [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName]"
- USE_HOOK_EFFECT_FIRST:1 "You use your Weak [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName]"
- USE_HOOK_EFFECT_PAST:0 "Used [CHARACTER.GetHerHis] Weak [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName]"
- USE_HOOK_EFFECT_THIRD_PAST:0 "[CHARACTER.GetShortUIName|U] used [CHARACTER.GetHerHis] Weak [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName]"
- USE_HOOK_EFFECT_FIRST_PAST:1 "You used up your Weak [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName]"
+ #AGOT Modified
+ #USE_HOOK_EFFECT:1 "Uses Weak [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName]"
+ USE_HOOK_EFFECT:1 "Uses Weak [hook|E] ($TYPE$) on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #USE_HOOK_EFFECT_THIRD:0 "[CHARACTER.GetShortUIName|U] uses [CHARACTER.GetHerHis] Weak [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName]"
+ USE_HOOK_EFFECT_THIRD:0 "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! uses [CHARACTER.GetHerHis] Weak [hook|E] ($TYPE$) on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #USE_HOOK_EFFECT_FIRST:1 "You use your Weak [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName]"
+ USE_HOOK_EFFECT_FIRST:1 "You use your Weak [hook|E] ($TYPE$) on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #USE_HOOK_EFFECT_PAST:0 "Used [CHARACTER.GetHerHis] Weak [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName]"
+ USE_HOOK_EFFECT_PAST:0 "Used [CHARACTER.GetHerHis] Weak [hook|E] ($TYPE$) on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #USE_HOOK_EFFECT_THIRD_PAST:0 "[CHARACTER.GetShortUIName|U] used [CHARACTER.GetHerHis] Weak [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName]"
+ USE_HOOK_EFFECT_THIRD_PAST:0 "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! used [CHARACTER.GetHerHis] Weak [hook|E] ($TYPE$) on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
+ #AGOT Modified
+ #USE_HOOK_EFFECT_FIRST_PAST:1 "You used up your Weak [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName]"
+ USE_HOOK_EFFECT_FIRST_PAST:1 "You used up your Weak [hook|E] ($TYPE$) on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
 
- USE_STRONG_HOOK_EFFECT:1 "Uses a Strong [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName] #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
- USE_STRONG_HOOK_EFFECT_THIRD:0 "[CHARACTER.GetShortUIName|U] uses [CHARACTER.GetHerHis] Strong [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName] #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
- USE_STRONG_HOOK_EFFECT_FIRST:1 "You use your Strong [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName] #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
- USE_STRONG_HOOK_EFFECT_PAST:1 "Used a Strong [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName] #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
- USE_STRONG_HOOK_EFFECT_THIRD_PAST:0 "[CHARACTER.GetShortUIName|U] used [CHARACTER.GetHerHis] Strong [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName] #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
- USE_STRONG_HOOK_EFFECT_FIRST_PAST:1 "You used your Strong [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName] #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
+ #AGOT Modified
+ #USE_STRONG_HOOK_EFFECT:1 "Uses a Strong [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName] #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
+ USE_STRONG_HOOK_EFFECT:1 "Uses a Strong [hook|E] ($TYPE$) on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
+ #AGOT Modified
+ #USE_STRONG_HOOK_EFFECT_THIRD:0 "[CHARACTER.GetShortUIName|U] uses [CHARACTER.GetHerHis] Strong [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName] #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
+ USE_STRONG_HOOK_EFFECT_THIRD:0 "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! uses [CHARACTER.GetHerHis] Strong [hook|E] ($TYPE$) on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
+ #AGOT Modified
+ #USE_STRONG_HOOK_EFFECT_FIRST:1 "You use your Strong [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName] #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
+ USE_STRONG_HOOK_EFFECT_FIRST:1 "You use your Strong [hook|E] ($TYPE$) on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
+ #AGOT Modified
+ #USE_STRONG_HOOK_EFFECT_PAST:1 "Used a Strong [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName] #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
+ USE_STRONG_HOOK_EFFECT_PAST:1 "Used a Strong [hook|E] ($TYPE$) on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
+ #AGOT Modified
+ #USE_STRONG_HOOK_EFFECT_THIRD_PAST:0 "[CHARACTER.GetShortUIName|U] used [CHARACTER.GetHerHis] Strong [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName] #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
+ USE_STRONG_HOOK_EFFECT_THIRD_PAST:0 "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! used [CHARACTER.GetHerHis] Strong [hook|E] ($TYPE$) on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
+ #AGOT Modified
+ #USE_STRONG_HOOK_EFFECT_FIRST_PAST:1 "You used your Strong [hook|E] ($TYPE$) on [TARGET_CHARACTER.GetShortUIName] #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
+ USE_STRONG_HOOK_EFFECT_FIRST_PAST:1 "You used your Strong [hook|E] ($TYPE$) on #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! #weak (cannot be used again for [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] years)#!"
 
  EVERY_COURTIER_EFFECT:1 "Every [courtier|E]"
  RANDOM_COURTIER_EFFECT:1 "Random [courtier|E]"
@@ -414,7 +500,9 @@
  SET_SECRET_OWNER_EFFECT:1 "Will be owner of the secret [SECRET.GetName]"
  MY_SET_SECRET_OWNER_EFFECT:2 "You will be the owner of the secret [SECRET.GetName]"
  THEIR_SET_SECRET_OWNER_EFFECT:1 "[CHARACTER.GetUIName] will be the owner of the secret [SECRET.GetName]"
- EFFECT_CHARACTER_HEADER:0 "[CHARACTER.GetShortUINameNoTooltip]:\n"
+ #AGOT Modified
+ #EFFECT_CHARACTER_HEADER:0 "[CHARACTER.GetShortUINameNoTooltip]:\n"
+ EFFECT_CHARACTER_HEADER:0 "#high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#!:\n"
  MAKE_CONCUBINE_EFFECT:4 "Takes [TARGET_CHARACTER.GetShortUIName] as a [concubine|E]"
  MADE_CONCUBINE_EFFECT:0 "Took [TARGET_CHARACTER.GetShortUIName] as a [concubine|E]"
  I_MADE_CONCUBINE_EFFECT:2 "You took [TARGET_CHARACTER.GetShortUIName] as your [TARGET_CHARACTER.Custom('ConcubineWomanManGameConcept')]"
@@ -569,9 +657,15 @@
  REMOVED_MY_TRAIT:2 "You lost the [trait|E] [TRAIT.GetName( CHARACTER.Self )|LV]"
  REMOVED_THEIR_TRAIT:1 "[CHARACTER.GetShortUIName|U] lost the [trait|E] [TRAIT.GetName( CHARACTER.Self )|LV]"
 
- ADD_COURTIER_TO_COURT:1 "[TARGET_CHARACTER.GetShortUIName|U] joins [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourt')|l]"
- ADD_COURTIER_TO_MY_COURT:2 "[TARGET_CHARACTER.GetShortUIName|U] joins your [CHARACTER.Custom('GetCourt')|l]"
- ADD_COURTIER_TO_THEIR_COURT:1 "[TARGET_CHARACTER.GetShortUIName|U] joins [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourt')|l]"
+ #AGOT Modified
+ #ADD_COURTIER_TO_COURT:1 "[TARGET_CHARACTER.GetShortUIName|U] joins [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourt')|l]"
+ ADD_COURTIER_TO_COURT:1 "#high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#! joins [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourt')|l]"
+ #AGOT Modified
+ #ADD_COURTIER_TO_MY_COURT:2 "[TARGET_CHARACTER.GetShortUIName|U] joins your [CHARACTER.Custom('GetCourt')|l]"
+ ADD_COURTIER_TO_MY_COURT:2 "#high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#! joins your [CHARACTER.Custom('GetCourt')|l]"
+ #AGOT Modified
+ #ADD_COURTIER_TO_THEIR_COURT:1 "[TARGET_CHARACTER.GetShortUIName|U] joins [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourt')|l]"
+ ADD_COURTIER_TO_THEIR_COURT:1 "#high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#! joins [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourt')|l]"
  ADDED_COURTIER_TO_COURT:1 "[TARGET_CHARACTER.GetShortUIName|U] joined [CHARACTER.Custom('GetCourt')|l]"
  ADDED_COURTIER_TO_MY_COURT:2 "[TARGET_CHARACTER.GetShortUIName|U] joined your [CHARACTER.Custom('GetCourt')|l]"
  ADDED_COURTIER_TO_THEIR_COURT:1 "[TARGET_CHARACTER.GetShortUIName|U] joined [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourt')|l]"
@@ -652,10 +746,18 @@
  I_LOSE_A_GUARDIAN:0 "You lose [TARGET_CHARACTER.GetShortUIName] as your [guardian|E]"
  I_LOST_A_GUARDIAN:0 "You lost [TARGET_CHARACTER.GetShortUIName] as your [guardian|E]"
 
- GLOBAL_BECOME_WARD:0 "Becomes [TARGET_CHARACTER.GetShortUINamePossessive] [ward|E]"
- GLOBAL_BECAME_WARD:0 "Became [TARGET_CHARACTER.GetShortUINamePossessive] [ward|E]"
- THEY_GET_A_WARD:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes [CHARACTER.GetShortUINamePossessive] [ward|E]"
- GLOBAL_BECOME_GUARDIAN:0 "Becomes [TARGET_CHARACTER.GetShortUINamePossessive] [guardian|E]"
+ #AGOT Modified
+ #GLOBAL_BECOME_WARD:0 "Becomes [TARGET_CHARACTER.GetShortUINamePossessive] [ward|E]"
+ GLOBAL_BECOME_WARD:0 "Becomes #high [TARGET_CHARACTER.Custom('AGOTCustomGetTitledFirstNamePossessive')]#! [ward|E]"
+ #AGOT Modified
+ #GLOBAL_BECAME_WARD:0 "Became [TARGET_CHARACTER.GetShortUINamePossessive] [ward|E]"
+ GLOBAL_BECAME_WARD:0 "Became #high [TARGET_CHARACTER.Custom('AGOTCustomGetTitledFirstNamePossessive')]#! [ward|E]"
+ #AGOT Modified
+ #THEY_GET_A_WARD:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes [CHARACTER.GetShortUINamePossessive] [ward|E]"
+ THEY_GET_A_WARD:0 "#high [TARGET_CHARACTER.Custom('AGOTCustomGetTitledFullName')]#! becomes #high [CHARACTER.Custom('AGOTCustomGetTitledFirstNamePossessive')]#! [ward|E]"
+ #AGOT Modified
+ #GLOBAL_BECOME_GUARDIAN:0 "Becomes [TARGET_CHARACTER.GetShortUINamePossessive] [guardian|E]"
+ GLOBAL_BECOME_GUARDIAN:0 "Becomes #high [TARGET_CHARACTER.Custom('AGOTCustomGetTitledFirstNamePossessive')]#! [guardian|E]"
 
  THEY_LOSE_A_WARD:1 "[TARGET_CHARACTER.GetShortUIName|U] [CharAreIs(TARGET_CHARACTER)] no longer [CHARACTER.GetShortUINamePossessive] [ward|E]"
  THEY_LOST_A_WARD:1 "[TARGET_CHARACTER.GetShortUIName|U] [CharAreIs(TARGET_CHARACTER)] no longer [CHARACTER.GetShortUINamePossessive] [ward|E]"
@@ -1421,6 +1523,11 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  CLEAR_DESIGNATED_HEIR_GLOBAL:0 "Will no longer have a [designated_heir|E]"
  CLEAR_DESIGNATED_HEIR_FIRST:1 "You will no longer have a [designated_heir|E]"
  CLEAR_DESIGNATED_HEIR_THIRD:0 "[CHARACTER.GetShortUIName|U] will no longer have a [designated_heir|E]"
+
+ set_designated_heir_unsafe_global: "$SET_DESIGNATED_HEIR_GLOBAL$"
+ set_designated_heir_unsafe_first: "$SET_DESIGNATED_HEIR_FIRST$"
+ set_designated_heir_unsafe_first_past: "$SET_DESIGNATED_HEIR_FIRST_PAST$"
+ set_designated_heir_unsafe_third: "$SET_DESIGNATED_HEIR_THIRD$"
 
  DIVORCE_GLOBAL:0 "Divorces [TARGET_CHARACTER.GetUIName]"
  DIVORCE_FIRST:1 "You divorce [TARGET_CHARACTER.GetUIName]"
