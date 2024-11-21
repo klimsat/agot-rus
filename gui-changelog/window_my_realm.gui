@@ -1515,7 +1515,9 @@ window = {
 												using = Font_Size_Medium
 												fontsize_min = 14
 
-												text = "[MyRealmWindow.GetCharacter.GetPlayerHeir.GetUINameNoTooltip]"
+												#AGOT Modified
+												# text = "[MyRealmWindow.GetCharacter.GetPlayerHeir.GetUINameNoTooltip]"
+												raw_text = "#high [MyRealmWindow.GetCharacter.GetPlayerHeir.Custom('AGOTCustomGetShortUIName')]#![MyRealmWindow.GetCharacter.GetPlayerHeir.Custom('TitleSuffix')]"
 												default_format = "#low"
 											}
 
@@ -1897,7 +1899,10 @@ window = {
 
 														text_single = {
 															name = "heir_name"
-															raw_text = "#bold [LineOfSuccessionItem.GetOrder|V]#!  [Character.GetShortUINameNoTooltip], "
+															#AGOT Modified
+															# raw_text = "#bold [LineOfSuccessionItem.GetOrder|V]#!  [Character.GetShortUINameNoTooltip], "
+															raw_text = "#bold [LineOfSuccessionItem.GetOrder|V]#!  #high [Character.Custom('AGOTCustomGetTitledFullNameDynasty')]#!, "
+															visible = "[Character.IsValid]"
 															margin_left = 2
 															max_width = 300
 															fontsize = 20

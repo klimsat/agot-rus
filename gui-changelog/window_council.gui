@@ -626,7 +626,10 @@ types CouncilWindow
 
 					text_single = {
 						layoutpolicy_horizontal = expanding
-						text = "[Character.GetShortUINameNoTooltip]"
+						#AGOT Modified
+						# text = "[Character.GetShortUINameNoTooltip]"
+						visible = "[Character.IsValid]"
+						raw_text = "[Character.Custom('AGOTCustomGetTitledFullNameDynasty')]"
 						default_format = "#high"
 						align = nobaseline
 						autoresize = no

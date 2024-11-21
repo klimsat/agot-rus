@@ -195,7 +195,9 @@ types Lists
 									autoresize = no
 									alwaystransparent = yes
 
-									text = "[Character.GetUINameNoTooltip|U]"
+									#AGOT Modified
+									# text = "[Character.GetUINameNoTooltip|U]"
+									raw_text = "#high [Character.Custom('AGOTCustomGetShortUIName')]#![Character.Custom('TitleSuffix')]"
 								}
 
 								hbox = {
@@ -495,14 +497,23 @@ types Lists
 								layoutpolicy_horizontal = expanding
 								maximumsize = { 338 -1 }
 
-								text_single = {
-									using = Font_Size_Medium
-									layoutpolicy_horizontal = expanding
-									align = nobaseline
-									text = "[Character.GetUINameNoTooltip|U]"
-									autoresize = no
-									fontsize_min = 14
-								}
+								#AGOT Modified
+								# text_single = {
+									# using = Font_Size_Medium
+									# layoutpolicy_horizontal = expanding
+									# align = nobaseline
+									# text = "[Character.GetUINameNoTooltip|U]"
+									# autoresize = no
+									# fontsize_min = 14
+								# }
+								agot_lists_character_name = {}
+								agot_lists_unlanded_character_name = {}
+								agot_lists_knight_name = {}
+								agot_lists_maester_name = {}
+								agot_lists_silent_sister_name = {}
+								agot_lists_bastard_name = {}
+								agot_lists_bastard_knight_name = {}
+								agot_lists_high_septon_name = {}
 
 								block "character_relation"
 								{
@@ -1431,7 +1442,9 @@ types Lists
 						name = "name"
 						layoutpolicy_horizontal = expanding
 						autoresize = no
-						text = "[Character.GetUINameNoTooltip]"
+						#AGOT Modified
+						# text = "[Character.GetUINameNoTooltip]"
+						raw_text = "#high [Character.Custom('AGOTCustomGetShortUIName')]#![Character.Custom('TitleSuffix')]"
 						using = Font_Size_Medium
 						align = nobaseline
 						fontsize_min = 14
@@ -1502,7 +1515,7 @@ types Lists
 						agot_freedom_courtier_list_relation = {}
 						agot_wild_courtier_list_relation = {}
 
-							text_single = {
+						text_single = {
 							name = "relation_to_court_hostage"
 							default_format = "#medium"
 							align = nobaseline

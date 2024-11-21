@@ -4,16 +4,88 @@
 
 types GameTooltipTypes
 {
-	# High Septon Nickname
-	type agot_high_septon_name_age = text_multi
+	type agot_cooltip_name_flavorization = container
 	{
-		name = "character_name_high_septon"
-		visible = "[GetScriptedGui('agot_high_septon_tt').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-		text = "AGOT_CHARACTER_TT_NAME_AGE"
-		default_format = "#high"
-		using = Font_Size_Medium
-		max_width = 350
-		autoresize = yes
+		ignoreinvisible = yes
+
+		text_multi = {
+			name = "character_name"
+			visible = "[GetScriptedGui('agot_name').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "[Character.GetCharacterViewNameNicknamedNoTooltipRegnal][Character.Custom('WordSpace')][Character.Custom('SurnameSwitch')]#medium [Character.Custom('TitleSuffix')]#!#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 400
+			autoresize = yes
+		}
+
+		text_multi = {
+			name = "character_name_knight"
+			visible = "[GetScriptedGui('agot_ser_knight').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "Ser [Character.GetFirstNameNicknamedNoTooltip][Character.Custom('WordSpace')][Character.GetHouse.GetNameNoTooltip]#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+			autoresize = yes
+		}
+
+		text_multi = {
+			name = "character_name_maester"
+			visible = "[GetScriptedGui('agot_maester').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "[Character.Custom('MaesterCheck')] [Character.GetTitledFirstNameNicknamedNoTooltip]#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+			autoresize = yes
+		}
+
+		text_multi = {
+			name = "character_name_silent_sister"
+			visible = "[GetScriptedGui('agot_silent_sister').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "Silent Sister [Character.GetFirstNameNicknamedNoTooltip]#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+		}
+
+		text_multi = {
+			name = "character_name_bastard"
+			visible = "[GetScriptedGui('agot_name_bastard').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "[Character.GetFirstNameNicknamedNoTooltip] [Character.Custom('SurnameSwitch')]#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+			autoresize = yes
+		}
+
+		text_multi = {
+			name = "character_name_knight_bastard"
+			visible = "[GetScriptedGui('agot_ser_knight_bastard').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "Ser [Character.GetFirstNameNicknamedNoTooltip] [Character.Custom('SurnameSwitch')]#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+			autoresize = yes
+		}
+
+		text_multi = {
+			name = "character_unlanded_name"
+			visible = "[GetScriptedGui('agot_name_unlanded').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "[Character.GetCharacterViewNameNicknamedNoTooltipRegnal]#medium [Character.Custom('TitleSuffix')]#!#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+			autoresize = yes
+		}
+
+		text_multi = {
+			name = "character_name_high_septon"
+			visible = "[GetScriptedGui('agot_high_septon_tt').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "[Character.GetNickname]#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+			autoresize = yes
+		}
 	}
 
 	# Dragon Types

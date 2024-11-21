@@ -4,6 +4,103 @@
 
 types Lists
 {
+	# Name flavorization
+	type agot_lists_character_name = text_single
+	{
+		using = Font_Size_Medium
+		layoutpolicy_horizontal = expanding
+		align = nobaseline
+		visible = "[GetScriptedGui('agot_name').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		raw_text = "[Character.GetCharacterViewNameNicknamedNoTooltipRegnal] [Character.Custom('SurnameSwitch')]"
+		autoresize = no
+		default_format = "#high"
+		fontsize_min = 14
+	}
+
+	type agot_lists_unlanded_character_name = text_single
+	{
+		using = Font_Size_Medium
+		layoutpolicy_horizontal = expanding
+		align = nobaseline
+		visible = "[GetScriptedGui('agot_name_unlanded').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		raw_text = "[Character.GetCharacterViewNameNicknamedNoTooltipRegnal]"
+		autoresize = no
+		default_format = "#high"
+		fontsize_min = 14
+	}
+
+	type agot_lists_knight_name = text_single
+	{
+		using = Font_Size_Medium
+		layoutpolicy_horizontal = expanding
+		align = nobaseline
+		visible = "[GetScriptedGui('agot_ser_knight').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		text = AGOT_NAME_SER
+		autoresize = no
+		default_format = "#high"
+		fontsize_min = 14
+	}
+
+	type agot_lists_maester_name = text_single
+	{
+		using = Font_Size_Medium
+		layoutpolicy_horizontal = expanding
+		align = nobaseline
+		visible = "[GetScriptedGui('agot_maester').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		text = AGOT_NAME_MAESTER
+		autoresize = no
+		default_format = "#high"
+		fontsize_min = 14
+	}
+
+	type agot_lists_silent_sister_name = text_single
+	{
+		using = Font_Size_Medium
+		layoutpolicy_horizontal = expanding
+		align = nobaseline
+		visible = "[GetScriptedGui('agot_silent_sister').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		text = AGOT_NAME_SILENT_SISTER
+		autoresize = no
+		default_format = "#high"
+		fontsize_min = 14
+	}
+
+	type agot_lists_bastard_name = text_single
+	{
+		using = Font_Size_Medium
+		layoutpolicy_horizontal = expanding
+		align = nobaseline
+		visible = "[GetScriptedGui('agot_name_bastard').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		text = AGOT_NAME_BASTARD
+		autoresize = no
+		default_format = "#high"
+		fontsize_min = 14
+	}
+
+	type agot_lists_bastard_knight_name = text_single
+	{
+		using = Font_Size_Medium
+		layoutpolicy_horizontal = expanding
+		align = nobaseline
+		visible = "[GetScriptedGui('agot_ser_knight_bastard').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		text = AGOT_NAME_SER_BASTARD
+		autoresize = no
+		default_format = "#high"
+		fontsize_min = 14
+	}
+
+	type agot_lists_high_septon_name = text_single
+	{
+		using = Font_Size_Medium
+		layoutpolicy_horizontal = expanding
+		align = nobaseline
+		visible = "[GetScriptedGui('agot_high_septon').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		text = AGOT_NAME_HIGH_SEPTON
+		autoresize = no
+		default_format = "#high"
+		fontsize_min = 14
+	}
+
 	# Dragon List Appearance COA
 	type agot_lists_dragon_rider_coa = coa_title_small_crown
 	{

@@ -1362,7 +1362,9 @@ types BarbershopTypes {
 		text_label_center = {
 			layoutpolicy_horizontal = expanding
 			using = Font_Size_Big
-			text = "[Character.GetUINameNotMeNoTooltip]"
+			#AGOT Modified
+			# text = "[Character.GetUINameNotMeNoTooltip]"
+			raw_text = "#high [Character.Custom('AGOTCustomGetShortUIName')]#![Character.Custom('TitleSuffix')]"
 		}
 	}
 	type barbershop_portrait = portrait_button {
@@ -1574,7 +1576,9 @@ types BarbershopTypes {
 					blockoverride "text"
 					{
 						maximumsize = { 260 30 }
-						text = "[Character.GetUINameNoTooltip|U]"
+						#AGOT Modified
+						# text = "[Character.GetUINameNoTooltip|U]"
+						raw_text = "#high [Character.Custom('AGOTCustomGetShortUIName')]#![Character.Custom('TitleSuffix')]"
 					}
 
 					tooltip = "BARBERSHOP_TOGGLE_NAME_TT"
