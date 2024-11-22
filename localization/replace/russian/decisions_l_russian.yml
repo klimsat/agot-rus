@@ -339,7 +339,7 @@
  decision_embrace_english_culture_get_innovations:1 "Английская [Concept( 'culture', 'культура' )|E] получит норманские и англо-саксонские [Concept( 'innovations', 'инновации' )|E]"
  MY_CAPITAL_IS_IN_ENGLAND:1 "Ваша [realm_capital|El] в Англии"
  HARRYING_ENDED: "Разорение севера завершилось"
- HIGH_PACIFICATION: "[Concept('harrying_pacification','Усмирение')|E] разорителей севера было:\n$EFFECT_LIST_BULLET$Выше, чем [Concept('harrying_resistance','сопротивление')|E]\n$EFFECT_LIST_BULLET$Выше #V 16#! в течение хотя бы #V 1#! года"
+ HIGH_PACIFICATION: "[Concept('harrying_pacification','Усмирение')|E] разорителей севера было:\n$EFFECT_LIST_BULLET$Выше, чем [Concept('harrying_resistance','сопротивление')|E]\n$EFFECT_LIST_BULLET$Выше #V 14#! в течение хотя бы #V 1#! года"
 
  restore_dumnonia_decision:0 "Возродить королевство Корнуолл"
  restore_dumnonia_decision_desc:0 "С тех пор как Брут впервые высадился на туманный британский берег, дух древней Думнонии тлел в наших сердцах. Пора ему воспылать!"
@@ -1445,3 +1445,74 @@
  roman_restoration.1213.desc.outro.no_territory_left: "\n\nИмперия лишилась своих последних итальянских городов, и нет никого, кто мог бы оплакать конец мечты Юстиниана…"
  roman_restoration.1213.a: "Умер, вот и славно!"
  roman_restoration.1213.b: "Мы живем в темные времена…"
+
+ #BP3
+ local_arbitration_decision: "Разрешение местных споров"
+ local_arbitration_decision_desc: "Чтобы иерархическая система работала как надо, порой необходимо встречаться с местными шерифами и градоначальниками. Подданные, несомненно, оценят это."
+ local_arbitration_decision_tooltip: "Вы займетесь улучшением дел в [Concept('county','графстве')|E], в котором сейчас находитесь"
+ local_arbitration_decision_confirm: "Начать разбирательство"
+ inside_realm_trigger: "Нужно находиться в пределах собственной [Concept('realm','державы')|E]"
+ local_arbitration_key: "[GetDecisionWithKey('local_arbitration_decision').GetName]"
+ local_arbitration_modifier_1: "Вдохновленные ополченцы"
+ local_arbitration_modifier_1_desc: "После того, как провинцию посетил местный сюзерен, ее жители стали куда охотнее вступать в армию для защиты державы."
+ local_arbitration_modifier_2: "Препятствование коррупции"
+ local_arbitration_modifier_2_desc: "Были приняты особые меры против сбора «местного налога» с налогов."
+ local_arbitration_modifier_3: "Вложения в развитие"
+ local_arbitration_modifier_3_desc: "На развитие этой провинции были потрачены силы и средства как сюзерена, так и нескольких местных землевладельцев."
+ has_locations_to_map_tt: "Карты можно составлять только до тех мест, в которых вы были, и которые являются:\n[Concept('points_of_interest','Точками интереса')|E]\n[Concept('capital','Столицей')|E] другого [Concept('kingdom','королевства')|E]\nЧастью вашего [Concept('domain','домена')|E]\n[Concept('capital','Столицей')|E] вашего [Concept('vassal','вассала')|E]"
+ draw_up_new_charts_decision: "Составить путевой журнал"
+ draw_up_new_charts_decision_key: "[GetDecisionWithKey('draw_up_new_charts_decision').GetName]"
+ draw_up_new_charts_decision_desc: "Знания, накопленные за время моих путешествий, можно сжато описать в журнале, который сможет вдохновлять и направлять других."
+ draw_up_new_charts_decision_tooltip: "Вы создадите путевой журнал и карту региона, в который вы путешествовали."
+ draw_up_new_charts_artifact_tt: "Это решение создаст [Concept('artifact','артефакт')|E], эффекты которого будут зависеть от принятых вами решений относительно региона, в котором вы побывали."
+ draw_up_new_charts_decision_confirm: "Набросать журнал"
+
+ form_bosporan_kingdom_decision: "Возродить Боспорское царство"
+ form_bosporan_kingdom_decision_confirm: "Возродить королевство"
+ form_bosporan_kingdom_decision_desc: "Мы вновь станем властителями Черного моря, завладеем его богатствами и прославимся далеко за границами наших владений."
+ form_bosporan_kingdom_decision_tooltip: "Восстановить границы прежнего Киммерийского Боспора."
+
+ bp3_bosporan_kingdom_modifier: "Повелители Черного моря"
+ bp3_bosporan_kingdom_modifier_desc: "Эта семья нарастила свое влияние в Черном море до впечатляющих масштабов и намеревается завладеть всеми его богатствами и сокровищами.\n\n"
+ black_sea_coast_region: "Черное море"
+ modifier_bosporan_kingdom_desc: "Увеличивается за каждое [Concept('county','графство')|E]"
+ MODIFIER_DEFINITION_BOSPORAN_KINGDOM: "Модификатор повышается за каждое контролируемое [Concept( 'county', 'графство' )|E] в #L #ONCLICK:GEOGRAPHICAL_REGION,black_sea_coast_region #TOOLTIP:GEOGRAPHICAL_REGION,black_sea_coast_region Черноморском#!#!#! [Concept('region','регионе')|E]"
+ unlocks_black_sea_naval_conquest: "Разблокируются [Concept('casus_belli','казус белли')|E] #emp Расширение графства#! и#emp Морское расширение графства#! #ONCLICK:GEOGRAPHICAL_REGION,black_sea_coast_region #TOOLTIP:GEOGRAPHICAL_REGION,black_sea_coast_region Черноморском#!#!#! [Concept('region','регионе')|E] на срок действия [Concept('modifier','модификатора')|E] [Concept('house','дома')|E]"
+ bp3_conqueror_black_sea_modifier: "Покоритель Черного моря"
+ bp3_conqueror_black_sea_modifier_desc: "Черное море ждет возвращения своего законного короля."
+
+ merge_aquitaine_decision: "[GetTitleByKey('k_france').GetNameNoTierNoTooltip] едина"
+ merge_aquitaine_decision_alt: "[GetTitleByKey('k_aquitaine').GetNameNoTierNoTooltip] едина"
+ merge_aquitaine_decision_desc: "[GetTitleByKey('k_france').GetAdjectiveNoTooltip]ий народ слишком долго был разобщен и раздираем сварами из-за границ и земель."
+ merge_aquitaine_decision_desc_aquitaine: "[GetTitleByKey('k_aquitaine').GetAdjectiveNoTooltip]ий народ слишком долго был разобщен и раздираем сварами из-за границ и земель."
+ merge_aquitaine_decision_desc_outro: "От севера до юга, от Сены до Пиринеев все признают, что над ними есть лишь [Select_CString(ROOT.Char.IsFemale, 'одна истинная', 'один истинный' )] [ROOT.Char.GetTitleAsNameNoTooltip] — #emp я#!."
+ merge_aquitaine_decision_tooltip: "Соберите все [GetTitleByKey('k_france').GetAdjectiveNoTooltip|l]ие и [GetTitleByKey('k_aquitaine').GetNameNoTierNoTooltip|l]ие земли под одним [Concept('title','титулом')|E]"
+
+ merge_aquitaine_vassal: "$BULLET$Каждый [Concept('de_jure','де-юре')|E] [Concept('vassal','вассал')|E] в"
+ merge_aquitaine_decision_vassal_original: "$merge_aquitaine_vassal$о [GetTitleByKey('k_france').GetName]"
+ merge_aquitaine_decision_vassal_alt: "$merge_aquitaine_vassal$ [GetTitleByKey('k_aquitaine').GetName]"
+
+ merge_aquitaine_opinion: "Улучшает свое [Concept('opinion','мнение')|E] о #color_white вас#! на #p 20#! ед.#weak (-1.20/год) ($rightful_king_opinion$)#!"
+
+ merge_aquitaine_title: "$BULLET$Каждое [Concept('de_jure','де-юре')|E] [Concept('duchy','герцогство')|E] в"
+ merge_aquitaine_decision_tooltip_original: "$merge_aquitaine_title$ [GetTitleByKey('k_aquitaine').GetName]"
+ merge_aquitaine_decision_tooltip_alt: "$merge_aquitaine_title$ [GetTitleByKey('k_france').GetName]"
+
+ merge_aquitaine_de_jure_title: "становится [Concept('de_jure','де-юре')|E] [Concept('liege','сюзереном')|E] [Concept('duchy','герцогства')|E]"
+ merge_aquitaine_decision_tooltip_2_original: "[GetTitleByKey('k_france').GetName] $merge_aquitaine_de_jure_title$"
+ merge_aquitaine_decision_tooltip_2_alt: "[GetTitleByKey('k_aquitaine').GetName] $merge_aquitaine_de_jure_title$"
+ merge_aquitaine_decision_confirm: "Пора"
+
+ merge_aquitane_culture: "$BULLET$Каждая #L не[GetTitleByKey('k_aquitaine').GetHolder.GetCulture.GetName]ая#! [Concept('culture','культура')|E] в"
+ merge_aquitane_culture_tooltip_original: "$merge_aquitane_culture$ [GetTitleByKey('k_aquitaine').GetName]"
+ merge_aquitane_culture_tooltip_alt: "$merge_aquitane_culture$ [GetTitleByKey('k_france').GetName]"
+ merge_aquitaine_culture_tooltip: "[Concept('cultural_acceptance','терпимость культур')|E] снижается на #n 25%#!"
+
+ cultural_acceptance_merge_aquitaine: "Насильное подчинение сюзерену"
+
+ rightful_king_opinion: "Законный сюзерен"
+
+ major_decisions.3200.t: "[rightful_title.GetNameNoTierNoTooltip]: единство"
+ major_decisions.3200.desc: "Как [rightful_liege.Custom('GetQueenKing')|l] земли [rightful_title.GetNameNoTier] и [destroyed_title.GetNameNoTier], [rightful_liege.GetTitledFirstName] [Select_CString(rightful_liege.IsFemale, 'решила', 'решил' )], что время пришло. [rightful_liege.GetCapitalLocation.GetTitle.GetNameNoTier] — их законный сюзерен, и пора им это признать.\n\nОтныне на [Select_CString(rightful_liege.IsFemale, 'ее', 'его' )] вассалов будут смотреть не как на два народа, подчиненных [Select_CString(rightful_liege.IsFemale, 'одной', 'одному' )] [rightful_liege.Custom('GetQueenKingc_RU_Dat')], а как народ одного королевства."
+ major_decisions.3200.a: "Так продолжилось правление [rightful_liege.GetCulture.GetNameNoTooltip|l]ого тирана..."
+ major_decisions.3200.b: "Во благо всего владения [rightful_title.GetNameNoTierNoTooltip]."

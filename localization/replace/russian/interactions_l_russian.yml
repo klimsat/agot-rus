@@ -492,7 +492,9 @@
  is_escaped_prisoner: "Вы недавно пытались [Concept( 'imprison', 'заключить в тюрьму' )|E] персонажа [CHARACTER.GetShortUIName|U]"
  DECISION_COST: "Стоимость:"
 
- EFFECTS_ON_ME: "Исход для #high [Select_CString(Character.IsLocalPlayer, '', 'персонажа ' )|l][Character.GetUINamePossessiveNoTooltip][Select_CString(Character.IsLocalPlayer, 'его персонажа', '' )]#!"
+ #AGOT Modified
+ #EFFECTS_ON_ME: "Исход для #high [Select_CString(Character.IsLocalPlayer, '', 'персонажа ' )|l][Character.GetUINamePossessiveNoTooltip][Select_CString(Character.IsLocalPlayer, 'его персонажа', '' )]#!"
+ EFFECTS_ON_ME: "Исход для #high персонажа [Character.Custom('AGOTCustomGetUINameOrMe')]#!" #ИСПРАВИТЬ!
 
  RELEASE_GAIN_HOOK: "Получить [Concept('weak_hook','слабый рычаг влияния')|E]"
  GAIN_HOOK_NEGATIVE_REASON: "Не желает оказаться у кого-то [hook|El]: $VALUE|=+0$"
