@@ -1,5 +1,7 @@
 ﻿l_russian:
- APPOINT_COURT_POSITION_VIEW_replace_character_header:2 "Заменить персонажа [AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee.GetShortUINameNoTooltip] на должности [AppointCourtPositionView.GetCourtPositionType.GetName|l]"
+ #AGOT Modified
+ #APPOINT_COURT_POSITION_VIEW_replace_character_header:2 "Заменить персонажа [AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee.GetShortUINameNoTooltip] на должности [AppointCourtPositionView.GetCourtPositionType.GetName|l]"
+ APPOINT_COURT_POSITION_VIEW_replace_character_header:2 "Заменить персонажа #high [AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee.Custom('AGOTCustomGetTitledFullNameDynasty')]#! на должности [AppointCourtPositionView.GetCourtPositionType.GetName|l]"
  APPOINT_COURT_POSITION_VIEW_select_character_header:2 "Назначить на должность [AppointCourtPositionView.GetCourtPositionType.GetName|l]"
  APPOINT_COURT_POSITION_VIEW_salary:2 "Жалованье: [CourtPositionType.GetSalaryTextFor( Character.Self )]"
  APPOINT_COURT_POSITION_VIEW_salary_per_travel:0 "Жалование в начале путешествия: [Character.GetTravelLeaderCost|U]"
@@ -30,8 +32,12 @@
  COURT_POSITION_FOR_EMPLOYER:0 "— [CourtPosition.GetEmployer.GetUINameNoTooltip]"
 
  COURT_WINDOW_COURT_POSITIONS:0 "[CourtWindow.GetCourtOwner.Custom('GetCourtPositionPlural')|U]"
- COURT_POSITION_REPLACE:0 "#T [Character.GetShortUINameNoTooltip]: заменить#!"
- COURT_POSITION_REVOKE:0 "#T [Character.GetShortUINameNoTooltip]: уволить#!"
+ #AGOT Modified
+ #COURT_POSITION_REPLACE:0 "#T [Character.GetShortUINameNoTooltip]: заменить#!"
+ COURT_POSITION_REPLACE:0 "#T #high [Character.Custom('AGOTCustomGetTitledFullNameDynasty')]#!: заменить#!"
+ #AGOT Modified
+ #COURT_POSITION_REVOKE:0 "#T [Character.GetShortUINameNoTooltip]: уволить#!"
+ COURT_POSITION_REVOKE:0 "#T #high [Character.Custom('AGOTCustomGetTitledFullNameDynasty')]#!: уволить#!"
  COURT_POSITION_POWERFUL_AGENT:0 "@alert_icon! #alert_trial Полезный [Concept( 'agent', 'соучастник' )|E] во [Concept( 'hostile_schemes', 'враждебных происках' )|E] против вас#!"
  COURT_POSITION_OPINION_BONUS:0 "Бонус к [Concept( 'opinion', 'мнению' )|E]: [CourtPosition.GetOpinionBonus|=+]"
 

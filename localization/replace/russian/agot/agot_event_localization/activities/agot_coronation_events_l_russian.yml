@@ -37,136 +37,136 @@
  coronation.0001.after.tt:0 "Вороны будут разосланы всем приглашённым."
  
  # Officiant Replacement
- coronation.0002.t:0 "A New Officiant"
- coronation.0002.desc:0 "Unforeseen circumstances force me to find someone new to crown me. I look to the room full of attendees, hoping someone of note might be willing to take [old_coronation_officiant.GetTitledFirstNameNicknamed|U] place."
- coronation.0002.desc_removed:0 "Unforeseen circumstances force me to find someone new to crown me. I look to the room full of attendees, hoping someone of note might be willing to take [old_coronation_officiant.GetTitledFirstNameNicknamed|U] place."
- coronation.0002.desc_no_officiant:0 "It occurs to me that I may need someone to crown me. I look to the room full of attendees, wondering if someone of note might be willing to take on this role."
- coronation.0002.a:0 "Someone else shall crown me!"
- coronation.0002.a.tt:0 "[new_coronation_officiant.GetTitledFirstNameNicknamed|U] will serve as the Officiant of your coronation."
- coronation.0002.a.tt_hof:0 "[new_coronation_officiant.GetTitledFirstNameNicknamed|U] is your [head_of_faith|E], thereby increasing your [piety_i] [piety|E] gain."
- coronation.0002.a.tt_pv:0 "[new_coronation_officiant.GetTitledFirstNameNicknamed|U] is a [powerful_vassal|E], thereby increasing your [legitimacy_i] [legitimacy|E] gain."
- coronation.0002.a.tt_dynn:0 "[new_coronation_officiant.GetTitledFirstNameNicknamed|U] is  a member of your [dynasty|E], thereby increasing your [dynasty_prestige_i] [dynasty_prestige|E] gain."
- coronation.0002.a.tt_consort:0 "[new_coronation_officiant.GetTitledFirstNameNicknamed|U] is your [spouse|E], thereby increasing your [prestige_i] [prestige|E]."
- coronation.0002.b:0 "Perhaps [intent_target.GetTitledFirstNameNicknamed|U] should crown me"
- coronation.0002.b.tt:0 "[new_coronation_officiant.GetTitledFirstNameNicknamed|U] will serve as the Officiant of your coronation."
- coronation.0002.c:0 "Damn it all, I'll do it myself!"
- coronation.0002.c.tt:0 "You will crown yourself."
- 
+ coronation.0002.t:0 "Новый церемониймейстер"
+ coronation.0002.desc:0 "Непредвиденные обстоятельства вынуждают меня найти кого-то, кто коронует меня. Я оглядываю зал, полный гостей, в надежде, что кто-нибудь знатный согласится занять место, которое раньше [Select_CString(old_coronation_officiant.IsFemale, 'занимала', 'занимал' )] [old_coronation_officiant.GetTitledFirstNameNicknamed|U]."
+ coronation.0002.desc_removed:0 "Непредвиденные обстоятельства вынуждают меня найти кого-то, кто коронует меня. Я оглядываю зал, полный гостей, в надежде, что кто-нибудь знатный согласится занять место, которое раньше [Select_CString(old_coronation_officiant.IsFemale, 'занимала', 'занимал' )] [old_coronation_officiant.GetTitledFirstNameNicknamed|U]."
+ coronation.0002.desc_no_officiant:0 "Мне приходит в голову, что мне может понадобиться кто-то, кто коронует меня. Я оглядываю зал, полный гостей, и думаю, не согласится ли кто-нибудь из знати взять на себя эту роль."
+ coronation.0002.a:0 "Кто-то другой должен короновать меня!"
+ coronation.0002.a.tt:0 "[new_coronation_officiant.GetTitledFirstNameNicknamed|U] выступит в роли церемониймейстера на вашей коронации."
+ coronation.0002.a.tt_hof:0 "[new_coronation_officiant.GetTitledFirstNameNicknamed|U] - ваш [Concept('head_of_faith', 'глава конфессии')|E], ваша награда [piety_i] [Concept('piety', 'благочестия')|E] увеличится."
+ coronation.0002.a.tt_pv:0 "[new_coronation_officiant.GetTitledFirstNameNicknamed|U] - [powerful_vassal|El], ваша награда [legitimacy_i] [Concept('legitimacy', 'легитимности')|E] увеличится."
+ coronation.0002.a.tt_dynn:0 "[new_coronation_officiant.GetTitledFirstNameNicknamed|U] - член вашей [Concept('dynasty', 'династии')|E], ваша награда [dynasty_prestige_i] [Concept('dynasty_prestige', 'признания')|E] увеличится."
+ coronation.0002.a.tt_consort:0 "[new_coronation_officiant.GetTitledFirstNameNicknamed|U] - [Select_CString(new_coronation_officiant.IsFemale, 'ваша [Concept('spouse', 'супруга')|E]', 'ваш [Concept('spouse', 'супруг')|E]' )], ваша награда [prestige_i] [Concept('prestige', 'престижа')|E] увеличится."
+ coronation.0002.b:0 "Возможно, [intent_target.GetTitledFirstNameNicknamed|U] [Select_CString(intent_target.IsFemale, 'должна', 'должен' )] короновать меня"
+ coronation.0002.b.tt:0 "[new_coronation_officiant.GetTitledFirstNameNicknamed|U] выступит в роли церемониймейстера на вашей коронации."
+ coronation.0002.c:0 "В пекло всё, я сделаю это [Select_CString(ROOT.Char.IsFemale, 'сама', 'сам' )]!"
+ coronation.0002.c.tt:0 "Вы коронуете себя."
+
  # Letters to the Player
  coronation.0003.opening:0 "[sender.Custom2('AppropriateGreeting', ROOT.Char)]"
- coronation.0003.desc_seven_kingdoms:0 "It is with great honor and anticipation that I, [sender.GetFirstNameNoTooltip|U], of House [sender.GetHouse.GetName|U], [sender.GetTitleAsNameNoTooltip|U] of the Andals, the Rhoynar, and the First Men, [sender.GetLadyLord|U] of the Seven Kingdoms, and Protector of the Realm, extend this invitation to you. The auspicious occasion of my [GetActivityType('activity_coronation').GetName|l] is set to take place in [county.GetNameNoTier] at [barony.GetNameNoTier]."
- coronation.0003.desc_other:0 "It is with great honor and anticipation that I, [sender.GetFirstNameNoTooltip|U], of House [sender.GetHouse.GetName|U], [sender.GetTitleAsNameNoTooltip|U] of [sender.GetPrimaryTitle.GetNameNoTierNoTooltip], extend this invitation to you. The auspicious occasion of my [GetActivityType('activity_coronation').GetName|l] is set to take place in [county.GetNameNoTier] at [barony.GetNameNoTier]."
- coronation.0003.desc_officiant:0 "\n\nIn recognition of your esteemed standing and unwavering loyalty, I humbly request that you officiate the ceremony and have the honor of placing the crown upon my head. Your participation in this sacred event will not only symbolize the unity and strength of our bond but also set a noble precedent for my reign.\n\nMay your journey to [county.GetNameNoTierNoTooltip] be swift and safe. I eagerly await your arrival and the pledge of your unwavering support."
- coronation.0003.desc_guest:0 "\n\nMay your journey to [county.GetNameNoTierNoTooltip] be swift and safe. I eagerly await your arrival and the pledge of your unwavering support."
- coronation.0003.desc_vassal:0 "\n\nYour presence is both requested and required as a loyal vassal of the realm. It is expected that you will attend this momentous event and publicly affirm your fealty by bending the knee. This act will signify your continued loyalty and commitment to the crown and the enduring unity of the realm.\n\nMay your journey to [county.GetNameNoTierNoTooltip] be swift and safe. I eagerly await your arrival and the pledge of your unwavering support."
- coronation.0003.a:0 "It will be my pleasure; I shall leave at once."
- coronation.0003.b:0 "I will send someone in my place."
- coronation.0003.c:0 "I have more important matters to attend to."
- coronation.0003.c.tt_refusal:0 "[recipient.GetTitledFirstNameNoTooltip|U] Refused to Attend the Coronation"
- coronation.0003.c.tt_officiant_refusal:0 "[recipient.GetTitledFirstNameNoTooltip|U] Refused to Officiate the Coronation"
-     
+ coronation.0003.desc_seven_kingdoms:0 "Я, [sender.GetFirstNameNoTooltip|U] из дома [sender.GetHouse.GetName|U], [sender.GetTitleAsNameNoTooltip|U] андалов, ройнаров и Первых людей, [Select_CString(sender.IsFemale, 'владычица', 'владыка' )] Семи королевств и [Select_CString(sender.IsFemale, 'защитница', 'защитник' )] державы, с большой честью и предвкушением передаю вам это приглашение. Моя знаменательная [GetActivityType('activity_coronation').GetName|l] состоится во владении [county.GetNameNoTier] в местечке [barony.GetNameNoTier]."
+ coronation.0003.desc_other:0 "Я, [sender.GetFirstNameNoTooltip|U] из дома [sender.GetHouse.GetName|U], [sender.GetTitleAsNameNoTooltip|U] державы [sender.GetPrimaryTitle.GetNameNoTierNoTooltip], с большой честью и предвкушением передаю вам это приглашение. Моя знаменательная [GetActivityType('activity_coronation').GetName|l] состоится во владении [county.GetNameNoTier] в местечке [barony.GetNameNoTier]."
+ coronation.0003.desc_officiant:0 "\n\nВ знак признания вашего высокого положения и непоколебимой верности я смиренно прошу вас провести церемонию и удостоить меня чести, возложив корону на мою голову. Ваше участие в этом торжественном событии не только ознаменует единство и силу наших уз, но и создаст благородный прецедент для моего правления.\n\nПусть ваше путешествие во владение [county.GetNameNoTierNoTooltip] будет быстрым и безопасным. Я с нетерпением жду вашего прибытия и заверений в вашей непоколебимой поддержке."
+ coronation.0003.desc_guest:0 "\n\nПусть ваше путешествие во владение [county.GetNameNoTierNoTooltip] будет быстрым и безопасным. Я с нетерпением жду вашего прибытия и заверений в вашей непоколебимой поддержке."
+ coronation.0003.desc_vassal:0 "\n\nВаше присутствие как верного вассала державы не только желательно, но и необходимо. Ожидается, что вы посетите это знаменательное событие и публично выразите свою верность, преклонив колено. Это станет знаком вашей верности и преданности короне и прочному единству державы.\n\nПусть ваше путешествие во владение [county.GetNameNoTierNoTooltip] будет быстрым и безопасным. Я с нетерпением жду вашего прибытия и заверений в вашей непоколебимой поддержке."
+ coronation.0003.a:0 "С удовольствием, я немедленно отправлюсь в путь."
+ coronation.0003.b:0 "Я отправлю кого-нибудь вместо себя."
+ coronation.0003.c:0 "У меня есть более важные дела."
+ coronation.0003.c.tt_refusal:0 "[recipient.GetTitledFirstNameNoTooltip|U] [Select_CString(recipient.IsFemale, 'отказалась', 'отказался' )] присутствовать на коронации"
+ coronation.0003.c.tt_officiant_refusal:0 "[recipient.GetTitledFirstNameNoTooltip|U] [Select_CString(recipient.IsFemale, 'отказалась', 'отказался' )] провести коронацию"
+
  # Representative Events (For those who can't attend)
- coronation.0004.t:0 "Representative of [ROOT.Char.GetCapitalLocation.GetNameNoTooltip]"
- coronation.0004.desc:0 "With the coronation of [coronation_target.GetTitledFirstName], I am expected to renew my fealty to the crown. As I am unable to attend, someone must go in my place."
- coronation.0004.a:0 "[potential_representative_1.GetFirstNameNoTooltip|U] is the logical choice"
- coronation.0004.a.tt:0 "[potential_representative_1.GetShortUIName] accepts the invitation on your behalf"
- coronation.0004.b:0 "It must be [potential_representative_2.GetFirstNameNoTooltip|U]"
- coronation.0004.b.tt:0 "[potential_representative_2.GetShortUIName] accepts the invitation on your behalf"
- coronation.0004.c:0 "[potential_representative_3.GetFirstNameNoTooltip|U] it is"
- coronation.0004.c.tt:0 "[potential_representative_3.GetShortUIName] accepts the invitation on your behalf"
- coronation.0004.d:0 "One of my councillors shall represent me"
- coronation.0004.d.tt:0 "You will select from your available councillors"
- 
+ coronation.0004.t:0 "[ROOT.Char.GetCapitalLocation.GetNameNoTooltip]: представитель"
+ coronation.0004.desc:0 "В связи с тем, что [coronation_target.GetTitledFirstName] проводит коронацию, я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] выразить свою верность короне. Поскольку я не могу присутствовать, кто-то должен отправиться вместо меня."
+ coronation.0004.a:0 "[potential_representative_1.GetFirstNameNoTooltip|U] - логичный выбор"
+ coronation.0004.a.tt:0 "[potential_representative_1.GetShortUIName] примет приглашение от вашего имени"
+ coronation.0004.b:0 "Это [Select_CString(potential_representative_2.IsFemale, 'должна', 'должен' )] быть [potential_representative_2.GetFirstNameNoTooltip|U]"
+ coronation.0004.b.tt:0 "[potential_representative_2.GetShortUIName] примет приглашение от вашего имени"
+ coronation.0004.c:0 "Это будет [potential_representative_3.GetFirstNameNoTooltip|U]"
+ coronation.0004.c.tt:0 "[potential_representative_3.GetShortUIName] примет приглашение от вашего имени"
+ coronation.0004.d:0 "Один из моих советников будет представлять меня"
+ coronation.0004.d.tt:0 "Вы выберете одного из советников"
+
  # Selecting a Crown - Decides which crown the officiant will use to crown them and set up for sabotage
- coronation.0005.t:0 "Selecting a Crown"
- coronation.0005.desc:0 "With the final preparations underway, [coronation_officiant.GetTitledFirstNameNoTooltip] approaches me. "Your Grace, we must decide upon which crown you wish to be crowned with."\n\nI take a moment to consider which of the crowns in my collection should be used."
- coronation.0005.desc_high_septon:0 "With the final preparations underway, [coronation_officiant.GetTitledFirstNameNicknamedNoTooltip|U] approaches me. "Your Grace, we must decide upon which crown you wish to be crowned with."\n\nI take a moment to consider which of the crowns in my collection should be used."
- coronation.0005.desc_after_sabotage:0 "After someone stole my crown, I must now select from the others in my collection"
- coronation.0005.a:0 "This shall do nicely"
- coronation.0005.a.tt:0 "#high [selected_crown_for_coronation.GetNameNoTooltip]#! shall be used to crown you"
- coronation.0005.b:0 "None of these are suitable; I shall commission a new crown"
- 
- coronation.0006.t:0 "To Crown or Not to Crown"
- coronation.0006.desc:0 "War has broken out within the realm and I still have yet to be crowned. Given the circumstances the realm may yet forgive me if I forgo a formal coronation ceremony. Then again, the lords of the realm may hold it against me in the years to come."
- coronation.0006.a:0 "It must be done to secure my throne"
- coronation.0006.a.tt:0 "You will be crowned without the formalities"
- coronation.0006.b:0 "It must be done properly or not at all"
- coronation.0006.b.tt:0 "You will wait until after the war is resolved to host a [GetActivityType( 'activity_coronation' ).GetName]"
- 
- coronation.0008.t:0 "Coming of Age"
- coronation.0008.desc:0 "I can no longer use my age as an excuse to delay my coronation. The realm will expect one soon, lest they decide I am unfit to sit my throne."
- coronation.0008.a:0 "And so it begins"
- 
+ coronation.0005.t:0 "Выбор короны"
+ coronation.0005.desc:0 "Пока идут последние приготовления, ко мне подходит [coronation_officiant.GetTitledFirstNameNoTooltip]. «Ваша светлость, мы должны решить, какой короной вы хотите короноваться».\n\nЯ на мгновение [Select_CString(ROOT.Char.IsFemale, 'задумалась', 'задумался' )], какую из корон в моей коллекции следует использовать."
+ coronation.0005.desc_high_septon:0 "Пока идут последние приготовления, ко мне подходит [coronation_officiant.GetTitledFirstNameNicknamedNoTooltip|U]. «Ваша светлость, мы должны решить, какой короной вы хотите короноваться».\n\nЯ на мгновение [Select_CString(ROOT.Char.IsFemale, 'задумалась', 'задумался' )], какую из корон в моей коллекции следует использовать."
+ coronation.0005.desc_after_sabotage:0 "После того, как кто-то украл мою корону, я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] выбрать одну из других в моей коллекции"
+ coronation.0005.a:0 "Эта прекрасно подойдёт"
+ coronation.0005.a.tt:0 "#high [selected_crown_for_coronation.GetNameNoTooltip]#! будет использована в вашей коронации"
+ coronation.0005.b:0 "Ни одна из них не подходит - я закажу новую корону"
+
+ coronation.0006.t:0 "Короноваться или нет"
+ coronation.0006.desc:0 "В державе разгорелась война, а я до сих пор не [Select_CString(ROOT.Char.IsFemale, 'коронована', 'коронован' )]. Учитывая обстоятельства, держава может понять меня, если я откажусь от официальной церемонии коронации. С другой стороны, в ближайшие годы лорды державы могут припомнить мне это."
+ coronation.0006.a:0 "Коронация нужна для укрепления власти"
+ coronation.0006.a.tt:0 "Вы коронуетесь без формальностей"
+ coronation.0006.b:0 "Всё должно быть соблюдено в точности или не сделано вовсе"
+ coronation.0006.b.tt:0 "[GetActivityType( 'activity_coronation' ).GetName] будет проведена после окончания войны"
+
+ coronation.0008.t:0 "Наступление возраста"
+ coronation.0008.desc:0 "Я больше не могу использовать свой возраст как предлог для отсрочки коронации. Держава будет ожидать ее в ближайшее время, иначе многие решат, что я не [Select_CString(ROOT.Char.IsFemale, 'достойна', 'достоин' )] занимать свой трон."
+ coronation.0008.a:0 "И так начинается"
+
  # Activity Start
- coronation.0100.t:0 "Coronation Ceremony Starts"
- coronation.0100.desc_diplo:0 "The day has finally come for me to be formally crowned [coronation_target.GetTitleAsNameNoTooltip|U]. As the preparations are made, my mind is already focused on what comes next. Behind all the rituals and ceremonies, coronations are first and foremost political events. Therefore, despite the smiles and deference, I wonder if my will vassals accept my rule?\n\nMoreover, there's still another question that weighs heavily upon me — will the Iron Throne deem me worthy?"
- coronation.0100.desc_religious:0 "The day has finally come for me to be formally crowned [coronation_target.GetTitleAsNameNoTooltip|U]. All steps of a coronation are important. After all, the validity of any ritual stands on the correct reproduction of all its parts.\n\nI have been paying close attention as [other_guest.GetTitledFirstName|U] and [other_guest.GetHerHis|l] assistants, any component missed could cause my legitimacy will be called into question."
- coronation.0100.desc_shy:0 "The day has finally come for me to be formally crowned [coronation_target.GetTitleAsNameNoTooltip|U]. Everything feels overwhelming: the lavish decorations, the constant chatter of guests and the piercing scrutiny from my vassals judging my every action.\n\nAll of it blends into a tumultuous maelstrom of anxiety, which I can only hope calms at the moment of my crowning. If I had my choice, I would have done away with all these formalities."
- coronation.0100.desc_arrogant:0 "The day has finally come for me to be formally crowned [coronation_target.GetTitleAsNameNoTooltip|U] of the [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip]. The day has barely started and I'm already fed up with the incessant blabbering of [other_guest.GetTitledFirstName|U]. Not surprisingly, I've been seething through most of the morning.\n\nAt this rate, I will be able to breathe fire by the time I am crowned. My patience is wearing thin."
- coronation.0100.desc_paranoid:0 "The day has finally come for me to be formally crowned [coronation_target.GetTitleAsNameNoTooltip|U] of the [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip]. All the so-called well-wishers and defential vassals hide lies and deceit behind their false smiles.\n\nOnce the crown is placed upon my head, the crows will circle. They will never make a meal of me."
- coronation.0100.desc_appearance:0 "The day has finally come for me to be formally crowned [coronation_target.GetTitleAsNameNoTooltip|U] of the [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip]. However, I am focused on the gazes of all those around me. I know my disability evokes revulsion in some and horror in others, but today they will be forced to look upon me.\n\nIt is my hope that they will keep their comments to themselves."
- coronation.0100.desc_seducer:0 "The day has finally come for me to be formally crowned [coronation_target.GetTitleAsNameNoTooltip|U] of the [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip]. My attention drifts from the upcoming ceremony to the attractive, young servants bustling around. I wonder if I might discreetly persuade one or two to slip away with me before the event begins. It’s unlikely anyone would notice."
- coronation.0100.desc_drunkard:0 "The day has finally come for me to be formally crowned [coronation_target.GetTitleAsNameNoTooltip|U] of the [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip]. Despite the upcoming ceremony, my overriding desire is for a strong drink. As I watch the servants bustling around, I command one to bring me my desired beverage to sate my thirst. As a finish one, another is brought to me. It will be a miracle if I can stand by the end of the day."
- coronation.0100.desc_guest:0 "The day has arrived. Only time will tell if [coronation_target.GetFirstName|U] is up to the task of ruling the [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip]."
- coronation.0100.a:0 "So it begins..."
- 
+ coronation.0100.t:0 "Начало церемонии коронации"
+ coronation.0100.desc_diplo:0 "Наконец-то настал день, когда я буду официально [Select_CString(ROOT.Char.IsFemale, 'коронована', 'коронован' )] как [coronation_target.GetTitleAsNameNoTooltip|U]. Пока идут приготовления, мои мысли уже сосредоточены на том, что будет дальше. За всеми ритуалами и церемониями коронация - это прежде всего политическое событие. Поэтому, несмотря на улыбки и почтение, я задаюсь вопросом, примут ли мои вассалы мою власть?\n\nКроме того, есть ещё один вопрос, который тяготит меня - сочтёт ли Железный трон меня [Select_CString(ROOT.Char.IsFemale, 'достойной', 'достойным' )]?"
+ coronation.0100.desc_religious:0 "Наконец-то настал день, когда я буду официально [Select_CString(ROOT.Char.IsFemale, 'коронована', 'коронован' )] как [coronation_target.GetTitleAsNameNoTooltip|U]. Все этапы коронации очень важны. В конце концов, достоверность любого ритуала зависит от правильного исполнения всех его частей.\n\nЯ [Select_CString(ROOT.Char.IsFemale, 'была очень внимательна', 'был очень внимателен' )], как [other_guest.GetTitledFirstName|U] и [other_guest.GetHerHis|l] помощники, любой пропущенный компонент может привести к тому, что моя легитимность будет поставлена под сомнение."
+ coronation.0100.desc_shy:0 "Наконец-то настал день, когда я буду официально [Select_CString(ROOT.Char.IsFemale, 'коронована', 'коронован' )] как [coronation_target.GetTitleAsNameNoTooltip|U]. Всё кажется непомерным: пышные украшения, постоянная болтовня гостей и пронзительные взгляды моих вассалов, оценивающих каждое моё действие.\n\nВсе это смешивается в бурный водоворот беспокойства, которое, как я надеюсь, утихнет в момент моей коронации. Будь у меня выбор, я бы [Select_CString(ROOT.Char.IsFemale, 'избавилась', 'избавился' )] от всех этих формальностей."
+ coronation.0100.desc_arrogant:0 "Наконец-то настал день, когда я буду официально [Select_CString(ROOT.Char.IsFemale, 'коронована', 'коронован' )] как [coronation_target.GetTitleAsNameNoTooltip|U] державы [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip]. День только начался, а я уже [Select_CString(ROOT.Char.IsFemale, 'сыта', 'сыт' )] по горло тем, как [other_guest.GetTitledFirstName|U] болтает без умолку. Неудивительно, что большую часть утра я [Select_CString(ROOT.Char.IsFemale, 'пребывала', 'пребывал' )] в раздражении.\n\nТакими темпами к моменту коронации я смогу дышать огнём. Моё терпение истощается."
+ coronation.0100.desc_paranoid:0 "Наконец-то настал день, когда я буду официально [Select_CString(ROOT.Char.IsFemale, 'коронована', 'коронован' )] как [coronation_target.GetTitleAsNameNoTooltip|U] державы [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip]. Все так называемые доброжелатели и вассалы скрывают ложь и обман за своими фальшивыми улыбками.\n\nКак только корона будет возложена на мою голову, меня окружат стервятники. Они никогда не насытятся мной."
+ coronation.0100.desc_appearance:0 "Наконец-то настал день, когда я буду официально [Select_CString(ROOT.Char.IsFemale, 'коронована', 'коронован' )] как [coronation_target.GetTitleAsNameNoTooltip|U] державы [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip]. Однако я [Select_CString(ROOT.Char.IsFemale, 'сосредоточена', 'сосредоточен' )] на взглядах всех, кто меня окружает. Я знаю, что моя неполноценность вызывает отвращение у одних и ужас у других, но сегодня они будут вынуждены смотреть на меня.\n\nЯ надеюсь, что они оставят свои комментарии при себе."
+ coronation.0100.desc_seducer:0 "Наконец-то настал день, когда я буду официально [Select_CString(ROOT.Char.IsFemale, 'коронована', 'коронован' )] как [coronation_target.GetTitleAsNameNoTooltip|U] державы [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip]. Мое внимание переключается с предстоящей церемонии на привлекательных [Select_CString(ROOT.Char.IsFemale, 'молодых слуг', 'молодых служанок' )], суетящихся вокруг. Интересно, смогу ли я незаметно уговорить [Select_CString(ROOT.Char.IsFemale, 'одного', 'одну' )] или двух ускользнуть со мной до начала мероприятия? Вряд ли кто-то заметит."
+ coronation.0100.desc_drunkard:0 "Наконец-то настал день, когда я буду официально [Select_CString(ROOT.Char.IsFemale, 'коронована', 'коронован' )] как [coronation_target.GetTitleAsNameNoTooltip|U] державы [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip]. Несмотря на предстоящую церемонию, мне очень хочется выпить чего-нибудь крепкого. Наблюдая за суетящимися вокруг слугами, я приказываю одному из них принести мне желанный напиток, чтобы утолить жажду. Как только чаша пустеет, мне подносят другую. Будет просто чудом, если я смогу стоять на ногах до конца дня."
+ coronation.0100.desc_guest:0 "День настал. Только время покажет, справится ли [coronation_target.GetFirstName|U] с правлением державой [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip]."
+ coronation.0100.a:0 "Итак, началось..."
+
  # Coronation Event Host
- coronation.0150.t:0 "The True [coronation_target.GetTitleAsNameNoTooltip|U]"
- coronation.0150.desc_ct_intro:1 "The ceremony has finally reached its climax. [officiant.GetTitledFirstNameNicknamed|U] has anointed me in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip] and now prepares to crown me. As the crown is placed upon my head, [officiant.GetTitledFirstNameNicknamedNoTooltip|U] proclaims:"
- 
- coronation.0150.desc_ct_no_crown_intro:1 "The ceremony has finally reached its climax. [officiant.GetTitledFirstNameNicknamed|U] has anointed me in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip]. With no crown available, [officiant.GetTitledFirstNameNicknamedNoTooltip|U] simply proclaims:"
- 
- coronation.0150.desc_self_crowner_intro:1 "The ceremony has finally reached its climax. I have been anointed in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip] and I prepare to place the crown upon my head. As the crown rests upon my brow, I rise and face the crowd."
- 
- coronation.0150.desc_self_crowner_no_crown_intro:1 "The ceremony has finally reached its climax. I have been anointed in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip]. With no crown available, I face the crowd and proclaim:"
- 
- coronation.0150.desc_officiant_intro:1 "The ceremony has finally reached its climax. I have anointed [coronation_target.GetTitledFirstName|U] in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip] and I prepare to crown [coronation_target.GetHerHim]. As I place the crown upon [coronation_target.GetFirstNamePossessiveNoTooltip|U] head, I proclaim:"
- 
- coronation.0150.desc_officiant_no_crown_intro:1 "The ceremony has finally reached its climax. I have anointed [coronation_target.GetTitledFirstName|U] in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip], but we have no crown [coronation_target.GetHerHim] to place upon [coronation_target.GetHerHis|l] head. Therefore, I simply proclaim:"
- 
- # Coronation Event Guests 
- coronation.0150.desc_guests_intro:1 "The ceremony has finally reached its climax. [officiant.GetTitledFirstName|U] has anointed [coronation_target.GetTitledFirstName|U] in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip] and now prepares to crown [coronation_target.GetHerHim]. As the crown is placed upon [coronation_target.GetFirstNamePossessiveNoTooltip|U] head, [officiant.GetTitledFirstNameNoTooltip|U] proclaims:"
- 
- coronation.0150.desc_guests_no_crown_intro:1 "The ceremony has finally reached its climax. [officiant.GetTitledFirstName|U] has anointed [coronation_target.GetTitledFirstName|U] in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip], but there is no crown to be seen. We share confused glances as [officiant.GetTitledFirstNameNoTooltip|U] simply proclaims:"
- 
- coronation.0150.desc_guests_self_crowner_intro:1 "The ceremony has finally reached its climax. [coronation_target.GetTitledFirstName|U] has been anointed in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip] and [coronation_target.GetSheHe|l] places the crown upon [coronation_target.GetHerHis|l] head.\n\nTurnig toward us, [coronation_target.GetSheHe|l] proclaims:"
- 
- coronation.0150.desc_guests_self_crowner_no_crown_intro:1 "The ceremony has finally reached its climax. [coronation_target.GetTitledFirstName|U] has been anointed in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip], but there is no crown to be seen.\n\nTurnig toward us, [coronation_target.GetSheHe|l] simply proclaims:"
- 
+ coronation.0150.t:0 "[Select_CString(coronation_target.IsFemale, 'Истинная', 'Истинный' )] [coronation_target.GetTitleAsNameNoTooltip|U]"
+ coronation.0150.desc_ct_intro:1 "Наконец-то церемония достигла своей кульминации. [officiant.GetTitledFirstNameNicknamed|U] [Select_CString(officiant.IsFemale, 'помазала', 'помазал' )] меня согласно традиционным [coronation_target.GetFaith.GetNameNoTooltip]им обрядам и теперь готовится короновать меня. Возложив корону на мою голову, [officiant.GetTitledFirstNameNicknamedNoTooltip|U] провозглашает:"
+
+ coronation.0150.desc_ct_no_crown_intro:1 "Наконец-то церемония достигла своей кульминации. [officiant.GetTitledFirstNameNicknamed|U] [Select_CString(officiant.IsFemale, 'помазала', 'помазал' )] меня согласно традиционным [coronation_target.GetFaith.GetNameNoTooltip]им обрядам. Так как короны нет, [officiant.GetTitledFirstNameNicknamedNoTooltip|U] просто провозглашает:"
+
+ coronation.0150.desc_self_crowner_intro:1 "Наконец-то церемония достигла своей кульминации. Меня помазали согласно традиционным [coronation_target.GetFaith.GetNameNoTooltip]им обрядам, и я готовлюсь возложить корону на свою голову. Когда корона ложится на моё чело, я поднимаюсь и поворачиваюсь лицом к толпе."
+
+ coronation.0150.desc_self_crowner_no_crown_intro:1 "Наконец-то церемония достигла своей кульминации. Меня помазали согласно традиционным [coronation_target.GetFaith.GetNameNoTooltip]им обрядам. Не имея короны, я предстаю перед толпой и провозглашаю:"
+
+ coronation.0150.desc_officiant_intro:1 "Наконец-то церемония достигла своей кульминации. [coronation_target.GetTitledFirstName|U] [Select_CString(coronation_target.IsFemale, 'помазана', 'помазан' )] мной согласно традиционным [coronation_target.GetFaith.GetNameNoTooltip]им обрядам и я готовлюсь короновать [coronation_target.GetHerHis]. Возложив корону на [coronation_target.GetHerHis] голову, я провозглашаю:"
+
+ coronation.0150.desc_officiant_no_crown_intro:1 "Наконец-то церемония достигла своей кульминации. [coronation_target.GetTitledFirstName|U] [Select_CString(coronation_target.IsFemale, 'помазана', 'помазан' )] мной согласно традиционным [coronation_target.GetFaith.GetNameNoTooltip]им обрядам, но у нас нет короны, чтобы возложить её на [coronation_target.GetHerHis] голову. Поэтому я просто провозглашаю:"
+
+ # Coronation Event Guests
+ coronation.0150.desc_guests_intro:1 "Наконец-то церемония достигла своей кульминации. [coronation_target.GetTitledFirstName|U] [Select_CString(coronation_target.IsFemale, 'преклонила', 'преклонил' )] колено на возвышении и [officiant.GetTitledFirstName|U] [Select_CString(officiant.IsFemale, 'помазала', 'помазал' )] [coronation_target.GetHerHis] согласно традиционным [coronation_target.GetFaith.GetNameNoTooltip]им обрядам и теперь готовится короновать [coronation_target.GetHerHis]. Когда [coronation_target.GetFirstNamePossessiveNoTooltip|U] [Select_CString(coronation_target.IsFemale, 'увенчана', 'увенчан' )] короной, [officiant.GetTitledFirstNameNoTooltip|U] провозглашает:"
+
+ coronation.0150.desc_guests_no_crown_intro:1 "Наконец-то церемония достигла своей кульминации. [coronation_target.GetTitledFirstName|U] [Select_CString(coronation_target.IsFemale, 'преклонила', 'преклонил' )] колено на возвышении и [officiant.GetTitledFirstName|U] [Select_CString(officiant.IsFemale, 'помазала', 'помазал' )] [coronation_target.GetHerHis] согласно традиционным [coronation_target.GetFaith.GetNameNoTooltip]им обрядам, но короны не видно. Мы обмениваемся растерянными взглядами, пока [officiant.GetTitledFirstNameNoTooltip|U] просто провозглашает:"
+
+ coronation.0150.desc_guests_self_crowner_intro:1 "Наконец-то церемония достигла своей кульминации. [coronation_target.GetTitledFirstName|U] [Select_CString(coronation_target.IsFemale, 'была помазана', 'был помазан' )] согласно традиционным [coronation_target.GetFaith.GetNameNoTooltip]им обрядам и [coronation_target.GetSheHe|l] [Select_CString(coronation_target.IsFemale, 'возложила', 'возложил' )] корону на свою голову.\n\nПовернувшись к нам, [coronation_target.GetSheHe|l] провозглашает:"
+
+ coronation.0150.desc_guests_self_crowner_no_crown_intro:1 "Наконец-то церемония достигла своей кульминации. [coronation_target.GetTitledFirstName|U] [Select_CString(coronation_target.IsFemale, 'была помазана', 'был помазан' )] согласно традиционным [coronation_target.GetFaith.GetNameNoTooltip]им обрядам, но короны не видно.\n\nПовернувшись к нам, [coronation_target.GetSheHe|l] просто провозглашает:"
+
  # Coronation Saboteur
- coronation.0150.desc_saboteur_no_crown_intro:1 "The ceremony has finally reached its climax. [officiant.GetTitledFirstName|U] has anointed [coronation_target.GetTitledFirstName|U] in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip], but there is no crown to be seen. Those around me share confused glances as [officiant.GetTitledFirstNameNoTooltip|U] simply proclaims:"
- 
- coronation.0150.desc_saboteur_self_crowner_no_crown_intro:1 "The ceremony has finally reached its climax. [coronation_target.GetTitledFirstName|U] has been anointed in the traditional rites of the [coronation_target.GetFaith.GetNameNoTooltip], but there is no crown to be seen.\n\nTurnig toward us, [coronation_target.GetSheHe|l] simply proclaims:"
- 
+ coronation.0150.desc_saboteur_no_crown_intro:1 "Наконец-то церемония достигла своей кульминации. [coronation_target.GetTitledFirstName|U] [Select_CString(coronation_target.IsFemale, 'преклонила', 'преклонил' )] колено на возвышении, и [officiant.GetTitledFirstName|U] [Select_CString(officiant.IsFemale, 'помазала', 'помазал' )] [Select_CString(coronation_target.IsFemale, 'её', 'его' )] согласно традиционным [coronation_target.GetFaith.GetNameNoTooltip]им обрядам, но короны не видно. Окружающие обмениваются растерянными взглядами, пока [officiant.GetTitledFirstNameNoTooltip|U] просто провозглашает:"
+
+ coronation.0150.desc_saboteur_self_crowner_no_crown_intro:1 "Наконец-то церемония достигла своей кульминации. [coronation_target.GetTitledFirstName|U] [Select_CString(coronation_target.IsFemale, 'была помазана', 'был помазан' )] согласно традиционным [coronation_target.GetFaith.GetNameNoTooltip]им обрядам, но короны не видно.\n\nПовернувшись к нам, [coronation_target.GetSheHe|l] просто провозглашает:"
+
  #Ruler's proclamation
- coronation.0150.desc_proclaimation_seven_kingdoms:0 "\n\n#italic "Before Gods and Men, I proclaim [coronation_target.GetFirstNameNoTooltipRegnal|U] of House [coronation_target.GetHouse.GetNameNoTooltip|U], [coronation_target.GetTitleAsNameNoTooltip|U] of the Andals, the Rhoynar, and the First Men, [coronation_target.GetLadyLord|U] of the Seven Kingdoms, and Protector of the Realm! Long may [coronation_target.GetSheHe] reign!" #!"
- coronation.0150.desc_proclaimation_seven_kingdoms_self:0 "\n\n#italic "I am [coronation_target.GetFirstNameNoTooltipRegnal|U] of House [coronation_target.GetHouse.GetNameNoTooltip|U], [coronation_target.GetTitleAsNameNoTooltip|U] of the Andals, the Rhoynar, and the First Men, [coronation_target.GetLadyLord|U] of the Seven Kingdoms, and Protector of the Realm! Long may I reign!" #!"
- coronation.0150.desc_proclaimation_other:0 "\n\n#italic "Before Gods and Men, I proclaim [coronation_target.GetFirstNameNoTooltipRegnal|U] of House [coronation_target.GetHouse.GetNameNoTooltip|U], [coronation_target.GetTitleAsNameNoTooltip|U] of [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip|U]! Long may [coronation_target.GetSheHe] reign!" #!"
- coronation.0150.desc_proclaimation_other_self:0 "\n\n#italic "I am [coronation_target.GetFirstNameNoTooltipRegnal|U] of House [coronation_target.GetHouse.GetNameNoTooltip|U], [coronation_target.GetTitleAsNameNoTooltip|U] of [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip|U]! Long may I reign!" #!"
- 
+ coronation.0150.desc_proclaimation_seven_kingdoms:0 "\n\n#italic «Перед ликом богов и людей я провозглашаю о том, что [coronation_target.GetFirstNameNoTooltipRegnal|U] из дома [coronation_target.GetHouse.GetNameNoTooltip|U] отныне [coronation_target.GetTitleAsNameNoTooltip|U] андалов, ройнаров и Первых людей, [Select_CString(coronation_target.IsFemale, 'владычица', 'владыка' )] Семи королевств и [Select_CString(coronation_target.IsFemale, 'защитница', 'защитник' )] державы! Да правит [coronation_target.GetSheHe] долго!»#!"
+ coronation.0150.desc_proclaimation_seven_kingdoms_self:0 "\n\n#italic «Я - [coronation_target.GetFirstNameNoTooltipRegnal|U] из дома [coronation_target.GetHouse.GetNameNoTooltip|U], [coronation_target.GetTitleAsNameNoTooltip|U] андалов, ройнаров и Первых людей, [Select_CString(coronation_target.IsFemale, 'владычица', 'владыка' )] Семи королевств и [Select_CString(coronation_target.IsFemale, 'защитница', 'защитник' )] державы! Да правлю я долго!»#!"
+ coronation.0150.desc_proclaimation_other:0 "\n\n#italic «Перед ликом богов и людей я провозглашаю о том, что [coronation_target.GetFirstNameNoTooltipRegnal|U] из дома [coronation_target.GetHouse.GetNameNoTooltip|U] отныне [coronation_target.GetTitleAsNameNoTooltip|U] державы [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip|U]! Да правит [coronation_target.GetSheHe] долго!»#!"
+ coronation.0150.desc_proclaimation_other_self:0 "\n\n#italic «Я - [coronation_target.GetFirstNameNoTooltipRegnal|U] из дома [coronation_target.GetHouse.GetNameNoTooltip|U], [coronation_target.GetTitleAsNameNoTooltip|U] державы [coronation_target.GetPrimaryTitle.GetNameNoTierNoTooltip|U]! Да правлю я долго!»#!"
+
  #Outro
- coronation.0150.desc_ct_outro:0 "\n\nThe crowd starts cheering as I stand to face them."
- coronation.0150.desc_ct_no_crown_outro:0 "\n\nThe hall remains silent for several moments as those in attendance share confused glances as I stand to face them."
+ coronation.0150.desc_ct_outro:0 "\n\nТолпа начинает аплодировать, когда я встаю лицом к ним."
+ coronation.0150.desc_ct_no_crown_outro:0 "\n\nНа несколько мгновений в зале воцаряется тишина, присутствующие обмениваются растерянными взглядами, пока я стою перед ними."
  coronation.0150.desc_self_crowner_outro:0 "$coronation.0150.desc_ct_outro$"
- coronation.0150.desc_self_crowner_no_crown_outro:0 "\n\nThe hall remains silent for several moments as those in attendance share confused glances."
- coronation.0150.desc_officiant_outro:0 "\n\nThe crowd starts cheering, and we all stand witness to the beginning of what we all hope is a peaceful and prosperous reign."
- coronation.0150.desc_officiant_no_crown_outro:0 "\n\nThe hall remains silent for several moments as those in attendance share confused glances."
- coronation.0150.desc_guests_outro:0 "\n\nThe crowd starts cheering, and we all stand witness to the beginning of what we all hope is a peaceful and prosperous reign."
- coronation.0150.desc_guests_no_crown_outro:0 "\n\nFor several long moments, we do not make a noise before someone begins timidly clapping and we hesitantly join in."
+ coronation.0150.desc_self_crowner_no_crown_outro:0 "\n\nНа несколько мгновений в зале воцаряется тишина, присутствующие обмениваются растерянными взглядами."
+ coronation.0150.desc_officiant_outro:0 "\n\nТолпа начинает аплодировать, и мы все становимся свидетелями начала, как мы надеемся, мирного и процветающего правления."
+ coronation.0150.desc_officiant_no_crown_outro:0 "\n\nНа несколько мгновений в зале воцаряется тишина, присутствующие обмениваются растерянными взглядами."
+ coronation.0150.desc_guests_outro:0 "\n\nТолпа начинает аплодировать, и мы все становимся свидетелями начала, как мы надеемся, мирного и процветающего правления."
+ coronation.0150.desc_guests_no_crown_outro:0 "\n\nНесколько долгих мгновений мы не издаем ни звука, пока кто-то не начинает робко хлопать в ладоши, и мы нерешительно присоединяемся к нему."
  coronation.0150.desc_guests_self_crowner_outro:0 "$coronation.0150.desc_officiant_outro$"
- coronation.0150.desc_guests_self_crowner_no_crown_outro:0 "\n\nFor several long moments, we do not make a noise before someone begins timidly clapping and we hesitantly join in."
- coronation.0150.desc_saboteur_no_crown_outro:0 "\n\nFor several long moments, no one makes a sound. A smile slowly grows on my face as I know this was my doing. Then, someone begins timidly clapping and the others hesitantly join in."
- 
- coronation.0150.a:0 "Long may he reign!"
- coronation.0150.b:0 "Long may she reign!"
- coronation.0150.c:0 "Let [coronation_target.GetFaith.HighGodName] bear witness!"
- coronation.0150.a.tt_seven_kingdoms:0 "[coronation_target.GetShortUIName|U] will sit the Iron Throne"
- coronation.0150.a.tt_other:0 "[coronation_target.GetShortUIName|U] will sit [coronation_target.GetHerHis|l] throne"
- coronation.0150.b.tt_seven_kingdoms:0 "[coronation_target.GetShortUIName|U] will sit the Iron Throne"
- coronation.0150.b.tt_other:0 "[coronation_target.GetShortUIName|U] will sit [coronation_target.GetHerHis|l] throne"
- coronation.0150.c.tt_seven_kingdoms:0 "[coronation_target.GetShortUIName|U] will sit the Iron Throne"
- coronation.0150.c.tt_other:0 "[coronation_target.GetShortUIName|U] will sit your throne"
-   
+ coronation.0150.desc_guests_self_crowner_no_crown_outro:0 "\n\nНесколько долгих мгновений мы не издаем ни звука, пока кто-то не начинает робко хлопать в ладоши, и мы нерешительно присоединяемся к нему."
+ coronation.0150.desc_saboteur_no_crown_outro:0 "\n\nВ течение нескольких долгих мгновений никто не произносит ни звука. На моем лице медленно появляется улыбка, поскольку я понимаю, что это моя заслуга. Затем кто-то начинает робко хлопать, и остальные нерешительно присоединяются."
+
+ coronation.0150.a:0 "Да правит он долго!"
+ coronation.0150.b:0 "Да правит она долго!"
+ coronation.0150.c:0 "Пусть [coronation_target.GetFaith.HighGodName] будет свидетелем!"
+ coronation.0150.a.tt_seven_kingdoms:0 "[coronation_target.GetShortUIName|U] [Select_CString( coronation_target.IsLocalPlayer, 'воссядете', 'воссядет')] на Железный трон"
+ coronation.0150.a.tt_other:0 "[coronation_target.GetShortUIName|U] [Select_CString( coronation_target.IsLocalPlayer, 'воссядете', 'воссядет')] на свой трон"
+ coronation.0150.b.tt_seven_kingdoms:0 "[coronation_target.GetShortUIName|U] [Select_CString( coronation_target.IsLocalPlayer, 'воссядете', 'воссядет')] на Железный трон"
+ coronation.0150.b.tt_other:0 "[coronation_target.GetShortUIName|U] [Select_CString( coronation_target.IsLocalPlayer, 'воссядете', 'воссядет')] на свой трон"
+ coronation.0150.c.tt_seven_kingdoms:0 "[coronation_target.GetShortUIName|U] [Select_CString( coronation_target.IsLocalPlayer, 'воссядете', 'воссядет')] на Железный трон"
+ coronation.0150.c.tt_other:0 "[coronation_target.GetShortUIName|U] [Select_CString( coronation_target.IsLocalPlayer, 'воссядете', 'воссядет')] на свой трон"
+
  # Sitting the Iron Throne
  coronation.0151.t:0 "Sitting the Throne"
  coronation.0151.desc_intro_ruler_seven_kingdoms:0 "I have been crowned [coronation_target.GetTitleAsNameNoTooltip|U]. Now, I must prove myself worthy of the title and sit upon the Conqueror's throne. I turn from the crowd and a silence fills the hall. I begin my climb up the narrow, uneven steps, with each footfall echoing throughout the chamber.\n\n"
@@ -405,7 +405,7 @@
  coronation.1030.c:0 "Such a nefarious sign! We are DOOMED!"
  wedding_omen_dismissed_log_title:0 "Omen Dismissed"
  wedding_omen_dismissed_log:0 "[CHARACTER.GetUIName|U] dismissed a bad omen concerning [TARGET_CHARACTER.GetUIName]"
- coronation.1030.d: "Marvelous! A proper [ROOT.Char.dynasty.GetName] coronation!"
+ coronation.1030.d: "Marvelous! A proper [ROOT.Dynasty.GetName] coronation!"
  
  # Romantic Scouting
  coronation.1150.t:0 "Romantic Scouting"
