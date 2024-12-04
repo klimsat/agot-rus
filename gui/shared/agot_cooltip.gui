@@ -1,0 +1,663 @@
+##########################################################
+################# AGOT COOLTIP INSERTS ###################
+##########################################################
+
+types GameTooltipTypes
+{
+	type agot_cooltip_name_flavorization = container
+	{
+		ignoreinvisible = yes
+
+		text_multi = {
+			name = "character_name"
+			visible = "[GetScriptedGui('agot_name').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "[Character.GetCharacterViewNameNicknamedNoTooltipRegnal][Character.Custom('WordSpace')][Character.Custom('SurnameSwitch')]#medium [Character.Custom('TitleSuffix')]#!#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 400
+			autoresize = yes
+		}
+
+		text_multi = {
+			name = "character_name_knight"
+			visible = "[GetScriptedGui('agot_ser_knight').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "Сир [Character.GetFirstNameNicknamedNoTooltip][Character.Custom('WordSpace')][Character.GetHouse.GetNameNoTooltip]#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+			autoresize = yes
+		}
+
+		text_multi = {
+			name = "character_name_maester"
+			visible = "[GetScriptedGui('agot_maester').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "[Character.Custom('MaesterCheck')] [Character.GetTitledFirstNameNicknamedNoTooltip]#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+			autoresize = yes
+		}
+
+		text_multi = {
+			name = "character_name_silent_sister"
+			visible = "[GetScriptedGui('agot_silent_sister').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "Молчаливая Сестра [Character.GetFirstNameNicknamedNoTooltip]#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+		}
+
+		text_multi = {
+			name = "character_name_bastard"
+			visible = "[GetScriptedGui('agot_name_bastard').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "[Character.GetFirstNameNicknamedNoTooltip] [Character.Custom('SurnameSwitch')]#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+			autoresize = yes
+		}
+
+		text_multi = {
+			name = "character_name_knight_bastard"
+			visible = "[GetScriptedGui('agot_ser_knight_bastard').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "Сир [Character.GetFirstNameNicknamedNoTooltip] [Character.Custom('SurnameSwitch')]#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+			autoresize = yes
+		}
+
+		text_multi = {
+			name = "character_unlanded_name"
+			visible = "[GetScriptedGui('agot_name_unlanded').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "[Character.GetCharacterViewNameNicknamedNoTooltipRegnal]#medium [Character.Custom('TitleSuffix')]#!#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+			autoresize = yes
+		}
+
+		text_multi = {
+			name = "character_name_high_septon"
+			visible = "[GetScriptedGui('agot_high_septon_tt').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			raw_text = "[Character.GetNickname]#medium , [Character.GetAge]#!"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+			autoresize = yes
+		}
+	}
+
+	# Dragon Types
+	type agot_dragon_type_living = text_single
+	{
+		visible = "[And( Character.HasTrait( GetTrait('dragon') ), Character.IsAlive )]"
+		text = "[Character.Custom('GetDragonTypeGuiTooltip')]"
+		align = nobaseline
+	}
+
+	type agot_dragon_type_dead = text_single
+	{
+		maximumsize = { 149 -1 }
+		visible = "[And( Character.HasTrait( GetTrait('dragon') ), Character.IsDeadAndValid )]"
+		raw_text = "[dragon|E;L]"
+		align = nobaseline
+	}
+
+	# Dragon Relations
+	type agot_dragonrider_tooltip_relation = text_multi
+	{
+		name = "relation_to_dragon_rider"
+		visible = "[GetScriptedGui('agot_relation_check_rider').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		margin_top = 10
+		max_width = 308
+		text = "DRAGON_RELATION_HAS_RIDER"
+		tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		default_format = "#high"
+		align = nobaseline
+		autoresize = yes
+	}
+
+	type agot_bonded_tooltip_relation = text_multi
+	{
+		name = "relation_to_bonded_human"
+		visible = "[GetScriptedGui('agot_relation_check_bonded_human').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		margin_top = 10
+		max_width = 308
+		text = "DRAGON_RELATION_HAS_BONDED"
+		tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		default_format = "#high"
+		align = nobaseline
+		autoresize = yes
+	}
+
+	type agot_host_tooltip_relation = text_multi
+	{
+		name = "relation_to_host"
+		visible = "[GetScriptedGui('agot_relation_check_host').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		margin_top = 10
+		max_width = 308
+		text = "DRAGON_RELATION_IS_PITTED"
+		tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		default_format = "#high"
+		align = nobaseline
+		autoresize = yes
+	}
+
+	type agot_freedom_tooltip_relation = text_multi
+	{
+		name = "relation_to_freedom"
+		visible = "[GetScriptedGui('agot_relation_check_free').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		margin_top = 10
+		max_width = 308
+		text = "DRAGON_RELATION_IS_WANDERING"
+		tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		default_format = "#high"
+		align = nobaseline
+		autoresize = yes
+	}
+
+	type agot_wild_tooltip_relation = text_multi
+	{
+		name = "relation_to_wild"
+		visible = "[GetScriptedGui('agot_relation_check_wild').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		margin_top = 10
+		max_width = 308
+		text = "DRAGON_RELATION_IS_WANDERING"
+		tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		default_format = "#high"
+		align = nobaseline
+		autoresize = yes
+	}
+
+	# Dragon Gender Icons
+	type agot_dragon_unknown_gender_icon_tt = icon
+	{
+		visible = "[GetScriptedGui('agot_unknown_gender_dragon_shown').IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+		size = { 20 20 }
+		texture = "gfx/interface/icons/character_status/unknown_dragon.dds"
+		tooltip = "UNKNOWN_DRAGON_TOOLTIP"
+	}
+
+	type agot_dragon_male_gender_icon_tt = icon
+	{
+		visible = "[GetScriptedGui('agot_male_gender_dragon_shown').IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+		size = { 20 20 }
+		texture = "gfx/interface/icons/character_status/male_dragon.dds"
+		tooltip = "MALE_DRAGON_TOOLTIP"
+	}
+
+	type agot_dragon_female_gender_icon_tt = icon
+	{
+		visible = "[GetScriptedGui('agot_female_gender_dragon_shown').IsShown( GuiScope.SetRoot( Character.MakeScope ).End )]"
+		size = { 20 20 }
+		texture = "gfx/interface/icons/character_status/female_dragon.dds"
+		tooltip = "FEMALE_DRAGON_TOOLTIP"
+	}
+
+	# Dragon Portrait Tooltip
+	type container_dragon_character_tooltip = container
+	{
+		alwaystransparent = no
+
+		using = DefaultTooltipBackground
+		using = visible_if_dragon
+
+		flowcontainer = {
+			direction = vertical
+
+			widget = {
+				name = "portrait area"
+				size = { 100% 210 }
+
+				background = {
+					using = Background_Area_Dark
+					margin = { -3 -3 }
+					margin_bottom = 10
+
+					modify_texture = {
+						name = "mask"
+						texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+						blend_mode = alphamultiply
+						mirror = vertical
+					}
+				}
+				datacontext = "[GetIllustration( 'character_view_bg' )]"
+				background = {
+					texture = "[Illustration.GetTexture( Character.MakeScope )]"
+					fittype = centercrop
+					using = Mask_Rough_Edges
+
+					modify_texture = {
+						texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+						blend_mode = alphamultiply
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+						blend_mode = alphamultiply
+						mirror = vertical
+						alpha = 0.7
+					}
+				}
+
+				agot_dragons_portrait_torso = {
+					name = "char"
+					parentanchor = bottom|hcenter
+
+					blockoverride "portrait_button_template_tooltip" {}
+				}
+			}
+
+			container = {
+				cooltip_type = {
+					blockoverride "bg_visible" {
+						visible = no
+					}
+
+					blockoverride "char_tooltip_opinion" {}
+				}
+			}
+		}
+	}
+
+	# Forced Dragon Portrait Tooltip Third Person
+	type container_tp_dragon_character_tooltip = container
+	{
+		alwaystransparent = no
+
+		using = DefaultTooltipBackground
+		using = visible_if_dragon
+
+		flowcontainer = {
+			direction = vertical
+
+			widget = {
+				name = "portrait area"
+				size = { 100% 210 }
+
+				background = {
+					using = Background_Area_Dark
+					margin = { -3 -3 }
+					margin_bottom = 10
+
+					modify_texture = {
+						name = "mask"
+						texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+						blend_mode = alphamultiply
+						mirror = vertical
+					}
+				}
+				datacontext = "[GetIllustration( 'character_view_bg' )]"
+				background = {
+					texture = "[Illustration.GetTexture( CharacterListItem.GetCharacter.MakeScope.Var('current_dragon').Char.MakeScope )]"
+					fittype = centercrop
+					using = Mask_Rough_Edges
+
+					modify_texture = {
+						texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+						blend_mode = alphamultiply
+					}
+
+					modify_texture = {
+						texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+						blend_mode = alphamultiply
+						mirror = vertical
+						alpha = 0.7
+					}
+				}
+
+				agot_dragons_portrait_torso_tooltip = {
+					name = "char"
+					parentanchor = bottom|hcenter
+
+					blockoverride "portrait_button_template_tooltip" {}
+				}
+			}
+
+			container = {
+				cooltip_type = {
+					blockoverride "bg_visible" { visible = no }
+				}
+			}
+		}
+	}
+
+	type agot_object_tooltip_pop_out = widget { # Custom Tooltip Type - No Header
+		name = "ObjectTooltipDefault"
+		alwaystransparent = no
+
+		using = DefaultTooltipBackground
+
+		vbox = {
+			set_parent_size_to_minimum = yes
+			margin = { 20 5 }
+
+			# Override main_description if you plan to build a fully custom pop out, otherwise override the components
+			block "main_description"
+			{
+				block "extra_data" {}
+
+				textbox = {
+					name = "warning_description"
+
+					using = DefaultTooltipText
+					layoutpolicy_horizontal = expanding
+					multiline = yes
+					block "warning_description_text" {}
+					fonttintcolor = "[TooltipInfo.GetTintColor]"
+					alwaystransparent = no
+				}
+
+				textbox = {
+					name = "above_description"
+
+					max_width = 400
+					using = DefaultTooltipText
+					layoutpolicy_horizontal = expanding
+					multiline = yes
+					block "above_description_text" {}
+					fonttintcolor = "[TooltipInfo.GetTintColor]"
+					alwaystransparent = no
+				}
+
+				# NOTE: This edit box is filled by TooltipInfo.GetTintColor from code in order to set the correct size when the tooltip is created and positioned and then it uses the text property specified here in the next frames
+				textbox = {
+					name = "Description"
+					layoutpolicy_horizontal = expanding
+					max_width = 400
+					using = DefaultTooltipText
+					multiline = yes
+					block "description_text" {}
+					fonttintcolor = "[TooltipInfo.GetTintColor]"
+					alwaystransparent = no
+				}
+
+				block "extra_data_after_description" {}
+
+				# Things like "click to X", hotkeys etc
+				textbox = {
+					name = "input_info"
+					layoutpolicy_horizontal = expanding
+					margin_top = 10
+					using = DefaultTooltipText
+					multiline = yes
+					block "input_info_text" {}
+					fonttintcolor = "[TooltipInfo.GetTintColor]"
+				}
+			}
+
+			textbox = {
+				name = "TooltipTextShortcut"
+				layoutpolicy_horizontal = expanding
+				using = DefaultTooltipText
+				margin = { 10 5 }
+				margin_top = 10
+			}
+		}
+	}
+}
+
+template agot_personal_coa_tooltip # Personal COA Tooltip
+{
+	object_tooltip_pop_out = {
+		datacontext = "[DynastyHouse]"
+
+		blockoverride "header_additions" {
+			margin_right = 10
+			margin_top = 8
+			margin_left = -4
+
+			agot_coa_house_small = {
+				blockoverride "coa_tooltip" {}
+			}
+		}
+		blockoverride "title_text" {
+			text = "PERSONAL_ARMS_COOLTIP"
+		}
+		blockoverride "concept_link" {
+			text = [agot_personal_coa|E]
+			margin_top = 7
+		}
+		blockoverride "extra_data" {
+			agot_coa_house_huge = {
+				blockoverride "coa_tooltip" {}
+			}
+		}
+	}
+}
+
+template agot_dragon_army_comp # Character Window Army Tooltip
+{
+	agot_object_tooltip_pop_out = {
+		blockoverride "extra_data" {
+			spacer = {
+				size = { 0 4 }
+			}
+			cooltip_paragraph = {
+				text = "realm_dragons_faux_tt"
+				default_format = "#bold"
+				fontsize = 18
+				margin_bottom = -3
+			}
+			cooltip_paragraph = {
+				raw_text  = "@dragon_icon![owned_dragons|E]: #V [CharacterWindow.GetCharacter.MakeScope.ScriptValue('owned_dragons_in_realm')|0#!]"
+				visible = "[GetScriptedGui('agot_can_see_owned_dragons_military').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]"
+				margin_bottom = -3
+			}
+			cooltip_paragraph = {
+				raw_text  = "@dragon_icon![tamed_dragons|E]: #V [CharacterWindow.GetCharacter.MakeScope.ScriptValue('tamed_dragons_in_realm')|0#!]"
+				visible = "[GetScriptedGui('agot_can_see_tamed_dragons_military').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]"
+				margin_bottom = -3
+			}
+			cooltip_paragraph = {
+				raw_text  = "@dragon_icon![wild_dragons|E]: #V [CharacterWindow.GetCharacter.MakeScope.ScriptValue('wild_dragons_in_realm')|0#!]"
+				visible = "[GetScriptedGui('agot_can_see_wild_dragons_military').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]"
+				margin_bottom = -3
+			}
+			spacer = {
+				visible = "[GetScriptedGui('agot_can_see_dragon_military_view').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]"
+				size = { 0 10 }
+			}
+			cooltip_paragraph = {
+				text = "[CharacterWindow.GetMilitaryStrengthTooltip]"
+				margin_bottom = -10
+			}
+		}
+	}
+}
+
+template agot_war_portrait_dragon_army_comp # Individual Participant Portrait Army Tooltip
+{
+	agot_object_tooltip_pop_out = {
+		blockoverride "extra_data" {
+			spacer = {
+				size = { 0 4 }
+			}
+			cooltip_paragraph = {
+				text = "dragons_military_war_participant_text"
+				visible = "[GetScriptedGui('agot_visible_dragons_military_war_participant').IsShown( GuiScope.SetRoot( WarParticipantItem.GetCharacter.MakeScope ).End )]"
+				default_format = "#bold"
+				fontsize = 18
+				margin_bottom = -4
+			}
+			cooltip_paragraph = {
+				raw_text  = "[tamed_dragons|E]:@dragon_icon![WarParticipantItem.GetCharacter.MakeScope.ScriptValue('individual_dragons_in_army')|0]"
+				visible = "[GetScriptedGui('agot_visible_dragons_military_war_participant').IsShown( GuiScope.SetRoot( WarParticipantItem.GetCharacter.MakeScope ).End )]"
+			}
+			spacer = {
+				visible = "[GetScriptedGui('agot_visible_dragons_military_war_participant').IsShown( GuiScope.SetRoot( WarParticipantItem.GetCharacter.MakeScope ).End )]"
+				size = { 0 4 }
+			}
+			cooltip_paragraph = {
+				text = "[WarParticipantItem.GetParticipantTooltip]"
+			}
+		}
+	}
+}
+
+template agot_war_allies_dragon_army_comp # Total Troop Count with Strength for Allies Army Tooltip
+{
+	agot_object_tooltip_pop_out = {
+		blockoverride "extra_data" {
+			spacer = {
+				size = { 0 4 }
+			}
+			cooltip_paragraph = {
+				text = "dragons_military_war_overview_text"
+				visible = "[GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End)]"
+				default_format = "#bold"
+				fontsize = 18
+			}
+			spacer = {
+				visible = "[GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End)]"
+				size = { 0 4 }
+			}
+			cooltip_paragraph = {
+				raw_text  = "    •@dragon_icon![tamed_dragons|E]: #V [WarParticipantItem.GetCharacter.MakeScope.ScriptValue('individual_dragons_in_army')|0#!]"
+				visible = "[GetScriptedGui('agot_visible_dragons_military_war_participant').IsShown( GuiScope.SetRoot( WarParticipantItem.GetCharacter.MakeScope ).End )]"
+				margin_top = -5
+			}
+			spacer = {
+				visible = "[GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End)]"
+				size = { 0 4 }
+			}
+			cooltip_paragraph = {
+				text = "[ArmyComposition.GetArmyCompositionTooltip]"
+			}
+		}
+	}
+}
+
+template agot_war_combined_dragon_army_comp # Combined Total Troop Count with Strength for Right or Left Side Army Tooltip
+{
+	agot_object_tooltip_pop_out = {
+		blockoverride "extra_data" {
+			spacer = {
+				size = { 0 4 }
+			}
+			cooltip_paragraph = {
+				text = "dragons_military_war_overview_text"
+				visible = "[GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End)]"
+				default_format = "#bold"
+				fontsize = 18
+			}
+			spacer = {
+				visible = "[GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End)]"
+				size = { 0 4 }
+			}
+			cooltip_paragraph = {
+				raw_text  = "    •@dragon_icon![tamed_dragons|E]: #V [WarOverviewWindow.GetWar.MakeScope.ScriptValue('tamed_dragons_in_army_attacker')|0#!]"
+				visible = "[GetScriptedGui('agot_dragons_military_war_overview_attacker').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('attacker', WarParticipantItem.GetCharacter.MakeScope).End)]"
+				margin_top = -5
+			}
+			cooltip_paragraph = {
+				raw_text  = "    •@dragon_icon![tamed_dragons|E]: #V [WarOverviewWindow.GetWar.MakeScope.ScriptValue('tamed_dragons_in_army_defender')|0#!]"
+				visible = "[GetScriptedGui('agot_dragons_military_war_overview_defender').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('defender', WarParticipantItem.GetCharacter.MakeScope).End)]"
+				margin_top = -5
+			}
+			spacer = {
+				visible = "[GetScriptedGui('agot_visible_dragons_military_war_overview').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('participant', WarParticipantItem.GetCharacter.MakeScope).End)]"
+				size = { 0 4 }
+			}
+			cooltip_paragraph = {
+				text = "[ArmyComposition.GetArmyCompositionTooltip]"
+			}
+		}
+	}
+}
+
+template agot_war_comparison_dragon_army_comp # Overall Versus Comparison Armies Tooltip(Banner Icon Thing)
+{
+	agot_object_tooltip_pop_out = {
+		blockoverride "extra_data" {
+			spacer = {
+				visible = "[Or(GetScriptedGui('agot_dragons_versus_war_overview_attacker').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).End), GetScriptedGui('agot_dragons_versus_war_overview_defender').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).End))]"
+				size = { 0 4 }
+			}
+			cooltip_paragraph = {
+				text = "dragons_versus_war_overview_attacker_text"
+				visible = "[Or(GetScriptedGui('agot_dragons_versus_war_overview_attacker').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).End), GetScriptedGui('agot_dragons_versus_war_overview_defender').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).End))]"
+				default_format = "#bold"
+				fontsize = 18
+				margin_bottom = -6
+			}
+			cooltip_paragraph = {
+				raw_text  = "@dragon_icon![tamed_dragons|E]: #V [WarOverviewWindow.GetWar.MakeScope.ScriptValue('tamed_dragons_in_army_attacker')|0#!]"
+				visible = "[GetScriptedGui('agot_dragons_versus_war_overview_attacker').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).End)]"
+			}
+			spacer = {
+				visible = "[GetScriptedGui('agot_dragons_versus_war_overview_attacker').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).End)]"
+				size = { 0 12 }
+			}
+			cooltip_paragraph = {
+				text = "dragons_versus_war_overview_defender_text"
+				visible = "[GetScriptedGui('agot_dragons_versus_war_overview_defender').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).End)]"
+				default_format = "#bold"
+				fontsize = 18
+				margin_bottom = -6
+			}
+			cooltip_paragraph = {
+				raw_text  = "@dragon_icon![tamed_dragons|E]: #V [WarOverviewWindow.GetWar.MakeScope.ScriptValue('tamed_dragons_in_army_defender')|0#!]"
+				visible = "[GetScriptedGui('agot_dragons_versus_war_overview_defender').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).End)]"
+			}
+			spacer = {
+				visible = "[GetScriptedGui('agot_dragons_versus_war_overview_defender').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).End)]"
+				size = { 0 12 }
+			}
+			cooltip_paragraph = {
+				text = "[GuiMilitaryStrength.GetRatioDescription]"
+			}
+		}
+	}
+}
+
+template dragon_title_location_tooltip # Tooltip for Minor Titles for Dragons
+{
+	object_tooltip_pop_out = {
+		blockoverride "header_additions" {
+			margin_top = -48
+			margin_bottom = -35
+
+			coa_title_small_crown = {
+				size = { 40 50 }
+				blockoverride "coa_tooltip" {}
+				blockoverride "coa_hover_glow_visible"
+				{
+					visible = no
+				}
+			}
+		}
+
+		blockoverride "title_text" {
+			text = "[Title.GetNameWithUnderlyingNoTooltip|U]"
+			margin_top = 60
+		}
+
+		blockoverride "subheading" {
+			margin_left = 6
+
+			vbox_title_type_text = {
+				layoutpolicy_horizontal = expanding
+			}
+		}
+
+		blockoverride "description_text" {
+			text = "[Title.GetCOADefaultTooltip]"
+		}
+
+		blockoverride "concept_link" {
+			text = [title|E]
+		}
+
+		blockoverride "extra_data" {
+			textbox = {
+				using = DefaultTooltipText
+				layoutpolicy_horizontal = expanding
+				multiline = yes
+				fonttintcolor = "[TooltipInfo.GetTintColor]"
+				block "highlight_text" {}
+			}
+		}
+	}
+}
