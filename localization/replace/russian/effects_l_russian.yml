@@ -13,19 +13,19 @@
  CHARACTER_DIED_EFFECT_FIRST: "@death_icon! Вы умерли"
  #AGOT Modified
  #CHARACTER_DEATH_EFFECT_KILLER: "@death_icon! Погибает от руки [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- CHARACTER_DEATH_EFFECT_KILLER: "@death_icon! Погибает от руки #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ CHARACTER_DEATH_EFFECT_KILLER: "@death_icon! Погибает от руки #high персонажа [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!" #кастомка поломана, возвращаю как было. ВАШ не подставляется 
  #AGOT Modified
  #CHARACTER_DEATH_EFFECT_KILLER_THIRD: "@death_icon! [CHARACTER.GetShortUIName|U] погибает от руки [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- CHARACTER_DEATH_EFFECT_KILLER_THIRD: "@death_icon! #high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! погибает от руки #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ CHARACTER_DEATH_EFFECT_KILLER_THIRD: "@death_icon! #high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! погибает от руки #high персонажа [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
  #AGOT Modified
  #CHARACTER_DEATH_EFFECT_KILLER_FIRST: "@death_icon! [TARGET_CHARACTER.GetShortUIName] убивает вас"
  CHARACTER_DEATH_EFFECT_KILLER_FIRST: "@death_icon! #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#! убивает вас"
  #AGOT Modified
  #CHARACTER_DIED_EFFECT_KILLER: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsFemale, 'была убита', 'был убит' )] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажем ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'им персонажем', '' )]"
- CHARACTER_DIED_EFFECT_KILLER: "#high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! [Select_CString(CHARACTER.IsFemale, 'была убита', 'был убит' )] #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажем ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'им персонажем', '' )]#!"
+ CHARACTER_DIED_EFFECT_KILLER: "#high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! [Select_CString(CHARACTER.IsFemale, 'была убита', 'был убит' )] #high персонажем [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
  #AGOT Modified
  #CHARACTER_DIED_EFFECT_KILLER_THIRD: "@death_icon! [CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsFemale, 'была убита', 'был убит' )] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажем ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'им персонажем', '' )]"
- CHARACTER_DIED_EFFECT_KILLER_THIRD: "@death_icon! #high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! [Select_CString(CHARACTER.IsFemale, 'была убита', 'был убит' )] #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажем ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'им персонажем', '' )]#!"
+ CHARACTER_DIED_EFFECT_KILLER_THIRD: "@death_icon! #high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! [Select_CString(CHARACTER.IsFemale, 'была убита', 'был убит' )] #high персонажем [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
  #AGOT Modified
  #CHARACTER_DIED_EFFECT_KILLER_FIRST: "@death_icon! Вы убиты персонажем [TARGET_CHARACTER.GetShortUIName]"
  CHARACTER_DIED_EFFECT_KILLER_FIRST: "@death_icon! Вы убиты персонажем #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
@@ -64,10 +64,10 @@
  REMOVED_COURT_CHARACTER_EFFECT: "[TARGET_CHARACTER.GetUIName] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'покинули', Select_CString(TARGET_CHARACTER.IsFemale, 'покинула','покинул' ))] [CHARACTER.Custom('GetCourt')|l], где [Select_CString(CHARACTER.IsLocalPlayer, 'правите','правит' )] [CHARACTER.GetShortUIName]"
  #AGOT Modified
  #GAIN_HOOK_EFFECT: "Получит [weak_hook|El] #weak ($TYPE$)#! на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- GAIN_HOOK_EFFECT: "Получит [weak_hook|El] #weak ($TYPE$)#! на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ GAIN_HOOK_EFFECT: "Получит [weak_hook|El] #weak ($TYPE$)#! на #high персонажа [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #GAINED_HOOK_EFFECT: "Имеет [weak_hook|El] #weak ($TYPE$)#! на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- GAINED_HOOK_EFFECT: "Имеет [weak_hook|El] #weak ($TYPE$)#! на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ GAINED_HOOK_EFFECT: "Имеет [weak_hook|El] #weak ($TYPE$)#! на #high персонажа [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #I_GAIN_HOOK_EFFECT: "Вы получите [weak_hook|El] #weak ($TYPE$)#! на персонажа [TARGET_CHARACTER.GetShortUIName]"
  I_GAIN_HOOK_EFFECT: "Вы получите [weak_hook|El] #weak ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
@@ -76,16 +76,16 @@
  I_GAINED_HOOK_EFFECT: "Вы получили [weak_hook|El] #weak  ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #THEY_GAIN_HOOK_EFFECT: "[CHARACTER.GetShortUIName|U] получит [weak_hook|E] #weak ($TYPE$)#! на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- THEY_GAIN_HOOK_EFFECT: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! получит [weak_hook|E] #weak ($TYPE$)#! на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ THEY_GAIN_HOOK_EFFECT: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! получит [weak_hook|E] #weak ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #THEY_GAINED_HOOK_EFFECT: "[CHARACTER.GetShortUIName|U] имеет [weak_hook|E] #weak ($TYPE$)#! на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- THEY_GAINED_HOOK_EFFECT: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! имеет [weak_hook|E] #weak ($TYPE$)#! на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ THEY_GAINED_HOOK_EFFECT: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! имеет [weak_hook|E] #weak ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #GAIN_HOOK_EFFECT_STRONG: "Получит [strong_hook|El] #weak ($TYPE$)#! на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- GAIN_HOOK_EFFECT_STRONG: "Получит [strong_hook|El] #weak ($TYPE$)#! на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ GAIN_HOOK_EFFECT_STRONG: "Получит [strong_hook|El] #weak ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #GAINED_HOOK_EFFECT_STRONG: "Имеет [strong_hook|El] #weak ($TYPE$)#! на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- GAINED_HOOK_EFFECT_STRONG: "Имеет [strong_hook|El] #weak ($TYPE$)#! на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ GAINED_HOOK_EFFECT_STRONG: "Имеет [strong_hook|El] #weak ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #I_GAIN_HOOK_EFFECT_STRONG: "Вы получите [strong_hook|El] #weak ($TYPE$)#! на персонажа [TARGET_CHARACTER.GetShortUIName]"
  I_GAIN_HOOK_EFFECT_STRONG: "Вы получите [strong_hook|El] #weak ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
@@ -94,16 +94,16 @@
  I_GAINED_HOOK_EFFECT_STRONG: "Вы получили [strong_hook|El] #weak  ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #THEY_GAIN_HOOK_EFFECT_STRONG: "[CHARACTER.GetShortUIName|U] получит [strong_hook|E] #weak ($TYPE$)#! на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- THEY_GAIN_HOOK_EFFECT_STRONG: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! получит [strong_hook|E] #weak ($TYPE$)#! на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ THEY_GAIN_HOOK_EFFECT_STRONG: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! получит [strong_hook|E] #weak ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #THEY_GAINED_HOOK_EFFECT_STRONG: "[CHARACTER.GetShortUIName|U] имеет [strong_hook|E] #weak ($TYPE$)#! на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  THEY_GAINED_HOOK_EFFECT_STRONG: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! имеет [strong_hook|E] #weak ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #GAIN_HOOK_EFFECT_PERPETUAL: "Получает [perpetual_hook|El] #weak ($TYPE$)#! на [Select_CString(TARGET_CHARACTER.IsPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsPlayer, 'его персонажа', '' )]"
- GAIN_HOOK_EFFECT_PERPETUAL: "Получает [perpetual_hook|El] #weak ($TYPE$)#! на #high [Select_CString(TARGET_CHARACTER.IsPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsPlayer, 'его персонажа', '' )]#!"
+ GAIN_HOOK_EFFECT_PERPETUAL: "Получает [perpetual_hook|El] #weak ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #GAINED_HOOK_EFFECT_PERPETUAL: "Имеется [perpetual_hook|El] #weak ($TYPE$)#! на [Select_CString(TARGET_CHARACTER.IsPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsPlayer, 'его персонажа', '' )]"
- GAINED_HOOK_EFFECT_PERPETUAL: "Имеется [perpetual_hook|El] #weak ($TYPE$)#! на #high [Select_CString(TARGET_CHARACTER.IsPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsPlayer, 'его персонажа', '' )]#!"
+ GAINED_HOOK_EFFECT_PERPETUAL: "Имеется [perpetual_hook|El] #weak ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #I_GAIN_HOOK_EFFECT_PERPETUAL: "Вы получите [perpetual_hook|El] #weak ($TYPE$)#! на персонажа [TARGET_CHARACTER.GetShortUIName]"
  I_GAIN_HOOK_EFFECT_PERPETUAL: "Вы получите [perpetual_hook|El] #weak ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
@@ -112,17 +112,17 @@
  I_GAINED_HOOK_EFFECT_PERPETUAL: "Вы получили [perpetual_hook|El] #weak  ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #THEY_GAIN_HOOK_EFFECT_PERPETUAL: "[CHARACTER.GetShortUIName|U] получит [perpetual_hook|E] #weak ($TYPE$)#! на [Select_CString(TARGET_CHARACTER.IsPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsPlayer, 'его персонажа', '' )]"
- THEY_GAIN_HOOK_EFFECT_PERPETUAL: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! получит [perpetual_hook|E] #weak ($TYPE$)#! на #high [Select_CString(TARGET_CHARACTER.IsPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsPlayer, 'его персонажа', '' )]#!"
+ THEY_GAIN_HOOK_EFFECT_PERPETUAL: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! получит [perpetual_hook|E] #weak ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #THEY_GAINED_HOOK_EFFECT_PERPETUAL: "[CHARACTER.GetShortUIName|U] имеет [perpetual_hook|E] #weak ($TYPE$)#! на [Select_CString(TARGET_CHARACTER.IsPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsPlayer, 'его персонажа', '' )]"
- THEY_GAINED_HOOK_EFFECT_PERPETUAL: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! имеет [perpetual_hook|E] #weak ($TYPE$)#! на #high [Select_CString(TARGET_CHARACTER.IsPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsPlayer, 'его персонажа', '' )]#!"
+ THEY_GAINED_HOOK_EFFECT_PERPETUAL: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! имеет [perpetual_hook|E] #weak ($TYPE$)#! на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
 
  #AGOT Modified
  #REMOVE_HOOK_EFFECT: "Потеряет [hooks|El] $TYPE$ на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- REMOVE_HOOK_EFFECT: "Потеряет [hooks|El] $TYPE$ на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ REMOVE_HOOK_EFFECT: "Потеряет [hooks|El] $TYPE$ на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #REMOVE_HOOK_EFFECT_THIRD: "[CHARACTER.GetShortUIName|U] потеряет [hooks|El] $TYPE$ на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- REMOVE_HOOK_EFFECT_THIRD: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! потеряет [hooks|El] $TYPE$ на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ REMOVE_HOOK_EFFECT_THIRD: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! потеряет [hooks|El] $TYPE$ на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #REMOVE_HOOK_EFFECT_FIRST: "Вы потеряете [hooks|El] «$TYPE$» на персонажа [TARGET_CHARACTER.GetShortUIName]"
  REMOVE_HOOK_EFFECT_FIRST: "Вы потеряете [hooks|El] «$TYPE$» на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
@@ -132,38 +132,38 @@
 
  #AGOT Modified
  #USE_HOOK_EFFECT: "Использует слабое [hooks|El] «$TYPE$» на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- USE_HOOK_EFFECT: "Использует слабое [hooks|El] «$TYPE$» на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ USE_HOOK_EFFECT: "Использует слабое [hooks|El] «$TYPE$» на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #USE_HOOK_EFFECT_THIRD: "[CHARACTER.GetShortUIName|U] использует свое слабое [hooks|El] «$TYPE$» на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- USE_HOOK_EFFECT_THIRD: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! использует свое слабое [hooks|El] «$TYPE$» на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ USE_HOOK_EFFECT_THIRD: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! использует свое слабое [hooks|El] «$TYPE$» на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #USE_HOOK_EFFECT_FIRST: "Вы используете слабое [hooks|El] «$TYPE$» на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- USE_HOOK_EFFECT_FIRST: "Вы используете слабое [hooks|El] «$TYPE$» на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ USE_HOOK_EFFECT_FIRST: "Вы используете слабое [hooks|El] «$TYPE$» на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #USE_HOOK_EFFECT_PAST: "[Select_CString(CHARACTER.IsFemale, 'Использовала', 'Использовал' )] свое слабое [hooks|El] «$TYPE$» на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- USE_HOOK_EFFECT_PAST: "[Select_CString(CHARACTER.IsFemale, 'Использовала', 'Использовал' )] свое слабое [hooks|El] «$TYPE$» на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ USE_HOOK_EFFECT_PAST: "[Select_CString(CHARACTER.IsFemale, 'Использовала', 'Использовал' )] свое слабое [hooks|El] «$TYPE$» на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #USE_HOOK_EFFECT_THIRD_PAST: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsFemale, 'использовала', 'использовал' )] свое слабое [hooks|El] «$TYPE$» на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- USE_HOOK_EFFECT_THIRD_PAST: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! [Select_CString(CHARACTER.IsFemale, 'использовала', 'использовал' )] свое слабое [hooks|El] «$TYPE$» на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ USE_HOOK_EFFECT_THIRD_PAST: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! [Select_CString(CHARACTER.IsFemale, 'использовала', 'использовал' )] свое слабое [hooks|El] «$TYPE$» на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
  #AGOT Modified
  #USE_HOOK_EFFECT_FIRST_PAST: "Вы использовали слабое [hooks|El] «$TYPE$» на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- USE_HOOK_EFFECT_FIRST_PAST: "Вы использовали слабое [hooks|El] «$TYPE$» на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ USE_HOOK_EFFECT_FIRST_PAST: "Вы использовали слабое [hooks|El] «$TYPE$» на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#!"
 
  #AGOT Modified
  #USE_STRONG_HOOK_EFFECT: "Использует свое сильное [hooks|El] «$TYPE$» на персонажа [TARGET_CHARACTER.GetShortUIName] #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
  USE_STRONG_HOOK_EFFECT: "Использует свое сильное [hooks|El] «$TYPE$» на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
  #AGOT Modified
  #USE_STRONG_HOOK_EFFECT_THIRD: "[CHARACTER.GetShortUIName|U] использует свое сильное [hooks|El] «$TYPE$» на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )] #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
- USE_STRONG_HOOK_EFFECT_THIRD: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! использует свое сильное [hooks|El] «$TYPE$» на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#! #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
+ USE_STRONG_HOOK_EFFECT_THIRD: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! использует свое сильное [hooks|El] «$TYPE$» на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
  #AGOT Modified
  #USE_STRONG_HOOK_EFFECT_FIRST: "Вы используете сильное [hooks|El] «$TYPE$» на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )] #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
- USE_STRONG_HOOK_EFFECT_FIRST: "Вы используете сильное [hooks|El] «$TYPE$» на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#! #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
+ USE_STRONG_HOOK_EFFECT_FIRST: "Вы используете сильное [hooks|El] «$TYPE$» на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
  #AGOT Modified
  #USE_STRONG_HOOK_EFFECT_PAST: "[Select_CString(CHARACTER.IsFemale, 'Использовала', 'Использовал' )] свое сильное [hooks|El] «$TYPE$» на персонажа [TARGET_CHARACTER.GetShortUIName] #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
  USE_STRONG_HOOK_EFFECT_PAST: "[Select_CString(CHARACTER.IsFemale, 'Использовала', 'Использовал' )] свое сильное [hooks|El] «$TYPE$» на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
  #AGOT Modified
  #USE_STRONG_HOOK_EFFECT_THIRD_PAST: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsFemale, 'использовала', 'использовал' )] свое сильное [hooks|El] «$TYPE$» на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )] #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
- USE_STRONG_HOOK_EFFECT_THIRD_PAST: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! [Select_CString(CHARACTER.IsFemale, 'использовала', 'использовал' )] свое сильное [hooks|El] «$TYPE$» на #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#! #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
+ USE_STRONG_HOOK_EFFECT_THIRD_PAST: "#high [CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! [Select_CString(CHARACTER.IsFemale, 'использовала', 'использовал' )] свое сильное [hooks|El] «$TYPE$» на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
  #AGOT Modified
  #USE_STRONG_HOOK_EFFECT_FIRST_PAST: "Вы использовали сильное [hooks|El] «$TYPE$» на персонажа [TARGET_CHARACTER.GetShortUIName] #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
  USE_STRONG_HOOK_EFFECT_FIRST_PAST: "Вы использовали сильное [hooks|El] «$TYPE$» на персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUINameOrMe')]#! #weak (нельзя использовать повторно в течение [GetDefine('NCharacter', 'HOOK_COOLDOWN_DURATION_YEARS')] лет)#!"
@@ -659,13 +659,13 @@
 
  #AGOT Modified
  #ADD_COURTIER_TO_COURT: "[CHARACTER.Custom('GetCourt')|U] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] принимает [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- ADD_COURTIER_TO_COURT: "[CHARACTER.Custom('GetCourt')|U] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] принимает #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ ADD_COURTIER_TO_COURT: "[CHARACTER.Custom('GetCourt')|U] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] принимает персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
  #AGOT Modified
  #ADD_COURTIER_TO_MY_COURT: "Ваш [CHARACTER.Custom('GetCourt')|l] принимает [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- ADD_COURTIER_TO_MY_COURT: "Ваш [CHARACTER.Custom('GetCourt')|l] принимает #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ ADD_COURTIER_TO_MY_COURT: "Ваш [CHARACTER.Custom('GetCourt')|l] принимает персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
  #AGOT Modified
  #ADD_COURTIER_TO_THEIR_COURT: "[CHARACTER.Custom('GetCourt')|U] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] принимает [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- ADD_COURTIER_TO_THEIR_COURT: "[CHARACTER.Custom('GetCourt')|U] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] принимает #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ ADD_COURTIER_TO_THEIR_COURT: "[CHARACTER.Custom('GetCourt')|U] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] принимает персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
  ADDED_COURTIER_TO_COURT: "[CHARACTER.Custom('GetCourt')|U] стал приютом для [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  ADDED_COURTIER_TO_MY_COURT: "Ваш [CHARACTER.Custom('GetCourt')|l] стал приютом для [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  ADDED_COURTIER_TO_THEIR_COURT: "[CHARACTER.Custom('GetCourt')|U] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] стал приютом для [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
@@ -748,16 +748,16 @@
 
  #AGOT Modified
  #GLOBAL_BECOME_WARD: "Станет [Concept( 'ward', 'подопечным' )|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- GLOBAL_BECOME_WARD: "Станет [Concept( 'ward', 'подопечным' )|E] #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetTitledFirstNamePossessive')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ GLOBAL_BECOME_WARD: "Станет [Concept( 'ward', 'подопечным' )|E] персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetTitledFirstNamePossessive')]#!"
  #AGOT Modified
  #GLOBAL_BECAME_WARD: "Теперь [Concept( 'ward', 'под опекой' )|E] [Select_CString(TARGET_CHARACTER.IsPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsPlayer, 'его персонажа', '' )]"
- GLOBAL_BECAME_WARD: "Теперь [Concept( 'ward', 'под опекой' )|E] #high [Select_CString(TARGET_CHARACTER.IsPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetTitledFirstNamePossessive')][Select_CString(TARGET_CHARACTER.IsPlayer, 'его персонажа', '' )]#!"
+ GLOBAL_BECAME_WARD: "Теперь [Concept( 'ward', 'под опекой' )|E] персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetTitledFirstNamePossessive')]#!"
  #AGOT Modified
  #THEY_GET_A_WARD: "[TARGET_CHARACTER.GetShortUIName|U] теперь [ward|El] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- THEY_GET_A_WARD: "#high [TARGET_CHARACTER.Custom('AGOTCustomGetTitledFullName')]#! теперь [ward|El] #high [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.Custom('AGOTCustomGetTitledFirstNamePossessive')][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ THEY_GET_A_WARD: "#high [TARGET_CHARACTER.Custom('AGOTCustomGetTitledFullName')]#! теперь [ward|El] персонажа #high [CHARACTER.Custom('AGOTCustomGetTitledFirstNamePossessive')]#!"
  #AGOT Modified
  #GLOBAL_BECOME_GUARDIAN: "Станет [Concept( 'guardian', 'опекуном' )|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- GLOBAL_BECOME_GUARDIAN: "Станет [Concept( 'guardian', 'опекуном' )|E] #high [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.Custom('AGOTCustomGetTitledFirstNamePossessive')][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]#!"
+ GLOBAL_BECOME_GUARDIAN: "Станет [Concept( 'guardian', 'опекуном' )|E] персонажа #high [TARGET_CHARACTER.Custom('AGOTCustomGetTitledFirstNamePossessive')]#!"
 
  THEY_LOSE_A_WARD: "[TARGET_CHARACTER.GetNamePossessiveOrMy|U][Select_CString(TARGET_CHARACTER.IsPlayer, ' персонаж', '' )] больше не [ward|El] [Select_CString(CHARACTER.IsPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsPlayer, 'его персонажа', '' )]"
  THEY_LOST_A_WARD: "[TARGET_CHARACTER.GetNamePossessiveOrMy|U][Select_CString(TARGET_CHARACTER.IsPlayer, ' персонаж', '' )] больше не [ward|El] [Select_CString(CHARACTER.IsPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsPlayer, 'его персонажа', '' )]"

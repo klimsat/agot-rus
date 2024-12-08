@@ -60,7 +60,7 @@
  liege_modify_vassal_contract_interaction.tt.diarch_powers_used: "Вы используете свой статус [Concept( 'diarch', 'диарха' )|E], чтобы закрепить внесенные вами изменения"
  modify_vassal_contract_interaction_notification: "Измененный вассальный договор"
  vassal_modify_vassal_contract_interaction: "$modify_vassal_contract$"
- vassal_modify_vassal_contract_interaction_desc: "Заново определить [Concept( 'obligations', 'обязательства' )|E], которые [recipient.GetShortUINameNoTooltip] получает от вас"
+ vassal_modify_vassal_contract_interaction_desc: "Заново определить [Concept( 'obligations', 'обязательства' )|E], которые [secondary_recipient.GetShortUINameNoTooltip] получает от вас"
  vassal_modify_vassal_contract_interaction_extra_icon: "$hook_extra_icon$"
  visit_court_interaction: "Посетить двор"
  
@@ -494,7 +494,7 @@
 
  #AGOT Modified
  #EFFECTS_ON_ME: "Исход для #high [Select_CString(Character.IsLocalPlayer, '', 'персонажа ' )|l][Character.GetUINamePossessiveNoTooltip][Select_CString(Character.IsLocalPlayer, 'его персонажа', '' )]#!"
- EFFECTS_ON_ME: "Исход для #high [Select_CString(Character.IsLocalPlayer, '', 'персонажа ' )|l][Character.Custom('AGOTCustomGetUINameOrMe')][Select_CString(Character.IsLocalPlayer, 'его персонажа', '' )]#!"
+ EFFECTS_ON_ME: "Исход для #high персонажа [Character.Custom('AGOTCustomGetUINameOrMe')]#!"
 
  RELEASE_GAIN_HOOK: "Получить [Concept('weak_hook','слабый рычаг влияния')|E]"
  GAIN_HOOK_NEGATIVE_REASON: "Не желает оказаться у кого-то [hook|El]: $VALUE|=+0$"
