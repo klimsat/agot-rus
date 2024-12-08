@@ -43,6 +43,13 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_primary_color_value_de_gui_tt
 							text_single = {
+								autoresize = yes
+								block "text" {
+									text = dragon_primary_color_value_de_gui
+								}
+							}
+							expand = { }
+							text_single = {
 								block "value" {
 									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_primary_color_value_svalue')|0%]"
 								}
@@ -51,13 +58,6 @@ widget = {
 								max_width = 40
 								default_format = "#high"
 							}
-							text_single = {
-								autoresize = yes
-								block "text" {
-									text = dragon_primary_color_value_de_gui
-								}
-							}
-							expand = { }
 							button_replace = {
 								button_ignore = none
 								block "reset" {
@@ -104,15 +104,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_primary_color_hue_de_gui
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_primary_color_hue_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -123,6 +115,15 @@ widget = {
 
 							expand = { }
 
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_primary_color_hue_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -166,21 +167,13 @@ widget = {
 								}
 							}
 						}
-						# Dragon Highlight Value
+						# Dragon Secondary Colour Value
 						hbox = {
 							spacing = 5
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_secondary_value_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_secondary_value_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -190,7 +183,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_secondary_value_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 							button_replace = {
 								button_ignore = none
 								block "reset" {
@@ -233,21 +234,13 @@ widget = {
 								}
 							}
 						}
-						# Dragon Highlight Hue
+						# Dragon Secondary Colour Hue
 						hbox = {
 							spacing = 5
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_secondary_hue_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_secondary_hue_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -257,7 +250,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_secondary_hue_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -301,21 +302,148 @@ widget = {
 								}
 							}
 						}
-						# Dragon Horn Value
+						# Dragon tertiary Colour Value
 						hbox = {
 							spacing = 5
 							layoutpolicy_horizontal = expanding
-							tooltip = dragon_horn_color_value_de_gui_tt
+							tooltip = dragon_tertiary_value_de_gui_tt
+
+
 
 							text_single = {
+								autoresize = yes
+								block "text" {
+									text = dragon_tertiary_value_de_gui
+								}
+							}
+
+							expand = { }
+							text_single = {
 								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horn_color_value_svalue')|0%]"
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_tertiary_value_svalue')|0%]"
 								}
 								autoresize = yes
 								min_width = 40
 								max_width = 40
 								default_format = "#high"
 							}
+							button_replace = {
+								button_ignore = none
+								block "reset" {
+									onclick = "[GetScriptedGui('agot_dragon_tertiary_value_color_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_tertiary_value_color_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								tooltip = reset_de_gui_tt
+							}
+
+							button_round = {
+								block "tooltip" {
+									tooltip = decr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "minus" {
+									enabled = "[GetScriptedGui('agot_dragon_tertiary_value_color_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_tertiary_value_color_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_minus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+							button_round = {
+								block "tooltip" {
+									tooltip = incr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "plus" {
+									enabled = "[GetScriptedGui('agot_dragon_tertiary_value_color_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_tertiary_value_color_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_plus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+						}
+						# Dragon tertiary Colour Hue
+						hbox = {
+							spacing = 5
+							layoutpolicy_horizontal = expanding
+							tooltip = dragon_tertiary_hue_de_gui_tt
+
+
+
+							text_single = {
+								autoresize = yes
+								block "text" {
+									text = dragon_tertiary_hue_de_gui
+								}
+							}
+
+							expand = { }
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_tertiary_hue_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
+
+							button_replace = {
+								button_ignore = none
+								block "reset" {
+									onclick = "[GetScriptedGui('agot_dragon_tertiary_hue_color_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_tertiary_hue_color_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								tooltip = reset_de_gui_tt
+							}
+
+							button_round = {
+								block "tooltip" {
+									tooltip = decr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "minus" {
+									enabled = "[GetScriptedGui('agot_dragon_tertiary_hue_color_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_tertiary_hue_color_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('dragon',Scope.GetCharacter.MakeScope).End)]"
+								}
+								button_ignore = none
+
+								button_minus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+							button_round = {
+								block "tooltip" {
+									tooltip = incr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "plus" {
+									enabled = "[GetScriptedGui('agot_dragon_tertiary_hue_color_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_tertiary_hue_color_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('dragon',Scope.GetCharacter.MakeScope).End)]"
+								}
+								button_ignore = none
+
+								button_plus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+						}
+						# Dragon Horn Value
+						hbox = {
+							spacing = 5
+							layoutpolicy_horizontal = expanding
+							tooltip = dragon_horn_color_value_de_gui_tt
+
+
 
 							text_single = {
 								autoresize = yes
@@ -326,7 +454,15 @@ widget = {
 
 							expand = { }
 
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horn_color_value_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 							button_replace = {
 								button_ignore = none
 								block "reset" {
@@ -375,15 +511,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_horn_color_hue_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horn_color_hue_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -393,7 +521,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horn_color_hue_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -443,15 +579,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_eye_color_value_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_eye_color_value_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -461,7 +589,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_eye_color_value_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -511,15 +647,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_eye_color_hue_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_eye_color_hue_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -530,7 +658,15 @@ widget = {
 
 							expand = { }
 
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_eye_color_hue_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 							button_replace = {
 								button_ignore = none
 								block "reset" {
@@ -580,16 +716,6 @@ widget = {
 							tooltip = dragon_horn_template_shape_template_de_gui_tt
 
 							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_main_horn_shape_template_svalue')|0]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
-
-							text_single = {
 								autoresize = yes
 								block "text" {
 									text = dragon_horn_template_shape_template_de_gui
@@ -597,7 +723,12 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									# outputs "gene_dragon_horn_shape_template_" with a number corresponding to template
+									text = "[Localize(Concatenate('gene_dragon_horn_shape_template_',GetString_CFixedPoint(Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_main_horn_shape_template_svalue'))))]"
+								}
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -619,9 +750,10 @@ widget = {
 								}
 								button_ignore = none
 
-								button_minus_small = {
+								button_select_arrow = {
 									parentanchor = center
 									alwaystransparent = yes
+									mirror = horizontal
 								}
 							}
 							button_round = {
@@ -635,7 +767,7 @@ widget = {
 								}
 								button_ignore = none
 
-								button_plus_small = {
+								button_select_arrow = {
 									parentanchor = center
 									alwaystransparent = yes
 								}
@@ -648,6 +780,15 @@ widget = {
 							tooltip = dragon_horn_template_shape_value_de_gui_tt
 
 							text_single = {
+								autoresize = yes
+								block "text" {
+									text = dragon_horn_template_shape_value_de_gui
+								}
+							}
+							
+							expand = { }
+
+							text_single = {
 								block "value" {
 									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_main_horn_shape_value_svalue')|0%]"
 								}
@@ -656,17 +797,7 @@ widget = {
 								max_width = 40
 								default_format = "#high"
 							}
-
-							text_single = {
-								autoresize = yes
-								block "text" {
-									text = dragon_horn_template_shape_value_de_gui
-								}
-							}
-
-							expand = { }
-
-
+							
 							button_replace = {
 								button_ignore = none
 								block "reset" {
@@ -709,21 +840,286 @@ widget = {
 								}
 							}
 						}
-						# dragon_neck_length
+						# dragon_body_shading_shape
 						hbox = {
 							spacing = 5
 							layoutpolicy_horizontal = expanding
-							tooltip = dragon_neck_length_de_gui_tt
+							tooltip = dragon_body_shading_template_de_gui_tt
+
+
+
+							text_single = {
+								autoresize = yes
+								block "text" {
+									text = dragon_body_shading_template_de_gui
+								}
+							}
+
+
+							expand = { }
 
 							text_single = {
 								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_neck_length_svalue')|0%]"
+									# outputs "gene_dragon_body_shading_template_" with a number corresponding to template
+									text = "[Localize(Concatenate('gene_dragon_body_shading_template_',GetString_CFixedPoint(Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_body_shading_template_svalue'))))]"
+								}
+							}
+
+							button_replace = {
+								button_ignore = none
+								block "reset" {
+									onclick = "[GetScriptedGui('agot_dragon_body_shading_template_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_body_shading_template_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								tooltip = reset_de_gui_tt
+							}
+
+							button_round = {
+								block "tooltip" {
+									tooltip = decr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "minus" {
+									enabled = "[GetScriptedGui('agot_dragon_body_shading_template_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_body_shading_template_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_select_arrow = {
+									parentanchor = center
+									alwaystransparent = yes
+									mirror = horizontal
+								}
+							}
+							button_round = {
+								block "tooltip" {
+									tooltip = incr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "plus" {
+									enabled = "[GetScriptedGui('agot_dragon_body_shading_template_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_body_shading_template_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_select_arrow = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+						}
+						# dragon_body_shading_value
+						hbox = {
+							spacing = 5
+							layoutpolicy_horizontal = expanding
+							tooltip = dragon_body_shading_value_de_gui_tt
+
+
+
+							text_single = {
+								autoresize = yes
+								block "text" {
+									text = dragon_body_shading_value_de_gui
+								}
+							}
+
+							expand = { }
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_body_shading_value_svalue')|0%]"
 								}
 								autoresize = yes
 								min_width = 40
 								max_width = 40
 								default_format = "#high"
 							}
+
+							button_replace = {
+								button_ignore = none
+								block "reset" {
+									onclick = "[GetScriptedGui('agot_dragon_body_shading_value_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_body_shading_value_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								tooltip = reset_de_gui_tt
+							}
+
+							button_round = {
+								block "tooltip" {
+									tooltip = decr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "minus" {
+									enabled = "[GetScriptedGui('agot_dragon_body_shading_value_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_body_shading_value_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_minus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+							button_round = {
+								block "tooltip" {
+									tooltip = incr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "plus" {
+									enabled = "[GetScriptedGui('agot_dragon_body_shading_value_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_body_shading_value_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_plus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+						}
+						# dragon_wings_shading_shape
+						hbox = {
+							spacing = 5
+							layoutpolicy_horizontal = expanding
+							tooltip = dragon_wings_shading_template_de_gui_tt
+
+
+
+							text_single = {
+								autoresize = yes
+								block "text" {
+									text = dragon_wings_shading_template_de_gui
+								}
+							}
+
+
+							expand = { }
+
+							text_single = {
+								block "value" {
+									# outputs "gene_dragon_wings_shading_template_" with a number corresponding to template
+									text = "[Localize(Concatenate('gene_dragon_wings_shading_template_',GetString_CFixedPoint(Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_wings_shading_template_svalue'))))]"
+								}
+							}
+
+							button_replace = {
+								button_ignore = none
+								block "reset" {
+									onclick = "[GetScriptedGui('agot_dragon_wings_shading_template_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_wings_shading_template_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								tooltip = reset_de_gui_tt
+							}
+
+							button_round = {
+								block "tooltip" {
+									tooltip = decr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "minus" {
+									enabled = "[GetScriptedGui('agot_dragon_wings_shading_template_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_wings_shading_template_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_select_arrow = {
+									parentanchor = center
+									alwaystransparent = yes
+									mirror = horizontal
+								}
+							}
+							button_round = {
+								block "tooltip" {
+									tooltip = incr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "plus" {
+									enabled = "[GetScriptedGui('agot_dragon_wings_shading_template_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_wings_shading_template_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_select_arrow = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+						}
+						# dragon_wings_shading_value
+						hbox = {
+							spacing = 5
+							layoutpolicy_horizontal = expanding
+							tooltip = dragon_wings_shading_value_de_gui_tt
+
+
+
+							text_single = {
+								autoresize = yes
+								block "text" {
+									text = dragon_wings_shading_value_de_gui
+								}
+							}
+
+							expand = { }
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_wings_shading_value_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
+
+							button_replace = {
+								button_ignore = none
+								block "reset" {
+									onclick = "[GetScriptedGui('agot_dragon_wings_shading_value_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_wings_shading_value_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								tooltip = reset_de_gui_tt
+							}
+
+							button_round = {
+								block "tooltip" {
+									tooltip = decr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "minus" {
+									enabled = "[GetScriptedGui('agot_dragon_wings_shading_value_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_wings_shading_value_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_minus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+							button_round = {
+								block "tooltip" {
+									tooltip = incr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "plus" {
+									enabled = "[GetScriptedGui('agot_dragon_wings_shading_value_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_wings_shading_value_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_plus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+						}
+
+						# dragon_neck_length
+						hbox = {
+							spacing = 5
+							layoutpolicy_horizontal = expanding
+							tooltip = dragon_neck_length_de_gui_tt
+
+
 
 							text_single = {
 								autoresize = yes
@@ -734,7 +1130,15 @@ widget = {
 
 							expand = { }
 
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_neck_length_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 							button_replace = {
 								button_ignore = none
 								block "reset" {
@@ -777,21 +1181,150 @@ widget = {
 								}
 							}
 						}
-						# dragon_old_neck
+						# dragon_scales_effect
 						hbox = {
 							spacing = 5
 							layoutpolicy_horizontal = expanding
-							tooltip = dragon_old_neck_de_gui_tt
+							tooltip = dragon_scales_effect_de_gui_tt
+
 
 							text_single = {
+								autoresize = yes
+								block "text" {
+									text = dragon_scales_effect_de_gui
+								}
+							}
+
+							expand = { }
+							text_single = {
 								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_old_neck_svalue')|0%]"
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_metallic_scales_strength_svalue')|0%]"
 								}
 								autoresize = yes
 								min_width = 40
 								max_width = 40
 								default_format = "#high"
 							}
+
+
+							button_replace = {
+								button_ignore = none
+								block "reset" {
+									onclick = "[GetScriptedGui('agot_dragon_scales_effect_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_scales_effect_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								tooltip = reset_de_gui_tt
+							}
+
+							button_round = {
+								block "tooltip" {
+									tooltip = decr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "minus" {
+									enabled = "[GetScriptedGui('agot_dragon_scales_effect_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_scales_effect_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_minus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+							button_round = {
+								block "tooltip" {
+									tooltip = incr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "plus" {
+									enabled = "[GetScriptedGui('agot_dragon_scales_effect_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_scales_effect_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_plus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+						}
+						# dragon_wounded
+						hbox = {
+							spacing = 5
+							layoutpolicy_horizontal = expanding
+							tooltip = dragon_wounded_de_gui_tt
+
+
+
+							text_single = {
+								autoresize = yes
+								block "text" {
+									text = dragon_wounded_de_gui
+								}
+							}
+
+							expand = { }
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_wounded_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
+
+							button_replace = {
+								button_ignore = none
+								block "reset" {
+									onclick = "[GetScriptedGui('agot_dragon_wounded_reset').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_dragon_wounded_reset').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								tooltip = reset_de_gui_tt
+							}
+
+							button_round = {
+								block "tooltip" {
+									tooltip = decr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "minus" {
+									enabled = "[GetScriptedGui('agot_dragon_wounded_minus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_wounded_minus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_minus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+							button_round = {
+								block "tooltip" {
+									tooltip = incr_de_gui_tt
+								}
+								size = { 28 28 }
+								block "plus" {
+									enabled = "[GetScriptedGui('agot_dragon_wounded_plus').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									onclick = "[GetScriptedGui('agot_dragon_wounded_plus').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+								}
+								button_ignore = none
+
+								button_plus_small = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
+						}
+						
+						# dragon_old_neck
+						hbox = {
+							spacing = 5
+							layoutpolicy_horizontal = expanding
+							tooltip = dragon_old_neck_de_gui_tt
+
+
 
 							text_single = {
 								autoresize = yes
@@ -802,7 +1335,15 @@ widget = {
 
 							expand = { }
 
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_old_neck_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 							button_replace = {
 								button_ignore = none
 								block "reset" {
@@ -851,15 +1392,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_tail_length_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_tail_length_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -870,7 +1403,15 @@ widget = {
 
 							expand = { }
 
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_tail_length_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 							button_replace = {
 								button_ignore = none
 								block "reset" {
@@ -919,15 +1460,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_center_fin_size_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_center_fin_size_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -938,7 +1471,15 @@ widget = {
 
 							expand = { }
 
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_center_fin_size_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 							button_replace = {
 								button_ignore = none
 								block "reset" {
@@ -987,15 +1528,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_side_fin_size_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_side_fin_size_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -1006,7 +1539,15 @@ widget = {
 
 							expand = { }
 
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_side_fin_size_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 							button_replace = {
 								button_ignore = none
 								block "reset" {
@@ -1055,15 +1596,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_crest_depth_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_crest_depth_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -1073,7 +1606,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_crest_depth_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -1123,15 +1664,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_back_spike_size_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_back_spike_size_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -1141,7 +1674,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_back_spike_size_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -1191,15 +1732,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = neck_spike_size_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_neck_spike_size_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -1209,7 +1742,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_neck_spike_size_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -1259,15 +1800,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_horns_eyebrow_length_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horns_eyebrow_length_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -1277,7 +1810,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horns_eyebrow_length_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -1327,15 +1868,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_horns_eyebrow_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horns_eyebrow_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -1345,7 +1878,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horns_eyebrow_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -1395,15 +1936,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_snout_length_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_length_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -1413,7 +1946,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_length_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -1463,15 +2004,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_snout_height_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_height_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -1482,7 +2015,15 @@ widget = {
 
 							expand = { }
 
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_height_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 							button_replace = {
 								button_ignore = none
 								block "reset" {
@@ -1531,15 +2072,6 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_snout_width_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_width_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
 
 							text_single = {
 								autoresize = yes
@@ -1549,6 +2081,15 @@ widget = {
 							}
 
 							expand = { }
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_width_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 
 							button_replace = {
@@ -1599,15 +2140,6 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_snout_end_width_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_end_width_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
 
 							text_single = {
 								autoresize = yes
@@ -1618,6 +2150,15 @@ widget = {
 
 							expand = { }
 
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_end_width_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -1667,15 +2208,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_snoute_profile_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_profile_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -1685,7 +2218,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_profile_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -1735,15 +2276,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_chin_profile_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_chin_profile_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -1753,7 +2286,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_chin_profile_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -1803,15 +2344,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_jaw_width_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_jaw_width_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -1821,7 +2354,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_jaw_width_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -1871,15 +2412,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_upper_jaw_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_upper_jaw_width_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -1889,8 +2422,15 @@ widget = {
 							}
 
 							expand = { }
-
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_upper_jaw_width_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 							button_replace = {
 								button_ignore = none
 								block "reset" {
@@ -1939,15 +2479,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip =dragon_lower_jaw_width_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_lower_jaw_width_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -1957,7 +2489,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_lower_jaw_width_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -2007,15 +2547,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip =dragon_lower_jaw_height_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_lower_jaw_height_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -2025,7 +2557,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_lower_jaw_height_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -2075,15 +2615,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_cheek_width_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_cheek_width_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -2094,7 +2626,15 @@ widget = {
 
 							expand = { }
 
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_cheek_width_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 							button_replace = {
 								button_ignore = none
 								block "reset" {
@@ -2143,15 +2683,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_head_roundness_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_head_roundness_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -2162,7 +2694,15 @@ widget = {
 
 							expand = { }
 
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_head_roundness_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 							button_replace = {
 								button_ignore = none
 								block "reset" {
@@ -2211,15 +2751,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_brow_width_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_brow_width_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -2229,7 +2761,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_brow_width_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
@@ -2279,15 +2819,7 @@ widget = {
 							layoutpolicy_horizontal = expanding
 							tooltip = dragon_outer_brow_height_de_gui_tt
 
-							text_single = {
-								block "value" {
-									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_outer_brow_height_svalue')|0%]"
-								}
-								autoresize = yes
-								min_width = 40
-								max_width = 40
-								default_format = "#high"
-							}
+
 
 							text_single = {
 								autoresize = yes
@@ -2297,7 +2829,15 @@ widget = {
 							}
 
 							expand = { }
-
+							text_single = {
+								block "value" {
+									text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_outer_brow_height_svalue')|0%]"
+								}
+								autoresize = yes
+								min_width = 40
+								max_width = 40
+								default_format = "#high"
+							}
 
 							button_replace = {
 								button_ignore = none
