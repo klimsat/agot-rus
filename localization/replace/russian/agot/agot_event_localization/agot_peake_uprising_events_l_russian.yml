@@ -22,7 +22,7 @@
  agot_peake_uprising.0005.b:0 "Время на нашей стороне, будем держать осаду."
 
  agot_peake_uprising.0006.t:0 "$agot_peake_uprising.0005.t$"
- agot_peake_uprising.0006.desc:0 "Мы стоим в большом зале Звёздного Пика, пока мои люди подавляют последние очаги сопротивления Пиков. Чего бы [peake.GetSheHe] ни надеялся добиться, [peake.GetTitledFirstName] потерпел полное фиаско и теперь должен поплатиться за это.\n\nУже было решено, что дом Пик лишится всех своих земель, кроме Звёздного Пика, но это было до того, как нам пришлось вести эту глупую войну. Многие пролили кровь, но, конечно, [peake.GetFirstNameNoTooltip] должен умереть за это... Измена, похоже, течёт в крови Пиков, не слишком ли сурово будет покарать их всех за преступления, что совершил [peake.GetFirstNamePossessiveNoTooltip]?\n\nЧто же станет с домом [peake.GetHouse.GetName]?"
+ agot_peake_uprising.0006.desc:0 "Мы стоим в большом зале Звёздного Пика, пока мои люди подавляют последние очаги сопротивления Пиков. Чего бы [peake.GetSheHe] ни [Select_CString(peake.IsFemale, 'надеялась', 'надеялся' )] добиться, [peake.GetTitledFirstName] [Select_CString(peake.IsFemale, 'потерпела', 'потерпел' )] полное фиаско и теперь [Select_CString(peake.IsFemale, 'должна', 'должен' )] поплатиться за это.\n\nУже было решено, что дом Пик лишится всех своих земель, кроме Звёздного Пика, но это было до того, как нам пришлось вести эту глупую войну. Многие пролили кровь, но, конечно, [peake.GetFirstNameNoTooltip] [Select_CString(peake.IsFemale, 'должна', 'должен' )] умереть за это... Измена, похоже, течёт в крови Пиков, не слишком ли сурово будет покарать их всех за преступления, что [Select_CString(peake.IsFemale, 'совершила', 'совершил' )] [peake.GetFirstNamePossessiveNoTooltip]?\n\nЧто же станет с домом [peake.GetHouse.GetName]?"
  agot_peake_uprising.0006.a:0 "Лишения земель достаточно, больше никто не должен умирать."
  agot_peake_uprising.0006.b:0 "[peake.GetTitledFirstNameNoTooltip] станет для всех назиданием!"
  agot_peake_uprising.0006.c:0 "Дом Пик больше не станет нас донимать!"
@@ -32,7 +32,7 @@
  agot_peake_uprising.0007.a:0 "#difficulty_hard #italic Аргх!#!#!"
 
  agot_peake_uprising.0008.t:0 "$agot_peake_uprising.0005.t$"
- agot_peake_uprising.0008.desc:0 "Мой [ROOT.Char.Custom2('RelationToMeShort', maekar)], [maekar.GetTitledFirstNameRegnal], #bold мёртв!#! И в этом виноват [peake.GetTitledFirstName], это произошло из-за [peake.GetHerHis] бессмысленного восстания! Четвёртое за последние десятилетия.\n\nПо указу моего отца дом Пик уже лишился земель и знаменосцев, сохранив за собой лишь замок Звёздный Пик. Теперь они одни из самых слабых марочных лордов. Однако это решение было вынесено до того, как они убили короля...\n\nСколько еще должен заплатить за свои преступления этот самый подлый дом Вестероса?"
+ agot_peake_uprising.0008.desc:0 "Мой [ROOT.Char.Custom2('RelationToMeShort', maekar)], [maekar.GetTitledFirstNameRegnal], #bold мёртв!#! И в этом [Select_CString(peake.IsFemale, 'виновата', 'виноват' )] [peake.GetTitledFirstName], это произошло из-за [peake.GetHerHis] бессмысленного восстания! Четвёртое за последние десятилетия.\n\nПо указу моего отца дом Пик уже лишился земель и знаменосцев, сохранив за собой лишь замок Звёздный Пик. Теперь они одни из самых слабых марочных лордов. Однако это решение было вынесено до того, как они убили короля...\n\nСколько еще должен заплатить за свои преступления этот самый подлый дом Вестероса?"
  agot_peake_uprising.0008.a:0 "Довольно пролито крови."
  agot_peake_uprising.0008.b:0 "[peake.GetTitledFirstNameNoTooltip] поплатится за это головой!"
  agot_peake_uprising.0008.c:0 "Четыре восстания - это слишком много! Их род оборвётся!"
@@ -55,31 +55,31 @@
  agot_peake_uprising.0011.a:0 "Мы будем молить о милосердии..."
 
  agot_peake_uprising.0012.t:0 "$agot_peake_uprising.0011.t$"
- agot_peake_uprising.0012.desc:0 "Королевское войско, которым командует [maekar.GetTitledFirstNameRegnal] sрвётся вперёд, штурмуя ворота Звёздного Пика. Я окидываю взглядом плотные ряды солдат и вижу в их главе гордое знамя дома [maekar.GetHouse.GetName]. Король лично идёт во главе войска, а мои солдаты швыряют в них все камни, какие только попадаются на глаза. С королём во главе войско быстро пробивает наши ворота. Они прорвались в брешь как стая крыс.\n\nКороль вошёл в Звёздный Пик и быстро расправляется с моими усталыми знаменосцами. Мы проиграли, и король возьмет нас в свою хватку."
+ agot_peake_uprising.0012.desc:0 "Королевское войско, которым командует [maekar.GetTitledFirstNameRegnal] рвётся вперёд, штурмуя ворота Звёздного Пика. Я окидываю взглядом плотные ряды солдат и вижу в их главе гордое знамя дома [maekar.GetHouse.GetName]. Король лично идёт во главе войска, а мои солдаты швыряют в них все камни, какие только попадаются на глаза. С королём во главе войско быстро пробивает наши ворота. Они прорвались в брешь как стая крыс.\n\nКороль вошёл в Звёздный Пик и быстро расправляется с моими усталыми знаменосцами. Мы проиграли, и король возьмет нас в свою хватку."
  agot_peake_uprising.0012.a:0 "Мы будем молить о милосердии..."
 
  agot_peake_uprising.0013.t:0 "Вознагражденная преданность"
- agot_peake_uprising.0013.desc:0 "[aenys.GetNameNicknamed] стал коронованным королём. Я [Select_CString(ROOT.Char.IsFemale, 'боялась', 'боялся' )], что [aenys.GetSheHe] забудет долгую верность моего дома [aenys.GetHerHim], но [aenys.GetSheHe] уже счёл нужным вознаградить её. Нам будут дарованы новые земли, и мы вновь станем могущественными среди марочных лордов.\n\nДом Пик будет процветать под сенью Чёрного Дракона."
+ agot_peake_uprising.0013.desc:0 "[aenys.GetNameNicknamed] стал королём. Я [Select_CString(ROOT.Char.IsFemale, 'боялась', 'боялся' )], что [aenys.GetSheHe] забудет долгую верность моего дома [aenys.GetHerHim], но [aenys.GetSheHe] уже счёл нужным вознаградить её. Нам будут дарованы новые земли, и мы вновь станем могущественными среди марочных лордов.\n\nДом Пик будет процветать под сенью Чёрного Дракона."
  agot_peake_uprising.0013.a:0 "Боги милостивы."
 
  agot_peake_uprising.0014.t:0 "Оружие Завоевателя"
- agot_peake_uprising.0014.desc:0 "Теперь, когда я исполнил мечту своего отца о королевской власти, я должен выглядеть соответствующе. У меня есть короны и трон, теперь мне нужен меч Завоевателя, Тёмное Пламя. Мой [ROOT.Char.Custom2('RelationToMeShort', bittersteel )] [bittersteel.GetNameNicknamed] остаётся за Узким морем с мечом, который дал моему отцу его имя.\n\nВозможно, мне стоит обратиться к н[bittersteel.GetHerHim] и остальной моей родне, чтобы они вернулись в Вестерос и привезли мне Тёмное Пламя."
+ agot_peake_uprising.0014.desc:0 "Теперь, когда я исполнил мечту своего отца о королевской власти, я должен выглядеть соответствующе. У меня есть короны и трон, теперь мне нужен меч Завоевателя, Чёрное Пламя. Мой [ROOT.Char.Custom2('RelationToMeShort', bittersteel )] [bittersteel.GetNameNicknamed] остаётся за Узким морем с мечом, который дал моему отцу его имя.\n\nВозможно, мне стоит обратиться к н[bittersteel.GetHerHim] и остальной моей родне, чтобы они вернулись в Вестерос и привезли мне Чёрное Пламя."
  agot_peake_uprising.0014.a:0 "Немедленно отправить гонца!"
  agot_peake_uprising.0014.b:0 "Оно того не стоит."
 
  agot_peake_uprising.0015.t:0 "$agot_peake_uprising.0014.t$"
- agot_peake_uprising.0015.desc:0 "An envoy has arrived from Westeros. My [ROOT.Char.Custom2('RelationToMeShort', aenys )] [aenys.GetNameNicknamedPossessive] gambit has paid off, and [aenys.GetSheHe] now sits upon the Iron Throne. Though [aenys.GetSheHe] gained it in a great council, he still wears the crown. The dream that we have so long held has finally been made real, and a black dragon rules over Westeros. [aenys.GetSheHe|U] asks that I return to my homeland, bringing with me Blackfyre for [aenys.GetHerHim] to claim in exchange for the end of my exile.\n\nShould I trust this new king?"
- agot_peake_uprising.0015.a:0 "My ambition is realized."
- agot_peake_uprising.0015.a.tt:0 "You accept the proposal and return to Westeros."
- agot_peake_uprising.0015.b:0 "Aenys is but a puppet."
- agot_peake_uprising.0015.b.tt:0 "You refuse this farce."
- 
+ agot_peake_uprising.0015.desc:0 "Прибыл посланник из Вестероса. Мой [ROOT.Char.Custom2('RelationToMeShort', aenys )] [aenys.GetNameNicknamedPossessive] преуспел в своей авантюре, и [aenys.GetSheHe] теперь восседает на Железном троне. И хотя он получил её на Великом совете, он носит корону. Мечта, к которой мы так долго стремились, наконец-то стала реальностью, и Чёрный Дракон правит Вестеросом. [aenys.GetSheHe|U] просит меня вернуться на родину и привезти [aenys.GetHerHim] Чёрное Пламя, в обмен на окончание моего изгнания.\n\nСтоит ли мне доверять этому новому королю?"
+ agot_peake_uprising.0015.a:0 "Моя цель достигнута."
+ agot_peake_uprising.0015.a.tt:0 "Вы примете предложение и вернётесь в Вестерос."
+ agot_peake_uprising.0015.b:0 "Эйнис - всего лишь марионетка."
+ agot_peake_uprising.0015.b.tt:0 "Вы отказываетесь от этого фарса."
+
  agot_peake_uprising.0016.t:0 "$agot_peake_uprising.0014.t$"
- agot_peake_uprising.0016.desc:0 "Bittersteel steps before the Iron Throne, raising a blade up before me with both hands. He unsheathes it to reveal Valyrian steel, dark as smoke and covered in ripples from its spell-forging. I have claimed the blade of my forebears and solidified myself as my father's heir. My uncle informs me that some of my kin have remained with the Golden Company out of spite, though it matters little now that I am The King Who Bears the Sword!"
- agot_peake_uprising.0016.a:0 "The era of the Black Dragon begins!"
- 
+ agot_peake_uprising.0016.desc:0 "Жгучий Клинок подступает к Железному трону и поднимает передо мной клинок обеими руками. Он обнажает валирийскую сталь, темную, как дым, и покрытую рябью от ковки с использованием заклинаний. Я завладел клинком своих предков и утвердился в роли наследника своего отца. Мой дядя сообщил мне, что часть моей родни осталась с Золотыми Мечами из злобы, но это не имеет значения, ведь я - Король, что носит меч!"
+ agot_peake_uprising.0016.a:0 "Начинается эра Чёрного Дракона!"
+
  agot_peake_uprising.0017.t:0 "$agot_peake_uprising.0014.t$"
- agot_peake_uprising.0017.desc:0 "My uncle Bittersteel has earned his name yet again. He has returned my envoy to me, notifying me that he will not be returning to Westeros, nor will he give me the sword that is mine by right. He will deny me Blackfyre, and therefore denies my right to the claim of my father on the throne on which I sit. In any case, the blade is far from my reach for now, and my kin with it."
- agot_peake_uprising.0017.a:0 "A shame..."
- 
+ agot_peake_uprising.0017.desc:0 "Мой дядя Жгучий Клинок вновь оправдал своё прозвище. Он отослал моего посланника, уведомив, что не вернется в Вестерос и не отдаст мне меч, принадлежащий мне по праву. Он отказал передать мне Чёрное Пламя, а значит, и в праве моего отца претендовать на трон, на котором я сижу. Как бы то ни было, клинок пока что недосягаем для меня, а вместе с ним и моя родня."
+ agot_peake_uprising.0017.a:0 "Досадно..."
+
  royal_host:0 "Королевское войско"
