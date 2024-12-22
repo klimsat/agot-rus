@@ -1,9 +1,9 @@
 ﻿window = {
-	name = "dragon_character_event"
+	name = "agot_customizer_event"
 
 	parentanchor = center
 	widgetanchor = center
-	size = { 1220 585 }
+	size = { 1520 985 }
 	layer = events
 	alpha = 1
 
@@ -51,7 +51,7 @@
 		using = Window_Decoration_Frontend_Flat
 	}
 
-	dragon_event_window_background_widget = {
+	event_window_background_widget = {
 		margin = { 40 20 }
 
 		state = {
@@ -157,71 +157,20 @@
 		widget = {
 			parentanchor = bottom|right
 			position = { 10 0 }
-			size = { 100% 100% }
+			size = { 330 558 }
 
-			allow_outside = yes
-
-			### DRAGON ###
-			### RIGHT CHARACTER ###
-			portrait_event = {
-				name = "portrait_right_dragon"
-				datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
-				using = right_portrait_dragon
-
-				parentanchor = bottom|right
-				position = { 620 70 }
-				size = { 100% 100% }
-
-				blockoverride "portrait_button"
-				{
-					size = { 930 558 }
-					portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('right_portrait', 'camera_event_right', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
-					alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('right_portrait'))]"
-					tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
-				}
-
-				blockoverride "highlight_visible"
-				{
-					visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('right_portrait') ))]"
-					position = { 70 0 }
-				}
-
-				blockoverride "grayscale" {}
-
-				highlight_icon = {
-					name = "prison_bars"
-					visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('right_portrait')))]"
-					visible_at_creation = no
-					size = { 285 500 }
-					position = { -30 0 }
-					parentanchor = bottom|right
-					effectname = "NoHighlight"
-					spriteType = corneredTiled
-					texture_density = 1.5
-					texture = "gfx/portraits/portrait_prison_body.dds"
-
-					modify_texture = {
-						name = "mask"
-						texture =  "gfx/portraits/portrait_mask_event.dds"
-						spriteType = Corneredstretched
-						blend_mode = alphamultiply
-					}
-				}
-			}
-
-			### NO DRAGON ###
+			allow_outside = no
 			portrait_event = {
 				name = "portrait_right"
 				datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
-				using = right_portrait_no_dragon
+				visible = "[EventWindowData.HasPortraitCharacter('right_portrait')]"
 				parentanchor = bottom|hcenter
-				position = { 510 -1 }
-				size = { 710 558 }
+				position = { -80 -1 }
+				size = { 500 558 }
 
 				blockoverride "portrait_button"
 				{
-					# size = { 700 558 }
-					size = { 930 558 }
+					size = { 700 558 }
 					portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('right_portrait', 'camera_event_right', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 					alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('right_portrait'))]"
 
@@ -264,77 +213,22 @@
 		## LEFT CHARACTER ###
 		widget = {
 			parentanchor = bottom|hcenter
-			position = { 90 0 }
-			size = { 100% 100% }
+			position = { 90 -1 }
+			size = { 330 558 }
 
 			allow_outside = no
 
-			### DRAGON ###
-			### LEFT CHARACTER ###
-			portrait_event = { #DRAGON
-				name = "portrait_left_dragon"
-				datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
-				using = left_portrait_dragon
-				parentanchor = bottom|left
-				position = { -70 0 }
-				size = { 100% 100% }
-
-				blockoverride "portrait_button"
-				{
-					size = { 930 558 }
-					portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('left_portrait', 'camera_dragon_event_left', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
-					alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
-					tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
-				}
-
-				blockoverride "portrait_transformation"
-				{
-					portrait_scale = { 1.0 1.0 }
-					portrait_offset = { 0.0 0.25 }
-				}
-
-				blockoverride "highlight_visible"
-				{
-					visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('left_portrait') ))]"
-					position = { -40 0 }
-				}
-
-				blockoverride "grayscale" {}
-
-				highlight_icon = {
-					name = "prison_bars"
-					visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('left_portrait')))]"
-					visible_at_creation = no
-					size = { 280 500 }
-					position = { 70 0 }
-					parentanchor = bottom|left
-					effectname = "NoHighlight"
-					spriteType = corneredTiled
-					texture_density = 1.5
-					texture = "gfx/portraits/portrait_prison_body.dds"
-
-					modify_texture = {
-						name = "mask"
-						texture =  "gfx/portraits/portrait_mask_event.dds"
-						spriteType = Corneredstretched
-						blend_mode = alphamultiply
-					}
-				}
-			}
-
-			### NO DRAGON ###
 			portrait_event = {
 				name = "portrait_left"
 				datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
-				using = left_portrait_no_dragon
+				visible = "[And(EventWindowData.HasPortraitCharacter('left_portrait'), EventWindowData.HasPortraitCharacter('right_portrait'))]"
 				parentanchor = bottom|hcenter
-				position = { 0 2 }
+				position = { 80 0 }
 				size = { 500 558 }
 
 				blockoverride "portrait_button"
 				{
-					# size = { 700 558 }
-					size = { 930 558 }
+					size = { 700 558 }
 					portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('left_portrait', 'camera_event_left', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 					alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
 
@@ -374,15 +268,15 @@
 			}
 		}
 
-		### DRAGON
+
 		### Use this for single character
 		portrait_event = {
-			name = "portrait_center_dragon"
-			using = center_portrait_dragon
+			name = "portrait_center"
+			visible = "[And(EventWindowData.HasPortraitCharacter('left_portrait'), Not(EventWindowData.HasPortraitCharacter('right_portrait')))]"
 			datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
-			size = { 100% 112% }
-			position = { -60 -2 }
-			parentanchor = bottom|left
+			size = { 330 558 }
+			position = { 200 30 }
+			parentanchor = vcenter|hcenter
 
 			blockoverride "portrait_button"
 			{
@@ -421,60 +315,10 @@
 				}
 			}
 		}
-
-		### NO DRAGON; Notable for use in the ride your dragon decision
-		### Use this for single character
-		portrait_event = {
-			name = "portrait_center"
-			using = center_portrait_no_dragon
-			datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
-			# size = { 500 558 }
-			size = { 764 558 }
-			position = { 280 -2 }
-			parentanchor = bottom|hcenter
-
-			blockoverride "portrait_button"
-			{
-				# size = { 700 558 }
-				size = { 930 558 }
-				portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('left_portrait', 'camera_event_center', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
-				alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
-				tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
-				using = tooltip_below
-				tooltip_offset = { 550 -580 }
-			}
-
-			blockoverride "highlight_visible"
-			{
-				visible = no
-			}
-
-			blockoverride "grayscale" {}
-
-			highlight_icon = {
-				name = "prison_bars"
-				visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('left_portrait')))]"
-				visible_at_creation = no
-				size = { 300 500 }
-				position = { -60 0 }
-				parentanchor = bottom|hcenter
-				effectname = "NoHighlight"
-				spriteType = corneredTiled
-				texture_density = 1.5
-				texture = "gfx/portraits/portrait_prison_body.dds"
-
-				modify_texture = {
-					name = "mask"
-					texture =  "gfx/portraits/portrait_mask_event.dds"
-					spriteType = Corneredstretched
-					blend_mode = alphamultiply
-				}
-			}
-		}
 	}
 
 	# Event Effect Video
-	dragon_event_window_effect_2d_widget = {
+	event_window_effect_2d_widget = {
 		margin = { 40 20 }
 	}
 
@@ -506,7 +350,7 @@
 				}
 			}
 
-			hbox = { # Text area
+			hbox = {
 				margin_left = 35
 				margin_right = 35
 				margin_bottom = 15
@@ -519,7 +363,7 @@
 
 					widget = {
 						size = { 155% 96%}
-						position = { -5 20 } # window text fade overlay position 20 small 25 large
+						position = { 5 18 }
 
 						background = {
 							texture = "gfx/interface/component_tiles/tile_window_background_no_edge.dds"
@@ -557,11 +401,39 @@
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding
 							margin_bottom = 10
+							#AGOT Modified
+							# margin_top = 85
 							margin_top = 79
 
-							agot_dragon_event_standard_text = {}
-							agot_dragon_event_dark_text = {}
-							agot_dragon_event_light_text = {}
+							scrollarea = {
+								name = "description_scrollarea"
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = expanding
+								minimumsize = { 640 -1 }
+								maximumsize = { 640 -1 }
+
+								scrollbarpolicy_horizontal = always_off
+
+								scrollbar_vertical = {
+									using = Scrollbar_Vertical
+
+									blockoverride "alpha"{
+										alpha = 0.6
+									}
+								}
+
+								scrollwidget = {
+									text_multi = {
+										name = "description"
+										minimumsize = { 630 -1 }
+										maximumsize = { 630 -1 }
+										autoresize = yes
+										margin = { 20 4 }
+										text = "[EventWindowData.GetDescription]"
+										fontsize = 16
+									}
+								}
+							}
 
 							expand = {}
 						}
@@ -705,6 +577,13 @@
 													}
 												}
 
+												### Put some indicator of travel danger intensity vs travel safety here, when we have decided on exactly what that is.
+												#text_single = {
+												#	raw_text = "33%"
+												#	default_format = "#d"
+												#	align = right|nobaseline
+												#}
+
 												tooltip = "[Province.GetTravelDangerTooltip(TravelPlan.Self)]"
 											}
 
@@ -732,11 +611,11 @@
 								fixedgridbox = {
 									name = "option_grid"
 									addcolumn = 500
-									addrow = 42
+									addrow = 40
 									datamodel = "[EventWindowData.GetOptions]"
 
 									item = {
-										dragon_button_eventoption = {}
+										dragon_customizer_button_eventoption = {}
 									}
 								}
 								expand = {}
@@ -755,7 +634,7 @@
 		}
 	}
 
-	margin_widget = { # Bottom Characters
+	margin_widget = {
 		name = "bottom_characters"
 		size = { 55% 170 }
 		position = { -14 -10}
@@ -780,9 +659,26 @@
 				direction = vertical
 				ignoreinvisible = yes
 
-				dragon_event_portrait_status_icons_left = {
+				event_portrait_status_icons_left = {
 					datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
 					visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
+
+					background = {
+						texture = "gfx/interface/window_event/event_character_status_icons_bg.dds"
+						spriteType = Corneredtiled
+						spriteborder = { 20 20 }
+						shaderfile = "gfx/FX/pdxgui_default.shader"
+						alpha = 0.5
+						margin = { 5 5 }
+
+						modify_texture = {
+							texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
+							spriteType = Corneredstretched
+							spriteborder = { 0 0 }
+							blend_mode = overlay
+							alpha = 0.5
+						}
+					}
 				}
 
 				spacer = {
@@ -826,11 +722,26 @@
 
 						blockoverride "coa"
 						{
-							dragon_event_portrait_status_icons_left = {
+							event_portrait_status_icons_left = {
 								visible = "[EventWindowData.ShouldShowPortraitInfo('lower_right_portrait')]"
 								parentanchor = bottom|left
 								position = { -15 -5 }
 								scale = 0.8
+
+								background = {
+									using = Background_Bottom_Fade
+									margin = { 5 15 }
+									using = Color_Black
+									using = Mask_Rough_Edges
+									alpha =  0.5
+
+									modify_texture = {
+										texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
+										spriteType = Corneredstretched
+										spriteborder = { 0 0 }
+										blend_mode = overlay
+									}
+								}
 							}
 						}
 
@@ -838,11 +749,15 @@
 							parentanchor = bottom|hcenter
 							position = { 20 -5 }
 							alwaystransparent = yes
+							#AGOT Modified
+							# text = "[Character.GetShortUINameNoTooltip]"
 							raw_text = "#high [Character.Custom('AGOTCustomGetTitledFirstName')]#!"
 							visible = "[EventWindowData.ShouldShowPortraitInfo('lower_left_portrait')]"
 							max_width = 115
 							align = center
 							fontsize_min = 12
+							#AGOT Added
+							margin_left = 10
 						}
 					}
 				}
@@ -864,6 +779,19 @@
 					spacing =-5
 
 					using = artifact_event_flowcontainer
+
+					background = {
+						using = Background_Area_Dark
+						alpha = 0.4
+						margin_bottom = -30
+						margin_top = 10
+
+						modify_texture = {
+							name = "mask"
+							texture = "gfx/interface/component_masks/mask_glow.dds"
+							blend_mode = alphamultiply
+						}
+					}
 				}
 
 				widget = {
@@ -894,11 +822,24 @@
 
 						blockoverride "coa"
 						{
-							dragon_event_portrait_status_icons_left = {
+							event_portrait_status_icons_left = {
 								visible = "[EventWindowData.ShouldShowPortraitInfo('lower_center_portrait')]"
 								parentanchor = bottom|left
 								position = { -15 -5 }
 								scale = 0.8
+
+								background = {
+									using = Background_Bottom_Fade
+									margin = { 5 15 }
+									color = { 0.1 0.1 0.1 0.8 }
+
+									modify_texture = {
+										texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
+										spriteType = Corneredstretched
+										spriteborder = { 0 0 }
+										blend_mode = overlay
+									}
+								}
 							}
 						}
 
@@ -907,11 +848,15 @@
 							parentanchor = bottom|hcenter
 							position = { 20 -5 }
 							alwaystransparent = yes
+							#AGOT Modified
+							# text = "[Character.GetShortUINameNoTooltip]"
 							raw_text = "#high [Character.Custom('AGOTCustomGetTitledFirstName')]#!"
 							visible = "[EventWindowData.ShouldShowPortraitInfo('lower_center_portrait')]"
 							max_width = 115
 							align = center
 							fontsize_min = 12
+							#AGOT Added
+							margin_left = 10
 						}
 					}
 				}
@@ -922,10 +867,27 @@
 				direction = vertical
 				ignoreinvisible = yes
 
-				dragon_event_portrait_status_icons_right = {
+				event_portrait_status_icons_right = {
 					datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
 					visible = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
 					parentanchor = right
+
+					background = {
+						texture = "gfx/interface/window_event/event_character_status_icons_bg.dds"
+						spriteType = Corneredtiled
+						spriteborder = { 20 20 }
+						shaderfile = "gfx/FX/pdxgui_default.shader"
+						alpha = 0.5
+						margin = { 5 5 }
+
+						modify_texture = {
+							texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
+							spriteType = Corneredstretched
+							spriteborder = { 0 0 }
+							blend_mode = overlay
+							alpha = 0.5
+						}
+					}
 				}
 
 				spacer = {
@@ -975,11 +937,26 @@
 
 						blockoverride "coa"
 						{
-							dragon_event_portrait_status_icons_left = {
+							event_portrait_status_icons_left = {
 								visible = "[EventWindowData.ShouldShowPortraitInfo('lower_right_portrait')]"
 								parentanchor = bottom|left
 								position = { -15 -5 }
 								scale = 0.8
+
+								background = {
+									using = Background_Bottom_Fade
+									margin = { 5 15 }
+									using = Color_Black
+									using = Mask_Rough_Edges
+									alpha =  0.5
+
+									modify_texture = {
+										texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
+										spriteType = Corneredstretched
+										spriteborder = { 0 0 }
+										blend_mode = overlay
+									}
+								}
 							}
 						}
 
@@ -987,11 +964,15 @@
 							parentanchor = bottom|hcenter
 							position = { 20 -5 }
 							alwaystransparent = yes
+							#AGOT Modified
+							# text = "[Character.GetShortUINameNoTooltip]"
 							raw_text = "#high [Character.Custom('AGOTCustomGetTitledFirstName')]#!"
 							visible = "[EventWindowData.ShouldShowPortraitInfo('lower_right_portrait')]"
 							max_width = 115
 							align = center
 							fontsize_min = 12
+							#AGOT Added
+							margin_left = 10
 						}
 					}
 				}
@@ -999,7 +980,7 @@
 		}
 	}
 
-	vbox = { # Theme Header
+	vbox = {
 		widget = {
 			layoutpolicy_horizontal = expanding
 			size = { 0 70 }
@@ -1084,6 +1065,7 @@
 				name = "theme_icon"
 				parentanchor = vcenter
 				position = { 28 10 }
+				# size = { 90 90 }
 				size = { 80 80 }
 				texture = "[EventWindowData.GetThemeIcon]"
 
@@ -1167,43 +1149,12 @@
 	}
 }
 
-######################################################
-################ TYPES AND TEMPLATES #################
-######################################################
-
 types Events
 {
-	type dragon_event_portrait_status_icons_left = container {
-		flowcontainer = {
-			ignoreinvisible = yes
-			direction = horizontal
-
-			coa_realm_small_crown = {
-				visible = "[Character.HasLandedTitles]"
-				parentanchor = bottom
-			}
-
-			portrait_status_icons = {}
-		}
-	}
-
-	type dragon_event_portrait_status_icons_right = container {
-		flowcontainer = {
-			ignoreinvisible = yes
-			direction = horizontal
-
-			portrait_status_icons = {}
-
-			coa_realm_small_crown = {
-				visible = "[Character.HasLandedTitles]"
-			}
-		}
-	}
-
-	type dragon_button_eventoption = button_event_standard
+	type dragon_customizer_button_eventoption = button_event_standard
 	{
 		name = "event_option_button"
-		size = { 500 36 }
+		size = { 636 36 }
 		enabled = "[EventOption.IsValid]"
 
 		default_clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_icon_select"
@@ -1520,209 +1471,4 @@ types Events
 			}
 		}
 	}
-
-	type dragon_event_window_background_widget = margin_widget
-	{
-		size = { 100% 100% }
-		alwaystransparent = yes
-		datacontext = "[EventWindowData.GetEventBackgroundData]"
-
-		icon = {
-			name = "event_picture_with_mask"
-			visible = "[And( Not( EventWindowBackgroundData.HasVideo ), EventWindowBackgroundData.HasVideoMask )]"
-			texture = "[EventWindowBackgroundData.GetTexture]"
-			size = { 100% 100% }
-
-			modify_texture = {
-				video = "[EventWindowBackgroundData.GetVideoMask]"
-				blend_mode = alphamultiply
-
-				block "event_mask_properties"
-				{
-					loop = no
-					# texture = "gfx/interface/window_duel_event_window/background_duel.dds"
-				}
-			}
-
-			block "event_picture_properties"
-			{
-			}
-		}
-
-		icon = {
-			name = "event_picture"
-			visible = "[Not( Or( EventWindowBackgroundData.HasVideo, EventWindowBackgroundData.HasVideoMask) )]"
-			texture = "[EventWindowBackgroundData.GetTexture]"
-			size = { 100% 100% }
-
-			block "event_mask" {
-				modify_texture = {
-					name = mask
-					texture = "gfx/interface/window_event/mask_event_image_large.dds"
-					blend_mode = alphamultiply
-
-					block "event_mask_properties"
-					{
-						loop = no
-					}
-				}
-			}
-
-			block "event_picture_properties"
-			{
-			}
-		}
-
-		video_icon = {
-			name = "event_video"
-			visible = "[EventWindowBackgroundData.HasVideo]"
-			video = "[EventWindowBackgroundData.GetVideo]"
-			size = { 100% 100% }
-			loop = no
-
-			# block "event_mask" {
-				# modify_texture = {
-					# texture = "gfx/interface/window_duel_event_window/background_duel.dds"
-					# blend_mode = normal
-					# alpha = 1
-				# }
-			# }
-
-			block "event_video_properties"
-			{
-			}
-		}
-	}
-
-	type dragon_event_window_transition_widget = margin_widget {
-		size = { 100% 100% }
-		alwaystransparent = no
-		datacontext = "[EventWindowData.GetEventTransitionData]"
-		visible = "[EventWindowData.IsShowingTransition]"
-
-		icon = {
-			name = "event_transition_picture_with_mask"
-			visible = "[And( Not( EventWindowTransitionData.HasVideo ), EventWindowTransitionData.HasVideoMask )]"
-			texture = "[EventWindowTransitionData.GetTexture]"
-			size = { 100% 100% }
-
-			modify_texture = {
-				video = "[EventWindowTransitionData.GetVideoMask]"
-				blend_mode = alphamultiply
-				restart_on_show = yes
-
-				block "event_transition_mask_properties"
-				{
-					loop = no
-				}
-			}
-
-			block "event_transition_picture_properties"
-			{
-			}
-		}
-
-		icon = {
-			name = "event_transition_picture"
-			visible = "[Not( Or( EventWindowTransitionData.HasVideo, EventWindowTransitionData.HasVideoMask) )]"
-			texture = "[EventWindowTransitionData.GetTexture]"
-			size = { 100% 100% }
-
-			block "event_transition_picture_properties"
-			{
-			}
-		}
-
-		video_icon = {
-			name = "event_transition_video"
-			visible = "[EventWindowTransitionData.HasVideo]"
-			video = "[EventWindowTransitionData.GetVideo]"
-			size = { 100% 100% }
-			loop = no
-			restart_on_show = yes
-
-			block "event_transition_video_properties"
-			{
-			}
-		}
-	}
-
-	type dragon_event_window_effect_2d_widget = margin_widget {
-		size = { 100% 100% }
-		datacontext = "[EventWindowData.GetEvent2DEffectData]"
-		visible = "[And( Not( EventWindowData.IsShowingTransition ), EventWindow2DEffectData.HasEffect )]"
-
-		video_icon = {
-			name = "event_effect_2d_video_no_mask"
-			video = "[EventWindow2DEffectData.GetVideo]"
-			visible = "[Not( EventWindow2DEffectData.HasMask )]"
-			size = { 100% 100% }
-			loop = "[EqualTo_CFixedPoint( EventWindow2DEffectData.GetDuration, '(CFixedPoint)0.0' )]"
-			restart_on_show = yes
-
-			block "event_effect_2d_video_properties"
-			{
-			}
-		}
-
-		## VIDEO EVENT EFFECT
-
-		video_icon = {
-			name = "event_effect_2d_video_with_texture_mask"
-			video = "[EventWindow2DEffectData.GetVideo]"
-			visible = "[And( EventWindow2DEffectData.HasMask, EventWindow2DEffectData.IsTextureMask )]"
-			size = { 100% 100% }
-			loop = "[EqualTo_CFixedPoint( EventWindow2DEffectData.GetDuration, '(CFixedPoint)0.0' )]"
-			restart_on_show = yes
-
-			modify_texture = {
-				name = mask
-				texture= "gfx/interface/window_event/mask_event_image_large.dds"
-				blend_mode = alphamultiply
-
-				block "event_effect_2d_video_properties"
-				{
-				}
-
-			}
-
-		}
-
-		video_icon = {
-			name = "event_effect_2d_video_with_video_mask"
-			video = "[EventWindow2DEffectData.GetVideo]"
-			visible = "[And( EventWindow2DEffectData.HasMask, EventWindow2DEffectData.IsVideoMask )]"
-			size = { 100% 100% }
-			loop = "[EqualTo_CFixedPoint( EventWindow2DEffectData.GetDuration, '(CFixedPoint)0.0' )]"
-			restart_on_show = yes
-
-			block "event_effect_2d_video_properties"
-			{
-			}
-		}
-	}
-}
-
-template left_portrait_no_dragon {
-	visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), EventWindowData.HasPortraitCharacter('right_portrait')), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
-}
-
-template left_portrait_dragon {
-    visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), EventWindowData.HasPortraitCharacter('right_portrait')), Character.HasTrait(GetTrait('dragon').Self))]"
-}
-
-template right_portrait_no_dragon {
-   visible = "[And(EventWindowData.HasPortraitCharacter('right_portrait'), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
-}
-
-template right_portrait_dragon {
-    visible = "[And(EventWindowData.HasPortraitCharacter('right_portrait'), Character.HasTrait(GetTrait('dragon').Self))]"
-}
-
-template center_portrait_no_dragon {
-    visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), Not(EventWindowData.HasPortraitCharacter('right_portrait'))), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
-}
-
-template center_portrait_dragon {
-    visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), Not(EventWindowData.HasPortraitCharacter('right_portrait'))), Character.HasTrait(GetTrait('dragon').Self))]"
 }

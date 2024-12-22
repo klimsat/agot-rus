@@ -106,6 +106,28 @@ types PortraitTypes
 		block "portrait_button" {}
 	}
 
+	type agot_dragon_memory_window_portrait_button = portrait_button
+	{
+		using = visible_if_dragon
+		layoutpolicy_horizontal = expanding
+		block "portrait_size"
+		{
+			size = { 250 285 }
+		}
+		using = portrait_base
+
+		block "portrait_texture_dragon"
+		{
+			portrait_texture = "[Character.GetPortrait('environment_dragonpit_portrait', 'camera_dragon_head', 'dragon_head', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+		}
+		mask = "gfx/portraits/portrait_mask_council.dds"
+		effectname = "NoHighlight"
+
+		block "mask" {
+			mask = "gfx/portraits/portrait_mask_council.dds"
+		}
+	}
+
 	type agot_dragons_portrait_shoulders = portrait_button
 	{ # Schemes, Murder Scheme, Dragon Taming Scheme, etc.
 		using = visible_if_dragon
@@ -472,6 +494,43 @@ types PortraitTypes
 		mask = "gfx/portraits/portrait_mask_event.dds"
 		effectname = "NoHighlight"
 
+	}
+
+	type agot_dragons_portrait_scheme_hud_button = portrait_button
+	{
+		alwaystransparent = yes
+			parentanchor = center
+			position = { 0 -15 }
+			size = { 90 112 }
+			using = portrait_base
+			using = visible_if_dragon
+			block "portrait_texture_dragon"
+			{
+				portrait_texture = "[Character.GetPortrait('environment_dragonpit_portrait', 'camera_dragon_head', 'dragon_head', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+			}
+
+			mask = "gfx/portraits/scheme_hud_portrait_mask.dds"
+			effectname = "NoHighlight"
+
+			tooltip_visible = no
+
+			highlight_icon = {
+				name = "prison_bars"
+				visible = "[Character.IsImprisoned]"
+				visible_at_creation = no
+				size = { 100% 100% }
+				effectname = "NoHighlight"
+				texture = "gfx/portraits/portrait_prison_shoulders.dds"
+
+				modify_texture = {
+					name = "mask"
+					texture = "gfx/portraits/portrait_mask_shoulders.dds"
+					spriteType = Corneredstretched
+					blend_mode = alphamultiply
+				}
+			}
+
+			block "portrait_button" {}
 	}
 
 	type agot_dragons_portrait_council_button = portrait_button
