@@ -243,6 +243,22 @@ types CharacterWindow
 		}
 	}
 
+	type agot_trait_expanding_button = button_standard_hover
+	{
+		layoutpolicy_horizontal = fixed
+		size = { 500 57 }
+		button_ignore = none
+		onclick = "[CharacterWindow.ToggleExpandedTraits]"
+		using = tooltip_nw
+		tooltip = "OUTLINER_EXPAND"
+
+		hbox_traits_list = {
+			name = "tutorial_highlight_traits"
+			datacontext = "[CharacterWindow.GetTraitArrays]"
+			margin_bottom = 2
+		}
+	}
+
 	type agot_personal_coat_of_arms = agot_coa_house_small
 	{
 		visible = "[GetScriptedGui('agot_has_personal_coa').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
