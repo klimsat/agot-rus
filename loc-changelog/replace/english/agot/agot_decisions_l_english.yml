@@ -42,6 +42,11 @@
  hoare_revival_decision:0 "Revive House Hoare"
  hoare_revival_desc:0 "For thousands of years my family ruled the Iron Islands, reaping iron and fear all over the shores of Westeros. It was only through dragonfire that we were humbled — but still we endure. I have retaken Orkmont, our ancestral home. Perhaps it is time to refound the [dynasty|E] of Qhored the Cruel, with myself as its head."
  hoare_revival_decision_confirm:0 "Lashed in Blood"
+ dynamic_bastard_house_revival_decision:0 "Revive House [ROOT.Char.GetHouse.MakeScope.Var('bastard_house_of').House.GetName]"
+ dynamic_bastard_house_revival_decision_desc:0 "House [ROOT.Char.GetHouse.MakeScope.Var('bastard_house_of').House.GetName] has gone extinct. As a direct descendant of this house, I can reclaim its legacy and name."
+ dynamic_bastard_house_revival_decision_confirm:0 "House [ROOT.Char.GetHouse.MakeScope.Var('bastard_house_of').House.GetName], shall be born again!"
+ dynamic_bastard_house_revival_decision_bastard:0 "Your [house|e] is a [bastard_branch|e]"
+ dynamic_bastard_house_revival_decision_westeros_needs_legitimization:0 "[top_liege.GetName] will hear your petition for assuming the name, words, and arms of House [bastard_house_of.GetName]."
 
  set_capital_kingslanding_decision:0 "Reclaim King's Landing"
  set_capital_kingslanding_decision_confirm:0 "Restore the true seat of the Seven Kingdoms!"
@@ -63,7 +68,7 @@
  agot_buy_knighthood_decision_desc:0 "While social pressure forbids the sale and purchase of knighthood, there will always be those close willing to sell knighthood for the right price. For circumstances unimportant, I have not been made a knight at this point in my life. Using my influence and wealth, I can definitely fix that."
  agot_buy_knighthood_decision_desc_outsider:0 "While knighthood is not particularly valued or even relevant in my background, becoming a knight does nonetheless interest me. Finding a person willing to knight an #italic outsider#! will be difficult, but I'm sure that I can find a willing person for the right price."
  agot_buy_knighthood_decision_confirm:0 "Buy it!"
- agot_buy_knighthood_decision_tooltip:0 "Buy knighthood"
+ agot_buy_knighthood_decision_tooltip:0 "You will buy knighthood"
  agot_decision_bought_knighthood_effect_tt:0 "Your #V close family#! will be notified of your knighting."
 
  ############################
@@ -120,7 +125,9 @@
  choose_mute_epidemics_tooltip:0 "Choose whether you wish to be informed of [epidemics|E] when they spread"
  choose_dragons_name:0 "Dragons"
  choose_dragons_tooltip:0 "Choose whether you wish to be informed of news pertaining to [dragons_plural|E] or be brought a list of all dragons and their eggs"
-
+ choose_house_feuds:0 "House Feuds"
+ choose_house_feuds_desc:0 "You will be brought a list of all known House [house_feuds|E]"
+ choose_house_feuds_tooltip:0 "You will be brought a list of all known House [house_feuds|E]"
  #Fallback event
  global_events_settings.0001.t:0 "The Realm's Affairs"
  global_events_settings.0001.desc:0 "The day-to-day rulings of the realm are taking so much of my time of late...\n\nAs yet another matter is brought to my attention by one of my servants, I ponder whether I truly need to be troubled by it all."
@@ -148,6 +155,7 @@
  global_events_settings.0001.nw_elections:0 "About the elections of the Night's Watch..."
  global_events_settings.0001.mute_plagues:0 "About plagues..."
  global_events_settings.0001.dragon_categories:0 "About dragons and dragon eggs..."
+ global_events_settings.0001.house_feuds:0 "About house feuds..."
  global_events_settings.main_screen:0 "There is something else..."
  global_events_settings.dismiss:0 "That is all."
  #Petitioners & Homage
@@ -189,10 +197,22 @@
  adopt_personal_coa_confirm:0 "Do it."
  adopt_personal_coa_tooltip:0 "Adopt a Set of Personal Arms"
  adopt_personal_coa_effect_tt:0 "You will gain a personal coat of arms which will be displayed next to your house sigil."
+ pcoa_plain:0 "Plain Arms"
+ pcoa_plain_tooltip:0 "You will gain a personal coat of arms identical to your house. Perfect for customization."
+ pcoa_nickname:0 "Nickname-Based Arms"
+ pcoa_nickname_tooltip:0 "You will gain a personal coat of arms based on your nickname."
+ pcoa_ancestral_quartering:0 "Ancestrally Quartered Arms"
+ pcoa_ancestral_quartering_tooltip:0 "You will gain a personal coat of arms that is quartered with an ancestor's house arms."
+ pcoa_religious:0 "Faith-Based Arms"
+ pcoa_religious_tooltip:0 "You will gain a personal coat of arms that is based on your faith."
+ pcoa_fourth_child:0 "Fourth [CHARACTER.Custom('GetDaughterSon')|U]-Based Arms"
+ pcoa_fourth_child_tooltip:0 "You will gain a personal coat of arms that is your house arms repeated four times."
+ adopt_personal_coa_decision_next_stop_button:0 "Continue"
  personal_coa_name_gui:0 "Personal Arms"
- coa_new_name:0 "[GetGlobalVariable('coa_new_name').Char.GetFirstNamePossessive] Personal Arms"
+ coa_new_name:0 ""
+ pcoa_random:0 "Random Arms"
+ pcoa_random_tooltip:0 "You will gain a randomly generated personal coat of arms."
  CUSTOMIZE_PERSONAL_ARMS:0 "#T Customize [agot_personal_coa|e]#!\nOpen the customization menu to edit your personal arms."
- agot_dylan_house_name_key:0 "[GetGlobalVariable('coa_new_name').Char.GetDynastyNameNoTooltip]"
 
  #####################################
  ## Epidemic Isolate Realm Decision ##
