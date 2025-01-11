@@ -42,6 +42,11 @@
  hoare_revival_decision:0 "Возродить дом Хоаров"
  hoare_revival_desc:0 "Тысячи лет моя семья правила Железными островами, пожиная железо и страх на всех берегах Вестероса. Только благодаря драконьему огню мы были унижены, но всё же мы уцелели. Я [Select_CString(ROOT.Char.IsFemale, 'отвоевала', 'отвоевал' )] Оркмонт, наш родовой дом. Возможно, пришло время возродить [Concept( 'dynasty', 'династию' )|E] Куореда Жестокого, возглавив её."
  hoare_revival_decision_confirm:0 "Кровавая лазурь!"
+ dynamic_bastard_house_revival_decision:0 "Возродить дом [ROOT.Char.GetHouse.MakeScope.Var('bastard_house_of').House.GetName]"
+ dynamic_bastard_house_revival_decision_desc:0 "Дом [ROOT.Char.GetHouse.MakeScope.Var('bastard_house_of').House.GetName]вымер. Будучи прямым потомком этого дома, я могу вернуть его наследие и имя."
+ dynamic_bastard_house_revival_decision_confirm:0 "Дом [ROOT.Char.GetHouse.MakeScope.Var('bastard_house_of').House.GetName] должен возродиться!"
+ dynamic_bastard_house_revival_decision_bastard:0 "Ваш [house|El] - [bastard_branch|El]"
+ dynamic_bastard_house_revival_decision_westeros_needs_legitimization:0 "[top_liege.GetName] рассмотрит ваше прошение о принятии имени, девиза и герба дома [bastard_house_of.GetName]."
 
  set_capital_kingslanding_decision:0 "Вернуть Королевскую Гавань"
  set_capital_kingslanding_decision_confirm:0 "Восстановите истинную столицу Семи Королевств!"
@@ -63,7 +68,7 @@
  agot_buy_knighthood_decision_desc:0 "Хотя общественное давление запрещает продажу и покупку рыцарства, всегда найдутся те, кто готов продать рыцарство за нужную цену. По обстоятельствам, не имеющим значения, я не стал рыцарем на данном этапе моей жизни. Используя свое влияние и богатство, я, безусловно, могу это исправить."
  agot_buy_knighthood_decision_desc_outsider:0 "Хотя рыцарство не особенно ценится или даже имеет отношение к моему происхождению, стать рыцарем меня все же интересует. Найти человека, готового посвятить в рыцари #italic чужака#! будет непросто, но я уверен, что смогу найти желающего за подходящую цену."
  agot_buy_knighthood_decision_confirm:0 "Купить!"
- agot_buy_knighthood_decision_tooltip:0 "Купить рыцарство"
+ agot_buy_knighthood_decision_tooltip:0 "Вы купите рыцарство"
  agot_decision_bought_knighthood_effect_tt:0 "Ваши #V близкие родственники#! будут уведомлены о вашем посвящении в рыцари."
 
  ############################
@@ -120,7 +125,9 @@
  choose_mute_epidemics_tooltip:0 "Выберите, хотите ли вы получать информацию о [Concept( 'epidemics', 'поветриях' )|E], когда они распространяются"
  choose_dragons_name:0 "Драконы"
  choose_dragons_tooltip:0 "Выберите, хотите ли вы получать информацию о новостях, касающихся [Concept('dragons_plural', 'драконов')|E], или список всех драконов и их яиц"
-
+ choose_house_feuds:0 "Вражда домов"
+ choose_house_feuds_desc:0 "Вам будет предоставлен список всех известных [Concept('house_feuds', 'враждующих')|E] домов"
+ choose_house_feuds_tooltip:0 "Вам будет предоставлен список всех известных [Concept('house_feuds', 'враждующих')|E] домов"
  #Fallback event
  global_events_settings.0001.t:0 "Управление делами"
  global_events_settings.0001.desc:0 "Повседневные дела королевства отнимают у меня так много времени...\n\nПосле того, как один из моих слуг довёл до моего сведения очередное дело, я [Select_CString(ROOT.Char.IsFemale, 'задумалась', 'задумался' )] о том, действительно ли мне нужно беспокоиться обо всём этом."
@@ -148,6 +155,7 @@
  global_events_settings.0001.nw_elections:0 "Насчет выборов Ночного Дозора..."
  global_events_settings.0001.mute_plagues:0 "Насчёт поветрий..."
  global_events_settings.0001.dragon_categories:0 "Насчёт драконов и драконьих яиц..."
+ global_events_settings.0001.house_feuds:0 "Насчёт враждующих домов..."
  global_events_settings.main_screen:0 "Есть ещё кое-что..."
  global_events_settings.dismiss:0 "Это всё."
  #Petitioners & Homage
@@ -189,10 +197,22 @@
  adopt_personal_coa_confirm:0 "Принять."
  adopt_personal_coa_tooltip:0 "Принять личный герб"
  adopt_personal_coa_effect_tt:0 "Вы получите личный герб, который будет отображаться рядом с гербом вашего дома."
+ pcoa_plain:0 "Простой герб"
+ pcoa_plain_tooltip:0 "Вы получите личный герб, идентичный гербу вашего дома. Идеально подходит для персонализации."
+ pcoa_nickname:0 "Герб по прозвищу"
+ pcoa_nickname_tooltip:0 "Вы получите личный герб, основанный на вашем прозвище."
+ pcoa_ancestral_quartering:0 "Разделённый на четверти герб от предков"
+ pcoa_ancestral_quartering_tooltip:0 "Вы получите личный герб, разделённый на четыре части с гербами домов предков."
+ pcoa_religious:0 "Герб по конфессии"
+ pcoa_religious_tooltip:0 "Вы получите личный герб, основанный на вашей конфессии."
+ pcoa_fourth_child:0 "Герб [Select_CString(CHARACTER.IsFemale, 'четвёртой дочери', 'четвёртого сына' )]"
+ pcoa_fourth_child_tooltip:0 "Вы получите личный герб, который представляет собой герб вашего дома, повторенный четыре раза."
+ adopt_personal_coa_decision_next_stop_button:0 "Продолжить"
  personal_coa_name_gui:0 "Личный герб"
- coa_new_name:0 "Личный герб персонажа [GetGlobalVariable('coa_new_name').Char.GetFirstNamePossessive]"
+ coa_new_name:0 ""
+ pcoa_random:0 "Случайные гербы"
+ pcoa_random_tooltip:0 "Вы получите случайно сгенерированный личный герб."
  CUSTOMIZE_PERSONAL_ARMS:0 "#T Настроить [agot_personal_coa|El]#!\nОткрыть меню настройки для редактирования вашего личного герба."
- agot_dylan_house_name_key:0 "[GetGlobalVariable('coa_new_name').Char.GetDynastyNameNoTooltip]"
 
  #####################################
  ## Epidemic Isolate Realm Decision ##
