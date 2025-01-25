@@ -318,20 +318,20 @@ types CharacterWindow
 			### FIND SQUIRE FOR ME
 			fixedgridbox = {
 				name = "educate_squire"
-				datamodel = "[GetNullCharacterDataModel( CharacterWindow.CalcUnusedRelationSlots( GetRelation( 'agot_squire' ), '(int32)1' ) )]"
-				visible = "[Character.IsPlayerInteractionValid('agot_educate_squire_interaction')]"
+				datamodel = "[GetNullCharacterDataModel( CharacterWindow.CalcUnusedRelationSlots( GetRelation( 'agot_squire' ), '(int32)2' ) )]"
+				visible = "[Character.IsPlayerInteractionShown('agot_educate_squire_interaction')]"
 				flipdirection = yes
 				addcolumn = 85
 				addrow = 90
 				maxverticalslots = 1
-				maxhorizontalslots = 1
+				maxhorizontalslots = 2
 				item = {
 					container = {
 						portrait_head_small = {
 							blockoverride "portrait_button_template_onclick"
 							{
 								onclick = "[CharacterWindow.GetCharacter.OpenPlayerInteraction( 'agot_educate_squire_interaction' )]"
-								enabled = "[CharacterWindow.GetCharacter.IsPlayerInteractionValid( 'agot_educate_squire_interaction' )]"
+								enabled = "[CharacterWindow.GetCharacter.IsPlayerInteractionShown( 'agot_educate_squire_interaction' )]"
 								button_icon = {
 									parentanchor = center
 									alwaystransparent = yes
@@ -351,20 +351,20 @@ types CharacterWindow
 			### FIND SQUIRE FOR COURTIER
 			fixedgridbox = {
 				name = "find_squire"
-				datamodel = "[GetNullCharacterDataModel( CharacterWindow.CalcUnusedRelationSlots( GetRelation( 'agot_squire' ), '(int32)1' ) )]"
-				visible = "[Character.IsPlayerInteractionValid('agot_offer_squire_interaction')]"
+				datamodel = "[GetNullCharacterDataModel( CharacterWindow.CalcUnusedRelationSlots( GetRelation( 'agot_squire' ), '(int32)2' ) )]"
+				visible = "[Character.IsPlayerInteractionShown('agot_offer_squire_interaction')]"
 				flipdirection = yes
 				addcolumn = 85
 				addrow = 90
 				maxverticalslots = 1
-				maxhorizontalslots = 1
+				maxhorizontalslots = 2
 				item = {
 					container = {
 						portrait_head_small = {
 							blockoverride "portrait_button_template_onclick"
 							{
 								onclick = "[CharacterWindow.GetCharacter.OpenPlayerInteraction( 'agot_offer_squire_interaction' )]"
-								enabled = "[CharacterWindow.GetCharacter.IsPlayerInteractionValid( 'agot_offer_squire_interaction' )]"
+								enabled = "[CharacterWindow.GetCharacter.IsPlayerInteractionShown( 'agot_offer_squire_interaction' )]"
 								button_icon = {
 									parentanchor = center
 									alwaystransparent = yes

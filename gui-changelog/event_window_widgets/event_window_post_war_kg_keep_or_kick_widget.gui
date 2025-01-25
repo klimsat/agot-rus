@@ -1,0 +1,83 @@
+widget = {
+	allow_outside = yes
+	name = "event_window_post_war_kg_keep_or_kick_widget"
+	size = { 480 350 } # Size of the insert into the event window which takes into account the margin below
+
+	container = {
+		allow_outside = yes
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		position = { 0 0 }
+		ignoreinvisible = yes
+
+		vbox = {
+			allow_outside = yes
+			margin = { 0 -24 } # Pushes the box around
+
+			scrollbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				minimumsize = { 460 350 } # Size of the container of characters
+
+				blockoverride "scrollbox_content"
+				{
+					vbox = {
+						datamodel = "[GetPlayer.MakeScope.GetList('kg_decision_widget_list')]"
+						layoutpolicy_horizontal = expanding
+						margin = { -6 -8 }
+
+						item = {
+							button_standard = {
+								name = "background_button"
+								size = { 436 68 }
+								using = tooltip_ws
+								layoutpolicy_vertical = expanding
+								datacontext = "[Scope.GetCharacter]"
+
+								tooltipwidget = {
+									cooltip_type = {
+										blockoverride "interaction_info" {
+											text = "CHARACTER_TOOLTIP_INSTRUCTION"
+										}
+									}
+								}
+								tooltip_offset = { 0 0 }
+								tooltip_verticalbehavior = slide
+								tooltip_horizontalbehavior = mirror
+
+								portrait_head_small = {
+									scale = 0.75
+									tooltip_visible = no
+								}
+								text_single = {
+									name = "character_name"
+									text = "[Character.GetShortUINameNoTooltip]"
+									using = Font_Size_Small
+									align = center
+									autoresize = yes
+									max_width = 200
+									position = { 70 20 }
+								}
+								button_checkbox_label = {
+									name = "remove_kg_checkbox"
+									onclick = "[GetScriptedGui('agot_remove_from_kg_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'kg', Character.MakeScope ).End )]"
+									blockoverride "checkbox" {
+										checked = "[GetScriptedGui('agot_remove_from_kg_sgui_checkbox').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'kg', Character.MakeScope ).End )]"
+									}
+									blockoverride "text" {
+										text = agot_remove_from_kg
+										using = Font_Size_Tiny
+									}
+									position = { 280 20 }
+
+								}
+								expand = {}
+							}
+						}
+						expand = {}
+					}
+				}
+			}
+		}
+	}
+}
