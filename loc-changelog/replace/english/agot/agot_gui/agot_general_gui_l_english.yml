@@ -1,5 +1,5 @@
 ﻿l_english:
- 
+
  COUNCIL_TASK_CASTELLAN_REVERT:0 "Reassign your [castellan|E]'s role"
 
  HOUSE_LIST_BASTARD:0 "[bastard_house|E]"
@@ -290,3 +290,29 @@
 
  agot_house_feud_viewer_title:0 "[Scope.GetCharacter.GetHouse.GetName]-[Scope.GetCharacter.MakeScope.Var('feud_viewer').Var('house_feud_house').House.GetName] [house_feud|e]"
  agot_remove_from_kg:0 "Remove [Scope.GetCharacter.GetFirstNameNoTooltip]"
+
+ # House Legitimacy
+ DESIRED_LEGITIMACY:0 "100"
+ SHOW_LEGITIMATE_HOUSE:0 "#T Show Legitimate House#!"
+ LEGITIMATE_HOUSE:0 "[agot_legitimate_house|E]"
+ CURRENT_HOUSE:0 "Current House"
+ PROGRESS_TO_LEGITIMATE_HOUSE:0 "#weak Progress to Legitimate House#!"
+ PROGRESS_TO_LEGITIMATE_HOUSE_PERCENTAGE:0 "[TitleHistoryWindow.GetTitle.MakeScope.Var('new_house_progress').GetValue|2]%"
+
+ CURRENT_HOUSE_IS_ILLEGITIMATE:0 "[agot_legitimate_house|E] in #N Dispute#!"
+ CURRENT_HOUSE_IS_LEGITIMATE:0 "[agot_legitimate_house|E] in #P Power#!"
+ NO_CURRENT_HOLDER_LEGITIMATE:0 "There is no current holder of [TitleHistoryWindow.GetTitle.GetNameNoTooltip]."
+ CURRENT_HOUSE_IS_LEGITIMATE_HOUSE_PROGRESS_TT:0 "House [TitleHistoryWindow.GetTitle.MakeScope.Var('legitimate_house').House.GetNameNoTooltip] is the Legitimate House of [TitleHistoryWindow.GetTitle.GetNameNoTooltip]."
+ LEGITIMATE_HOUSE_PROGRESS:0 "[TitleHistoryWindow.GetTitle.MakeScope.Var('current_house').House.GetName] progress towards supplanting [TitleHistoryWindow.GetTitle.MakeScope.Var('legitimate_house').House.GetName] as the Legitimate House of [TitleHistoryWindow.GetTitle.GetNameNoTooltip] is [TitleHistoryWindow.GetTitle.MakeScope.Var('new_house_progress').GetValue|2]%.\n"
+ NEW_HOUSE_LEGITIMACY_INCREASES_BY:0 "This changes each year by [TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_new_house_yearly_progress_change')|=+2] due to the following factors present in [TitleHistoryWindow.GetTitle.GetBaseNameNoTooltip]:"
+ NEW_HOUSE_LEGITIMACY_BASE_VALUE:0 "Base: #P +1#!"
+ NEW_HOUSE_SAME_DYNASTY_VALUE:0 "Same dynasty as legitimate house: #P +1#!"
+ NEW_HOUSE_EXTINCT_OLD_HOUSE_VALUE:0 "Legitimate house is extinct: #P +2#!"
+ NEW_HOUSE_EMPIRE_TIER_TITLE_VALUE:0 "Empire-tier title: #N -0.5#!"
+ NEW_HOUSE_HAS_BOTH_PARENTS_VALUE:0 "Parents of the legitimate house: #P +2#!"
+ NEW_HOUSE_HAS_ONE_PARENT_VALUE:0 "Parent of the legitimate house: #P +1#!"
+ NEW_HOUSE_HAS_GRANDPARENT_VALUE:0 "Grandparent is of the legitimate house: #P +0.5#!"
+ NEW_HOUSE_HAS_SPOUSE_VALUE:0 "Spouse is of the legitimate house: #P +0.5#!"
+ NEW_HOUSE_POPULAR_OPINION_VALUE:0 "Average [county_opinion|E]: [TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_popular_opinion')|=+2]"
+ NEW_HOUSE_VASSAL_OPINION_VALUE:0 "Average [vassal|E] opinion: [TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_vassal_opinion')|=+2]"
+ NEW_HOUSE_MISSING_HOLDINGS_VALUE:0 "Missing [de_jure|E] counties: [TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_missing_de_jure_holdings')|=+2]"
