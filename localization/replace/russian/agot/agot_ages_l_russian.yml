@@ -9,6 +9,7 @@
  #ERA_DOOM_END:0 "'(int32)8000'"
 
  ### In-Game
+
  ## DATE Replacements
  # ERA
  ERA_SEL_IG:0 "[Select_CString( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)8000'), 'З.Э.', Select_CString( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)7898' ), 'П.Р.', Select_CString( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)6400' ), 'В.А.', Select_CString( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)2500' ), 'В.Г.', 'Р.Э.' ))))]"
@@ -24,6 +25,7 @@
  #YEAR_YT_IG:0 "Max_int32( Select_int32( GreaterThan_int32( '(int32)$YEAR$', $ERA_DAWN_END$), Subtract_int32( '(int32)$YEAR$', $ERA_DAWN_END$ ) , '(int32)$YEAR$' ) , '(int32)1' )"
 
  ### Dynasty Founding Date
+
  ## DATE Replacements
  # ERA
  ERA_SEL_DYNFOUND:0 "[Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)8000' ), 'З.Э.', Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)7898' ), 'П.Р.', Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)6400' ), 'В.А.', Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)2500' ), 'В.Г.', 'Р.Э.' ))))]"
@@ -37,6 +39,7 @@
  #YEAR_YT_DYNFOUND:0 "Select_int32( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)2500' ), Subtract_int32( DynastyHouse.GetFoundYear, '(int32)2500' ) , DynastyHouse.GetFoundYear )"
 
  ### Ruler Designer Birth Date
+
  ## DATE Replacements
  # ERA
  ERA_SEL_RULDESBIRTH:0 "[Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)8000' ), 'З.Э.', Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)7898' ), 'П.Р.', Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)6400' ), 'В.А.', Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)2500' ), 'В.Г.', 'Р.Э.' ))))]"
@@ -50,6 +53,7 @@
  #YEAR_YT_RULDESBIRTH:0 "Select_int32( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)2500' ), Subtract_int32( RulerDesignerWindow.GetBirthYear, '(int32)2500' ) , RulerDesignerWindow.GetBirthYear )"
 
  ###Culture Window
+
  # ERA
  ERA_SEL_CULTURE:0 "[Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)8000' ), 'З.Э.', Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)7898' ), 'П.Р.', Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)6400' ), 'В.А.', Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)6400' ), 'В.А.', Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)2500' ), 'В.Г.', 'Р.Э.' )))))]"
  #ERA_2E_CULTURE:0 "Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)7898' ), 'A.D.', $ERA_1E_CULTURE$ )"
@@ -62,6 +66,7 @@
  #YEAR_YT_CULTURE:0 "Select_int32( GreaterThan_int32( DATE.GetYear, '(int32)2500' ), Subtract_int32( DATE.GetYear, '(int32)2500' ) , DATE.GetYear )"
 
  ### Main Menu
+
  ## SaveGameItem
  # ERA
  ERA_SEL_SGI:0 "[Select_CString( GreaterThanOrEqualTo_int32('(int32)8000', '(int32)1'), Select_CString( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)8000' ), 'З.Э. ', Select_CString( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)7898' ), 'З.Э. ', 'В.А. ' ) ), Select_CString( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)7898' ), 'З.Э. ', 'В.А. ' ))]"
@@ -71,6 +76,7 @@
  YEAR_SEL_SGI:0 "[Select_int32( GreaterThanOrEqualTo_int32('(int32)8000', '(int32)1'), Select_int32( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)8000'), Subtract_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)8000' ) ), '(int32)1' ), '(int32)8000' ) ), Subtract_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' ) ) ), Subtract_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' )))]"
  #YEAR_3E_SGI:0 "Select_int32( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)8000'), Subtract_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)8000' ) ), '(int32)1' ), '(int32)8000' ) ), $YEAR_2E_SGI$ )"
  #YEAR_2E_SGI:0 "Subtract_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' ) )"
+
  ## BookmarkSelectRuler
  # ERA
  ERA_SEL_SR:0 "[Select_CString( GreaterThanOrEqualTo_int32('(int32)8000', '(int32)1'), Select_CString( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)8000' ), 'З.Э. ', Select_CString( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)7898' ), 'З.Э. ', 'В.А. ' ) ), Select_CString( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)7898' ), 'З.Э. ', 'В.А. ' ))]"
@@ -80,6 +86,7 @@
  YEAR_SEL_SR:0 "[Select_int32( GreaterThanOrEqualTo_int32('(int32)8000', '(int32)1'), Select_int32( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)8000'), Subtract_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)8000' ) ), '(int32)1' ), '(int32)8000' ) ), Subtract_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' ) ) ), Subtract_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' )))]"
  #YEAR_3E_SR:0 "Select_int32( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)8000'), Subtract_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)8000' ) ), '(int32)1' ), '(int32)8000' ) ), $YEAR_2E_SR$ )"
  #YEAR_2E_SR:0 "Subtract_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' ) )"
+
  ## BookmarkSelectedDate
  # ERA
  ERA_SEL_BSD:0 "[Select_CString( GreaterThanOrEqualTo_int32('(int32)8000', '(int32)1'), Select_CString( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedDate.GetYear, '(int32)8000' ), 'З.Э. ', Select_CString( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedDate.GetYear, '(int32)7898' ), 'З.Э. ', 'В.А. ' ) ), Select_CString( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedDate.GetYear, '(int32)7898' ), 'З.Э. ', 'В.А. ' ))]"
@@ -89,6 +96,7 @@
  YEAR_SEL_BSD:0 "[Select_int32( GreaterThanOrEqualTo_int32('(int32)8000', '(int32)1'), Select_int32( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedDate.GetYear, '(int32)8000'), Subtract_int32( GameSetup.GetSelectedDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedDate.GetYear, '(int32)8000' ) ), '(int32)1' ), '(int32)8000' ) ), Subtract_int32( GameSetup.GetSelectedDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' ) ) ), Subtract_int32( GameSetup.GetSelectedDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' )))]"
  #YEAR_3E_BSD:0 "Select_int32( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedDate.GetYear, '(int32)8000'), Subtract_int32( GameSetup.GetSelectedDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedDate.GetYear, '(int32)8000' ) ), '(int32)1' ), '(int32)8000' ) ), $YEAR_2E_BSD$ )"
  #YEAR_2E_BSD:0 "Subtract_int32( GameSetup.GetSelectedDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( GameSetup.GetSelectedDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' ) )"
+
  ## BookmarkItemDate
  # ERA
  ERA_SEL_BID:0 "[Select_CString( GreaterThanOrEqualTo_int32('(int32)8000', '(int32)1'), Select_CString( GreaterThanOrEqualTo_int32( BookmarkItem.GetDate.GetYear, '(int32)8000' ), '3E ', Select_CString( GreaterThanOrEqualTo_int32( BookmarkItem.GetDate.GetYear, '(int32)7898' ), '2E ', '1E ' ) ), Select_CString( GreaterThanOrEqualTo_int32( BookmarkItem.GetDate.GetYear, '(int32)7898' ), '2E ', '1E ' ))]"
@@ -98,6 +106,7 @@
  YEAR_SEL_BID:0 "[Select_int32( GreaterThanOrEqualTo_int32('(int32)8000', '(int32)1'), Select_int32( GreaterThanOrEqualTo_int32( BookmarkItem.GetDate.GetYear, '(int32)8000'), Subtract_int32( BookmarkItem.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( BookmarkItem.GetDate.GetYear, '(int32)8000' ) ), '(int32)1' ), '(int32)8000' ) ), Subtract_int32( BookmarkItem.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( BookmarkItem.GetDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' ) ) ), Subtract_int32( BookmarkItem.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( BookmarkItem.GetDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' )))]"
  #YEAR_3E_BID:0 "Select_int32( GreaterThanOrEqualTo_int32( BookmarkItem.GetDate.GetYear, '(int32)8000'), Subtract_int32( BookmarkItem.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( BookmarkItem.GetDate.GetYear, '(int32)8000' ) ), '(int32)1' ), '(int32)8000' ) ), $YEAR_2E_BID$ )"
  #YEAR_2E_BID:0 "Subtract_int32( BookmarkItem.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( BookmarkItem.GetDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' ) )"
+
  ## MP_Game_Setup_Date
  # ERA
  ERA_SEL_MPGSD:0 "[Select_CString( GreaterThanOrEqualTo_int32('(int32)8000', '(int32)1'), Select_CString( GreaterThanOrEqualTo_int32( MpBookmarkItem.GetDate.GetYear, '(int32)8000' ), '3E ', Select_CString( GreaterThanOrEqualTo_int32( MpBookmarkItem.GetDate.GetYear, '(int32)7898' ), '2E ', '1E ' ) ), Select_CString( GreaterThanOrEqualTo_int32( MpBookmarkItem.GetDate.GetYear, '(int32)7898' ), '2E ', '1E ' ))]"
@@ -107,6 +116,7 @@
  YEAR_SEL_MPGSD:0 "[Select_int32( GreaterThanOrEqualTo_int32('(int32)8000', '(int32)1'), Select_int32( GreaterThanOrEqualTo_int32( MpBookmarkItem.GetDate.GetYear, '(int32)8000'), Subtract_int32( MpBookmarkItem.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( MpBookmarkItem.GetDate.GetYear, '(int32)8000' ) ), '(int32)1' ), '(int32)8000' ) ), Subtract_int32( MpBookmarkItem.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( MpBookmarkItem.GetDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' ) ) ), Subtract_int32( MpBookmarkItem.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( MpBookmarkItem.GetDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' )))]"
  #YEAR_3E_MPGSD:0 "Select_int32( GreaterThanOrEqualTo_int32( MpBookmarkItem.GetDate.GetYear, '(int32)8000'), Subtract_int32( MpBookmarkItem.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( MpBookmarkItem.GetDate.GetYear, '(int32)8000' ) ), '(int32)1' ), '(int32)8000' ) ), $YEAR_2E_MPGSD$ )"
  #YEAR_2E_MPGSD:0 "Subtract_int32( MpBookmarkItem.GetDate.GetYear, Multiply_int32( Subtract_int32( BoolTo1And2( GreaterThanOrEqualTo_int32( MpBookmarkItem.GetDate.GetYear, '(int32)7898' ) ), '(int32)1' ), '(int32)7898' ) )"
+
  ## MP_Game_Setup_Bookmark_Date
  # ERA
  ERA_SEL_MPGSBD:0 "[Select_CString( GreaterThanOrEqualTo_int32('(int32)8000', '(int32)1'), Select_CString( GreaterThanOrEqualTo_int32( GameMpSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)8000' ), '3E ', Select_CString( GreaterThanOrEqualTo_int32( GameMpSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)7898' ), '2E ', '1E ' ) ), Select_CString( GreaterThanOrEqualTo_int32( GameMpSetup.GetSelectedBookmark.GetDate.GetYear, '(int32)7898' ), '2E ', '1E ' ))]"
@@ -143,3 +153,7 @@
  frontend_mp_game_setup_date_replace:0 "[MpBookmarkItem.GetDate.GetStringShortNoYear], $YEAR_SEL_MPGSD$ г. от $ERA_SEL_MPGSD$"
  # Default: [GameMpSetup.GetSelectedBookmark.GetDate.GetString]
  frontend_mp_game_setup_bookmark_date_replace:0 "[GameMpSetup.GetSelectedBookmark.GetDate.GetStringShortNoYear], $YEAR_SEL_MPGSBD$ г. от $ERA_SEL_MPGSBD$"
+
+ ### Battle PoI Eras
+ BattlePoI_AfterConquest:0 "З.Э."
+ BattlePoI_AfterDoom:0 "П.Р."

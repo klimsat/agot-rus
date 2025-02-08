@@ -1,5 +1,5 @@
 ﻿l_russian:
- 
+
  COUNCIL_TASK_CASTELLAN_REVERT:0 "Переназначить роль вашего [Concept( 'castellan', 'кастеляна' )|E]"
 
  HOUSE_LIST_BASTARD:0 "[bastard_house|E]"
@@ -289,3 +289,30 @@
  CV_CUSTOMIZE_AGOT_DRAGON:0 "#P #I Нажмите, чтобы открыть редактор дракона#!#!"
 
  agot_house_feud_viewer_title:0 "[Scope.GetCharacter.GetHouse.GetName]-[house_feud|El] [Scope.GetCharacter.MakeScope.Var('feud_viewer').Var('house_feud_house').House.GetName]"
+ agot_remove_from_kg:0 "[Scope.GetCharacter.GetFirstNameNoTooltip] - исключить"
+
+ # House Legitimacy
+ DESIRED_LEGITIMACY:0 "100"
+ SHOW_LEGITIMATE_HOUSE:0 "#T Показать законный дом#!"
+ LEGITIMATE_HOUSE:0 "[agot_legitimate_house|E]"
+ CURRENT_HOUSE:0 "Текущий дом"
+ PROGRESS_TO_LEGITIMATE_HOUSE:0 "#weak Прогресс к признанию законным домом#!"
+ PROGRESS_TO_LEGITIMATE_HOUSE_PERCENTAGE:0 "[TitleHistoryWindow.GetTitle.MakeScope.Var('new_house_progress').GetValue|2]%"
+
+ CURRENT_HOUSE_IS_ILLEGITIMATE:0 "[agot_legitimate_house|E] #N оспаривается#!"
+ CURRENT_HOUSE_IS_LEGITIMATE:0 "[agot_legitimate_house|E] у #P власти#!"
+ NO_CURRENT_HOLDER_LEGITIMATE:0 "У титула [TitleHistoryWindow.GetTitle.GetNameNoTooltip] нет владельца."
+ CURRENT_HOUSE_IS_LEGITIMATE_HOUSE_PROGRESS_TT:0 "Дом [TitleHistoryWindow.GetTitle.MakeScope.Var('legitimate_house').House.GetNameNoTooltip] является законным домом титула [TitleHistoryWindow.GetTitle.GetNameNoTooltip]."
+ LEGITIMATE_HOUSE_PROGRESS:0 "Прогресс дома [TitleHistoryWindow.GetTitle.MakeScope.Var('current_house').House.GetName] в вытеснении дома [TitleHistoryWindow.GetTitle.MakeScope.Var('legitimate_house').House.GetName] в качестве законного дома титула [TitleHistoryWindow.GetTitle.GetNameNoTooltip] - [TitleHistoryWindow.GetTitle.MakeScope.Var('new_house_progress').GetValue|2]%.\n"
+ NEW_HOUSE_LEGITIMACY_INCREASES_BY:0 "Каждый год прогресс меняется на [TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_new_house_yearly_progress_change')|=+2] из-за следующих факторов, присутствующих в титуле [TitleHistoryWindow.GetTitle.GetBaseNameNoTooltip]:"
+ NEW_HOUSE_LEGITIMACY_BASE_VALUE:0 "Базовое значение: #P +1#!"
+ NEW_HOUSE_SAME_DYNASTY_VALUE:0 "Династия законного дома: #P +1#!"
+ NEW_HOUSE_EXTINCT_OLD_HOUSE_VALUE:0 "Законный дом вымер: #P +2#!"
+ NEW_HOUSE_EMPIRE_TIER_TITLE_VALUE:0 "Титул имперского уровня: #N -0.5#!"
+ NEW_HOUSE_HAS_BOTH_PARENTS_VALUE:0 "Родители из законного дома: #P +2#!"
+ NEW_HOUSE_HAS_ONE_PARENT_VALUE:0 "Родители из законного дома: #P +1#!"
+ NEW_HOUSE_HAS_GRANDPARENT_VALUE:0 "Бабушка и дедушка из законного дома: #P +0.5#!"
+ NEW_HOUSE_HAS_SPOUSE_VALUE:0 "Супруг их законного дома: #P +0.5#!"
+ NEW_HOUSE_POPULAR_OPINION_VALUE:0 "Среднее [county_opinion|El]: [TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_popular_opinion')|=+2]"
+ NEW_HOUSE_VASSAL_OPINION_VALUE:0 "Среднее мнение [Concept('vassal', 'вассалов')|E]: [TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_vassal_opinion')|=+2]"
+ NEW_HOUSE_MISSING_HOLDINGS_VALUE:0 "Неподконтрольные [de_jure|El] графства: [TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_missing_de_jure_holdings')|=+2]"
