@@ -1,0 +1,121 @@
+types LegitimateHouse
+{
+	type agot_legitimate_house_title_button = button_sidepanel_right
+	{
+		name = "legitimate house"
+		datacontext = "[GetScriptedGui('agot_legitimate_house_mechanic')]"
+		parentanchor = right
+		visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( TitleViewWindow.GetTitle.MakeScope ).End )]"
+		onclick = "[TitleViewWindow.ToggleHistory]"
+
+		tooltip = "SHOW_LEGITIMATE_HOUSE"
+
+		blockoverride "button_text"
+		{
+			text = "LEGITIMATE_HOUSE"
+		}
+	}
+
+	type agot_legitimate_house_progressbar = progressbar
+	{
+		min = 0
+		max = 100
+		value = 35
+		size = { 50 20 }
+
+		block "progress_textures"
+		{
+			progresstexture = "gfx/interface/progressbars/progress_standard.dds"
+			noprogresstexture = "gfx/interface/progressbars/progress_red.dds"
+		}
+
+		spriteType = Corneredtiled
+		spriteborder = { 6 6 }
+
+		icon = {
+			name = "overlay"
+			texture = "gfx/interface/progressbars/progress_overlay.dds"
+			spriteType = Corneredstretched
+			spriteborder = { 2 2 }
+			size = { 100% 100% }
+
+			glow = {
+				visible = "[EqualTo_int32( FixedPointToInt(TitleHistoryWindow.GetTitle.MakeScope.Var('new_house_progress').GetValue), '(int32)100')]"
+				color = { 0.4 0.8 1 0.4 }
+				glow_radius = 12
+				using = AGOT_Glow_Standard
+			}
+
+			state = {
+				trigger_on_create = yes
+
+				name = max_glow
+				next = min_glow
+				duration = 1
+				using = Animation_Curve_Default
+
+				glow_alpha = 0.8
+			}
+
+			state = {
+				name = min_glow
+				next = max_glow
+				duration = 1.6
+				using = Animation_Curve_Default
+
+				glow_alpha = 0.2
+			}
+		}
+	}
+
+	type agot_legitimate_house_bar = hbox
+	{
+		datacontext = "[GetScriptedGui('agot_legitimate_house_mechanic')]"
+		visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( TitleHistoryWindow.GetTitle.MakeScope ).End )]"
+		margin_bottom = 10
+		vbox = {
+			hbox = {
+				text_single = {
+					text = "CURRENT_HOUSE"
+					align = center
+				}
+				widget = {
+					visible = "[Or(EqualTo_string(Localize('YES'), 'Yes'), EqualTo_string(Localize('YES'), 'Oui'))]"
+					layoutpolicy_horizontal = preferred
+					size = { 240 0 }
+				}
+				widget = {
+					visible = "[EqualTo_string(Localize('YES'), '是')]"
+					layoutpolicy_horizontal = preferred
+					size = { 290 0 }
+				}
+				text_single = {
+					text = "LEGITIMATE_HOUSE"
+					align = center
+				}
+			}
+			hbox = {
+				coa_house_medium = { datacontext = "[TitleHistoryWindow.GetTitle.MakeScope.Var('current_house').House]" }
+				vbox = {
+					margin_left = 10
+					margin_right = 10
+					text_single = {
+						margin_bottom = 10
+						text = "PROGRESS_TO_LEGITIMATE_HOUSE"
+					}
+					agot_legitimate_house_progressbar = {
+						size = { 240 25 }
+						value = "[TitleHistoryWindow.GetTitle.MakeScope.Var('new_house_progress').GetValue]"
+						text_single = {
+							margin_left = 10
+							text = "PROGRESS_TO_LEGITIMATE_HOUSE_PERCENTAGE"
+						}
+						tooltipwidget = { using = agot_legitimate_house_contribution }
+						using = tooltip_es
+					}
+				}
+				coa_house_medium = { datacontext = "[TitleHistoryWindow.GetTitle.MakeScope.Var('legitimate_house').House]" }
+			}
+		}
+	}
+}

@@ -86,6 +86,26 @@ types GameTooltipTypes
 			max_width = 350
 			autoresize = yes
 		}
+
+		text_multi = {
+			name = "character_birthplace_nickname"
+			visible = "[GetScriptedGui('agot_birthplace_surname').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			text = "COOLTIP_BIRTHPLACE_BASED_NICKNAME_DISPLAY"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+			autoresize = yes
+		}
+
+		text_multi = {
+			name = "character_ser_birthplace_nickname"
+			visible = "[GetScriptedGui('agot_ser_birthplace_surname').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			text = "COOLTIP_SER_BIRTHPLACE_BASED_NICKNAME_DISPLAY"
+			default_format = "#high"
+			using = Font_Size_Medium
+			max_width = 350
+			autoresize = yes
+		}
 	}
 
 	# Dragon Types
@@ -657,6 +677,105 @@ template dragon_title_location_tooltip # Tooltip for Minor Titles for Dragons
 				multiline = yes
 				fonttintcolor = "[TooltipInfo.GetTintColor]"
 				block "highlight_text" {}
+			}
+		}
+	}
+}
+
+template agot_legitimate_house_contribution # Legitimate House Contribution Tooltip
+{
+	agot_object_tooltip_pop_out = {
+		# datamodel = "[TitleHistoryWindow.GetHistory]"
+		blockoverride "extra_data" {
+			# datacontext = "[TitleHistory.GetCharacter]"
+			spacer = { size = { 0 12 } }
+			cooltip_paragraph = {
+				visible = "[TitleHistoryWindow.GetTitle.HasHolder]"
+				text = "[SelectLocalization(ObjectsEqual(TitleHistoryWindow.GetTitle.MakeScope.Var('current_house').House, TitleHistoryWindow.GetTitle.MakeScope.Var('legitimate_house').House), 'CURRENT_HOUSE_IS_LEGITIMATE','CURRENT_HOUSE_IS_ILLEGITIMATE')]"
+				default_format = "#bold"
+				fontsize = 18
+				margin_bottom = -3
+			}
+			# TT for if they are not the legitimate house
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				visible = "[And(TitleHistoryWindow.GetTitle.HasHolder, Not(EqualTo_int32( FixedPointToInt(TitleHistoryWindow.GetTitle.MakeScope.Var('new_house_progress').GetValue), '(int32)100')))]"
+				cooltip_paragraph = { text  = "LEGITIMATE_HOUSE_PROGRESS" }
+				cooltip_paragraph = { text  = "NEW_HOUSE_LEGITIMACY_INCREASES_BY" }
+				cooltip_paragraph = {
+					size = { 0 12 }
+					text  = "NEW_HOUSE_LEGITIMACY_BASE_VALUE"
+					margin_bottom = -3
+				}
+				cooltip_paragraph = {
+					size = { 0 12 }
+					visible = "[ObjectsEqual(TitleHistoryWindow.GetTitle.MakeScope.Var('current_house').House.GetDynasty, TitleHistoryWindow.GetTitle.MakeScope.Var('legitimate_house').House.GetDynasty)]"
+					text  = "NEW_HOUSE_SAME_DYNASTY_VALUE"
+					margin_bottom = -3
+				}
+				cooltip_paragraph = {
+					size = { 0 12 }
+					visible = "[EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_extinct'), '(CFixedPoint)1.00')]"
+					text  = "NEW_HOUSE_EXTINCT_OLD_HOUSE_VALUE"
+					margin_bottom = -3
+				}
+				cooltip_paragraph = {
+					size = { 0 12 }
+					visible = "[EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_parentage_level'), '(CFixedPoint)2.00')]"
+					text  = "NEW_HOUSE_HAS_BOTH_PARENTS_VALUE"
+					margin_bottom = -3
+				}
+				cooltip_paragraph = {
+					size = { 0 12 }
+					visible = "[EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_parentage_level'), '(CFixedPoint)1.00')]"
+					text  = "NEW_HOUSE_HAS_ONE_PARENT_VALUE"
+					margin_bottom = -3
+				}
+				cooltip_paragraph = {
+					size = { 0 12 }
+					visible = "[EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_parentage_level'), '(CFixedPoint)0.50')]"
+					text  = "NEW_HOUSE_HAS_GRANDPARENT_VALUE"
+					margin_bottom = -3
+				}
+				cooltip_paragraph = {
+					size = { 0 12 }
+					visible = "[EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_spouse_level'), '(CFixedPoint)0.5')]"
+					text  = "NEW_HOUSE_HAS_SPOUSE_VALUE"
+					margin_bottom = -3
+				}
+				cooltip_paragraph = {
+					size = { 0 12 }
+					visible = "[GreaterThan_int32( TitleHistoryWindow.GetTitle.GetTierFrame, '(int32)5' )]"
+					text  = "NEW_HOUSE_EMPIRE_TIER_TITLE_VALUE"
+					margin_bottom = -3
+				}
+				cooltip_paragraph = {
+					size = { 0 12 }
+					text  = "NEW_HOUSE_POPULAR_OPINION_VALUE"
+					margin_bottom = -3
+				}
+				cooltip_paragraph = {
+					size = { 0 12 }
+					text  = "NEW_HOUSE_VASSAL_OPINION_VALUE"
+					margin_bottom = -3
+				}
+				cooltip_paragraph = {
+					size = { 0 12 }
+					visible = "[Not(EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_missing_de_jure_holdings'), '(CFixedPoint)0.00'))]"
+					text  = "NEW_HOUSE_MISSING_HOLDINGS_VALUE"
+					margin_bottom = -3
+				}
+			}
+			# TT for if they are
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				visible = "[And(TitleHistoryWindow.GetTitle.HasHolder, EqualTo_int32( FixedPointToInt(TitleHistoryWindow.GetTitle.MakeScope.Var('new_house_progress').GetValue), '(int32)100'))]"
+				cooltip_paragraph = { text  = "CURRENT_HOUSE_IS_LEGITIMATE_HOUSE_PROGRESS_TT" }
+			}
+			# TT for if the title does not exist
+			cooltip_paragraph = {
+				visible = "[Not(TitleHistoryWindow.GetTitle.HasHolder)]"
+				text = "NO_CURRENT_HOLDER_LEGITIMATE"
 			}
 		}
 	}

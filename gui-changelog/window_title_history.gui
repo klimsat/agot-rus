@@ -19,6 +19,9 @@ window = {
 
 		hbox_title_history_heading = {}
 
+		# AGOT Added
+		agot_legitimate_house_bar = {}
+
 		vbox = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
@@ -63,6 +66,9 @@ types TitleHistory
 				allow_outside = yes
 
 				widget = {
+					# AGOT added
+					visible = "[Not(GetScriptedGui('agot_legitimate_house_mechanic').IsShown( GuiScope.SetRoot( TitleHistoryWindow.GetTitle.MakeScope ).End ))]"
+					# End AGOT added
 					size = { 70 70 }
 					allow_outside = yes
 

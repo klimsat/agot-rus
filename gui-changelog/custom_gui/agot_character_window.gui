@@ -241,6 +241,32 @@ types CharacterWindow
 			default_format = "#high"
 			tooltip = AGOT_NAME_SER_BASTARD_TOOLTIP
 		}
+
+		text_single = {
+			name = "character_birthplace_nickname"
+			visible = "[GetScriptedGui('agot_birthplace_surname').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			text = AGOT_BIRTHPLACE_BASED_NICKNAME_COMMA
+			margin_left = 2
+			max_width = 398
+			fontsize = 20
+			fontsize_min = 14
+			align = nobaseline
+			default_format = "#high"
+			tooltip = AGOT_BIRTHPLACE_BASED_NICKNAME_TOOLTIP
+		}
+
+		text_single = {
+			name = "character_ser_birthplace_nickname"
+			visible = "[GetScriptedGui('agot_ser_birthplace_surname').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+			text = AGOT_SER_BIRTHPLACE_BASED_NICKNAME_COMMA
+			margin_left = 2
+			max_width = 398
+			fontsize = 20
+			fontsize_min = 14
+			align = nobaseline
+			default_format = "#high"
+			tooltip = AGOT_SER_BIRTHPLACE_BASED_NICKNAME_TOOLTIP
+		}
 	}
 
 	type agot_trait_expanding_button = button_standard_hover
