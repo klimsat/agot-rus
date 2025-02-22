@@ -269,6 +269,99 @@ types CharacterWindow
 		}
 	}
 
+	type agot_ai_stress_icon = container
+	{
+		visible = "[And(Character.IsAlive, Not(Character.IsLocalPlayer))]"
+		tooltip = "AGOT_AI_STRESS_TOOLTIP"
+		using = tooltip_es
+
+		widget = {
+			visible = "[Not(GreaterThanOrEqualTo_int32(Character.GetStressLevel, '(int32)3'))]"
+			size = { 100% 100%}
+
+			using = Animation_ShowHide_Standard
+
+			background = {
+				texture = "gfx/interface/component_masks/mask_fade_circle.dds"
+				color = { 0.15 0.15 0.15 1 }
+				margin = { 12 12 }
+			}
+		}
+
+		widget = {
+			visible = "[GreaterThanOrEqualTo_int32(Character.GetStressLevel, '(int32)3')]"
+			parentanchor = center
+			size = { 180% 180% }
+			using = Animation_ShowHide_Standard
+
+			icon = {
+				size = { 100% 100% }
+				texture = "gfx/interface/component_masks/mask_fade_circle.dds"
+				using = Color_Red
+				alpha = 0
+
+				state = {
+					name = a
+					next = b
+					trigger_on_create = yes
+					alpha = 0.5
+					duration = 0.4
+					using = Animation_Curve_Default
+				}
+
+				state = {
+					name = b
+					next = a
+					alpha = 0
+					duration = 1
+					using = Animation_Curve_Default
+				}
+			}
+		}
+
+		icon = {
+			parentanchor = vcenter
+			size = { 35 35 }
+			texture = "gfx/interface/icons/stress/icon_stress_level.dds"
+			framesize = { 70 70 }
+			frame = "[IntToFrameIndex( Character.GetStressLevel )]"
+
+
+			modify_texture = {
+				visible = "[GreaterThanOrEqualTo_int32(Character.GetStressLevel, '(int32)2')]"
+				name = "glow"
+				texture = "gfx/interface/colors/gold.dds"
+				blend_mode = colordodge
+				alpha = 0
+			}
+
+			state = {
+				name = a
+				next = b
+				duration = 0.4
+				trigger_on_create = yes
+				using = Animation_Curve_Default
+
+				modify_texture = {
+					name = "glow"
+					alpha = 0.3
+				}
+			}
+
+			state = {
+				name = b
+				next = a
+				duration = 1
+				using = Animation_Curve_Default
+
+				modify_texture = {
+					name = "glow"
+					alpha = 0
+				}
+			}
+		}
+	}
+
 	type agot_trait_expanding_button = button_standard_hover
 	{
 		layoutpolicy_horizontal = fixed

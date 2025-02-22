@@ -44,7 +44,9 @@ window = {
 
 					blockoverride "header_text"
 					{
-						text = "COUNCILWINDOW_TITLE"
+						#AGOT Modified
+						# text = "COUNCILWINDOW_TITLE"
+						text = "AGOT_COUNCIL_TITLE_CUSLOC"
 					}
 
 					blockoverride "button_close"
@@ -61,7 +63,7 @@ window = {
 						text = "COUNCIL_WINDOW_PLAYER_COUNCIL"
 
 						#AGOT Modified
-						#down = "[And( CouncilWindow.IsPlayerCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
+						# down = "[And( CouncilWindow.IsPlayerCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 						down = "[GetVariableSystem.HasValue('council_tabs','my_council')]"
 						onclick = "[CouncilWindow.SetPlayerCouncil]"
 						onclick = "[GetVariableSystem.Clear( 'diarchy_tab' )]"
@@ -78,7 +80,9 @@ window = {
 					}
 
 					button_tab = {
-						visible = "[Not(GetPlayer.IsIndependentRuler)]"
+						#AGOT Modified
+						# visible = "[Not(GetPlayer.IsIndependentRuler)]"
+						visible = "[And(Not(GetPlayer.IsIndependentRuler), Not(IsNWAdventurer(GetPlayer)))]"
 
 						down = "[And( CouncilWindow.IsLiegeCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 						onclick = "[CouncilWindow.SetLiegeCouncil]"
@@ -139,7 +143,6 @@ window = {
 							alpha = 0.7
 						}
 					}
-
 
 					vbox_council_layout = {
 						name = "council_refresh"
@@ -1273,7 +1276,7 @@ types CouncilTaskTypes
 					datacontext = "[ActiveCouncilTask.GetCouncillor]"
 					#AGOT Modified
 					#visible = "[Not( CouncilOwnerHasVizier )]"
-					visible = "[GetScriptedGui('spouse_tab').IsShown(GuiScope.SetRoot(CouncilWindow.GetCharacter.GetLiege.MakeScope).End)]"
+					visible = "[Or(And(CouncilWindow.IsLiegeCouncilShown, GetScriptedGui('agot_spouse_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.GetLiege.MakeScope).End)), GetScriptedGui('agot_spouse_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
 
 					background =  {
 						texture = "gfx/interface/skinned/illustrations/council/bg_council_spouse.dds"
@@ -1410,6 +1413,8 @@ types CouncilTaskTypes
 				agot_nw_personal_steward_insert = {}
 				#AGOT Added; Castellan
 				agot_castellan_insert = {}
+				#AGOT Added; First Ranger Council
+				agot_ranger_one_insert = {}
 			}
 
 			hbox = {
@@ -1425,6 +1430,9 @@ types CouncilTaskTypes
 					datacontext = "[GuiCouncilPosition.GetActiveCouncilTask]"
 					datacontext = "[ActiveCouncilTask.GetPositionType]"
 					datacontext = "[ActiveCouncilTask.GetCouncillor]"
+
+					#AGOT Added
+					visible = "[Not(IsNWAdventurer(GetPlayer))]"
 
 					background =  {
 						texture = "gfx/interface/skinned/illustrations/council/bg_council_chancellor.dds"
@@ -1451,6 +1459,9 @@ types CouncilTaskTypes
 					datacontext = "[ActiveCouncilTask.GetPositionType]"
 					datacontext = "[ActiveCouncilTask.GetCouncillor]"
 
+					#AGOT Added
+					visible = "[Not(IsNWAdventurer(GetPlayer))]"
+
 					background =  {
 						texture = "gfx/interface/skinned/illustrations/council/bg_council_steward.dds"
 						fittype = centercrop
@@ -1467,6 +1478,8 @@ types CouncilTaskTypes
 						alpha = 0.3
 					}
 				}
+				#AGOT Added; First Ranger Council
+				agot_ranger_two_insert = {}
 			}
 
 			hbox = {
@@ -1483,6 +1496,9 @@ types CouncilTaskTypes
 					datacontext = "[GuiCouncilPosition.GetActiveCouncilTask]"
 					datacontext = "[ActiveCouncilTask.GetPositionType]"
 					datacontext = "[ActiveCouncilTask.GetCouncillor]"
+
+					#AGOT Added
+					visible = "[Not(IsNWAdventurer(GetPlayer))]"
 
 					background =  {
 						texture = "gfx/interface/skinned/illustrations/council/bg_council_marshal.dds"
@@ -1509,6 +1525,9 @@ types CouncilTaskTypes
 					datacontext = "[ActiveCouncilTask.GetPositionType]"
 					datacontext = "[ActiveCouncilTask.GetCouncillor]"
 
+					#AGOT Added
+					visible = "[Not(IsNWAdventurer(GetPlayer))]"
+
 					background =  {
 						texture = "gfx/interface/skinned/illustrations/council/bg_council_spymaster.dds"
 						fittype = centercrop
@@ -1525,6 +1544,9 @@ types CouncilTaskTypes
 						alpha = 0.3
 					}
 				}
+				#AGOT Added; First Ranger Council
+				agot_ranger_three_insert = {}
+				agot_ranger_four_insert = {}
 			}
 			#AGOT Added; Extra Councillors and Squish
 			agot_admiral_chaplain_insert = {}

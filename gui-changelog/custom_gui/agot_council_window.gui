@@ -13,7 +13,7 @@ types CouncilWindow
 		datacontext = "[ActiveCouncilTask.GetPositionType]"
 		datacontext = "[ActiveCouncilTask.GetCouncillor]"
 
-		visible = "[GetPlayer.HasTrait(GetTrait('nightswatch'))]"
+		visible = "[GetPlayer.GetGovernment.IsType('nights_watch_government')]"
 
 		background =  {
 			texture = "gfx/interface/skinned/illustrations/council/bg_council_spouse.dds"
@@ -80,6 +80,8 @@ types CouncilWindow
 		datacontext = "[ActiveCouncilTask.GetPositionType]"
 		datacontext = "[ActiveCouncilTask.GetCouncillor]"
 		datacontext = "[GetIllustration('agot_councilposition')]"
+
+		visible = "[Not(IsNWAdventurer(GetPlayer))]"
 
 		#Default Background
 		background =  {
@@ -273,6 +275,8 @@ types CouncilWindow
 		margin_bottom = 5
 		spacing = 5
 
+		visible = "[Not(IsNWAdventurer(GetPlayer))]"
+
 		widget_councillor_item = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
@@ -281,7 +285,7 @@ types CouncilWindow
 			datacontext = "[ActiveCouncilTask.GetPositionType]"
 			datacontext = "[ActiveCouncilTask.GetCouncillor]"
 
-			visible = "[Or(GetScriptedGui('admiral_tab').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End), GetScriptedGui('admiral_tab').IsShown(GuiScope.SetRoot(CouncilWindow.GetCharacter.GetLiege.MakeScope).End))]"
+			visible = "[Or(And(CouncilWindow.IsLiegeCouncilShown, GetScriptedGui('agot_admiral_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.GetLiege.MakeScope).End)), GetScriptedGui('agot_admiral_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
 
 			background =  {
 				texture = "gfx/interface/illustrations/council/bg_council_admiral.dds"
@@ -308,7 +312,7 @@ types CouncilWindow
 			datacontext = "[ActiveCouncilTask.GetCouncillor]"
 
 			datacontext = "[GetIllustration('agot_chaplain')]"
-			visible = "[Or(GetScriptedGui('agot_chaplain_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End), GetScriptedGui('agot_chaplain_position_valid').IsShown(GuiScope.SetRoot(CouncilWindow.GetCharacter.GetLiege.MakeScope).End))]"
+			visible = "[Or(And(CouncilWindow.IsLiegeCouncilShown, GetScriptedGui('agot_chaplain_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.GetLiege.MakeScope).End)), GetScriptedGui('agot_chaplain_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
 
 			background =  {
 				texture = "[Illustration.GetTexture( ActiveCouncilTask.GetCouncillor.GetFaith.MakeScope )]"
@@ -325,6 +329,164 @@ types CouncilWindow
 				color = { 0.15 0.15 0.15 1 }
 				alpha = 0.3
 			}
+		}
+	}
+
+	# First ranger stuff
+	type agot_ranger_one_insert = widget_councillor_item
+	{
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		datacontext = "[CouncilWindow.GetCouncillor('councillor_ranger_1')]"
+		datacontext = "[GuiCouncilPosition.GetActiveCouncilTask]"
+		datacontext = "[ActiveCouncilTask.GetPositionType]"
+		datacontext = "[ActiveCouncilTask.GetCouncillor]"
+
+		visible = "[IsNWAdventurer(GetPlayer)]"
+
+		background =  {
+			texture = "gfx/interface/skinned/illustrations/council/agot_bg_council_ranger_frozen_forest_a.dds"
+			margin_bottom = 20
+			margin_right = 5
+			fittype = centercrop
+			alpha = 1
+			using = Mask_Rough_Edges
+		}
+
+		background = {
+			texture = "gfx/interface/component_masks/mask_vignette.dds"
+			color = { 0.15 0.15 0.15 1 }
+			alpha = 0.3
+		}
+
+		blockoverride "portrait_size"
+		{
+			size = { 260 286 }
+		}
+
+		blockoverride "missing_councillor"
+		{
+			portrait_council = {
+				name = "councillor_portrait_blank"
+				visible = "[And( Not(Character.IsValid), CouncilWindow.IsPlayerCouncilShown)]"
+				parentanchor = center
+
+				text_label_center = {
+					parentanchor = bottom|hcenter
+					position = { 0 -10 }
+					text = "RANGER_PATHFINDER_CLICK_TO_HIRE"
+					default_format = "#high;italic"
+					max_width = 235
+				}
+
+				blockoverride "onclick" {
+					onclick = "[GuiCouncilPosition.SelectCouncillor]"
+
+					button_icon = {
+						parentanchor = center
+						alwaystransparent = yes
+						size = { 50 50 }
+						position = { 0 70 }
+						texture = "gfx/interface/icons/flat_icons/plus.dds"
+					}
+				}
+			}
+		}
+	}
+
+	type agot_ranger_two_insert = widget_councillor_item
+	{
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		datacontext = "[CouncilWindow.GetCouncillor('councillor_ranger_2')]"
+		datacontext = "[GuiCouncilPosition.GetActiveCouncilTask]"
+		datacontext = "[ActiveCouncilTask.GetPositionType]"
+		datacontext = "[ActiveCouncilTask.GetCouncillor]"
+
+		visible = "[IsNWAdventurer(GetPlayer)]"
+
+		background =  {
+			texture = "gfx/interface/skinned/illustrations/council/agot_bg_council_ranger_frozen_forest_b.dds"
+			margin_bottom = 20
+			margin_right = 5
+			fittype = centercrop
+			alpha = 1
+			using = Mask_Rough_Edges
+		}
+
+		background = {
+			texture = "gfx/interface/component_masks/mask_vignette.dds"
+			color = { 0.15 0.15 0.15 1 }
+			alpha = 0.3
+		}
+
+		blockoverride "portrait_size"
+		{
+			size = { 260 286 }
+		}
+	}
+
+	type agot_ranger_three_insert = widget_councillor_item
+	{
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		datacontext = "[CouncilWindow.GetCouncillor('councillor_ranger_3')]"
+		datacontext = "[GuiCouncilPosition.GetActiveCouncilTask]"
+		datacontext = "[ActiveCouncilTask.GetPositionType]"
+		datacontext = "[ActiveCouncilTask.GetCouncillor]"
+
+		visible = "[IsNWAdventurer(GetPlayer)]"
+
+		background =  {
+			texture = "gfx/interface/skinned/illustrations/council/agot_bg_council_ranger_frozen_forest_c.dds"
+			margin_bottom = 20
+			margin_right = 5
+			fittype = centercrop
+			alpha = 1
+			using = Mask_Rough_Edges
+		}
+
+		background = {
+			texture = "gfx/interface/component_masks/mask_vignette.dds"
+			color = { 0.15 0.15 0.15 1 }
+			alpha = 0.3
+		}
+
+		blockoverride "portrait_size"
+		{
+			size = { 260 286 }
+		}
+	}
+
+	type agot_ranger_four_insert = widget_councillor_item
+	{
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		datacontext = "[CouncilWindow.GetCouncillor('councillor_ranger_4')]"
+		datacontext = "[GuiCouncilPosition.GetActiveCouncilTask]"
+		datacontext = "[ActiveCouncilTask.GetPositionType]"
+		datacontext = "[ActiveCouncilTask.GetCouncillor]"
+
+		visible = "[IsNWAdventurer(GetPlayer)]"
+
+		background =  {
+			texture = "gfx/interface/skinned/illustrations/council/agot_bg_council_ranger_frozen_forest_d.dds"
+			margin_bottom = 20
+			margin_right = 5
+			fittype = centercrop
+			alpha = 1
+			using = Mask_Rough_Edges
+		}
+
+		background = {
+			texture = "gfx/interface/component_masks/mask_vignette.dds"
+			color = { 0.15 0.15 0.15 1 }
+			alpha = 0.3
+		}
+
+		blockoverride "portrait_size"
+		{
+			size = { 260 286 }
 		}
 	}
 }

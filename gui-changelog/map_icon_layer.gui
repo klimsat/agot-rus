@@ -3166,7 +3166,9 @@ types MapIcons
 				size = { 50 50 }
 				name = "move_camp_quick_button"
 				datacontext = "[GetPlayer.GetDomicile]"
-				visible = "[GetPlayer.GetGovernment.IsType('landless_adventurer_government')]"
+				#AGOT Modified
+				# visible = "[GetPlayer.GetGovernment.IsType('landless_adventurer_government')]"
+				visible = "[IsLandlessAdventurer(GetPlayer)]"
 
 				enabled = "[Domicile.CanMove]"
 				onclick = "[OpenGameView( 'move_domicile_planner' )]"

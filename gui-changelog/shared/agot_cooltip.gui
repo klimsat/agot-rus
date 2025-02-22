@@ -704,7 +704,14 @@ template agot_legitimate_house_contribution # Legitimate House Contribution Tool
 				cooltip_paragraph = { text  = "NEW_HOUSE_LEGITIMACY_INCREASES_BY" }
 				cooltip_paragraph = {
 					size = { 0 12 }
+					visible = "[Not(EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_base_value'), '(CFixedPoint)0.00'))]"
 					text  = "NEW_HOUSE_LEGITIMACY_BASE_VALUE"
+					margin_bottom = -3
+				}
+				cooltip_paragraph = {
+					size = { 0 12 }
+					visible = "[Not(EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_holders_of_current_dynasty'), '(CFixedPoint)0.00'))]"
+					text  = "NEW_HOUSE_LEGITIMACY_ANCESTOR_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {
@@ -747,6 +754,18 @@ template agot_legitimate_house_contribution # Legitimate House Contribution Tool
 					size = { 0 12 }
 					visible = "[GreaterThan_int32( TitleHistoryWindow.GetTitle.GetTierFrame, '(int32)5' )]"
 					text  = "NEW_HOUSE_EMPIRE_TIER_TITLE_VALUE"
+					margin_bottom = -3
+				}
+				cooltip_paragraph = {
+					size = { 0 12 }
+					visible = "[Not(EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_the_north_remembers_value'), '(CFixedPoint)0.00'))]"
+					text  = "NEW_HOUSE_LEGITIMACY_NORTH_REMEMBERS_VALUE"
+					margin_bottom = -3
+				}
+				cooltip_paragraph = {
+					size = { 0 12 }
+					visible = "[Not(EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_the_iron_price_value'), '(CFixedPoint)0.00'))]"
+					text  = "NEW_HOUSE_LEGITIMACY_IRON_PRICE_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {

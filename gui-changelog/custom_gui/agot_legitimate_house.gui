@@ -80,12 +80,12 @@ types LegitimateHouse
 					align = center
 				}
 				widget = {
-					visible = "[Or(EqualTo_string(Localize('YES'), 'Yes'), EqualTo_string(Localize('YES'), 'Oui'))]"
+					visible = "[Or(UsingEnglish, UsingFrench)]"
 					layoutpolicy_horizontal = preferred
 					size = { 240 0 }
 				}
 				widget = {
-					visible = "[EqualTo_string(Localize('YES'), '是')]"
+					visible = "[UsingChinese]"
 					layoutpolicy_horizontal = preferred
 					size = { 290 0 }
 				}
