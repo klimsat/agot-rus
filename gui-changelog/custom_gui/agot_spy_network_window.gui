@@ -45,26 +45,24 @@ window = {
 		}
 
 		vbox_spy_list = {
-			
+
 		}
 	}
-	
-	
 }
 
 types SpyNetworkWindow {
 	type vbox_spy_list = vbox {
 		name = "spy_list"
 		spacing = 16
-		
+
 		layoutpolicy_vertical = expanding
 		layoutpolicy_horizontal = expanding
-		
+
 		hbox = {
 			text_single = {
 				default_format = "#high"
 				raw_text = "[GetPlayer.Custom('YourSpies')]"
-				
+
 				using = Font_Type_Flavor
 				using = Font_Size_Big
 				fontsize_min = 14
@@ -85,7 +83,7 @@ types SpyNetworkWindow {
 					vbox = {
 						name = "characters_grid"
 						layoutpolicy_horizontal = expanding
-						
+
 						datamodel = "[GetPlayer.MakeScope.GetList('spy_network_members')]"
 
 						item = {
@@ -109,7 +107,7 @@ types SpyNetworkWindow {
 					text = "INTRIGUE_WINDOW_NO_SPIES"
 				}
 			}
-			
+
 			blockoverride "button"
 			{
 				using = Background_Guest
@@ -128,7 +126,7 @@ types SpyNetworkWindow {
 
 					expand = {}
 				}
-			} 
+			}
 		}
 
 		block "character_count"
@@ -163,7 +161,7 @@ types SpyNetworkWindow {
 			}
 		}
 	}
-	
+
 	type widget_spy_list_item = widget {
 		#datacontext = "[CharacterListItem.GetCharacter]"
 		datacontext = "[Scope.GetCharacter]"
@@ -177,7 +175,7 @@ types SpyNetworkWindow {
 		}
 		hbox = {
 			portrait_head = {}
-			
+
 			vbox = {
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
@@ -291,10 +289,8 @@ types SpyNetworkWindow {
 						autoresize = no
 					}
 				}
-				
-				
 			}
-			
+
 			vbox = {
 				# Button to fire character
 				# TODO: implement this (call interaction 'agot_remove_from_spy_network_interaction')

@@ -1208,52 +1208,19 @@ widget = {
 					layoutpolicy_vertical = expanding
 					spacing = 10
 
-					scrollarea = {
-						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
+					hbox = {
+						hbox = {
+							datamodel = "[FrontEndMainView.GetDlcCollection.GetDlcs]"
+							spacing = 5
 
-						scrollbarpolicy_vertical = always_off
-						scrollbarpolicy_horizontal = as_needed
-
-						scrollbar_horizontal = {
-							scrollbar = {
-								wheelstep = 60
-								direction = horizontal
-
-								track = {
-									button = {}
-								}
-
-								slider = {
-									button = {}
-								}
-
-								dec_button = {
-									button = {
-									}
-								}
-
-								inc_button = {
-									button = {
-									}
+							item = {
+								dlc_button = {
+									using = tooltip_nw
 								}
 							}
 						}
 
-						scrollwidget = {
-							hbox = {
-								hbox = {
-									datamodel = "[FrontEndMainView.GetDlcCollection.GetDlcs]"
-									spacing = 5
-
-									item = {
-										dlc_button = {}
-									}
-								}
-
-								expand = {}
-							}
-						}
+						expand = {}
 					}
 				}
 			}
