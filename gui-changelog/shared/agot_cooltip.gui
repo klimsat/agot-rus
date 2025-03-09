@@ -164,6 +164,19 @@ types GameTooltipTypes
 		autoresize = yes
 	}
 
+	type agot_owned_tooltip_relation = text_multi
+	{
+		name = "relation_to_owned"
+		visible = "[GetScriptedGui('agot_relation_check_owned').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		margin_top = 10
+		max_width = 308
+		text = "DRAGON_RELATION_HAS_BONDED"
+		tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		default_format = "#high"
+		align = nobaseline
+		autoresize = yes
+	}
+
 	type agot_freedom_tooltip_relation = text_multi
 	{
 		name = "relation_to_freedom"

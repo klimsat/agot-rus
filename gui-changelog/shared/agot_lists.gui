@@ -407,6 +407,21 @@ types Lists
 		}
 	}
 
+	type agot_owned_list_relation = text_single
+	{
+		name = "relation_to_owned"
+		default_format = "#low"
+		align = nobaseline
+		max_width = 370
+		fontsize = 12
+		fontsize_min = 11 # do not remove
+		visible = "[GetScriptedGui('agot_relation_check_owned').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+
+		block "description_relation_text" {
+			text = "DRAGON_RELATION_HAS_BONDED"
+		}
+	}
+
 	type agot_freedom_list_relation = text_single
 	{
 		name = "relation_to_freedom"
@@ -474,6 +489,19 @@ types Lists
 
 		block "description_relation_text" {
 			text = "DRAGON_RELATION_IS_PITTED"
+		}
+	}
+
+	type agot_owned_courtier_list_relation = text_single
+	{
+		name = "relation_to_owned"
+		default_format = "#low"
+		align = nobaseline
+		max_width = 370
+		visible = "[GetScriptedGui('agot_relation_check_owned').IsShown(GuiScope.SetRoot(CharacterListItem.GetCharacter.MakeScope).End)]"
+
+		block "description_relation_text" {
+			text = "DRAGON_RELATION_HAS_BONDED"
 		}
 	}
 

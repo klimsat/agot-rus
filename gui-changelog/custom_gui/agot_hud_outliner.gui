@@ -19,6 +19,7 @@ types Outliner
 		agot_dragonrider_pinned_relation = {}
 		agot_bonded_pinned_relation = {}
 		agot_host_pinned_relation = {}
+		agot_owned_pinned_relation = {}
 		agot_freedom_pinned_relation = {}
 		agot_wild_pinned_relation = {}
 	}
@@ -52,6 +53,17 @@ types Outliner
 		visible = "[GetScriptedGui('agot_relation_check_host').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 		layoutpolicy_horizontal = expanding
 		text = "DRAGON_RELATION_IS_PITTED"
+		tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+		autoresize = no
+		align = nobaseline
+	}
+
+	type agot_owned_pinned_relation = text_single
+	{
+		name = "relation_to_owned"
+		visible = "[GetScriptedGui('agot_relation_check_owned').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		layoutpolicy_horizontal = expanding
+		text = "DRAGON_RELATION_HAS_BONDED"
 		tooltip = "EXTENDED_RELATIONS_TOOLTIP"
 		autoresize = no
 		align = nobaseline

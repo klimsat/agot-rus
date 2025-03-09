@@ -1573,6 +1573,18 @@ types CharacterWindow
 
 			text_single = {
 				maximumsize = { 500 -1 }
+				name = "dragon_relation_to_owned"
+				visible = "[GetScriptedGui('agot_relation_check_owned').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+				text = "DRAGON_RELATION_HAS_BONDED"
+				tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+				using = tooltip_se
+
+				fontsize_min = 13
+				align = nobaseline
+			}
+
+			text_single = {
+				maximumsize = { 500 -1 }
 				name = "dragon_relation_free"
 				visible = "[GetScriptedGui('agot_relation_check_free').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
 				text = "DRAGON_RELATION_IS_WANDERING"
