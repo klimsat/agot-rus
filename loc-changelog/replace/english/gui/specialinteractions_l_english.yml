@@ -260,7 +260,7 @@
  GRANT_BARONY_TITLE_CANT_GIVE_REASON_OCCUPIED:0 "@warning_icon! #X [TITLE.GetName] is [occupied|E]#!"
  GRANT_TITLE_SELECT:0 "@warning_icon! #X There are no titles selected#!"
  GRANT_TITLE_GRANT:0 "#T Grant selected titles to [CHARACTER.GetShortUIName]#!"
- GRANT_TITLES_DESCRIPTION:0 "Select [titles|E] to grant to [CHARACTER.GetShortUINameNoTooltip]"
+ GRANT_TITLES_DESCRIPTION:0 "Select $game_concept_titles$ to grant to [CHARACTER.GetShortUIName]"
  GRANT_REVOKE_TITLES_ITEM_SELECT:0 "#T Select the [TITLE.GetName]#!"
  GRANT_REVOKE_TITLES_ITEM_DESELECT:0 "#T Deselect the [TITLE.GetName]#!"
  GRANT_REVOKE_RIGHT_CLICK_INFO:0 "#I Right-click to go to location#!"
@@ -359,7 +359,7 @@
  DEFEAT_CONFIRM_TITLE:0 "Surrender"
  DEFEAT_CONFIRM:0 "The War will be lost."
  DEFEAT_CONFIRM_ACCEPT:0 "Surrender"
- REVOKE_TITLE_DESCRIPTION:0 "Select [title|E] to revoke from [CHARACTER.GetShortUINameNoTooltip]"
+ REVOKE_TITLE_DESCRIPTION:0 "Select $game_concept_title$ to revoke from [CHARACTER.GetShortUIName]"
  #REVOKE_TITLE_REVOKED_TITLE_BY:2 "" # <DELETE THIS KEY>
  #REVOKE_TITLE_TITLE_INFO:1 "" # <DELETE THIS KEY>
  REVOKE_TITLE_CANT_GIVE_REASON_DOESNT_OWN:0 "@warning_icon! #X [CHARACTER.GetUIName] does not own [TITLE.GetName]#!"
@@ -492,7 +492,7 @@
  INTERFERE_IN_WAR_REJECT_HEADER:1 "If you reject:"
  INTERFERE_IN_WAR_NO_WAR_SELECTED:0 "@warning_icon! #X Select a [war|E] from the list above #!"
  INTERFERE_IN_WAR_NO_WARS:0 "#weak No Wars to select#!"
- INTERFERE_IN_WAR_DESCRIPTION:0 "#I Select a War#!"
+ INTERFERE_IN_WAR_DESCRIPTION:0 "#I Select one of [Character.GetShortUINamePossessive] Wars#!"
  INTERFERE_IN_WAR_ITEM_SELECT:0 "#T Interfere in [CHARACTER.GetShortUINamePossessiveNoTooltip] [WAR.GetName|V] #!"
  INTERFERE_IN_WAR_ALREADY_IN_WAR:2 "@warning_icon! #X [CHARACTER.GetShortUINameNoTooltip|U] [Select_CString( CHARACTER.IsLocalPlayer, 'are', 'is' )] already fighting in this war#!"
  INTERFERE_IN_WAR_ALREADY_CALLED_TO_WAR:1 "@warning_icon! #X [CHARACTER.GetShortUINameNoTooltip] [Select_CString( CHARACTER.IsLocalPlayer, 'have', 'has' )] been called to this war already#!"
@@ -540,7 +540,7 @@
 
  CULTURE_TRANSF_VASSAL:0 "[Culture.GetNameNoTooltip]"
 
- grant_title_clerical_gender_tt:0 "Temple Holdings can only be granted to your [faith|E]'s Clerical Gender"
+ grant_title_clerical_gender_tt:0 "Temple Holdings can only be granted to your [faithpossessive|E] Clerical Gender"
  VASSAL_CONTRACT_MARRIAGE_FAVOR_BONUS:0 "$marriage_favor_rights$: $VALUE|=+0$"
  VASSAL_WITH_MARRIAGE_FAVOR:0 "Unfulfilled $marriage_favor_rights$"
  UNITY_PERK_BONUS:0 "$fp2_coterie_legacy_3_name$: $VALUE|=+0$"
@@ -618,4 +618,5 @@
  HAS_PERK_PROPHET_REASON: "You have the [GetPerk('prophet_perk').GetName(GetPlayer)] [perk|E]: $VALUE|=+0$"
 
  INSPECTION_REASON: "[inspection|E] Bonus: $VALUE|=+0$"
+ HAS_WET_NURSE_REASON: "[GetCourtPositionType( 'wet_nurse_court_position' ).GetName ]: $VALUE|=+0$"
 
