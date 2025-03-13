@@ -87,7 +87,7 @@ window = {
 					text_single = {
 						layoutpolicy_horizontal = expanding
 						default_format = "#high"
-						text = "[CourtPositionType.GetNameNoTooltip]"
+						text = "[AppointCourtPositionView.GetPositionNameNoTooltip]"
 					}
 
 					text_single = {
@@ -284,19 +284,42 @@ window = {
 		}
 
 		hbox = {
+			layoutpolicy_horizontal = expanding
 			spacing = 5
 			margin = { 0 10 }
 
-			warning_icon = {
-				size = { 32 32 }
-				visible = "[And(AppointCourtPositionView.HasSelectedCharacter, AppointCourtPositionView.IsReplacingPosition)]"
-				tooltip = APPOINT_COURT_POSITION_VIEW_REPLACE_CONSEQUENCE_FOR_REVOKE_TOOLTIP
-			}
+			datacontext = "[AppointCourtPositionView.GetCourtPositionType]"
 
-			alert_icon = {
-				size = { 32 32 }
-				visible = "[And(AppointCourtPositionView.HasSelectedCharacter, AppointCourtPositionView.IsAppointingNewPosition )]"
-				tooltip = APPOINT_COURT_POSITION_VIEW_REVOKE_CONSEQUENCE_FOR_APPOINTMENT_TOOLTIP
+			expand = {}
+
+			hbox = {
+				spacing = 5
+				min_width = 200
+
+				expand = {}
+
+				### POWERFUL AGENT WARNING ###
+				icon = {
+					name = "powerful_agent_warning"
+					visible = "[CourtPositionType.IsPowerfulAgent]"
+					size = { 32 32 }
+
+					texture = "gfx/interface/icons/symbols/icon_alert.dds"
+					tooltip = "COURT_POSITION_POWERFUL_AGENT"
+					using = tooltip_ne
+				}
+
+				warning_icon = {
+					size = { 32 32 }
+					visible = "[And(AppointCourtPositionView.HasSelectedCharacter, AppointCourtPositionView.IsReplacingPosition)]"
+					tooltip = APPOINT_COURT_POSITION_VIEW_REPLACE_CONSEQUENCE_FOR_REVOKE_TOOLTIP
+				}
+
+				alert_icon = {
+					size = { 32 32 }
+					visible = "[And(AppointCourtPositionView.HasSelectedCharacter, AppointCourtPositionView.IsAppointingNewPosition )]"
+					tooltip = APPOINT_COURT_POSITION_VIEW_REVOKE_CONSEQUENCE_FOR_APPOINTMENT_TOOLTIP
+				}
 			}
 
 			button_primary = {
@@ -304,6 +327,31 @@ window = {
 				enabled = "[AppointCourtPositionView.HasSelectedCharacter]"
 				text = APPOINT_COURT_POSITION_VIEW_appoint_button
 			}
+
+			hbox = {
+				spacing = 5
+				min_width = 200
+
+				button_round = {
+					name = "automate_position"
+					size = { 30 30 }
+
+					button_edit_automation = {
+						size = { 24 24 }
+						parentanchor = center
+
+						enabled = "[IsValidCommand( CourtPositionType.ToggleAutomationCmd )]"
+						onclick = "[PostCommand( CourtPositionType.ToggleAutomationCmd )]"
+
+						tooltip = "COURT_POSITION_TOGGLE_AUTOMATION"
+						using = tooltip_se
+					}
+				}
+
+				expand = {}
+			}
+
+			expand = {}
 		}
 	}
 
@@ -600,19 +648,7 @@ types AppointCourtPositionTypes
 				block "button_content"
 				{
 					hbox = {
-						tooltipwidget = {
-							court_position_aptitude_breakdown_tooltip = {
-								datacontext = "[AppointCourtPositionView.GetAptitudeTooltip(Character.Self)]"
-
-								blockoverride "header_text" {
-									text = APPOINT_COURT_POSITION_VIEW_APTITUDE
-								}
-
-								blockoverride "modifier_list" {
-									text = "[AppointCourtPositionView.GetLiegeModifierForPositionType(Character.Self)]"
-								}
-							}
-						}
+						
 
 						# Name, Relation, Age and Aptitude
 						vbox = {
@@ -690,6 +726,20 @@ types AppointCourtPositionTypes
 
 								text_single = {
 									text = APPOINT_COURT_POSITION_VIEW_APTITUDE
+
+									tooltipwidget = {
+										court_position_aptitude_breakdown_tooltip = {
+											datacontext = "[AppointCourtPositionView.GetAptitudeTooltip(Character.Self)]"
+
+											blockoverride "header_text" {
+												text = APPOINT_COURT_POSITION_VIEW_APTITUDE
+											}
+
+											blockoverride "modifier_list" {
+												text = "[AppointCourtPositionView.GetLiegeModifierForPositionType(Character.Self)]"
+											}
+										}
+									}
 								}
 
 								expand = {}

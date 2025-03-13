@@ -256,8 +256,7 @@ window = {
 				# minimumsize = { 500 0 }
 				minimumsize = { 575 0 }
 
-				margin_bottom = 25
-				spacing = 5
+				margin_bottom = 45
 
 				using = Window_Background_Sidebar
 				using = Window_Margins_Sidebar
@@ -294,19 +293,19 @@ window = {
 					visible = "[BarbershopWindow.IsTabAppearanceVisible]"
 
 					datamodel = "[BarbershopWindow.GetAccessoryCategories]"
-					#AGOT Disabled
-					# margin = { 20 10 }
+					margin = { 20 10 }
+					#AGOT Modified
 					# spacing = 15
+					spacing = 5
 
 					item = {
 						hbox = {
 							layoutpolicy_horizontal = expanding
-							spacing = 10
+							#AGOT Disabled
+							# spacing = 10
 
 							vbox = {
-								#AGOT Modified
-								# spacing = 10
-								spacer = { size = { 0 10 } }
+								spacing = 2
 
 								#AGOT Disabled; moved below
 								# hbox = {
@@ -320,8 +319,6 @@ window = {
 								# }
 
 								hbox = {
-									#AGOT Modified
-									# spacing = 5
 									layoutpolicy_horizontal = expanding
 
 									#AGOT Disabled; replaced with hbox
@@ -335,7 +332,7 @@ window = {
 
 									#AGOT Added; the hbox
 									hbox = {
-										minimumsize = { 137 -1 }
+										minimumsize = { 268 -1 }
 										layoutpolicy_horizontal = expanding
 
 										text_label_left = {
@@ -363,16 +360,12 @@ window = {
 
 										blockoverride "dropdown_size"
 										{
-											#AGOT Modified
-											# size = { 322 32 }
-											size = { 358 32 }
+											size = { 322 32 }
 										}
 
 										blockoverride "dropdown_list_maxsize"
 										{
-											#AGOT Modified
-											# maximumsize = { 314 490 }
-											maximumsize = { 350 600 }
+											maximumsize = { 314 490 }
 										}
 
 										blockoverride "dropdown_active_item_properties"
@@ -454,8 +447,6 @@ window = {
 								# background = {
 									# using = Background_Area_Dark
 								# }
-								#AGOT Added
-								margin_top = 12
 
 								button_standard_clean = {
 									name = "color_button"
@@ -876,7 +867,7 @@ window = {
 				### Apply and Reset buttons ###
 				vbox = {
 					name = "apply_box"
-					margin_top = 26
+					margin_top = 16
 
 					hbox = {
 						spacing = 22

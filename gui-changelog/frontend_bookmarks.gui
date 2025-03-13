@@ -213,7 +213,7 @@ widget = {
 
 				item = {
 					container = {
-						#AGOT MODIFIED
+						#AGOT Modified
 						#visible = "[BookmarkCharacter.ShouldDisplay]"
 						visible = "[Not(And(Not(HasDlcFeature( 'landless_playable' )),BookmarkCharacter.GetGovernmentType.IsType( 'dummy_adventurer_govt_for_bms' )))]"
 						position = "[BookmarkCharacter.GetGuiPosition]"
@@ -1597,6 +1597,7 @@ widget = {
 											text = "[GameSetup.GetBookmarkName]"
 											default_format = "#high;glow_color:{0,0,0,1}"
 											using = Font_Size_Big
+											using = Font_Type_Flavor
 											align = nobaseline
 											margin_bottom = -5
 										}
@@ -2044,19 +2045,19 @@ widget = {
 												}
 											}
 
-											hbox = {
+											scrollbox = {
+												name = "character_text_scroll"
+												size = { 390 300 }
 												visible = "[GetVariableSystem.Exists( 'show_character_info' )]"
-												layoutpolicy_vertical = expanding
-												maximumsize = { 390 300 }
 
-												text_multi = {
-													name = "character_text"
-													layoutpolicy_horizontal = expanding
-													text = "[BookmarkCharacter.GetDescription]"
-													autoresize = yes
-													maximumsize = { 390 300 }
-													margin_top = 10
-													margin_bottom = 10
+												blockoverride "scrollbox_content" {
+													text_multi = {
+														name = "character_text"
+														layoutpolicy_horizontal = expanding
+														text = "[BookmarkCharacter.GetDescription]"
+														autoresize = yes
+														max_width = 360
+													}
 												}
 											}
 										}
