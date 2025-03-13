@@ -267,7 +267,7 @@
  I_WILL_MARRY_EFFECT_PAST: "Вы [Concept( 'married', 'вступили в брак' )|E] с персонажем [TARGET_CHARACTER.GetShortUIName]"
  THEY_WILL_MARRY_EFFECT_PAST: "[CHARACTER.GetShortUIName|U] и [TARGET_CHARACTER.GetShortUIName] [Concept( 'married', 'заключили брак' )|E]"
 
- WILL_MARRY_MATRILINEALLY_EFFECT: "Вступит [matrilineally|El] в [Concept('marry','брак')|E] с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажем ' )|l][TARGET_CHARACTER.GetShortUINamePossessive|l][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'им персонажем', '' )]"
+ WILL_MARRY_MATRILINEALLY_EFFECT: "Вступит [matrilineally|El] в [Concept('marry','брак')|E] с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажем ' )|l][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'им персонажем', '' )]"
  I_WILL_MARRY_MATRILINEALLY_EFFECT: "Вы и [TARGET_CHARACTER.GetShortUIName] заключите [Concept( 'matrilineally', 'матрилинейный' )|E] [Concept( 'marry', 'брак' )|E]"
  THEY_WILL_MARRY_MATRILINEALLY_EFFECT: "[CHARACTER.GetShortUIName|U] и [TARGET_CHARACTER.GetShortUIName] [matrilineally|El] заключат брак"
 
@@ -722,7 +722,7 @@
  I_STRESS_IMPACT_GAIN_CRITICAL: "Вы получите [stress_critical_i]$VALUE|-0$ [Concept( 'stress', 'стресса' )|E] (критический уровень) $TRAITS$"
  STRESS_IMPACT_GAIN_CRITICAL: "Получено [stress_critical_i]$VALUE|V0$ [Concept( 'stress', 'стресса' )|E] (критический уровень) $TRAITS$"
 
- ADD_GUEST_COURTIER_EFFECT: "[COURTIER.GetUIName], придворный [Select_CString(EMPLOYER.IsLocalPlayer, '', 'персонажа ' )|l][EMPLOYER.GetShortUINamePossessive|l][Select_CString(EMPLOYER.IsLocalPlayer, 'его персонажа', '' )], прибывает ко двору [Select_CString(HOST.IsLocalPlayer, '', 'персонажа ' )|l][HOST.GetShortUINamePossessive|l][Select_CString(HOST.IsLocalPlayer, 'его персонажа', '' )] погостить"
+ ADD_GUEST_COURTIER_EFFECT: "[COURTIER.GetUIName], придворный [Select_CString(EMPLOYER.IsLocalPlayer, '', 'персонажа ' )|l][EMPLOYER.GetShortUINamePossessive][Select_CString(EMPLOYER.IsLocalPlayer, 'его персонажа', '' )], прибывает ко двору [Select_CString(HOST.IsLocalPlayer, '', 'персонажа ' )|l][HOST.GetShortUINamePossessive][Select_CString(HOST.IsLocalPlayer, 'его персонажа', '' )] погостить"
  STRESS_IMPACT_TRAIT_LIST: "из-за свойства «$TRAITS$»"
  STRESS_IMPACT_ONLY: "только "
  STRESS_IMPACT_INCREASED: ""
@@ -765,7 +765,7 @@
  LOST_A_WARD: "[TARGET_CHARACTER.GetShortUIName|U] больше не [CHARACTER.GetHerHis] [Concept( 'ward', Select_CString(TARGET_CHARACTER.IsFemale, 'подопечная', 'подопечный' ))|E]"
 
  I_GAIN_MENTOR: "[TARGET_CHARACTER.GetShortUIName|U] становится вашим наставником"
- THEY_GET_MENTOR: "[TARGET_CHARACTER.GetShortUIName|U] становится [Select_CString(TARGET_CHARACTER.IsFemale, 'наставницей', 'наставником' )] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive|l][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ THEY_GET_MENTOR: "[TARGET_CHARACTER.GetShortUIName|U] становится [Select_CString(TARGET_CHARACTER.IsFemale, 'наставницей', 'наставником' )] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  I_GAIN_STUDENT: "[TARGET_CHARACTER.GetShortUIName|U] становится вашим учеником"
  I_LOSE_MENTOR: "[TARGET_CHARACTER.GetShortUIName|U] вам больше не наставник"
  I_LOSE_STUDENT: "[TARGET_CHARACTER.GetShortUIName|U] больше не ваш ученик"
@@ -859,28 +859,28 @@
 
  GET_OAF: "Получает персонажа [TARGET_CHARACTER.GetShortUINamePossessive] в качестве дурачка"
  I_GET_OAF: "[TARGET_CHARACTER.GetShortUIName|U] становится вашим дурачком"
- THEY_GET_OAF: "[TARGET_CHARACTER.GetShortUIName|U] становится дурачком [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive|l][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ THEY_GET_OAF: "[TARGET_CHARACTER.GetShortUIName|U] становится дурачком [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  LOSE_OAF: "[TARGET_CHARACTER.GetShortUIName] перестает быть дурачком"
  I_LOSE_OAF: "[TARGET_CHARACTER.GetShortUIName|U] прекращает быть вашим дурачком"
- THEY_LOSE_OAF: "[TARGET_CHARACTER.GetShortUIName|U] перестает быть дурачком [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive|l][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ THEY_LOSE_OAF: "[TARGET_CHARACTER.GetShortUIName|U] перестает быть дурачком [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
 
  GET_BULLY: "Становится [Concept( 'victim', 'жертвой' )|E] издевательств [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  I_GET_BULLY: "[TARGET_CHARACTER.GetShortUIName|U] начинает [Concept( 'bully', 'обижать' )|E] вас"
  I_GOT_BULLY: "[TARGET_CHARACTER.GetShortUIName|U] [Concept( 'bully', 'регулярно обижает' )|E] вас"
- THEY_GET_BULLY: "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'начинаете', 'начинает' )] [Concept( 'bully', 'обижать' )|E] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive|l][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- THEY_GOT_BULLY: "[TARGET_CHARACTER.GetShortUIName|U] [Concept( 'bully', 'регулярно' )|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'обижаете', 'обижает' )] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive|l][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ THEY_GET_BULLY: "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'начинаете', 'начинает' )] [Concept( 'bully', 'обижать' )|E] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ THEY_GOT_BULLY: "[TARGET_CHARACTER.GetShortUIName|U] [Concept( 'bully', 'регулярно' )|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'обижаете', 'обижает' )] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  I_LOSE_BULLY: "[TARGET_CHARACTER.GetShortUIName|U] больше меня не [Concept( 'bully', 'обижает' )|E]"
  REMOVE_BULLY: "Перестает быть [Concept( 'victim', 'жертвой' )|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
 
  GET_CRUSH: "[Concept( 'crush', 'Влюбляется' )|E] в [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  I_GET_CRUSH: "Вы [Concept( 'crush', 'влюбляетесь' )|E] в персонажа [TARGET_CHARACTER.GetShortUIName]"
- THEY_GET_CRUSH: "[TARGET_CHARACTER.GetShortUIName|U] [Concept( 'crush', 'влюбляется' )|E] в [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive|l][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ THEY_GET_CRUSH: "[TARGET_CHARACTER.GetShortUIName|U] [Concept( 'crush', 'влюбляется' )|E] в [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  LOSE_CRUSH: "Больше не [Concept( 'crush', 'любит' )|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  I_LOSE_CRUSH: "Вы больше не [Concept( 'crush', 'любите' )|E] персонажа [TARGET_CHARACTER.GetShortUIName]"
 
  GET_VICTIM: "[Concept( 'bully', 'Обижает' )|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  I_GET_VICTIM: "[TARGET_CHARACTER.GetShortUIName|U] становится [Concept( 'victim', 'жертвой' )|E] ваших издевательств"
- THEY_GET_VICTIM: "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'становитесь', 'становится' )] [Concept( 'victim', 'жертвой' )|E] издевательств [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive|l][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ THEY_GET_VICTIM: "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'становитесь', 'становится' )] [Concept( 'victim', 'жертвой' )|E] издевательств [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  LOSE_VICTIM: "Перестает [Concept( 'bully', 'обижать' )|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  I_LOSE_VICTIM: "[TARGET_CHARACTER.GetShortUIName|U] больше не ваша [victim|El]"
 
@@ -897,10 +897,10 @@
 
  GET_SOLDIER_FRIEND: "Становится боевым товарищем [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  I_GET_SOLDIER_FRIEND: "[TARGET_CHARACTER.GetShortUIName|U] становится вашим боевым товарищем"
- THEY_GET_SOLDIER_FRIEND: "[TARGET_CHARACTER.GetShortUIName|U] становится боевым товарищем [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive|l][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ THEY_GET_SOLDIER_FRIEND: "[TARGET_CHARACTER.GetShortUIName|U] становится боевым товарищем [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  LOSE_SOLDIER_FRIEND: "Перестает быть боевым товарищем [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  I_LOSE_SOLDIER_FRIEND: "[TARGET_CHARACTER.GetShortUIName|U] больше не ваш боевой товарищ"
- THEY_LOSE_SOLDIER_FRIEND: "[TARGET_CHARACTER.GetShortUIName|U] больше не боевой товарищ [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive|l][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ THEY_LOSE_SOLDIER_FRIEND: "[TARGET_CHARACTER.GetShortUIName|U] больше не боевой товарищ [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
 
  GET_RIVAL: "Становится [Concept( 'rival', 'соперником' )|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  GOT_RIVAL: "Теперь [rival|El] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
@@ -1017,6 +1017,8 @@
 
  ATTACKING_ALLY: "\n#S Нападение на [Concept( 'ally', 'союзника' )|E]#!"
 
+ WAR_BREAKING_BETROTHAL: "\n#S Разрыв помолвки с большой свадьбой#!"
+
  SET_CULTURE_GLOBAL: "Принимает [TARGET_CULTURE.GetCollectiveNoun|Vl]#V #L ую#!#! культуру"
  SET_CULTURE_FIRST: "Вы принимаете [TARGET_CULTURE.GetCollectiveNoun|Vl]#V #L ую#!#! культуру"
  SET_CULTURE_THIRD: "[CHARACTER.GetShortUIName|U] принимает [TARGET_CULTURE.GetCollectiveNoun|Vl]#V #L ую#!#! культуру"
@@ -1028,8 +1030,13 @@
  SAT_CUTLURE_OF_CHARACTER_SAME_AS: "[CHARACTER.GetShortUINamePossessive] [Select_CString(CHARACTER.IsFemale, 'изменила', 'изменил' )] свою культуру на культуру [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )] (#V #L [TARGET_CHARACTER.GetCulture.GetCollectiveNoun]ая#!#!)"
 
  SKILL_CHALLENGE_LIST_ITEM: "@$SKILL_ICON$!$SKILL$"
- SKILL_CHALLENGE_SINGLE: "Поединок навыков ($SKILL_LIST$)"
- SKILL_CHALLENGE_MULTI: "Поединок суммарных навыков ($SKILL_LIST$)"
+ SKILL_CHALLENGE_SINGLE: "Состязание в навыке $SKILL_LIST$"
+ SKILL_CHALLENGE_MULTI: "Состязание в навыках $SKILL_LIST$"
+ VARIABLE_CHALLENGE_LIST_ITEM: "@$VARIABLE_ICON$!$VARIABLE$"
+ VARIABLE_CHALLENGE_SINGLE: "Проверка ($VARIABLE_LIST$)"
+ VARIABLE_CHALLENGE_MULTI: "Суммарная проверка ($VARIABLE_LIST$)"
+ SKILL_AND_VARIABLE_CHALLENGE: "Суммарная проверка ($SKILL_LIST$ и $VARIABLE_LIST$)"
+
  I_ENTERED_CHALLENGE_EFFECT: "$SKILL_CHALLENGE$"
  THEY_ENTERED_CHALLENGE_EFFECT: "[CHARACTER.GetShortUIName|U]:\n $SKILL_CHALLENGE$"
  ENTERED_CHALLENGE_EFFECT: "$SKILL_CHALLENGE$"
@@ -1041,7 +1048,7 @@
  ENTERED_DUEL_AGAINST_EFFECT: "$SKILL_CHALLENGE$  с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', GetShortUIName))]"
  I_ENTER_DUEL_AGAINST_EFFECT: "$SKILL_CHALLENGE$  с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', GetShortUIName))]"
  THEY_ENTER_DUEL_AGAINST_EFFECT: "[CHARACTER.GetShortUIName|U]:\n$SKILL_CHALLENGE$  с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', GetShortUIName))]"
- ENTERS_DUEL_AGAINST_EFFECT: "$SKILL_CHALLENGE$  с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', GetShortUIName))]"
+ ENTERS_DUEL_AGAINST_EFFECT: "$SKILL_CHALLENGE$ с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', GetShortUIName))]"
 
  I_RECEIVED_MODIFIER_EFFECT: "Вы получили модификатор «$MODIFIER|V$»"
  THEY_RECEIVED_MODIFIER_EFFECT: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsFemale, 'получила', 'получил' )] модификатор «$MODIFIER|V$»"
@@ -1278,10 +1285,10 @@
  CHANGE_COUNTY_CONTROL_THIRD: "[TITLE.GetName]: Уровень [Concept( 'control', 'контроля' )|E] повысится на $VALUE|=0+$"
  CHANGED_COUNTY_CONTROL_THIRD: "[TITLE.GetName]: уровень [Concept( 'control', 'контроля' )|E] повысился на $VALUE|=0+$"
  #Yes I know the below is disgusting but I'm sick of the other way not working & staring at that bloody perspective false positive for months on end.
- CHANGE_COUNTY_CONTROL_NEG: "Уровень [Concept('control','контроля')|E] #N снизится#! на $VALUE|-0$"
- CHANGE_COUNTY_CONTROL_THIRD_NEG: "[TITLE.GetName]: уровень [Concept('control','контроля')|E] #N снизится#! на $VALUE|-0$"
- CHANGE_COUNTY_CONTROL_PAST_NEG: "Уровень [Concept('control','контроля')|E] #N снизился#! на $VALUE|-0$"
- CHANGE_COUNTY_CONTROL_THIRD_PAST_NEG: "[TITLE.GetName]: уровень [Concept('control','контроля')|E] #N снизился#! на $VALUE|-0$"
+ CHANGE_COUNTY_CONTROL_NEG: "Уровень [Concept('control', 'контроля')|E] снизится на $VALUE|-0$"
+ CHANGE_COUNTY_CONTROL_THIRD_NEG: "[TITLE.GetName]: уровень [Concept('control', 'контроля')|E] снизится на $VALUE|-0$"
+ CHANGE_COUNTY_CONTROL_PAST_NEG: "Уровень [Concept('control', 'контроля')|E] снизился на $VALUE|-0$"
+ CHANGE_COUNTY_CONTROL_THIRD_PAST_NEG: "[TITLE.GetName]: уровень [Concept('control', 'контроля')|E] снизился на $VALUE|-0$"
 
  IT_RECEIVES_COUNTY_MODIFIER: "[TITLE.GetName] [Select_CString(CHARACTER.IsLocalPlayer, 'получите', 'получит' )] $MODIFIER|V$"
  RECEIVES_COUNTY_MODIFIER: "Получит $MODIFIER|V$"
@@ -2002,7 +2009,7 @@
  CASUS_BELLI_COST_DYNASTY_PERK_REDUCTION: "Стоимость [casus_belli|El]: #P -20%#!"
  BETTER_KNIGHTS_DYNASTY_PERK_REDUCTION: "Меньше вероятность того, что члены [Concept( 'dynasty', 'династии' )|E] погибнут или будут ранены в [Concept( 'battle', 'бою' )|E]. Они также с большой вероятностью могут увеличить свою [Concept( 'prowess', 'доблесть' )|E], служа в качестве [Concept( 'knights', 'рыцарей' )|E]"
 
- PERK_CAN_SIGN_ALLIANCE: "Можно предложить один [alliance|El] без [Concept( 'marriage', 'брака' )|E]"
+ PERK_CAN_SIGN_ALLIANCE: "Можно предложить один [Concept('alliance', 'союз')|E] без [Concept( 'marriage', 'брака' )|E]\nОткрывает [Concept('interaction', 'взаимодействие')|E] «#V Купить перемирие#!»"
 
  PERK_TRUCE_BREAKING_COST_REDUCTION: "Более короткие [truces|El] и отсутствие штрафа к [Concept( 'prestige', 'престижу' )|E] за их разрыв"
 
@@ -2152,7 +2159,7 @@
  I_REMOVE_INTERACTION_COOLDOWN_EFFECT: "Я могу повторно использовать взаимодействие «$INTERACTION_NAME$» #weak (обычный срок: [DATE.GetStringLong])#!"
  THEY_REMOVE_INTERACTION_COOLDOWN_EFFECT: "[Select_CString(CHARACTER.IsLocalPlayer, '','Персонаж ')|U][CHARACTER.GetShortUINamePossessive|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж','')] может повторно использовать взаимодействие «$INTERACTION_NAME|V$» #weak (обычный срок: [DATE.GetStringLong])#!"
 
- I_REMOVE_INTERACTION_COOLDOWN_AGAINST_EFFECT: "Я могу повторно использовать взаимодействие «$INTERACTION_NAME|V$» с персонажем [TARGET_CHARACTER.GetShortUIName] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажем ' )|l][TARGET_CHARACTER.GetShortUINamePossessive|l][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'им персонажем', '' )] #weak (обычный срок: [DATE.GetStringLong])#!"
+ I_REMOVE_INTERACTION_COOLDOWN_AGAINST_EFFECT: "Я могу повторно использовать взаимодействие «$INTERACTION_NAME|V$» с персонажем [TARGET_CHARACTER.GetShortUIName] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажем ' )|l][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'им персонажем', '' )] #weak (обычный срок: [DATE.GetStringLong])#!"
  THEY_REMOVE_INTERACTION_COOLDOWN_AGAINST_EFFECT: "[Select_CString(CHARACTER.IsLocalPlayer, '','Персонаж ')|U][CHARACTER.GetShortUINamePossessive|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж','')] может повторно использовать взаимодействие «$INTERACTION_NAME|V$» против [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][TARGET_CHARACTER.GetShortUINamePossessive|l][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )] #weak (обычный срок: [DATE.GetStringLong])#!"
 
  I_REMOVE_SCHEME_COOLDOWN_AGAINST_EFFECT: "Я могу повторно использовать происки «$SCHEME_NAME|V$» против [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )|l][TARGET_CHARACTER.GetShortUINamePossessive|l][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )] #weak (обычный срок: [DATE.GetStringLong])#!"
@@ -2238,8 +2245,8 @@
 
  VASSAL_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT: "[Concept('vassal_contract','Вассальный договор')|E] переходит на уровень «$OBLIGATION_LEVEL$» #weak ([obligation] «$OBLIGATION_TYPE$»)#!"
  VASSAL_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT_GLOBAL_PAST: "[Concept('vassal_contract','Вассальный договор')|E] перешел на уровень «$OBLIGATION_LEVEL$» #weak ([obligation] «$OBLIGATION_TYPE$»)#!"
- VASSAL_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT_THIRD: "[Concept('vassal_contract','Вассальный договор')|E] [Select_CString(CHARACTER.IsLocalPlayer, '','персонажа ' )|l][CHARACTER.GetShortUINamePossessive|l][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа','' )] переходит на уровень «$OBLIGATION_LEVEL$» #weak ([obligation] «$OBLIGATION_TYPE$»)#!"
- VASSAL_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT_THIRD_PAST: "[Concept('vassal_contract','Вассальный договор')|E] [Select_CString(CHARACTER.IsLocalPlayer, '','персонажа ' )|l][CHARACTER.GetShortUINamePossessive|l][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа','' )] перешел на уровень «$OBLIGATION_LEVEL$» #weak ([obligation] «$OBLIGATION_TYPE$»)#!"
+ VASSAL_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT_THIRD: "[Concept('vassal_contract','Вассальный договор')|E] [Select_CString(CHARACTER.IsLocalPlayer, '','персонажа ' )|l][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа','' )] переходит на уровень «$OBLIGATION_LEVEL$» #weak ([obligation] «$OBLIGATION_TYPE$»)#!"
+ VASSAL_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT_THIRD_PAST: "[Concept('vassal_contract','Вассальный договор')|E] [Select_CString(CHARACTER.IsLocalPlayer, '','персонажа ' )|l][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа','' )] перешел на уровень «$OBLIGATION_LEVEL$» #weak ([obligation] «$OBLIGATION_TYPE$»)#!"
  VASSAL_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT_FIRST: "Ваш [Concept('vassal_contract','вассальный договор')|E] переходит на уровень «$OBLIGATION_LEVEL$» #weak ([obligation] «$OBLIGATION_TYPE$»)#!"
  VASSAL_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT_FIRST_PAST: "Ваш [Concept('vassal_contract','вассальный договор')|E] перешел на уровень «$OBLIGATION_LEVEL$» #weak ([obligation] «$OBLIGATION_TYPE$»)#!"
 
@@ -2283,6 +2290,8 @@
  BATTLE_EVENT_PAST_EFFECT: "Спровоцировано событие битвы"
  REMOVE_PROVINCE_MODIFIER_EFFECT: "Теряет модификатор $MODIFIER$"
  REMOVE_PROVINCE_MODIFIER_PAST_EFFECT: "Потерян модификатор $MODIFIER$"
+ REMOVE_PROVINCE_MODIFIER_FROM_PROVINCE_EFFECT: "Владение [PROVINCE.GetName] теряет модификатор «$MODIFIER$»"
+ REMOVE_PROVINCE_MODIFIER_FROM_PROVINCE_PAST_EFFECT: "Владение [PROVINCE.GetName] потеряло модификатор «$MODIFIER$»"
  REMOVE_REALM_LAW_EFFECT: "Убирает [Concept( 'law', 'закон державы' )|E] [LAW.GetName|V]"
  REMOVE_REALM_LAW_PAST_EFFECT: "Удален [Concept( 'law', 'закон державы' )|E] [LAW.GetName|V]"
  REMOVE_ALL_CHARACTER_MODIFIER_INSTANCES_EFFECT: "Теряет все модификаторы $MODIFIER$"
@@ -2646,10 +2655,10 @@
  SET_TRAVEL_LEADER_EFFECT: "[TARGET_CHARACTER.GetShortUIName] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'станете', 'станет' )] новым руководителем [Concept('travel','путешествия')|E]"
  SET_TRAVEL_LEADER_EFFECT_PAST: "[TARGET_CHARACTER.GetShortUIName] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'стали', Select_CString(CHARACTER.IsFemale, 'стала', 'стал'))] новым руководителем [Concept('travel','путешествия')|E]"
 
- DELAY_TRAVEL_PLAN_EFFECT: "[Concept('travel','Путешествие')|E] откладывается на $DURATION|V$"
- DELAY_TRAVEL_PLAN_EFFECT_PAST: "[Concept('travel','Путешествие')|E] отложено на $DURATION|V$"
- THIRD_DELAY_TRAVEL_PLAN_EFFECT: "План «[TRAVEL_PLAN.GetName]» откладывается на $DURATION|V$"
- THIRD_DELAY_TRAVEL_PLAN_EFFECT_PAST: "План «[TRAVEL_PLAN.GetName]» отложен на $DURATION|V$"
+ DELAY_TRAVEL_PLAN_EFFECT: "[Concept('travel', 'Путешествие')|E] #N затянется#! на $DURATION|V$"
+ DELAY_TRAVEL_PLAN_EFFECT_PAST: "[Concept('travel', 'Путешествие')|E] #N затянулось#! на $DURATION|V$"
+ THIRD_DELAY_TRAVEL_PLAN_EFFECT: "[TRAVEL_PLAN.GetName] #N затягивается#! на $DURATION|V$"
+ THIRD_DELAY_TRAVEL_PLAN_EFFECT_PAST: "План «[TRAVEL_PLAN.GetName]» #N затянулся#! на $DURATION|V$"
 
  ADD_TRAVEL_PLAN_MODIFIER_EFFECT: "[Concept('travel','Путешествие')|E] получает модификатор «$MODIFIER$»"
  ADD_TRAVEL_PLAN_MODIFIER_EFFECT_PAST: "[Concept('travel','Путешествие')|E] получило модификатор «$MODIFIER$»"
@@ -2661,10 +2670,10 @@
  THIRD_ADD_TRAVEL_PLAN_MODIFIER_EFFECT_DURATION: "План «[TRAVEL_PLAN.GetName]» получает $MODIFIER$ на $DURATION|V$."
  THIRD_ADD_TRAVEL_PLAN_MODIFIER_EFFECT_DURATION_PAST: "План «[TRAVEL_PLAN.GetName]» получил $MODIFIER$ на $DURATION|V$."
 
- ADD_DESTINATION_PROGRESS_EFFECT: "Вы становитесь ближе к следующей точке маршрута на $DURATION|V$"
- ADD_DESTINATION_PROGRESS_EFFECT_PAST: "Вы стали ближе к следующей точке маршрута на $DURATION|V$"
- THIRD_ADD_DESTINATION_PROGRESS_EFFECT: "Следующая точка маршрута в плане «[TRAVEL_PLAN.GetName]» становится ближе на $DURATION|V$"
- THIRD_ADD_DESTINATION_PROGRESS_EFFECT_PAST: "Следующая точка маршрута в плане «[TRAVEL_PLAN.GetName]» стала ближе на $DURATION|V$"
+ ADD_DESTINATION_PROGRESS_EFFECT: "[Concept('travel', 'Путешествие')|E] #P ускорится#! на $DURATION|V$"
+ ADD_DESTINATION_PROGRESS_EFFECT_PAST: "[Concept('travel', 'Путешествие')|E] #P ускорилось#! на $DURATION|V$"
+ THIRD_ADD_DESTINATION_PROGRESS_EFFECT: "[TRAVEL_PLAN.GetName] #P ускоряется#! на $DURATION|V$"
+ THIRD_ADD_DESTINATION_PROGRESS_EFFECT_PAST: "План «[TRAVEL_PLAN.GetName]» #P ускорен#! на $DURATION|V$"
 
  ADD_TRAVEL_WAYPOINT_EFFECT: "Добавить к [Concept('travel','путешествию')|E] точку маршрута в провинции [PROVINCE.GetName]"
  ADD_TRAVEL_WAYPOINT_EFFECT_PAST: "К [Concept('travel','путешествию')|E] добавлена точка маршрута в провинции [PROVINCE.GetName]"
@@ -2872,18 +2881,18 @@
  investment_cap_warning_tooltip: "Вклад будет меньше, поскольку достигнут [Concept('investment_cap','предел инвестиций')|E]"
  investment_cap_warning: "#TOOLTIP:investment_cap_warning_tooltip @alert_icon! #!"
 
- change_appointment_investment_global_no_investor: "[Concept('candidate_score','Приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул #HIGH [TITLE.GetName]#! увеличивается на $VALUE|P0+$"
- change_appointment_investment_global_investor: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'поддерживаете','поддерживает' )] [Concept('candidate_score','приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул #HIGH [TITLE.GetName]#!, расходуя $EFFECTIVE_CHANGE|P0+$#!$INVESTMENT_CAP_WARNING$"
- change_appointment_investment_global_no_investor_neg: "[Concept('candidate_score','Приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул #HIGH [TITLE.GetName]#! уменьшается на #N -#!$VALUE|N0$"
- change_appointment_investment_global_investor_neg: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'противодействуете','противодействует' )] [Concept('candidate_score','приоритету претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул #HIGH [TITLE.GetName]#!, расходуя #N -#!$VALUE|N0$"
- change_appointment_investment_third_no_investor: "[Concept('candidate_score','Приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул #HIGH [TITLE.GetName]#! увеличивается на #P +#!$VALUE|P0$"
- change_appointment_investment_third_investor: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'поддерживаете','поддерживает' )] [Concept('candidate_score','приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул #HIGH [TITLE.GetName]#!, расходуя #P +#!$EFFECTIVE_CHANGE|P0$#!$INVESTMENT_CAP_WARNING$"
- change_appointment_investment_third_no_investor_neg: "[Concept('candidate_score','Приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул #HIGH [TITLE.GetName]#! уменьшается на #N -#!$VALUE|N0$"
- change_appointment_investment_third_investor_neg: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'противодействуете','противодействует' )] [Concept('candidate_score','приоритету претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул #HIGH [TITLE.GetName]#!, расходуя #N -#!$VALUE|N0$"
- change_appointment_investment_third_past_no_investor: "[Concept('candidate_score','Приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул #HIGH [TITLE.GetName]#! увеличился на #P +#!$VALUE|P0$"
- change_appointment_investment_third_past_investor: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'поддержали', Select_CString(CHARACTER.IsFemale, 'поддержала','поддержал' ))] [Concept('candidate_score','приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул #HIGH [TITLE.GetName]#!, израсходовав #P +#!$EFFECTIVE_CHANGE|P0$#!$INVESTMENT_CAP_WARNING$"
- change_appointment_investment_third_past_no_investor_neg: "[Concept('candidate_score','Приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул #HIGH [TITLE.GetName]#! уменьшился на #N -#!$VALUE|N0$"
- change_appointment_investment_third_past_investor_neg: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'воспротивились', Select_CString(CHARACTER.IsFemale, 'воспротивилась','воспротивился' ))] [Concept('candidate_score','приоритету претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул #HIGH [TITLE.GetName]#!, расходуя #N -#!$VALUE|N0$"
+ change_appointment_investment_global_no_investor: "[Concept('candidate_score','Приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул [TITLE.GetName] увеличивается на $VALUE|P0$"
+ change_appointment_investment_global_investor: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'поддерживаете','поддерживает' )] [Concept('candidate_score','приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул [TITLE.GetName], расходуя $EFFECTIVE_CHANGE|P0$$INVESTMENT_CAP_WARNING$"
+ change_appointment_investment_global_no_investor_neg: "[Concept('candidate_score','Приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул [TITLE.GetName] уменьшается на $VALUE|N0$"
+ change_appointment_investment_global_investor_neg: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'противодействуете','противодействует' )] [Concept('candidate_score','приоритету претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул [TITLE.GetName], расходуя $VALUE|N0$"
+ change_appointment_investment_third_no_investor: "[Concept('candidate_score','Приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул [TITLE.GetName] увеличивается на $VALUE|P0$"
+ change_appointment_investment_third_investor: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'поддерживаете','поддерживает' )] [Concept('candidate_score','приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул [TITLE.GetName], расходуя $EFFECTIVE_CHANGE|P0$$INVESTMENT_CAP_WARNING$"
+ change_appointment_investment_third_no_investor_neg: "[Concept('candidate_score','Приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул [TITLE.GetName] уменьшается на $VALUE|N0$"
+ change_appointment_investment_third_investor_neg: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'противодействуете','противодействует' )] [Concept('candidate_score','приоритету претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул [TITLE.GetName], расходуя $VALUE|N0$"
+ change_appointment_investment_third_past_no_investor: "[Concept('candidate_score','Приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул [TITLE.GetName] увеличился на $VALUE|P0$"
+ change_appointment_investment_third_past_investor: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'поддержали', Select_CString(CHARACTER.IsFemale, 'поддержала','поддержал' ))] [Concept('candidate_score','приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул [TITLE.GetName], расходуя $EFFECTIVE_CHANGE|P0$$INVESTMENT_CAP_WARNING$"
+ change_appointment_investment_third_past_no_investor_neg: "[Concept('candidate_score','Приоритет претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул [TITLE.GetName] уменьшился на $VALUE|N0$"
+ change_appointment_investment_third_past_investor_neg: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'воспротивились', Select_CString(CHARACTER.IsFemale, 'воспротивилась','воспротивился' ))] [Concept('candidate_score','приоритету претензий')|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '','персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа','' )] на титул [TITLE.GetName], расходуя $VALUE|N0$"
 
  I_GAINED_INFLUENCE_EFFECT: "Вы получили [influence_i]$VALUE|+0$"
  I_LOST_INFLUENCE_EFFECT: "Вы потратили [influence_i]$VALUE|-0$"
@@ -2911,7 +2920,7 @@
  GAINED_INFLUENCE_LEVEL_EFFECT: "Получены [Concept( 'influence_levels', 'уровни влияния' )|E]: $VALUE|V0$"
  LOST_INFLUENCE_LEVEL_EFFECT: "Потеряны [Concept( 'influence_levels', 'уровни влияния' )|E]:$VALUE|V0$"
 
- accept_task_contract_global: "Принять договор «[TASK_CONTRACT.GetName]» \n"
+ accept_task_contract_global: "Принять контракт «[TASK_CONTRACT.GetName]» \n"
  invalidate_task_contract_global: "[GetPlayer.Custom('GetContractOrIssueGameConcept')] «[TASK_CONTRACT.GetType.GetName]» теряет актуальность"
  invalidate_task_contract_global_past: "[GetPlayer.Custom('GetContractOrIssueGameConcept')] «[TASK_CONTRACT.GetType.GetName]» больше не действует"
  GLOBAL_CREATE_TASK_CONTRACT: "Создается [GetPlayer.Custom('GetContractOrIssueGameConcept')|l] «[TASK_CONTRACT_TYPE.GetName]»"
@@ -2993,8 +3002,8 @@
  finally_there_perk_2_effect: "[Concept('stress_loss','Потеря стресса')|E] в [Concept('point_of_interest','точке интереса')|E]: [stress_loss_i]-#p 5#!\n[Concept('prestige','Престиж')|E] в [Concept('point_of_interest','точке интереса')|E]: [prestige_i]#P +10#!"
  mercenary_contacts_perk_effect: "Открывает [Concept('travel_option','особенность путешествия')E] «[GetTravelOption('hire_allied_mercenaries_option').GetName]»"
  been_there_done_that_perk_effect: "Награды [Concept('point_of_interest','точки интереса')|E]: #P +30%#!\nМожно изучить #V 1#! дополнительный [Concept( 'language', 'язык' )|E] без штрафов"
- souvenirs_aplenty_perk_effect: "[Concept('capital','Столица')|E] получит [Concept('development','развитие')|E], если ее владелец [Concept('traveled','побывал')|E] в более развитой [Concept('destination','местности')|E]"
- first_souvenirs_aplenty_perk_effect: "[Concept('capital','Столица')|E] получит [Concept('development','развитие')|E], если вы [Concept('travel','побываете')|E] в более развитой [Concept('destination','местности')|E]"
+ souvenirs_aplenty_perk_effect: "[Concept('capital','Столица')|E] продвинется в своем [Concept('development','развитии')|E], если ее владелец [Concept('travel','побывал')|E] в более развитой [Concept('destination','местности')|E]"
+ first_souvenirs_aplenty_perk_effect: "[Concept('capital','Столица')|E] продвинется в своем [Concept('development','развитии')|E], если вы [Concept('travel','побываете')|E] в более развитой [Concept('destination','местности')|E]"
  souvenirs_aplenty_perk_2_effect: "[adventurer_i] При переносе [Concept('camp','лагеря')|E] вы получаете #p +10#! к [Concept('opinion','мнению')|E] [Concept('followers','последователей')|E] и [Concept('guests','гостей')|E]"
  souvenirs_aplenty_perk_3_effect: "[adventurer_i] При переносе [Concept('camp','лагеря')|E] вы можете получить #p +25#! [Concept('gold','золотых')|E] и #color_yellow +5#! очков [Concept('trait_level_track_xp','опыта свойства')|E] «[GetTrait('gallowsbait').GetName( GetNullCharacter )]» #weak (только раз в 3 месяца)#!"
  gracious_host_impeccable_guest_perk_effect: "Повышение мнения [Concept('traveling','путешествующих')|E] в [Concept('capital','столицу')|E] на #P 10#! и повышение мнения на #P 10#! при посещении чужих столиц"

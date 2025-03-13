@@ -299,9 +299,9 @@
  #Recruit physician event
  health.3001.disease.t: "[SCOPE.Custom('EventTitleDisease')]:"
  health.3001.t: "[ROOT.Char.Custom('GetCourt')|U] нуждается во враче"
- health.3001.fallback_reason.desc: "Мир полон опасностей, и даже [ROOT.Char.GetTitleTierName|l] и [Select_CString(ROOT.Char.IsFemale, 'ее', 'его' )] [ROOT.Char.Custom('GetCourt')|l] не могут их избежать. Мне следует нанять придворного врача, иначе мы все умрем от ран и болезней.\n\nПоспрашивав других людей, я могу предложить несколько подходящих кандидатур."
+ health.3001.fallback_reason.desc: "Мир полон опасностей, и даже [ROOT.Char.GetTitleTierName|l] и [Select_CString(ROOT.Char.IsFemale, 'ее', 'его' )] [ROOT.Char.Custom('GetCourt')|l] не могут их избежать. Мне следует нанять врача, иначе мы все умрем от ран и болезней.\n\nКакое-то время ушло на расспросы. зато теперь я могу предложить несколько подходящих кандидатур."
  health.3001.decision.desc: "Мир полон опасностей, и даже [ROOT.Char.GetTitleTierName|l] и [Select_CString(ROOT.Char.IsFemale, 'ее', 'его' )] [ROOT.Char.Custom('GetCourtierPlural')|l] не могут их избежать. По моему приказу слуги отыскали несколько подходящих кандидатов на роль придворного врача."
- health.3001.already_sick.desc: "Наконец мои слуги нашли несколько людей, которые вполне могут занять место придворного врача. В любом случае привередничать в наши дни не приходится."
+ health.3001.already_sick.desc: "Наконец мои слуги нашли несколько людей, которые вполне могут занять место врача. В любом случае привередничать в наши дни не приходится."
  health.3001.a: "Очевидно, [high_skill_option.GetFirstNameNoTooltip] обладает значительным опытом."
  health.3001.a.tt: "[GetCourtPositionType('court_physician_court_position').GetName()] также получает ежемесячное жалование — [gold_i][SCOPE.ScriptValue('court_position_physician_salary')]"
  health.3001.a.aptitude: "[Concept( 'aptitude', 'Пригодность' )|E] [Select_CString(high_skill_option.IsLocalPlayer, '', 'персонажа ' )][high_skill_option.GetNamePossessiveOrMy][Select_CString(high_skill_option.IsLocalPlayer, 'его персонажа', '' )] — [high_skill_option.GetCourtPositionAptitude( GetCourtPositionType( 'court_physician_court_position' ) )]"
@@ -466,7 +466,7 @@
  inform_relatives_about_disease_treatment_effect.risky_success.desc: "[physician.GetTitledFirstName] значительно [Select_CString(physician.IsFemale, 'облегчила', 'облегчил' )] симптомы болезни, которой страдает [SCOPE.sC('sick_character').GetTitledFirstName]."
  inform_relatives_about_disease_treatment_effect.risky_failure.desc: "[physician.GetTitledFirstName] лечит недуг, которым страдает [sick_character.GetTitledFirstName], из рук вон плохо."
  inform_relatives_about_disease_treatment_effect.mystic_failure.desc: "Обряд, который [Select_CString(physician.IsFemale, 'проводила', 'проводил' )] [SCOPE.sC('physician').GetTitledFirstName], оборачивается провалом: [sick_character.GetTitledFirstName] не в себе!"
- physician_level_up_chance_effect.t: "Опыт придворного врача вырос"
+ physician_level_up_chance_effect.t: "Опыт врача вырос"
 
  #Wound treatment, by Linnéa Thimrén
  health.4000.t: "$health_wounded_title$ [Select_CString(sick_character.IsFemale, 'Моя раненная', 'Мой раненный' )] [ROOT.GetCharacter.Custom2('RelationToMeShort', SCOPE.sC('sick_character'))]"
