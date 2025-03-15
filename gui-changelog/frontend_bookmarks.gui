@@ -2045,19 +2045,38 @@ widget = {
 												}
 											}
 
-											scrollbox = {
-												name = "character_text_scroll"
-												size = { 390 300 }
-												visible = "[GetVariableSystem.Exists( 'show_character_info' )]"
+											#AGOT Modified; scrollbox -> hbox
+											# scrollbox = {
+												# name = "character_text_scroll"
+												# size = { 390 300 }
+												# visible = "[GetVariableSystem.Exists( 'show_character_info' )]"
 
-												blockoverride "scrollbox_content" {
-													text_multi = {
-														name = "character_text"
-														layoutpolicy_horizontal = expanding
-														text = "[BookmarkCharacter.GetDescription]"
-														autoresize = yes
-														max_width = 360
-													}
+												# blockoverride "scrollbox_content" {
+													# layoutpolicy_vertical = expanding
+													# maximumsize = { 360 300 }
+													# text_multi = {
+														# name = "character_text"
+														# layoutpolicy_horizontal = expanding
+														# text = "[BookmarkCharacter.GetDescription]"
+														# autoresize = yes
+														# max_width = 360
+														# max_height = 360
+													# }
+												# }
+											# }
+											hbox = {
+												visible = "[GetVariableSystem.Exists( 'show_character_info' )]"
+												layoutpolicy_vertical = expanding
+												maximumsize = { 390 300 }
+
+												text_multi = {
+													name = "character_text"
+													layoutpolicy_horizontal = expanding
+													text = "[BookmarkCharacter.GetDescription]"
+													autoresize = yes
+													maximumsize = { 390 300 }
+													margin_top = 10
+													margin_bottom = 10
 												}
 											}
 										}
