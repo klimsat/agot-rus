@@ -260,7 +260,7 @@
  GRANT_BARONY_TITLE_CANT_GIVE_REASON_OCCUPIED: "@warning_icon! #X [TITLE.GetName]: [occupied|El]#!"
  GRANT_TITLE_SELECT: "@warning_icon! #X Титул не выбран#!"
  GRANT_TITLE_GRANT: "#T [CHARACTER.GetShortUIName] получит выбранные титулы#!"
- GRANT_TITLES_DESCRIPTION: "Выбрать [titles|El], которые получит [CHARACTER.GetShortUINameNoTooltip]"
+ GRANT_TITLES_DESCRIPTION: "Выберите титулы, которые получит [CHARACTER.GetShortUIName]"
  GRANT_REVOKE_TITLES_ITEM_SELECT: "#T Пусть будет [TITLE.GetName]#!"
  GRANT_REVOKE_TITLES_ITEM_DESELECT: "#T [TITLE.GetName] — снять выделение#!"
  GRANT_REVOKE_RIGHT_CLICK_INFO: "#I ПКМ — перейти#!"
@@ -359,7 +359,7 @@
  DEFEAT_CONFIRM_TITLE: "Сдаться"
  DEFEAT_CONFIRM: "Война будет проиграна"
  DEFEAT_CONFIRM_ACCEPT: "Сдаться"
- REVOKE_TITLE_DESCRIPTION: "Выберите, какой [title|El] отнять у персонажа [CHARACTER.GetShortUINameNoTooltip]"
+ REVOKE_TITLE_DESCRIPTION: "Выберите титулы, которых лишится [CHARACTER.GetShortUIName]"
  #REVOKE_TITLE_REVOKED_TITLE_BY: "" # <DELETE THIS KEY>
  #REVOKE_TITLE_TITLE_INFO: "" # <DELETE THIS KEY>
  REVOKE_TITLE_CANT_GIVE_REASON_DOESNT_OWN: "@warning_icon! #X [CHARACTER.GetUIName] не владеет титулом [TITLE.GetName]#!"
@@ -492,7 +492,7 @@
  INTERFERE_IN_WAR_REJECT_HEADER: "Если вы откажетесь:"
  INTERFERE_IN_WAR_NO_WAR_SELECTED: "@warning_icon! #X Выбор [wars|El] из списка#!"
  INTERFERE_IN_WAR_NO_WARS: "#weak Война не выбрана#!"
- INTERFERE_IN_WAR_DESCRIPTION: "#I Выбор [wars|El]#!"
+ INTERFERE_IN_WAR_DESCRIPTION: "#I Выберите одну из войн, которые ведет [CHARACTER.GetShortUIName]#!"
  INTERFERE_IN_WAR_ITEM_SELECT: "#T Вмешаться в войну персонажа [CHARACTER.GetShortUINameNoTooltip]#!"
  INTERFERE_IN_WAR_ALREADY_IN_WAR: "@warning_icon! #X [CHARACTER.GetShortUINameNoTooltip|U] уже [Select_CString(CHARACTER.IsLocalPlayer, 'участвуете', 'участвует')] в этой войне#!"
  INTERFERE_IN_WAR_ALREADY_CALLED_TO_WAR: "@warning_icon! #X Персонажа [CHARACTER.GetShortUINameNoTooltip] уже призвали на эту войну#!"
@@ -540,7 +540,7 @@
 
  CULTURE_TRANSF_VASSAL: "[Culture.GetCollectiveNounNoTooltip]ая"
 
- grant_title_clerical_gender_tt: "Храмовые владения можно передавать только представителям того же пола, что и духовенство вашей [Concept( 'faith', 'конфессии' )|E]"
+ grant_title_clerical_gender_tt: "Храмовые владения можно передавать только представителям того же пола, что и духовенство вашей [Concept( 'faithpossessive', 'конфессии' )|E]"
  VASSAL_CONTRACT_MARRIAGE_FAVOR_BONUS: "$marriage_favor_rights$: $VALUE|=+0$"
  VASSAL_WITH_MARRIAGE_FAVOR: "Невыполненное $marriage_favor_rights$"
  UNITY_PERK_BONUS: "$fp2_coterie_legacy_3_name$: $VALUE|=+0$"
@@ -568,7 +568,7 @@
  INTRIGUE_SKILL_REASON: "Навык «Интриги»: $VALUE|=+0$"
  LEARNING_SKILL_REASON: "Навык «Ученость»: $VALUE|=+0$"
  PROWESS_SKILL_REASON: "Навык «Доблесть»: $VALUE|=+0$"
- SCHEME_TARGET_LEARNING: "[Concept('learning','Ученость')|E] [Select_CString(target.IsLocalPlayer, '', 'персонажа ' )|l][target.GetShortUINamePossessive|l][Select_CString(target.IsLocalPlayer, 'его персонажа', '' )]: $VALUE|+=0$"
+ SCHEME_TARGET_LEARNING: "[Concept('learning','Ученость')|E] [Select_CString(target.IsLocalPlayer, '', 'персонажа ' )|l][target.GetShortUINamePossessive][Select_CString(target.IsLocalPlayer, 'его персонажа', '' )]: $VALUE|+=0$"
  AI_I_AM_INCAPABLE: "Мне свойственна [GetTrait('incapable').GetName(GetNullCharacter)|l]: $VALUE|=+0$"
  AI_I_AM_IMPRISONED: "Я [imprisoned|El]: $VALUE|=+0$"
  AI_LACKS_POLITICAL_CAPITAL: "Мне не хватает [Concept( 'prestige', 'престижа' )|E], чтобы сопротивляться: $VALUE|=+0$"
@@ -618,3 +618,4 @@
  HAS_PERK_PROPHET_REASON: "У вас есть [Concept('perk','достоинство')|E] «[GetPerk('prophet_perk').GetName(GetPlayer)]»: $VALUE|=+0$"
 
  INSPECTION_REASON: "Бонус за [Concept('inspection','осмотр')|E]: $VALUE|=+0$"
+ HAS_WET_NURSE_REASON: "[GetCourtPositionType( 'wet_nurse_court_position' ).GetName ]: $VALUE|=+0$"
