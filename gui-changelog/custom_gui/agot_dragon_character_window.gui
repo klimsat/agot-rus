@@ -205,14 +205,14 @@ types CharacterWindow
 				name = "debug_buttons"
 				size = { 200 50 }
 				parentanchor = bottom|right
-				position = { 50 -10 }
+				position = { 30 -10 }
 				visible = "[InDebugMode]"
 				allow_outside = yes
 
 				# Debug personality
 				vbox = {
 					hbox = {
-						spacing = 15
+						spacing = 5
 						button = {
 							using = editor_button
 							name = "ai_watch_button"
@@ -239,6 +239,9 @@ types CharacterWindow
 				spacing = 5
 				ignoreinvisible = yes
 				direction = vertical
+
+				# Dragon family tree
+				agot_dragon_tree_button = {}
 
 				## barbershop button
 				button_normal = {
@@ -280,6 +283,7 @@ types CharacterWindow
 
 					button_clear = {
 						name = "dragon_edit"
+						enabled = "[GetScriptedGui('agot_dragon_skin_color_menu').IsValid(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
 						visible = "[GetScriptedGui('agot_dragon_skin_color_menu').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
 						onclick = "[GetScriptedGui('agot_dragon_skin_color_menu').Execute(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
 						onclick = "[CharacterInteractionMenuWindow.Close]"
@@ -300,7 +304,7 @@ types CharacterWindow
 
 					datacontext = "[Character]"
 					tooltip = "OPEN_KILL_LIST_TOOLTIP"
-					using = tooltip_es
+					using = tooltip_ne
 
 
 					icon = {
@@ -327,7 +331,7 @@ types CharacterWindow
 					size = { 35 35 }
 					datacontext = "[Character]"
 					tooltip = "OPEN_MEMORIES_TOOLTIP"
-					using = tooltip_es
+					using = tooltip_ne
 
 					icon = {
 						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
@@ -349,7 +353,7 @@ types CharacterWindow
 					visible = "[Not(Character.IsAlive)]"
 					datacontext = "[Character]"
 					tooltip = "VIEW_PAST_RIDERS"
-					using = tooltip_es
+					using = tooltip_ne
 
 					icon = {
 						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
@@ -369,7 +373,8 @@ types CharacterWindow
 					datacontext = "[GetScriptedGui('capture_wild_dragon')]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
-					tooltip = "[ScriptedGui.BuildTooltip( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
+					tooltip = "CAPTURE_WILD_DRAGON_TT"
+					using = tooltip_ne
 					position = { 5 5 }
 					size = { 35 35 }
 
@@ -397,6 +402,7 @@ types CharacterWindow
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope( 'owner', GetPlayer.MakeScope ).End)]"
 					enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope( 'owner', GetPlayer.MakeScope ).End)]"
 					tooltip = "SEND_TO_DRAGONPIT_TT"
+					using = tooltip_ne
 					position = { 5 5 }
 					size = { 35 35 }
 
@@ -424,6 +430,7 @@ types CharacterWindow
 					datacontext = "[GetScriptedGui('remove_from_dragonpit')]"
 					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
 					tooltip = "REMOVE_FROM_DRAGONPIT_TT"
+					using = tooltip_ne
 					position = { 5 5 }
 					size = { 35 35 }
 
@@ -2054,6 +2061,30 @@ types CharacterWindow
 		size = { 20 20 }
 		texture = "gfx/interface/icons/character_status/female_dragon.dds"
 		tooltip = "FEMALE_DRAGON_TOOLTIP"
+	}
+
+	# Dragon Family Tree
+	type agot_dragon_tree_button = button_normal
+	{
+		name = "dragon_tree_button"
+		visible = "[And(And(GetPlayer.IsValid, Not(IsObserver)), GetScriptedGui('agot_dragon_tree_check').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End))]"
+
+		size = { 35 35 }
+		datacontext = "[CharacterWindow.AccessCharacter]"
+		tooltip = "DRAGON_TREE_TT"
+		using = tooltip_ne
+
+		icon = {
+			texture = "gfx/interface/buttons/button_lifestyles_base.dds"
+			size = { 100% 100% }
+		}
+
+		button_dynasty_tree = {
+			onclick = "[GetVariableSystem.Toggle('dragon_tree_visible')]"
+			onclick = "[GetScriptedGui('agot_open_dragon_tree').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('opened_character', Character.MakeScope).End)]"
+			size = { 25 25 }
+			parentanchor = center
+		}
 	}
 }
 

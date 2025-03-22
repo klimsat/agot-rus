@@ -16,7 +16,6 @@ types PortraitTypes
 			portrait_texture = "[Character.GetPortrait('environment_dragonpit_portrait', 'camera_dragon_head', 'dragon_head', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 		}
 
-
 		mask = "gfx/portraits/portrait_mask_head_small.dds"
 		effectname = "NoHighlight"
 
@@ -140,7 +139,6 @@ types PortraitTypes
 			portrait_texture = "[Character.GetPortrait('environment_dragonpit_portrait', 'camera_dragon_head', 'dragon_head', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 		}
 
-
 		mask = "gfx/portraits/portrait_mask_shoulders.dds"
 		effectname = "NoHighlight"
 
@@ -170,12 +168,10 @@ types PortraitTypes
 		position = { 0 0 }
 		using = portrait_base
 
-
 		portrait_texture = "[Character.GetPortrait('environment_dragonpit_portrait', 'camera_dragon_head', 'dragon_head', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 
 		mask = "gfx/portraits/portrait_mask_torso.dds"
 		effectname = "NoHighlight"
-
 
 		highlight_icon = {
 			name = "prison_bars"
@@ -223,7 +219,6 @@ types PortraitTypes
 			portrait_texture = "[Character.GetPortrait('environment_dragonpit_portrait', 'camera_dragon_head', 'dragon_head', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 		}
 
-
 		block "mask" {
 			mask = "gfx/portraits/portrait_mask_body.dds"
 		}
@@ -251,6 +246,78 @@ types PortraitTypes
 	{ # Debug using "gui.CreateWidget gui/debug/test_gui.gui test_window"
 		parentanchor = bottom|hcenter
 		size = { 432 594 }
+		using = portrait_base
+		using = visible_if_dragon
+
+		block "portrait_texture_dragon"
+		{
+			portrait_texture = "[Character.GetAnimatedPortrait(Character.Custom('GetDragonEnvironment'), 'camera_dragon', 'dragon_main', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+		}
+		block "mask" {
+			mask = "gfx/portraits/portrait_mask_body.dds"
+		}
+		effectname = "NoHighlight"
+
+		block "prison" {
+			highlight_icon = {
+				name = "prison_bars"
+				visible = "[Character.IsImprisoned]"
+				visible_at_creation = no
+				size = { 100% 100% }
+				effectname = "NoHighlight"
+				texture = "gfx/portraits/portrait_prison_body.dds"
+
+				modify_texture = {
+					name = "mask"
+					texture = "gfx/portraits/portrait_mask_body.dds"
+					spriteType = Corneredstretched
+					blend_mode = alphamultiply
+				}
+			}
+		}
+
+		block "portrait_button" {}
+	}
+
+	type agot_dragon_tree_portrait_body = portrait_button
+	{ # Debug using "gui.CreateWidget gui/debug/test_gui.gui test_window"
+		parentanchor = bottom|hcenter
+		size = { 440 330 }
+		using = portrait_base
+		using = visible_if_dragon
+
+		block "portrait_texture_dragon"
+		{
+			portrait_texture = "[Character.GetPortrait('environment_dragonpit_portrait', 'camera_dragon_head', 'dragon_head', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+		}
+
+		block "mask" {
+			mask = "gfx/portraits/portrait_mask_body.dds"
+		}
+		effectname = "NoHighlight"
+
+		block "prison" {
+			highlight_icon = {
+				name = "prison_bars"
+				visible = "[Character.IsImprisoned]"
+				size = { 100% 100% }
+				effectname = "NoHighlight"
+				texture = "gfx/portraits/portrait_prison_body.dds"
+
+				modify_texture = {
+					name = "mask"
+					texture = "gfx/portraits/portrait_mask_body.dds"
+					spriteType = Corneredstretched
+					blend_mode = alphamultiply
+				}
+			}
+		}
+	}
+
+	type agot_dragon_tree_portrait_body_large = portrait_button
+	{ # Used in dragon family tree
+		parentanchor = bottom|hcenter
+		size = { 1200 1000 }
 		using = portrait_base
 		using = visible_if_dragon
 
@@ -448,7 +515,6 @@ types PortraitTypes
 		{
 			portrait_texture = "[Character.GetPortrait('environment_dragonpit_portrait', 'camera_dragon_head', 'dragon_head', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 		}
-
 
 		mask = "gfx/portraits/portrait_mask_shoulders.dds"
 		effectname = "NoHighlight"

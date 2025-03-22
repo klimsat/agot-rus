@@ -1,36 +1,36 @@
 vbox = {
-    name = "window_particle_kingslandingwildfire_start_widget"
-    layoutpolicy_horizontal = expanding
-    margin = { 5 0 }
-    spacing = 10
+	name = "window_particle_kingslandingwildfire_start_widget"
+	layoutpolicy_horizontal = expanding
+	margin = { 5 0 }
+	spacing = 10
 
-    fixedgridbox = {
-        name = "option_grid"
-        addcolumn = 490
-        addrow = 42
-        datamodel = "[EventWindow.AccessEventWindowData.GetOptions]"
+	fixedgridbox = {
+		name = "option_grid"
+		addcolumn = 490
+		addrow = 42
+		datamodel = "[EventWindow.AccessEventWindowData.GetOptions]"
 
-        item = {
-            button_event_standard = {
-                name = "event_option_button"
+		item = {
+			button_event_standard = {
+				name = "event_option_button"
 
-                state = {
-                    name = widget_show
-                    trigger_on_create = yes
+				state = {
+					name = widget_show
+					trigger_on_create = yes
 
-                    # Prevent it from showing
-                    on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('show')]"
-                    on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('_hide')]"
+					# Prevent it from showing
+					on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('show')]"
+					on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('_hide')]"
 
-                    # CUSTOM Spawn spawnentity_at, I COMMAND THEE COMETH FORTH!
-                    #on_start = "[ExecuteConsoleCommand('spawnentity_at env_wildfire01 1683 2980 ')]"
-                    duration = 1 # Needed for.. Reasons?
+					# CUSTOM Spawn spawnentity_at, I COMMAND THEE COMETH FORTH!
+					#on_start = "[ExecuteConsoleCommand('spawnentity_at env_wildfire01 1683 2980 ')]"
+					duration = 1 # Needed for.. Reasons?
 
-                    # Close the window
-                    on_finish = "[EventOption.Select]"
+					# Close the window
+					on_finish = "[EventOption.Select]"
 				}
-            }
-        }
-    }
-    expand = {}
+			}
+		}
+	}
+	expand = {}
 }

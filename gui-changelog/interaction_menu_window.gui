@@ -96,6 +96,9 @@ window = {
 							tooltip = "PIN_TT"
 							using = tooltip_se
 						}
+						#AGOT Added
+						agot_interaction_dragon_tree_button = {}
+						agot_interaction_dragon_edit_button = {}
 
 						button_barbershop = {
 							name = "customize_portrait"
@@ -119,18 +122,6 @@ window = {
 							using = tooltip_ne
 						}
 						
-						#AGOT Added
-						button_clear = {
-							name = "dragon_edit"
-							visible = "[GetScriptedGui('agot_dragon_skin_color_menu').IsShown(GuiScope.SetRoot(CharacterInteractionMenuWindow.GetCharacter.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
-							onclick = "[GetScriptedGui('agot_dragon_skin_color_menu').Execute(GuiScope.SetRoot(CharacterInteractionMenuWindow.GetCharacter.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
-							onclick = "[CharacterInteractionMenuWindow.Close]"
-							size = { 25 25 }
-
-							tooltip = "CV_CUSTOMIZE_AGOT_DRAGON"
-							using = tooltip_ne
-						}
-
 						button_go_to_my_location = {
 							name = "button_go_to_my_location"
 							onclick = "[Character.PanCameraTo]"

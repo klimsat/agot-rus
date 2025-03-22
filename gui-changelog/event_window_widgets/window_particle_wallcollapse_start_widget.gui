@@ -1,73 +1,73 @@
 vbox = {
-    name = "window_particle_wallcollapse_start_widget"
-    layoutpolicy_horizontal = expanding
-    margin = { 5 0 }
-    spacing = 10
+	name = "window_particle_wallcollapse_start_widget"
+	layoutpolicy_horizontal = expanding
+	margin = { 5 0 }
+	spacing = 10
 
-    fixedgridbox = {
-        name = "option_grid"
-        addcolumn = 490
-        addrow = 42
-        datamodel = "[EventWindow.AccessEventWindowData.GetOptions]"
+	fixedgridbox = {
+		name = "option_grid"
+		addcolumn = 490
+		addrow = 42
+		datamodel = "[EventWindow.AccessEventWindowData.GetOptions]"
 
-        item = {
-            button_event_standard = {
-                name = "event_option_button"
+		item = {
+			button_event_standard = {
+				name = "event_option_button"
 
-                state = {
-                    name = widget_show
-                    trigger_on_create = yes
+				state = {
+					name = widget_show
+					trigger_on_create = yes
 
-                    # Prevent it from showing
-                    on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('show')]"
-                    on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('_hide')]"
+					# Prevent it from showing
+					on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('show')]"
+					on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('_hide')]"
 
-                    # CUSTOM Spawn spawnentity_at, I COMMAND THEE COMETH FORTH!
-                    on_start = "[ExecuteConsoleCommand('spawnentity_at building_special_the_wall_middle_collapse_entity 1620 5284 ')]"
-                    #on_start = "[ExecuteConsoleCommand('spawnentity_at env_WallCollapse 1666 5288')]"
-                    # on_start = "[ExecuteConsoleCommand('spawnentity_at env_WallCollapse 1700 5291')]"
-                    duration = 1 # Needed for.. Reasons?
-                    delay = 0.1
-                    on_finish = "[GetScriptedGui('agot_wall_fall').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-                    next = "widget_continue"
+					# CUSTOM Spawn spawnentity_at, I COMMAND THEE COMETH FORTH!
+					on_start = "[ExecuteConsoleCommand('spawnentity_at building_special_the_wall_middle_collapse_entity 1620 5284 ')]"
+					#on_start = "[ExecuteConsoleCommand('spawnentity_at env_WallCollapse 1666 5288')]"
+					# on_start = "[ExecuteConsoleCommand('spawnentity_at env_WallCollapse 1700 5291')]"
+					duration = 1 # Needed for.. Reasons?
+					delay = 0.1
+					on_finish = "[GetScriptedGui('agot_wall_fall').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					next = "widget_continue"
 				}
-                state = {
-                    name = widget_continue
-                    trigger_on_create = yes
+				state = {
+					name = widget_continue
+					trigger_on_create = yes
 
-                    # Prevent it from showing
-                    on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('show')]"
-                    on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('_hide')]"
+					# Prevent it from showing
+					on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('show')]"
+					on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('_hide')]"
 
-                    # CUSTOM Spawn spawnentity_at, I COMMAND THEE COMETH FORTH!
+					# CUSTOM Spawn spawnentity_at, I COMMAND THEE COMETH FORTH!
 
-                    on_start = "[ExecuteConsoleCommand('spawnentity_at env_WallCollapse 1628 5282 ')]"
-                    #on_start = "[ExecuteConsoleCommand('spawnentity_at env_WallCollapse 1666 5288')]"
-                    # on_start = "[ExecuteConsoleCommand('spawnentity_at env_WallCollapse 1700 5291')]"
-                    duration = 4 # Needed for.. Reasons?
-                    # Close the window
-                    on_finish = "[EventOption.Select]"
-                    next = "widget_continue_2"
+					on_start = "[ExecuteConsoleCommand('spawnentity_at env_WallCollapse 1628 5282 ')]"
+					#on_start = "[ExecuteConsoleCommand('spawnentity_at env_WallCollapse 1666 5288')]"
+					# on_start = "[ExecuteConsoleCommand('spawnentity_at env_WallCollapse 1700 5291')]"
+					duration = 4 # Needed for.. Reasons?
+					# Close the window
+					on_finish = "[EventOption.Select]"
+					next = "widget_continue_2"
 				}
-                state = {
-                    name = widget_continue_2
-                    trigger_on_create = yes
+				state = {
+					name = widget_continue_2
+					trigger_on_create = yes
 
-                    # Prevent it from showing
-                    on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('show')]"
-                    on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('_hide')]"
+					# Prevent it from showing
+					on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('show')]"
+					on_start = "[PdxGuiWidget.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.AccessParent.InterruptAnimation('_hide')]"
 
-                    # CUSTOM Spawn spawnentity_at, I COMMAND THEE COMETH FORTH!
+					# CUSTOM Spawn spawnentity_at, I COMMAND THEE COMETH FORTH!
 
-                    #on_start = "[ExecuteConsoleCommand('spawnentity_at building_special_CastleBlackDestroyed_entity 1628 5282')]"
-                    #on_start = "[ExecuteConsoleCommand('spawnentity_at env_WallCollapse 1666 5288')]"
-                    # on_start = "[ExecuteConsoleCommand('spawnentity_at env_WallCollapse 1700 5291')]"
-                    #duration = 0.1 # Needed for.. Reasons?
-                    # Close the window
-                    on_finish = "[EventOption.Select]"
+					#on_start = "[ExecuteConsoleCommand('spawnentity_at building_special_CastleBlackDestroyed_entity 1628 5282')]"
+					#on_start = "[ExecuteConsoleCommand('spawnentity_at env_WallCollapse 1666 5288')]"
+					# on_start = "[ExecuteConsoleCommand('spawnentity_at env_WallCollapse 1700 5291')]"
+					#duration = 0.1 # Needed for.. Reasons?
+					# Close the window
+					on_finish = "[EventOption.Select]"
 				}
-            }
-        }
-    }
-    expand = {}
+			}
+		}
+	}
+	expand = {}
 }

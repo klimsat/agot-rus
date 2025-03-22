@@ -1,0 +1,31 @@
+##################################################################
+################# AGOT INTERACTION MENU WINDOW ###################
+##################################################################
+
+types InteractionMenuWindow
+{
+	type agot_interaction_dragon_edit_button = button_clear
+	{
+		name = "dragon_edit"
+		visible = "[GetScriptedGui('agot_dragon_skin_color_menu').IsShown(GuiScope.SetRoot(CharacterInteractionMenuWindow.GetCharacter.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
+		enabled = "[GetScriptedGui('agot_dragon_skin_color_menu').IsValid(GuiScope.SetRoot(CharacterInteractionMenuWindow.GetCharacter.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
+		onclick = "[GetScriptedGui('agot_dragon_skin_color_menu').Execute(GuiScope.SetRoot(CharacterInteractionMenuWindow.GetCharacter.MakeScope).AddScope('player', GetPlayer.MakeScope).End)]"
+		onclick = "[CharacterInteractionMenuWindow.Close]"
+		size = { 25 25 }
+
+		tooltip = "CV_CUSTOMIZE_AGOT_DRAGON"
+		using = tooltip_ne
+	}
+
+	type agot_interaction_dragon_tree_button = button_dynasty_tree
+	{
+		name = "dragon_tree_button"
+		visible = "[And(GetPlayer.IsValid, GetScriptedGui('agot_dragon_tree_check').IsShown(GuiScope.SetRoot(Character.MakeScope).End))]"
+		size = { 25 25 }
+
+		onclick = "[GetVariableSystem.Toggle('dragon_tree_visible')]"
+		onclick = "[GetScriptedGui('agot_open_dragon_tree').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('opened_character', Character.MakeScope).End)]"
+		using = tooltip_ne
+		tooltip = "DRAGON_TREE_TT"
+	}
+}

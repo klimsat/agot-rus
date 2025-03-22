@@ -1,0 +1,22 @@
+####################################################
+################# AGOT HUD WINDOW ##################
+####################################################
+
+template Language_Detection
+{
+	state = {
+		name = "english_language"
+		trigger_when = "[UsingEnglish]"
+		on_start = "[GetScriptedGui('setting_english').Execute(GuiScope.End)]"
+	}
+	state = {
+		name = "french_language"
+		trigger_when = "[UsingFrench]"
+		on_start = "[GetScriptedGui('setting_french').Execute(GuiScope.End)]"
+	}
+	state = {
+		name = "chinese_language"
+		trigger_when = "[UsingChinese]"
+		on_start = "[GetScriptedGui('setting_chinese').Execute(GuiScope.End)]"
+	}
+}

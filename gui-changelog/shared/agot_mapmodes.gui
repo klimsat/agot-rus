@@ -115,57 +115,57 @@ types MapModes
 	}
 
 	type agot_icon_button_mapmode = widget {
-        size = { 40 40 }
+		size = { 40 40 }
 
-        block 'mm_datacontext'
-        {
-            datacontext = "[GetMapMode( 'realms' )]"
-        }
+		block 'mm_datacontext'
+		{
+			datacontext = "[GetMapMode( 'realms' )]"
+		}
 
-        icon = {
-            size = { 100% 100% }
-            texture = "gfx/interface/component_masks/mask_circle.dds"
+		icon = {
+			size = { 100% 100% }
+			texture = "gfx/interface/component_masks/mask_circle.dds"
 
-            block = "mm_glow"
-            {
-                visible = "[IsMapMode( MapMode.GetKey )]"
-            }
+			block = "mm_glow"
+			{
+				visible = "[IsMapMode( MapMode.GetKey )]"
+			}
 
-            glow = {
-                color = { 0.93 0.65 0.45 1.0 }
-                glow_radius = 6
+			glow = {
+				color = { 0.93 0.65 0.45 1.0 }
+				glow_radius = 6
 
-                glow_generation_rules= {
-                    glow_alpha_mask = 0
-                    glow_blur_passes = 15
-                    glow_texture_downscale = 5.5f
-                    glow_ignore_inside_pixels = yes
-                }
-            }
+				glow_generation_rules= {
+					glow_alpha_mask = 0
+					glow_blur_passes = 15
+					glow_texture_downscale = 5.5f
+					glow_ignore_inside_pixels = yes
+				}
+			}
 
-            using = Animation_Glow_Pulse
-        }
+			using = Animation_Glow_Pulse
+		}
 
-        button_round = {
-            size = { 100% 100% }
-            using = tooltip_nw
+		button_round = {
+			size = { 100% 100% }
+			using = tooltip_nw
 
 			onclick = "[SetMapMode('agot_custom_mapmode')]"
 			onclick = "[GetScriptedGui('agot_roads_map').Execute(GuiScope.End)]"
 			down = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') )]"
 			enabled = "[GetScriptedGui('agot_roads_map').IsValid(GuiScope.End)]"
-            tooltip = "[MapMode.GetDesc]"
+			tooltip = "[MapMode.GetDesc]"
 
-            block "mm_button" {}
+			block "mm_button" {}
 
-            button_icon = {
-                parentanchor = center
-                alwaystransparent = yes
+			button_icon = {
+				parentanchor = center
+				alwaystransparent = yes
 				down = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') )]"
-                texture = "[MapMode.GetIcon]"
+				texture = "[MapMode.GetIcon]"
 
-                block "mm_icon" {}
-            }
-        }
-    }
+				block "mm_icon" {}
+			}
+		}
+	}
 }
