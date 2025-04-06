@@ -1,8 +1,13 @@
 ﻿l_russian:
  ### Events ###
- free_city_events.9999.t:0 "Конец срока"
- free_city_events.9999.desc:0 "Избран новый Первый магистр, а [old_holder.GetTitledFirstName] [Select_CString(old_holder.IsFemale, 'освобождена', 'освобождён' )] от своей должности. С окончанием [old_holder.GetHerHis] правления, начинается новое, поскольку [magister_winner.GetFullName] [Select_CString(magister_winner.IsFemale, 'избрана', 'избран' )] Конклавом. Магистры и гонфалоньеры с большим церемониалом присягают на верность новому Первому магистру и [magister_winner.GetHerHis] власть признана народом. Как [magister_winner.GetFullNameNoTooltip] будет править, остаётся неясным, и магистры уже замышляют, как склонить [Select_CString(magister_winner.IsFemale, 'новую правительницу', 'нового правителя' )] на свою сторону."
+ free_city_events.9999.t:0 "The [term_limit_country.GetAdjective] Election"
+ free_city_events.9999.desc_old_holder:0 "So, it’s done. I’ve been replaced. \n\n[magister_winner.GetFullName] is the new First Magister, and I—well, I step aside for now. The Magisters and the Gonfaloniere have sworn their fealty to the new leader, their voices echoing in the hall with promises I once commanded. \n\nIt’s hard to swallow, but I’ve been here before. Power slips through fingers like sand, but I know the game isn’t over. I won’t be forgotten. I mustn't be."
+
+ free_city_events.9999.desc_magister_winner:0 "They’ve chosen me. The Conclave has selected me as the new First Magister. [old_holder.GetTitledFirstName] has been dismissed from the post, and now I stand where they once did..\n\nThe Magisters and the Gonfaloniere have sworn their allegiance to me, pledging loyalty as my authority is cemented. But what now? How will I rule? Already, some Magisters plot openly, while others whisper sweet words to my face, all the while trying to pick my pocket. I must remain vigilant and ready to face whatever comes next."
+
+ free_city_events.9999.desc_vassal:0 "Избран новый Первый магистр, а [old_holder.GetTitledFirstName] [Select_CString(old_holder.IsFemale, 'освобождена', 'освобождён' )] от своей должности. С окончанием [old_holder.GetHerHis] правления, начинается новое, поскольку [magister_winner.GetFullName] [Select_CString(magister_winner.IsFemale, 'избрана', 'избран' )] Конклавом. Магистры и гонфалоньеры с большим церемониалом присягают на верность новому Первому магистру и [magister_winner.GetHerHis] власть признана народом. Как [magister_winner.GetFullNameNoTooltip] будет править, остаётся неясным, и магистры уже замышляют, как склонить [Select_CString(magister_winner.IsFemale, 'новую правительницу', 'нового правителя' )] на свою сторону."
  free_city_events.9999.a:0 "Да здравствует Первый магистр! Да здравствует [term_limit_country.GetName]!"
+ free_city_events.9999.b:0 "I wonder what kind of ruler [magister_winner.GetFirstName] will be..."
 
  free_city_events.1001.t:0 "Выборы отложены"
  free_city_events.1001.desc_elector:0 "Поскольку государство втянуто в войну с державой [war_enemy.GetPrimaryTitle.GetName], Конклав счёл небезопасным проводить выборы нового Первого магистра.\n\nВместо этого [current_ruler.GetFullNameNicknamed] временно [Select_CString(current_ruler.IsFemale, 'приняла', 'принял' )] новые полномочия, чтобы обеспечить сохранность порядка и стабильность до окончания войны.\n\nКонклав и гонфалоньеры объявили, что признают власть Первого магистра в этот кризисный период, понимая, что будущее их города висит на волоске. Граждане находятся в ожидании окончания конфликта и, кажется, разделены: они либо радуются указам, либо не знают, что их ждёт после восстановления мира."
@@ -10,9 +15,9 @@
  free_city_events.1001.a:0 "Вот так умирает свобода? ...под гром аплодисментов?"
  free_city_events.1001.a_liege:0 "Они аплодируют мне..."
  free_city_events.1001.a.tt:0 "Конклав откладывает выборы до окончания войны."
+ free_city_events.1001.war_delayed_due_to_war_tt:0 "The election has been postponed due to the ongoing war."
 
  free_city_events.1002.t:0 "Конец войны"
-
  free_city_events.1002.desc_elector:0 "Война наконец закончилась, и город готовится к выборам нового Первого магистра. \n\nПоскольку конфликт остался позади, Конклав соберётся и выберет правителя, который поведёт город через восстановление к процветающему будущему. \n\nПо предварительным предположениям, [magister_winner.GetFullName] может получить необходимую поддержку для избрания. Пока магистры и гонфалоньеры собираются, граждане полны предвкушения и надежды на стабильность и возвращение к нормальной жизни."
 
  free_city_events.1002.desc_liege:0 "После окончания войны встаёт вопрос об отказе от чрезвычайных полномочий, принятых во время конфликта. \n\nКонклав готовится возобновить выборы нового Первого магистра, но процесс неясен. [magister_winner.GetFullName] представляется вероятным кандидатом, но окончательное решение ещё не принято. \n\nКак магистр, [Select_CString(ROOT.Char.IsFemale, 'поддерживавшая', 'поддерживавший' )] стабильность во время войны, вы размышляете о том, действительно ли уход с поста отвечает интересам города, или вашим интересам, или же ваше дальнейшее правление может обеспечить руководство, необходимое в эти нестабильные времена."
@@ -57,6 +62,10 @@
  free_city_events.1000.desc:0 "«Вы думали, что [dead_ruler.GetNamePossessive] будет править вечно? Теперь, когда [free_city.GetName] освободился от [dead_ruler.GetHerHis] влияния, мы возобновили выборы, и вы не [Select_CString(ROOT.Char.IsFemale, 'та', 'тот' )], кого мы избрали»."
  free_city_events.1000.a:0 "О нет..."
 
+ free_city_events.2000.t:0 "The Prince's Price"
+ free_city_events.2000.desc:0 "I stand before the crowd, my hands bound, the weight of my failures heavier than any chains. For my loss of the war, my people will now sacrifice me to appease the gods.\n\nThe cold blade rests against my throat. I can hear the murmurs of the crowd, but none of it matters anymore; my fate is sealed.\n\nI think of what might have been, the ambitions I once held, and the men who followed me. It all feels so distant now.\n\nWith a final breath, the blade cuts through silence, and I am no more."
+ free_city_events.2000.a:0 "..."
+
  ### Decisions/Interactions ###
  agot_attempt_triarchy:0 "Попытаться создать Триархию"
  agot_attempt_triarchy_desc:0 "Обратиться к другим Трём Дочерям, чтобы создать Триархию"
@@ -79,16 +88,21 @@
  agot_seize_control_desc:0 "Диктатура не может длиться вечно; если я хочу обеспечить преемственность своей династии, я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] отказаться от всех притязаний на демократию."
  agot_seize_control_tooltip:0 "Навсегда покончить с выборами, перейдя к феодальному правлению"
  agot_seize_control_confirm:0 "Принесите мне мою печать"
- lys_full_county_control_tt:0 "Вы имеете максимальный [county_control|El] в графстве $c_lys$"
- pentos_full_county_control_tt:0 "Вы имеете максимальный [county_control|El] в графстве $c_pentos$"
- myr_full_county_control_tt:0 "Вы имеете максимальный [county_control|El] в графстве $c_myr$"
- tyrosh_full_county_control_tt:0 "Вы имеете максимальный [county_control|El] в графстве $c_tyrosh$"
+ agot_seize_control_full_county_control_tt:0 "Вы имеете максимальный [county_control|El] в вашей [Concept('capital', 'столице')|E]"
  strong_hook_on_all_powerful_vassals_tt:0 "У вас имеется [strong_hook|El] на всех ваших [Concept( 'powerful_vassals', 'могущественных вассалов' )|E]"
 
  agot_form_undisputed_lands:0 "Заселить Спорные земли"
  agot_form_undisputed_lands_decision_desc:0 "За эти земли проходили бесконечные стычки и войны со времён Рока Валирии, но я наконец [Select_CString(ROOT.Char.IsFemale, 'объединила', 'объединил' )] их."
  agot_form_undisputed_lands_decision_tooltip:0 "Создать королевство из этих некогда спорных земель"
  agot_form_undisputed_lands_confirm:0 "К бесславию и бессмертию!"
+
+ agot_break_braavos_pentos_treaty:0 "Break the Braavos-Pentos Treaty"
+ agot_break_braavos_pentos_treaty_desc:0 "Since 209, the Braavosi have forced the proud city of Pentos to abide by a heavy-handed treaty. The time has come for Pentos to tear this treaty to shreds and govern ourselves freely!"
+ agot_break_braavos_pentos_treaty_effect_tt:0 "The Braavos-Pentos Treaty will be broken. Pentos will once again be able to #bold develop their military, hire sellswords, and participate in slavery#!."
+ agot_break_braavos_pentos_treaty_effect_2_tt:0 "Braavos will gain a casus belli for #bold 15 years#! that will allow them to try to reassert the treaty."
+ agot_break_braavos_pentos_treaty_tooltip:0 "Break the Braavos-Pentos Treaty"
+ agot_break_braavos_pentos_treaty_confirm:0 "For Pentos!"
+ agot_create_braavos_pentos_treaty_effect_tt:0 "[GetModifier('agot_pentos_braavos_treaty').GetNameWithTooltip] will be permanently added to all characters under the realm of Pentos. It may only be removed should Pentos break free through war."
 
  ### Misc ###
  THREE_DAUGHTERS:0 "Высший совет Триархии"
@@ -112,3 +126,9 @@
  war_denied:0 "Война отвергнута"
 
  c_tyroshi_landing:0 "Тирошийская Гавань"
+
+ election_aristocratic_support_desc: "Aristocratic Support"
+ election_mercantile_support_desc: "Mercantile Support"
+ election_populist_support_desc: "Populist Support"
+ election_priestly_support_desc: "Priestly Support"
+ election_military_support_desc: "Military Support"
