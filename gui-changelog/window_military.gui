@@ -970,6 +970,8 @@ window = {
 												{
 													datamodel = "[HiredTroopItem.GetRegiments]"
 												}
+												# AGOT ADDED
+												enabled = "[GetScriptedGui('agot_can_hire_mercenaries').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 											}
 										}
 									}
@@ -1641,6 +1643,8 @@ types ArmiesView
 				onclick = "[MilitaryItem.OnClick]"
 				tooltip = "CREATE_MAA_TOOLTIP"
 				down = "[MilitaryItem.IsOpen]"
+				# AGOT ADDED
+				enabled = "[GetScriptedGui('agot_can_hire_mercenaries').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 
 				button_plus = {
 					name = "can_be_created"

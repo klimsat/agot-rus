@@ -3,7 +3,7 @@ types PatronWindow {
 		layoutpolicy_horizontal = expanding
 		onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'patron' )]"
 		down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' )]"
-		visible = "[EqualTo_string(Faith.GetReligion.GetNameNoTooltip,Localize('faith_of_the_seven_religion'))]"
+		visible = "[GetScriptedGui('religion_has_patron_gods').IsShown(GuiScope.SetRoot(FaithWindow.GetFaith.MakeScope).End)]"
 		text = "FAITH_PATRON"
 		default_format = "#low"
 
@@ -36,7 +36,6 @@ types PatronWindow {
 								margin_bottom = 8
 								margin_top = 0
 								patron_selection = {
-									#datacontext = "[GetScriptedGui( Concatenate('choose_patron_', Scope.GetFlagName))]"
 									datacontext = "[GetScriptedGui('choose_patron_generic')]"
 									datacontext = "[GetModifier(Concatenate('patron_', Concatenate(Scope.GetFlagName ,'_modifier')))]"
 								}
@@ -77,19 +76,18 @@ types PatronWindow {
 		background = {
 			visible = "[EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName)]"
 			size = { 100% 100% }
+			margin_top = -20
 			texture = "gfx/interface/component_masks/mask_fade_circle.dds"
 			gfxtype = icongfx
 			spriteType = Corneredstretched
-			spriteborder = { 20 20 }
+			spriteborder = { 20 -100 }
 			shaderfile = "gfx/FX/pdxgui_default.shader"
 			color = { 1.0 1.0 0.9 0.4 }
 		}
 
 		button_standard = {
 			size = { 760 130 }
-			#onclick = "[ExecuteConsoleCommand('gui.createwidget gui/custom_gui/window_patron.gui select_patron_confirm')]"
-			enabled = "[Or(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName), ScriptedGui.IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).End))]"
-
+			enabled = "[Or(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName), ScriptedGui.IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('faith', FaithWindow.GetFaith.MakeScope).End))]"
 			modify_texture = {
 				name = "overlay"
 				texture = "gfx/interface/buttons/button_standard_overlay.dds"
@@ -106,41 +104,37 @@ types PatronWindow {
 			#onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag( GetVariableSystem.Get( 'selected_patron' ))).End )]"
 
 			hbox = {
-				icon = {
+				icon = { # Standard
+					visible = "[GetScriptedGui('has_this_patron_god').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag(  Scope.GetFlagName)).End)]"
 					size = { 130 130 }
-
-					block "patron_icon" {
-						text_single = {
-							visible = "[Not(Or(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName), GetVariableSystem.HasValue( 'show_patron_modifiers', StaticModifier.GetName )))]"
-							margin_top = -10
-							parentanchor = vcenter|hcenter
-							fontsize = 120
-							raw_text = PATRON_ICON_DARK
-						}
-						text_single = {
-							visible = "[And(Not(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName)), Not(ScriptedGui.IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).End)))]"
-							margin_top = -10
-							parentanchor = vcenter|hcenter
-							fontsize = 120
-							raw_text = PATRON_ICON_GREY
-						}
-						text_single = {
-							visible = "[Or(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName), GetVariableSystem.HasValue( 'show_patron_modifiers', StaticModifier.GetName ))]"
-							margin_top = -10
-							parentanchor = vcenter|hcenter
-							fontsize = 120
-							raw_text = PATRON_ICON_STANDARD
-						}
-					}
+					texture = "[GetCultureInnovationType(Concatenate(Scope.GetFlagName, '_patron_icon')).GetIcon]"
 					using = Mask_Rough_Edges
-					alpha = 0.5
+					alpha = 0.75
 				}
-
+				icon = { # PATRON_ICON_DARK
+					visible = "[Not(GetScriptedGui('has_this_patron_god').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag(Scope.GetFlagName)).End))]"
+					#visible = "[Or(Not(GetScriptedGui('has_this_patron_god').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag(Scope.GetFlagName)).End)),Not(ScriptedGui.IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).End)))]"
+					size = { 130 130 }
+					texture = "[GetCultureInnovationType(Concatenate(Scope.GetFlagName, '_patron_icon')).GetIcon]"
+					using = Mask_Rough_Edges
+					alpha = 0.75
+					modify_texture = {
+						texture = "gfx/interface/colors/black.dds"
+						blend_mode = normal
+						alpha = 0.65
+					}
+					modify_texture = {
+						visible = "[Or(Not(GetScriptedGui('has_this_patron_god').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag(Scope.GetFlagName)).End)),Not(ScriptedGui.IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).End)))]"
+						texture = "gfx/interface/colors/grey.dds"
+						blend_mode = normal
+						alpha = 0.25
+					}
+				}
 				widget = {
-					size = { 340 130 }
+					size = { 300 130 }
 					vbox = {
 						widget = { # Patron name text
-							size = { 340 26 }
+							size = { 300 26 }
 
 							text_single = {
 								default_format = "#clickable"
@@ -163,10 +157,10 @@ types PatronWindow {
 						}
 
 						widget = {
-							size = { 340 60 }
+							size = { 300 60 }
 
 							text_multi = { # Desc not highlighted
-								size = { 340 60 }
+								size = { 300 60 }
 								visible = "[Not(And(GetVariableSystem.HasValue( 'show_patron_modifiers', StaticModifier.GetName ), ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)))]"
 								parentanchor = left
 								default_format = "#low"
@@ -174,11 +168,11 @@ types PatronWindow {
 									text = "[Localize( Concatenate( 'patron_god_desc_', Scope.GetFlagName ))]"
 								}
 								autoresize = yes
-								fontsize = 14
-								max_width = 330
+								fontsize = 13
+								max_width = 280
 							}
 							text_multi = { # Desc highlighted
-								size = { 340 60 }
+								size = { 300 60 }
 								visible = "[EqualTo_string( GetPlayer.MakeScope.Var( 'patron_god' ).GetFlagName, Scope.GetFlagName )]"
 								parentanchor = left
 								default_format = "#high"
@@ -186,8 +180,8 @@ types PatronWindow {
 									text = "[Localize( Concatenate( 'patron_god_desc_', Scope.GetFlagName ))]"
 								}
 								autoresize = yes
-								fontsize = 14
-								max_width = 330
+								fontsize = 13
+								max_width = 280
 							}
 						}
 						expand = {}
@@ -195,12 +189,11 @@ types PatronWindow {
 				}
 
 				widget = {
-					size = { 290 130 }
+					size = { 330 130 }
 
 					vbox = {
 						widget = { # Patron name text
-							size = { 290 26 }
-							#using = debug_square
+							size = { 330 26 }
 
 							text_single = {
 								default_format = "#clickable"
@@ -210,7 +203,6 @@ types PatronWindow {
 							background = {
 								size = { 0 0 }
 								margin_left = 20
-								#margin_right = 20
 								alpha = 0.7
 
 								texture = "gfx/interface/component_tiles/tile_title_bg_01.dds"
@@ -221,17 +213,13 @@ types PatronWindow {
 						}
 
 						widget = {
-							size = { 290 114 }
-							#using = debug_square
+							size = { 330 114 }
 
 							text_single = { # Show modifiers
-								#visible = "[Or( GetVariableSystem.HasValue( 'show_patron_modifiers_effect', 'true' ), And( GetVariableSystem.HasValue( 'show_patron_modifiers', StaticModifier.GetName ), ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End ))) ]"
-								#parentanchor = left
+								max_width = 330
+								fontsize = 13
 								default_format = "#high"
-								block "effect_text" {
-									text = "[StaticModifier.GetDescWithEffects]"
-									max_width = 280
-								}
+								text = "[StaticModifier.GetDescWithEffects]"
 							}
 						}
 					}
@@ -331,22 +319,14 @@ types PatronWindow {
 		vbox = {
 			container = {
 				button_standard_hover  = {
-					#datacontext = "[Character.GetFaith]"
 					layoutpolicy_horizontal = expanding
 					size = { 30 30 }
 					onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'patron' )]"
 					onclick = "[OpenGameViewData( 'faith', GetPlayer.GetFaith.GetID )]"
-					onclick = "[GetScriptedGui('get_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+					onclick = "[GetScriptedGui('get_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('faith', FaithWindow.GetFaith.MakeScope).End)]"
 					default_format = "#clickable;italic"
 					align = left|nobaseline
 					margin_left = 5
-
-
-					#icon = {
-					#	name = "dread_icon"
-					#	size = { 30 30 }
-					#	texture = "[Character.GetPietyLevelTexture]"
-					#}
 
 					modify_texture = {
 						name = "overlay"
@@ -474,7 +454,7 @@ types PatronWindow {
 		state = {
 			name = _show
 			using = Animation_FadeIn_Quick
-			on_start = "[GetScriptedGui('get_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+			on_start = "[GetScriptedGui('get_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('faith', FaithWindow.GetFaith.MakeScope).End)]"
 		}
 
 		state = {
@@ -494,9 +474,7 @@ types PatronWindow {
 			}
 		}
 
-		patron_menu = {
-
-		}
+		patron_menu = {}
 	}
 
 	type hbox_character_subheading = widget {
@@ -550,215 +528,5 @@ types PatronWindow {
 		# 		tooltipwidget = { }
 		# 	}
 		# }
-	}
-}
-
-texticon = {
-	icon = the_father_patron_icon
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_father.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_father_patron_icon_dark
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_father_dark.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_father_patron_icon_grey
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_father_grey.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_mother_patron_icon
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_mother.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_mother_patron_icon_dark
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_mother_dark.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_mother_patron_icon_grey
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_mother_grey.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_warrior_patron_icon
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_warrior.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_warrior_patron_icon_dark
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_warrior_dark.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_warrior_patron_icon_grey
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_warrior_grey.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_smith_patron_icon
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_smith.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_smith_patron_icon_dark
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_smith_dark.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_smith_patron_icon_grey
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_smith_grey.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_maiden_patron_icon
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_maiden.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_maiden_patron_icon_dark
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_maiden_dark.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_maiden_patron_icon_grey
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_maiden_grey.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_crone_patron_icon
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_crone.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_crone_patron_icon_dark
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_crone_dark.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_crone_patron_icon_grey
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_crone_grey.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_stranger_patron_icon
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_stranger.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_stranger_patron_icon_dark
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_stranger_dark.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
-	}
-}
-
-texticon = {
-	icon = the_stranger_patron_icon_grey
-	iconsize = {
-		texture = "gfx/interface/icons/patron_gods/the_stranger_grey.png"
-		size = { 120 120 }
-		offset = { 0 0 }
-		fontsize = 120
 	}
 }

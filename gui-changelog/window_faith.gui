@@ -21,6 +21,8 @@ window = {
 		#AGOT Disabled
 		# on_start = "[GetVariableSystem.Set( 'faith_view_tabs', 'beliefs' )]"
 		on_start = "[GetVariableSystem.Set( 'hide_bottom_left_HUD', 'true' )]"
+		#AGOT Added
+		on_start = "[GetScriptedGui('faith_switch_effect').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('faith', FaithWindow.GetFaith.MakeScope).End)]"
 
 		using = Animation_FadeIn_Quick
 		using = Sound_WindowShow_Standard
@@ -34,6 +36,26 @@ window = {
 
 		using = Animation_FadeOut_Quick
 		using = Sound_WindowHide_Standard
+	}
+
+	#AGOT Added
+	state = {
+		name = "patron_dismiss"
+		next = _show
+
+		on_start = "[GetVariableSystem.Set( 'faith_view_tabs', 'beliefs' )]"
+		trigger_when = "[And( GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' ), Not(GetScriptedGui('religion_has_patron_gods').IsShown(GuiScope.SetRoot(FaithWindow.GetFaith.MakeScope).End)))]"
+		on_finish = "[GetScriptedGui('clear_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+	}
+
+	state = {
+		name = "faith_change"
+		next = _show
+
+		on_start = "[GetScriptedGui('clear_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		trigger_when = "[Not(ObjectsEqual( GetPlayer.MakeScope.Var('selected_faith').Faith, Faith.Self ))]"
+		on_finish = "[GetScriptedGui('faith_switch_effect').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('faith', FaithWindow.GetFaith.MakeScope).End)]"
+		on_finish = "[GetScriptedGui('get_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('faith', FaithWindow.GetFaith.MakeScope).End)]"
 	}
 
 	### INSIDE WINDOW
@@ -287,8 +309,9 @@ window = {
 				hbox = {
 					name = "doctrines_grid_core_tenets"
 					datamodel = "[FaithWindow.GetGroupingHelper( 'core_tenets' ).GetGrouping]"
-					#AGOT Disabled
+					#AGOT Modified
 					# spacing = 52
+					spacing = 28
 
 					state = {
 						name = "faith_view_refresh"
@@ -1016,7 +1039,9 @@ window = {
 
 								vbox = {
 									layoutpolicy_vertical = expanding
-									min_width = 175
+									#AGOT Modified; if you change this, change the added margin below
+									# min_width = 175
+									min_width = 250
 									spacing = 3
 
 									state = {
@@ -1032,7 +1057,9 @@ window = {
 										layoutpolicy_horizontal = expanding
 										spacing = 5
 
-										coa_title_tiny = {}
+										#AGOT Modified
+										# coa_title_tiny = {}
+										coa_title_tiny = { tooltipwidget = { using = agot_province_title_tooltip } }
 
 										text_single = {
 											name = "name_notheld"
@@ -1064,6 +1091,8 @@ window = {
 										datacontext = "[Title.GetHolder]"
 										tooltip = "FAITH_HOLY_SITE_HOLDER_TOOLTIP"
 
+										#AGOT Added; hbox wrap
+										hbox = {
 										background = {
 											visible = "[Not( GuiHolySiteItem.IsHeldByFaith )]"
 											using = Status_Bad
@@ -1091,6 +1120,9 @@ window = {
 											visible = "[Title.HasHolder]"
 											datacontext = "[Title.GetHolder.GetTopLiege]"
 										}
+										}
+										#AGOT Added; hbox and previously mentioned margin
+										hbox = { margin_left = 50 }
 									}
 
 									expand = {}
@@ -1288,6 +1320,8 @@ window = {
 							size = { 0 80 }
 							tooltipwidget = { faith_tooltip_click = {} }
 							onclick = "[PdxGuiTriggerAllAnimations('faith_view_refresh')]"
+							#AGOT Added
+							visible = "[Not(Faith.HasDoctrineByKey('special_doctrine_agot_uncreated'))]"
 
 							using = tooltip_es
 

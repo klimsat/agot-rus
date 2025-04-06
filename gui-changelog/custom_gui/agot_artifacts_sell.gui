@@ -275,6 +275,9 @@
 				agot_selling_button_hover = {
 					size = {  345 80 }
 					text = agot_buy_artifacts_from_market
+					tooltip_visible = "[Not(GetScriptedGui('agot_buy_artifact').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+					tooltip = agot_buy_artifacts_ban_tooltip
+					enabled = "[GetScriptedGui('agot_buy_artifact').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 					onclick = "[GetScriptedGui('agot_buy_artifact').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 					onclick = "[GetScriptedGui('agot_get_market_artifacts').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 				}

@@ -28,20 +28,19 @@ window = {
 		using = Sound_WindowShow_Standard
 		using = Window_Position_MainTab
 		
-		# Reset to the domain tab if you have the admin tab open but no longer have access to it
-		on_start = "[PdxGuiTabs.SetResetOnShown( And( PdxGuiTabs.IsTabSet( 'admin_laws' ), Not( IsAdministrativeRuler( GetPlayer ) ) ) )]"
+		# AGOT Disabled; Made this generally available for everyone, Hijacking the Admin Law Page for our Laws, Instead of our own page: 
+		# The admin specific stuff is already locked without admin anyways
+		#on_start = "[PdxGuiTabs.SetResetOnShown( And( PdxGuiTabs.IsTabSet( 'admin_laws' ), Not( IsAdministrativeRuler( GetPlayer ) ) ) )]"
 
 		on_start = "[PdxGuiTabs.RemoveTab( 'succession' )]"
 		on_start = "[PdxGuiTabs.AddTabIf( 'vassals', Not( IsLandlessAdventurer( GetPlayer ) ) )]"
 		on_start = "[PdxGuiTabs.RemoveTabIf( 'vassals', IsLandlessAdventurer( GetPlayer ) )]"
 		on_start = "[PdxGuiTabs.AddTab( 'succession' )]"
-		on_start = "[PdxGuiTabs.RemoveTabIf( 'admin_laws', Not( IsAdministrativeRuler( GetPlayer ) ) )]"
-		on_start = "[PdxGuiTabs.AddTabIf( 'admin_laws', IsAdministrativeRuler( GetPlayer ) )]"
-		#AGOT Added
-		on_start = "[PdxGuiTabs.AddTabIf( 'my_realm_laws', And( Not( IsLandlessAdventurer( GetPlayer )), Not( GetPlayer.GetGovernment.IsType( 'nights_watch_government' ))))]"
-		on_start = "[PdxGuiTabs.RemoveTabIf( 'my_realm_laws', And( IsLandlessAdventurer( GetPlayer ), GetPlayer.GetGovernment.IsType( 'nights_watch_government' )))]"
-		on_start = "[PdxGuiTabs.AddTabIf( 'liege_realm_laws', And( And( Not( IsLandlessAdventurer( GetPlayer )), Not( GetPlayer.GetGovernment.IsType( 'nights_watch_government' ))), Not( GetPlayer.IsIndependentRuler)))]"
-		on_start = "[PdxGuiTabs.RemoveTabIf( 'liege_realm_laws', And( IsLandlessAdventurer( GetPlayer ), GetPlayer.GetGovernment.IsType( 'nights_watch_government' )))]"
+		
+		# AGOT Modified; Hijacking Admin Law Page for our Laws, Instead of our own page.
+		#on_start = "[PdxGuiTabs.RemoveTabIf( 'admin_laws', Not( IsAdministrativeRuler( GetPlayer ) ) )]"
+		#on_start = "[PdxGuiTabs.AddTabIf( 'admin_laws', IsAdministrativeRuler( GetPlayer ) )]"
+		on_start = "[PdxGuiTabs.AddTab( 'admin_laws' )]"
 		#Landless Tab Confusion Fix
 		on_start = "[PdxGuiTabs.SetResetOnShown( And( PdxGuiTabs.IsTabSet( 'vassals' ), IsLandlessAdventurer( GetPlayer ) ) )]"
 	}
@@ -470,9 +469,6 @@ window = {
 						}
 					}
 				}
-				#AGOT Added
-				agot_tab_realm_laws = {}
-				agot_tab_liege_realm_laws = {}
 
 				### DOMAIN TAB
 				scrollbox = {
