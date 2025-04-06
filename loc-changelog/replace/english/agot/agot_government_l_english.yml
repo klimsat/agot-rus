@@ -1,5 +1,5 @@
 ﻿l_english:
- government_is_free_city:0 "[government|E] type is [GetGovernment( 'free_city_government' ).GetName]"
+ government_is_free_city:0 "[government|E] type is [GetGovernment( 'administrative_government' ).GetName]"
  government_is_lp_feudal:0 "[government|E] type is [GetGovernment( 'lp_feudal_government' ).GetName]"
  government_is_nw:0 "[government|E] type is [GetGovernment( 'nights_watch_government' ).GetName]"
  government_is_ruins:0 "[government|E] type is [GetGovernment( 'ruins_government' ).GetName]"
@@ -20,14 +20,18 @@
  lp_feudal_government_desc:1 "$game_concept_feudal_desc$\n\n#F When the Targaryens forged the realm and the Iron Throne, they bound the Houses, both Great and Small, into a system of oaths and obligations from the smallest of Landed Knights to the Lords Paramount and former royal Lords. These oaths and obligations are only strong as the men and women who swear and hold them, and often are interpreted by the lords in varied ways."
 
  #Free Cities
- free_city_government_with_icon:0 "@civilian_administration! $free_city_government$"
- free_city_government:0 "Free City"
- free_city_government_adjective:0 "Free City"
- free_city_government_realm:0 "City Holdings"
- free_city_government_filter_option:0 "Free City"
- free_city_government_filter_option_desc:0 "Only show characters with Free City [government|E]"
- free_city_government_vassals_label:1 "Free City [obligations|E] are based on each [vassal|E]'s [vassal_contract|E]"
- free_city_government_desc:1 "The Free Cities of Essos are independent city states that have existed since the Valyrian Empire ruled the continent."
+ administrative_government_with_icon:0 "@civilian_administration! $administrative_government$"
+ administrative_government:0 "Free City"
+ administrative_government_adjective:0 "Free City"
+ administrative_government_realm:0 "City Holdings"
+ administrative_government_filter_option:0 "Free City"
+ administrative_government_filter_option_desc:0 "Only show characters with Free City [government|E]"
+ administrative_government_vassals_label:1 "Free City [obligations|E] are based on each [vassal|E]'s [vassal_contract|E]"
+ administrative_government_desc:1 "The Free Cities of Essos are independent city states that have existed since the Valyrian Empire ruled the continent."
+
+ free_city_election_succession_law:0 "Free City Elective"
+ free_city_election_succession_law_subname:0 "Elected, under Terms or Lifetime Appointments"
+ free_city_election_succession_law_effects:0 "\n#V Under $free_city_election_succession_law$, the ruler of the Free City will be chosen by the wealthiest and most influential citizens. Depending on the realm’s laws, different groups may have more influence, and the term length can vary—some cities may even appoint a ruler for life.#!"
 
  free_city_single_heir_succession_law:0 "Primogeniture"
  free_city_single_heir_succession_law_subname:0 "Primogeniture"
@@ -48,14 +52,27 @@
  magisterial_limited_elective_candidates_tooltip:0 "The wealthy and powerful of the Free Cities are known as the magisters"
  magisterial_limited_elective_electors:0 "Magisters"
  magisterial_limited_elective_electors_tooltip:0 "The votes of the greatest magisters decide the election. The rest will fall into line"
- magisterial_limited_succession_attached_titles_law:0 "First Magisterial Elective"
- magisterial_limited_succession_attached_titles_law_effects:0 "This title will follow the kingdom's election."
- magisterial_limited_succession_attached_titles_law_subname:0 "Magisterial"
+ magisterial_attached_titles_law:0 "First Magisterial Elective"
+ magisterial_attached_titles_law_effects:0 "This title will follow the kingdom's election."
+ magisterial_attached_titles_law_subname:0 "Magisterial"
 
  dictatorship_succession_law:0 "Dictatorship"
  dictatorship_succession_law_subname:0 "Dictatorial"
 
  election_history:0 "Elected"
+
+ # Free City Election Timer
+ agot_election_progress_loc_succession_window: "Time Until Election: [SuccessionAppointmentWindow.GetTitle.Custom('AgotElectionProgress_Succession')]"
+ agot_election_progress_loc_life_succession_window: "#Bold #V Life#!#!"
+ agot_election_progress_loc_term_succession_window: "#Bold #V [SuccessionAppointmentWindow.GetTitle.MakeScope.ScriptValue('free_city_election_progress_loc')] Years#!#!"
+ agot_election_progress_loc_this_year_succession_window: "#Bold #V This Year#!#!"
+# "#Bold [SuccessionAppointmentWindow.GetTitle.MakeScope.ScriptValue('free_city_election_progress_loc')] Years Until Next Election!#"
+
+ agot_election_progress_loc_admin_window: "Time Until Election: [GovernmentAdministrationWindow.GetTitle.Custom('AgotElectionProgress_Admin')]"
+ agot_election_progress_loc_life_admin_window: "#Bold #V Life#!#!"
+ agot_election_progress_loc_term_admin_window: "#Bold #V [GovernmentAdministrationWindow.GetTitle.MakeScope.ScriptValue('free_city_election_progress_loc')] Years#!#!"
+ agot_election_progress_loc_this_year_admin_window: "#Bold #V This Year#!#!"
+# "#Bold [GovernmentAdministrationWindow.GetTitle.MakeScope.ScriptValue('free_city_election_progress_loc')] Years Until Next Election!#"
 
  #Pirates
  pirate_government_with_icon:0 "@naval_administration! $pirate_government$"
@@ -87,7 +104,7 @@
  host_government_filter_option_desc:0 "Only show characters with Host [government|E]"
  host_government_desc:0 "A [government_form|E] that is less of a government and more of a temporary gathering of people, often for a specific purpose. The host is not a permanent [government|E], and will change or disband once the purpose is fulfilled."
 
- #Dummy govt for bookmark purposes
+ #Dummy adv govt for bookmark purposes
  dummy_adventurer_govt_for_bms:0 "$landless_adventurer_government$"
  dummy_adventurer_govt_for_bms_with_icon: "$landless_adventurer_government_with_icon$"
  dummy_adventurer_govt_for_bms_adjective:0 "$landless_adventurer_government_adjective$"
@@ -95,6 +112,14 @@
  dummy_adventurer_govt_for_bms_desc:0 "$landless_adventurer_government_desc$"
  dummy_adventurer_govt_for_bms_filter_option:0 "Developer"
  dummy_adventurer_govt_for_bms_filter_option_desc:0 "Only show characters with Developer [government|E]"
+
+ #Dummy admin govt for bookmark purposes
+ dummy_admin_govt_for_bms:0 "$administrative_government$"
+ dummy_admin_govt_for_bms_with_icon: "$administrative_government_with_icon$"
+ dummy_admin_govt_for_bms_adjective:0 "$administrative_government_adjective$"
+ dummy_admin_govt_for_bms_realm:0 "$administrative_government_realm$"
+ dummy_admin_govt_for_bms_desc:0 "$administrative_government_desc$"
+ dummy_admin_govt_for_bms_vassals_label: "$administrative_government_vassals_label$"
 
  #Night's Watch
  nights_watch_government_with_icon:0 "@nights_watch_government! $nights_watch_government$"
@@ -142,21 +167,21 @@
  kingsguard_succession_law_effects:0 "\n#V Under $kingsguard_succession_law$, the liege will select which member of the order will inherit the [titles].#!"
 
  #Theocracies
- baron_theocracy_male_faith_of_the_seven_religion:0 "Septon"
- baron_theocracy_female_faith_of_the_seven_religion:0 "Septa"
- barony_theocracy_faith_of_the_seven_religion:0 "Sept"
- count_theocracy_male_faith_of_the_seven_religion:0 "Septon"
- count_theocracy_female_faith_of_the_seven_religion:0 "Septa"
- county_theocracy_faith_of_the_seven_religion:0 "Sept"
- duke_theocracy_male_faith_of_the_seven_religion:0 "Septon"
- duke_theocracy_female_faith_of_the_seven_religion:0 "Septa"
- duchy_theocracy_faith_of_the_seven_religion:0 "Sept"
- king_theocracy_male_faith_of_the_seven_religion:0 "High Septon"
- king_theocracy_female_faith_of_the_seven_religion:0 "High Septa"
- kingdom_theocracy_faith_of_the_seven_religion:0 "Sept"
- emperor_theocracy_male_faith_of_the_seven_religion:0 "High Septon"
- emperor_theocracy_female_faith_of_the_seven_religion:0 "High Septa"
- empire_theocracy_faith_of_the_seven_religion:0 "Sept"
+ baron_theocracy_male_the_seven_religion:0 "Septon"
+ baron_theocracy_female_the_seven_religion:0 "Septa"
+ barony_theocracy_the_seven_religion:0 "Sept"
+ count_theocracy_male_the_seven_religion:0 "Septon"
+ count_theocracy_female_the_seven_religion:0 "Septa"
+ county_theocracy_the_seven_religion:0 "Sept"
+ duke_theocracy_male_the_seven_religion:0 "Septon"
+ duke_theocracy_female_the_seven_religion:0 "Septa"
+ duchy_theocracy_the_seven_religion:0 "Sept"
+ king_theocracy_male_the_seven_religion:0 "High Septon"
+ king_theocracy_female_the_seven_religion:0 "High Septa"
+ kingdom_theocracy_the_seven_religion:0 "Sept"
+ emperor_theocracy_male_the_seven_religion:0 "High Septon"
+ emperor_theocracy_female_the_seven_religion:0 "High Septa"
+ empire_theocracy_the_seven_religion:0 "Sept"
 
  # Ruins
  ruins_government:0 "Ruin"
@@ -165,7 +190,7 @@
  ruins_government_realm:0 "Ruin"
  ruins_government_filter_option:0 "$game_concept_ruins_govt$"
  ruins_government_filter_option_desc:0 "Only show characters with [ruin|E] [government|E]"
- ruins_government_desc:0 "Once a proud and standing home for many, it has now become no more than rubble and overgrown stones, with no one to Lord over them." 
+ ruins_government_desc:0 "Once a proud and standing home for many, it has now become no more than rubble and overgrown stones, with no one to Lord over them."
  baron_ruin_male:0 "Warden"
  baron_ruin_female:0 "Warden"
  barony_ruin:0 "Ruin"
@@ -181,7 +206,7 @@
  emperor_ruin_male:0 "Warden"
  emperor_ruin_female:0 "Warden"
  empire_ruin:0 "Ruin"
- #
+
  baron_watch_male:0 ""
  count_watch_male:0 "Commander"
  duke_watch_male:0 "Lord"
