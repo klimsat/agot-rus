@@ -692,14 +692,14 @@ window = {
 						text_single = {
 							visible = "[EqualTo_uint32(Faith.GetID, GetPlayer.GetFaith.GetID)]"
 							margin_right = 5
-							text = "WINDOW_COUNTY_FAITH_NAME"
+							text = "[Faith.GetAdjectiveNoTooltip]"
 							default_format = "#high"
 							max_width = 160
 						}
 
 						text_single = {
 							visible = "[NotEqualTo_uint32(Faith.GetID, GetPlayer.GetFaith.GetID)]"
-							text = "WINDOW_COUNTY_FAITH_NAME"
+							text = "[Faith.GetAdjectiveNoTooltip]"
 							default_format = "#high"
 							margin = { 5 0 }
 							max_width = 160
@@ -2649,7 +2649,7 @@ window = {
 
 										hbox = {
 											spacing = 10
-
+																						
 											widget = {
 												size = { 20 20 }
 												allow_outside = yes
