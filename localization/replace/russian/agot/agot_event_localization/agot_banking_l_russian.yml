@@ -17,13 +17,13 @@
  agot_banking.0002.a:0 "Я найду необходимые средства в другом месте."
 
  agot_banking.0003.t:0 "Предложение от Банка"
- agot_banking.0003.desc:0 "Оценив все риски, посланцы [Concept('agot_bank', 'банка')|E] решили предложить мне заём на следующих условиях:\nМне будет предоставлено @gold_icon! [ROOT.Var('loaned_amount').GetValue|2|P].\nСумма должна быть возвращена через [ROOT.Var('loan_term').GetValue|2|N] лет с [agot_bank_interest_rate|E] в размере [ROOT.Var('loan_interest_rate').GetValue|2|N] процентов годовых.\n\n#help @warning_icon! Если вы умрёте до окончания срока займа, вся сумма с процентами должна быть немедленно выплачена вашим основным наследником.#!"
+ agot_banking.0003.desc:0 "Оценив все риски, посланцы [Concept('agot_bank', 'банка')|E] решили предложить мне заём на следующих условиях:\nМне будет предоставлено @gold_icon! [ROOT.Var('loaned_amount').GetValue|2|P].\nСумма должна быть возвращена через [ROOT.Var('loan_term').GetValue|0|N] лет с [agot_bank_interest_rate|E] в размере [ROOT.Var('loan_interest_rate').GetValue|0|N] процентов годовых.\n\n#help @warning_icon! Если вы умрёте до окончания срока займа, вся сумма с процентами должна быть немедленно выплачена вашим основным наследником.#!"
  agot_banking.0003.a:0 "Эти условия оскорбительны. Проваливайте!"
  agot_banking.0003.b:0 "Условия приемлемы, я согласен!"
  agot_banking.0003.c:0 "Давайте обсудим сроки и сумму ещё раз."
 
  agot_banking.0004.t:0 "Требования Банка"
- agot_banking.0004.desc:0 "Напряжение витает в воздухе моих покоев, поскольку посланцы [Concept('agot_bank', 'банка')|E] явились за причитающимся.\n\nПосле краткого обмена любезностями, представители банка вручают мне несколько документов. Первый - копия первоначального кредитного договора с моей подписью внизу, подтверждающая истечение срока займа. Второй - лист с расчётами, согласно которым я должен выплатить [ROOT.Var('total_repayment').GetValue|2|N] незамедлительно."
+ agot_banking.0004.desc:0 "Напряжение витает в воздухе моих покоев, поскольку посланцы [Concept('agot_bank', 'банка')|E] явились за причитающимся.\n\nПосле краткого обмена любезностями, представители банка вручают мне несколько документов. Первый - копия первоначального кредитного договора, подтверждающая истечение срока займа. Второй - лист с расчётами, согласно которым я должен выплатить [ROOT.Var('total_repayment').GetValue|2|N] незамедлительно."
  agot_banking.0004.a:0 "Я полностью погашу заём."
  agot_banking.0004.a_tt:0 "Ваш долг будет погашен, и вы освободитесь от обязательств."
  agot_banking.0004.b:0 "Я могу выплатить только проценты."
@@ -131,7 +131,7 @@
  agot_banking.0202.a:0 "A thorough assessment!"
 
  agot_banking.0203.t:0 "The Bank's Offer"
- agot_banking.0203.desc:0 "The [agot_bank|E] of [ROOT.Char.GetTopLiege.GetPrimaryTitle.GetNameNoTierNoTooltip] has sent an emissary inquiring whether I would be willing to invest in the bank by purchasing a share of their operations. Every five years, I would receive [Concept('agot_bank_dividend_level','dividends')|E] on the share, or I could sell it to receive gold earlier, if needed.\n\nThe current price of a share is @gold_icon! [ROOT.Var('ShareSellingPrice').GetValue|2|N]."
+ agot_banking.0203.desc:0 "The [agot_bank|E] of [ROOT.Char.GetTopLiege.GetPrimaryTitle.GetNameNoTierNoTooltip] has sent an emissary inquiring whether I would be willing to invest in the bank by purchasing a share of their operations. Every five years, I would receive [Concept('agot_bank_dividend_level','dividends')|E] on the share, or I could sell it to receive gold earlier, if needed.\n\nThe current price of a share is @gold_icon! [ROOT.Var('ShareBuyingPrice').GetValue|2|N]."
  agot_banking.0203.a:0 "I can't afford that!"
  agot_banking.0203.b:0 "You have a deal!"
  agot_banking.0203.c:0 "Not now, I've changed my mind."

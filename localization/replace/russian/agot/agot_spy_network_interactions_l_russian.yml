@@ -18,42 +18,53 @@
  PARANOID_REASON:0 "[recipient.GetShortUINameNoTooltip] обладает свойством Паранойя: $VALUE|+0=$"
  DRUNKARD_REASON:0 "[recipient.GetShortUINameNoTooltip] обладает свойством a Пьянство: $VALUE|+0=$"
  CONTRITE_REASON:0 "[recipient.GetShortUINameNoTooltip] обладает свойством Раскаяние: $VALUE|+0=$"
+
  agot_spy_network.0200.interface.employer.t:0 "Шпион раскрывает секрет"
  agot_spy_network.0200.interface.employer.desc:0 "Один из ваших шпионов при дворе персонажа [courtowner.GetTitledFirstName] раскрыл секрет, который может оказаться полезным"
+
  agot_spy_network.0201.interface.employer.t:0 "Шпион раскрывает информацию о цели"
  agot_spy_network.0201.interface.employer.desc:0 "Один из ваших шпионов раскрывает личную и военную информацию из двора цели"
+
  agot_spy_network.0200.interface.spymaster.t:0 "Шпион раскрывает тайну"
  agot_spy_network.0200.interface.spymaster.desc:0 "Один из ваших шпионов при дворе персонажа [courtowner.GetTitledFirstName] раскрыл секрет, который может оказаться полезным."
+
  agot_spy_network.0210.t:0 "[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )],"
  agot_spy_network.0210.desc:0 "Мне удалось узнать секрет, который [secret_holder.GetTitledFirstName] пытается сохранить в тайне при дворе персонажа [courtowner.GetShortUINamePossessive]. Я передам вам найденные улики, но только в том случае, если моя служба будет справедливо вознаграждена."
  agot_spy_network.0210.a:0 "Я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] знать всё!"
  agot_spy_network.0210.b:0 "Я не [Select_CString(ROOT.Char.IsFemale, 'заинтересована', 'заинтересован' )]."
  agot_spy_network.0210.c:0 "У меня нет денег..."
+
  agot_spy_network.0400.t:0 "Шпион был завербован"
- agot_spy_network.0400.desc:0 "[councillor.GetTitledFirstName] [Select_CString(councillor.IsFemale, 'нашла', 'нашел' )] человека, готового быть вашим шпионом при дворе персонажа [target_character.GetShortUIName]."
+ agot_spy_network.0400.desc:0 "[councillor.GetTitledFirstName] [Select_CString(councillor.IsFemale, 'нашла', 'нашел' )] человека, готового шпионить для вас при дворе персонажа [target_character.GetShortUINamePossessive]."
  agot_spy_network.0400.a:0 "[new_spy.GetTitledFirstName] сослужит мне хорошую службу."
+
  agot_spy_network.0500.t:0 "Шпион был обнаружен"
  agot_spy_network.0500.desc:0 "[councillor.GetTitledFirstName] [Select_CString(councillor.IsFemale, 'обнаружила', 'обнаружил' )] шпиона! [discovered_spy.GetTitledFirstName] [Select_CString(discovered_spy.IsFemale, 'была поймана', 'был пойман' )] в процессе поисках секретов в самых тёмных уголках вашего двора."
  agot_spy_network.0500.a:0 "Кто тебя послал?"
+
  agot_spy_network.0510.t:0 "Вас обнаружили!"
  agot_spy_network.0510.desc:0 "Каким-то образом они узнали! Меня уличили в шпионаже для персонажа [discovered_spy_employer.GetTitledFirstName]. Теперь моя жизнь в опасности. Может быть, я смогу пережить это, если скажу им, кто меня нанял?"
  agot_spy_network.0510.a:0 "Пощадите! Я вам всё расскажу!"
  agot_spy_network.0510.b:0 "Мои губы остаются закрытыми!"
+
  agot_spy_network.0520.t:0 "Шпион был обнаружен"
- agot_spy_network.0520.flipped.desc:0 "[discovered_spy.GetTitledFirstName], умоляя вас о пощаде, охотно [Select_CString(discovered_spy.IsFemale, 'призналась', 'признался' )] в том, кто заказчик шпионажа: это [Select_CString(discovered_spy_employer.IsFemale, 'была', 'был' )] [discovered_spy_employer.GetTitledFirstName]!"
+ agot_spy_network.0520.flipped.desc:0 "[discovered_spy.GetTitledFirstName], умоляя о пощаде, охотно [Select_CString(discovered_spy.IsFemale, 'призналась', 'признался' )] в том, кто заказчик шпионажа: это [Select_CString(discovered_spy_employer.IsFemale, 'была', 'был' )] [discovered_spy_employer.GetTitledFirstName]!"
  agot_spy_network.0520.loyal.desc:0 "[discovered_spy.GetTitledFirstName] отказывается раскрывать, кто за вами шпионит."
  agot_spy_network.0520.desc:0 "Как вы хотите поступить с предателем?"
  agot_spy_network.0520.a:0 "[discovered_spy.GetTitledFirstNameNoTooltip] будет [Select_CString(discovered_spy.IsFemale, 'изгнана', 'изгнан' )] из державы."
  agot_spy_network.0520.b:0 "[discovered_spy.GetTitledFirstNameNoTooltip] [Select_CString(discovered_spy.IsFemale, 'должна', 'должен' )] сгнить в темнице."
  agot_spy_network.0520.c:0 "За это преступление есть только одно наказание: Смерть!"
  agot_spy_network.0520.d:0 "Я буду [Select_CString(ROOT.Char.IsFemale, 'милосердна', 'милосерден' )]. Но эти интриги должны прекратиться!"
+
  agot_spy_network.0600.t:0 "Ваш шпион был обнаружен!"
- agot_spy_network.0600.desc:0 "Тайные отчёты, которые мы получаем от персонажа [discovered_spy.GetTitledFirstName], внезапно прекратились. Похоже, навыков у шпиона было недостаточно, чтобы избежать обнаружения."
- agot_spy_network.0600.flipped.desc:0 "И что ещё хуже, [discovered_spy.GetTitledFirstName] [Select_CString(discovered_spy.IsFemale, 'раскрыла', 'раскрыл' )] вашу причастность!"
+ agot_spy_network.0600.desc:0 "Тайные отчёты, которые мы получаем от персонажа [discovered_spy.GetTitledFirstName], внезапно прекратились. Похоже, [discovered_spy.GetHerHis] навыков было недостаточно, чтобы избежать обнаружения."
+ agot_spy_network.0600.flipped.desc:0 "Что ещё хуже, [discovered_spy.GetTitledFirstName] [Select_CString(discovered_spy.IsFemale, 'раскрыла', 'раскрыл' )] вашу причастность!"
  agot_spy_network.0600.a:0 "[discovered_spy.GetSheHe|U] [Select_CString(discovered_spy.IsFemale, 'была недостаточно осторожна', 'был недостаточно осторожен' )]!"
+
  agot_spy_network.0700.t:0 "Шпион был нанят"
  agot_spy_network.0700.desc:0 "[recipient.GetTitledFirstName] [Select_CString(recipient.IsFemale, 'вступила', 'вступил' )] в ряды вашей обширной шпионской сети."
  agot_spy_network.0700.a:0 "Влияние растёт, как сорняк..."
+
  agot_spy_network.0800.t:0 "Шпион может быть нанят"
  agot_spy_network.0800.desc:0 "Ваш тайный советник обнаружил нового потенциального шпиона при дворе персонажа [recipient.GetTitledFirstName]. Возможно, [potential_new_spy.GetTitledFirstName] станет членом вашей шпионской сети, если вы будете убедительны."
  agot_spy_network.0800.a:0 "Мне следует в ближайшее время связаться с персонажем  [potential_new_spy.GetTitledFirstName]..."
