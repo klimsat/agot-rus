@@ -1299,43 +1299,44 @@ window = {
 							}
 						}
 
-						flowcontainer = {
-							margin = { 3 2 }
-							ignoreinvisible = yes
+						#AGOT Disabled
+						# flowcontainer = {
+							# margin = { 3 2 }
+							# ignoreinvisible = yes
 
-							background = {
-								using = Background_Area_Dark
-							}
+							# background = {
+								# using = Background_Area_Dark
+							# }
 
-							flowcontainer = {
-								visible = "[Character.IsTheocraticLessee]"
-								tooltip = "CV_THEOCRACY_LESSEE_TOOLTIP"
-								spacing = -2
-								direction = vertical
+							# flowcontainer = {
+								# visible = "[Character.IsTheocraticLessee]"
+								# tooltip = "CV_THEOCRACY_LESSEE_TOOLTIP"
+								# spacing = -2
+								# direction = vertical
 
-								icon = {
-									name = "theocracy_lessee_info"
-									texture = "gfx/interface/icons/icon_holding_church.dds"
-									size = { 30 30 }
-								}
+								# icon = {
+									# name = "theocracy_lessee_info"
+									# texture = "gfx/interface/icons/icon_holding_church.dds"
+									# size = { 30 30 }
+								# }
 
-								text_single = {
-									name = "domain_limit"
-									parentanchor = hcenter
-									text = "[Character.GetNumTitlesFromTheocraticLease]"
-									default_format = "#high"
-									align = center|nobaseline
-								}
-							}
+								# text_single = {
+									# name = "domain_limit"
+									# parentanchor = hcenter
+									# text = "[Character.GetNumTitlesFromTheocraticLease]"
+									# default_format = "#high"
+									# align = center|nobaseline
+								# }
+							# }
 
-							icon = {
-								name = "religious_head_info"
-								visible = "[Character.IsReligiousHead]"
-								size = { 30 30 }
-								texture = "gfx/interface/icons/icon_head_of_faith_income.dds"
-								tooltip = "CV_THEOCRACY_RELIGIOUS_HEAD_TOOLTIP"
-							}
-						}
+							# icon = {
+								# name = "religious_head_info"
+								# visible = "[Character.IsReligiousHead]"
+								# size = { 30 30 }
+								# texture = "gfx/interface/icons/icon_head_of_faith_income.dds"
+								# tooltip = "CV_THEOCRACY_RELIGIOUS_HEAD_TOOLTIP"
+							# }
+						# }
 
 						expand = {}
 					}
@@ -1383,7 +1384,9 @@ window = {
 								name = "realm_name_and_type"
 								visible = "[Character.HasLandedTitles]"
 								datacontext = "[Character.GetPrimaryTitle]"
-								max_width = 250
+								#AGOT Modified
+								# max_width = 250
+								max_width = 350
 							}
 
 							expand = {}
@@ -2823,93 +2826,97 @@ window = {
 			{
 				spacing = 10
 
-				vbox = {
-					spacing = 10
+				#AGOT Modified
+				# vbox = {
+					# spacing = 10
 
-					text_label_center = {
-						text = "MODIFIERS"
-					}
+					# text_label_center = {
+						# text = "MODIFIERS"
+					# }
 
-					text_single = {
-						visible = "[IsDataModelEmpty(CharacterWindow.GetTimedModifiers)]"
-						text = "CV_NO_MODIFIERS"
-						default_format = "#low;italic"
-					}
+					# text_single = {
+						# visible = "[IsDataModelEmpty(CharacterWindow.GetTimedModifiers)]"
+						# text = "CV_NO_MODIFIERS"
+						# default_format = "#low;italic"
+					# }
 
-					dynamicgridbox = {
-						name = "modifiers_grid"
-						datamodel = "[CharacterWindow.GetTimedModifiers]"
-						datamodel_wrap = 8
-						flipdirection = yes
+					# dynamicgridbox = {
+						# name = "modifiers_grid"
+						# datamodel = "[CharacterWindow.GetTimedModifiers]"
+						# datamodel_wrap = 8
+						# flipdirection = yes
 
-						item = {
-							modifier_item_icon = {
-								size = { 35 35 }
-							}
-						}
-					}
-				}
+						# item = {
+							# modifier_item_icon = {
+								# size = { 35 35 }
+							# }
+						# }
+					# }
+				# }
+				agot_expanded_modifiers_vbox = {}
 
 				divider_light = {
 					layoutpolicy_horizontal = expanding
 				}
 
-				vbox = {
-					spacing = 10
-					datacontext = "[CharacterWindow.GetTraitArrays]"
+				#AGOT Modified
+				# vbox = {
+					# spacing = 10
+					# datacontext = "[CharacterWindow.GetTraitArrays]"
 
-					text_label_center = {
-						text = "TRAITS"
-					}
+					# text_label_center = {
+						# text = "TRAITS"
+					# }
 
-					fixedgridbox = {
-						name = "personality_traits_grid"
-						datamodel = "[TraitArrays.GetPersonalityTraits]"
-						addcolumn = 85
-						addrow = 105
-						flipdirection = yes
-						datamodel_wrap = 6
+					# fixedgridbox = {
+						# name = "personality_traits_grid"
+						# datamodel = "[TraitArrays.GetPersonalityTraits]"
+						# addcolumn = 85
+						# addrow = 105
+						# flipdirection = yes
+						# datamodel_wrap = 6
 
-						item = {
-							icon_trait = {
-								text_multi = {
-									parentanchor = bottom|hcenter
-									widgetanchor = top|hcenter
-									position = { 0 -5 }
-									autoresize = yes
-									max_width = 80
-									text = "[Trait.GetNameNoTooltip(Character.Self)]"
-									default_format = "#high"
-									align = hcenter
-								}
-							}
-						}
-					}
+						# item = {
+							# icon_trait = {
+								# text_multi = {
+									# parentanchor = bottom|hcenter
+									# widgetanchor = top|hcenter
+									# position = { 0 -5 }
+									# autoresize = yes
+									# max_width = 80
+									# text = "[Trait.GetNameNoTooltip(Character.Self)]"
+									# default_format = "#high"
+									# align = hcenter
+								# }
+							# }
+						# }
+					# }
 
-					fixedgridbox = {
-						name = "traits_grid"
-						datamodel = "[TraitArrays.GetTraits]"
-						addcolumn = 85
-						addrow = 105
-						flipdirection = yes
-						datamodel_wrap = 6
+					# fixedgridbox = {
+						# name = "traits_grid"
+						# datamodel = "[TraitArrays.GetTraits]"
+						# addcolumn = 85
+						# addrow = 105
+						# flipdirection = yes
+						# datamodel_wrap = 6
 
-						item = {
-							icon_trait = {
-								text_multi = {
-									parentanchor = bottom|hcenter
-									widgetanchor = top|hcenter
-									position = { 0 -5 }
-									autoresize = yes
-									max_width = 80
-									text = "[Trait.GetNameNoTooltip(Character.Self)]"
-									default_format = "#high"
-									align = hcenter
-								}
-							}
-						}
-					}
-				}
+						# item = {
+							# icon_trait = {
+								# text_multi = {
+									# parentanchor = bottom|hcenter
+									# widgetanchor = top|hcenter
+									# position = { 0 -5 }
+									# autoresize = yes
+									# max_width = 80
+									# text = "[Trait.GetNameNoTooltip(Character.Self)]"
+									# default_format = "#high"
+									# align = hcenter
+								# }
+							# }
+						# }
+					# }
+				# }
+				agot_expanded_traits_vbox = {}
 			}
 		}
 

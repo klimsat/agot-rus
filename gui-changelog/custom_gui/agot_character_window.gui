@@ -378,6 +378,132 @@ types CharacterWindow
 		}
 	}
 
+		type agot_expanded_traits_vbox = vbox
+	{
+		spacing = 10
+		datacontext = "[CharacterWindow.GetTraitArrays]"
+
+		text_label_center = {
+			text = "TRAITS"
+		}
+
+		vbox = {
+			name = "personality_traits_list"
+			datamodel = "[TraitArrays.GetPersonalityTraits]"
+			layoutpolicy_horizontal = expanding
+
+			item = { agot_trait_item_vbox = {} }
+		}
+
+		vbox = {
+			name = "traits_list"
+			datamodel = "[TraitArrays.GetTraits]"
+			layoutpolicy_horizontal = expanding
+
+			item = { agot_trait_item_vbox = {} }
+		}
+	}
+
+	type agot_trait_item_vbox = vbox
+	{
+		layoutpolicy_horizontal = expanding
+		spacing = 5
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			text_label_left = {
+				layoutpolicy_horizontal = expanding
+				text = "[Trait.GetNameNoTooltipWithDefault( Character.Self )]"
+				default_format = "#high"
+			}
+		}
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			vbox = {
+				layoutpolicy_vertical = expanding
+				margin_right = 10
+				icon_trait = {}
+				expand = {}
+			}
+			vbox = {
+				text_multi = {
+					name = "trait_description"
+					layoutpolicy_horizontal = expanding
+					autoresize = yes
+					max_width = 528
+					text = "[Trait.GetFullDescription( Character.Self, Character.GetFaith )]"
+				}
+			}
+			expand = {}
+		}
+		expand = {}
+	}
+
+	type agot_expanded_modifiers_vbox = vbox
+	{
+		layoutpolicy_horizontal = expanding
+		datamodel = "[CharacterWindow.GetTimedModifiers]"
+		spacing = 10
+		margin_left = 12
+
+		text_label_center = {
+			text = "MODIFIERS"
+		}
+
+		text_single = {
+			visible = "[IsDataModelEmpty(CharacterWindow.GetTimedModifiers)]"
+			text = "CV_NO_MODIFIERS"
+			default_format = "#low;italic"
+		}
+
+		item = {
+			vbox = {
+				layoutpolicy_horizontal = expanding
+				spacing = 5
+
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					text_label_left = {
+						layoutpolicy_horizontal = expanding
+						text = "[ModifierItem.GetStaticModifier.GetName]"
+						default_format = "#high"
+					}
+				}
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					vbox = {
+						layoutpolicy_vertical = expanding
+						hbox = {
+							vbox = {
+								layoutpolicy_vertical = expanding
+								margin_top = 6
+								margin_right = 10
+								icon = {
+									size = { 32 32 }
+									texture = "[ModifierItem.GetIcon]"
+								}
+								expand = {}
+							}
+							vbox = {
+								textbox = {
+									layoutpolicy_horizontal = expanding
+									visible = "[ModifierItem.HasTooltipDataByTag('single_modifier')]"
+									datacontext = "[ModifierItem.GetSingleModifierTooltipData]"
+									max_width = 528
+									using = DefaultTooltipText
+									multiline = yes
+									text = "[TimedModifierSingleItem.GetDesc]"
+									alwaystransparent = no
+								}
+							}
+						}
+					}
+					expand = {}
+				}
+				expand = {}
+			}
+		}
+	}
+
 	type agot_personal_coat_of_arms = agot_coa_house_small
 	{
 		visible = "[GetScriptedGui('agot_has_personal_coa').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"

@@ -1,7 +1,7 @@
 widget = {
 	allow_outside = yes
 	name = "event_window_house_feuds"
-	size = { 440 350 }
+	size = { 440 340 }
 
 	vbox = {
 		container = {
@@ -15,7 +15,7 @@ widget = {
 				scrollbox = {
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
-					minimumsize = { 440 180 }
+					minimumsize = { 420 180 }
 					blockoverride "scrollbox_content" {
 						vbox = {
 							datamodel = "[Scope.GetList('possible_feuds')]"
@@ -36,7 +36,7 @@ widget = {
 												text_single = {
 													layoutpolicy_horizontal = expanding
 													text = agot_house_feud_viewer_title
-													max_width = 300
+													max_width = 240
 													using = Font_Size_Medium
 													align = left
 													margin = { 15 0 }
@@ -46,12 +46,12 @@ widget = {
 											}
 											vbox = {
 												layoutpolicy_horizontal = expanding
-												text_single = {
+												text_multi = {
 													layoutpolicy_horizontal = expanding
 													text = "[Scope.GetCharacter.GetHouse.GetName] [Scope.GetCharacter.Custom('GetFamilyFeudBalance')] [Scope.GetCharacter.MakeScope.Var('feud_viewer').Var('house_feud_house').House.GetName]"
 													using = Font_Size_Tiny
 													default_format = "#italic"
-													max_width = 300
+													max_width = 240
 													align = left
 													margin = { 15 0 }
 													autoresize = yes
