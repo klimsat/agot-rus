@@ -17,13 +17,13 @@
  agot_banking.0002.a:0 "I will find the funds I need elsewhere."
 
  agot_banking.0003.t:0 "An Offer from the Bank"
- agot_banking.0003.desc:0 "After weighing the risks involved, the envoys of the [agot_bank|E] have decided to offer me a loan with the following conditions:\nI will be loaned @gold_icon! [ROOT.Var('loaned_amount').GetValue|2|P].\nThe money is to be repaid in [ROOT.Var('loan_term').GetValue|2|N] years with an [agot_bank_interest_rate|E] of [ROOT.Var('loan_interest_rate').GetValue|2|N] percent per year.\n\n#help @warning_icon! If you die during the loan's term, the entire amount including interest becomes due immediately, to be paid by your primary surviving heir.#!"
+ agot_banking.0003.desc:0 "After weighing the risks involved, the envoys of the [agot_bank|E] have decided to offer me a loan with the following conditions:\nI will be loaned @gold_icon! [ROOT.Var('loaned_amount').GetValue|2|P].\nThe money is to be repaid in [ROOT.Var('loan_term').GetValue|0|N] years with an [agot_bank_interest_rate|E] of [ROOT.Var('loan_interest_rate').GetValue|0|N] percent per year.\n\n#help @warning_icon! If you die during the loan's term, the entire amount including interest becomes due immediately, to be paid by your primary surviving heir.#!"
  agot_banking.0003.a:0 "These conditions are an insult. Be on your way!"
  agot_banking.0003.b:0 "This deal is reasonable, I accept!"
  agot_banking.0003.c:0 "Let's talk about term and amount again."
 
  agot_banking.0004.t:0 "The Bank's Due"
- agot_banking.0004.desc:0 "Tension seeps through my halls as the envoys of the [agot_bank|E] have come to collect their due.\n\nAfter a brief exchange of pleasantries, the bank's envoys hand me a couple of sheets of paper. The first is a copy of the original loan agreement proving that its term has now expired, with my signature at the bottom of the page. The second is a sheet of calculations showing that I now owe them a total of [ROOT.Var('total_repayment').GetValue|2|N], to be paid immediately."
+ agot_banking.0004.desc:0 "Tension seeps through my halls as the envoys of the [agot_bank|E] have come to collect their due.\n\nAfter a brief exchange of pleasantries, the bank's envoys hand me a couple of sheets of paper. The first is a copy of the original loan agreement proving that its term has now expired. The second is a sheet of calculations showing that I now owe them a total of [ROOT.Var('total_repayment').GetValue|2|N], to be paid immediately."
  agot_banking.0004.a:0 "My loan will be repaid in full."
  agot_banking.0004.a_tt:0 "Your loan will be concluded, and you will be debt-free."
  agot_banking.0004.b:0 "I can only cover the interest for now."
@@ -131,7 +131,7 @@
  agot_banking.0202.a:0 "A thorough assessment!"
 
  agot_banking.0203.t:0 "The Bank's Offer"
- agot_banking.0203.desc:0 "The [agot_bank|E] of [ROOT.Char.GetTopLiege.GetPrimaryTitle.GetNameNoTierNoTooltip] has sent an emissary inquiring whether I would be willing to invest in the bank by purchasing a share of their operations. Every five years, I would receive [Concept('agot_bank_dividend_level','dividends')|E] on the share, or I could sell it to receive gold earlier, if needed.\n\nThe current price of a share is @gold_icon! [ROOT.Var('ShareSellingPrice').GetValue|2|N]."
+ agot_banking.0203.desc:0 "The [agot_bank|E] of [ROOT.Char.GetTopLiege.GetPrimaryTitle.GetNameNoTierNoTooltip] has sent an emissary inquiring whether I would be willing to invest in the bank by purchasing a share of their operations. Every five years, I would receive [Concept('agot_bank_dividend_level','dividends')|E] on the share, or I could sell it to receive gold earlier, if needed.\n\nThe current price of a share is @gold_icon! [ROOT.Var('ShareBuyingPrice').GetValue|2|N]."
  agot_banking.0203.a:0 "I can't afford that!"
  agot_banking.0203.b:0 "You have a deal!"
  agot_banking.0203.c:0 "Not now, I've changed my mind."
