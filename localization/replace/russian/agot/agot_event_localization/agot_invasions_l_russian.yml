@@ -12,7 +12,7 @@
 
  # This event fires for all humans (bar the Iron Throne and Exiles) when the Targaryen Exiles hatches dragons.
  agot_targaryen_exile_invasion.0305.t:0 "Драконы и враги"
- agot_targaryen_exile_invasion.0305.desc:0 "Меня и мой [ROOT.Char.Custom('GetCourtType')] достигли странные новости. Уцелевшие члены изгнанной династии Таргариенов, скрывающиеся где-то на востоке, вывели #italic драконов#!. Живых, дышащих и летающих тварей. Мне сказали, что именно [hatcher.GetName] [Select_CString(hatcher.IsFemale, 'вывела', 'вывел' )] драконов. Как бы то ни было, это, несомненно, означает, что близится война. И очень быстро."
+ agot_targaryen_exile_invasion.0305.desc:0 "Меня и мой [ROOT.Char.Custom('GetCourtType')] достигли странные новости. Уцелевшие члены изгнанной династии Таргариенов, скрывающиеся где-то в Эссосе, вывели #italic драконов#!. Живых, дышащих и летающих тварей. Мне сказали, что именно [hatcher.GetName] [Select_CString(hatcher.IsFemale, 'вывела', 'вывел' )] драконов. Как бы то ни было, это, несомненно, означает, что близится война. И очень быстро."
  agot_targaryen_exile_invasion.0305.a:0 "[ROOT.Char.GetFaith.HighGodName], спаси нас!"
 
  # This event fires for the IT holder when the Targaryen Exiles hatches dragons.
@@ -39,11 +39,11 @@
 
  # The event where the Targaryen Exiles win
  agot_targaryen_exile_invasion.0401.t:0 "Восхождение дракона"
- agot_targaryen_exile_invasion.0401.desc:0 "Странствия окончены, и я [Select_CString(ROOT.Char.IsFemale, 'победила', 'победил' )]! Узурпаторы повержены, а драконы вновь воссядут на [GetTitleByKey('e_the_iron_throne').GetNameNoTier] после стольких лет.\n\nХотя я [Select_CString(ROOT.Char.IsFemale, 'завоевала', 'завоевал' )] свой трон, мой путь ещё не окончен. Теперь мне предстоит разобраться с долгами моим покровителям, просьбами моего народа и происками тех, кто теперь является моими вассалами."
+ agot_targaryen_exile_invasion.0401.desc:0 "Странствия окончены, и я [Select_CString(ROOT.Char.IsFemale, 'победила', 'победил' )]! Узурпаторы повержены, а драконы вновь воссядут на [GetTitleByKey('e_the_iron_throne').GetNameNoTier] после стольких лет.\n\nХотя я [Select_CString(ROOT.Char.IsFemale, 'завоевала', 'завоевал' )] свой трон, мой борьба ещё не окончена. Теперь мне предстоит разобраться с долгами моим покровителям, просьбами моего народа и происками тех, кто теперь является моими вассалами."
  agot_targaryen_exile_invasion.0401.a:0 "Пламя и кровь."
  agot_targaryen_exile_invasion.0401.a_tt:0 "После окончания войны все союзники, пришедшие вам на помощь, перестанут быть вашими официальными союзниками, если только они не будут высокого мнения о вас."
  agot_targaryen_exile_invasion.0402.t:0 "Наказание узурпаторов"
- agot_targaryen_exile_invasion.0402.desc:0 "[Select_CString(defender.IsFemale, 'Узурпаторша', 'Узурпатор' )], [defender.GetName] [defender.GetHouse.GetName], [Select_CString(defender.IsFemale, 'предстала', 'предстал' )] передо мной в цепях. [defender.GetSheHe|U] - [Select_CString(defender.IsFemale, 'женщина, ответственная', 'мужчина, ответственный' )] за почти полное уничтожение моего дома, гибель моей семьи и многое другое. Честь требует, чтобы [defender.GetSheHe] [Select_CString(defender.IsFemale, 'заплатила', 'заплатил' )] за эти прегрешения.\n\nМои солдаты и придворные смотрят на меня с опаской, пока я решаю, какую судьбу встретит [defender.GetNameNoTooltip]. В конце концов, это будет мой первый поступок в качестве [Select_CString(ROOT.Char.IsFemale, 'королевы', 'короля' )]."
+ agot_targaryen_exile_invasion.0402.desc:0 "[Select_CString(defender.IsFemale, 'Узурпаторша', 'Узурпатор' )], [defender.GetFirstName] [defender.GetHouse.GetName], [Select_CString(defender.IsFemale, 'предстала', 'предстал' )] передо мной в цепях. [defender.GetSheHe|U] слишком долго несправедливо [Select_CString(defender.IsFemale, 'занимала', 'занимал' )] мой трон. Сколько смертей и разрушений было принесено из-за [defender.GetHerHis] действий? Честь требует, чтобы [defender.GetSheHe] [Select_CString(defender.IsFemale, 'заплатила', 'заплатил' )] за эти прегрешения.\n\nМои солдаты и придворные смотрят на меня с опаской, пока я решаю, какую судьбу встретит [defender.GetNameNoTooltip]. В конце концов, это будет мой первый поступок в качестве [Select_CString(ROOT.Char.IsFemale, 'королевы', 'короля' )]."
  agot_targaryen_exile_invasion.0402.a:0 "[defender.GetSheHe|U] [Select_CString(defender.IsFemale, 'должна быть казнена', 'должен быть казнён' )]."
  agot_targaryen_exile_invasion.0402.b:0 "Я разберусь с [Select_CString(defender.IsFemale, 'ней', 'ним' )] позже."
 
@@ -170,6 +170,7 @@
  agot_faegon_invasion.0004.t:0 "Объединение драконов"
  agot_faegon_invasion.0004.desc:0 "Я [Select_CString(ROOT.Char.IsFemale, 'согласилась', 'согласился' )] с тем, что я и [faegon.GetName] объединимся и будем сражаться за [faegon.GetHerHis] претензии на Вестерос. Но остаётся вопрос: что будет со мной?"
  agot_faegon_invasion.0004.a:0 "[faegon.GetName] получит мою полную поддержку."
+ agot_faegon_invasion.0004.a_tt:0 "Вы начнёте игру за персонажа [faegon.GetName]."
  agot_faegon_invasion.0004.b:0 "Я останусь [Select_CString(ROOT.Char.IsFemale, 'авантюристкой', 'авантюристом' )]."
 
  # Faegon tames a dragon / reacts to Targaryen offer.
