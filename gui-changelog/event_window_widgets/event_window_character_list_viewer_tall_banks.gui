@@ -1,13 +1,13 @@
 widget = {
 	allow_outside = yes
-	name = "event_window_character_list_viewer_tall_debtors"
-	size = { 480 320 } # Size of the insert into the event window which takes into account the margin below
+	name = "event_window_character_list_viewer_tall_banks"
+	size = { 490 320 } # Size of the insert into the event window which takes into account the margin below
 
 	container = {
 		allow_outside = yes
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
-		position = { 0 0 }
+		position = { 0 -20 }
 		ignoreinvisible = yes
 
 		vbox = {
@@ -17,7 +17,7 @@ widget = {
 			scrollbox = {
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
-				minimumsize = { 460 347 } # Size of the container of characters
+				minimumsize = { 490 347 } # Size of the container of characters
 
 				blockoverride "scrollbox_content"
 				{
@@ -29,7 +29,7 @@ widget = {
 						item = {
 							button_standard = {
 								name = "background_button"
-								size = { 436 68 }
+								size = { 456 90 }
 								using = tooltip_ws
 								layoutpolicy_vertical = expanding
 								datacontext = "[Scope.GetCharacter]"
@@ -46,16 +46,32 @@ widget = {
 								tooltip_horizontalbehavior = mirror
 
 								portrait_head_small = {
-									scale = 0.75
+									scale = 1
 									tooltip_visible = no
 								}
 								text_single = {
-									name = "character_name"
-									text = "agot_debtors_list"
+									name = "bank_name"
+									text = "agot_bank_list_name"
 									using = Font_Size_Medium
-									align = center
-									max_width = 320
-									position = { 70 20 }
+									align = left
+									max_width = 350
+									position = { 95 0 }
+								}
+								text_single = {
+									name = "bank_value"
+									text = "agot_bank_list_value"
+									using = Font_Size_Medium
+									align = left
+									max_width = 350
+									position = { 95 32 }
+								}
+								text_single = {
+									name = "bank_interest"
+									text = "agot_bank_list_interest"
+									using = Font_Size_Medium
+									align = left
+									max_width = 350
+									position = { 95 54 }
 								}
 								expand = {}
 							}
