@@ -108,21 +108,16 @@
  manage_realm_affairs_decision_effect:0 "Выберите, какие вопросы будут вынесены непосредственно на ваше рассмотрение, или узнайте больше о сообщениях со всего мира"
  CHOOSE_REALM_AFFAIRS_DECISION_NEXT_STEP_BUTTON:0 "Выберите тему"
 
- choose_petitionners_and_homage_name:0 "Просители и выказывание почтения"
- choose_petitionners_and_homage_tooltip:0 "Выберите, хотите ли вы принимать просителей и выражение почтения"
+ choose_petitioners_and_homage_name:0 "Просители и выказывание почтения"
+ choose_petitioners_and_homage_tooltip:0 "Выберите, хотите ли вы принимать просителей и выражение почтения"
  choose_foreign_succession_name:0 "Чужеземное наследование"
  choose_foreign_realms_succession_tooltip:0 "Выберите, хотите ли вы получать сообщения об чужеземном наследовании"
- #choose_foreign_succession_desc:0 "Choose whether you wish to be informed of foreign succession"
  choose_foreign_succession_invalid:0 "Вы уже правите Железным троном!"
  choose_nights_watch_elections_name:0 "Выборы Ночного Дозора"
  choose_nights_watch_elections_tooltip:0 "Выберите, хотите ли вы получать информацию о выборах нового Лорда-командующего Ночного Дозора"
  choose_nights_watch_elections_invalid:0 "Вы уже являетесь Лордом-командующим!"
  choose_show_valyrian_steel_name:0 "Валирийская сталь"
  choose_show_valyrian_steel_tooltip:0 "Вам будет представлен список всех, кто владеет мечами из валирийской стали"
- #choose_show_valyrian_steel_desc:0 "You will be brought a list of all known Valyrian steel wielders"
- choose_mute_epidemics_name:0 "Поветрия"
- #choose_mute_epidemics_desc:0 "Choose whether you wish to be informed of [epidemics|E] when they spread"
- choose_mute_epidemics_tooltip:0 "Выберите, хотите ли вы получать информацию о [Concept( 'epidemics', 'поветриях' )|E], когда они распространяются"
  choose_dragons_name:0 "Драконы"
  choose_dragons_tooltip:0 "Выберите, хотите ли вы получать информацию о новостях, касающихся [Concept('dragons_plural', 'драконов')|E], или список всех драконов и их яиц"
  choose_house_feuds:0 "Вражда домов"
@@ -130,6 +125,14 @@
  choose_house_feuds_tooltip:0 "Вам будет предоставлен список всех известных [Concept('house_feuds', 'враждующих')|E] домов"
  choose_dragon_trees:0 "Родословные драконов"
  choose_dragon_trees_tooltip:0 "Вам будет предоставлен список всех известных [Concept('dragon_matriarchs', 'драконов-матриархов')|E]"
+ choose_banks:0 "Банки"
+ choose_banks_desc:0 "Вам будет предоставлен список всех известных банков"
+ choose_banks_tooltip:0 "Вам будет предоставлен список всех известных банков"
+
+ #DLC Tooltips
+ agot_requires_rc:0 "Опция требует DLC «Royal Court»"
+ agot_requires_fnf:0 "Опция требует DLC «Friends and Foes»"
+ agot_requires_rtp:0 "Опция требует DLC «Roads to Power»"
 
  #Fallback event
  global_events_settings.0001.t:0 "Управление делами"
@@ -195,6 +198,38 @@
  agot_house_maintenance.1000.t:0 "Враждующие дома"
  agot_house_maintenance.1000.desc:0 "Мой сюзерен, перед вами список всех враждующих домов:"
  agot_house_maintenance.1000.desc_none:0 "Мой сюзерен, враждующих домов не существует."
+
+ ###############################################################
+ ## Manage Bank ##
+ ###############################################################
+ #Decision localization
+ manage_bank_decision:0 "Управление банком"
+ manage_bank_decision_desc:0 "Как у [Concept('agot_bank_director', 'управляюшего')|E], в моём распоряжении много средств, чтобы направить [Concept('agot_bank', 'банк')|E] к прибыльному будущему."
+ manage_bank_decision_tooltip:0 "Выберите, какую из политик банка вы хотите изменить"
+ manage_bank_decision_confirm:0 "Вызвать служащего."
+ manage_bank_decision_effect:0 "Выберите, какую из политик банка вы хотите изменить"
+ CHOOSE_BANK_DECISION_NEXT_STEP_BUTTON:0 "Выбрать тему"
+
+ set_risk_level_name:0 "Изменить степень риска"
+ set_risk_level_tooltip:0 "Вы сможете выбрать между низким, средним и высоким [Concept('agot_bank_risk_levels_l', 'уровнем риска')|E] для займов и вложений."
+
+ set_dividend_level_name:0 "Скорректировать ставки выплат"
+ set_dividend_level_tooltip:0 "Вы сможете выбрать между низкой, средней и высокой ставкой [Concept('agot_bank_dividends', 'уровня дивидендов')|E]."
+
+ set_interest_level_name:0 "Скорректировать процентные ставки"
+ set_interest_level_tooltip:0 "Вы сможете выбрать между низкой, нормальной и высокой [Concept('agot_bank_interest_rates_l', 'процентной ставкой')|E]. Чем ниже процентная ставка, тем больше клиентов вы привлечете, но тем меньше будет ваша [Concept('agot_bank_profits', 'прибыль')|E] за займ, и наоборот."
+
+ delegate_defaulter_handling_name:0 "Передать управление должниками"
+ delegate_defaulter_handling_tooltip:0 "Вы больше не будете получать сообщения о неплательщиках."
+
+ handle_defaulters_again_name:0 "Управлять должниками"
+ handle_defaulters_again_tooltip:0 "При каждом банкротстве вы будете получать уведомление."
+
+ investments_forbidden_name:0 "Отказаться от новых вложений"
+ investments_forbidden_tooltip:0 "Вы будете [Select_CString(ROOT.Char.IsFemale, 'единственной', 'единственным' )], кто сможет вложить средства в банк."
+
+ investments_allowed_name:0 "Позволить новые вложения"
+ investments_allowed_tooltip:0 "Каждый персонаж в вашей державе сможет вкладывать средства в банк."
 
  #####################################
  ## adopt_personal_coa Decision Loc ##
