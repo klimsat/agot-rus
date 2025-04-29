@@ -1,0 +1,78 @@
+widget = {
+	allow_outside = yes
+	name = "event_window_character_list_banks"
+	size = { 440 380 } # Size of the insert inside the event window; needs to fit under the text box since a margin will only push the content and not the widget
+
+	vbox = {
+		allow_outside = yes
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		position = { 0 4 } # Pushes the box around
+
+		scrollbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			blockoverride "scrollbox_content"
+			{
+				vbox = {
+					datamodel = "[GetPlayer.MakeScope.GetList('possible_characters')]"
+					layoutpolicy_horizontal = expanding
+
+					item = {
+						button_standard = {
+							name = "background_button"
+							size = { 402 90 } # Size of the button frame borders; needs to fit within the widget size
+							using = tooltip_ws
+							layoutpolicy_vertical = expanding
+							datacontext = "[Scope.GetCharacter]"
+
+							tooltipwidget = {
+								cooltip_type = {
+									blockoverride "interaction_info" {
+										text = "CHARACTER_TOOLTIP_INSTRUCTION"
+									}
+								}
+							}
+							tooltip_offset = { 0 0 }
+							tooltip_verticalbehavior = slide
+							tooltip_horizontalbehavior = mirror
+
+							portrait_head_small = {
+								scale = 1
+								tooltip_visible = no
+							}
+							text_single = {
+								name = "bank_name"
+								text = "agot_bank_list_name"
+								fontsize = 22
+								fontsize_min = 16
+								align = left
+								max_width = 300
+								position = { 95 2 }
+							}
+							text_single = {
+								name = "bank_value"
+								text = "agot_bank_list_value"
+								using = Font_Size_Medium
+								align = left
+								max_width = 300
+								position = { 95 32 }
+							}
+							text_single = {
+								name = "bank_interest"
+								text = "agot_bank_list_interest"
+								using = Font_Size_Medium
+								align = left
+								max_width = 300
+								position = { 95 54 }
+							}
+							expand = {}
+						}
+					}
+					expand = {}
+				}
+			}
+		}
+	}
+}

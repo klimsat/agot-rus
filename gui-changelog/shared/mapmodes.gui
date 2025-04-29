@@ -213,7 +213,7 @@ types MapModes
 			size = { 50 50 }
 			visible = "[And(CanChangeMapMode, Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_timeline').GetValue, '(CFixedPoint)0' ) ))]"
 
-			blockoverride 'mm_datacontext'
+			blockoverride "mm_datacontext"
 			{
 				datacontext = "[GetMapMode('realms')]"
 			}
@@ -259,7 +259,7 @@ types MapModes
 
 					size = { 38 38 }
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode('dejure_duchies')]"
 					}
@@ -279,7 +279,7 @@ types MapModes
 					name = "map_mode_kingdoms_button"
 					size = { 38 38 }
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode('dejure_kingdoms')]"
 					}
@@ -299,7 +299,7 @@ types MapModes
 					name = "map_mode_empires_button"
 					size = { 38 38 }
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode('dejure_empires')]"
 					}
@@ -330,7 +330,7 @@ types MapModes
 					size = { 32 32 }
 					parentanchor = vcenter
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode('religions')]"
 					}
@@ -346,7 +346,7 @@ types MapModes
 					size = { 32 32 }
 					parentanchor = vcenter
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode('cultures')]"
 					}
@@ -362,7 +362,7 @@ types MapModes
 					size = { 32 32 }
 					parentanchor = vcenter
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode('houses')]"
 					}
@@ -516,15 +516,9 @@ types MapModes
 					parentanchor = vcenter
 					size = { 32 32 }
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode( 'epidemics' )]"
-					}
-
-					blockoverride "mm_icon"
-					{
-						texture = "gfx/interface/icons/flat_icons/map_modes/epidemics.dds"
-						size = { 28 28 }
 					}
 
 					blockoverride "mm_button"
@@ -539,20 +533,31 @@ types MapModes
 					parentanchor = vcenter
 					size = { 32 32 }
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode( 'legends' )]"
-					}
-
-					blockoverride "mm_icon"
-					{
-						texture = "gfx/interface/icons/flat_icons/legends.dds"
-						size = { 30 30 }
 					}
 
 					blockoverride "mm_button"
 					{
 						shortcut = "map_mode_17"
+					}
+				}
+				
+				icon_button_mapmode = {
+					name = "county_fertility"
+					parentanchor = vcenter
+					size = { 32 32 }
+					visible = "[HasDlcFeature( 'khans_of_the_steppe' )]"
+
+					blockoverride "mm_datacontext"
+					{
+						datacontext = "[GetMapMode( 'migration_counties' )]"
+					}
+
+					blockoverride "mm_button"
+					{
+						shortcut = "map_mode_19"
 					}
 				}
 			}
@@ -578,14 +583,13 @@ types MapModes
 					parentanchor = vcenter
 					size = { 32 32 }
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode( 'dejure_counties' )]"
 					}
 
 					blockoverride "mm_icon"
 					{
-						texture = "gfx/interface/icons/flat_icons/county_crown.dds"
 						size = { 20 20 }
 					}
 
@@ -600,14 +604,13 @@ types MapModes
 					parentanchor = vcenter
 					size = { 32 32 }
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode( 'government' )]"
 					}
 
 					blockoverride "mm_icon"
 					{
-						texture = "gfx/interface/icons/flat_icons/government.dds"
 						size = { 20 20 }
 					}
 
@@ -623,14 +626,13 @@ types MapModes
 					parentanchor = vcenter
 					size = { 32 32 }
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode('court_languages')]"
 					}
 
 					blockoverride "mm_icon"
 					{
-						texture = "gfx/interface/icons/culture_pillars/language.dds"
 						size = { 20 20 }
 					}
 
@@ -646,14 +648,13 @@ types MapModes
 					parentanchor = vcenter
 					size = { 32 32 }
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode( 'landless_rulers' )]"
 					}
 
 					blockoverride "mm_icon"
 					{
-						texture = "gfx/interface/icons/flat_icons/adventurer.dds"
 						size = { 20 20 }
 					}
 
@@ -669,14 +670,13 @@ types MapModes
 					parentanchor = vcenter
 					size = { 32 32 }
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode( 'players' )]"
 					}
 
 					blockoverride "mm_icon"
 					{
-						texture = "gfx/interface/icons/flat_icons/map_modes/players.dds"
 						size = { 26 26 }
 					}
 
@@ -708,14 +708,13 @@ types MapModes
 					parentanchor = vcenter
 					size = { 32 32 }
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode( 'economy_buildings' )]"
 					}
 
 					blockoverride "mm_icon"
 					{
-						texture = "gfx/interface/icons/flat_icons/economy.dds"
 						size = { 20 20 }
 					}
 
@@ -730,14 +729,13 @@ types MapModes
 					parentanchor = vcenter
 					size = { 32 32 }
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode( 'county_development' )]"
 					}
 
 					blockoverride "mm_icon"
 					{
-						texture = "gfx/interface/icons/flat_icons/development.dds"
 						size = { 20 20 }
 					}
 
@@ -752,14 +750,13 @@ types MapModes
 					parentanchor = vcenter
 					size = { 32 32 }
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode( 'county_control' )]"
 					}
 
 					blockoverride "mm_icon"
 					{
-						texture = "gfx/interface/icons/flat_icons/county_control.dds"
 						size = { 22 22 }
 					}
 
@@ -774,14 +771,14 @@ types MapModes
 					parentanchor = vcenter
 					size = { 32 32 }
 
-					blockoverride 'mm_datacontext'
+					blockoverride "mm_datacontext"
 					{
 						datacontext = "[GetMapMode( 'simple_terrain' )]"
 					}
 
 					blockoverride "mm_icon"
 					{
-						texture = "gfx/interface/icons/flat_icons/terrain.dds"
+						texture = "[MapMode.GetIcon]"
 						size = { 20 20 }
 					}
 
@@ -791,6 +788,26 @@ types MapModes
 					}
 				}
 
+				icon_button_mapmode = {
+					name = "diplomatic_relations"
+					parentanchor = vcenter
+					size = { 32 32 }
+
+					blockoverride "mm_datacontext"
+					{
+						datacontext = "[GetMapMode( 'diplomatic_relations' )]"
+					}
+
+					blockoverride "mm_icon"
+					{
+						size = { 20 20 }
+					}
+
+					blockoverride "mm_button"
+					{
+						shortcut = "map_mode_diplomatic_relations"
+					}
+				}
 				#AGOT Added
 				agot_roads_map_mode_button = {}
 			}
@@ -874,6 +891,36 @@ types MapModes
 						max_height = 18
 					}
 				}
+
+				button_checkbox_label = {
+					onclick = "[ToggleShowDetailedRaidMapIcons]"
+					tooltip = "SETTING_SHOW_DETAILED_RAID_MAP_ICON_TOOLTIP"
+
+					state = {
+						name = _show
+						using = Animation_FadeIn_Standard
+					}
+
+					state = {
+						name = _hide
+						using = Animation_FadeOut_Standard
+					}
+
+					blockoverride "checkbox"
+					{
+						checked = "[ShowDetailedRaidMapIcons]"
+						size = { 20 20 }
+					}
+
+					blockoverride "text"
+					{
+						text = "SETTING_SHOW_DETAILED_RAID_MAP_ICON"
+						min_width = 120
+						max_width = 125
+						fontsize = 14
+						max_height = 18
+					}
+				}
 			}
 		}
 	}
@@ -883,7 +930,10 @@ types MapModes
 		filter_mouse = all
 		alwaystransparent = yes
 
-		size = { 320 60 }
+		block "widget_size"
+		{
+			size = { 320 60 }
+		}
 
 		background = {
 			using = Background_Area_Dark
@@ -907,36 +957,10 @@ types MapModes
 
 			expand = {}
 
-			icon_button_mapmode = {
-				blockoverride 'mm_datacontext'
-				{
-					datacontext = "[GetMapMode( 'struggle' )]"
-				}
-			}
-
-			icon_button_mapmode = {
-				blockoverride 'mm_datacontext'
-				{
-					datacontext = "[GetMapMode( 'realms' )]"
-				}
-			}
-
-			icon_button_mapmode = {
-				blockoverride 'mm_datacontext'
-				{
-					datacontext = "[GetMapMode( 'religions' )]"
-				}
-			}
-
-			icon_button_mapmode = {
-				blockoverride 'mm_datacontext'
-				{
-					datacontext = "[GetMapMode( 'cultures' )]"
-				}
-			}
+			block "map_mode_buttons" {}
 
 			widget = {
-				size = {32 32}
+				size = { 32 32 }
 
 				button_round = {
 					size = { 30 30 }

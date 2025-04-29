@@ -4,73 +4,9 @@
 
 types CouncilWindow
 {
-	type agot_nw_personal_steward_insert = widget_councillor_item
-	{
-		layoutpolicy_horizontal = expanding
-		layoutpolicy_vertical = expanding
-		datacontext = "[CouncilWindow.GetCouncillor('councillor_personal_steward')]"
-		datacontext = "[GuiCouncilPosition.GetActiveCouncilTask]"
-		datacontext = "[ActiveCouncilTask.GetPositionType]"
-		datacontext = "[ActiveCouncilTask.GetCouncillor]"
-
-		visible = "[GetPlayer.GetGovernment.IsType('nights_watch_government')]"
-
-		background =  {
-			texture = "gfx/interface/skinned/illustrations/council/bg_council_spouse.dds"
-			margin_bottom = 20
-			margin_right = 5
-			fittype = centercrop
-			alpha = 1
-			using = Mask_Rough_Edges
-		}
-
-		background = {
-			texture = "gfx/interface/component_masks/mask_vignette.dds"
-			color = { 0.15 0.15 0.15 1 }
-			alpha = 0.3
-		}
-
-		blockoverride "portrait_size"
-		{
-			size = { 260 286 }
-		}
-
-		blockoverride "regular_task" {}
-
-		blockoverride "spouse_task"
-		{
-			hbox = {
-				visible = "[Character.IsValid]"
-				layoutpolicy_horizontal = expanding
-				margin = { 5 5 }
-				spacing = 3
-
-				button_standard = {
-					size = { 202 25 }
-					onclick = "[GuiCouncilPosition.ShowHideTasks]"
-					tooltip = "[GuiCouncilPosition.GetShowHideTooltip]"
-					down = "[GuiCouncilPosition.ArePotentialTasksVisible]"
-
-					text_single = {
-						datacontext = "[ActiveCouncilTask.GetTaskTypeOrDefault]"
-						parentanchor = vcenter
-						position = { 10 0 }
-						text = "[CouncilTaskType.GetName]"
-						align = nobaseline
-					}
-
-					button_change = {
-						name = "show_tasks"
-						parentanchor = right|vcenter
-						position = { -5 0 }
-						alwaystransparent = yes
-						size = { 25 25 }
-					}
-				}
-			}
-		}
-	}
-
+	#############
+	# CASTELLAN #
+	#############
 	type agot_castellan_insert = widget_councillor_item
 	{
 		layoutpolicy_horizontal = expanding
@@ -223,50 +159,49 @@ types CouncilWindow
 			}
 		}
 		#Castellan Reassign Button
-		container = {
-			visible = "[Not(CouncilWindow.IsLiegeCouncilShown)]"
-			hbox = {
-				margin = { 195 0 }
-				position = { -10 30 }
-				visible = "[GuiPotentialCouncilTask.IsVisible]"
-				widget = {
+		hbox = {
+			position = { 96 -52 }
+			visible = "[GuiPotentialCouncilTask.IsVisible]"
+			widget = {
+				size = { 60 60 }
+				icon = {
+					visible = "[GuiPotentialCouncilTask.IsActive]"
+					texture = "gfx/particles/halo.dds"
 					size = { 60 60 }
-					icon = {
-						visible = "[GuiPotentialCouncilTask.IsActive]"
-						texture = "gfx/particles/halo.dds"
-						size = { 60 60 }
-						color = { 1 0.85 0.6 1 }
-					}
+					color = { 1 0.85 0.6 1 }
+				}
 
-					button_round = {
-						shaderfile = "gfx/FX/pdxgui_pushbutton.shader"
-						visible = "[Or(And(GuiPotentialCouncilTask.CanSelect, Not(CouncilWindow.IsLiegeCouncilShown)), GuiPotentialCouncilTask.IsActive)]"
-						size = { 60 60 } #funi number
-						gfxtype = togglepushbuttongfx
-						effectname = "NoHighlight"
+				button_round = {
+					shaderfile = "gfx/FX/pdxgui_pushbutton.shader"
+					visible = "[Or(And(GuiPotentialCouncilTask.CanSelect, Not(CouncilWindow.IsLiegeCouncilShown)), GuiPotentialCouncilTask.IsActive)]"
+					size = { 60 60 } #funi number
+					gfxtype = togglepushbuttongfx
+					effectname = "NoHighlight"
 
-						datacontext = "[GetScriptedGui('castellan_reassign')]"
-						onclick = "[GetScriptedGui('castellan_reassign').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-						enabled = "[Not(CouncilWindow.IsLiegeCouncilShown)]"
-						tooltip = "COUNCIL_TASK_CASTELLAN_REVERT"
-						down = "[GuiPotentialCouncilTask.IsActive]"
+					datacontext = "[GetScriptedGui('castellan_reassign')]"
+					onclick = "[GetScriptedGui('castellan_reassign').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+					enabled = "[Not(CouncilWindow.IsLiegeCouncilShown)]"
+					tooltip = "COUNCIL_TASK_CASTELLAN_REVERT"
+					down = "[GuiPotentialCouncilTask.IsActive]"
 
-						using = tooltip_se
-					}
+					using = tooltip_se
+				}
 
-					button_change_castellan_task = {
-						color = { 0.7 0.7 0.7 0.7 }
-						alwaystransparent = yes
-						parentanchor = center
-						position = { 0 0 }
-						size = { 55 55 }
-						using = tooltip_ws
-					}
+				button_change_castellan_task = {
+					color = { 0.7 0.7 0.7 0.7 }
+					alwaystransparent = yes
+					parentanchor = center
+					position = { 0 0 }
+					size = { 55 55 }
+					using = tooltip_ws
 				}
 			}
 		}
 	}
 
+	############################
+	# ADMIRAL AND CHAPLAIN ROW #
+	############################
 	type agot_admiral_chaplain_insert = hbox
 	{
 		layoutpolicy_horizontal = expanding
@@ -332,7 +267,79 @@ types CouncilWindow
 		}
 	}
 
-	# First ranger stuff
+	#################################
+	# NIGHTS WATCH PERSONAL STEWARD #
+	#################################
+	type agot_nw_personal_steward_insert = widget_councillor_item
+	{
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		datacontext = "[CouncilWindow.GetCouncillor('councillor_personal_steward')]"
+		datacontext = "[GuiCouncilPosition.GetActiveCouncilTask]"
+		datacontext = "[ActiveCouncilTask.GetPositionType]"
+		datacontext = "[ActiveCouncilTask.GetCouncillor]"
+
+		visible = "[GetPlayer.GetGovernment.IsType('nights_watch_government')]"
+
+		background =  {
+			texture = "gfx/interface/skinned/illustrations/council/bg_council_spouse.dds"
+			margin_bottom = 20
+			margin_right = 5
+			fittype = centercrop
+			alpha = 1
+			using = Mask_Rough_Edges
+		}
+
+		background = {
+			texture = "gfx/interface/component_masks/mask_vignette.dds"
+			color = { 0.15 0.15 0.15 1 }
+			alpha = 0.3
+		}
+
+		blockoverride "portrait_size"
+		{
+			size = { 260 286 }
+		}
+
+		blockoverride "regular_task" {}
+
+		blockoverride "spouse_task"
+		{
+			hbox = {
+				visible = "[Character.IsValid]"
+				layoutpolicy_horizontal = expanding
+				margin = { 5 5 }
+				spacing = 3
+
+				button_standard = {
+					size = { 202 25 }
+					onclick = "[GuiCouncilPosition.ShowHideTasks]"
+					tooltip = "[GuiCouncilPosition.GetShowHideTooltip]"
+					down = "[GuiCouncilPosition.ArePotentialTasksVisible]"
+
+					text_single = {
+						datacontext = "[ActiveCouncilTask.GetTaskTypeOrDefault]"
+						parentanchor = vcenter
+						position = { 10 0 }
+						text = "[CouncilTaskType.GetName]"
+						align = nobaseline
+					}
+
+					button_change = {
+						name = "show_tasks"
+						parentanchor = right|vcenter
+						position = { -5 0 }
+						alwaystransparent = yes
+						size = { 25 25 }
+					}
+				}
+			}
+		}
+	}
+
+	#####################################
+	# NIGHTS WATCH FIRST RANGER COUNCIL #
+	#####################################
 	type agot_ranger_one_insert = widget_councillor_item
 	{
 		layoutpolicy_horizontal = expanding

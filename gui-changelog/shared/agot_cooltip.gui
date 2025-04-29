@@ -521,6 +521,46 @@ template agot_dragon_army_comp # Character Window Army Tooltip
 	}
 }
 
+template agot_hud_dragon_army_comp # HUD Army Tooltip
+{
+	agot_object_tooltip_pop_out = {
+		blockoverride "extra_data" {
+			spacer = {
+				size = { 0 4 }
+			}
+			cooltip_paragraph = {
+				text = "realm_dragons_faux_tt"
+				default_format = "#bold"
+				fontsize = 18
+				margin_bottom = -3
+			}
+			cooltip_paragraph = {
+				raw_text  = "@dragon_icon![owned_dragons|E]: #V [GetPlayer.MakeScope.ScriptValue('owned_dragons_in_realm')|0#!]"
+				visible = "[GetScriptedGui('agot_can_see_owned_dragons_military').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				margin_bottom = -3
+			}
+			cooltip_paragraph = {
+				raw_text  = "@dragon_icon![tamed_dragons|E]: #V [GetPlayer.MakeScope.ScriptValue('tamed_dragons_in_realm')|0#!]"
+				visible = "[GetScriptedGui('agot_can_see_tamed_dragons_military').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				margin_bottom = -3
+			}
+			cooltip_paragraph = {
+				raw_text  = "@dragon_icon![wild_dragons|E]: #V [GetPlayer.MakeScope.ScriptValue('wild_dragons_in_realm')|0#!]"
+				visible = "[GetScriptedGui('agot_can_see_wild_dragons_military').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				margin_bottom = -3
+			}
+			spacer = {
+				visible = "[GetScriptedGui('agot_can_see_dragon_military_view').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				size = { 0 10 }
+			}
+			cooltip_paragraph = {
+				text = "[InGameTopbar.GetMilitaryTooltip]"
+				margin_bottom = -10
+			}
+		}
+	}
+}
+
 template agot_war_portrait_dragon_army_comp # Individual Participant Portrait Army Tooltip
 {
 	agot_object_tooltip_pop_out = {

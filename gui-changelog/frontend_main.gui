@@ -744,27 +744,40 @@ widget = {
 										alwaystransparent = yes
 									}
 
-									coat_of_arms_icon = {
-										name = "realm_flag"
-										alwaystransparent = yes
+									widget = {
+										size = { 64 68 }
 
-										size = { 62 62 }
-										coat_of_arms_slot = "[SaveGameItem.GetCoatOfArms.GetSlot('(int32)124','(int32)124')]"
-										coat_of_arms = "[SaveGameItem.GetCoatOfArms.GetTexture('(int32)124','(int32)124')]"
-										coat_of_arms_mask = "[SaveGameItem.GetPlayerGovernment.GetRealmMask]"
-
-										coa_realm_overlay  = {
-											texture = "[SaveGameItem.GetPlayerGovernment.GetRealmFrame('(int32)62')]"
+										coa_realm_shadow = {
+											texture = "[SaveGameItem.GetPlayerGovernment.GetRealmFrameShadow('(int32)62')]"
 											frame = "[SaveGameItem.GetPlayerTier]"
-											framesize = { 62 71 }
-											size = { 62 71 }
+											framesize = { 64 68 }
+											size = { 64 68 }
 										}
+										
+										coat_of_arms_icon = {
+											name = "realm_flag"
+											parentanchor = center
+											alwaystransparent = yes
 
-										coa_realm_topframe  = {
-											texture = "gfx/interface/coat_of_arms/topframe_62.dds"
-											frame = "[SaveGameItem.GetPlayerTier]"
-											framesize = { 62 71 }
-											size = { 62 71 }
+											size = { 64 68 }
+											coat_of_arms_slot = "[SaveGameItem.GetCoatOfArms.GetSlot('(int32)124','(int32)124')]"
+											coat_of_arms = "[SaveGameItem.GetCoatOfArms.GetTexture('(int32)124','(int32)124')]"
+											coat_of_arms_mask = "[SaveGameItem.GetPlayerGovernment.GetRealmMask]"
+
+											coa_realm_overlay  = {
+												texture = "[SaveGameItem.GetPlayerGovernment.GetRealmFrame('(int32)62')]"
+												frame = "[SaveGameItem.GetPlayerTier]"
+												framesize = { 64 68 }
+												size = { 64 68 }
+											}
+
+											coa_realm_topframe  = {
+												texture = "gfx/interface/coat_of_arms/topframe_62.dds"
+												frame = "[SaveGameItem.GetPlayerTier]"
+												framesize = { 64 68 }
+												position = { 0 -2 }
+												size = { 64 68 }
+											}
 										}
 									}
 								}
@@ -1624,7 +1637,7 @@ widget = {
 						layoutpolicy_horizontal = expanding
 
 						expand = {}
-						
+
 
 						button_standard = {
 							size = { 160 40 }
@@ -1654,7 +1667,7 @@ widget = {
 									default_format = "#clickable"
 									alwaystransparent = yes
 								}
-								
+
 								vbox = {
 									datacontext = "[GetGameRules]"
 									achievements_enabled_icon = {

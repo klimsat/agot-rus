@@ -172,6 +172,10 @@ template shown_if_not_fake_death_and_not_dragon {
 	visible = "[And(Not(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End )), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
 }
 
+template shown_if_not_fake_death_dragon_or_herder {
+	visible = "[And( Not( And( Character.GetGovernment.IsType( 'herder_government' ), Character.HasLandedTitles) ), And(Not(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End )), Not(Character.HasTrait(GetTrait('dragon').Self))))]"
+}
+
 template shown_if_fake_death_and_not_dragon {
 	visible = "[And(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End ), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
 }

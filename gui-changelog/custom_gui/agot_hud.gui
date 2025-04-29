@@ -2,6 +2,57 @@
 ################# AGOT HUD WINDOW ##################
 ####################################################
 
+types HUD
+{
+	type agot_hud_dragon_army_composition = hbox
+	{
+		visible = "[GetScriptedGui('agot_can_see_dragon_military_view').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		spacing = 5
+		tooltipwidget = {
+			using = agot_hud_dragon_army_comp
+		}
+
+		icon = {
+			name = "icon_soldier"
+			glow = {
+				color = { 1 0.5 0.1 0.8 }
+				glow_radius = 6
+				using = AGOT_Glow_Standard
+			}
+			size = { 25 25 }
+			texture = "gfx/interface/icons/icon_soldier.dds"
+		}
+
+		flowcontainer = {
+			direction = vertical
+			datacontext = "[GetPlayerArmyComposition]"
+
+			flowcontainer = {
+				spacing = 2
+
+				text_single = {
+					name = "strength"
+					text = "[InGameTopbar.GetCurrentTroopsCount]"
+					default_format = "#high"
+					align = nobaseline
+				}
+
+				army_quality_icon = {}
+			}
+
+			progressbar_standard = {
+				name = "soldiers_max"
+				size = { 40 8 }
+				visible = "[NotEqualTo_int32(ArmyComposition.GetMaxNumberOfSoldiers, '(int32)0')]"
+
+				min = 0
+				max = "[IntToFloat(ArmyComposition.GetMaxNumberOfSoldiers)]"
+				value = "[IntToFloat(ArmyComposition.GetCurrentNumberOfSoldiers)]"
+			}
+		}
+	}
+}
+
 template Language_Detection
 {
 	state = {

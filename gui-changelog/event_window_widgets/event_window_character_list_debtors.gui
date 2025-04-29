@@ -1,7 +1,7 @@
 widget = {
 	allow_outside = yes
-	name = "event_window_post_war_kg_keep_or_kick_widget"
-	size = { 440 238 } # Size of the insert inside the event window; needs to fit under the text box since a margin will only push the content and not the widget
+	name = "event_window_character_list_debtors"
+	size = { 440 380 } # Size of the insert inside the event window; needs to fit under the text box since a margin will only push the content and not the widget
 
 	vbox = {
 		allow_outside = yes
@@ -44,25 +44,13 @@ widget = {
 							}
 							text_single = {
 								name = "character_name"
-								text = "[Character.GetShortUINameNoTooltip]"
-								using = Font_Size_Small
+								text = "agot_debtors_list"
+								using = Font_Size_Medium
 								align = center
-								autoresize = yes
-								max_width = 200
+								max_width = 320
 								position = { 70 20 }
 							}
-							button_checkbox_label = {
-								name = "remove_kg_checkbox"
-								onclick = "[GetScriptedGui('agot_remove_from_kg_sgui').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'kg', Character.MakeScope ).End )]"
-								blockoverride "checkbox" {
-									checked = "[GetScriptedGui('agot_remove_from_kg_sgui_checkbox').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'kg', Character.MakeScope ).End )]"
-								}
-								blockoverride "text" {
-									text = agot_remove_from_kg
-									using = Font_Size_Tiny
-								}
-								position = { 280 20 }
-							}
+							expand = {}
 						}
 					}
 					expand = {}

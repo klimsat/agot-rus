@@ -95,92 +95,95 @@
 						margin_bottom = 10
 						using = Font_Type_Flavor
 						using = Font_Size_Medium
+
 						text = "[Title.GetNameNoTooltip]"
 					}
 
-                    # AGOT Disabled
+					#AGOT Disabled
 					# State Faith
 					# hbox = {
-					# 	layoutpolicy_horizontal = expanding
+						# layoutpolicy_horizontal = expanding
 
-					# 	hbox = {
-					# 		margin = { 8 8 }
+						# hbox = {
+							# margin = { 8 8 }
 
-					# 		background = {
-					# 			using = Background_Area_Dark
-					# 			alpha = 0.75
-					# 		}
+							# background = {
+								# using = Background_Area_Dark
+								# alpha = 0.75
+							# }
 
-					# 		icon = {
-					# 			size = { 50 50 }
-					# 			texture = "[Title.GetStateFaith.GetIcon]"
-					# 		}
+							# icon = {
+								# size = { 50 50 }
+								# texture = "[Title.GetStateFaith.GetIcon]"
+							# }
 
-                    #         vbox = {
-                    #             spacing = 2
-                    #             text_single = {
-                    #                 text = "[Title.GetStateFaith.GetName]"
-                    #                 using = Font_Size_Medium
-                    #             }
-                    #             text_single = {
-                    #                 text = "[state_faith|E]"
-                    #                 using = Font_Size_Small
-                    #             }
-                    #         }
+							# vbox = {
+								# spacing = 2
 
-					# 		vbox = {
-					# 			margin_left = 10
+								# text_single = {
+									# text = "[Title.GetStateFaith.GetName]"
+									# using = Font_Size_Medium
+								# }
 
-					# 			button_round = {
-					# 				datacontext = "[GetDecisionWithKey('change_state_faith')]"
-					# 				visible = "[Decision.IsShownForPlayer]"
+								# text_single = {
+									# text = "[state_faith|E]"
+									# using = Font_Size_Small
+								# }
+							# }
 
-					# 				size = { 30 30 }
+							# vbox = {
+								# margin_left = 10
 
-					# 				onclick = "[OpenGameViewData( 'decision_detail', Decision.Self )]"
-					# 				tooltip = "[Decision.GetShortDescForPlayer]"
-					# 				using = tooltip_ne
+								# button_round = {
+									# datacontext = "[GetDecisionWithKey('change_state_faith')]"
+									# visible = "[Decision.IsShownForPlayer]"
 
-					# 				button_change = {
-					# 					parentanchor = center
-					# 					alwaystransparent = yes
-					# 					size = { 20 20 }
-					# 				}
-					# 			}
+									# size = { 30 30 }
 
-					# 			button_round = {
-					# 				datacontext = "[GetDecisionWithKey('adopt_state_faith')]"
-					# 				visible = "[Decision.IsShownForPlayer]"
-					# 				onclick = "[OpenGameViewData( 'decision_detail', Decision.Self )]"
-					# 				tooltip = "[Decision.GetShortDescForPlayer]"
-					# 				using = tooltip_ne
+									# onclick = "[OpenGameViewData( 'decision_detail', Decision.Self )]"
+									# tooltip = "[Decision.GetShortDescForPlayer]"
+									# using = tooltip_ne
 
-					# 				size = { 30 30 }
+									# button_change = {
+										# parentanchor = center
+										# alwaystransparent = yes
+										# size = { 20 20 }
+									# }
+								# }
 
-					# 				button_plus = {
-					# 					parentanchor = center
-					# 					alwaystransparent = yes
-					# 					size = { 20 20 }
-					# 				}
-					# 			}
-					# 		}
-					# 	}
-					# 	expand = {}
+								# button_round = {
+									# datacontext = "[GetDecisionWithKey('adopt_state_faith')]"
+									# visible = "[Decision.IsShownForPlayer]"
+									# onclick = "[OpenGameViewData( 'decision_detail', Decision.Self )]"
+									# tooltip = "[Decision.GetShortDescForPlayer]"
+									# using = tooltip_ne
+
+									# size = { 30 30 }
+
+									# button_plus = {
+										# parentanchor = center
+										# alwaystransparent = yes
+										# size = { 20 20 }
+									# }
+								# }
+							# }
+						# }
+						# expand = {}
 					# }
-                    
-                    # AGOT Added
-                    vbox = {
-                        visible = "[GetScriptedGui('agot_election_progress_bar').IsShown(GuiScope.SetRoot(GovernmentAdministrationWindow.GetTitle.GetHolder.MakeScope).End)]"
-                        agot_election_progressbar = {
-                            size = { 200 25 }
-                            value = "[GovernmentAdministrationWindow.GetTitle.MakeScope.ScriptValue('free_city_election_progress')]"
-                            using = tooltip_es
-                        }
-                        text_single = {
-                            margin_bottom = 10
-                            text = agot_election_progress_loc_admin_window
-                        }
-                    }
+
+					#AGOT Added
+					vbox = {
+						visible = "[GetScriptedGui('agot_election_progress_bar').IsShown(GuiScope.SetRoot(GovernmentAdministrationWindow.GetTitle.GetHolder.MakeScope).End)]"
+						agot_election_progressbar = {
+							size = { 200 25 }
+							value = "[GovernmentAdministrationWindow.GetTitle.MakeScope.ScriptValue('free_city_election_progress')]"
+							using = tooltip_es
+						}
+						text_single = {
+							margin_bottom = 10
+							text = agot_election_progress_loc_admin_window
+						}
+					}
 				}
 				expand = {}
 			}

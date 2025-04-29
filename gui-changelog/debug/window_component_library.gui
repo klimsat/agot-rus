@@ -49,10 +49,10 @@ window = {
             button_tertiary = {
                 parentanchor = vcenter
                 position = { 1050 0 }
-				size = { 200 40 }
+                size = { 200 40 }
                 layoutpolicy_horizontal = expanding
                 raw_text = "Spawn a Test Window"
-				raw_tooltip = "Window for GUI testing (test_gui.gui)"
+                raw_tooltip = "Window for GUI testing (test_gui.gui)"
 
                 onclick = "[ExecuteConsoleCommand('gui.CreateWidget gui/debug/test_gui.gui test_window')]"
             }
@@ -151,6 +151,14 @@ window = {
                 onclick = "[GetVariableSystem.Set( 'ui_library_tabs', 'animations' )]"
                 down = "[GetVariableSystem.HasValue( 'ui_library_tabs', 'animations' )]"
             }
+
+            button_tab = {
+                layoutpolicy_horizontal = expanding
+                raw_text = "Placeholders"
+
+                onclick = "[GetVariableSystem.Set( 'ui_library_tabs', 'placeholders' )]"
+                down = "[GetVariableSystem.HasValue( 'ui_library_tabs', 'placeholders' )]"
+            }
         }
 
         scrollbox = {
@@ -171,7 +179,6 @@ window = {
                             raw_text = "Action buttons represent an action you can DO, that change the game state or applies changes."
                         }
                     }
-
 
                     vbox_component_entry = {
                         blockoverride "vce_name"
@@ -2071,6 +2078,269 @@ window = {
                         }
                     }
                 }
+
+                vbox = {
+                    name = "placeholders"
+                    visible = "[GetVariableSystem.HasValue( 'ui_library_tabs', 'placeholders' )]"
+                    layoutpolicy_horizontal = expanding
+
+                    hbox_text_entry = {
+                        blockoverride "hte_text"
+                        {
+                            raw_text = "This tab contains our debug and placeholder assets. You can use these whenever there is art missing or in early development to simply wireframe a UI."
+                        }
+                    }
+
+                    vbox_component_entry = {
+                        blockoverride "vce_name"
+                        {
+                            raw_text = "debug_square"
+                        }
+
+                        blockoverride "vce_area"
+                        {
+                            debug_square = {}
+                        }
+
+                        blockoverride "vce_desc"
+                        {
+                            raw_text = "Our classic vintage debug_square. This shouldn't have to be used as much anymore but it's there if you need it."
+                        }
+                    }
+
+                    vbox_component_entry = {
+                        blockoverride "vce_name"
+                        {
+                            raw_text = "icon_placeholder"
+                        }
+
+                        blockoverride "vce_area"
+                        {
+                            icon_placeholder = {
+                                size = { 30 30 }
+                            }
+                        }
+
+                        blockoverride "vce_desc"
+                        {
+                            raw_text = "A placeholder version of an icon which can be used when art isn't made yet. When hooking in icons which have not yet been made by art, simply copy the texture in the gfx/interface/_debug-folder and paste it in the correct game folder. Then change the name to the name specified in the related Jira."
+                        }
+                    }
+
+                    vbox_component_entry = {
+                        blockoverride "vce_name"
+                        {
+                            raw_text = "flat_icon_standard_placeholder"
+                        }
+
+                        blockoverride "vce_area"
+                        {
+                            icon_flat_standard_placeholder = {
+                                size = { 30 30 }
+                            }
+                        }
+
+                        blockoverride "vce_desc"
+                        {
+                            raw_text = "A placeholder version of an icon_flat_standard which can be used when art isn't made yet. This is just a black icon shape with a texture applied on top of it through script. When hooking in icons which have not yet been made by art, simply copy the texture in the gfx/interface/_debug-folder and paste it in the correct game folder. Then change the name to the name specified in the related Jira."
+                        }
+                    }
+
+                    vbox_component_entry = {
+                        blockoverride "vce_name"
+                        {
+                            raw_text = "button_icon_placeholder"
+                        }
+
+                        blockoverride "vce_area"
+                        {
+                            button_icon_placeholder = {
+                                size = { 30 30 }
+                            }
+                        }
+
+                        blockoverride "vce_desc"
+                        {
+                            raw_text = "A placeholder version of an icon_flat_standard which can be used when art isn't made yet. To find out when to use this button type go to the Action Buttons tab in this window for more information."
+                        }
+                    }
+
+                    vbox_component_entry = {
+                        blockoverride "vce_name"
+                        {
+                            raw_text = "button_round_placeholder"
+                        }
+
+                        blockoverride "vce_area"
+                        {
+                            button_round_placeholder = {
+                                down = "[GetVariableSystem.Exists('ui_library_down_state')]"
+
+                                button_icon_placeholder = {
+                                    parentanchor = center
+                                    size = { 25 25 }
+                                    texture = "gfx/interface/_debug/icon_placeholder_01.dds"
+                                    down = "[GetVariableSystem.Exists('ui_library_down_state')]"
+                                }
+                            }
+                        }
+
+                        blockoverride "vce_desc"
+                        {
+                            raw_text = "A placeholder round button icon which can be used when icon isn't made by art yet. This is very similar to the button_icon type but with the addition of a round frame. To find out when to use this button type go to the Action Buttons tab in this window for more information."
+                        }
+                    }
+
+                    vbox_component_entry = {
+                        blockoverride "vce_name"
+                        {
+                            raw_text = "button_primary_placeholder & button_primary_big_placeholder"
+                        }
+
+                        blockoverride "vce_area"
+                        {
+                            button_primary_placeholder = {
+                                down = "[GetVariableSystem.Exists('ui_library_down_state')]"
+                            }
+
+                            button_primary_big_placeholder = {
+                                down = "[GetVariableSystem.Exists('ui_library_down_state')]"
+                            }
+                        }
+
+                        blockoverride "vce_desc"
+                        {
+                            raw_text = "Placeholder version of our primary button. To find out when to use this button type go to the Action Buttons tab in this window for more information."
+                        }
+                    }
+
+                    vbox_component_entry = {
+                        blockoverride "vce_name"
+                        {
+                            raw_text = "button_standard_placeholder & button_standard_big_placeholder"
+                        }
+
+                        blockoverride "vce_area"
+                        {
+                            button_standard_placeholder = {
+                                down = "[GetVariableSystem.Exists('ui_library_down_state')]"
+                            }
+
+                            button_standard_big_placeholder = {
+                                down = "[GetVariableSystem.Exists('ui_library_down_state')]"
+                            }
+                        }
+
+                        blockoverride "vce_desc"
+                        {
+                            raw_text = "Placeholder version of our standard button. To find out when to use this button type go to the Action Buttons tab in this window for more information."
+                        }
+                    }
+
+                    vbox_component_entry = {
+                        blockoverride "vce_name"
+                        {
+                            raw_text = "button_tertiary_placeholder"
+                        }
+
+                        blockoverride "vce_area"
+                        {
+                            button_tertiary_placeholder = {
+                                down = "[GetVariableSystem.Exists('ui_library_down_state')]"
+                            }
+                        }
+
+                        blockoverride "vce_desc"
+                        {
+                            raw_text = "Placeholder version of our tertiary button. To find out when to use this button type go to the Action Buttons tab in this window for more information."
+                        }
+                    }
+
+                    vbox_component_entry = {
+                        blockoverride "vce_name"
+                        {
+                            raw_text = "Text_Placeholder & Debug Text Format (##D)"
+                        }
+
+                        blockoverride "vce_area"
+                        {
+                            text_single = {
+                                raw_text = "Flygande bäckasiner söka hwila på mjuka tuvor"
+                                using = Text_Placeholder
+                            }
+                        }
+
+                        blockoverride "vce_desc"
+                        {
+                            raw_text = "Text template format that can be used on texts to make it pink and communicate it's not final. This can be applied to text inside our types: text_single, text_multi etc. To apply this template to text write: using = Text_Placeholder or use ( default_format = ##D )"
+                        }
+                    }
+
+                    vbox_component_entry = {
+                        blockoverride "vce_name"
+                        {
+                            raw_text = "Background_Frame_Placeholder"
+                        }
+
+                        blockoverride "vce_area"
+                        {
+                            widget = {
+                                size = { 100 100 }
+
+                                hbox = {
+                                    background = {
+                                        using = Background_Frame_Placeholder
+                                    }
+                                }
+                            }
+
+                            icon = {
+                                size = { 200 100 }
+
+                                background = {
+                                    texture = "gfx/interface/illustrations/dlc/dlc_004.dds"
+                                    fittype = centercrop
+                                    using = Mask_Rough_Edges
+                                }
+
+                                background = {
+                                    using = Background_Frame_Placeholder
+                                }
+                            }
+                        }
+
+                        blockoverride "vce_desc"
+                        {
+                            raw_text = "A placeholder frame in our debug color. This can be put around a widget of most types to communicate it's a placeholder."
+                        }
+                    }
+
+                    vbox_component_entry = {
+                        blockoverride "vce_name"
+                        {
+                            raw_text = "Texture_Placeholder"
+                        }
+
+                        blockoverride "vce_area"
+                        {
+                            icon = {
+                                size = { 200 100 }
+
+                                background = {
+                                    texture = "gfx/interface/illustrations/dlc/dlc_004.dds"
+                                    fittype = centercrop
+                                    using = Mask_Rough_Edges
+                                    using = Texture_Placeholder
+                                }
+                            }
+                        }
+
+                        blockoverride "vce_desc"
+                        {
+                            raw_text = "Use the template to turn the whole texture pink if the frame isn't enough to communicate an illustration is just a placeholder."
+                        }
+                    }
+                }
             }
         }
     }
@@ -2083,14 +2353,12 @@ types ComponentLibrary
         margin_bottom = 10
 
         text_single = {
+            name = "heading"
             layoutpolicy_horizontal = expanding
             margin = { 10 5 }
 
-            name = "heading"
-
             using = Background_Area_Dark
 
-            # default_format = "#high"
             using = Font_Size_Medium
             align = nobaseline
 
@@ -2144,11 +2412,6 @@ types ComponentLibrary
 
                 expand = {}
             }
-
-
-
-
-
         }
     }
 
@@ -2156,25 +2419,18 @@ types ComponentLibrary
     type hbox_text_entry = hbox {
         layoutpolicy_horizontal = expanding
 
-        background = {
-            using = Background_Area
-        }
-
-        margin = {15 15}
-
+        margin = { 15 15 }
+        margin_bottom = 25
 
         text_multi =  {
-
             block "hte_text"
             {
                 raw_text = "hte_text"
             }
+            align = center
             autoresize = yes
+            default_format = "#I"
             max_width = 700
         }
-
-        expand = {}
     }
-
-
 }

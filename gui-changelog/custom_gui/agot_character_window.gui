@@ -4,6 +4,9 @@
 
 types CharacterWindow
 {
+	#################
+	# DEBUG BUTTONS #
+	#################
 	type agot_portrait_editor_button = button
 	{
 		name = "portrait_editor_button"
@@ -17,6 +20,9 @@ types CharacterWindow
 		fontcolor = { 1.0 1.0 1.0 1.0 }
 	}
 
+	########################
+	# RUINS CHARACTER VIEW #
+	########################
 	type agot_ruins_character_view = vbox
 	{
 		name = "main_content_ruins"
@@ -136,6 +142,9 @@ types CharacterWindow
 		}
 	}
 
+	######################
+	# NAME FLAVOR FILTER #
+	######################
 	type agot_name_flavorization = container
 	{
 		ignoreinvisible = yes
@@ -269,6 +278,9 @@ types CharacterWindow
 		}
 	}
 
+	##################
+	# AI STRESS ICON #
+	##################
 	type agot_ai_stress_icon = container
 	{
 		visible = "[And(Character.IsAlive, Not(Character.IsLocalPlayer))]"
@@ -362,6 +374,9 @@ types CharacterWindow
 		}
 	}
 
+	###########################
+	# TRAIT BUTTONS AND BOXES #
+	###########################
 	type agot_trait_expanding_button = button_standard_hover
 	{
 		layoutpolicy_horizontal = fixed
@@ -378,7 +393,7 @@ types CharacterWindow
 		}
 	}
 
-		type agot_expanded_traits_vbox = vbox
+	type agot_expanded_traits_vbox = vbox
 	{
 		spacing = 10
 		datacontext = "[CharacterWindow.GetTraitArrays]"
@@ -504,6 +519,9 @@ types CharacterWindow
 		}
 	}
 
+	######################
+	# PERSONAL COA ENTRY #
+	######################
 	type agot_personal_coat_of_arms = agot_coa_house_small
 	{
 		visible = "[GetScriptedGui('agot_has_personal_coa').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
@@ -530,6 +548,9 @@ types CharacterWindow
 		}
 	}
 
+	#####################
+	# RELATIONSHIP ROWS #
+	#####################
 	type agot_paramour_relationship_row = vbox_character_row_item
 	{
 		name = "Paramour"

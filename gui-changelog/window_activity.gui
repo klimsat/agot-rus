@@ -580,9 +580,9 @@
 								duration = 0.6
 							}
 						}
-						
+
 						hbox = {
-							visible = "[EqualTo_string( ActivityType.GetKey(), 'activity_journey')]" 
+							visible = "[EqualTo_string( ActivityType.GetKey(), 'activity_journey')]"
 							name = "activity_plugin_widgets_skill_text"
 							layoutpolicy_horizontal = expanding
 							margin_right = 50
@@ -1309,6 +1309,20 @@ types ActivityWindowTypes
 			}
 		}
 
+		# Event Effect Video
+		event_window_effect_2d_widget = {
+			margin = { 30 20 }
+		}
+
+		#Foreground Shader VFX
+		margin_widget = {
+			name = "foreground_shader_vfx_container"
+			position = { 40 20 }
+			size = { 100% 100% }
+			margin = { 40 20 }
+		}
+
+		# Side characters & Artifacts
 		flowcontainer = {
 			name = "side_characters"
 			parentanchor = right
@@ -1512,19 +1526,6 @@ types ActivityWindowTypes
 			}
 		}
 
-		# Event Effect Video
-		event_window_effect_2d_widget = {
-			margin = { 33 20 }
-		}
-
-		#Foreground Shader VFX
-		margin_widget = {
-			size = { 100% 100% }
-			margin = { 30 20 }
-			position = { 30 20 }
-			name = "foreground_shader_vfx_container"
-		}
-
 		vbox = {
 			layoutpolicy_horizontal = expanding
 			margin_bottom = 55
@@ -1720,15 +1721,15 @@ types ActivityWindowTypes
 		}
 
 		#icon = {
-			#visible = "[And( EventWindowData.ShouldShowContentSource, EventWindowData.GetContentSourceDlc.HasEventDecoration )]"
-			#name = "source_icon"
-			#position = { 22 50 }
-			#size = { 263 64 }
-			#parentanchor = top|left
-			#texture = "[EventWindowData.GetContentSourceDlc.GetEventDecoration]"
-			#mirror = horizontal
-			#tooltip = "EVENT_CONTENT_SOURCE_TT"
-			#alpha = 1
+		#visible = "[And( EventWindowData.ShouldShowContentSource, EventWindowData.GetContentSourceDlc.HasEventDecoration )]"
+		#name = "source_icon"
+		#position = { 22 50 }
+		#size = { 263 64 }
+		#parentanchor = top|left
+		#texture = "[EventWindowData.GetContentSourceDlc.GetEventDecoration]"
+		#mirror = horizontal
+		#tooltip = "EVENT_CONTENT_SOURCE_TT"
+		#alpha = 1
 		#}
 
 		flowcontainer = {

@@ -1,383 +1,378 @@
 widget = {
 	allow_outside = yes
 	name = "event_window_heterochromia"
-	size = { 425 239 }
-	container = {
+	size = { 440 272 } # Size of the insert inside the event window; needs to fit under the text box since a margin will only push the content and not the widget
+
+	vbox = {
 		allow_outside = yes
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
-		position = { 0 -25 }
-		ignoreinvisible = yes
-		vbox = {
-			allow_outside = yes
-			margin = { 3 3 }
-			expand = {}
-			scrollbox = {
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-				minimumsize = { 425 239 }
-				blockoverride "scrollbox_margins"
-				{
-					margin = { 10 15 }
-				}
-				blockoverride "scrollbox_content"
-				{
+		position = { 0 4 } # Pushes the box around
+
+		scrollbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			blockoverride "scrollbox_margins"
+			{
+				margin = { 10 15 }
+			}
+			blockoverride "scrollbox_content"
+			{
+				vbox = {
+					layoutpolicy_horizontal = expanding
+
 					vbox = {
-						layoutpolicy_horizontal = expanding
+						name = "heterochromia_categories"
+						visible =  "[GetScriptedGui('agot_heterochromia_selection_is_valid').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						# Use for visualizing HBOX dimensions, keep commented out unless being used
+						# background = {
+						# 	using = Background_Area_Dark
+						# }
+						margin = { 10 5 }
+						spacing = 10
+						button_tertiary = {
+							size = { 200 40 }
+							text = green1_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'green1', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'green1', MakeScopeBool('(bool)no')).End )]"
+							tooltip = green1_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'green1' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','green1')]"
 
-						vbox = {
-							name = "heterochromia_categories"
-							visible =  "[GetScriptedGui('agot_heterochromia_selection_is_valid').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							# Use for visualizing HBOX dimensions, keep commented out unless being used
-							# background = {
-							# 	using = Background_Area_Dark
-							# }
-							margin = { 10 5 }
-							spacing = 10
-							button_tertiary = {
-								size = { 200 40 }
-								text = green1_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'green1', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'green1', MakeScopeBool('(bool)no')).End )]"
-								tooltip = green1_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'green1' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','green1')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = green2_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'green2', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'green2', MakeScopeBool('(bool)no')).End )]"
-								tooltip = green2_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'green2' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','green2')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = blue1_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'blue1', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'blue1', MakeScopeBool('(bool)no')).End )]"
-								tooltip = blue1_gui
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'blue1' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','blue1')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = blue2_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'blue2', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'blue2', MakeScopeBool('(bool)no')).End )]"
-								tooltip = blue2_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'blue2' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','true')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = black1_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black1', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black1', MakeScopeBool('(bool)no')).End )]"
-								tooltip = black1_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'black1' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','black1')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = black2_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black2', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black2', MakeScopeBool('(bool)no')).End )]"
-								tooltip = black2_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'black2' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','black2')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = brown1_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown1', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown1', MakeScopeBool('(bool)no')).End )]"
-								tooltip = brown1_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'brown1' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','brown1')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = brown2_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown2', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown2', MakeScopeBool('(bool)no')).End )]"
-								tooltip = brown2_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'brown2' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','brown2')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = brown3_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown3', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown3', MakeScopeBool('(bool)no')).End )]"
-								tooltip = brown3_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'brown3_gui' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','brown3_gui')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = grey_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'grey', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'grey', MakeScopeBool('(bool)no')).End )]"
-								tooltip = grey_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'grey' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','grey')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple1_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple1', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple1', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple1_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple1' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple1')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple2_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple2', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple2', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple2_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple2' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple2')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple3_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple3', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple3', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple3_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple3' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple3')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple4_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple4', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple4', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple4_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple4' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple4')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = red_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'red', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'red', MakeScopeBool('(bool)no')).End )]"
-								tooltip = red_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'red' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','red')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = gold_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'gold', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'gold', MakeScopeBool('(bool)no')).End )]"
-								tooltip = gold_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'gold' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','gold')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = random_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'random', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'random', MakeScopeBool('(bool)no')).End )]"
-								tooltip = random_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'random' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','random')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = no_heterochromia_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'none', MakeScopeBool('(bool)yes')).End )]"
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'none' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','none')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
+								glow_radius = 5
+								using = Glow_Standard
 							}
 						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = green2_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'green2', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'green2', MakeScopeBool('(bool)no')).End )]"
+							tooltip = green2_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'green2' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','green2')]"
 
-						expand = {}
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = blue1_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'blue1', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'blue1', MakeScopeBool('(bool)no')).End )]"
+							tooltip = blue1_gui
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'blue1' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','blue1')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = blue2_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'blue2', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'blue2', MakeScopeBool('(bool)no')).End )]"
+							tooltip = blue2_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'blue2' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','true')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = black1_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black1', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black1', MakeScopeBool('(bool)no')).End )]"
+							tooltip = black1_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'black1' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','black1')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = black2_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black2', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black2', MakeScopeBool('(bool)no')).End )]"
+							tooltip = black2_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'black2' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','black2')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = brown1_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown1', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown1', MakeScopeBool('(bool)no')).End )]"
+							tooltip = brown1_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'brown1' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','brown1')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = brown2_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown2', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown2', MakeScopeBool('(bool)no')).End )]"
+							tooltip = brown2_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'brown2' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','brown2')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = brown3_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown3', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown3', MakeScopeBool('(bool)no')).End )]"
+							tooltip = brown3_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'brown3_gui' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','brown3_gui')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = grey_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'grey', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'grey', MakeScopeBool('(bool)no')).End )]"
+							tooltip = grey_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'grey' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','grey')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple1_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple1', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple1', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple1_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple1' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple1')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple2_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple2', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple2', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple2_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple2' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple2')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple3_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple3', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple3', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple3_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple3' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple3')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple4_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple4', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple4', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple4_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple4' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple4')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = red_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'red', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'red', MakeScopeBool('(bool)no')).End )]"
+							tooltip = red_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'red' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','red')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = gold_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'gold', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'gold', MakeScopeBool('(bool)no')).End )]"
+							tooltip = gold_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'gold' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','gold')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = random_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'random', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'random', MakeScopeBool('(bool)no')).End )]"
+							tooltip = random_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'random' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','random')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = no_heterochromia_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_heterochromia_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'none', MakeScopeBool('(bool)yes')).End )]"
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'none' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','none')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
 					}
+					expand = {}
 				}
 			}
 		}

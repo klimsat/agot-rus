@@ -1,995 +1,990 @@
 widget = {
 	allow_outside = yes
 	name = "event_window_strong_seed_selection"
-	size = { 425 239 }
-	container = {
+	size = { 440 272 } # Size of the insert inside the event window; needs to fit under the text box since a margin will only push the content and not the widget
+
+	vbox = {
 		allow_outside = yes
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
-		position = { 0 -25 }
-		ignoreinvisible = yes
-		vbox = {
-			allow_outside = yes
-			margin = { 3 3 }
-			expand = {}
-			scrollbox = {
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-				minimumsize = { 425 239 }
-				blockoverride "scrollbox_margins"
-				{
-					margin = { 10 15 }
-				}
-				blockoverride "scrollbox_content"
-				{
+		position = { 0 4 } # Pushes the box around
+
+		scrollbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			blockoverride "scrollbox_margins"
+			{
+				margin = { 10 15 }
+			}
+			blockoverride "scrollbox_content"
+			{
+				vbox = {
+					layoutpolicy_horizontal = expanding
+
 					vbox = {
-						layoutpolicy_horizontal = expanding
+						name = "strong_seed_categories_hair"
+						visible =  "[GetScriptedGui('agot_strong_seed_hair_selection_is_valid').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						# Use for visualizing HBOX dimensions, keep commented out unless being used
+						# background = {
+						# 	using = Background_Area_Dark
+						# }
+						margin = { 10 5 }
+						spacing = 10
+						button_tertiary = {
+							size = { 200 40 }
+							text = cool_silver_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'cool_silver_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'cool_silver_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = cool_silver_hair_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'cool_silver_hair' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','cool_silver_hair')]"
 
-						vbox = {
-							name = "strong_seed_categories_hair"
-							visible =  "[GetScriptedGui('agot_strong_seed_hair_selection_is_valid').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							# Use for visualizing HBOX dimensions, keep commented out unless being used
-							# background = {
-							# 	using = Background_Area_Dark
-							# }
-							margin = { 10 5 }
-							spacing = 10
-							button_tertiary = {
-								size = { 200 40 }
-								text = cool_silver_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'cool_silver_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'cool_silver_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = cool_silver_hair_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'cool_silver_hair' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','cool_silver_hair')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = cool_neutral_silver_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'cool_neutral_silver_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'cool_neutral_silver_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = cool_neutral_silver_hair_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'cool_neutral_silver_hair' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','cool_neutral_silver_hair')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = neutral_silver_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'neutral_silver_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'neutral_silver_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = neutral_silver_hair_gui
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'neutral_silver_hair' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','neutral_silver_hair')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = silver_blonde_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'silver_blonde_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'silver_blonde_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = silver_blonde_hair_gui
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'silver_blonde_hair' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','silver_blonde_hair')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = silver_gold_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'silver_gold_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'silver_golde_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = silver_gold_hair_gui
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'silver_gold_hair' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','silver_gold_hair')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = black_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = black_hair_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'black_hair' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','true')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = light_blonde_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_blonde_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_blonde_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = light_blonde_hair_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'light_blonde_hair' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','light_blonde_hair')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = gold_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'gold_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'gold_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = gold_hair_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'gold_hair' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','gold_hair')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = bronze_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'bronze_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'bronze_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = bronze_hair_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'bronze_hair' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','bronze_hair')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = light_red_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_red_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_red_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = light_red_hair_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'light_red_hair' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','light_red_hair')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = red_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'red_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'red_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = red_hair_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'red_hair_gui' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','red_hair_gui')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = kissed_by_fire_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'kissed_by_fire_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'kissed_by_fire_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = kissed_by_fire_hair_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'kissed_by_fire_hair' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','kissed_by_fire_hair')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = auburn_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'auburn_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'auburn_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = auburn_hair_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'auburn_hair' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','auburn_hair')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = brown_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = brown_hair_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'brown_hair' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','brown_hair')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = dark_brown_hair_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'dark_brown_hair', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'dark_brown_hair', MakeScopeBool('(bool)no')).End )]"
-								tooltip = dark_brown_hair_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'dark_brown_hair' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','dark_brown_hair')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = no_strong_seed_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'none', MakeScopeBool('(bool)yes')).End )]"
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'none' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','none')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
+								glow_radius = 5
+								using = Glow_Standard
 							}
 						}
-						vbox = {
-							name = "strong_seed_categories_height"
-							visible =  "[GetScriptedGui('agot_strong_seed_height_selection_is_valid').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							# Use for visualizing HBOX dimensions, keep commented out unless being used
-							# background = {
-							# 	using = Background_Area_Dark
-							# }
-							margin = { 10 5 }
-							spacing = 10
-							button_tertiary = {
-								size = { 200 40 }
-								text = tol_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'tol', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'tol', MakeScopeBool('(bool)no')).End )]"
-								tooltip = tol_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'tol' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','tol')]"
+						button_tertiary = {
+							size = { 200 40 }
+							text = cool_neutral_silver_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'cool_neutral_silver_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'cool_neutral_silver_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = cool_neutral_silver_hair_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'cool_neutral_silver_hair' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','cool_neutral_silver_hair')]"
 
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = smol_tol_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'smol_tol', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'smol_tol', MakeScopeBool('(bool)no')).End )]"
-								tooltip = smol_tol_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'smol_tol' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','smol_tol')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = no_strong_seed_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'none', MakeScopeBool('(bool)yes')).End )]"
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'none' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','none')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
+								glow_radius = 5
+								using = Glow_Standard
 							}
 						}
-						vbox = {
-							name = "strong_seed_categories_ears"
-							visible =  "[GetScriptedGui('agot_strong_seed_ears_selection_is_valid').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							# Use for visualizing HBOX dimensions, keep commented out unless being used
-							# background = {
-							# 	using = Background_Area_Dark
-							# }
-							margin = { 10 5 }
-							spacing = 10
-							button_tertiary = {
-								size = { 200 40 }
-								text = dumbo_ears_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_ears_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'dumbo_ears', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_ears_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'dumbo_ears', MakeScopeBool('(bool)no')).End )]"
-								tooltip = dumbo_ears_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'dumbo_ears' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','dumbo_ears')]"
+						button_tertiary = {
+							size = { 200 40 }
+							text = neutral_silver_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'neutral_silver_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'neutral_silver_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = neutral_silver_hair_gui
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'neutral_silver_hair' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','neutral_silver_hair')]"
 
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = no_strong_seed_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_ears_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'none', MakeScopeBool('(bool)yes')).End )]"
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'none' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','none')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
+								glow_radius = 5
+								using = Glow_Standard
 							}
 						}
-						vbox = {
-							name = "strong_seed_categories_eyes"
-							visible =  "[GetScriptedGui('agot_strong_seed_eyes_selection_is_valid').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							# Use for visualizing HBOX dimensions, keep commented out unless being used
-							# background = {
-							# 	using = Background_Area_Dark
-							# }
-							margin = { 10 5 }
-							spacing = 10
-							button_tertiary = {
-								size = { 200 40 }
-								text = light_blue_eyes_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_blue_eyes', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_blue_eyes', MakeScopeBool('(bool)no')).End )]"
-								tooltip = light_blue_eyes_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'light_blue_eyes' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','light_blue_eyes')]"
+						button_tertiary = {
+							size = { 200 40 }
+							text = silver_blonde_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'silver_blonde_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'silver_blonde_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = silver_blonde_hair_gui
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'silver_blonde_hair' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','silver_blonde_hair')]"
 
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = blue_eyes_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'blue_eyes', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'blue_eyes', MakeScopeBool('(bool)no')).End )]"
-								tooltip = blue_eyes_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'blue_eyes' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','blue_eyes')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = midnight_eyes_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'midnight_eyes', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'midnight_eyes', MakeScopeBool('(bool)no')).End )]"
-								tooltip = midnight_eyes_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'midnight_eyes' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','midnight_eyes')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = seaglass_eyes_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'seaglass_eyes', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'seaglass_eyes', MakeScopeBool('(bool)no')).End )]"
-								tooltip = seaglass_eyes_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'seaglass_eyes' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','seaglass_eyes')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = seafoam_eyes_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'seafoam_eyes', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'seafoam_eyes', MakeScopeBool('(bool)no')).End )]"
-								tooltip = seafoam_eyes_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'seafoam_eyes' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','seafoam_eyes')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = emerald_eyes_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'emerald_eyes', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'emerald_eyes', MakeScopeBool('(bool)no')).End )]"
-								tooltip = emerald_eyes_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'emerald_eyes' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','emerald_eyes')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = grey_eyes_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'grey_eyes', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'grey_eyes', MakeScopeBool('(bool)no')).End )]"
-								tooltip = grey_eyes_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'grey_eyes' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','grey_eyes')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = gold_eyes_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'gold_eyes', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'gold_eyes', MakeScopeBool('(bool)no')).End )]"
-								tooltip = gold_eyes_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'gold_eyes' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','gold_eyes')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = light_brown_eyes_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_brown_eyes', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_brown_eyes', MakeScopeBool('(bool)no')).End )]"
-								tooltip = light_brown_eyes_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'light_brown_eyes' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','light_brown_eyes')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = brown_eyes_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown_eyes', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown_eyes', MakeScopeBool('(bool)no')).End )]"
-								tooltip = brown_eyes_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'brown_eyes' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','brown_eyes')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = black_eyes_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black_eyes', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black_eyes', MakeScopeBool('(bool)no')).End )]"
-								tooltip = black_eyes_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'black_eyes' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','black_eyes')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_1_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_1', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_1', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_1_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_1' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_1')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_2_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_2', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_2', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_2_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_2' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_2')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_3_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_3', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_3', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_3_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_3' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_3')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_4_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_4', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_4', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_4_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_4' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_4')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_5_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_5', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_5', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_5_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_5' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_5')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_6_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_6', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_6', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_6_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_6' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_6')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_7_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_7', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_7', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_7_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_7' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_7')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_8_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_8', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_8', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_8_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_8' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_8')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_9_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_9', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_9', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_9_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_9' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_9')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_10_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_10', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_10', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_10_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_10' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_10')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_11_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_11', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_11', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_11_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_11' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_11')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_12_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_12', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_12', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_12_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_12' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_12')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_13_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_13', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_13', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_13_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_13' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_13')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_14_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_14', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_14', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_14_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_14' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_14')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_15_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_15', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_15', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_15_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_15' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_15')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = purple_eyes_16_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_16', MakeScopeBool('(bool)yes')).End )]"
-								onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_16', MakeScopeBool('(bool)no')).End )]"
-								tooltip = purple_eyes_16_gui_tt
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_16' )]"
-								onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_16')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
-							}
-							button_tertiary = {
-								size = { 200 40 }
-								text = no_strong_seed_gui
-								button_ignore = none
-								layoutpolicy_vertical = expanding
-								onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'none', MakeScopeBool('(bool)yes')).End )]"
-								onclick = "[GetVariableSystem.Clear( 'glow_button')]"
-								onclick = "[GetVariableSystem.Set( 'glow_button', 'none' )]"
-								glow = {
-									using = Color_Orange
-									visible = "[GetVariableSystem.HasValue('glow_button','none')]"
-
-									glow_radius = 5
-									using = Glow_Standard
-								}
+								glow_radius = 5
+								using = Glow_Standard
 							}
 						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = silver_gold_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'silver_gold_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'silver_golde_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = silver_gold_hair_gui
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'silver_gold_hair' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','silver_gold_hair')]"
 
-						expand = {}
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = black_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = black_hair_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'black_hair' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','true')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = light_blonde_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_blonde_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_blonde_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = light_blonde_hair_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'light_blonde_hair' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','light_blonde_hair')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = gold_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'gold_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'gold_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = gold_hair_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'gold_hair' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','gold_hair')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = bronze_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'bronze_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'bronze_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = bronze_hair_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'bronze_hair' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','bronze_hair')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = light_red_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_red_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_red_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = light_red_hair_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'light_red_hair' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','light_red_hair')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = red_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'red_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'red_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = red_hair_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'red_hair_gui' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','red_hair_gui')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = kissed_by_fire_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'kissed_by_fire_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'kissed_by_fire_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = kissed_by_fire_hair_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'kissed_by_fire_hair' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','kissed_by_fire_hair')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = auburn_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'auburn_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'auburn_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = auburn_hair_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'auburn_hair' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','auburn_hair')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = brown_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = brown_hair_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'brown_hair' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','brown_hair')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = dark_brown_hair_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'dark_brown_hair', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'dark_brown_hair', MakeScopeBool('(bool)no')).End )]"
+							tooltip = dark_brown_hair_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'dark_brown_hair' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','dark_brown_hair')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = no_strong_seed_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_hair_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'none', MakeScopeBool('(bool)yes')).End )]"
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'none' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','none')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
 					}
+					vbox = {
+						name = "strong_seed_categories_height"
+						visible =  "[GetScriptedGui('agot_strong_seed_height_selection_is_valid').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						# Use for visualizing HBOX dimensions, keep commented out unless being used
+						# background = {
+						# 	using = Background_Area_Dark
+						# }
+						margin = { 10 5 }
+						spacing = 10
+						button_tertiary = {
+							size = { 200 40 }
+							text = tol_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'tol', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'tol', MakeScopeBool('(bool)no')).End )]"
+							tooltip = tol_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'tol' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','tol')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = smol_tol_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'smol_tol', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'smol_tol', MakeScopeBool('(bool)no')).End )]"
+							tooltip = smol_tol_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'smol_tol' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','smol_tol')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = no_strong_seed_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_height_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'none', MakeScopeBool('(bool)yes')).End )]"
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'none' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','none')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+					}
+					vbox = {
+						name = "strong_seed_categories_ears"
+						visible =  "[GetScriptedGui('agot_strong_seed_ears_selection_is_valid').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						# Use for visualizing HBOX dimensions, keep commented out unless being used
+						# background = {
+						# 	using = Background_Area_Dark
+						# }
+						margin = { 10 5 }
+						spacing = 10
+						button_tertiary = {
+							size = { 200 40 }
+							text = dumbo_ears_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_ears_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'dumbo_ears', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_ears_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'dumbo_ears', MakeScopeBool('(bool)no')).End )]"
+							tooltip = dumbo_ears_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'dumbo_ears' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','dumbo_ears')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = no_strong_seed_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_ears_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'none', MakeScopeBool('(bool)yes')).End )]"
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'none' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','none')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+					}
+					vbox = {
+						name = "strong_seed_categories_eyes"
+						visible =  "[GetScriptedGui('agot_strong_seed_eyes_selection_is_valid').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+						# Use for visualizing HBOX dimensions, keep commented out unless being used
+						# background = {
+						# 	using = Background_Area_Dark
+						# }
+						margin = { 10 5 }
+						spacing = 10
+						button_tertiary = {
+							size = { 200 40 }
+							text = light_blue_eyes_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_blue_eyes', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_blue_eyes', MakeScopeBool('(bool)no')).End )]"
+							tooltip = light_blue_eyes_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'light_blue_eyes' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','light_blue_eyes')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = blue_eyes_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'blue_eyes', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'blue_eyes', MakeScopeBool('(bool)no')).End )]"
+							tooltip = blue_eyes_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'blue_eyes' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','blue_eyes')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = midnight_eyes_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'midnight_eyes', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'midnight_eyes', MakeScopeBool('(bool)no')).End )]"
+							tooltip = midnight_eyes_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'midnight_eyes' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','midnight_eyes')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = seaglass_eyes_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'seaglass_eyes', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'seaglass_eyes', MakeScopeBool('(bool)no')).End )]"
+							tooltip = seaglass_eyes_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'seaglass_eyes' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','seaglass_eyes')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = seafoam_eyes_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'seafoam_eyes', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'seafoam_eyes', MakeScopeBool('(bool)no')).End )]"
+							tooltip = seafoam_eyes_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'seafoam_eyes' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','seafoam_eyes')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = emerald_eyes_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'emerald_eyes', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'emerald_eyes', MakeScopeBool('(bool)no')).End )]"
+							tooltip = emerald_eyes_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'emerald_eyes' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','emerald_eyes')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = grey_eyes_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'grey_eyes', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'grey_eyes', MakeScopeBool('(bool)no')).End )]"
+							tooltip = grey_eyes_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'grey_eyes' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','grey_eyes')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = gold_eyes_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'gold_eyes', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'gold_eyes', MakeScopeBool('(bool)no')).End )]"
+							tooltip = gold_eyes_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'gold_eyes' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','gold_eyes')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = light_brown_eyes_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_brown_eyes', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'light_brown_eyes', MakeScopeBool('(bool)no')).End )]"
+							tooltip = light_brown_eyes_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'light_brown_eyes' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','light_brown_eyes')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = brown_eyes_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown_eyes', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'brown_eyes', MakeScopeBool('(bool)no')).End )]"
+							tooltip = brown_eyes_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'brown_eyes' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','brown_eyes')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = black_eyes_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black_eyes', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'black_eyes', MakeScopeBool('(bool)no')).End )]"
+							tooltip = black_eyes_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'black_eyes' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','black_eyes')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_1_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_1', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_1', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_1_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_1' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_1')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_2_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_2', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_2', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_2_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_2' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_2')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_3_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_3', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_3', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_3_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_3' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_3')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_4_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_4', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_4', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_4_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_4' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_4')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_5_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_5', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_5', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_5_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_5' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_5')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_6_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_6', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_6', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_6_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_6' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_6')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_7_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_7', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_7', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_7_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_7' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_7')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_8_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_8', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_8', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_8_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_8' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_8')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_9_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_9', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_9', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_9_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_9' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_9')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_10_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_10', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_10', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_10_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_10' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_10')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_11_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_11', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_11', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_11_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_11' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_11')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_12_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_12', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_12', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_12_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_12' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_12')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_13_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_13', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_13', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_13_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_13' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_13')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_14_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_14', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_14', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_14_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_14' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_14')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_15_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_15', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_15', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_15_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_15' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_15')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = purple_eyes_16_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_16', MakeScopeBool('(bool)yes')).End )]"
+							onrightclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'purple_eyes_16', MakeScopeBool('(bool)no')).End )]"
+							tooltip = purple_eyes_16_gui_tt
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'purple_eyes_16' )]"
+							onrightclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','purple_eyes_16')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+						button_tertiary = {
+							size = { 200 40 }
+							text = no_strong_seed_gui
+							button_ignore = none
+							layoutpolicy_vertical = expanding
+							onclick = "[GetScriptedGui('agot_strong_seed_eyes_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'none', MakeScopeBool('(bool)yes')).End )]"
+							onclick = "[GetVariableSystem.Clear( 'glow_button')]"
+							onclick = "[GetVariableSystem.Set( 'glow_button', 'none' )]"
+							glow = {
+								using = Color_Orange
+								visible = "[GetVariableSystem.HasValue('glow_button','none')]"
+
+								glow_radius = 5
+								using = Glow_Standard
+							}
+						}
+					}
+					expand = {}
 				}
 			}
 		}

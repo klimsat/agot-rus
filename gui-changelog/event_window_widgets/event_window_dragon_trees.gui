@@ -1,105 +1,90 @@
-###############################
-########## Dragon Tree Viewer #
-###############################
-
 widget = {
 	allow_outside = yes
 	name = "event_window_dragon_trees"
-	size = { 480 320 } # Size of the insert into the event window which takes into account the margin below
+	size = { 440 320 } # Size of the insert inside the event window; needs to fit under the text box since a margin will only push the content and not the widget
 
-	container = {
+	vbox = {
 		allow_outside = yes
 		layoutpolicy_horizontal = expanding
 		layoutpolicy_vertical = expanding
-		position = { 0 0 }
-		ignoreinvisible = yes
+		position = { 0 4 } # Pushes the box around
 
-		vbox = {
-			allow_outside = yes
-			margin = { 0 -24 } # Pushes the box around
+		scrollbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
 
-			scrollbox = {
-				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-				minimumsize = { 460 347 } # Size of the container of characters
+			blockoverride "scrollbox_content"
+			{
+				vbox = {
+					datamodel = "[GetPlayer.MakeScope.GetList('possible_characters')]"
+					layoutpolicy_horizontal = expanding
 
-				blockoverride "scrollbox_content"
-				{
-					vbox = {
-						datamodel = "[GetPlayer.MakeScope.GetList('possible_characters')]"
-						layoutpolicy_horizontal = expanding
-						margin = { -6 -8 }
+					item = {
+						button_standard = {
+							name = "background_button"
+							size = { 396 68 } # Size of the button frame borders; needs to fit within the widget size
+							using = tooltip_ws
+							layoutpolicy_vertical = expanding
+							datacontext = "[Scope.GetCharacter]"
+							onclick = "[GetScriptedGui('si_set_selected_character').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_char', Character.MakeScope).End)]"
+							onclick = "[DefaultOnCharacterClick(Character.GetID)]"
+							down = "[GetScriptedGui('si_set_selected_character').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_char', Character.MakeScope).End)]"
 
-						item = {
-							button_standard = {
-								name = "background_button"
-								size = { 436 68 }
-								using = tooltip_ws
-								layoutpolicy_vertical = expanding
-								datacontext = "[Scope.GetCharacter]"
-								onclick = "[GetScriptedGui('si_set_selected_character').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_char', Character.MakeScope).End)]"
-								onclick = "[DefaultOnCharacterClick(Character.GetID)]"
-								down = "[GetScriptedGui('si_set_selected_character').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_char', Character.MakeScope).End)]"
-
-								tooltipwidget = {
-									cooltip_type = {
-										blockoverride "interaction_info" {
-											text = "CHARACTER_TOOLTIP_INSTRUCTION"
-										}
+							tooltipwidget = {
+								cooltip_type = {
+									blockoverride "interaction_info" {
+										text = "CHARACTER_TOOLTIP_INSTRUCTION"
 									}
 								}
-								tooltip_offset = { 0 0 }
-								tooltip_verticalbehavior = slide
-								tooltip_horizontalbehavior = mirror
+							}
+							tooltip_offset = { 0 0 }
+							tooltip_verticalbehavior = slide
+							tooltip_horizontalbehavior = mirror
 
-								portrait_head_small = {
-									scale = 0.75
-									tooltip_visible = no
+							portrait_head_small = {
+								scale = 0.75
+								tooltip_visible = no
+							}
+							text_single = {
+								name = "character_name"
+								layoutpolicy_horizontal = expanding
+								text = "[Character.GetCharacterViewNameNicknamedNoTooltipRegnal]"
+								default_format = "#high"
+								using = Font_Size_Medium
+								fontsize_min = 12
+								align = center
+								autoresize = yes
+								max_width = 200 # Position where the text begins to resize; needs to fit within the button size, taking into account anything this text shares the button with
+								position = { 70 20 }
+							}
+							vbox = {
+								parentanchor = right
+								margin_right = 10
+								text_single = {
+									name = "total_members"
+									layoutpolicy_horizontal = expanding
+									text = "list_dragon_tree_members"
+									default_format = "#high"
+									fontsize = 14
+									align = right
+									max_width = 400
+									margin_bottom = -10
 								}
 								text_single = {
-									name = "character_name"
+									name = "total_living"
 									layoutpolicy_horizontal = expanding
-									text = "[Character.GetCharacterViewNameNicknamedNoTooltipRegnal]"
+									text = "list_dragon_tree_alive"
 									default_format = "#high"
-									using = Font_Size_Medium
-									fontsize_min = 12
-									align = center
-									autoresize = yes
-									max_width = 225
-									position = { 70 20 }
+									fontsize = 14
+									align = right
+									max_width = 400
+									margin_bottom = 8
 								}
-								vbox = {
-									parentanchor = right
-									text_single = {
-										name = "total_members"
-										layoutpolicy_horizontal = expanding
-										text = "list_dragon_tree_members"
-										default_format = "#high"
-										using = Font_Size_Small
-										fontsize_min = 14
-										align = right
-										autoresize = yes
-										max_width = 400
-										margin_bottom = -10
-									}
-									text_single = {
-										name = "total_living"
-										layoutpolicy_horizontal = expanding
-										text = "list_dragon_tree_alive"
-										default_format = "#high"
-										using = Font_Size_Small
-										fontsize_min = 14
-										align = right
-										autoresize = yes
-										max_width = 400
-										margin_bottom = 10
-									}
-								}
-								expand = {}
 							}
+							expand = {}
 						}
-						expand = {}
 					}
+					expand = {}
 				}
 			}
 		}

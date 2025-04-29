@@ -47,7 +47,6 @@ window = {
 		trigger_when = "[And( GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' ), Not(GetScriptedGui('religion_has_patron_gods').IsShown(GuiScope.SetRoot(FaithWindow.GetFaith.MakeScope).End)))]"
 		on_finish = "[GetScriptedGui('clear_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 	}
-
 	state = {
 		name = "faith_change"
 		next = _show
@@ -867,7 +866,6 @@ window = {
 							layoutpolicy_horizontal = expanding
 							datacontext = "[Faith.GetReligiousHeadTitle]"
 							visible = "[Title.IsValid]"
-							margin_left = -5
 							spacing = 5
 
 							coa_title_tiny_crown = {
@@ -1055,7 +1053,7 @@ window = {
 
 									hbox = {
 										layoutpolicy_horizontal = expanding
-										spacing = 5
+										spacing = 10
 
 										#AGOT Modified
 										# coa_title_tiny = {}
@@ -1065,22 +1063,28 @@ window = {
 											name = "name_notheld"
 											visible = "[Not( GuiHolySiteItem.IsHeldByFaith )]"
 											layoutpolicy_horizontal = expanding
+											
 											text = "[HolySite.GetName]"
 											align = nobaseline
+											autoresize = no
 											default_format = "#low"
 											using = Font_Size_Big
-											autoresize = no
+											
+											margin_bottom = 5
 										}
 
 										text_single = {
 											name = "name_held"
 											visible = "[GuiHolySiteItem.IsHeldByFaith]"
 											layoutpolicy_horizontal = expanding
+											
 											text = "[HolySite.GetName]"
 											align = nobaseline
+											autoresize = no
 											default_format = "#high"
 											using = Font_Size_Big
-											autoresize = no
+											
+											margin_bottom = 5
 
 										}
 
@@ -1131,7 +1135,7 @@ window = {
 								vbox = {
 									layoutpolicy_horizontal = expanding
 									layoutpolicy_vertical = expanding
-									margin_top = 15
+									margin_top = 10
 
 									hbox = {
 										layoutpolicy_horizontal = expanding
@@ -1367,7 +1371,7 @@ window = {
 										text_single = {
 											name = "faith_name"
 											align = left|nobaseline
-											text = "[Faith.GetNameNoTooltip]"
+											text = "FAITH_COOLTIP_GETNAME"
 											using = Font_Size_Medium
 											default_format = "#high"
 											max_width = 240

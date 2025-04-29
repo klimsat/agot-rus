@@ -256,10 +256,7 @@ types CharacterWindow
 					tooltip = "CV_CUSTOMIZE_PORTRAIT"
 					using = tooltip_ne
 
-					icon = {
-						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
-						size = { 100% 100% }
-					}
+					icon_round_button_base = {}
 
 					button_barbershop = {
 						visible = "[Character.CanCustomizePortrait]"
@@ -279,10 +276,7 @@ types CharacterWindow
 					tooltip = "CV_CUSTOMIZE_AGOT_DRAGON"
 					using = tooltip_ne
 
-					icon = {
-						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
-						size = { 100% 100% }
-					}
+					icon_round_button_base = {}
 
 					button_clear = {
 						name = "dragon_edit"
@@ -310,10 +304,7 @@ types CharacterWindow
 					using = tooltip_ne
 
 
-					icon = {
-						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
-						size = { 100% 100% }
-					}
+					icon_round_button_base = {}
 
 					button_kill_list = {
 						onclick = "[ToggleGameViewData( 'kill_list', Character.GetID  )]"
@@ -336,10 +327,7 @@ types CharacterWindow
 					tooltip = "OPEN_MEMORIES_TOOLTIP"
 					using = tooltip_ne
 
-					icon = {
-						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
-						size = { 100% 100% }
-					}
+					icon_round_button_base = {}
 
 					button_memories = {
 						onclick = "[ToggleGameViewData( 'memories', Character.GetID  )]"
@@ -358,10 +346,7 @@ types CharacterWindow
 					tooltip = "VIEW_PAST_RIDERS"
 					using = tooltip_ne
 
-					icon = {
-						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
-						size = { 100% 100% }
-					}
+					icon_round_button_base = {}
 
 					button_past_dragonriders = {
 						onclick = "[GetScriptedGui('agot_show_dragon_past_rider_when_dead').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('dragon', CharacterWindow.GetCharacter.MakeScope).End)]"
@@ -381,10 +366,7 @@ types CharacterWindow
 					position = { 5 5 }
 					size = { 35 35 }
 
-					icon = {
-						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
-						size = { 100% 100% }
-					}
+					icon_round_button_base = {}
 
 					button_capture_wild_dragon = {
 						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
@@ -409,10 +391,7 @@ types CharacterWindow
 					position = { 5 5 }
 					size = { 35 35 }
 
-					icon = {
-						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
-						size = { 100% 100% }
-					}
+					icon_round_button_base = {}
 
 					button_send_to_dragonpit = {
 						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
@@ -437,10 +416,7 @@ types CharacterWindow
 					position = { 5 5 }
 					size = { 35 35 }
 
-					icon = {
-						texture = "gfx/interface/buttons/button_lifestyles_base.dds"
-						size = { 100% 100% }
-					}
+					icon_round_button_base = {}
 
 					button_remove_from_dragonpit = {
 						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
@@ -1355,7 +1331,7 @@ types CharacterWindow
 	#############################
 	type agot_dragon_army_composition = hbox
 	{
-		visible = "[And(Character.HasLandedTitles,GetScriptedGui('agot_can_see_dragon_military_view').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End ))]"
+		visible = "[GetScriptedGui('agot_can_see_dragon_military_view').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]"
 		spacing = 2
 		tooltipwidget = {
 			using = agot_dragon_army_comp

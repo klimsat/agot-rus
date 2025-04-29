@@ -19,7 +19,7 @@ window = {
 
 		hbox_title_history_heading = {}
 
-		# AGOT Added
+		#AGOT Added
 		agot_legitimate_house_bar = {}
 
 		vbox = {
@@ -59,31 +59,27 @@ types TitleHistory
 {
 	type hbox_title_history_heading = hbox {
 			layoutpolicy_horizontal = expanding
-			margin_bottom = 10
 
 			header_pattern = {
 				layoutpolicy_horizontal = expanding
 				allow_outside = yes
 
 				widget = {
-					# AGOT added
-					visible = "[Not(GetScriptedGui('agot_legitimate_house_mechanic').IsShown( GuiScope.SetRoot( TitleHistoryWindow.GetTitle.MakeScope ).End ))]"
-					size = { 70 70 }
+					size = { 36 44 }
 					allow_outside = yes
+					#AGOT Added
+					visible = "[Not(GetScriptedGui('agot_legitimate_house_mechanic').IsShown( GuiScope.SetRoot( TitleHistoryWindow.GetTitle.MakeScope ).End ))]"
 
-					coa_title_small_crown = {
+					coa_title_tiny_crown = {
 						allow_outside = yes
 						datacontext = "[TitleHistoryWindow.GetTitle]"
-						position = { 5 -10 }
 					}
 				}
 
 				blockoverride "header_text"
 				{
 					datacontext = "[TitleHistoryWindow.GetTitle]"
-					margin_top = 10
 					text = "TITLE_VIEW_TITLE_HISTORY_LABEL"
-					align = nobaseline
 				}
 
 				blockoverride "button_close"

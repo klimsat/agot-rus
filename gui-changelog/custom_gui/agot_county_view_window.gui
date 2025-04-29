@@ -4,40 +4,20 @@
 
 types CountyViewTypes
 {
+	#################
+	# RUINS RESTORE #
+	#################
 	type agot_county_view_restore_ruins_button = button_standard_big
 	{
 		name = "restore_ruins"
 		datacontext = "[HoldingView.GetTitle]"
 		visible = "[GetScriptedGui('agot_is_ruin').IsShown( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).End)]"
 
-		parentanchor = bottom|left
-		position = { 5 -5 }
 		size = { 200 50 }
 		text = "agot_ruin_begin_reconstruction"
 		tooltip = "[HoldingView.GetProvince.Custom('RuinsReconstructTooltip')]"
 		enabled = "[GetScriptedGui('can_reconstruct_ruin').IsValid(GuiScope.SetRoot(HoldingView.GetProvince.MakeScope).AddScope('actor', GetPlayer.MakeScope ).End)]"
 		onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
-	}
-
-	type agot_county_view_dragonpit_button = widget
-	{
-		size = { 32 32 }
-		button_round = {
-			name = "VIEW_DRAGONPIT_DRAGONS"
-			datacontext = "[GetScriptedGui( 'agot_view_dragons_in_dragonpit' )]"
-			visible = "[GetScriptedGui('agot_view_dragons_in_dragonpit').IsShown( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).End)]"
-			tooltip = "VIEW_DRAGONPIT_DRAGONS_TT"
-			onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'dp_county', Province.MakeScope ).End)]"
-			position = { 0 0 }
-			parentanchor = center
-			size = { 35 35 }
-			button_icon_highlight = {
-				texture = "gfx/interface/icons/flat_icons/feudalize_tribe.dds"
-				parentanchor = center
-				alwaystransparent = yes
-				size = { 25 25 }
-			}
-		}
 	}
 
 	type agot_county_view_ruins_blocker = window
@@ -116,6 +96,30 @@ types CountyViewTypes
 					onclick = "[GetScriptedGui('reconstruct_ruin').Execute( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).AddScope('actor', GetPlayer.MakeScope ).End)]"
 					onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
 				}
+			}
+		}
+	}
+
+	####################
+	# DRAGONPIT BUTTON #
+	####################
+	type agot_county_view_dragonpit_button = widget
+	{
+		size = { 32 32 }
+		button_round = {
+			name = "VIEW_DRAGONPIT_DRAGONS"
+			datacontext = "[GetScriptedGui( 'agot_view_dragons_in_dragonpit' )]"
+			visible = "[GetScriptedGui('agot_view_dragons_in_dragonpit').IsShown( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).End)]"
+			tooltip = "VIEW_DRAGONPIT_DRAGONS_TT"
+			onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'dp_county', Province.MakeScope ).End)]"
+			position = { 0 0 }
+			parentanchor = center
+			size = { 35 35 }
+			button_icon_highlight = {
+				texture = "gfx/interface/icons/flat_icons/feudalize_tribe.dds"
+				parentanchor = center
+				alwaystransparent = yes
+				size = { 25 25 }
 			}
 		}
 	}
