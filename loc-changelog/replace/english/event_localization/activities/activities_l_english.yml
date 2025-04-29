@@ -3,7 +3,6 @@
  ACTIVITY_WAITING_TOOLTIP:0 "Hosted by [CHARACTER.GetName].\nWaiting for all invitations to be answered.\n$DESC|F$\n\n#I Click to show details#! "
  ACTIVITY_TIME_LEFT:0 "#D Will begin in $TIME|V$ days#!"
  ACTIVITY_OWNED_BY:0 "#D Owner: $NAME$#!"
-
  #AGOT Modified
  #ACTIVITY_FULL_NAME:0 "[Character.GetShortUINamePossessiveNoTooltip] [ActivityType.GetNameNoTooltip]"
  ACTIVITY_FULL_NAME:0 "[SelectLocalization(Character.GetInvolvedActivity.MakeScope.Var('body_to_bury').IsSet, Character.GetInvolvedActivity.MakeScope.Var('body_to_bury').Char.GetTitledFirstNamePossessive, Character.GetShortUINamePossessiveNoTooltip)] [ActivityType.GetNameNoTooltip|U]"
@@ -126,6 +125,7 @@
  activity_feast_province_desc_orchards:0 "#P + $building_type_orchards_01$#!\n"
  activity_feast_province_desc_cereal_fields:1 "#P + $building_type_cereal_fields_01$#!\n"
  activity_feast_province_desc_plantations:1 "#P + $building_type_plantations_01$#!\n"
+ activity_feast_province_desc_pleasure_dome:1 "#P +++ $building_type_pleasure_dome$#!\n"
  activity_feast_province_desc_no_holding:1 "#N --- No [holding|P]#!"
  courses_reward_food_court_amenity_tt:0 "Rewards are increased by your court amenities"
  courses_good_reward_tt_title:0 "$final_reward_tt$"
@@ -209,6 +209,10 @@
  activity_pay_homage_desc:0 "[ACTIVITY.GetOwner.GetTitledFirstName] wishes to pay formal homage to [ACTIVITY.GetOwner.GetHerHis] liege, [ACTIVITY.GetOwner.GetLiege.GetTitledFirstName]."
 
  activity_invite_rule_friends:0 "Friends"
+ activity_invite_rule_potential_friends: "Potential Friends"
+ activity_invite_rule_potential_lovers: "Potential Lovers"
+ activity_invite_rule_suzerain: "Suzerain"
+ activity_invite_rule_tributaries: "Tributaries"
  activity_invite_rule_rivals:0 "Rivals"
  activity_invite_rule_rivals_if_appropriate:0 "$activity_invite_rule_rivals$"
  activity_invite_rule_lovers:0 "Lovers"
@@ -257,7 +261,7 @@
  activity_pilgrimage.is_valid.other.mandatory_or_impatient:0 "At least one of these:\n$EFFECT_LIST_BULLET$ Your [faith|E] has the [GetFaithDoctrine('doctrine_pilgrimage_mandatory').GetBaseName] pilgrimage [doctrine|E]\n$EFFECT_LIST_BULLET$ You are [GetTrait('impatient').GetName(GetNullCharacter)]"
  # AGOT Modified
  #activity_pilgrimage.is_valid.pilgrim_or_patient:0 "At least one of these:\n$EFFECT_LIST_BULLET$ You are [GetTrait('patient').GetName(GetNullCharacter)]\n$EFFECT_LIST_BULLET$ You have the [GetTrait('pilgrim').GetName(GetNullCharacter)] [trait|E]\n$EFFECT_LIST_BULLET$ You have the [GetTrait('hajjaj').GetName(GetNullCharacter)] [trait|E]"
-activity_pilgrimage.is_valid.pilgrim_or_patient:0 "At least one of these:\n$EFFECT_LIST_BULLET$ You are [GetTrait('patient').GetName(GetNullCharacter)]\n$EFFECT_LIST_BULLET$ You have the [GetTrait('pilgrim').GetName(GetNullCharacter)]"
+ activity_pilgrimage.is_valid.pilgrim_or_patient:0 "At least one of these:\n$EFFECT_LIST_BULLET$ You are [GetTrait('patient').GetName(GetNullCharacter)]\n$EFFECT_LIST_BULLET$ You have the [GetTrait('pilgrim').GetName(GetNullCharacter)]"
 
  activity_pilgrimage.is_valid.hajjed_recently:0 "You can only go on Hajj once every [EmptyScope.ScriptValue('hajj_cooldown_value')|0] years"
 
