@@ -1,0 +1,188 @@
+﻿l_english:
+
+#AGOT COURT POSITIONS
+
+#King's Justice - Executioner re-flavour
+#King's Counter/Sclaes?
+#Keeper of Keys?
+#Wardens of Mint?
+#Lord Confessor/Keeper of the Cells
+#Gold Cloaks
+#Head Dragonkeeper
+
+
+ ## TRAITS ##
+
+ court_position_education_martial_1_trait:0 "[GetTrait('education_martial_1').GetName( ROOT.Char )]"
+ court_position_education_martial_2_trait:0 "[GetTrait('education_martial_2').GetName( ROOT.Char )]"
+ court_position_education_martial_3_trait:0 "[GetTrait('education_martial_3').GetName( ROOT.Char )]"
+ court_position_education_martial_4_trait:0 "[GetTrait('education_martial_4').GetName( ROOT.Char )]"
+
+ court_position_disloyal_trait:0 "[GetTrait('disloyal').GetName( ROOT.Char )]"
+ court_position_authoritative_trait:0 "[GetTrait('authoritative').GetName( ROOT.Char )]"
+ court_position_inquisitve_trait:0 "[GetTrait('inquisitive').GetName( ROOT.Char )]"
+ court_position_rude_trait:0 "[GetTrait('rude').GetName( ROOT.Char )]"
+
+ court_position_historic_title_holder:0 "Historic Title Holder"
+
+
+ #Positions
+
+ maester_court_position:0 "Maester" #[CharacterWindow.GetCourtOwner.Custom('MaesterCourtPosition')]
+ maester_tradition_bonus:0 "From [culture_tradition|E]"
+ maester_court_position_desc:1 "The $maester_court_position$ is responsible for the health and well-being of the [court|E] they are in. They will treat disease and suture wounds to the best of their abilities."
+ maester_employer_custom_effect_description:1 "Performs [medical_treatments|E]#!\nImproves [education|E] outcomes\nUnlocks the #V $make_child_learn_language_interaction$#! [interaction|E]\n@warning_icon!#X Powerful [agent|E] in [hostile_schemes|E] against you#!"
+
+ grandmaester_court_position:0 "Grand Maester" #[CharacterWindow.GetCourtOwner.Custom('MaesterCourtPosition')]
+ grandmaester_tradition_bonus:0 "From [culture_tradition|E]"
+ grandmaester_court_position_desc:1 "The $grandmaester_court_position$ is responsible for the health and well-being of the royal family. They will treat disease and suture wounds to the best of their abilities."
+ grandmaester_employer_custom_effect_description:1 "Performs [medical_treatments|E]#!\nImproves [education|E] outcomes\nUnlocks the #V $make_child_learn_language_interaction$#! [interaction|E]\n@warning_icon!#X Powerful [agent|E] in [hostile_schemes|E] against you#!"
+
+ household_guard_court_position:0 "Captain of the Household Guard"
+ household_guard_tradition_bonus:0 "From [culture_tradition|E]"
+ household_guard_court_position_desc:0 "The $household_guard_court_position$ is responsible for organizing the protection of the [house|E] they serve."
+ household_guard_employer_custom_effect_description:2 "Reduces your risk to die or be captured in battles you're both fighting in #!\n@warning_icon!#X Powerful [agent|E] in [hostile_schemes|E] against you#!"
+
+ septon_court_position:0 "Septon"
+ speton_tradition_bonus:0 "From [culture_tradition|E]"
+ septon_court_position_desc:1 "The $septon_court_position$ provides religious services for the members of your [court|E] who are belong to the Faith of the Seven."
+
+ septa_court_position:0 "Septa"
+ speta_tradition_bonus:0 "From [culture_tradition|E]"
+ septa_court_position_desc:1 "The $septa_court_position$ is responsible for educating your female [children|E] who do not have a [guardian|E]."
+
+ gaoler_court_position:0 "Keeper of the Cells"
+ gaoler_court_position_desc:1 "In the dank depths of the castle sprawl the dungeons; where the prisoners wail, and the $gaoler_court_position$ keep watch."
+
+ harbormaster_court_position:0 "Harbormaster"
+ harbormaster_tradition_bonus:0 "From [culture_tradition|E]"
+ harbormaster_court_position_desc:0 "The $harbormaster_court_position$ is the official who regulates maritime trade and oversees customs in your ports."
+
+ warden_of_the_north_court_position:0 "Warden of the North"
+ warden_of_the_north_court_position_desc:1 "The Warden of the North is charged with the defense of the North in cases of foreign threats or invasions."
+ warden_of_the_east_court_position:0 "Warden of the East"
+ warden_of_the_east_court_position_desc:1 "The Warden of the East is charged with the defense of the East in cases of foreign threats or invasions."
+ warden_of_the_west_court_position:0 "Warden of the West"
+ warden_of_the_west_court_position_desc:1 "The Warden of the West is charged with the defense of the West in cases of foreign threats or invasions."
+ warden_of_the_south_court_position:0 "Warden of the South"
+ warden_of_the_south_court_position_desc:1 "The Warden of the South is charged with the defense of the South in cases of foreign threats or invasions."
+
+ goldcloaks_court_position:0 "Commander of the City Watch"
+ goldcloaks_tradition_bonus:0 "From [culture_tradition|E]"
+ goldcloaks_court_position_desc:0 "The $goldcloaks_court_position$ is the commander of King's Landing's City Watch, a position of significant prestige and importance."
+ goldcloaks_employer_custom_effect_description:2 "#!\n@warning_icon!#X Powerful [agent|E] in [hostile_schemes|E] against you#!"
+
+ master_at_arms_court_position:0 "Master-at-Arms"
+ master_at_arms_court_position_desc:1 "The $master_at_arms_court_position$ is in charge of the arms of the realm. Preservering and presiding over armorial and heraldic matters; they often double as their Liege's courtly herald."
+
+ court_smith_court_position:0 "Court Smith"
+ court_smith_court_position_desc:2 "The $court_smith_court_position$ is responsible for the upkeep and care of metalworks"
+
+ # Bloodrider
+ bloodrider_court_position:0 "Bloodrider"
+ bloodrider_court_position_desc:0 "A $bloodrider_court_position$ is a guardian — bound in blood as a brother and companion — sworn to protect their leader. It is more than merely a bond of service; it is an unbreakable joining of their souls until their leader falls. Should they fail in their duty of protection, it turns to one of vengeance, and then death as they join their leader in the afterlife."
+ bloodrider_employer_custom_effect_description: "$BULLET$Has a chance to prevent Assassination [GetScheme('murder').GetTypeName] [schemes|E]#!\n$BULLET$Reduces your risk to die or be captured in [battles|E] you're both fighting in#!\n$BULLET$Will gain the [GetTrait('loyal').GetName( GetNullCharacter )] [trait|E] and become your [friend|E] if not already\n$BULLET$Will commit suicide upon your death to honor their blood oath"
+
+ first_sword_court_position:0 "First Sword of Braavos"
+ first_sword_court_position_desc:0 "The $first_sword_court_position$ is the chief protector of the Sealord of Braavos."
+
+ #NIGHTS WATCH
+
+ nw_septon:0 "Septon"
+ nw_septon_desc:0 "The resident septon serving the brothers of the Night's Watch who follow the Seven."
+
+ COURT_POSITION_CATEGORY_CASTLE_KEEPER:0 "Castle Keepers"
+ b_the_shadow_tower_keeper:0 "Commander of The Shadow Tower"
+ b_the_shadow_tower_keeper_employer_custom_effect_description:0 "Keeps and protects The Shadow Tower"
+ b_the_shadow_tower_keeper_desc:0 "Keeps and protects The Shadow Tower"
+
+ b_eastwatch_by_the_sea_keeper:0 "Commander of Eastwatch by The Sea"
+ b_eastwatch_by_the_sea_keeper_employer_custom_effect_description:0 "Keeps and protects the Eastwatch by The Sea"
+ b_eastwatch_by_the_sea_keeper_desc:0 "Keeps and protects the Eastwatch by The Sea"
+
+ b_the_nightfort_keeper:0 "Commander of The Nightfort"
+ b_the_nightfort_keeper_employer_custom_effect_description:0 "Keeps and protects The Nightfort"
+ b_the_nightfort_keeper_desc:0 "Keeps and protects The Nightfort"
+
+ b_icemark_keeper:0 "Commander of Icemark"
+ b_icemark_keeper_employer_custom_effect_description:0 "Keeps and protects the Icemark"
+ b_icemark_keeper_desc:0 "Keeps and protects the Icemark"
+
+ b_deep_lake_keeper:0 "Commander of Deep Lake"
+ b_deep_lake_keeper_employer_custom_effect_description:0 "Keeps and protects the Deep Lake"
+ b_deep_lake_keeper_desc:0 "Keeps and protects the Deep Lake"
+
+ b_queensgate_keeper:0 "Commander of Queen's gate"
+ b_queensgate_keeper_employer_custom_effect_description:0 "Keeps and protects the Queen's gate"
+ b_queensgate_keeper_desc:0 "Keeps and protects the Queen's gate"
+
+ b_oakenshield_keeper:0 "Commander of Oakenshield"
+ b_oakenshield_keeper_employer_custom_effect_description:0 "Keeps and protects the Oakenshield"
+ b_oakenshield_keeper_desc:0 "Keeps and protects the Oakenshield"
+
+ b_woodswatch_by_the_pool_keeper:0 "Commander of Wood's Watch by The Pool"
+ b_woodswatch_by_the_pool_keeper_employer_custom_effect_description:0 "Keeps and protects the Wood's Watch by The Pool"
+ b_woodswatch_by_the_pool_keeper_desc:0 "Keeps and protects the Wood's Watch by The Pool"
+
+ b_westwatch_by_the_bridge_keeper:0 "Commander of Westwatch by The Bridge"
+ b_westwatch_by_the_bridge_keeper_employer_custom_effect_description:0 "Keeps and protects the Westwatch by The Bridge"
+ b_westwatch_by_the_bridge_keeper_desc:0 "Keeps and protects the Westwatch by The Bridge"
+
+ b_sentinel_stand_keeper:0 "Commander of Sentinel Stand"
+ b_sentinel_stand_keeper_employer_custom_effect_description:0 "Keeps and protects the Sentinel Stand"
+ b_sentinel_stand_keeper_desc:0 "Keeps and protects the Sentinel Stand"
+
+ b_greyguard_keeper:0 "Commander of Greyguard"
+ b_greyguard_keeper_employer_custom_effect_description:0 "Keeps and protects the Greyguard"
+ b_greyguard_keeper_desc:0 "Keeps and protects the Greyguard"
+
+ b_stonedoor_keeper:0 "Commander of Stonedoor"
+ b_stonedoor_keeper_employer_custom_effect_description:0 "Keeps and protects the Stonedoor"
+ b_stonedoor_keeper_desc:0 "Keeps and protects the Stonedoor"
+
+ b_hoarfrost_hill_keeper:0 "Commander of Hoarfrost Hill"
+ b_hoarfrost_hill_keeper_employer_custom_effect_description:0 "Keeps and protects the Hoarfrost Hill"
+ b_hoarfrost_hill_keeper_desc:0 "Keeps and protects the Hoarfrost Hill"
+
+ b_sable_hall_keeper:0 "Commander of Sable Hall"
+ b_sable_hall_keeper_employer_custom_effect_description:0 "Keeps and protects the Sable Hall"
+ b_sable_hall_keeper_desc:0 "Keeps and protects the Sable Hall"
+
+ b_rimegate_keeper:0 "Commander of Rimegate"
+ b_rimegate_keeper_employer_custom_effect_description:0 "Keeps and protects the Rimegate"
+ b_rimegate_keeper_desc:0 "Keeps and protects the Rimegate"
+
+ b_long_barrow_keeper:0 "Commander of Long Barrow"
+ b_long_barrow_keeper_employer_custom_effect_description:0 "Keeps and protects the Long Barrow"
+ b_long_barrow_keeper_desc:0 "Keeps and protects the Long Barrow"
+
+ b_the_torches_keeper:0 "Commander of The Torches"
+ b_the_torches_keeper_employer_custom_effect_description:0 "Keeps and protects The Torches"
+ b_the_torches_keeper_desc:0 "Keeps and protects The Torches"
+
+ b_greenguard_keeper:0 "Commander of Greenguard"
+ b_greenguard_keeper_employer_custom_effect_description:0 "Keeps and protects the Greenguard"
+ b_greenguard_keeper_desc:0 "Keeps and protects the Greenguard"
+
+ ################
+ # DRAGONKEEPER #
+ ################
+
+ head_dragonkeeper_court_position:0 "Head Dragonkeeper"
+ head_dragonkeeper_court_position_desc:1 "The $head_dragonkeeper_court_position$ is the head of the [dragonkeeper|E] order they serve. They will protect and raise [dragons_plural|e] in the [dragonpit|e] to the best of their ability."
+ head_dragonkeeper_court_position_custom_effect_description:1 "Unlocks [dragonpit_interactions|E]"
+ court_position_knows_valyrian_language:0 "Knows Valyrian Tongue"
+ court_position_valyrian_heritage:0 "Has Valyrian Heritage"
+ court_position_blood_of_old_valyria:0 "Blood of Old Valyria"
+ deepen_bond_with_dragon_scheme_scheme_power_mult:0 "#V Deepen Bond with Your Dragon#! [scheme|E] power"
+ bond_with_dragon_scheme_scheme_power_mult:0 "#V Bond with Dragon#! [scheme|E] power"
+ court_position_professional_dragonkeeper_training:0 "Professional Dragonkeeper Training"
+ court_position_standarized_dragonkeeper_training:0 "Standarized Dragonkeeper Training"
+
+ #cost descs
+ agot_laamp_cost_reduction:0 "You are landless"
+
+ #Maester VS Physician for event loc
+ agot_physician_essos:0 "physician"
+ agot_physician_maester:0 "maester"
+

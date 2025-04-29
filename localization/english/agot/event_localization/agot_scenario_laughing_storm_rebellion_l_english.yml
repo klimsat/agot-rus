@@ -1,0 +1,774 @@
+﻿l_english:
+ ##############################################################
+ ## 0001-0010 LAUGHING STORM EVENTS - Canon Scenario         ##
+ ##############################################################
+
+ #Lyonel's Fury
+ ### POV: Lyonel Baratheon
+ ### Bookmark starter event
+ agot_laughing_storm_rebellion.0001.t:0 "The Laughing Storm Is Brewing"
+ agot_laughing_storm_rebellion.0001.desc:0 "The betrayal cuts deeper than any blade. [duncansmall.GetTitledFirstNameNicknamed], once betrothed to my beloved daughter [cassandra.GetFirstName], has forsaken his vows and taken up with that mysterious girl, [jenny.GetNameNicknamed]. This affront to House [lyonel.GetHouse.GetBaseName] cannot stand.\n\nThe honor of my family lies in ruin, trampled beneath the whims of the Iron Throne. House [lyonel.GetHouse.GetBaseNameNoTooltip] will brook no insult. Independence is my recourse, and should it come to war, so be it.\n\nThe Stormlands shall stand alone, and I shall reclaim my family's honor with all the strength we can muster."
+ agot_laughing_storm_rebellion.0001.a:0 "Ours is the Fury!"
+
+ #The King's Trouble
+ ### POV: Aegon V
+ ### Bookmark starter event
+ #### Triggers: 0003
+ agot_laughing_storm_rebellion.0002.t:0 "A Storm on the Horizon"
+ agot_laughing_storm_rebellion.0002.desc:0 "The weight of the crown has never felt heavier. My son, [duncansmall.GetTitledFirstNameNicknamed], has shattered a betrothal, forsaking [cassandra.GetFullName] for [jenny.GetFirstNameNicknamed].\n\nThe fury of [lyonel.GetFullNameNicknamed] now threatens the realm. He has demanded independence from the Iron Throne, ready to plunge the kingdom into war to reclaim his family's honor. As the king, I must act swiftly to avert disaster.\n\nA proposal of trial by combat between [lyonel.GetTitledFirstNameNoTooltip] and [duncantall.GetTitledFirstName] 'the Tall' may offer a path to peace. It is a gamble, but one that might save the realm from needless bloodshed."
+ agot_laughing_storm_rebellion.0002.a:0 "Let the Lord Commander settle this."
+
+ #The King's Offer
+ ### POV: Lyonel
+ ### Pre-event for the Lyonel v Duncan Tall duel.
+ #### Option A: will lead to duel (Triggers: 0004)
+ #### Option B: might lead to immediate war of independence (Triggers: 0025)
+ agot_laughing_storm_rebellion.0003.t:0 "The Duel of Honor"
+ agot_laughing_storm_rebellion.0003.desc:0 "A raven arrives bearing the king's proposal, an offer to settle this conflict with a single duel, a trial by combat against [duncantall.GetTitledFirstName] 'the Tall.' I remember fighting alongside him in battles past — comrades once, now potential foes. This duel is more than a clash of steel; it is a battle for honor, the very soul of House [lyonel.GetHouse.GetBaseName].\n\nTo refuse would mean independence, but at what cost? The time has come to decide our fate."
+ agot_laughing_storm_rebellion.0003.a:0 "Let the gods decide; we settle this in #bold trial by combat#!."
+ agot_laughing_storm_rebellion.0003.b:0 "I shall not comply with a false king's demands."
+
+ #A Trial
+ ### POV: Lyonel
+ ### Duel event.
+ #### If Lyonel wins triggers 0020
+ #### If Duncan wins and Lyonel is alive triggers 0007 and 0008
+ #### If Duncan wins and Lyonel has died triggers 0009
+ agot_laughing_storm_rebellion.0004.t:0 "The Clash of Storm and Steel"
+ agot_laughing_storm_rebellion.0004.desc:0 "The journey to King's Landing has been long and fraught with anticipation. Now, I stand before the Red Keep, facing [duncantall.GetFirstName] 'the Tall,' the Lord Commander of the Kingsguard. Memories of past battles fought together flash through my mind, but today, camaraderie is cast aside.\n\nThis is a fight for honor, for the name of House [lyonel.GetHouse.GetBaseName]. The eyes of the realm are upon us, and only one shall emerge victorious.\n\nLet the clash of steel ring louder than my laughter, and may the better fighter win this fateful duel."
+ agot_laughing_storm_rebellion.0004.a:0 "#bold Ha ha ha!#!"
+
+ #Duel Tooltips
+ agot_laughing_storm_rebellion.t:0 "Trial by Combat"
+ agot_laughing_storm_rebellion.duncan_won:0 "[duncantall.GetTitledFirstNameNoTooltip] has won the duel against [lyonel.GetTitledFirstNameNoTooltip]."
+ agot_laughing_storm_rebellion.lyonel_won:0 "[lyonel.GetTitledFirstNameNoTooltip] has won the duel against [duncantall.GetTitledFirstNameNoTooltip]."
+
+ #Lyonel Lost
+ ### POV: Lyonel
+ ### Post-duel event.
+ agot_laughing_storm_rebellion.0007.t:0 "The Fall of the Storm"
+ agot_laughing_storm_rebellion.0007.desc:0 "The duel is over, and the clang of swords has faded into memory. Despite my prowess, [duncantall.GetTitledFirstName] has emerged victorious. Defeat is a bitter pill to swallow, the weight of loss settling heavily upon my shoulders.\n\nThe honor of House [lyonel.GetHouse.GetBaseName], bruised and battered, now lies in the hands of [aegonv.GetTitledFirstNameRegnal]. As I kneel before the Iron Throne, awaiting the king's judgment, the future of the Stormlands hangs in the balance. What fate shall the king decree for me and my house?"
+ agot_laughing_storm_rebellion.0007.a:0 "I shall accept my fate with honor."
+
+ #Lyonel Lost
+ ### POV: Aegon V
+ ### Post-duel event.
+ #### Triggers: 0010 (regardless the selected option)
+ agot_laughing_storm_rebellion.0008.t:0 "King's Mercy"
+ agot_laughing_storm_rebellion.0008.desc:0 "[lyonel.GetFullNameNicknamed] stands before me, defeated but unbroken. Despite his loss to [duncantall.GetTitledFirstName], the tension in the realm lingers. As king, I recognize the need for peace and stability. Severe punishment could fan the flames of rebellion, but mercy might mend the rift.\n\nTo preserve the fragile harmony, I contemplate offering a marriage alliance to bind the Baratheons closer to the throne.\n\nShall I offer the hand of my daughter to his son, or simply demand his renewed loyalty without further gesture?"
+ agot_laughing_storm_rebellion.0008.a:0 "I offer Rhaelle's hand to his son."
+ agot_laughing_storm_rebellion.0008.b:0 "I offer Vaella's hand to his son."
+ agot_laughing_storm_rebellion.0008.c:0 "I offer nothing."
+
+ #Lyonel Lost - Lyonel died
+ ### POV: Aegon V
+ ### Post-duel event.
+ #### Triggers: 0031
+ agot_laughing_storm_rebellion.0009.t:0 "The Storm's End"
+ agot_laughing_storm_rebellion.0009.desc:0 "[lyonel.GetFullNameNicknamed] has met his end in the trial by combat against [duncantall.GetTitledFirstName]. His defiance and valor, once a formidable threat, is now silenced. The rebellion that threatened to tear the realm apart has been cut short with its leader fallen.\n\nThe cost of peace has been steep, and the echoes of this conflict will linger in the annals of history. With the Stormlands subdued, the realm can begin to heal, but the shadow of this event will loom over the Iron Throne for years to come."
+ agot_laughing_storm_rebellion.0009.a:0 "He fought, he lost, and now he rests."
+
+ #A new betrothal
+ ### POV: Lyonel
+ ### Betrothal offer from Egg
+ #### Option A: Leads to betrothal (Triggers: 0028)
+ #### Option B: Leads to end of story (Triggers: 0030)
+ #### Option C: Leads to end of story (Triggers: 0030)
+ agot_laughing_storm_rebellion.0010.t:0 "The Storm's Aftermath"
+ agot_laughing_storm_rebellion.0010.betrothal.desc:0 "In the aftermath of my defeat in the trial by combat, [aegonv.GetTitledFirstNameRegnal] extends an olive branch, offering his daughter, [targ_betrothed.GetTitledFirstNamePossessive] hand in marriage to my son, [bara_betrothed.GetTitledFirstName]. This gesture, meant to heal the rift between House [lyonel.GetHouse.GetBaseName] and the Iron Throne, carries the weight of potential peace and unity.\n\nThe honor of my house may be restored through this union, forging a bond that could secure the future of the Stormlands."
+ agot_laughing_storm_rebellion.0010.nobetrothal.desc:0 "In the aftermath of my defeat in the trial by combat, the silence from the Iron Throne is deafening. [aegonv.GetTitledFirstNameRegnal] offers no hand in marriage, no gesture of peace, only the cold reality of my loss.\n\nThe honor of House [lyonel.GetHouse.GetBaseName] remains tarnished, and the future of the Stormlands is uncertain. I stand alone, contemplating the next steps for my house, knowing that the path ahead is fraught with challenges and the shadow of this defeat looms large."
+ agot_laughing_storm_rebellion.0010.a:0 "I accept the king's proposal."
+ agot_laughing_storm_rebellion.0010.b:0 "I have to refuse this proposal."
+ agot_laughing_storm_rebellion.0010.c:0 "I accept my fate."
+
+ ##############################################################
+ ## 0011-0018 LAUGHING STORM EVENTS - Canon Breakups         ##
+ ##############################################################
+
+ #Jaehaerys & Shaera
+ ### POV: Jaehaerys Targaryen
+ ### Breaking betrothals between Jaeharys+Celia Tully and Shaera+Luthor Tyrell
+ #### Option A: Parents notified about the breakup (Triggers: 0013)
+ #### Option B: End of story
+ agot_laughing_storm_rebellion.0011.t:0 "Heart's Dilemma"
+ agot_laughing_storm_rebellion.0011.desc:0 "The actions of my older brother [duncansmall.GetFirstName] have stirred thoughts deep within me. His choice to leave [cassandra.GetTitledFirstName] for [jenny.GetFirstNameNicknamed], following the call of true love, has made me question my own path. Bound in a marriage with [celia.GetTitledFirstName], my heart yearns for [shaera.GetFirstName], my true love.\n\nThe weight of duty and the pull of love wage a fierce battle within me. Should I follow my brother's footsteps and pursue my heart's desire, or remain bound by the vows I have made?"
+ agot_laughing_storm_rebellion.0011.a:0 "Yes, I should follow my heart."
+ agot_laughing_storm_rebellion.0011.b:0 "No, duty must prevail."
+
+ #Daeron
+ ### POV: Daeron Targaryen
+ ### Breaking betrothal between Daeron+Olenna Redwyne
+ #### Option A: Parents notified about the breakup (Triggers: 0014)
+ #### Option B: End of story
+ agot_laughing_storm_rebellion.0012.t:0 "Questioning the Path Ahead"
+ agot_laughing_storm_rebellion.0012.desc:0 "Witnessing the choices of my older brothers, who followed their hearts and divorced to marry for love, I find myself in turmoil. Bound by an impending marriage to [olenna.GetTitledFirstName], a girl I hardly know, doubt clouds my thoughts. [olenna.GetTitledFirstName] may appear pleasant, but my mind and heart are elsewhere.\n\nThe expectations of duty weigh heavily, yet the desire for true happiness beckons. Should I forge my own path and seek love, or adhere to the obligations set before me?"
+ agot_laughing_storm_rebellion.0012.a:0 "Yes, I should follow my own heart."
+ agot_laughing_storm_rebellion.0012.b:0 "No, duty must guide me."
+
+ #Jaehaerys & Shaera - notification
+ ## Can be triggered via event 0021 (or can trigger after some time in historical game ruler)
+ ### POV: Egg, Steffon Tully, Garlan Tyrell
+ ### Jaeharys+Celia Tully and Shaera+Luthor Tyrell broke up
+ #### Option A: End of story
+ #### Option B (only for Egg): End of story + Jaehaerys and Shaera are disinherited
+ agot_laughing_storm_rebellion.0013.t:0 "Unions Defied"
+ agot_laughing_storm_rebellion.0013.desc:0 "A grievous turn of events has unfolded. [jaehaerys.GetTitledFirstName] has broken his betrothal with [celia.GetTitledFirstName], and [shaera.GetTitledFirstName] has severed her engagement with [luthor.GetTitledFirstName]. Defying tradition and duty, they now claim to be married to each other.\n\nThis reckless act has sown discord and disappointment, shaking the foundations of alliances and expectations. The consequences of their union will echo through the realms, leaving house heads to grapple with the ramifications of these unexpected and unfortunate decisions."
+ agot_laughing_storm_rebellion.0013.a:0 "This is a grave misstep."
+ agot_laughing_storm_rebellion.0013.b:0 "They must be punished."
+
+ #Daeron - notification
+ ## Can be triggered via event 0021 (or can trigger after some time in historical game ruler)
+ ### POV: Egg, Runceford Redwyne
+ ### Daeron+Olenna Redwyne broke up
+ #### Option A (only for Egg): End of story
+ #### Option B (only for Runceford if Luthor Tyrell is NOT betrothed): Luthor and Olenna betrothal might happen (Triggers: 0015)
+ #### Option C (only for Runceford if Luthor Tyrell is betrothed): End of story
+ agot_laughing_storm_rebellion.0014.t:0 "Betrothal Broken"
+ agot_laughing_storm_rebellion.0014.desc:0 "The news arrives with a heavy heart. [daeron.GetTitledFirstName] has broken his betrothal with [olenna.GetTitledFirstName], casting aside the carefully laid plans for their union. This unforeseen turn of events is most unfortunate, causing disappointment and uncertainty.\n\nThe ramifications of this broken promise are sure to ripple through both houses, challenging alliances and expectations."
+ agot_laughing_storm_rebellion.0014.aegonv.a:0 "This is a grave disappointment."
+ agot_laughing_storm_rebellion.0014.runceford.a:0 "Perhaps it is time to reach out to Garlan with a betrothal offer."
+ agot_laughing_storm_rebellion.0014.runceford.a.tt:0 "A betrothal between [olenna.GetTitledFirstName] and [luthor.GetTitledFirstName] will be proposed"
+ agot_laughing_storm_rebellion.0014.runcefordx.a:0 "This is a grave disappointment."
+
+ #Luthor + Olenna = ?
+ ### POV: Garlan Tyrell
+ ### Betrothal offer from Runceford Redwyne
+ #### Option A: Agrees to the betrothal (Triggers: 0016)
+ #### Option B: Refuses the betrothal (Triggers: 0018)
+ agot_laughing_storm_rebellion.0015.t:0 "A New Proposal"
+ agot_laughing_storm_rebellion.0015.desc:0 "In the wake of [daeron.GetTitledFirstName] breaking his betrothal with [olenna.GetTitledFirstName], her father [runceford.GetTitledFirstName] has approached me with a new proposal. He suggests a betrothal between [olenna.GetTitledFirstName] and my son, [luthor.GetTitledFirstName].\n\nThis alliance could prove to be very valuable, strengthening ties and fortifying the future of House [garlan.GetHouse.GetBaseName]. It is an opportunity that demands careful consideration."
+ agot_laughing_storm_rebellion.0015.a:0 "This union will benefit our house."
+ agot_laughing_storm_rebellion.0015.b:0 "I must decline this offer."
+
+ #Luthor + Olenna = betrothal
+ ### POV: Runceford Redwyne
+ ### Betrothal between Olenna and Luthor
+ #### Option A: Final confirmation on the betrothal (Triggers: 0017)
+ #### Option B: Refuses the betrothal (Triggers: 0018)
+ agot_laughing_storm_rebellion.0016.t:0 "A Father's Decision"
+ agot_laughing_storm_rebellion.0016.desc:0 "[garlan.GetTitledFirstName] has accepted the offer to betroth [olenna.GetTitledFirstName] and [luthor.GetTitledFirstName]. This alliance holds the promise of great value and strengthened ties between our houses. However, as [olenna.GetFirstNamePossessiveNoTooltip] father, it is my duty to ensure that this union will also be beneficial for her.\n\nThe final decision rests with me, and I must carefully weigh the advantages for our family against my daughter's future happiness."
+ agot_laughing_storm_rebellion.0016.a:0 "Let us proceed with the betrothal."
+ agot_laughing_storm_rebellion.0016.b:0 "I must decline for Olenna's sake."
+
+ #Luthor + Olenna = betrothal notification
+ ### POV: Garlan Tyrell
+ ### Olenna and Luthor betrothed, alliance made
+ #### Option A: End of story
+ agot_laughing_storm_rebellion.0017.t:0 "Alliance Forged"
+ agot_laughing_storm_rebellion.0017.desc:0 "At last, the betrothal between [olenna.GetTitledFirstName] and [luthor.GetTitledFirstName] has been finalized. This union promises to strengthen the bonds between our houses, bringing mutual benefits and fortifying our future alliances.\n\nWith this partnership, both families stand to gain in power and influence, paving the way for a prosperous future."
+ agot_laughing_storm_rebellion.0017.a:0 "This calls for a celebration."
+
+ #Luthor + Olenna = refused
+ ### POV: Garlan Tyrell OR Runceford Redwyne (depending who refused it)
+ ### Olenna and Luthor betrothal negotiation failed
+ #### Option A: End of story
+ agot_laughing_storm_rebellion.0018.t:0 "An Opportunity Lost"
+ agot_laughing_storm_rebellion.0018.desc:0 "The betrothal between [olenna.GetTitledFirstName] and [luthor.GetTitledFirstName] has been refused. It is a shame, as this union would have been greatly beneficial for both our houses, strengthening our ties and securing our futures.\n\nDespite the setback, we must look forward and consider other paths to fortify our alliances and the prosperity of our family."
+ agot_laughing_storm_rebellion.0018.a:0 "My child will find [my_child.GetHerHis] love elsewhere."
+
+ ##############################################################
+ ## 0020-0035 LAUGHING STORM EVENTS - Non-Canon Scenarios    ##
+ ##############################################################
+
+ #Lyonel Won
+ ### POV: Lyonel
+ ### Lyonel beats Duncan Tall in the duel
+ #### Option A: Lyonel remains a vassal if Egg agrees to sending Duncan Targaryen to the wall and a marriage between Rhaella and Ormund Baratheon (or Herbert if Ormund died somehow) (Triggers: 0021)
+ #### Option B: Declares independence (Triggers: 0026)
+ agot_laughing_storm_rebellion.0020.t:0 "The Storm's Victory"
+ agot_laughing_storm_rebellion.0020.desc:0 "The trial by combat is over, and [duncantall.GetTitledFirstName] lies defeated by my hand. The honor of House [lyonel.GetHouse.GetBaseName] has been restored, and the thrill of victory pulses through my veins. Now, I stand at a crossroads.\n\n"
+ agot_laughing_storm_rebellion.0020.desc.both:0 "I can choose to remain independent, carving out my own path free from the Iron Throne. Alternatively, I could swear fealty once more, but only under the condition of a new betrothal from [aegonv.GetTitledFirstNameRegnal] and the exile of [duncansmall.GetTitledFirstNameNicknamed] to the Wall."
+ agot_laughing_storm_rebellion.0020.desc.only_banishment:0 "I can choose to remain independent, carving out my own path free from the Iron Throne. Alternatively, I could swear fealty once more, but only under the condition of the exile of [duncansmall.GetTitledFirstNameNicknamed] to the Wall."
+ agot_laughing_storm_rebellion.0020.desc.only_betrothal:0 "I can choose to remain independent, carving out my own path free from the Iron Throne. Alternatively, I could swear fealty once more, but only under the condition of a new betrothal from [aegonv.GetTitledFirstNameRegnal]."
+ agot_laughing_storm_rebellion.0020.desc.none:0 "I can choose to remain independent, carving out my own path free from the Iron Throne. Alternatively, I could swear fealty once more, but I shall not do so blindly."
+ agot_laughing_storm_rebellion.0020.a:0 "I swear fealty, but I demand justice."
+ agot_laughing_storm_rebellion.0020.a.simple:0 "There is no need for further strife — I swear my fealty."
+ agot_laughing_storm_rebellion.0020.b:0 "The Stormlands shall stand alone."
+
+ #Lyonel Won
+ ### POV: Aegon V
+ ### Lyonel demanded to send Prince Duncan to the wall and a marriage between Rhaella and Ormund Baratheon in order for him to remain loyal
+ #### Option A: Demand refused - might lead to the break of betrothals (Triggers: 0013, 0014, 0023, 0024 and 0032)
+ #### Option B: Demand accepted (Triggers: 0028)
+ agot_laughing_storm_rebellion.0021.t:0 "Demands of the Storm"
+ agot_laughing_storm_rebellion.0021.no_demand.t:0 "Victory of the Storm"
+ agot_laughing_storm_rebellion.0021.desc:0 "[lyonel.GetFullNameNicknamed] has emerged victorious in the trial by combat, defeating [duncantall.GetTitledFirstName].\n\n"
+ agot_laughing_storm_rebellion.0021.desc.both:0 "He now offers to swear fealty once more, but his loyalty comes at a price: a new betrothal from the Crown and the exile of my son, [duncansmall.GetTitledFirstNameNicknamed], to the Wall. The decision is a weighty one, balancing the honor of the realm and the demands of a powerful vassal.\n\nI must carefully consider the implications of accepting or refusing his terms."
+ agot_laughing_storm_rebellion.0021.desc.only_banishment:0 "He now offers to swear fealty once more, but his loyalty comes at a price: the exile of my son, [duncansmall.GetTitledFirstNameNicknamed], to the Wall. The decision is a weighty one, balancing the honor of the realm and the demands of a powerful vassal.\n\nI must carefully consider the implications of accepting or refusing his terms."
+ agot_laughing_storm_rebellion.0021.desc.only_betrothal:0 "He now offers to swear fealty once more, but his loyalty comes at a price: a new betrothal from the Crown. The decision is a weighty one, balancing the honor of the realm and the demands of a powerful vassal.\n\nI must carefully consider the implications of accepting or refusing his terms."
+ agot_laughing_storm_rebellion.0021.desc.none:0 "He now offers to swear fealty once more, without demand or condition. His oath restores a measure of peace to the realm, yet past strife is not so easily forgotten.\n\nFor now, the realm stands whole again."
+ agot_laughing_storm_rebellion.0021.a:0 "I reject this audacious demand."
+ agot_laughing_storm_rebellion.0021.a.no_demand:0 "Let peace endure."
+ agot_laughing_storm_rebellion.0021.b:0 "This offer could restore peace."
+
+ #Lyonel Refused the marriage
+ ### POV: Aegon V
+ #### Option A: End of story
+ agot_laughing_storm_rebellion.0022.t:0 "The Stag's Defiance"
+ agot_laughing_storm_rebellion.0022.desc:0 "[lyonel.GetTitledFirstNamePossessive] response arrives swift and blunt — he refuses the match. No apology, no courtesy, only the ironclad will of a man who will not see his house bound to mine, not even in peace.\n\nHe lost the duel, yet in this, he stands unyielding. The storm will not be tamed so easily."
+ agot_laughing_storm_rebellion.0022.a:0 "So be it."
+ agot_laughing_storm_rebellion.0022.a.tt:0 "So it be."
+
+ #creating the alliance
+ ### POV: Runceford Redwyne, Steffon Tully, Garlan Tyrell (only if their children are involved in Targaryen betrothal break ups)
+ ### Lyonel offers alliance for the coming war
+ #### Option A: Ally with Lyonel
+ #### Option B: End of story
+ agot_laughing_storm_rebellion.0023.t:0 "Call to Rebellion"
+ agot_laughing_storm_rebellion.0023.desc:0 "The dishonor brought upon House [lyonel.GetHouse.GetBaseName] by [duncansmall.GetTitledFirstNameNicknamedPossessive] broken betrothal now fuels [lyonel.GetTitledFirstNameNicknamedPossessive] rebellion against the Iron Throne. [lyonel.GetTitledFirstNameNoTooltip] gathers his allies, seeking to fight for independence.\n\nMy child, too, suffered at the hands of the Targaryens, making it seem just to join [lyonel.GetFirstNameNoTooltip] in his struggle. Yet, I have always been loyal to the Iron Throne, and the consequences of rebellion weigh heavily. This is a momentous decision that will shape the future of our house."
+ agot_laughing_storm_rebellion.0023.a:0 "We stand with 'the Laughing Storm.'"
+ agot_laughing_storm_rebellion.0023.b:0 "We remain loyal to the Iron Throne."
+
+ #WAR
+ ### POV: Lyonel
+ ### War event (desc depends on who accepted the call)
+ #### Option A: The war begins
+ agot_laughing_storm_rebellion.0024.t:0 "The Storm Begins"
+ agot_laughing_storm_rebellion.0024.garlan_steffon_runceford.desc:0 "The time has come. My army stands ready, banners flying high and hearts steeled for battle. With [runceford.GetTitledFirstName], [garlan.GetTitledFirstName], and [steffon.GetTitledFirstName] by my side, the call to war echoes across the Stormlands. The dishonor inflicted upon House [lyonel.GetHouse.GetBaseName] will be answered with the fury of a storm.\n\nWe march forth to reclaim our honor and independence, prepared to face whatever challenges lie ahead. Let the Iron Throne tremble, for the wrath of the storm is upon them."
+ agot_laughing_storm_rebellion.0024.steffon_runceford.desc:0 "The time has come. My army stands ready, banners flying high and hearts steeled for battle. With [steffon.GetTitledFirstName] and [runceford.GetTitledFirstName] by my side, the call to war echoes across the Stormlands. The dishonor inflicted upon House [lyonel.GetHouse.GetBaseName] will be answered with the fury of a storm.\n\nWe march forth to reclaim our honor and independence, prepared to face whatever challenges lie ahead. Let the Iron Throne tremble, for the wrath of the storm is upon them."
+ agot_laughing_storm_rebellion.0024.garlan_runceford.desc:0 "The time has come. My army stands ready, banners flying high and hearts steeled for battle. With [garlan.GetTitledFirstName] and [runceford.GetTitledFirstName] by my side, the call to war echoes across the Stormlands. The dishonor inflicted upon House [lyonel.GetHouse.GetBaseName] will be answered with the fury of a storm.\n\nWe march forth to reclaim our honor and independence, prepared to face whatever challenges lie ahead. Let the Iron Throne tremble, for the wrath of the storm is upon them."
+ agot_laughing_storm_rebellion.0024.garlan_steffon.desc:0 "The time has come. My army stands ready, banners flying high and hearts steeled for battle. With [garlan.GetTitledFirstName] and [steffon.GetTitledFirstName] by my side, the call to war echoes across the Stormlands. The dishonor inflicted upon House [lyonel.GetHouse.GetBaseName] will be answered with the fury of a storm.\n\nWe march forth to reclaim our honor and independence, prepared to face whatever challenges lie ahead. Let the Iron Throne tremble, for the wrath of the storm is upon them."
+ agot_laughing_storm_rebellion.0024.garlan.desc:0 "The time has come. My army stands ready, banners flying high and hearts steeled for battle. With [garlan.GetTitledFirstName] by my side, the call to war echoes across the Stormlands. The dishonor inflicted upon House [lyonel.GetHouse.GetBaseName] will be answered with the fury of a storm.\n\nWe march forth to reclaim our honor and independence, prepared to face whatever challenges lie ahead. Let the Iron Throne tremble, for the wrath of the storm is upon them."
+ agot_laughing_storm_rebellion.0024.steffon.desc:0 "The time has come. My army stands ready, banners flying high and hearts steeled for battle. With [steffon.GetTitledFirstName] by my side, the call to war echoes across the Stormlands. The dishonor inflicted upon House [lyonel.GetHouse.GetBaseName] will be answered with the fury of a storm.\n\nWe march forth to reclaim our honor and independence, prepared to face whatever challenges lie ahead. Let the Iron Throne tremble, for the wrath of the storm is upon them."
+ agot_laughing_storm_rebellion.0024.runceford.desc:0 "The time has come. My army stands ready, banners flying high and hearts steeled for battle. With [runceford.GetTitledFirstName] by my side, the call to war echoes across the Stormlands. The dishonor inflicted upon House [lyonel.GetHouse.GetBaseName] will be answered with the fury of a storm.\n\nWe march forth to reclaim our honor and independence, prepared to face whatever challenges lie ahead. Let the Iron Throne tremble, for the wrath of the storm is upon them."
+ agot_laughing_storm_rebellion.0024.none.desc:0 "The time has come. My army stands ready, banners flying high and hearts steeled for battle. With loyal allies by my side, the call to war echoes across the Stormlands. The dishonor inflicted upon House [lyonel.GetHouse.GetBaseName] will be answered with the fury of a storm.\n\nWe march forth to reclaim our honor and independence, prepared to face whatever challenges lie ahead. Let the Iron Throne tremble, for the wrath of the storm is upon them."
+ agot_laughing_storm_rebellion.0024.a:0 "To war!"
+
+ #Lyonel refused the trial
+ ### POV: Aegon V
+ ### Lyoned refused the trial
+ #### Option A: Leads to war (Triggers: 0027)
+ #### Option B: Grant him independence anyway (Triggers: 0026)
+ agot_laughing_storm_rebellion.0025.t:0 "The King's Dilemma"
+ agot_laughing_storm_rebellion.0025.desc:0 "[lyonel.GetTitledFirstName] has refused the trial by combat against [duncantall.GetTitledFirstName], a move I did not anticipate. This unexpected turn of events leaves me with a difficult decision.\n\nShould I grant him the independence he seeks, risking the precedent it sets for other lords, or should I enforce the consequences for his defiance, potentially plunging the realm into further conflict? The fate of the Stormlands and the stability of the Iron Throne hang in the balance."
+ agot_laughing_storm_rebellion.0025.a:0 "He must face the consequences."
+ agot_laughing_storm_rebellion.0025.b:0 "I should grant him independence."
+
+ #The Storm King
+ ### POV: Lyonel
+ ### The Stormlands became independent
+ #### Option A: Leads to end of story (Triggers: 0029)
+ agot_laughing_storm_rebellion.0026.t:0 "The Storm King"
+ agot_laughing_storm_rebellion.0026.desc:0 "Victory is ours. I have earned our independence, and the Stormlands shall once again rule autonomously, just as the Durrandons did before us. Our banners fly high, proclaiming our sovereignty and the restoration of our ancient rights.\n\nThe honor of House [lyonel.GetHouse.GetBaseName] is restored, and we stand ready to forge our own destiny, free from the yoke of the Iron Throne. Let all know that the Storm King reigns supreme."
+ agot_laughing_storm_rebellion.0026.a:0 "Glory to the Stormlands!"
+
+ #The Early War
+ ### POV: Lyonel
+ ### Pre-War event
+ #### Option A: Leads to war (Triggers: 0024)
+ agot_laughing_storm_rebellion.0027.t:0 "The Gathering Storm"
+ agot_laughing_storm_rebellion.0027.desc:0 "Having refused the trial by combat, I now stand on the brink of war. The tension is palpable, and the Stormlands prepare for the inevitable conflict. To secure our independence and defend our honor, I must seek out allies who will stand with us in the face of the Iron Throne's wrath.\n\nThe path ahead is fraught with danger, but with loyal supporters, we can weather any storm."
+ agot_laughing_storm_rebellion.0027.a:0 "Rally the allies."
+
+ #Fin
+ ### POV: Lyonel
+ ### Everything goes back to normal (canon-ish timeline)
+ #### Option A: Leads to end of story (Triggers: 0030)
+ agot_laughing_storm_rebellion.0028.t:0 "Peace Restored"
+ agot_laughing_storm_rebellion.0028.desc:0 "After a period of struggle, a new betrothal from the king has been arranged, and peace is once again within our grasp. The Stormlands can now look to the future with hope, our honor intact and our bonds with the Iron Throne mended.\n\nThis alliance promises stability and a renewed sense of unity, allowing us to focus on prosperity and the well-being of our people."
+ agot_laughing_storm_rebellion.0028.desc.no_betrothal:0 "After a period of struggle peace is once again within our grasp. The Stormlands can now look to the future with hope, our honor intact and our bonds with the Iron Throne mended.\n\nThis alliance promises stability and a renewed sense of unity, allowing us to focus on prosperity and the well-being of our people."
+ agot_laughing_storm_rebellion.0028.a:0 "We shall embrace this newfound peace."
+
+ #The Storm King
+ ### POV: Everyone
+ ### The Stormlands became independent
+ #### Option A: End of story
+ agot_laughing_storm_rebellion.0029.t:0 "The Storm King"
+ agot_laughing_storm_rebellion.0029.desc:0 "Victory has been claimed by House [lyonel.GetHouse.GetBaseName] in their fight for independence. The Stormlands shall once again rule autonomously, just as the Durrandons did before them. Their banners now fly high, proclaiming their sovereignty and the restoration of their ancient rights.\n\nThe honor of House [lyonel.GetHouse.GetBaseName] has been restored, and they stand ready to forge their own destiny, free from the Iron Throne."
+ agot_laughing_storm_rebellion.0029.a:0 "The Laughing Storm has the last laugh?"
+
+ #Fin
+ ### POV: Everyone
+ ### Everything goes back to normal (canon-ish timeline)
+ #### Option A: End of story
+ agot_laughing_storm_rebellion.0030.t:0 "Peace Restored"
+ agot_laughing_storm_rebellion.0030.desc:0 "After a period of struggle, a resolution has been reached, bringing stability back to the realm. The Stormlands must now look to the future, their recent turmoil a reminder of the high cost of conflict.\n\nWith peace restored, the realm can begin the process of healing. The focus now shifts to rebuilding and ensuring the well-being of all its people.\n\nLet this moment serve as a lesson in the importance of unity and the fragile nature of peace."
+ agot_laughing_storm_rebellion.0030.a:0 "Let's hope the peace endures."
+
+
+ #Lyonel died
+ ### POV: Everyone
+ ### Lyonel died in the trial by combat
+ #### Option A: End of story
+ agot_laughing_storm_rebellion.0031.t:0 "The Storm's End"
+ agot_laughing_storm_rebellion.0031.desc:0 "[lyonel.GetFullNameNicknamed] has met his end in the trial by combat against [duncantall.GetTitledFirstName]. His defiance and valor, once a formidable threat, are now silenced. The rebellion that threatened to tear the realm apart has been cut short with its leader fallen.\n\nThe cost of peace has been steep, and the echoes of this conflict will linger in the annals of history. With the Stormlands subdued, the realm can begin to heal, but the shadow of this event will loom over the Iron Throne for years to come."
+ agot_laughing_storm_rebellion.0031.a:0 "He fought, he lost, and now he rests."
+
+ #Lyonel's Demand refused
+ ### POV: Lyonel
+ ### Aegon refused Lyonel's demand of new betrothal and sending Duncan Small to the wall
+ #### Option A: Escalating the situation
+ agot_laughing_storm_rebellion.0032.t:0 "The Fury of the Storm"
+ agot_laughing_storm_rebellion.0032.desc:0 "After besting [duncantall.GetTitledFirstName] in trial by combat, I demand justice from the king: his son, [duncansmall.GetTitledFirstNameNicknamed], sent to the Wall, and a new betrothal to bind our houses. Yet, the king has refused my rightful demands!\n\nThis affront is outrageous and intolerable. Now, there is no choice but to take up arms and fight for our independence.\n\nThe Stormlands will no longer bow to the Iron Throne. War is upon us, and we shall see our honor restored through victory."
+ agot_laughing_storm_rebellion.0032.a:0 "He will rue the day he defied me."
+ agot_laughing_storm_rebellion.0032.b:0 "Perhaps it would be wise to seek peace instead."
+
+ #Reconquest
+ ### POV: Jaehaerys, Daeron or Duncan Targaryen
+ ### Triggers in the future for either Jaehaerys, Daeron or Duncan if they inherit the throne AND if any of The Stormlands LP title gained independent
+ #### Option A: Declare reconquest war against The Stormlands
+ #### Option A: No reconquest
+ agot_laughing_storm_rebellion.0034.t:0 "The Dragon's Reckoning"
+ agot_laughing_storm_rebellion.0034.desc:0 "The Stormlands, once bound to the Iron Throne, now stand apart, a kingdom forged in rebellion under [lyonel.GetNamePossessive] banner.\n\nMy father's reign saw the realm divided, a mistake I cannot let stand. The might of the Targaryens is not so easily broken, and the Stormlands are ours by right. War comes at a cost. Blood, gold, and lives — the choice I make now will echo through the ages."
+ agot_laughing_storm_rebellion.0034.a:0 "I will take the Stormlands with fire and blood."
+ agot_laughing_storm_rebellion.0034.b:0 "Let them have their freedom, for now."
+
+ #Realm Reconquest
+ ### POV: Jaehaerys, Daeron or Duncan Targaryen
+ ### Triggers in the future for either Jaehaerys, Daeron or Duncan if they inherit the throne AND if any of the LP titles gained independent
+ #### Option A: Declare reconquest war against the next independent kingdom
+ #### Option A: No reconquest
+ agot_laughing_storm_rebellion.0037.t:0 "A Throne Divided"
+ agot_laughing_storm_rebellion.0037.desc:0 "[reconquest_target_title.GetName], once bound to the Iron Throne, now stand as a defiant realm, their independence a bitter reminder of my father's failure. Every day they grow bolder, their wealth swelling, their power unchecked. The kingdom feels fractured, the throne lessened by their absence.\n\nThe weight of their rebellion gnaws at me, and I cannot abide it any longer. The Iron Throne must be whole, its dominion unquestioned. To leave [reconquest_target_title.GetNameNoTooltip] free is to leave our enemies with a weapon in their hands."
+ agot_laughing_storm_rebellion.0037.a:0 "The Iron Throne must be whole. Prepare for war."
+ agot_laughing_storm_rebellion.0037.b:0 "Perhaps now is not the time for war."
+
+ #Redwyne Independence
+ ### POV: Redwyne
+ agot_laughing_storm_rebellion.0038.t:0 "A Crown of Vine"
+ agot_laughing_storm_rebellion.0038.desc:0 "For generations, the Arbor has bent the knee to lords greater in name, though never in worth. Our ships filled their coffers, our wine graced their tables, and yet we were but another branch upon their tree. No longer.\n\n[stormlands.GetNameNoTier] stand free of the dragon's rule, and so too does [arbor.GetNameNoTier]. Let the world know — I am no mere lord of vineyards and fleets, but a king in my own right. The Arbor bows to no master."
+ agot_laughing_storm_rebellion.0038.a:0 "Let the Arbor rule itself, as it always should have."
+
+ #Reach informed about PK Arbor
+ ### POV: Reach
+ #Option A: accept
+ #Option B: inform Redwyne that Olenna will be execute if Redwyne won't swear fealty (active only if Olenna is at Reach court)
+ agot_laughing_storm_rebellion.0039.t:0 "The Vine Breaks Free"
+ agot_laughing_storm_rebellion.0039.desc:0 "For as long as men have remembered, [arbor.GetNameNoTierPossessive] wealth and fleets served [reach.GetNameNoTier], its lords sworn and bound as dutiful vassals.\n\nYet now, with the dragon cast aside and our own rule secured, they claim a crown of their own. [k_arbor_holder.GetTitledFirstNameNicknamed] styles [k_arbor_holder.GetHerselfHimself] a [Select_CString(k_arbor_holder.IsFemale,'queen','king')], his banners no longer ours to call."
+ agot_laughing_storm_rebellion.0039.desc.olenna:0 "\n\n[olenna.GetTitledFirstName] lingers within my halls, a guest in name, a hostage in truth. [k_arbor_holder.GetTitledFirstNameNoTooltip] may call [k_arbor_holder.GetHerselfHimself] a [Select_CString(k_arbor_holder.IsFemale,'queen','king')], may claim the Arbor stands apart from the Reach, but blood is a stronger chain than pride."
+ agot_laughing_storm_rebellion.0039.a:0 "The Reach stands alone."
+ agot_laughing_storm_rebellion.0039.b:0 "Send word to the Arbor — [k_arbor_holder.GetHerHis] crown for her life."
+
+ #Arbor: Reach Threat
+ ### POV: Redwyne
+ #Option A: swear fealty - Triggers 0041
+ #Option B: don't swear fealty - Triggers 0042
+ agot_laughing_storm_rebellion.0040.t:0 "The Price of a Crown"
+ agot_laughing_storm_rebellion.0040.desc:0 "A message arrives with the weight of a sword at my throat. [olenna.GetTitledFirstName] is in [e_reach_holder.GetTitledFirstName] dungeons, a pawn in [e_reach_holder.GetHerHis] bid to break my crown before it can take root. [e_reach_holder.GetSheHe|U] offers a simple choice — swear fealty, bow as [arbor.GetNameNoTier] has always bowed, or watch [olenna.GetTitledFirstNameNoTooltip] suffer for my defiance.\n\nTo kneel is to undo all we have won. To refuse is to condemn my own blood. There is no right choice, only the one I must live with."
+ agot_laughing_storm_rebellion.0040.a:0 "The Arbor bends — Olenna must live."
+ agot_laughing_storm_rebellion.0040.b:0 "I am sorry, Olenna."
+
+ ##Arbor remains loyal
+ ### POV: Reach
+ #Option A: Olenna released, Redwyne vassalized
+ agot_laughing_storm_rebellion.0041.t:0 "A Crown Cast Aside"
+ agot_laughing_storm_rebellion.0041.desc:0 "[k_arbor_holder.GetTitledFirstName] has seen reason. [k_arbor_holder.GetHerHis|U] crown is cast aside, [k_arbor_holder.GetHerHis] banners lowered, and [arbor.GetNameNoTier] bends once more to [reach.GetNameNoTier]. A throne abandoned, a life reclaimed. A fair trade — or perhaps the only one [k_arbor_holder.GetSheHe] could make.\n\nWith [k_arbor_holder.GetHerHis] surrender, [olenna.GetTitledFirstNamePossessive] place in my dungeons serves no further purpose. The Arbor is mine once more, as it always should have been."
+ agot_laughing_storm_rebellion.0041.a:0 "Release her — this matter is settled."
+
+ ##Arbor remains independent
+ ### POV: Reach
+ #Option A: Olenna executed
+ agot_laughing_storm_rebellion.0042.t:0 "The Cost of a Crown"
+ agot_laughing_storm_rebellion.0042.desc:0 "[k_arbor_holder.GetTitledFirstName] has made [k_arbor_holder.GetHerHis] choice. [arbor.GetNameNoTier] stands alone, its banners unbowed, its crown unbroken. [k_arbor_holder.GetSheHe|U] would sooner see [k_arbor_holder.GetHerHis] own blood spilled than bend the knee. So be it.\n\n[olenna.GetTitledFirstNamePossessive] fate is sealed. A warning to those who defy me, a price paid for a throne clutched too tightly. [reach.GetNameNoTier] will not forget this insult, nor will I.\n\nThe Arbor may stand, but its roots have been watered with its own blood."
+ agot_laughing_storm_rebellion.0042.a:0 "Let it be done."
+
+ #Initial event for everyone
+ ### POV: Every Seven Kingdoms ruler (except Lyonel and Aegon because they have their own starter event)
+ ### Bookmark starter event
+ agot_laughing_storm_rebellion.0050.t:0 "The Laughing Storm Rebellion"
+ agot_laughing_storm_rebellion.0050.desc:0 "The realm is gripped by chaos. [lyonel.GetTitledFirstNameNicknamed], has raised his banners in open rebellion against the Iron Throne. His fury was ignited after [duncansmall.GetTitledFirstNameNicknamed], heir to the throne, set aside Lyonel's daughter to marry a lowborn girl for love — a scandal that humiliated House Baratheon and fractured the alliance between Storm's End and King's Landing\n\nThe Laughing Storm will not be mocked. His defiance echoes through the Stormlands, a challenge to Targaryen rule that threatens to plunge the realm into war. As Lyonel strikes out in fury, the Iron Throne must prepare for a reckoning. The winds of war are howling, and every house must now decide where their loyalties lie."
+ agot_laughing_storm_rebellion.0050.a:0 "The storm has come."
+
+ ##############################################################
+ ## 0100-0104 MAELYS BLACKFYRE EVENTS                        ##
+ ##############################################################
+
+ #Maelys Challenging Daemon
+ ### POV: Maelys the Monstrous
+ ### Triggers in the future. Challenging the ruler of the Golden Company to take over the leadership
+ #### Option A: Initiate duel against GC ruler (Triggers: 0101 or 0102)
+ #### Option B: End of story
+ agot_laughing_storm_rebellion.0100.t:0 "Challenge for Leadership"
+ agot_laughing_storm_rebellion.0100.desc:0 "I have watched [daemonbf_lsr.GetTitledFirstNameNicknamed] struggle with leadership for far too long. The time has come to take matters into my own hands. I will challenge Daemon to a duel for the right to lead.\n\nOnly through strength and determination can we secure our future and reclaim what is rightfully ours."
+ agot_laughing_storm_rebellion.0100.a:0 "The leadership shall be mine."
+ agot_laughing_storm_rebellion.0100.b:0 "I leave [daemonbf_lsr.GetFirstNameNoTooltip] to lead."
+
+ #the duel
+ ### POV: GC Ruler
+ ### Duel to death event (triggers if the GC ruler is adult)
+ #### Option A: Duel (Triggers: 0104)
+ agot_laughing_storm_rebellion.0101.t:0 "Duel for Dominion"
+ agot_laughing_storm_rebellion.0101.desc:0 "[maelysbf_lsr.GetTitledFirstNameNicknamed] has challenged my leadership, seeking to take control for himself. Refusing this duel would mean losing the respect and loyalty of our people. The time has come to defend my right to rule and prove my strength.\n\nI must accept this challenge and face [maelysbf_lsr.GetFirstNameNoTooltip] in combat to secure my position and the future of our cause."
+ agot_laughing_storm_rebellion.0101.a:0 "Let the duel begin."
+
+ #usurpation
+ ### POV: GC Ruler
+ ### Maelys usurping the GC (triggers if the GC ruler is child)
+ #### Option A: Continue to play as Maelys
+ #### Option B: Continue to play as a random Targaryen ruler (if any)
+ #### Option C: Continue to play as the king of the IT (if Targaryen)
+ agot_laughing_storm_rebellion.0102.t:0 "The Shadow of the Blackfyre"
+ agot_laughing_storm_rebellion.0102.desc:0 "[maelysbf_lsr.GetFirstNameNicknamed] has stormed into my court with his band of sellswords, his eyes burning with ambition and cruelty. I can feel the fear gripping my heart as he towers over me, his monstrous presence casting a dark shadow over my fate.\n\nThe titles I was born to, everything I have ever known, are slipping away, and worse, his gaze promises more than just theft. He means to execute me, to end my life and my claim. I stand alone before the beast, my future all but extinguished."
+ agot_laughing_storm_rebellion.0102.a:0 "There is no escape from the monster."
+ agot_laughing_storm_rebellion.0102.b:0 "This can not be the end."
+ agot_laughing_storm_rebellion.0102.c:0 "[king_house_member.GetTitledFirstName] has to know about this."
+
+ #Maelys the Monstrous
+ ### POV: The old GC Ruler OR Maelys
+ ### Conclusion of the duel/usurpation (title, desc and option depending on who won)
+ #### Option A: End of story
+ agot_laughing_storm_rebellion.0104.maelys.t:0 "Rise of the Monstrous"
+ agot_laughing_storm_rebellion.0104.notmaelys.t:0 "Fall of the Monstrous"
+ agot_laughing_storm_rebellion.0104.maelys.desc:0 "The leadership is now mine. With strength and determination, I shall lead my people to glory and reclaim what is rightfully ours. The future of our cause is in my hands, and I will stop at nothing to see us triumph.\n\nLet all who oppose us tremble, for Maelys 'the Monstrous' now leads."
+ agot_laughing_storm_rebellion.0104.notmaelys.desc:0 "Maelys has fallen, and my leadership is now secured. With strength and determination, I shall lead my people to glory."
+ agot_laughing_storm_rebellion.0104.notmaelys.a:0 "Onward!"
+ agot_laughing_storm_rebellion.0104.maelys.a:0 "And now my reign begins."
+
+ #Aegor Bittersteel Starter Event
+ agot_laughing_storm_rebellion.0105.t:0 "Ashes and Vows"
+ agot_laughing_storm_rebellion.0105.desc:0 "Three years, and still the taste of defeat lingers like bile on my tongue. The Fourth Blackfyre Rebellion shattered against cold steel and traitor's blood, our banners torn, our kin slain or scattered.\n\nI bled for [daemon_blackfyre.GetFirstName], for his sons, for the dream we swore to carve from the ruin of a fading dynasty. And yet, it was not enough. But the Golden Company remains.\n\nThe exiled, the broken, the swords that know no home but war. The Blackfyres are not finished, and neither am I. One day, we will cross the Narrow Sea again. One day, the dragon will have its due."
+ agot_laughing_storm_rebellion.0105.a:0 "No king lasts forever."
+
+ ##############################################################
+ ## 0200 - 0201 SCALY EVENTS                                 ##
+ ##############################################################
+
+ #Scaly Baby
+ ### POV: A random Stormlandler ruler
+ ### Birth of Scaly Allard
+ #### Option A: End of story
+ agot_laughing_storm_rebellion.0201.t:0 "The Scaled Foundling"
+ agot_laughing_storm_rebellion.0201.desc:0 "A courtier rushes into my chambers, breathless with news of a discovery in the courtyard. An infant has been found, abandoned and alone. As I approach the child, I notice something extraordinary. [allard.GetHerHis|U] skin has a peculiar texture, resembling scales.\n\nIntrigued and moved by the child's plight, I decide to take [allard.GetHerHim] under my wing, vowing that [allard.GetSheHe] will be raised within the safety and guidance of my court."
+ agot_laughing_storm_rebellion.0201.a:0 "Welcome, little scaly baby."
+
+ ##############################################################
+ ## 0300 - 0311 TYTOS & ELLYN EVENTS                         ##
+ ##############################################################
+
+ #Ellyn's Seduction
+ ### POV: Ellyn Reyne
+ ### Seduction attempt on Tytos Lannister
+ #### Option A: Seduction attempt
+ agot_laughing_storm_rebellion.0300.t:0 "The Sorceress of Casterly Rock"
+ agot_laughing_storm_rebellion.0300.desc:0 "It is a bitter thing to fall from grace, yet not so bitter that it cannot be reversed. [tytos.GetTitledFirstName] is soft, a man swayed by a gentle touch, and I still know how to make men forget their wives.\n\n[jeyne.GetTitledFirstName]? A shadow, a fleeting whisper in the halls of Casterly Rock, but I will make them sing my name again.\n\nI have been scorned long enough. I must carve my own path, and if it leads through the heart of [tytos.GetTitledFirstNameNoTooltip], so be it."
+ agot_laughing_storm_rebellion.0300.a:0 "The heart of the lion will soon beat for me."
+
+ #Tytos: Seduction Outcome
+ ### POV: Tytos Lannister
+ ### Ellyn's seduction attempt
+ #### Option A: Remain loyal to current wife (Triggers: 0302)
+ #### Option B: Ellyn becomes lover (Triggers: 0303)
+ agot_laughing_storm_rebellion.0301.t:0 "The Lion's Temptation"
+ agot_laughing_storm_rebellion.0301.desc:0 "[ellyn.GetFirstName] stands close, her words sweet as honey, her eyes filled with promises of what once was and could be again. The air between us thickens, her hand brushing mine, her touch burning through the cold stone walls of Casterly Rock.\n\n[jeyne.GetFirstName]... my wife, my duty. But Ellyn, with her fire, her ambition. She stirs something within me, something dangerous. Do I turn away, or let the flame consume us both?"
+ agot_laughing_storm_rebellion.0301.a:0 "Jeyne is my wife, my honor lies with her."
+ agot_laughing_storm_rebellion.0301.b:0 "Perhaps the fire is worth the risk."
+
+ #Ellyn: Tytos refused me
+ ### POV: Ellyn Reyne
+ ### Tytos refused me
+ #### Option A: Accept the refusal
+ #### Option B: Accept the refusal + Jeyne becomes rival of mine
+ agot_laughing_storm_rebellion.0302.t:0 "Spurned by a Lion"
+ agot_laughing_storm_rebellion.0302.desc:0 "Tytos turned away. That weak, mewling lion has chosen [jeyne.GetFirstName] over me. A dull, colorless woman who offers him nothing but cold duty. I offered him power, glory, the reign of a queen, and still he clings to her.\n\nFools like him often make such choices, but a mistake of a fool will not go unanswered. I could accept this insult and let it be, or I could ensure [jeyne.GetFirstNamePossessiveNoTooltip] reign as lady of Casterly Rock is far shorter than she imagines."
+ agot_laughing_storm_rebellion.0302.a:0 "I will bide my time... for now."
+ agot_laughing_storm_rebellion.0302.b:0 "Jeyne will regret ever crossing me."
+
+ #Ellyn: Tytos became my lover
+ ### POV: Ellyn Reyne
+ ### Tytos become my lover
+ #### Option A: Suggest to Tytos that he should divorce from Jeyne and marry me instead (Triggers: 304)
+ agot_laughing_storm_rebellion.0303.t:0 "The Lion's True Mate"
+ agot_laughing_storm_rebellion.0303.desc:0 "[tytos.GetFirstName] has come to me, finally seeing what I always knew, that I am his rightful queen, the one who can guide him to greater heights than [jeyne.GetFirstName] ever could. But there is still one obstacle between us. Jeyne.\n\nWe cannot truly rule together while she remains his wife. I must convince Tytos to set her aside, to make me the Lady of Casterly Rock once more. Together, we shall rule as we were meant to."
+ agot_laughing_storm_rebellion.0303.a:0 "We must make it official, my love."
+
+ #Tytos: Keeping it as secret, or request divorce from father
+ ### POV: Tytos Lannister
+ ### Ellyn suggested that we shoud marry
+ #### Option A: Relationship remains a secret (Triggers: 0311)
+ #### Option B: Request divorce from father (Triggers: 0305)
+ #### Option C: Request divorce from the High Septon (Triggers: 0306) (only if Tytos already became LP)
+ agot_laughing_storm_rebellion.0304.t:0 "A Lion's Dilemma"
+ agot_laughing_storm_rebellion.0304.desc:0 "[ellyn.GetFirstNamePossessive] desire burns bright, but the path ahead is fraught with peril. [jeyne.GetFirstName] still holds her place as my wife, and though I could keep our affair hidden, secrets have a way of surfacing in the halls of Casterly Rock.\n\nThe High Septon alone holds the power to sever my bonds with Jeyne and grant me the freedom to wed Ellyn, but such a request is not made lightly. Do I continue in the shadows, or take the bold step toward a new future, whatever the cost?"
+ agot_laughing_storm_rebellion.0304.a:0 "Let this remain hidden... for now."
+ agot_laughing_storm_rebellion.0304.b:0 "I will seek my father's blessing."
+ agot_laughing_storm_rebellion.0304.c:0 "I will seek the High Septon's blessing."
+
+ #Gerold: Requests divorce from the High Septon
+ ### POV: Gerold Lannister
+ ### Tytos asked me to grant divorce
+ #### Option A: I ask the High Septon for permission (Triggers: 0306)
+ agot_laughing_storm_rebellion.0305.t:0 "A Father's Burden"
+ agot_laughing_storm_rebellion.0305.desc:0 "[tytos.GetFirstName], my son, stands before me, speaking of love and [ellyn.GetFirstName]. He wishes to cast aside [jeyne.GetFirstName], his wife, and wed the widow of his fallen brother. It goes against our traditions, against the order we Lannisters have long upheld. Yet, his heart is set, and perhaps there is a way.\n\nThe High Septon may be convinced, if I press the matter with the weight of our house behind it."
+ agot_laughing_storm_rebellion.0305.a:0 "I will write to the High Septon."
+
+ #Gerold: High Septon asks money for the divorce -> Pay or Refuse
+ ### POV: Gerold Lannister OR Tytos Lannister
+ ### The High Septon's reply. Desc depends on if the High Septon is greedy.
+ #### Option A: No Divorce (Triggers: 0308) (Only if the High septon is not Greedy)
+ #### Option B: Bribe the High Septon (Triggers: 0310)
+ #### Option C: Can't afford the divorce (Triggers: 0307)
+ agot_laughing_storm_rebellion.0306.t:0 "The High Septon's Judgment"
+ agot_laughing_storm_rebellion.0306.desc:0 "The High Septon's reply arrives, filled with the weight of tradition and the laws of gods and men. He writes that this divorce would be a grievous offense to the sacred bonds of marriage."
+ agot_laughing_storm_rebellion.0306.greedy.desc:0 "\n\nYet, as the letter comes to a close, the tone softens. A whisper between the lines. Perhaps, with a proper show of gratitude, his heart might be swayed. Word travels quickly that he is not above accepting gold, should it be presented with care.\n\nThe choice now lies before me. Leave this matter behind, or pay the price for his blessing."
+ agot_laughing_storm_rebellion.0306.a:0 "It is done. We must move on."
+ agot_laughing_storm_rebellion.0306.b:0 "Perhaps a generous offering will change his mind."
+ agot_laughing_storm_rebellion.0306.c:0 "I cannot afford to sully my honor with bribery."
+ agot_laughing_storm_rebellion.0306.c.tt:0 "Ellyn's brother, Roger, might also try to bribe the High Septon"
+
+ #Roger: If Gerold resued the payment -> Pay or Refuse
+ ### POV: Roger Reyne
+ ### Gerold/Tytos couldn't afford the bribery, so i pay the sum to bribe the High Septon
+ #### Option A: Not bribing the High Septon (Triggers: 0308)
+ #### Option B: Bribe the High Septon (Triggers: 0310)
+ agot_laughing_storm_rebellion.0307.t:0 "A Brother's Dilemma"
+ agot_laughing_storm_rebellion.0307.desc:0 "[gerold.GetFirstName] sought the blessing of the High Septon for [tytos.GetFirstName] to divorce [jeyne.GetFirstName] and marry [ellyn.GetFirstName], but the blessing was denied, unless, of course, gold could change the mind of the High Septon.\n\nStrangely, despite the Lannisters' wealth, Tytos has not paid the bribe. Now, [ellyn.GetFirstNamePossessiveNoTooltip] hopes hang in the balance, and she turns to me, her brother, to help.\n\nI would see her rise to power again, but the price no small sum, even for Castamere."
+ agot_laughing_storm_rebellion.0307.a:0 "The price is too high, even for Ellyn."
+ agot_laughing_storm_rebellion.0307.b:0 "For my sister, I will pay whatever is needed."
+
+ #Tytos and Ellyn: Noone funded the divorce -> Keep the secret, or elope
+ ### POV: Tytos Lannister
+ ### Noone granted us divorce
+ #### Option A: Leads to end of story (Triggers: 0311)
+ #### Option B: We marry anyway (Triggers: 0309 and 0310)
+ agot_laughing_storm_rebellion.0308.t:0 "Bound by Law, Torn by Desire"
+ agot_laughing_storm_rebellion.0308.desc:0 "It seems there is no legal path for my divorce, no blessing from the High Septon to free me from my vows to [jeyne.GetFirstName]. The gods and men both stand in our way, and yet my heart still longs for [ellyn.GetFirstName].\n\nTradition may hold us in chains, but love does not yield so easily."
+ agot_laughing_storm_rebellion.0308.a:0 "We can still love each other, no matter the law."
+ agot_laughing_storm_rebellion.0308.b:0 "To the Seven Hells with tradition, I will marry Ellyn!"
+ agot_laughing_storm_rebellion.0308.b.tt:0 "My father might disinherit me for this"
+
+ #Gerold's Decision
+ ### POV: Gerold Lannister
+ ### Tytos ignored the High Septon's word and married Ellyn anyways.
+ #### Option A: End of story
+ #### Option B: End of story + Disinherit Tytos
+ agot_laughing_storm_rebellion.0309.t:0 "A Son's Betrayal"
+ agot_laughing_storm_rebellion.0309.desc:0 "Tytos has defied the law and the honor of our family, casting aside [jeyne.GetFirstName] to wed the Reyne girl. He has chosen his heart over tradition, and for what? A fleeting passion that could bring shame upon House Lannister.\n\nI warned him, and still he acted against the very order that holds our world together."
+ agot_laughing_storm_rebellion.0309.a:0 "May the gods forgive you... and may you not regret this."
+ agot_laughing_storm_rebellion.0309.b:0 "You are no son of mine, consider yourself disinherited."
+
+ #Tytos & Ellyn: We got married!
+ ### POV: Tytos/Ellyn
+ ### Marriage (3 descs: "desc" is for Tytos, "ellyn.desc" is for Ellyn, "ellyn_anyway.desc" is for Ellyn married regardless the High Septon's decision)
+ #### Option A: End of story
+ agot_laughing_storm_rebellion.0310.t:0 "Bound by Fate"
+ agot_laughing_storm_rebellion.0310.desc:0 "At long last, the High Septon has granted his approval. The path to my freedom from [jeyne.GetFirstName] is clear, and [ellyn.GetFirstName] shall stand beside me as my true wife.\n\nThe Seven have smiled upon us, and now nothing stands in our way. Together, Ellyn and I will reshape our future, and perhaps even the fate of House Lannister. Let the world whisper and gossip, this is the beginning of something great."
+ agot_laughing_storm_rebellion.0310.ellyn.desc:0 "The path to [tytos.GetTitledFirstNamePossessive] freedom from [jeyne.GetFirstName] is clear, and now I will take my rightful place beside him as his true wife.\n\nThe Seven have smiled upon us, and nothing stands between me and the power I was always meant to wield. Together, Tytos and I will reshape our future, and perhaps even the fate of House Reyne itself. Let them whisper and gossip if they dare — this is only the beginning."
+ agot_laughing_storm_rebellion.0310.ellyn_anyway.desc:0 "We have done it. Against the wishes of the realm, against the whispers of courtiers, and the weight of tradition, I now stand as the wife of [tytos.GetFirstName]. The Seven may not have blessed this union, but power comes not from piety, but from ambition, and I have more than enough of that.\n\nLet the nobles clutch their pearls, let the septons preach, for I am now where I was always meant to be. Together, we will rule, and those who oppose us will learn the cost of defiance."
+ agot_laughing_storm_rebellion.0310.a:0 "Our new life begins now."
+
+ #Ellyn: No marriage
+ ### POV: Ellyn Reyne
+ ### No Marriage
+ #### Option A: End of story + Rivarly with Jeyne
+ agot_laughing_storm_rebellion.0311.t:0 "A Lover's Betrayal"
+ agot_laughing_storm_rebellion.0311.desc:0 "I thought [tytos.GetFirstName] would be mine entirely, that he would cast aside [jeyne.GetFirstName] for me. Yet now, after all we have shared, he hesitates. He would rather remain by that timid woman's side than claim the power we could hold together.\n\nHow weak he is, how easily swayed by duty and fear. I had expected more from him, but now it seems I must reconsider my plans. If he will not rise to greatness with me, perhaps another path awaits."
+ agot_laughing_storm_rebellion.0311.a:0 "I will not be cast aside so easily."
+
+ ##############################################################
+ ## 0400-0469 BLOODRAVEN EVENTS                             ##
+ ##############################################################
+
+ #Bloodraven Elected
+ ### POV: Bloodraven
+ ### Bookmark starter event
+ agot_laughing_storm_rebellion.0400.t:0 "New Lord Commander on the Wall"
+ agot_laughing_storm_rebellion.0400.desc:0 "With the recent passing of [jack.GetTitledFirstName], the Sworn Brothers of the Night's Watch have chosen me as their new commander. Now, it is my duty to oversee the brotherhood and shield the realm from dangers lurking beyond the Wall...\n\n#weak Night gathers, and now my watch begins. It shall not end until my death. I shall take no wife, hold no lands, father no children. I shall wear no crowns and win no glory. I shall live and die at my post. I am the sword in the darkness. I am the watcher on the walls. I am the fire that burns against the cold, the light that brings the dawn, the horn that wakes the sleepers, the shield that guards the realms of men. I pledge my life and honor to the Night's Watch, for this night and all the nights to come.#!"
+ agot_laughing_storm_rebellion.0400.a:0 "And now my watch begins."
+
+ #Aegon V: Dark Sister
+ ### POV: Aegon V
+ ### Triggers in the future. Ask Bloodraven to give me back Dark Sister.
+ #### Option A: Ask for the sword (Triggers: 0402)
+ #### Option B: Do not ask for the sword
+ agot_laughing_storm_rebellion.0401.t:0 "Dark Sister"
+ agot_laughing_storm_rebellion.0401.desc:0 "It has been years since I sent [bloodraven.GetTitledFirstName] to the Wall, and with him went the Valyrian steel sword [dark_sister_sword.GetName]. A sword as ancient and powerful as Dark Sister belongs to the throne, not on the Wall.\n\nI can send word to Brynden, offering him a fortune in gold to return the sword to its rightful place, to the Iron Throne."
+ agot_laughing_storm_rebellion.0401.a:0 "Dark Sister belongs to the Iron Throne."
+ agot_laughing_storm_rebellion.0401.b:0 "The sword means nothing to me."
+
+ #Bloodraven: Aegon V wants Dark Sister LETTER
+ ### POV: Bloodraven
+ ### Eggs asked for Dark Sister.
+ #### Option A: Do not give the sword to Egg (Triggers: 0404)
+ #### Option B: Give the sword to Egg (Triggers: 0403)
+ agot_laughing_storm_rebellion.0402.opening:0 "To [bloodraven.GetTitledFirstNameNoTooltip]"
+ agot_laughing_storm_rebellion.0402.desc:0 "I write to you not as your king, but as a descendant of the blood of Old Valyria, asking you to return to the throne what is rightfully belongs here. [dark_sister_sword.GetName], the sword of legends, a blade that has seen both blood and glory in the hands of our forebears, belongs to the Iron Throne, not in the frozen reaches of the Wall.\n\nI offer you a sum of gold worthy of its weight and value, so it may rest once again where it belongs. What say you, Brynden? Will you honor our house and return Dark Sister, or shall she remain lost to the snows?"
+ agot_laughing_storm_rebellion.0402.a:0 "Dark Sister will remain with me."
+ agot_laughing_storm_rebellion.0402.b:0 "I will return Dark Sister to its rightful place."
+
+ #Aegon V: Bloodraven gave me Dark Sister LETTER
+ ### POV: Aegon V
+ ### Bloodraven gave me Dark Sister.
+ #### Option A: End of sword story.
+ agot_laughing_storm_rebellion.0403.opening:0 "To [aegonv.GetTitledFirstNameNoTooltip]"
+ agot_laughing_storm_rebellion.0403.desc:0 "Your letter reached me here on the Wall, and I have considered your request carefully. [dark_sister_sword.GetName] has been a loyal companion to me, just as she was to the great Targaryens of old. Her edge has tasted the blood of our enemies, and she has defended the realm in my hand. But I am no longer the man I once was, and my time wielding the sword has passed.\n\nFor the good of the realm and to honor our house, I will return Dark Sister to you, where she may once again serve the Iron Throne, as she was meant to. May you find a worthy hand to hold her."
+ agot_laughing_storm_rebellion.0403.a:0 "Dark Sister returns to her rightful home."
+
+ #Aegon V: No sword for me LETTER
+ ### POV: Aegon V
+ ### Bloodraven did not gave me Dark Sister.
+ #### Option A: End of sword story.
+ agot_laughing_storm_rebellion.0404.opening:0 "To [aegonv.GetTitledFirstNameNoTooltip]"
+ agot_laughing_storm_rebellion.0404.desc:0 "Your words have reached me, but I must decline your offer. [dark_sister_sword.GetName] has been at my side through countless battles, her steel stained with the blood of traitors and the enemies of the realm. She belongs with me now, here on the Wall, where her service to the realm continues. The North is harsh and unforgiving, but it is here that I serve my penance, and it is here that Dark Sister serves her purpose.\n\nThe gold you offer holds no value to me in this frozen wilderness, and I will not part with her. Some bonds, once forged, cannot be broken."
+ agot_laughing_storm_rebellion.0404.a:0 "This will not be forgotten."
+
+ #Bloodraven: Following my dreams
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ #### Option A: Travel northwards (leads to end of story. Triggers: 0421).
+ #### Option B: End of vision story.
+ agot_laughing_storm_rebellion.0420.t:0 "The Call Beyond the Wall"
+ agot_laughing_storm_rebellion.0420.desc:0 "The visions have grown stronger, of the tree, the cold, and the strange whispers that seem to beckon from beyond the Wall. I can feel it now, clearer than ever, something out there in the frozen wilderness pulling at me. The wind that howls through the night feels like a voice, calling me northward, inviting me to discover what lies beyond the edge of the known world.\n\nEvery instinct tells me it is dangerous, perhaps even a trap, but the pull is undeniable. The Wall stands between me and whatever waits beyond, but I cannot ignore the feeling that my fate lies out there, in the ice and shadows."
+ agot_laughing_storm_rebellion.0420.a:0 "The answers lie beyond the Wall, I must find them."
+ agot_laughing_storm_rebellion.0420.a.tt:0 "You start to travel northwards"
+ agot_laughing_storm_rebellion.0420.b:0 "My duty is here."
+
+ #Bloodraven: Following my dreams
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event. Disappeared while ranging story. (Becomes the Three-Eyed Crow)
+ #### Option A: End of vision story.
+ agot_laughing_storm_rebellion.0421.t:0 "The Final Flight of Bloodraven"
+ agot_laughing_storm_rebellion.0421.desc:0 "There, beneath the ancient tree, I see them, the green-skinned children from my dreams. They stand silently, their eyes fixed on me, as if they have been waiting all along. The air around them feels different, charged with something old and powerful. I can feel it too, deep inside me, a shift, like a part of me has already changed, as though I am not the man I was before.\n\nI step closer, and the forest itself seems to breathe, the leaves whispering secrets I can almost understand. The children do not speak, but I feel their invitation, their call, pulling me into their world, into something far older than I could have imagined."
+ agot_laughing_storm_rebellion.0421.a:0 "I must see where this path leads."
+ agot_laughing_storm_rebellion.0421.a.tt:0 "...and I might never return."
+
+ ### Bloodraven Filler Events
+
+ #Dream: A Tree
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0451.t:0 "The Tree"
+ agot_laughing_storm_rebellion.0451.desc:0 "As sleep takes me, I find myself slipping into a dream, one I have walked through many times, yet it feels no less unsettling. The world around me fades, and I am no longer Lord Commander of the Night's Watch, but a lone figure in a strange, cold landscape. Before me, on a hill, stands a tree, vast and ancient, its pale bark shining like bone in the moonlight. Beneath it, a cave yawns like a waiting mouth.\n\nI feel the pull of it, calling me closer. I step forward, but the ground beneath my feet begins to freeze, creeping up with icy fingers, threatening to hold me in place. I struggle forward, but the frost grows stronger.\n\nJust before I can reach the tree, the cold overtakes me, and I wake in a start, the vision still vivid in my mind."
+ agot_laughing_storm_rebellion.0451.a:0 "What does this dream truly mean?"
+ agot_laughing_storm_rebellion.0451.a.tt:0 "...am I the creeping coldness? The dark cave? Or perhaps the tree itself?"
+
+ #Dream: A Dark Wolf
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0452.t:0 "The Dark Wolf"
+ agot_laughing_storm_rebellion.0452.desc:0 "As sleep drags me under, I find myself adrift in another dream. The world is a barren, snow-covered wasteland, with a wind that cuts through my cloak like a knife. In the distance, I see it: a wolf, larger than any I have ever seen, its fur dark as the night sky, blending into the shadows of the landscape. Its eyes, red, like blood against the pale snow, glow with a fierce, unsettling light. The wolf watches me with those burning eyes, its gaze piercing through the cold, as if it knows something I do not.\n\nI try to step closer, but with each stride, the wolf retreats into the mist, always just beyond my reach. The red eyes are the last thing I see before it vanishes into the snow.\n\nI wake with a start, my heart pounding, the image of the dark wolf burned into my mind."
+ agot_laughing_storm_rebellion.0452.a:0 "What does the wolf want from me?"
+ agot_laughing_storm_rebellion.0452.a.tt:0 "...and why do its eyes look so much like mine?"
+
+ #Dream: A Crow with three eyes
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0453.t:0 "The Strange Crow"
+ agot_laughing_storm_rebellion.0453.desc:0 "As I drift into sleep, I am pulled into yet another strange dream. I find myself standing in a desolate field, the sky above me dark and heavy. From the distance, a crow swoops down, its black wings cutting through the air with silent precision. As it draws closer, something strange catches my eye, this is no ordinary crow. A third eye, perched in the center of its forehead, stares at me, unblinking and all-knowing. The crow circles above, its gaze unnerving, as though it sees far more than I can comprehend.\n\nIt caws once, its cry echoing across the empty landscape, and I feel as though I am being watched by something far beyond the bird itself.\n\nI wake, my heart heavy with the weight of its gaze, and the image of the three-eyed crow lingering in the darkness of my thoughts."
+ agot_laughing_storm_rebellion.0453.a:0 "What secrets does the crow see with its third eye?"
+ agot_laughing_storm_rebellion.0453.a.tt:0 "...what does it see in me?"
+
+ #Dream: A Climber
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0454.t:0 "The Climbing Child"
+ agot_laughing_storm_rebellion.0454.desc:0 "Sleep overtakes me once more, pulling me into a dream that feels both strange and familiar. I find myself standing in the shadows of a great castle, its walls towering high into the sky. From the corner of my eye, I spot a boy, small and nimble, scaling the walls with ease, his hands and feet finding impossible holds in the stone. He moves like a shadow, fearless and swift, climbing higher and higher. The child does not look back, as though he knows no fear of falling.\n\nI call out to him, but my voice is swallowed by the wind. He continues his ascent, higher than any mortal should go, until he disappears into the mist at the top of the tower. \n\nI wake with the image of the child still fresh in my mind, his impossible climb lingering in the back of my thoughts."
+ agot_laughing_storm_rebellion.0454.a:0 "Who is the child, and what is he climbing toward?"
+ agot_laughing_storm_rebellion.0454.a.tt:0 "...and how will he come down?"
+
+ #Dream: A Tree Part 2
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0455.t:0 "The Tree Calls Again"
+ agot_laughing_storm_rebellion.0455.desc:0 "Once again, sleep pulls me back to the same dream, the same vision. The great tree still stands upon the hill, towering over the landscape with its pale bark, its branches stretching toward the sky like twisted fingers. The cave below it gapes wide, darker than I remember, as if it waits for something, or someone. The frost beneath my feet returns, creeping upward, but this time the cold no longer halts my steps.\n\nI move forward, each step slower, heavier, but the tree's call is clearer now, more urgent. As I near the base of the hill, the winds howl, and the ground trembles beneath me. The tree's branches sway as though alive, beckoning me closer still.\n\nI wake suddenly, the chill of the dream still lingering in the air, the pull of the tree stronger than ever."
+ agot_laughing_storm_rebellion.0455.a:0 "What lies beneath the tree?"
+ agot_laughing_storm_rebellion.0455.a.tt:0 "...and why does it call to me?"
+
+ #Dream: A White Wolf Part 2
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0456.t:0 "The Wolf in the Snow"
+ agot_laughing_storm_rebellion.0456.desc:0 "Once more, I am drawn into the dream, the frozen landscape stretching out before me. The wind bites at my skin, but it is not the cold that unnerves me, it is the eyes watching me from the distance. The dark wolf is there again, larger than before, its fur blending with the shadows against the snow. Its red eyes gleam in the darkness, watching, waiting.\n\nThis time, it does not retreat as I approach. Instead, it stands its ground, unblinking, its gaze fixed on me. I step forward, and the wolf lets out a low growl, a sound that rumbles through the frozen air. It feels as though it is trying to communicate, to warn me, or perhaps test me. I move closer, but the wolf bares its teeth, its red eyes glowing brighter. I freeze in place, torn between advancing and retreating.\n\nThe moment stretches, and then I wake, the wolf's gaze still burning in my mind."
+ agot_laughing_storm_rebellion.0456.a:0 "What does the wolf want from me?"
+ agot_laughing_storm_rebellion.0456.a.tt:0 "...and what does it waiting for?"
+
+ #Dream: A Crow with three eyes Part 2
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0457.t:0 "The Silent Watch"
+ agot_laughing_storm_rebellion.0457.desc:0 "Sleep pulls me back once more to the strange vision that haunts my nights. The same desolate field stretches out before me, barren and lifeless. This time, the crow appears almost immediately, swooping down from the dark sky with silent wings. Its three eyes glow in the dim light, their gaze more intense, more piercing than before. The third eye, in particular, seems to stare into my very soul, as though seeing not just what I am, but what I could be.\n\nThe crow lands on a twisted branch nearby, watching me in silence. I feel its presence, its power, a force beyond my understanding. It caws once, louder than before, and for a moment, the entire world trembles at its sound. The crow watches me still, as though waiting for me to understand something I cannot yet grasp.\n\nI wake in the darkness, the crow's unblinking eyes lingering in my mind, as if they had followed me into the waking world."
+ agot_laughing_storm_rebellion.0457.a:0 "What knowledge does the crow hold?"
+ agot_laughing_storm_rebellion.0457.a.tt:0 "...and why does it seek me?"
+
+ #Dream: A Climber Part 2
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0458.t:0 "The Fire in the Sky"
+ agot_laughing_storm_rebellion.0458.desc:0 "Once again, I am drawn into the dream. The child is there, climbing the impossibly high walls of the ancient castle with the same effortless grace. This time, I step closer, moving toward the base of the tower, the stones cold beneath my feet. As I approach, the sky above darkens, and a red comet streaks across it like a flaming sword. Its fiery tail illuminates the boy's climb, casting long, eerie shadows. I pause, frozen by the comet's brilliance, feeling the weight of something greater stirring in the air.\n\nWhen I look back to the boy, he is gone. In his place, a single black crow perches on the wall where he once was. It stares at me for a moment, then spreads its wings and flies into the sky, disappearing into the distance.\n\nI wake, the image of the red comet and the vanishing boy etched into my mind."
+ agot_laughing_storm_rebellion.0458.a:0 "What doom does the comet bring?"
+ agot_laughing_storm_rebellion.0458.a.tt:0 "...and what happened to the child?"
+
+ #Dream: The Night
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0459.t:0 "Shadows of the Night"
+ agot_laughing_storm_rebellion.0459.desc:0 "Sleep takes hold, and I am plunged into darkness, a night without stars, a cold that chills me to the bone. The world around me is frozen, covered in a blanket of snow and ice. The wind howls like a thousand voices, carrying whispers of fear and doom. In the distance, I see the faint flicker of a fire, struggling to survive against the relentless cold. I try to walk toward it, but with each step, the darkness grows thicker, swallowing the light.\n\nShadows shift and twist in the snow, and I realize that something is moving within them, something ancient, something evil. I look up, and the sky above is empty, no moon, no stars, only an endless void.\n\nThe cold grips me tighter, and the fire flickers out. As the darkness presses in, I wake, the chill still clinging to my skin."
+ agot_laughing_storm_rebellion.0459.a:0 "What stirs in the shadows of the night?"
+ agot_laughing_storm_rebellion.0459.a.tt:0 "...and why is it so cold?"
+
+ #Dream: The Dead
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0460.t:0 "Walking Again"
+ agot_laughing_storm_rebellion.0460.desc:0 "As sleep pulls me under, I am thrust into a world that feels disturbingly familiar. The air is cold, thick with the scent of decay. I stand in a desolate field, the ground beneath me cracked and barren. In the distance, I see figures moving slowly, unnaturally. At first, they appear as shadows, but as they draw nearer, I see them clearly.\n\nThese are not men, they are corpses. Faces frozen in death, eyes hollow, skin gray and rotting, but they move as though life still courses through their veins. The dead have risen, walking toward me with an eerie silence. Their eyes seem to see nothing and everything all at once. I try to speak, to call out, but my voice fails. Suddenly, one of the dead turns its head, fixing its lifeless gaze on me.\n\nI wake in a cold sweat, the image of those walking corpses lingering in my mind."
+ agot_laughing_storm_rebellion.0460.a:0 "Why do the dead rise?"
+ agot_laughing_storm_rebellion.0460.a.tt:0 "...and what do they seek?"
+
+ #Aemon: Dragon with three heads
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0461.t:0 "The Dragon's Dream"
+ agot_laughing_storm_rebellion.0461.desc:0 "I step into Maester Aemon's chamber quietly, intending to ask him something small. But before I can speak, I see him stirring in his sleep, his brow furrowed. His eyes snap open, and for a moment, he seems disoriented, caught between the dream and the waking world. He sits up, blinking, as if the remnants of a vision still cling to him.\n\n#italic “The dragon has three heads,”#! he mutters, almost to himself, his voice low and uncertain. #italic “It always has... always will. Three heads, one body. Without them, the dragon... the dragon is broken.”#! He rubs his eyes, glancing at me as though realizing I am there for the first time. #italic “Do you see? One head is not enough. The others must rise.”#!\n\nHe shakes his head, as though trying to clear the fog of sleep, his words still hanging heavy with meaning. I watch him, unsure if he is speaking from knowledge or the remnants of a dream, the weight of his words lingering in the air."
+ agot_laughing_storm_rebellion.0461.a:0 "What did he see in that dream?"
+
+ #Aemon: A Targaryen in a distant land
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0462.t:0 "The Distant Dragon"
+ agot_laughing_storm_rebellion.0462.desc:0 "Late into the night, I find myself stepping into Maester Aemon's chambers. He is awake, but his gaze seems distant, as if he is looking far beyond the room, seeing something I cannot. His eyes meet mine, but I sense confusion in them, as if he is still trapped between a dream and the waking world.\n\n#italic “There is a Targaryen... in a distant land,”#! he says quietly, his voice thick with uncertainty. #italic “I do not know where, but I saw... someone with our blood, far from here, lost and wandering.”#! His hands shake slightly as he presses them to his forehead, struggling to make sense of the vision. #italic "I do not understand... but I know they are important. Somehow, they are tied to us.”#!\n\nHe trails off, staring at nothing, as though still seeing glimpses of the vision. His words hang in the air, leaving me wondering about this distant, unknown Targaryen."
+ agot_laughing_storm_rebellion.0462.a:0 "Is he talking about me?"
+
+ #Ranging: A Child
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0463.t:0 "The Child"
+ agot_laughing_storm_rebellion.0463.desc:0 "I have returned from the small ranging, but something from the journey clings to my thoughts, like a shadow that will not fade. Out there, in the wild, amid the snow and desolation, I thought I saw something, or someone.\n\nA child, small and quick, darting between the trees. For a moment, their skin looked strange... green, like the forest itself. It was only a glimpse, and when I looked again, they were gone. No one else in the group saw anything. I asked, but the looks they gave me made me doubt my own eyes.\n\nWas it just a trick of the light, or something more? The image of that green-skinned child haunts me, even now. I can not shake the feeling that what I saw was real, but I am not sure what it was, or what it meant."
+ agot_laughing_storm_rebellion.0463.a:0 "Was it just a trick of the mind?"
+
+ #Ranging: The Children
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0464.t:0 "The Children of the Forest"
+ agot_laughing_storm_rebellion.0464.desc:0 "On the ranging, I found myself wandering a short distance from the group, curious to explore the quiet of the wilderness. It was then that I saw them, three children, standing just beyond the trees. Their skin had an odd hue, almost green, blending into the forest like they were part of it. They did not, but their eyes seemed to beckon me closer, inviting me silently into their world. I took a step toward them, feeling a strange pull, but then remembered the others.\n\nI hurried back to gather them, eager to show what I had seen. But when I returned with my group, the children were gone, vanished as though they had never been there at all. The others looked at me with doubt, and I began to question whether I had imagined it. But the feeling of their presence still lingers, as if they are watching from the shadows."
+ agot_laughing_storm_rebellion.0464.a:0 "Does the forest play tricks on me?"
+
+ #Bloodraven: Brothers
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0465.t:0 "Brothers"
+ agot_laughing_storm_rebellion.0465.desc:0 "The chill wind of the North sweeps across Castle Black, a constant reminder of the harsh duty I now bear. As I stare out across the Wall, my thoughts drift unbidden to a time long past, to faces that remain etched in my mind like scars upon the soul. Two brothers loom most clearly in my memories: one, noble and proud, who I once loved before ambition tore him from me; the other, a shadowed figure of vengeance and bitterness, his enmity ever as cold as the ice beneath my feet.\n\nThese thoughts gnaw at me, resurfacing despite the years that have passed. The bonds of blood and betrayal have shaped me into the man I am now, a man standing sentinel at the edge of the world. It is a duty that offers neither solace nor escape from the echoes of the past. Perhaps it is here, amidst the endless snow and ancient trees, that I am meant to find peace — or to carry those ghosts with me until the end."
+ agot_laughing_storm_rebellion.0465.a:0 "The past is never truly behind us."
+
+ #Red Dream: A Girl in the Flames
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0466.t:0 "Rising from the Flames"
+ agot_laughing_storm_rebellion.0466.desc:0 "Sleep pulls me into yet another vision, one that burns as bright as the sun. A figure stands before me, surrounded by flames, their form distorted by the searing heat as the fire consumes them. The heat is unbearable, the flames rising higher, swallowing the figure whole.\n\nI try to reach them, but the fire forces me back. Just as they disappear into the inferno, I look up and see the night sky itself ablaze, as though the stars are burning, the heavens igniting with fire. The ground trembles beneath me, and from the heart of the flames, a shadow stirs. A dragon, great and terrible, steps from the fire, its scales gleaming like molten steel. Its eyes lock onto mine, and I can feel its presence, ancient and powerful.\n\nI wake in a cold sweat, the image of the dragon and the figure burned into my mind, their fates intertwined with the fiery sky above."
+ agot_laughing_storm_rebellion.0466.a:0 "The dragon has awakened... but at what cost?"
+
+ #Red Dream: Wildfire
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0467.t:0 "The Throne in Flames"
+ agot_laughing_storm_rebellion.0467.desc:0 "As sleep overtakes me, I am pulled into a vision of fire and destruction. A great city stretches before me, but something is terribly wrong. The flames consuming it are not ordinary fire, but a strange, unnatural green, glowing with an eerie and malevolent light that twists the very air around it. Wildfire.\n\nThe buildings crackle and hiss as the green flames devour their edges, melting stone and wood into grotesque shapes. The fire seems alive, hungry, not only consuming the city's structures but the very ground beneath it.\n\nThe smell of burning stone and ash fills the air, and I watch, helpless, as the heart of the city is reduced to ruin. I wake suddenly, the image of the burning city etched into my thoughts, the green wildfire still burning in my mind."
+ agot_laughing_storm_rebellion.0467.a:0 "Is this a twisted memory of Aerion?"
+ agot_laughing_storm_rebellion.0467.a.tt:0 "...or something more evil?"
+
+ #Bloodraven: Whispers of the Dragon
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0468.t:0 "Whispers of the Dragon"
+ agot_laughing_storm_rebellion.0468.desc:0 "As I stand at the top of the Wall, the frozen wastes stretching endlessly before me, the wind whispers through the icy air like a voice from long ago. The cold bites at my skin, but the weight of the past chills me more. My thoughts turn to tales of old, Targaryens who saw visions of the future, dreams haunted by what was to come.\n\nLong before the Conquest, dragons were said to see beyond the present, their dreams both a blessing and a curse. Prophecies of fire, blood, and doom, glimpsed in flickering flames, came at a cost — dragging their dreamers into madness or despair.\n\nAs I gaze into the distance, the snow-covered world seems to shift. The weight of those dreams bears down on me. Do I share this legacy? Do shadows of the future call to me, showing what may come at a terrible price? The Wall offers no answers, only cold and silence."
+ agot_laughing_storm_rebellion.0468.a:0 "Are these dreams a gift?"
+ agot_laughing_storm_rebellion.0468.a.tt:0 "...or a curse waiting to unfold?"
+
+ #Bloodraven: The Cold Dark Night
+ ### POV: Bloodraven
+ ### Vision/Dream/Flashback event.
+ agot_laughing_storm_rebellion.0469.t:0 "The Cold Dark Night"
+ agot_laughing_storm_rebellion.0469.desc:0 "The cold wind howls outside, carrying with it the endless chill of the North. Within my chambers, the flickering flame of a lone candle casts shadows across the stone walls. I sit in silence, wrapped in the black cloak of the Night's Watch. It is nights like this when memories of old betrayals creep into my mind.\n\nMy eye wanders to the far corner, where a raven perches silently, watching. I murmur to myself, recalling a long-past conversation: #italic "Treason is no less vile because the traitor proves a craven."#! Butterwell had learned that lesson, and now these brothers, too, walk carefully in my shadow.\n\nThe night deepens, the cold pressing against the walls of Castle Black. Somewhere out there, in the darkness, secrets stir, but for now, all is still. I remain vigilant, my watch unending."
+ agot_laughing_storm_rebellion.0469.a:0 "The night is long, but I will endure."
+ agot_laughing_storm_rebellion.0469.a.tt:0 "The fire crackles softly, offering little warmth against the unyielding chill of the North"
+ agot_laughing_storm_rebellion.0469.b:0 "Betrayal leaves a mark, but vigilance is my shield."
+ agot_laughing_storm_rebellion.0469.b.tt:0 "The raven's eye glints in the candlelight, a reminder that no secret is safe from my gaze"
+ agot_laughing_storm_rebellion.0469.c:0 "The cold may bite, but my watch continues."
+ agot_laughing_storm_rebellion.0469.c.tt:0 "Outside, the wind screams through the night. Inside, I sit in silence, ever watchful"

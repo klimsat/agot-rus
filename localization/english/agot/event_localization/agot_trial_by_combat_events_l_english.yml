@@ -1,0 +1,112 @@
+﻿l_english:
+ agot_trial_by_combat.0000.t:0 "Trial-by-Combat"
+
+ agot_trial_by_combat.0001.opening:0 "[recipient.Custom2('AppropriateGreeting',actor)]"
+ agot_trial_by_combat.0001.desc:0 "There will be no trial for your crimes, you will rot to death in here."
+ agot_trial_by_combat.0001.a:0 "That [recipient.Custom('InsultAdjective')] [recipient.Custom('InsultNoun')]!"
+
+ agot_trial_by_combat.0002.trigger_failure.actor:0 ""My trial by combat has invalidated""
+ agot_trial_by_combat.0002.trigger_failure.recipient:0 "[actor.GetFirstNameNoTooltip]'s trial by combat has been invalidated"
+
+ agot_trial_by_combat.1000.t:0 "$agot_trial_by_combat.0000.t$: Selecting a Champion"
+ agot_trial_by_combat.1000.desc:0 "I have agreed to [actor.GetTitledFirstNamePossessive] request for a trial by combat.\n\nTradition demands that I choose a champion to fight on my behalf, but who to choose?"
+ agot_trial_by_combat.1000.bout_moves_forward:0 "The bout moves forward..."
+ agot_trial_by_combat.1000.a:0 "...is the obvious choice."
+ agot_trial_by_combat.1000.a.tt:0 "Your chosen champion will fight for you"
+ agot_trial_by_combat.1000.b:0 "I shall hire a sellsword to be my champion."
+ agot_trial_by_combat.1000.b.tt:0 "A local sellsword will be paid to fight for you"
+ agot_trial_by_combat.1000.c:0 "I will fight as my own champion."
+ agot_trial_by_combat.1000.c.tt:0 "You will champion yourself in the trial by combat."
+ agot_trial_by_combat.1000.d:0 "Fire will be my champion"
+ agot_trial_by_combat.1000.d.targ:0 "Fire is the champion of House Targaryen!"
+ agot_trial_by_combat.1000.d.tt:0 "[actor.GetTitledFirstName] and [actor.GetHerHis] champion will both burn."
+ agot_trial_by_combat.1000.e:0 "[dragon.GetFirstName] will be my champion!"
+ agot_trial_by_combat.1000.e.targ:0 "The dragon is the champion of House Targaryen!"
+ agot_trial_by_combat.1000.e.tt:0 "[actor.GetTitledFirstName] and [actor.GetHerHis] champion will both be burned alive by [dragon.GetName]."
+
+ agot_trial_by_combat.1001.desc:0 "To win my freedom, first I must win this trial by combat.\n\nI may choose a champion to fight on my behalf, but who to choose?"
+
+ # TbC about to begin, defender POV
+ agot_trial_by_combat.2000.t:0 "$agot_trial_by_combat.0000.t$: [duel_location.GetBaseNameNoTierNoTooltip]"
+ agot_trial_by_combat.2000.desc.intro:0 "I am brought in chains to the designated spot near [duel_location.GetBaseNameNoTier] in good time and find [recipient.GetTitledFirstName] is already waiting for me, along with a small entourage of witnesses."
+ agot_trial_by_combat.2000.desc.recipient_fighting:0 "[recipient.GetSheHe|U] informs me that has chosen to fight this trial personally."
+ agot_trial_by_combat.2000.desc.recipient_has_champion:0 "[recipient.GetSheHe|U] has chosen [recipient_champion.GetFirstNameNoTooltip] as [recipient.GetHerHis] champion."
+ agot_trial_by_combat.2000.desc.actor_fighting:0 "As I will be fighting on my own behalf, I am unchained and given a weapon and armor."
+ agot_trial_by_combat.2000.desc.actor_has_champion:0 "My champion [actor_champion.GetFirstNameNoTooltip] has already arrived, and is armored and ready."
+ agot_trial_by_combat.2000.desc.outro:0 "\n\nThe formalities are brief. We all know why we're here, and we're long past the point of talking."
+ agot_trial_by_combat.2000.a:0 "May the best [actor_champion.GetWomanMan] win."
+ agot_trial_by_combat.2000.a.tt:0 "The trial by combat begins!"
+
+  # TbC about to begin, accuser POV
+ agot_trial_by_combat.2001.t:0 "$agot_trial_by_combat.0000.t$: [duel_location.GetBaseNameNoTierNoTooltip]"
+ agot_trial_by_combat.2001.desc.intro:0 "I have [actor.GetTitledFirstName] brought to the battlefield near [duel_location.GetBaseNameNoTier] in chains for [actor.GetHerHis] trial."
+ agot_trial_by_combat.2001.desc.actor_fighting:0 "[actor.GetSheHe|U] has chosen to fight this trial personally, so there will be no need to wait for a champion."
+ agot_trial_by_combat.2001.desc.actor_has_champion:0 "[actor.GetHerHis|U] chosen champion, [actor_champion.GetTitledFirstName], arrives in short order."
+ agot_trial_by_combat.2001.desc.recipient_fighting:0 "I eagerly await the chance to personally prove [actor.GetTitledFirstNamePossessive] guilt."
+ agot_trial_by_combat.2001.desc.recipient_has_champion:0 "[recipient.GetTitledFirstName] stands by me, waiting for the duel to begin so he can prove [actor.GetTitledFirstNamePossessive] guilt."
+ agot_trial_by_combat.2001.desc.outro:0 "\n\nThe formalities are brief. We all know why we're here, and we're long past the point of talking."
+ agot_trial_by_combat.2001.a:0 "May the best [recipient_champion.GetWomanMan] win."
+ agot_trial_by_combat.2001.a.tt:0 "The trial by combat begins!"
+
+ #Defender/actor wins, defender/actor POV
+ agot_trial_by_combat.3001.t:0 "$agot_trial_by_combat.0000.t$: Victory!"
+ agot_trial_by_combat.3001.desc.intro:0 "[actor.GetFaith.PantheonTerm|U] smiled heartily on me yesterday!"
+ agot_trial_by_combat.3001.desc.both_fighting:0 "As I bring my weapon down, [recipient.GetName] falls. I stand there panting, before I realize that I have won! The Gods have spared me and shown I was always in the right!"
+ agot_trial_by_combat.3001.desc.actor_own_champion:0 "As I bring my weapon down, [recipient_champion.GetName] falls. I stand there panting a moment and then look up and grin at [recipient.GetName] before leaving."
+ agot_trial_by_combat.3001.desc.recipient_own_champion:0 "As [actor_champion.GetName] kills [recipient.GetName] I stand, vindicated in the eyes of Men and Gods!"
+ agot_trial_by_combat.3001.desc.both_champion:0 "As [actor_champion.GetName] kills [recipient_champion.GetName] I stand, vindicated in the eyes of Men and Gods! And, as I leave I grin at [recipient.GetName]."
+ agot_trial_by_combat.3001.desc.outro:0 "\n\nYesterday, we put our quarrel before [actor.GetFaith.PantheonTerm], and [actor.GetFaith.PantheonTerm] answered wisely."
+ agot_trial_by_combat.3001.a:0 "Justice is served."
+
+ #Defender/actor wins, accuser/recipient POV
+ agot_trial_by_combat.3002.t:0 "$agot_trial_by_combat.0000.t$: Defeat!"
+ agot_trial_by_combat.3002.desc.intro:0 "[recipient.GetFaith.PantheonTerm|U] did not smile on me yesterday."
+ agot_trial_by_combat.3002.desc.actor_own_champion:0 "As the despicable [actor.GetName] cleaves through [recipient_champion.GetName] I sigh. Why have the Gods' forsaken me? Looking down, [actor.GetNameNoTooltip] grins broadly at me and gives a mocking bow before leaving."
+ agot_trial_by_combat.3002.desc.both_champion:0 "As the despicable [actor.GetName]'s champion, [actor_champion.GetName] cleaves through [recipient_champion.GetName] I sigh. Why have the Gods' forsaken me? \n\nLooking over at [actor.GetName], [actor.GetSheHe] grins and gives a mocking bow before leaving. "
+ agot_trial_by_combat.3002.desc.outro:0 "\n\nYesterday, we put our quarrel before [actor.GetFaith.PantheonTerm], and the Gods have sided against me. For what has my house done to earn their displeasure?"
+ agot_trial_by_combat.3002.a:0 "Pah, there was no justice here."
+
+ #Accuser wins/recipient , accuser/recipient  POV
+ agot_trial_by_combat.3003.t:0 "$agot_trial_by_combat.0000.t$: Victory!"
+ agot_trial_by_combat.3003.desc.intro:0 "[recipient.GetFaith.PantheonTerm|U] smiled heartily on me yesterday!"
+ agot_trial_by_combat.3003.desc.both_fighting:0 "As I bring my weapon down, [actor.GetName] falls. I stand there panting, before I realize that I have won! The Gods have spared me and shown I was always in the right!"
+ agot_trial_by_combat.3003.desc.actor_own_champion:0 "As [recipient_champion.GetName] kills [actor.GetName] I stand, vindicated in the eyes of Men and Gods!"
+ agot_trial_by_combat.3003.desc.recipient_own_champion:0 "As I bring my weapon down, [actor_champion.GetName] falls. I stand there panting before, I look up and grin at [actor.GetName] before leaving."
+ agot_trial_by_combat.3003.desc.both_champion:0 "As [recipient_champion.GetName] kills [actor_champion.GetName] I stand, vindicated in the eyes of Men and Gods! And, as I leave I grin at [actor.GetName]."
+ agot_trial_by_combat.3003.desc.outro:0 "\n\nYesterday, we put our quarrel before [actor.GetFaith.PantheonTerm], and [actor.GetFaith.PantheonTerm] answered wisely."
+ agot_trial_by_combat.3003.a:0 "Justice is served."
+
+ #Accuser wins/recipient , defender/actor POV
+ agot_trial_by_combat.3004.t:0 "$agot_trial_by_combat.0000.t$: Defeat!"
+ agot_trial_by_combat.3004.desc.intro:0 "How did it come to this? I went before [actor.GetFaith.PantheonTerm] to seek #EMP justice#!"
+ agot_trial_by_combat.3004.desc.recipient_own_champion:0 "As [recipient.GetSheHe] takes a final swing with my champion, [actor_champion.GetName], falling, the accursed [recipient.GetName] stands tall and grins up at me. "
+ agot_trial_by_combat.3004.desc.both_champion:0 "As [recipient_champion.GetName] takes a final swing with my champion, [actor_champion.GetName], falling, the accursed [recipient.GetName] stands tall and grins at me."
+ agot_trial_by_combat.3004.desc.outro:0 "\n\nNow all the world regards our issues settled and justice to have been meted out."
+ agot_trial_by_combat.3004.a:0 "Pah, there was no justice here."
+
+ agot_trial_by_combat.9000.t:0 "Trial-by-Combat"
+ agot_trial_by_combat.9000.desc:0 "I am brought from the prison in chains to the site where my trial by combat is to take place. Instead of a battlefield however, I find two pyres; one with my champion [actor_champion.GetTitledFirstName] already tied to it.\n\n\"I have chosen fire as my champion today,\" [recipient.GetTitledFirstName] cackles madly."
+ agot_trial_by_combat.9000.desc.self_champion:0 "I am brought from the prison in chains to the site where my trial by combat is to take place. Instead of a battlefield however, I find a pyre ready, and the guards begin dragging me towards it.\n\n\"I have chosen fire as my champion today,\" [recipient.GetTitledFirstName] cackles madly."
+ agot_trial_by_combat.9000.a:0 "Oh."
+
+ agot_trial_by_combat.9001.t:0 "Trial-by-Combat"
+ agot_trial_by_combat.9001.desc:0 "When [actor_champion.GetTitledFirstName] arrives, I am ready. I have my guards seize [actor_champion.GetHerHim] and tie [actor_champion.GetHerHim] to one of the two pyres I had prepared, and then send for [actor.GetTitledFirstName].\n\n The look on [actor.GetHerHis] face when [actor.GetSheHe] realizes is glorious.\n\n\"I have chosen fire as my champion today,\" I say. \"Now let us begin.\""
+ agot_trial_by_combat.9001.desc.self_champion:0 "As soon as the pyre is ready, I send for [actor.GetTitledFirstName].\n\n The look on [actor.GetHerHis] face when [actor.GetSheHe] realizes is glorious.\n\n\"I have chosen fire as my champion today,\" I say. \"Now let us begin.\""
+ agot_trial_by_combat.9001.a:0 "It's beautiful."
+ agot_trial_by_combat.9001.tt:0 "[actor.GetTitledFirstName] and [actor.GetHerHis] champion, [actor_champion.GetTitledFirstName], both die."
+ agot_trial_by_combat.9001.tt.self_champion:0 "[actor.GetTitledFirstName] dies."
+
+ agot_trial_by_combat.9100.t:0 "Trial-by-Combat"
+ agot_trial_by_combat.9100.desc:0 "I am brought from the prison in chains to the site where my trial by combat is to take place. Instead of a battlefield however, I find [dragon.GetName] standing beside [recipient.GetTitledFirstName]!\n\n\"I have chosen [dragon.GetFirstNameNoTooltip] as my champion today,\" [recipient.GetTitledFirstNameNoTooltip] says with a wry smile, [actor_champion.GetFirstName] looking horrified at the prospect of facing a dragon head-on."
+ agot_trial_by_combat.9100.desc.self_champion:0 "I am brought from the prison in chains to the site where my trial by combat is to take place. Instead of a battlefield however, I find [dragon.GetName] standing beside [recipient.GetTitledFirstName]!\n\n\"I have chosen [dragon.GetFirstNameNoTooltip] as my champion today,\" [recipient.GetTitledFirstNameNoTooltip] says with a wry smile, and horror grips my heart as I realize I am to face a dragon head-on."
+ agot_trial_by_combat.9100.a:0 "Oh."
+
+ agot_trial_by_combat.9101.t:0 "Trial-by-Combat"
+ agot_trial_by_combat.9101.desc:0 "[dragon.GetFirstName] hisses softly, tasting the air as the scent of prey wafts in. When [actor_champion.GetTitledFirstName] arrives, the face [actor_champion.GetSheHe] makes says it all. The hope leaves both of their eyes and naught is left but scorn and despair.\n\n\"I have chosen [dragon.GetFirstNameNoTooltip] as my champion today,\" I say, stating what was already clear. \"Now let us begin.\""
+ agot_trial_by_combat.9101.desc.self_champion:0 "[dragon.GetFirstName] hisses softly, tasting the air as the scent of prey wafts in. When [actor.GetTitledFirstName] arrives, the face [actor.GetSheHe] makes says it all. The hope leaves [actor.GetHerHis] eyes and naught is left but scorn and despair.\n\n\"I have chosen [dragon.GetFirstNameNoTooltip] as my champion today,\" I say, stating what was already clear. \"Now let us begin.\""
+ agot_trial_by_combat.9101.a:0 "The outcome was certain, but the show was good."
+ agot_trial_by_combat.9101.tt:0 "[actor.GetTitledFirstName] and [actor.GetHerHis] champion, [actor_champion.GetTitledFirstName], both are burned alive by [dragon.GetName]."
+ agot_trial_by_combat.9101.tt.self_champion:0 "[actor.GetTitledFirstName] is burned alive by [dragon.GetName]."
+
+ lost_trial_by_combat_opinion:0 "Lost Trial By Combat"
+ denied_trial_by_combat_opinion:0 "Denied Me Trial By Combat"
