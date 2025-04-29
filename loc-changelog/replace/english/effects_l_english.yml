@@ -48,11 +48,6 @@
  ADD_OPINION_EFFECT_I_HAVE_IMPRISONMENT_REASON_UNUSABLE:0 "@portrait_punishment_icon! #weak Crime — You are allowed to rightfully imprison [TARGET_CHARACTER.GetShortUIName]#!"
  ADD_OPINION_EFFECT_HAD_IMPRISONMENT_REASON_UNUSABLE:0 "@portrait_punishment_icon! #weak Crime — Rightful imprisonment#!"
  ADD_OPINION_EFFECT_HAS_IMPRISONMENT_REASON_UNUSABLE:0 "@portrait_punishment_icon! #weak Crime — Rightful imprisonment#!"
-
- add_obedient_reason_global: "[obedience_i] Becomes [obedient|E] to [TARGET_CHARACTER.GetShortUIName]"
- add_obedient_reason_global_past: "[obedience_i] Became [obedient|E] to [TARGET_CHARACTER.GetShortUIName]"
- opinion_obedient_reason: "Sworn [obedience|E]"
-
  REMOVE_OPINION_EFFECT:0 "Loses the #V $OPINIONMODIFIER$#! [opinion|E] towards [TARGET_CHARACTER.GetShortUIName]"
  REMOVED_OPINION_EFFECT:0 "Lost the #V $OPINIONMODIFIER$#! [opinion|E] towards [TARGET_CHARACTER.GetShortUIName]"
  REMOVE_OPINION_EFFECT_FIRST:1 "You lose the #V $OPINIONMODIFIER$#! [opinion|E] towards [TARGET_CHARACTER.GetShortUIName]"
@@ -280,7 +275,7 @@
  CHANGED_THEIR_GOVERNMENT:1 "[CHARACTER.GetName] adopted [GOVERNMENT_TYPE.GetName] [government|E]"
  CHANGED_GOVERNMENT:1 "Adopted [GOVERNMENT_TYPE.GetName] [government|E]"
  CHANGE_GOVERNMENT:1 "Adopts [GOVERNMENT_TYPE.GetName] [government|E]"
- CHANGE_MY_GOVERNMENT:1 "You adopt the [GOVERNMENT_TYPE.GetName] [government|E]"
+ CHANGE_MY_GOVERNMENT:1 "You adopt [GOVERNMENT_TYPE.GetName] [government|E]"
  CHANGE_THEIR_GOVERNMENT:1 "[CHARACTER.GetName] adopts [GOVERNMENT_TYPE.GetName] [government|E]"
 
  FORBID_FROM_SCHEME_EFFECT:0 "Forbid from being an Agent in [SCHEME.GetName]"
@@ -295,12 +290,6 @@
  I_CONVERTED_TO:1 "You converted to [FAITH.GetName|V]"
  THEY_CONVERTED_TO:0 "[CHARACTER.GetShortUIName|U] converted to [FAITH.GetName|V]"
  COVERTED_TO:0 "Converted to [FAITH.GetName|V]"
- 
- CONVERTS_TO_DOMICILE: "The [yurt|E] converts to [FAITH.GetName|V]"
- CONVERTED_TO_DOMICILE: "The [yurt|E] converted to [FAITH.GetName|V]"
- 
- CULTURE_CONVERTS_TO_DOMICILE: "The [yurt|E] adopts the [TARGET_CULTURE.GetName|V] [culture|E]"
- CULTURE_CONVERTED_TO_DOMICILE: "The [yurt|E] adopted the [TARGET_CULTURE.GetName|V] [culture|E]"
 
  SET_CHARACTER_FAITH_EFFECT:0 "[CHARACTER.GetShortUIName|U] changes Faith to [FAITH.GetName|V]"
 
@@ -516,8 +505,6 @@
  EFFECT_CHARACTER_HEADER:0 "#high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#!:\n"
  MAKE_CONCUBINE_EFFECT:4 "Takes [TARGET_CHARACTER.GetShortUIName] as a [concubine|E]"
  MADE_CONCUBINE_EFFECT:0 "Took [TARGET_CHARACTER.GetShortUIName] as a [concubine|E]"
- I_MAKE_CONCUBINE_EFFECT: "You take [TARGET_CHARACTER.GetShortUIName] as your [TARGET_CHARACTER.Custom('ConcubineWomanManGameConcept')]"
- THEY_MAKE_CONCUBINE_EFFECT: "[CHARACTER.GetShortUIName] takes [TARGET_CHARACTER.GetShortUIName] as [CHARACTER.GetHerHis] [TARGET_CHARACTER.Custom('ConcubineWomanManGameConcept')]"
  I_MADE_CONCUBINE_EFFECT:2 "You took [TARGET_CHARACTER.GetShortUIName] as your [TARGET_CHARACTER.Custom('ConcubineWomanManGameConcept')]"
  THEY_MADE_CONCUBINE_EFFECT:1 "[CHARACTER.GetShortUIName] took [TARGET_CHARACTER.GetShortUIName] as [CHARACTER.GetHerHis] [TARGET_CHARACTER.Custom('ConcubineWomanManGameConcept')]"
  REMOVE_CONCUBINE_EFFECT:4 "[TARGET_CHARACTER.GetShortUIName|U] stops being a [concubine|E]"
@@ -842,12 +829,12 @@
  THEY_GAIN_WEDDING_GOOD_FERTILITY:0 "[CHARACTER.GetShortUIName|U] marriage to [TARGET_CHARACTER.GetShortUIName] is set to produce many offspring"
  THEY_GAINED_WEDDING_GOOD_FERTILITY:0 "[CHARACTER.GetShortUIName|U] marriage to [TARGET_CHARACTER.GetShortUIName] was set to produce many offspring"
 
- I_GAIN_WEDDING_VERY_GOOD_FERTILITY:0 "Your marriage to [TARGET_CHARACTER.GetShortUIName] is set to be #P #EMP incredibly#! fertile#!"
- I_GAINED_WEDDING_VERY_GOOD_FERTILITY:0 "Your marriage to [TARGET_CHARACTER.GetShortUIName] was set to be #P #EMP incredibly#! fertile#!"
- GAINS_WEDDING_VERY_GOOD_FERTILITY:0 "Marriage to [TARGET_CHARACTER.GetShortUIName] is set to be #P #EMP incredibly#! fertile#!"
- GAINED_WEDDING_VERY_GOOD_FERTILITY:0 "Marriage to [TARGET_CHARACTER.GetShortUIName] was set to be #P #EMP incredibly#! fertile#!"
- THEY_GAIN_WEDDING_VERY_GOOD_FERTILITY:0 "[CHARACTER.GetShortUIName|U] marriage to [TARGET_CHARACTER.GetShortUIName] is set to be #P #EMP incredibly#! fertile#!"
- THEY_GAINED_WEDDING_VERY_GOOD_FERTILITY:0 "[CHARACTER.GetShortUIName|U] marriage to [TARGET_CHARACTER.GetShortUIName] was set to be #P #EMP incredibly#! fertile#!"
+ I_GAIN_WEDDING_VERY_GOOD_FERTILITY:0 "Your marriage to [TARGET_CHARACTER.GetShortUIName] is set to be #EMP incredibly#! fertile"
+ I_GAINED_WEDDING_VERY_GOOD_FERTILITY:0 "Your marriage to [TARGET_CHARACTER.GetShortUIName] was set to be #EMP incredibly#! fertile"
+ GAINS_WEDDING_VERY_GOOD_FERTILITY:0 "Marriage to [TARGET_CHARACTER.GetShortUIName] is set to be #EMP incredibly#! fertile"
+ GAINED_WEDDING_VERY_GOOD_FERTILITY:0 "Marriage to [TARGET_CHARACTER.GetShortUIName] was set to be #EMP incredibly#! fertile"
+ THEY_GAIN_WEDDING_VERY_GOOD_FERTILITY:0 "[CHARACTER.GetShortUIName|U] marriage to [TARGET_CHARACTER.GetShortUIName] is set to be #EMP incredibly#! fertile"
+ THEY_GAINED_WEDDING_VERY_GOOD_FERTILITY:0 "[CHARACTER.GetShortUIName|U] marriage to [TARGET_CHARACTER.GetShortUIName] was set to be #EMP incredibly#! fertile"
 
  I_GAIN_WEDDING_BAD_FERTILITY:0 "Your marriage to [TARGET_CHARACTER.GetShortUIName] is destined to #bold not#! produce many offspring"
  I_GAINED_WEDDING_BAD_FERTILITY:0 "Your marriage to [TARGET_CHARACTER.GetShortUIName] is destined to #bold not#! produce many offspring"
@@ -995,13 +982,6 @@
  I_LOST_NEMESIS:1 "[TARGET_CHARACTER.GetShortUIName|U] and you are no longer [nemeses|E]"
  THEY_LOST_NEMESIS:0 "[TARGET_CHARACTER.GetShortUIName|U] and [CHARACTER.GetShortUIName] are no longer [nemeses|E]"
 
- GET_BLOOD_BROTHER: "Becomes [TARGET_CHARACTER.GetShortUINamePossessive] [blood_brother|E]"
- GOT_BLOOD_BROTHER: "Became [TARGET_CHARACTER.GetShortUINamePossessive] [blood_brother|E]"
- I_GET_BLOOD_BROTHER: "[TARGET_CHARACTER.GetShortUIName|U] becomes your [blood_brother|E]"
- THEY_GET_BLOOD_BROTHER: "[TARGET_CHARACTER.GetShortUIName|U] and [CHARACTER.GetShortUIName] become [blood_brother|E]s"
- I_GOT_BLOOD_BROTHER: "[TARGET_CHARACTER.GetShortUIName|U] became your [blood_brother|E]"
- THEY_GOT_BLOOD_BROTHER: "[TARGET_CHARACTER.GetShortUIName|U] and [CHARACTER.GetShortUIName] became [blood_brother|E]s"
-
  GLOBAL_ADD_CHARACTER_MODIFIER_EFFECT:0 "[CHARACTER.GetShortUIName|U] gains $MODIFIER$"
  GLOBAL_ADD_CHARACTER_MODIFIER_EFFECT_DURATION:0 "[CHARACTER.GetShortUIName|U] gains $MODIFIER$ until $DURATION|V$.\n\n $MODIFIER_DESC$"
 
@@ -1017,6 +997,8 @@
  GAINED_PRESTIGE_LEVEL_EFFECT:0 "Gained $VALUE|V0$ [prestige_levels|E]"
  LOSE_PRESTIGE_LEVEL_EFFECT:0 "Loses $VALUE|V0$ [prestige_levels|E]"
  LOST_PRESTIGE_LEVEL_EFFECT:0 "Lost $VALUE|V0$ [prestige_levels|E]"
+
+
 
  GAIN_PIETY_LEVEL_EFFECT:0 "Gains $VALUE|V0$ [piety_levels|E]"
  LOSE_PIETY_LEVEL_EFFECT:0 "Loses $VALUE|V0$ [piety_levels|E]"
@@ -1035,8 +1017,6 @@
 
  ATTACKING_ALLY:1 "\n#S Attacking an [ally|E]#!"
 
- ATTACKING_SUZERAIN: "\n#S Attacking a [suzerain|E] will break the [tributary_contract|E]#!"
-
  WAR_BREAKING_BETROTHAL: "\n#S Breaking a Grand Wedding Betrothal#!"
 
  SET_CULTURE_GLOBAL:1 "Adopts the [TARGET_CULTURE.GetName|V] Culture"
@@ -1045,13 +1025,6 @@
  SET_CULTURE_GLOBAL_PAST:0 "Adopted the [TARGET_CULTURE.GetName|V] Culture"
  SET_CULTURE_FIRST_PAST:2 "You adopted the [TARGET_CULTURE.GetName|V] Culture"
  SET_CULTURE_THIRD_PAST:1 "[CHARACTER.GetShortUIName|U] adopted the [TARGET_CULTURE.GetName|V] Culture"
-
- CREATE_HYBRID_CULTURE_GLOBAL: "Created a [hybrid_culture|E] with the [TARGET_CULTURE.GetName|V] Culture"
- CREATE_HYBRID_CULTURE_FIRST: "You create a [hybrid_culture|E] with the [TARGET_CULTURE.GetName|V] Culture"
- CREATE_HYBRID_CULTURE_THIRD: "[CHARACTER.GetShortUIName|U] creates a [hybrid_culture|E] with the [TARGET_CULTURE.GetName|V] Culture"
- CREATE_HYBRID_CULTURE_GLOBAL_PAST: "Create a [hybrid_culture|E] with the [TARGET_CULTURE.GetName|V] Culture"
- CREATE_HYBRID_CULTURE_FIRST_PAST: "You create a [hybrid_culture|E] with the [TARGET_CULTURE.GetName|V] Culture"
- CREATE_HYBRID_CULTURE_THIRD_PAST: "[CHARACTER.GetShortUIName|U] created a [hybrid_culture|E] with the [TARGET_CULTURE.GetName|V] Culture"
 
  SET_CULTURE_OF_CHARACTER_SAME_AS:0 "Changes [CHARACTER.GetShortUINamePossessive] culture to the same culture as [TARGET_CHARACTER.GetShortUIName] ([TARGET_CHARACTER.GetCulture.GetName|V])"
  SAT_CUTLURE_OF_CHARACTER_SAME_AS:0 "Changed [CHARACTER.GetShortUINamePossessive] culture to the same culture as [TARGET_CHARACTER.GetShortUIName] ([TARGET_CHARACTER.GetCulture.GetName|V])"
@@ -1216,15 +1189,15 @@
  DEPOSE_EFFECT_FIRST:1 "You are [deposed|E]"
  DEPOSE_EFFECT_THIRD:0 "[CHARACTER.GetShortUIName|U] is [deposed|E]"
 
- CHANGE_TITLE_HOLDER_EFFECT:0 "Gets [TARGET_TITLE.GetBaseName|V]"
- CHANGED_TITLE_HOLDER_EFFECT:0 "Got [TARGET_TITLE.GetBaseName|V]"
- CHANGE_TITLE_HOLDER_EFFECT_FIRST:1 "You get [TARGET_TITLE.GetBaseName|V]"
- CHANGE_TITLE_HOLDER_EFFECT_FIRST_PAST:1 "You got [TARGET_TITLE.GetBaseName|V]"
- CHANGE_TITLE_HOLDER_EFFECT_THIRD:0 "[CHARACTER.GetShortUIName|U] gets the [TARGET_TITLE.GetBaseName|V]"
- CHANGE_TITLE_HOLDER_EFFECT_THIRD_PAST:0 "[CHARACTER.GetShortUIName|U] got the [TARGET_TITLE.GetBaseName|V]"
- CHANGE_TITLE_HOLDER_INCLUDE_VASSALS_EFFECT:0 "Gets the [TARGET_TITLE.GetBaseName|V] and its [vassals|E]"
- CHANGE_TITLE_HOLDER_INCLUDE_VASSALS_EFFECT_FIRST:1 "You get the [TARGET_TITLE.GetBaseName|V] and its [vassals|E]"
- CHANGE_TITLE_HOLDER_INCLUDE_VASSALS_EFFECT_THIRD:0 "[CHARACTER.GetShortUIName|U] gets [TARGET_TITLE.GetBaseName|V] and its [vassals|E]"
+ CHANGE_TITLE_HOLDER_EFFECT:0 "Gets [TARGET_TITLE.GetName|V]"
+ CHANGED_TITLE_HOLDER_EFFECT:0 "Got [TARGET_TITLE.GetName|V]"
+ CHANGE_TITLE_HOLDER_EFFECT_FIRST:1 "You get [TARGET_TITLE.GetName|V]"
+ CHANGE_TITLE_HOLDER_EFFECT_FIRST_PAST:1 "You got [TARGET_TITLE.GetName|V]"
+ CHANGE_TITLE_HOLDER_EFFECT_THIRD:0 "[CHARACTER.GetShortUIName|U] gets the [TARGET_TITLE.GetName|V]"
+ CHANGE_TITLE_HOLDER_EFFECT_THIRD_PAST:0 "[CHARACTER.GetShortUIName|U] got the [TARGET_TITLE.GetName|V]"
+ CHANGE_TITLE_HOLDER_INCLUDE_VASSALS_EFFECT:0 "Gets the [TARGET_TITLE.GetName|V] and its [vassals|E]"
+ CHANGE_TITLE_HOLDER_INCLUDE_VASSALS_EFFECT_FIRST:1 "You get the [TARGET_TITLE.GetName|V] and its [vassals|E]"
+ CHANGE_TITLE_HOLDER_INCLUDE_VASSALS_EFFECT_THIRD:0 "[CHARACTER.GetShortUIName|U] gets [TARGET_TITLE.GetName|V] and its [vassals|E]"
  CHANGE_LIEGE_EFFECT:1 "Becomes [TARGET_CHARACTER.GetShortUINamePossessive] [vassal|E]"
  CHANGE_LIEGE_EFFECT_FIRST:1 "You become a [vassal|E] of [TARGET_CHARACTER.GetShortUIName]"
  CHANGE_LIEGE_EFFECT_THIRD:0 "[CHARACTER.GetShortUIName|U] becomes [TARGET_CHARACTER.GetShortUINamePossessive] [vassal|E]"
@@ -1317,19 +1290,19 @@
  CHANGE_COUNTY_CONTROL_PAST_NEG: "The [control|E] level decreased by $VALUE|-0$"
  CHANGE_COUNTY_CONTROL_THIRD_PAST_NEG: "The [control|E] level in [TITLE.GetName] decrease by $VALUE|-0$"
 
- IT_RECEIVES_COUNTY_MODIFIER:1 "[TITLE.GetName|U] gains $MODIFIER|V$"
+ IT_RECEIVES_COUNTY_MODIFIER:1 "[TITLE.GetName] gains $MODIFIER|V$"
  RECEIVES_COUNTY_MODIFIER:1 "Gains $MODIFIER|V$"
- IT_RECEIVED_COUNTY_MODIFIER:1 "[TITLE.GetName|U] gained $MODIFIER|V$"
+ IT_RECEIVED_COUNTY_MODIFIER:1 "[TITLE.GetName] gained $MODIFIER|V$"
  RECEIVED_COUNTY_MODIFIER:1 "Gained $MODIFIER|V$"
 
- IT_RECEIVES_COUNTY_MODIFIER_UNTIL_EFFECT:1 "[TITLE.GetName|U] gains $MODIFIER|V$ for $DURATION|V$"
+ IT_RECEIVES_COUNTY_MODIFIER_UNTIL_EFFECT:1 "[TITLE.GetName] gains $MODIFIER|V$ for $DURATION|V$"
  RECEIVES_COUNTY_MODIFIER_DURATION:2 "Gains $MODIFIER|V$ for $DURATION|V$"
- IT_RECEIVED_COUNTY_MODIFIER_UNTIL_EFFECT:1 "[TITLE.GetName|U] gained $MODIFIER|V$ for $DURATION|V$"
+ IT_RECEIVED_COUNTY_MODIFIER_UNTIL_EFFECT:1 "[TITLE.GetName] gained $MODIFIER|V$ for $DURATION|V$"
  RECEIVED_COUNTY_MODIFIER_DURATION:1 "Gained $MODIFIER|V$ for $DURATION|V$"
 
- IT_LOSES_COUNTY_MODIFIER:1 "[TITLE.GetName|U] loses $MODIFIER|V$"
+ IT_LOSES_COUNTY_MODIFIER:1 "[TITLE.GetName] loses $MODIFIER|V$"
  LOSES_COUNTY_MODIFIER:1 "Loses $MODIFIER|V$"
- IT_LOST_COUNTY_MODIFIER:1 "[TITLE.GetName|U] lost $MODIFIER|V$"
+ IT_LOST_COUNTY_MODIFIER:1 "[TITLE.GetName] lost $MODIFIER|V$"
  LOST_COUNTY_MODIFIER:1 "Lost $MODIFIER|V$"
 
  ADDS_HOUSE_MODIFIER:1 "[house|E] [DYNASTY_HOUSE.GetBaseName|V] gains $MODIFIER|V$"
@@ -1498,8 +1471,8 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
 
  COUNTY_FAITH_EFFECT:1 "[faith|E] will change to [FAITH.GetName|V]"
  COUNTY_FAITH_PAST_EFFECT:1 "[faith|E] changed to [FAITH.GetName|V]"
- THIRD_COUNTY_FAITH_EFFECT:0 "The [faith|E] in the [TITLE.GetBaseName] changes to [FAITH.GetName|V]"
- THIRD_COUNTY_FAITH_PAST_EFFECT:0 "The [faith|E] in the [TITLE.GetBaseName] changed to [FAITH.GetName|V]"
+ THIRD_COUNTY_FAITH_EFFECT:0 "The [faith|E] in the [TITLE.GetName] changes to [FAITH.GetName|V]"
+ THIRD_COUNTY_FAITH_PAST_EFFECT:0 "The [faith|E] in the [TITLE.GetName] changed to [FAITH.GetName|V]"
 
  ADD_ATTACKER_EFFECT:1 "Joins [WAR.GetName|V] [war|E] as an Attacker on [WAR.GetActiveCB.GetAttacker.GetShortUINamePossessive] side"
  ADD_ATTACKER_EFFECT_FIRST:1 "You join [WAR.GetName|V] [war|E] as an Attacker on [WAR.GetActiveCB.GetAttacker.GetShortUINamePossessive] side"
@@ -1728,8 +1701,8 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  REMOVE_DOCTRINE_THIRD_DESC:2 "The [FAITH.GetAdjective] faith loses [FAITH_DOCTRINE.GetGroup.GetName( FAITH.Self )]: [FAITH_DOCTRINE.GetName( FAITH.Self )]"
  REMOVE_DOCTRINE_THIRD_PAST_DESC:2 "The [FAITH.GetAdjective] faith lost [FAITH_DOCTRINE.GetGroup.GetName( FAITH.Self )]: [FAITH_DOCTRINE.GetName( FAITH.Self )]"
 
- GET_RANDOM_INNOVATION_FROM_EFFECT: "[CULTURE.GetName] [culture|E] receives a random [innovation|E] known to [TARGET_CULTURE.GetName] [culture|E]"
- GOT_RANDOM_INNOVATION_FROM_EFFECT: "[CULTURE.GetName] [culture|E] received random [innovation|E] known to [TARGET_CULTURE.GetName] [culture|E]"
+ GET_RANDOM_INNOVATION_FROM_EFFECT:2 "[CULTURE.GetName] [culture|E] receives random [innovation|E] from [TARGET_CULTURE.GetName] culture"
+ GOT_RANDOM_INNOVATION_FROM_EFFECT:1 "[CULTURE.GetName] [culture|E] received random [innovation|E] from [TARGET_CULTURE.GetName] culture"
 
  ACTIVATE_HOLY_SITE_DESC:1 "[TITLE.GetNameNoTier] will be considered a [FAITH.GetAdjective] [holy_site|E]"
  ACTIVATE_HOLY_SITE_PAST_DESC:1 "[TITLE.GetNameNoTier] became a [FAITH.GetAdjective] [holy_site|E]"
@@ -1860,20 +1833,6 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  VASSAL_CONTRACT_DECREASE_OBLIGATIONS_THIRD_PAST:1 "[CHARACTER.GetShortUINamePossessive] [Concept( 'obligations', '$NAME|q$' )|E] to [CHARACTER.GetLiege.GetShortUIName] were reduced"
  VASSAL_CONTRACT_DECREASE_OBLIGATIONS_FIRST_PAST:2 "Your [Concept( 'obligations', '$NAME|q$' )|E] to [CHARACTER.GetLiege.GetShortUIName] were reduced"
 
- START_TRIBUTARY_GLOBAL: "Becomes a $CONTRACT_GROUP$ of [TARGET_CHARACTER.GetShortUIName]"
- START_TRIBUTARY_THIRD: "[CHARACTER.GetShortUIName] becomes a $CONTRACT_GROUP$ of [TARGET_CHARACTER.GetShortUIName]"
- START_TRIBUTARY_FIRST: "You become a $CONTRACT_GROUP$ of [TARGET_CHARACTER.GetShortUIName]"
- START_TRIBUTARY_GLOBAL_PAST: "Became a $CONTRACT_GROUP$ of [TARGET_CHARACTER.GetShortUIName]"
- START_TRIBUTARY_THIRD_PAST: "[CHARACTER.GetShortUIName] became a $CONTRACT_GROUP$of [TARGET_CHARACTER.GetShortUIName]"
- START_TRIBUTARY_FIRST_PAST: "You became a $CONTRACT_GROUP$ of [TARGET_CHARACTER.GetShortUIName]"
-
- END_TRIBUTARY_GLOBAL: "Ends the $CONTRACT_GROUP$ contract with [TARGET_CHARACTER.GetShortUIName]"
- END_TRIBUTARY_THIRD: "[CHARACTER.GetShortUIName] ends [CHARACTER.GetHerHis] $CONTRACT_GROUP$ contract with [TARGET_CHARACTER.GetShortUIName]"
- END_TRIBUTARY_FIRST: "You end your $CONTRACT_GROUP$ contract with [TARGET_CHARACTER.GetShortUIName]"
- END_TRIBUTARY_GLOBAL_PAST: "Ended the $CONTRACT_GROUP$ contract with [TARGET_CHARACTER.GetShortUIName]"
- END_TRIBUTARY_THIRD_PAST: "[CHARACTER.GetShortUIName] ended [CHARACTER.GetHerHis] $CONTRACT_GROUP$ contract with [TARGET_CHARACTER.GetShortUIName]"
- END_TRIBUTARY_FIRST_PAST: "You ended your $CONTRACT_GROUP$ contract with [TARGET_CHARACTER.GetShortUIName]"
-
  SET_PRIMARY_SPOUSE_FIRST:2 "[TARGET_CHARACTER.GetShortUIName] becomes your primary spouse"
  SET_PRIMARY_SPOUSE_THIRD:1 "[TARGET_CHARACTER.GetShortUIName] becomes [CHARACTER.GetShortUINamePossessive] primary spouse"
  SET_PRIMARY_SPOUSE_FIRST_PAST:2 "[TARGET_CHARACTER.GetShortUIName] became your primary spouse"
@@ -1962,7 +1921,7 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  I_GAINED_A_WANDERER_LIFESTYLE_PERKPOINT: "You gained $VALUE|V0$ [wanderer_lifestyle|E] [perk|E] Unlock"
  TARGET_GAINS_A_WANDERER_LIFESTYLE_PERKPOINT: "[CHARACTER.GetShortUIName|U] gains $VALUE|V0$ [wanderer_lifestyle|E] [perk|E] Unlock"
  TARGET_GAINED_A_WANDERER_LIFESTYLE_PERKPOINT: "[CHARACTER.GetShortUIName|U] gained $VALUE|V0$ [wanderer_lifestyle|E] [perk|E] Unlock"
-
+ 
  REFUND_ALL_PERKS_EFFECT:1 "All of your unlocked [perks|E] are refunded"
 
  NO_PENALTY_FOR_LACK_OF_ATTRACTION:1 "Removes attraction penalties in [GetScheme('seduce').GetTypeName] [schemes|E]"
@@ -2031,7 +1990,6 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  PEACE_OFFER_ACCEPTANCE:0 "[peace|E] Acceptance: #P +[EmptyScope.ScriptValue('peacemaker_value')|0]#!"
 
  SEND_GIFT_OPINION_GAIN_DOUBLED:0 "Opinion Gain from $gift_interaction$: #P +100%#!"
- SEND_HERD_OPINION_GAIN_DOUBLED: "Opinion Gain from $mpo_gift_herd_interaction$: #P +100%#!"
 
  UNLOCK_DUCAL_CONQUEST_CB:0 "Unlock the [ducal_conquest_casus_belli|E]"
  I_AM_ABLE_TO_USE_DUCAL_CONQUEST_CB:1 "You are able to use the [ducal_conquest_casus_belli|E]"
@@ -2079,13 +2037,10 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  FEWER_COMPLICATIONS_DURING_PREGNANCY:0 "Fewer complications during pregnancy"
 
  EACH_FRIEND_ADDS_RANDOM_SKILL_POINT:3 "Each of your [friend|E] Relations gives you #P 2#! random [skill|E] points (To the Maximum of [EmptyScope.ScriptValue('friendly_counsel_max')|0])"
- EACH_BLOOD_BROTHER_ADDS_RANDOM_SKILL_POINT: "Your [blood_brother|E] gives you an additional #P 1#! random [skill|E] point"
 
  EACH_LIVING_CHILD_ADDS_RANDOM_SKILL_POINT:3 "Each living child gives you #P 1#! random [skill|E] point (Maximum of [EmptyScope.ScriptValue('sound_foundations_max')|0])"
 
  OFFER_VASSALIZATION_ACCEPTANCE_INCREASE:0 "[offer_vassalization|E] Acceptance: #P +[EmptyScope.ScriptValue('true_ruler_value')|0]#!"
- OFFER_TRIBUTARIZATION_ACCEPTANCE_INCREASE: "Demand as [tributary|E] Acceptance: #P +[EmptyScope.ScriptValue('true_ruler_value')|0]#!"
- OFFER_CONFEDERATION_ACCEPTANCE_INCREASE: "Offer [confederation|E] Acceptance: #P +[EmptyScope.ScriptValue('true_ruler_value')|0]#!"
 
  REDUCED_CHANCE_OF_BEING_WOUNDED_KILLED_OR_IMPRISONED_IN_BATTLE:1 "[command_modifier_i|E]Reduces the risks of [commanding|E] [armies|E]"
 
@@ -2120,8 +2075,6 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  THEY_WILL_RECEIVE_WARNING_OF_NATURAL_DEATH:0 "When [character_death_death|E] of natural causes is #V 1#! year away, [CHARACTER.GetShortUIName] will receive a warning"
 
  CONVERT_COUNTY_NO_NEGATIVE_FERVOR_MODIFIERS:3 "[convert_county|E]: The time it takes to convert a [county|E] is no longer increased if that [faith|E] has higher [fervor|E] than your Faith"
- 
- RELIGIOUS_ICON_NOMADIC_FAITH_EFFECT: "[characters|E] converted through the #EMP $inspire_conversion_interaction$#! [character_interaction|E] will become [obedient|E]"
 
  REDUCED_DISEASE_FREQUENCY_AT_COURT:0 "Reduced chance of contracting [illnesses|E]\nReduced chance for [courtiers|E] to contract [illnesses|E]"
 
@@ -2152,8 +2105,6 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  THEY_GAIN_COUNCILLORS_SKILL_THEMSELVES:0 "#P [EmptyScope.ScriptValue('learn_on_the_job_percentage')|0]%#! of [councillors|E]' primary [skills|E] added to [CHARACTER.GetHerHis] own"
 
  CONVERT_COUNTY_SPEED_BONUS:0 "[convert_county|E] Progress Speed: #P +[EmptyScope.ScriptValue('zealous_proselytizer_percentage')|0]%#!"
- NOMADIC_ZEALOUS_PROSELYTIZER_FAITH_EFFECT: "The #EMP $inspire_conversion_interaction$#! [character_interaction|E] has a higher acceptance chance"
- NOMADIC_ZEALOUS_PROSELYTIZER_STARGAZER_EFFECT: "#EMP $task_kurultai_court_astrologer_1$#! [kurultai|E] [councillor_task|E] Efficiency: #P +[EmptyScope.ScriptValue('zealous_proselytizer_stargazer_percentage')|0]%#!"
 
  UNLOCK_BUY_CLAIM_INTERACTION:0 "Unlocks the [buy_claim_interaction|E]"
  I_CAN_USE_BUY_CLAIM_INTERACTION:1 "You can use the [buy_claim_interaction|E]"
@@ -2299,13 +2250,6 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  VASSAL_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT_FIRST:0 "Your [vassal_contract|E] gains $OBLIGATION_LEVEL$ #weak ($OBLIGATION_TYPE$ [obligation])#!"
  VASSAL_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT_FIRST_PAST:0 "Your [vassal_contract|E] gained $OBLIGATION_LEVEL$ #weak ($OBLIGATION_TYPE$ [obligation])#!"
 
- TRIBUTARY_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT: "[tributary_contract|E] gains $OBLIGATION_LEVEL$ #weak ($OBLIGATION_TYPE$ [obligation])#!"
- TRIBUTARY_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT_GLOBAL_PAST:0 "[tributary_contract|E] gained $OBLIGATION_LEVEL$ #weak ($OBLIGATION_TYPE$ [obligation])#!"
- TRIBUTARY_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT_THIRD: "[CHARACTER.GetShortUINamePossessive] [tributary_contract|E] gains $OBLIGATION_LEVEL$ #weak ($OBLIGATION_TYPE$ [obligation])#!"
- TRIBUTARY_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT_THIRD_PAST: "[CHARACTER.GetShortUINamePossessive] [tributary_contract|E] gained $OBLIGATION_LEVEL$ #weak ($OBLIGATION_TYPE$ [obligation])#!"
- TRIBUTARY_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT_FIRST: "Your [tributary_contract|E] gains $OBLIGATION_LEVEL$ #weak ($OBLIGATION_TYPE$ [obligation])#!"
- TRIBUTARY_CONTRACT_SET_OBLIGATION_LEVEL_EFFECT_FIRST_PAST:0 "Your [tributary_contract|E] gained $OBLIGATION_LEVEL$ #weak ($OBLIGATION_TYPE$ [obligation])#!"
-
  SET_NUM_PREGNANCY_CHILDREN_EFFECT:0 "Set number of children in pregnancy to #V $VALUE$#!"
  SET_NUM_PREGNANCY_CHILDREN_PAST_EFFECT:0 "Number of children in pregnancy was set to #V $VALUE$#!"
  COPY_INHERITABLE_APPEARANCE_FROM_EFFECT:0 "Copy inheritable appearance from [TARGET_CHARACTER.GetShortUIName]"
@@ -2368,7 +2312,7 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  ASSIGN_COMMANDER_PAST_EFFECT:0 "Assigned [TARGET_CHARACTER.GetShortUINamePossessive] as commander"
  REFUND_PERKS_EFFECT:0 "Refund all Perks"
  REFUND_PERKS_PAST_EFFECT:0 "Refunded all Perks"
- REMOVE_SPECIAL_CHARACTER_EFFECT:0 "[TARGET_CHARACTER.GetShortUIName] is removed as the special character"
+ REMOVE_SPECIAL_CHARACTER_EFFECT:0 "[TARGET_CHARACTER.GetShortUINamePossessive] is removed as the special character"
  REMOVE_SPECIAL_CHARACTER_PAST_EFFECT:0 "[TARGET_CHARACTER.GetShortUINamePossessive] was removed as the special character"
  ALLOW_IN_SCHEME_PAST_EFFECT:0 "Is allowed to join the [SCHEME.GetName] as an agent"
  ADD_PERK_EFFECT:1 "Gain the [PERK.GetName( CHARACTER.Self )] Perk"
@@ -2434,8 +2378,8 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  SAT_MY_MOTHER:0 "[TARGET_CHARACTER.GetShortUIName|U] is your new mother"
  SAT_THEIR_MOTHER:0 "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString( TARGET_CHARACTER.IsLocalPlayer, 'are', 'is' )] the new mother of [CHARACTER.GetShortUIName]"
 
- ADD_LOOT_RAIDING_ARMY_EFFECT: "Adds $VALUE|0V$ loot to the current raiding army"
- ADD_LOOT_RAIDING_ARMY_PAST_EFFECT: "Added $VALUE|0V$ loot to the raiding army"
+ ADD_LOOT_RAIDING_ARMY_EFFECT:1 "Adds $VALUE|0V$ loot to the current raiding army"
+ ADD_LOOT_RAIDING_ARMY_PAST_EFFECT:1 "Added $VALUE|0V$ loot to the raiding army"
 
  send_to_varangian_guard_interaction_effect_desc:1 "#weak While serving in the Varangian Guard, [CHARACTER.GetShortUIName] might increase [CHARACTER.GetHerHis] [skills|E] or gain [traits|E] — but [CHARACTER.GetSheHe] might also become wounded, or worse. [CHARACTER.GetSheHe|U] will return within a few years, but cannot be recalled.#!"
 
@@ -2454,11 +2398,9 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  custom.every_non_callous_or_sadistic_vassal:0 "Every non-[GetTrait('callous').GetName( GetNullCharacter )] or [GetTrait('sadistic').GetName( GetNullCharacter )] [vassal|E]"
  custom.every_zealous_callous_or_sadistic_vassal:0 "Every [GetTrait('zealous').GetName( GetNullCharacter )] or [GetTrait('callous').GetName( GetNullCharacter )] [vassal|E]"
  custom.every_feudal_vassal:0 "Every [feudal|E] [vassal|E]"
- custom.every_tribal_nomadic_vassal: "Every [tribal|E] and [GetGovernment( 'nomad_government' ).GetName] [vassal|E]" 
  custom.every_opposite_sex_consort:0 "Every opposite sex [spouse|E] or [concubine|E]"
  custom.every_vassal_of_target_culture:0 "Every [different_culture_vassal.GetCulture.GetName] [vassal|E]"
  custom.every_vassal:0 "Every [vassal|E]"
- custom.every_vassal_or_below: "Every [vassal|E] and Sub-[vassal|E]"
  custom.every_vassal_of_your_liege:0 "Every [vassal|E] of your [liege|E]"
  custom.every_female_courtier:0 "Every female [courtier|E]"
  custom.every_male_courtier:0 "Every male [courtier|E]"
@@ -2495,7 +2437,6 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  custom.every_domain_county: "Every [domain|E] [county|E]"
  custom.every_dynasty_member: "Every [character|E] of your [dynasty|E]"
  custom.every_close_or_extended_family_member: "Every [close_family|E] or [extended_family|E] [character|E]"
-  custom.every_close_family_member: "Every [close_family|E] [character|E]"
  custom.every_judgemental_close_or_extended_family_member: "Every judgemental [close_family|E] or [extended_family|E] [character|E]"
  custom.every_co_vassal_not_arrogant_or_ambitious: "Every peer [vassal|E] who is not [GetTrait('arrogant').GetName( GetNullCharacter )] or [GetTrait('ambitious').GetName( GetNullCharacter )]"
  custom.every_co_vassal_not_humble_or_content: "Every peer [vassal|E] who is not [GetTrait('humble').GetName( GetNullCharacter )] or [GetTrait('content').GetName( GetNullCharacter )]"
@@ -2929,6 +2870,9 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  add_legitimacy_increase_level_global_past: "Increased [legitimacy_level|E] to $legitmacy_flavor_and_level$"
  add_legitimacy_increase_level_global_past_neg: "Decreased [legitimacy_level|E] to $legitmacy_flavor_and_level$"
 
+ GLOBAL_SET_DOMICILE_OWNER: "Owner of #HIGH [DOMICILE.GetName]#! changes to [TARGET_CHARACTER.GetName]"
+ GLOBAL_SET_DOMICILE_OWNER_PAST: "Owner of #HIGH [DOMICILE.GetName]#! changed to [TARGET_CHARACTER.GetName]"
+
  I_MOVE_DOMICILE_EFFECT: "[DOMICILE.GetName] [camp|E] is established in [DOMICILE.GetLocation.GetBaronyNameExplicitly] [barony|E]"
  THEY_MOVE_DOMICILE_EFFECT: "[DOMICILE.GetName] [camp|E] is going to establish in [DOMICILE.GetLocation.GetBaronyNameExplicitly] [barony|E]"
  MOVE_DOMICILE_EFFECT: "[DOMICILE.GetName] [camp|E] moves to [PROVINCE.GetName]"
@@ -3027,7 +2971,7 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  force_step_down_landed_titles_first_past: "You stepped down and lost all landed titles"
  force_step_down_landed_titles_third_past: "[CHARACTER.GetUIName] stepped down and lost all landed titles"
  force_step_down_landed_titles_global_past: "Stepped down and lost all landed titles"
-
+ 
  # BP3 - New Perks
  well_prepared_perk_effect: "Decreased [travel_option|E] Cost: [gold_i|E]#P -25%#!"
  far_and_wide_perk_effect: "Increase [prestige_experience_i|E][prestige_experience|E] by #P 10#! for every visited [holding|E]"
@@ -3059,7 +3003,7 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  first_finally_there_perk_effect: "Gain [prestige_i] [prestige|E] and reduce [stress_loss_i] [stress|E] when you arrive at your [destination|E] in a [travel|E]"
  finally_there_perk_2_effect: "[point_of_interest|E] [stress_loss|E]: [stress_loss_i]-#p 5#!\n[point_of_interest|E] [prestige|E]: [prestige_i]#P +10#!"
  mercenary_contacts_perk_effect: "Unlocks the [GetTravelOption('hire_allied_mercenaries_option').GetName] [travel_option|E]"
- been_there_done_that_perk_effect: "[point_of_interest|E] Rewards: #P +30%#!\nCan learn #V 1#! additional [language|E] without any penalties"
+ been_there_done_that_perk_effect: "[point_of_interest|E] Rewards: #P +30%#!\nCan learn #V 1#! additional [language|E] without any penalties" 
  souvenirs_aplenty_perk_effect: "The [capital|E] will gain [development|E] if the owner returns from a [travel|E] to a more developed [destination|E]"
  first_souvenirs_aplenty_perk_effect: "Your [capital|E] will gain [development|E] if you return from a [travel|E] to a more developed [destination|E]"
  souvenirs_aplenty_perk_2_effect: "[adventurer_i] Whenever you move your [camp|E], gain #p +10#! [opinion|E] with [courtiers|E] and [guests|E]"
@@ -3087,7 +3031,6 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  mustering_the_troops_perk_effect: "[traveling|E] through [domain|E] [holdings|E] improves the effectiveness of your [stationed|E] [men_at_arms|E]"
  mustering_the_troops_perk_2_effect: "Unlocks the [designated_terrain|E] [decision|E]\n[designated_terrain|E] [travel_danger|E]: [travel_danger_i]#p -20#!"
  surveyor_no_stone_unturned_perk_effect: "Gain [development|E] and [control|E] in owned [counties|E] when hosting [activities|E] in them"
- NO_STONE_UNTURNED_FERTILITY_EFFECT: "Gain @county_fertility_icon![county_fertility|E] and @control_icon![control|E] in owned [counties|E] when hosting [activities|E] in them"
  no_stone_unturned_perk_2_effect: "[command_modifier_i][designated_terrain|E] [advantage|E]: @advantage_icon!#P +5#!\n[command_modifier_i]Maximum [combat_roll|E] in [designated_terrain|E]: #P +2#!\n[command_modifier_i]Minimum [combat_roll|E] in [designated_terrain|E]: #P +2#!"
  personal_touch_effect: "Holding an @activity_inspection![GetActivityType('activity_survey').GetName] [activity|E] will also apply the effects of a [GetDecisionWithKey('local_arbitration_decision').GetName] in that [county|E]\n[GetPerk('no_stone_unturned_perk').GetName(GetPlayer)] Effects: #p +50%#!"
  personal_touch_2_effect: "Unlock the [master_terrain|E] [decision|E]"
@@ -3100,79 +3043,3 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  random_fortification_building_tt: "Holding of [building_scope.GetName] gains a random [fortification_building|E]"
  random_military_building_tt: "Holding of [building_scope.GetName] gains a random [military_building|E]"
 
- change_county_fertility_global: "[county_fertility|E] in [TITLE.GetName] changes by [county_fertility_i]$VALUE|=0+$"
- change_county_fertility_global_past: "[county_fertility|E] in [TITLE.GetName] changed by [county_fertility_i]$VALUE|=0+$"
- change_county_fertility_global_neg: "[county_fertility|E] in [TITLE.GetName] changes by [county_fertility_i]#N -#!$VALUE|-0$"
- change_county_fertility_global_past_neg: "[county_fertility|E] in [TITLE.GetName] changed by [county_fertility_i]#N -#!$VALUE|-0$"
- change_county_fertility_third: "[county_fertility|E] in [TITLE.GetName] changes by [county_fertility_i]$VALUE|=0+$"
- change_county_fertility_third_past: "[county_fertility|E] in [TITLE.GetName] changed by [county_fertility_i]$VALUE|=0+$"
- change_county_fertility_third_neg: "[county_fertility|E] in [TITLE.GetName] changes by [county_fertility_i]#N -#!$VALUE|-0$"
- change_county_fertility_third_past_neg: "[county_fertility|E] in [TITLE.GetName] changed by [county_fertility_i]#N -#!$VALUE|-0$"
-
- change_herd_first: "You gain [herd_i]$VALUE|+0$ [herd|E]"
- change_herd_first_neg: "You lose [herd_i]$VALUE|-0$ [herd|E]"
- change_herd_global: "Gains [herd_i]$VALUE|+0$ [herd|E]"
- change_herd_global_neg: "Loses [herd_i]$VALUE|-0$ [herd|E]"
- change_herd_global_past: "Gained [herd_i]$VALUE|+0$ [herd|E]"
- change_herd_global_past_neg: "Lost [herd_i]$VALUE|-0$ [herd|E]"
- change_herd_third: "[DOMICILE.GetOwner.GetShortUIName|U] gain[_s(DOMICILE.GetOwner)] [herd_i]$VALUE|+0$ [herd|E]"
- change_herd_third_neg: "[DOMICILE.GetOwner.GetShortUIName|U] lose[_s(DOMICILE.GetOwner)] [herd_i]$VALUE|-0$ [herd|E]"
- change_herd_first_past: "You gained [herd_i]$VALUE|+0$ [herd|E]"
- change_herd_first_past_neg: "You lost [herd_i]$VALUE|-0$ [herd|E]"
- change_herd_third_past: "[DOMICILE.GetOwner.GetShortUIName|U] gained [herd_i]$VALUE|+0$ [herd|E]"
- change_herd_third_past_neg: "[DOMICILE.GetOwner.GetShortUIName|U] lost [herd_i]$VALUE|-0$ [herd|E]"
-
- PAYS_HERD_EFFECT:0 "Pays [herd_i]$VALUE|0V$ to [TARGET_CHARACTER.GetShortUIName]"
- PAYS_HERD_EFFECT_NEG:0 "Is paid [herd_i]$VALUE|0V$ by [TARGET_CHARACTER.GetShortUIName]"
- PAID_HERD_EFFECT:0 "Paid [herd_i]$VALUE|0V$ to [TARGET_CHARACTER.GetShortUIName]"
- WERE_PAID_HERD_EFFECT:0 "Was paid [herd_i]$VALUE|0V$ by [TARGET_CHARACTER.GetShortUIName]"
- THEY_PAID_HERD_EFFECT:0 "[CHARACTER.GetShortUIName|U] paid [herd_i]$VALUE|0V$ to [TARGET_CHARACTER.GetShortUIName]"
- THEY_WERE_PAID_HERD_EFFECT:0 "[CHARACTER.GetShortUIName|U] was paid [herd_i]$VALUE|0V$ by [TARGET_CHARACTER.GetShortUIName]"
- I_PAY_HERD_EFFECT:1 "You pay [herd_i]$VALUE|0-$ to [TARGET_CHARACTER.GetShortUIName]"
- I_AM_PAID_HERD_EFFECT:1 "You are paid [herd_i]$VALUE|0+$ by [TARGET_CHARACTER.GetShortUIName]"
- I_PAID_HERD_EFFECT:1 "You paid [herd_i]$VALUE|0-$ to [TARGET_CHARACTER.GetShortUIName]"
- I_WAS_PAID_HERD_EFFECT:1 "You were paid [herd_i]$VALUE|+0$ by [TARGET_CHARACTER.GetShortUIName]"
- PAY_HERD_EFFECT:0 "[CHARACTER.GetShortUIName|U] pays [herd_i]$VALUE|0+$ to [TARGET_CHARACTER.GetShortUIName]"
- IS_PAID_HERD_EFFECT:0 "[CHARACTER.GetShortUIName|U] is paid [herd_i]$VALUE|0-$ from [TARGET_CHARACTER.GetShortUIName]"
- 
- give_domain_to_herders_global: "Cedes [counties|E] to [herders|E] and loses other [landed|E] [titles|E]"
- give_domain_to_herders_first: "You cede your [counties|E] to [herders|E] and lose your other [landed|E] [titles|E]"
- give_domain_to_herders_third: "[CHARACTER.GetShortUIName] cedes [CHARACTER.GetHerHis] [counties|E] to [herders|E] and lose your other [landed|E] [titles|E]"
-
- #add_geographical_region
- I_ADDED_GEOGRAPHICAL_REGION_EFFECT: "You added the [region|E] of [GEOGRAPHICAL_REGION.GetName] to the [SITUATION_SUB_REGION.GetName] [situation_sub_region|E]"
- THEY_ADDED_GEOGRAPHICAL_REGION_EFFECT: "Added the [region|E] of [GEOGRAPHICAL_REGION.GetName] to the [SITUATION_SUB_REGION.GetName] [situation_sub_region|E]"
- ADDED_GEOGRAPHICAL_REGION_EFFECT: "Added the [region|E] of [GEOGRAPHICAL_REGION.GetName] to the [SITUATION_SUB_REGION.GetName] [situation_sub_region|E]"
- I_ADD_GEOGRAPHICAL_REGION_EFFECT: "You add the [region|E] of [GEOGRAPHICAL_REGION.GetName] to the [SITUATION_SUB_REGION.GetName] [situation_sub_region|E]"
- THEY_ADD_GEOGRAPHICAL_REGION_EFFECT: "Adds the [region|E] of [GEOGRAPHICAL_REGION.GetName] to the [SITUATION_SUB_REGION.GetName] [situation_sub_region|E]"
- ADD_GEOGRAPHICAL_REGION_EFFECT: "Add the [region|E] of [GEOGRAPHICAL_REGION.GetName] to the [SITUATION_SUB_REGION.GetName] [situation_sub_region|E]"
-
- create_confederation_first: "You create a new [confederation|E]"
- create_confederation_first_past: "You created a new [confederation|E]"
- create_confederation_global: "Create a new [confederation|E]"
- create_confederation_global_past: "Created a new [confederation|E]"
- add_confederation_member: "Add member to the [CONFEDERATION.GetName]"
- add_confederation_member_global: "[TARGET_CHARACTER.GetShortUIName] joins the [CONFEDERATION.GetName]"
- add_confederation_member_global_past: "[TARGET_CHARACTER.GetShortUIName] joined the [CONFEDERATION.GetName]"
- remove_confederation_member: "Remove member from the [CONFEDERATION.GetName]"
- remove_confederation_member_global: "[TARGET_CHARACTER.GetShortUIName] leaves the [CONFEDERATION.GetName]"
- remove_confederation_member_global_past: "[TARGET_CHARACTER.GetShortUIName] left the [CONFEDERATION.GetName]"
- remove_confederation_member_first: "You leave the [CONFEDERATION.GetName]"
- remove_confederation_member_first_past: "You left the [CONFEDERATION.GetName]"
- remove_confederation_member_third: "[TARGET_CHARACTER.GetShortUIName|U] leave the [CONFEDERATION.GetName]"
- remove_confederation_member_third_past: "[TARGET_CHARACTER.GetShortUIName|U] left the [CONFEDERATION.GetName]"
- disband_confederation_global: "The [CONFEDERATION.GetName] is disbanded"
- disband_confederation_global_past: "The [CONFEDERATION.GetName] was disbanded"
- any_land_neighboring_realm_with_tributaries_owner: "Any neighboring [independent_ruler|E] (counting [tributaries|E]):"
- custom.every_confederation_member: "Every member of your [confederation|E]"
-
- PRAETORIAN_GUARD_NOMADIC_PERK_EFFECT: "Increased [GetCourtPositionType('boyan_court_position').GetName()] and [GetCourtPositionType('cherbi_court_position').GetName()] [aptitude|E]"
-
- raze_county_global: "Is razed and its [capital|E] [barony|E] becomes a #HIGH $HOLDING_TYPE$#!"
- raze_county_third: "[TITLE.GetName] is razed: $PROVINCE_EFFECTS$"
- raze_county_change_holding: "$EFFECT_LIST_BULLET$The [holding|E] in [PROVINCE.GetName] changes to #HIGH $HOLDING_TYPE$#!"
- raze_county_remove_holding: "$EFFECT_LIST_BULLET$The [holding|E] in [PROVINCE.GetName] is destroyed"
- raze_county_begin_indent: "#indent_newline:2 "
- raze_county_end_indent: "#!"
-
- custom.every_tributary: "Every [tributary|E]"

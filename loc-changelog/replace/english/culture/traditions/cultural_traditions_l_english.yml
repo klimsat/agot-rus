@@ -340,8 +340,11 @@
  culture_parameter_devoted_trait_bonuses:0 "The [GetTrait('devoted').GetName( GetNullCharacter )] [traits|E] have additional bonuses"
  tradition_strong_kinship_name:0 "Strong Kinship"
  tradition_strong_kinship_desc:0 "This culture has a strong tradition of kinship within the extended family, or clan. In times of need a ruler will always be able to rely on their kin."
- tradition_amharic_highlanders_name:0 "Amharic Highlanders"
- tradition_amharic_highlanders_desc:0 "The Amharic highlands are quite suitable for farming as long as one knows how to best approach the matter. For many generations this people have worked and lived in this environment, thriving while developing their own traditions and customs."
+ #AGOT Modified (AMANES IS MEAN)
+ #tradition_amharic_highlanders_name:0 "Amharic Highlanders"
+ #tradition_amharic_highlanders_desc:0 "The Amharic highlands are quite suitable for farming as long as one knows how to best approach the matter. For many generations this people have worked and lived in this environment, thriving while developing their own traditions and customs."
+ tradition_amharic_highlanders_name:0 "Hardened Highlanders"
+ tradition_amharic_highlanders_desc:0 "The highlands are quite suitable for farming as long as one knows how to best approach the matter. For many generations this people have worked and lived in this environment, thriving while developing their own traditions and customs."
 
  culture_parameter_witenagemot_succession_enabled:0 "Can enact the [GetLaw('saxon_elective_succession_law').GetName] [succession_law|E]"
  culture_parameter_scandinavian_elective_enabled:0 "Can enact the [GetLaw('scandinavian_elective_succession_law').GetName] [succession_law|E]"
@@ -631,7 +634,7 @@
  recruit_open_specialist_decision_confirm:0 "$invite_knights_decision_confirm$"
  
  commander_recruited.t:0 "Commander Recruited"
- commander_recruited.desc:0 "[new_commander.GetUIName] joined your court!"
+ commander_recruited.desc:0 "[new_commander.GetFullName] joined your court!"
  
  recruit_gardener_decision:0 "Recruit Gardener"
  recruit_gardener_decision_desc:0 "We [ROOT.Char.GetCulture.GetCollectiveNoun] have extensive knowledge in shaping and caring for gardens of all types. There are plenty of skilled gardeners out there whose expertise I can put to great use."
@@ -914,10 +917,7 @@
  not_bellicose_spiritual_or_stoic_desc:1 "The [culture|E] does not have the $ethos_bellicose_name$, $ethos_spiritual_name$ or $ethos_stoic_name$ [ethos|E]"
  not_bellicose_bureaucratic_or_spiritual_desc:0 "The [culture|E] does not have the $ethos_bellicose_name$, $ethos_bureaucratic_name$ or $ethos_spiritual_name$ [ethos|E]"
  not_bellicose_egalitarian_or_spiritual_desc: "The [culture|E] does not have the $ethos_bellicose_name$, $ethos_egalitarian_name$ or $ethos_spiritual_name$ [ethos|E]"
-
-
  ## Stoic.
-
 
  ## Bureaucratic.
  not_bureaucratic_courtly_or_egalitarian_desc:1 "The [culture|E] does not have the $ethos_bureaucratic_name$, $ethos_courtly_name$ or $ethos_egalitarian_name$ [ethos|E]"
@@ -927,11 +927,6 @@
  can_adopt_administrative_government_as_kingdom_tier_text: "Rulers can adopt [administrative|E] [government|E] type as a [king|E] as well when they are [emperors|E]"
 
  ## Spiritual.
- culture_parameter_ethos_spiritual_better_consult_the_skies: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'ethos_spiritual_better_consult_the_skies_effects', '' )]"
- ethos_spiritual_better_consult_the_skies_effects: "$mpo_divination_decision$ [decision|E] has additional effects"
- culture_parameter_ethos_spiritual_better_court_astrologers: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'ethos_spiritual_better_court_astrologers_effects', '' )]"
- ethos_spiritual_better_court_astrologers_effects: "[characters|E] of this [culture|E] have increased $court_astrologer_court_position$ [aptitude|E]"
-
 
  ## Courtly.
  not_courtly_communal_or_spiritual_desc:1 "The [culture|E] does not have the $ethos_courtly_name$, $ethos_communal_name$ or $ethos_spiritual_name$ [ethos|E]"
@@ -941,8 +936,6 @@
  ## Egalitarian.
  not_egalitarian_stoic_or_bureaucratic_desc:1 "The [culture|E] does not have the $ethos_egalitarian_name$, $ethos_stoic_name$ or $ethos_bureaucratic_name$ [ethos|E]"
  not_egalitarian_or_courtly_desc:0 "The [culture|E] does not have the $ethos_egalitarian_name$ or $ethos_courtly_name$ [ethos|E]"
- 
-
 
  ## Communal.
  #AGOT Modified
@@ -960,7 +953,6 @@
  not_communal_spiritual_or_stoic_desc:0 "The [culture|E] does not have the $ethos_communal_name$, $ethos_spiritual_name$ or $ethos_stoic_name$ [ethos|E]"
  not_communal_egalitarian_or_courtly_desc:0 "The [culture|E] does not have the $ethos_communal_name$, $ethos_egalitarian_name$ or $ethos_courtly_name$ [ethos|E]"
  not_communal_or_courtly_desc:0 "The [culture|E] does not have the $ethos_communal_name$ or $ethos_courtly_name$ [ethos|E]"
-
 
 
 
@@ -997,7 +989,6 @@
  culture_head_archers_desc:0 "You do not have #V 800#! [archers|E]"
  culture_head_light_cavalry_desc:0 "You do not have #V 500#! [light_cavalry|E]"
  culture_head_skirmishers_desc:0 "You do not have #V 800#! [skirmishers|E]"
- culture_head_archer_cavalry_desc: "You do not have #V 600#! [archer_cavalry|E]"
  culture_head_has_elephants_desc:0 "You do not have a [regiment|E] of [elephant_cavalry|E]"
  turkic_or_mongolic_desc:0 "The [culture|E] does not have the Turkic or Mongolic [heritage|E]"
  iranian_desc:0 "The [culture|E] does not have the Iranian [heritage|E]"
@@ -1349,83 +1340,3 @@
 
  can_appoint_chief_eunuch_name_tt: "[root_scope.GetCulture.GetName] [culture|E] has one of the followings [traditions|E]:\n\t$EFFECT_LIST_BULLET$[GetCultureTradition('tradition_court_eunuchs').GetName]\n\t$EFFECT_LIST_BULLET$[GetCultureTradition('tradition_byzantine_succession').GetName]\n\t$EFFECT_LIST_BULLET$[GetCultureTradition('tradition_ep3_palace_politics').GetName]"
 
-#MPO
- tradition_mpo_iron_cavalry_name: "Iron Cavalry"
- tradition_mpo_iron_cavalry_desc: "Even horse peoples can be bested by cavalry clad head-to-hoof in lamellar plate. This culture has not only developed a taste for such expensive armament, but employs those born in the saddle — bow in hand — as its heavily armored riders."
- culture_parameter_unlock_maa_cataphract_archers: "Can recruit [GetMaA('cataphract_archers').GetName] as [men_at_arms|E]"
- 
- tradition_mpo_wolves_of_the_deep_steppe_name: "Wolves of the Deep Steppe"
- tradition_mpo_wolves_of_the_deep_steppe_desc: "Far from the touch of 'civilized' comforts, men live by what they can take, and dream of death on their horse's back. Weaker peoples are driven before these warriors."
- culture_parameter_unlock_maa_mangudai: "Can recruit [GetMaA('mangudai').GetName] as [men_at_arms|E]"
- 
- tradition_mpo_northern_tribes_name: "Tribes of the North"
- tradition_mpo_northern_tribes_desc: "This is one of the cultures known generally as the 'Forest People' to their southern neighbors. These northerners are in some places reputable hunters, in others fine river-fishers, sometimes iron-smelters, and often herders."
- culture_parameter_unlock_maa_maturkan_warriors: "Can recruit [GetMaA('maturkan_warriors').GetName] as [men_at_arms|E]"
- 
- tradition_devoted_horsemanship_name: "Devoted Horsemanship"
- tradition_devoted_horsemanship_desc: "Even palatial comforts cannot keep the people of this culture from the saddle. Wherever they find themselves, their herds are there too, and the horses are tended to with a careful eye."
- 
- inspired_by_culture_desc: "Inspired by [tradition|E]"
- inspire_by_culture_tt: "[tradition_scope.GetName]:\n\t$BULLET$Cost of [tradition|E]: [prestige_i]#P -50%#!"
-
- culture_parameter_metalworkers_internal_yurt_unlock: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_metalworkers_nomadic_desc', 'blank_line' )]"
- culture_parameter_sorcerous_metallurgy_internal_yurt_unlock: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_sorcerous_metallurgy_nomadic_desc', 'blank_line' )]"
- culture_parameter_nomadic_metal_artifact_unlock: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_nomadic_metal_nomadic_desc', 'blank_line' )]"
- culture_parameter_zealous_people_internal_yurt_unlock: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_zealous_people_nomadic_desc', 'blank_line' )]"
- culture_parameter_loyal_soldiers_internal_yurt_unlock: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_loyal_soldiers_nomadic_desc', 'blank_line' )]"
- culture_parameter_nomadic_loyal_soldiers_obedience: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_nomadic_loyal_nomadic_desc', 'blank_line' )]"
- culture_parameter_forbearing_internal_yurt_unlock: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_forbearing_nomadic_desc', 'blank_line' )]"
- culture_parameter_stalwart_defenders_internal_yurt_unlock: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_stalwart_defenders_nomadic_desc', 'blank_line' )]"
- culture_parameter_legalistic_internal_yurt_unlock: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_legalistic_nomadic_desc', 'blank_line' )]"
- culture_parameter_forest_nomadic_cultrad_stationing_bonus: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_forest_nomadic_desc', 'blank_line' )]"
- culture_parameter_hills_nomadic_cultrad_stationing_bonus: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_hills_nomadic_desc', 'blank_line' )]"
- culture_parameter_mountains_nomadic_cultrad_stationing_bonus: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_mountains_nomadic_desc', 'blank_line' )]"
- culture_parameter_desert_nomadic_cultrad_stationing_bonus: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_desert_nomadic_desc', 'blank_line' )]"
- culture_parameter_skirmisher_nomadic_cultrad_stationing_bonus: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_skirmisher_nomadic_desc', 'blank_line' )]"
- culture_parameter_formation_nomadic_cultrad_stationing_bonus: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_formation_nomadic_desc', 'blank_line' )]"
- culture_parameter_stand_fight_nomadic_cultrad_stationing_bonus: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_stand_fight_nomadic_desc', 'blank_line' )]"
- culture_parameter_hit_run_nomadic_cultrad_stationing_bonus: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_hit_run_nomadic_desc', 'blank_line' )]"
- culture_parameter_horse_breeder_internal_yurt_unlock: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_horse_breeder_nomadic_desc', 'blank_line' )]"
-
- cultrad_metalworkers_nomadic_desc: "Unlocks the [GetDomicileBuilding('metalworkers_cultrad_yurt_01').GetName] [domicile_building_upgrade|E] for [GetGovernment( 'nomad_government' ).GetName] [domiciles|E]"
- cultrad_sorcerous_metallurgy_nomadic_desc: "Unlocks the [GetDomicileBuilding('sorcerous_metallurgy_yurt_01').GetName] [domicile_building_upgrade|E] for [GetGovernment( 'nomad_government' ).GetName] [domiciles|E]"
- cultrad_nomadic_metal_nomadic_desc: "Unlocks the #V $commission_artifact_decision$#! [decision|E] for metal [artifacts|E]"
- cultrad_zealous_people_nomadic_desc: "Unlocks the [GetDomicileBuilding('zealous_people_yurt_01').GetName] [domicile_building_upgrade|E] for [GetGovernment( 'nomad_government' ).GetName] [domiciles|E]"
- cultrad_loyal_soldiers_nomadic_desc: "Unlocks the [GetDomicileBuilding('loyal_soldiers_yurt_01').GetName] [domicile_building_upgrade|E] for [GetGovernment( 'nomad_government' ).GetName] [domiciles|E]"
- cultrad_nomadic_loyal_nomadic_desc: "[characters|E] of this [culture|E] are more likely to become [obedient|E]"
- cultrad_forbearing_nomadic_desc: "Unlocks the [GetDomicileBuilding('forbearing_yurt_01').GetName] [domicile_building_upgrade|E] for [GetGovernment( 'nomad_government' ).GetName] [domiciles|E]"
- cultrad_stalwart_defenders_nomadic_desc: "Unlocks the [GetDomicileBuilding('stalwart_defenders_yurt_01').GetName] [domicile_building_upgrade|E] for [GetGovernment( 'nomad_government' ).GetName] [domiciles|E]"
- cultrad_legalistic_nomadic_desc: "Unlocks the [GetDomicileBuilding('legalistic_yurt_01').GetName] [domicile_building_upgrade|E] for [GetGovernment( 'nomad_government' ).GetName] [domiciles|E]"
- cultrad_forest_nomadic_desc: "Increased [stationed|E] [men_at_arms|E] bonuses for [nomads|E] in #V Forest#! and #V Taiga#! [terrain|E]"
- cultrad_hills_nomadic_desc: "Increased [stationed|E] [men_at_arms|E] bonuses for [nomads|E] in #V Hills#! [terrain|E]"
- cultrad_mountains_nomadic_desc: "Increased [stationed|E] [men_at_arms|E] bonuses for [nomads|E] in #V Mountains#! and #V Desert Mountains#! [terrain|E]"
- cultrad_desert_nomadic_desc: "Increased [stationed|E] [men_at_arms|E] bonuses for [nomads|E] in #V Desert#! and #V Drylands#! [terrain|E]"
- cultrad_skirmisher_nomadic_desc: "Increased [skirmishers|E] and [archers|E] [stationed|E] [men_at_arms|E] bonuses for [nomads|E]"
- cultrad_formation_nomadic_desc: "Increased [stationed|E] [men_at_arms|E] bonuses for [nomads|E]"
- cultrad_stand_fight_nomadic_desc: "Increased [stationed|E] [men_at_arms|E] [toughness|E] bonus for [nomads|E]"
- cultrad_hit_run_nomadic_desc: "Increased [stationed|E] [men_at_arms|E] [damage|E] bonus for [nomads|E]"
- cultrad_horse_breeder_nomadic_desc: "Unlocks the [GetDomicileBuilding('horse_breeder_yurt_01').GetName] [domicile_building_upgrade|E] for [GetGovernment( 'nomad_government' ).GetName] [domiciles|E]"
-
-
- culture_parameter_better_herders_pasturalists: "$culture_parameter_ethos_communal_herders_bonus$"
- culture_parameter_ethos_communal_herders_bonus: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'ethos_communal_herders_bonus_effects', '' )]"
- ethos_communal_herders_bonus_effects: "[herders|E] have a higher $MOD_MONTHLY_COUNTY_FERTILITY_GROWTH$"
-
- cultrad_not_nomadic_government_type: "Your [government|E] is [GetGovernment( 'nomad_government' ).GetName]"
-
- mpo_northern_tribes_percentage_desc:0 "The [culture|E] does not have #V 50%#! of its [counties|E] with the #V $mpo_siberian_permafrost_modifier$#! [modifier|E]"
- permafrost_feudal_ban: "Your [culture|E] has #V $tradition_mpo_northern_tribes_name$#! [culture_tradition|E]"
- culture_parameter_permafrost_unlock_tribal_building: "[tribal|E] [building|E] upgrades do not require [innovations|E] in [counties|E] of this [culture|E] that have #V $mpo_siberian_permafrost_modifier$#! [modifier|E]"
- culture_parameter_permafrost_cannot_become_feudal: "Can not take the #V Adopt Feudal Ways#! and #V Adopt Feudal Ways through Liege#! [decisions|E]"
- culture_parameter_permafrost_modifier_mechanic: "[counties|E] of this [culture|E] start with #V $mpo_siberian_permafrost_modifier$#! [modifier|E] that reduces [development|E] and [control|E]. If the [holder|E] and [county|E] have [culture|E] with this [culture_tradition|E], #V $mpo_siberian_permafrost_modifier$#! does not lower [control|E] and provides bonuses."
- culture_parameter_permafrost_modifier_removal_condition: "#V $mpo_siberian_permafrost_modifier$#! [modifier|E] can be removed by the #V $expand_the_steppe_decision_generic$#! [decision|E] or #V $feudalize_holding_interaction$#! [interaction|E]"
- permafrost_modifier_removal_desc: "Removes #V $mpo_siberian_permafrost_modifier$#! from every [county|E] that has it"
- culture_parameter_martial_traits_give_out_hcav_bonus: "[GetTrait('gallant').GetName( GetNullCharacter )], [GetTrait('overseer').GetName( GetNullCharacter )], and [GetTrait('strategist').GetName( GetNullCharacter )] [traits|E] provide bonuses to [heavy_cavalry|E] [men_at_arms|E]"
- culture_parameter_stewardship_traits_give_out_cav_bonus: "[GetTrait('avaricious').GetName( GetNullCharacter )], [GetTrait('architect').GetName( GetNullCharacter )], and [GetTrait('administrator').GetName( GetNullCharacter )] [traits|E] provide bonuses to [light_cavalry|E], [heavy_cavalry|E], and [archer_cavalry|E] [men_at_arms|E]"
-
- mpo_siberian_permafrost_modifier: "Siberian Permafrost"
- mpo_siberian_permafrost_modifier_desc: "Soil frozen for milennia, no groundwater access, sparse vegetation. Terrain shifts every year due to repeated melting and refreezing. To make these lands their own, those who live here need centuries to adapt. Everybody, everything else will perish and join the ancient dead beneath the ice.\n\n#weak This modifier can be removed by the #V $expand_the_steppe_decision_generic$#! [decision|E] for the #V $dlc_mpo_steppe_siberia_further_expansion_tooltip$#! region#!\n\n"
-
- mpo_siberian_permafrost_modifier_bad: "$mpo_siberian_permafrost_modifier$"
- mpo_siberian_permafrost_modifier_bad_desc: "$mpo_siberian_permafrost_modifier$"
- cannot_hybridize_northern_tribes: "The [tradition|E] #high $tradition_mpo_northern_tribes_name$#! cannot be picked for a [hybrid_culture|E]"
