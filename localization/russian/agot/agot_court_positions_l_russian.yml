@@ -1,0 +1,187 @@
+﻿l_russian:
+
+ #AGOT COURT POSITIONS
+
+ #King's Justice - Executioner re-flavour
+ #King's Counter/Sclaes?
+ #Keeper of Keys?
+ #Wardens of Mint?
+ #Lord Confessor/Keeper of the Cells 
+ #Gold Cloaks
+ #Dragonmount Keeper / Dragon Pit Keeper? 
+
+
+ ## TRAITS ##
+
+ court_position_education_martial_1_trait:0 "[GetTrait('education_martial_1').GetName( ROOT.Char )]"
+ court_position_education_martial_2_trait:0 "[GetTrait('education_martial_2').GetName( ROOT.Char )]"
+ court_position_education_martial_3_trait:0 "[GetTrait('education_martial_3').GetName( ROOT.Char )]"
+ court_position_education_martial_4_trait:0 "[GetTrait('education_martial_4').GetName( ROOT.Char )]"
+
+ court_position_disloyal_trait:0 "[GetTrait('disloyal').GetName( ROOT.Char )]"
+ court_position_authoritative_trait:0 "[GetTrait('authoritative').GetName( ROOT.Char )]"
+ court_position_inquisitve_trait:0 "[GetTrait('inquisitive').GetName( ROOT.Char )]"
+ court_position_rude_trait:0 "[GetTrait('rude').GetName( ROOT.Char )]"
+
+ court_position_historic_title_holder:0 "Владелец исторического титула"
+
+
+ #Positions 
+
+ maester_court_position:0 "Мейстер" #[CharacterWindow.GetCourtOwner.Custom('MaesterCourtPosition')]
+ maester_tradition_bonus:0 "От [Concept('culture_tradition', 'культурной традиции')|E]"
+ maester_court_position_desc:1 "$maester_court_position$ отвечает за здоровье и благополучие [Concept('court', 'двора')|E], при котором он служит. Он будет лечить болезни и зашивать раны в меру своих возможностей."
+ maester_employer_custom_effect_description:1 "Осуществляет [Concept( 'medical_treatments', 'лечение' )|E]#!\nУлучшает результаты [Concept( 'education', 'обучения' )|E]\nОткрывает [interaction|El] #V $make_child_learn_language_interaction$#!\n@warning_icon!#X Полезный [Concept('agent', 'соучастник')|E] при [Concept('hostile_schemes', 'враждебных происках')|E] против вас#!"
+
+ grandmaester_court_position:0 "Великий мейстер" #[CharacterWindow.GetCourtOwner.Custom('MaesterCourtPosition')]
+ grandmaester_tradition_bonus:0 "От [Concept('culture_tradition', 'культурной традиции')|E]"
+ grandmaester_court_position_desc:1 "$grandmaester_court_position$ отвечает за здоровье и благополучие королевской семьи. Он будет лечить болезни и зашивать раны в меру своих возможностей."
+ grandmaester_employer_custom_effect_description:1 "Осуществляет [Concept( 'medical_treatments', 'лечение' )|E]#!\nУлучшает результаты [Concept( 'education', 'обучения' )|E]\nОткрывает [interaction|El] #V $make_child_learn_language_interaction$#!\n@warning_icon!#X Полезный [Concept('agent', 'соучастник')|E] при [Concept('hostile_schemes', 'враждебных происках')|E] против вас#!"
+
+ household_guard_court_position:0 "Капитан домашней гвардии"
+ household_guard_tradition_bonus:0 "От [Concept('culture_tradition', 'культурной традиции')|E]"
+ household_guard_court_position_desc:0 "$household_guard_court_position$ отвечает за охрану [Concept('house', 'Дома')|E], которому он служит."
+ household_guard_employer_custom_effect_description:2 "Сражаясь вместе с вами, снижает шанс погибнуть в бою или попасть в плен #!\n@warning_icon!#X Полезный [Concept('agent', 'соучастник')|E] при [Concept('hostile_schemes', 'враждебных происках')|E] против вас#!"
+
+ septon_court_position:0 "Септон"
+ speton_tradition_bonus:0 "От [Concept('culture_tradition', 'культурной традиции')|E]"
+ septon_court_position_desc:1 "$septon_court_position$ исполняет религиозные обряды для членов вашего [Concept('court', 'двора')|E], которые придерживаются Веры в Семерых."
+
+ septa_court_position:0 "Септа"
+ speta_tradition_bonus:0 "От [Concept('culture_tradition', 'культурной традиции')|E]"
+ septa_court_position_desc:1 "$septa_court_position$ отвечает за воспитание ваших [Concept('children', 'детей')|E] женского пола, у которых нет [Concept('guardian', 'опекуна')|E]."
+
+ gaoler_court_position:0 "Тюремщик"
+ gaoler_court_position_desc:1 "В промозглых глубинах замка раскинулись темницы; именно там заключены узники, за которыми присматривает $gaoler_court_position$."
+
+ harbormaster_court_position:0 "Начальник порта"
+ harbormaster_tradition_bonus:0 "От [Concept('culture_tradition', 'культурной традиции')|E]"
+ harbormaster_court_position_desc:0 "$harbormaster_court_position$ - должностное лицо, которое регулирует морскую торговлю и контролирует таможню в ваших портах."
+
+ warden_of_the_north_court_position:0 "Хранитель Севера"
+ warden_of_the_north_court_position_desc:1 "Хранителю Севера поручена защита Севера от иноземных угроз или вторжений."
+ warden_of_the_east_court_position:0 "Хранитель Востока"
+ warden_of_the_east_court_position_desc:1 "Хранителю Востока поручена защита Востока от иноземных угроз или вторжений."
+ warden_of_the_west_court_position:0 "Хранитель Запада"
+ warden_of_the_west_court_position_desc:1 "Хранителю Запада поручена защита Запада от иноземных угроз или вторжений."
+ warden_of_the_south_court_position:0 "Хранитель Юга"
+ warden_of_the_south_court_position_desc:1 "Хранителю Юга поручена защита Юга от иноземных угроз или вторжений."
+
+ goldcloaks_court_position:0 "Командующий Городской стражей"
+ goldcloaks_tradition_bonus:0 "От [Concept('culture_tradition', 'культурной традиции')|E]"
+ goldcloaks_court_position_desc:0 "$goldcloaks_court_position$ - командир городской стражи Королевской Гавани. Это должность наделяет значительным престижом и важностью."
+ goldcloaks_employer_custom_effect_description:2 "#!\n@warning_icon!#X Полезный [Concept('agent', 'соучастник')|E] при [Concept('hostile_schemes', 'враждебных происках')|E] против вас#!"
+
+ master_at_arms_court_position:0 "Мастер над оружием"
+ master_at_arms_court_position_desc:1 "$master_at_arms_court_position$ отвечает за вооружение государства. Они отвечают за вопросы гербов и геральдики; часто выступают в роли придворного глашатая своих сюзеренов."
+
+ court_smith_court_position:0 "Придворный кузнец"
+ court_smith_court_position_desc:2 "$court_smith_court_position$ отвечает за содержание брони и оружия и уход за ними"
+
+ # Bloodrider
+ bloodrider_court_position:0 "Кровный всадник"
+ bloodrider_court_position_desc:0 "$bloodrider_court_position$ - это защитник, связанный кровью, как брат и соратник, поклявшийся защищать своего предводителя. Это больше, чем просто узы служения - это неразрывное единение их душ до тех пор, пока их лидер не падет. Если они не сумеют защитить его, они попытаются отомстить за своего вождя, а затем добровольно примут смерть, присоединившись к своему лидеру в загробном мире."
+ bloodrider_employer_custom_effect_description: "$BULLET$Может помешать [Concept('schemes', 'покушениям')|E] на [GetScheme('murder').GetTypeName|l]#!\n$BULLET$Если находится в [Concept('battles', 'битвах')|E] вместе с вами, снижает ваш шанс погибнуть или попасть в плен#!\n$BULLET$Получает [Concept('trait', 'свойство')|E] «[GetTrait('loyal').GetName( GetNullCharacter )]» и становится вашим [Concept('friend', 'другом')|E], если не является им\n$BULLET$После вашей смерти покончит с собой, чтобы сдержать свою кровную клятву"
+
+ first_sword_court_position:0 "Первый Меч Браавоса"
+ first_sword_court_position_desc:0 "$first_sword_court_position$ - главный защитник Морского владыки Браавоса."
+
+ #NIGHTS WATCH
+
+ nw_septon:0 "Септон"
+ nw_septon_desc:0 "Местный септон, служащий братьям Ночного Дозора, которые исповедуют веру в Семерых."
+
+ COURT_POSITION_CATEGORY_CASTLE_KEEPER:0 "Командующие замков"
+ b_the_shadow_tower_keeper:0 "Командующий Сумеречной Башни"
+ b_the_shadow_tower_keeper_employer_custom_effect_description:0 "Хранит и защищает Сумеречную Башню"
+ b_the_shadow_tower_keeper_desc:0 "Хранит и защищает Сумеречную Башню"
+
+ b_eastwatch_by_the_sea_keeper:0 "Командующий Восточного Дозора-у-Моря"
+ b_eastwatch_by_the_sea_keeper_employer_custom_effect_description:0 "Хранит и защищает Восточный Дозор-у-Моря"
+ b_eastwatch_by_the_sea_keeper_desc:0 "Хранит и защищает Восточный Дозор-у-Моря"
+
+ b_the_nightfort_keeper:0 "Командующий Твердыни Ночи"
+ b_the_nightfort_keeper_employer_custom_effect_description:0 "Хранит и защищает Твердыню Ночи"
+ b_the_nightfort_keeper_desc:0 "Хранит и защищает Твердыню Ночи"
+
+ b_icemark_keeper:0 "Командующий Ледового Порога"
+ b_icemark_keeper_employer_custom_effect_description:0 "Хранит и защищает Ледовый Порог"
+ b_icemark_keeper_desc:0 "Хранит и защищает Ледовый Порог"
+
+ b_deep_lake_keeper:0 "Командующий Глубокого Озера"
+ b_deep_lake_keeper_employer_custom_effect_description:0 "Хранит и защищает Глубокое Озеро"
+ b_deep_lake_keeper_desc:0 "Хранит и защищает Глубокое Озеро"
+
+ b_queensgate_keeper:0 "Командующий Врат Королевы"
+ b_queensgate_keeper_employer_custom_effect_description:0 "Хранит и защищает Врата Королевы"
+ b_queensgate_keeper_desc:0 "Хранит и защищает Врата Королевы"
+
+ b_oakenshield_keeper:0 "Командующий Дубового Щита"
+ b_oakenshield_keeper_employer_custom_effect_description:0 "Хранит и защищает Дубовый Щит"
+ b_oakenshield_keeper_desc:0 "Хранит и защищает Дубовый Щит"
+
+ b_woodswatch_by_the_pool_keeper:0 "Командующий Лесного Дозора-у-Пруда"
+ b_woodswatch_by_the_pool_keeper_employer_custom_effect_description:0 "Хранит и защищает Лесной Дозор-у-Пруда"
+ b_woodswatch_by_the_pool_keeper_desc:0 "Хранит и защищает Лесной Дозор-у-Пруда"
+
+ b_westwatch_by_the_bridge_keeper:0 "Командующий Западного Дозора-у-Моста"
+ b_westwatch_by_the_bridge_keeper_employer_custom_effect_description:0 "Хранит и защищает Западный Дозор-у-Моста"
+ b_westwatch_by_the_bridge_keeper_desc:0 "Хранит и защищает Западный Дозор-у-Моста"
+
+ b_sentinel_stand_keeper:0 "Командующий Сторожевой Вышки"
+ b_sentinel_stand_keeper_employer_custom_effect_description:0 "Хранит и защищает Сторожевую Вышку"
+ b_sentinel_stand_keeper_desc:0 "Хранит и защищает Сторожевую Вышку"
+
+ b_greyguard_keeper:0 "Командующий Серого Стража"
+ b_greyguard_keeper_employer_custom_effect_description:0 "Хранит и защищает Серый Страж"
+ b_greyguard_keeper_desc:0 "Хранит и защищает Серый Страж"
+
+ b_stonedoor_keeper:0 "Командующий Каменной Двери"
+ b_stonedoor_keeper_employer_custom_effect_description:0 "Хранит и защищает Каменную Дверь"
+ b_stonedoor_keeper_desc:0 "Хранит и защищает Каменную Дверь"
+
+ b_hoarfrost_hill_keeper:0 "Командующий Морозного Холма"
+ b_hoarfrost_hill_keeper_employer_custom_effect_description:0 "Хранит и защищает Морозный Холм"
+ b_hoarfrost_hill_keeper_desc:0 "Хранит и защищает Морозный Холм"
+
+ b_sable_hall_keeper:0 "Командующий Собольего замка"
+ b_sable_hall_keeper_employer_custom_effect_description:0 "Хранит и защищает Соболий замок"
+ b_sable_hall_keeper_desc:0 "Хранит и защищает Соболий замок"
+
+ b_rimegate_keeper:0 "Командующий Инистых Врат"
+ b_rimegate_keeper_employer_custom_effect_description:0 "Хранит и защищает Инистые Врата"
+ b_rimegate_keeper_desc:0 "Хранит и защищает Инистые Врата"
+
+ b_long_barrow_keeper:0 "Командующий Длинного Холма"
+ b_long_barrow_keeper_employer_custom_effect_description:0 "Хранит и защищает Длинный Холм"
+ b_long_barrow_keeper_desc:0 "Хранит и защищает Длинный Холм"
+
+ b_the_torches_keeper:0 "Командующий Факела"
+ b_the_torches_keeper_employer_custom_effect_description:0 "Хранит и защищает Факел"
+ b_the_torches_keeper_desc:0 "Хранит и защищает Факел"
+
+ b_greenguard_keeper:0 "Командующий Зелёного Стража"
+ b_greenguard_keeper_employer_custom_effect_description:0 "Хранит и защищает Зелёный Страж"
+ b_greenguard_keeper_desc:0 "Хранит и защищает Зелёный Страж"
+
+ ################
+ # DRAGONKEEPER #
+ ################
+
+ head_dragonkeeper_court_position:0 "Главный драконоблюститель"
+ head_dragonkeeper_court_position_desc:1 "$head_dragonkeeper_court_position$ является главой ордена [Concept('dragonkeeper', 'Драконоблюстителей')|E], которому он служит. Он будет защищать и обучать [Concept('dragons_plural', 'драконов')|E] в [Concept('dragonpit', 'драконьем логове')|E] в меру своих возможностей."
+ head_dragonkeeper_court_position_custom_effect_description:1 "Открывает [Concept('dragonpit_interactions', 'взаимодействия драконьего логова')|E]"
+ court_position_knows_valyrian_language:0 "Знает валирийский язык"
+ court_position_valyrian_heritage:0 "Имеет валирийское наследие"
+ court_position_blood_of_old_valyria:0 "Кровь старой Валирии"
+ deepen_bond_with_dragon_scheme_scheme_power_mult:0 "Сила [Concept('scheme', 'происков')|E] #V Укрепить узы с драконом#!"
+ bond_with_dragon_scheme_scheme_power_mult:0 "Сила [Concept('scheme', 'происков')|E] #V Установить узы с драконом#!"
+ court_position_professional_dragonkeeper_training:0 "Профессиональная подготовка Драконоблюстителей"
+ court_position_standarized_dragonkeeper_training:0 "Стандартизированная подготовка Драконоблюстителей"
+
+ #cost descs
+ agot_laamp_cost_reduction:0 "Вы - безземельный"
+
+ #Maester VS Physician for event loc
+ agot_physician_essos:0 "врач"
+ agot_physician_maester:0 "мейстер"

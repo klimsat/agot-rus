@@ -1,0 +1,262 @@
+﻿l_russian:
+ #Copied from spouse events, modified for personal steward
+
+#DIPLOMACY
+ councillor_personal_steward_diplomacy.1001.desc:0 "Семейная репутация"
+ councillor_personal_steward_diplomacy.1004.desc:0 "Обучение дипломатии"
+ councillor_personal_steward_diplomacy.1004.desc_diplo_councillor:0 "Преподаватель - [councillor.GetTitleAsName]"
+ councillor_personal_steward_diplomacy.1005.desc:0 "Дипломатическая практика"
+ councillor_personal_steward_diplomacy.1006.desc:0 "Благодаря усердной работе [councillor.GetTitledFirstNamePossessive] [Select_CString(councillor.IsFemale, 'стала', 'стал' )] лучше разговаривать с людьми."
+
+ councillor_personal_steward_diplomacy.2002.t:1 "Личный управляющий: становиться добрее"
+ councillor_personal_steward_diplomacy.2002.desc:0 "«Поддерживать отношения между следующим поколением правителей - обязанность, которой мы не должны пренебрегать», - говорит [councillor.GetTitledFirstName].\n\n «У некоторых из ваших более влиятельных вассалов есть дети, с которыми, я [Select_CString(councillor.IsFemale, 'уверена', 'уверен' )], вашему наследнику будет полезно познакомиться.»"
+ councillor_personal_steward_diplomacy.2002.a:0 "Похоже, [vassal_heir_1.GetTitledFirstNameNoTooltip] - [vassal_heir_1.Custom('WomanManGirlBoy')] с хорошей репутацией."
+ councillor_personal_steward_diplomacy.2002.b:0 "[vassal_heir_2.GetTitledFirstNameNoTooltip], вероятно, будет оказывать хорошее влияние!"
+ councillor_personal_steward_diplomacy.2002.c:0 "[vassal_heir_3.GetTitledFirstNameNoTooltip] - человек, о котором говорят много хорошего."
+ councillor_personal_steward_diplomacy.2002.d:0 "[Select_CString(child_heir.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('child_heir'))] отлично справляется [Select_CString(child_heir.IsFemale, 'сама', 'сам' )]."
+
+ councillor_personal_steward_diplomacy.2003.t:1 "Личный управляющий: возможность для мира"
+ councillor_personal_steward_diplomacy.2003.desc:0 "Как только [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('rival')] [rival.GetTitledFirstName] появляется на другой стороне, где находится [ROOT.Char.GetFaith.HouseOfWorship], я начинаю разворачиваться, но к моему удивлению [councillor.GetTitledFirstName] машет [rival.Custom('InsultNoun')] [councillor.Custom('quirk_pos_adverb')] в нашу сторону.\n\n«[rival.GetSheHe|U] согласился встретиться с вами на нейтральной территории. Очень жаль, что два [SCOPE.Custom('PersonalityGetSharedTraitDescriptionFromFlag')] [ROOT.Char.Custom2('WomenMenPeople', SCOPE.sC('rival')] таких, как вы, враждуют. Не кажется ли вам, что настало время загладить свою вину?»"
+ councillor_personal_steward_diplomacy.2003.a:0 "Возможно, ты [Select_CString(rival.IsFemale, 'права', 'прав' )]..."
+ councillor_personal_steward_diplomacy.2003.b:0 "Я изменю [rival.GetHerHis] лицо до неузнаваемости!"
+ councillor_personal_steward_diplomacy.2003.c:0 "Вы называете [rival.GetHerHim] [SCOPE.Custom('PersonalityGetSharedTraitDescriptionFromFlag')]?! Позвольте мне показать [rival.GetHerHis] истинный характер..."
+
+ #INTRIGUE
+ councillor_personal_steward_intrigue.0001.message:1 "[ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))|U] и [spymaster.GetCouncilTitle] сотрудничают"
+
+ councillor_personal_steward_intrigue.0002.message:1 "[ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))|U] раскрывает заговор"
+
+ councillor_personal_steward_intrigue.0003.message:1 "[ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))|U] обнаруживает секрет"
+
+ councillor_personal_steward_intrigue.0004.message:1 "[ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))|U] помогает с заговором"
+
+ councillor_personal_steward_intrigue.0005.message:1 "[ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))|U] манипулирует подданым"
+
+ councillor_personal_steward_intrigue.0006.message:0 "Невинность утрачена"
+
+ councillor_personal_steward_intrigue.0007.message:0 "Коварная практика"
+
+ councillor_personal_steward_intrigue.1001.t:1 "Личный управляющий: никому не доверяй"
+ councillor_personal_steward_intrigue.1001.desc:0 "«Вы должны с осторожностью выбирать людей, которые вас окружают.» Взгляд [Select_CString(councillor.IsFemale, 'моей', 'моего' )] [ROOT.Char.Custom2('RelationToMePossessive', SCOPE.sC('councillor'))] был очень серьезным. «Я обнаружил, что пока мы говорим, [spymaster.GetTitledFirstName] плетёт интриги против вас!»\n\nМожет ли это быть на самом деле? Мой собственный [spymaster.GetCouncilTitle]?!"
+ councillor_personal_steward_intrigue.1001.a:0 "Меня выставили дураком!"
+
+ councillor_personal_steward_intrigue.1002.t:1 "Управляющий: слухи и домыслы"
+ councillor_personal_steward_intrigue.1002.desc:0 "Мой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('councillor'))] [councillor.Custom('quirk_pos_present')] так, как [councillor.GetSheHe] часто делает, когда [councillor.GetSheHe] хочет чем-то поделиться. «Доходили ли до вас слухи о [target.GetTitledFirstName], что [target.GetSheHe] скрывает что-то ужасное?» Я наклоняюсь ближе, когда [councillor.GetSheHe] понижает [councillor.GetHerHis] голос. «Все они верны. Все, что нам нужно, это доказательства.»"
+ councillor_personal_steward_intrigue.1002.a:0 "Настало время для шпионажа, мой [councillor.Custom('LoverPetName')]!"
+ councillor_personal_steward_intrigue.1002.b:0 "Я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] узнать, что это такое!"
+ councillor_personal_steward_intrigue.1002.c:0 "Я защищаю свои секреты лучше, чем [target.GetFirstNameNoTooltip]."
+
+ councillor_personal_steward_intrigue.1003.t:1 "Управляющий: раскрыто"
+ councillor_personal_steward_intrigue.1003.desc:0 "По тому, как [councillor.GetTitledFirstName] приближается ко мне, я могу сказать, что [councillor.GetSheHe] [Select_CString(councillor.IsFemale, 'обнаружила', 'обнаружил' )] еще одну тайну при дворе.\n\n«[agent.GetTitledFirstName] участвует в заговоре,» говорит [councillor.GetSheHe]. «[agent.GetSheHe|U] ещё не знает, что я знаю, но я предлагаю вам предложить [agent.GetHerHim] амнистию в обмен на абсолютную лояльность...»"
+ councillor_personal_steward_intrigue.1003.a:0 "Заставьте [agent.GetHerHis] понять, как много поставлено на карту."
+ councillor_personal_steward_intrigue.1003.b:0 "Используйте [agent.GetHerHis] чтобы найти главу заговорщиков!"
+ councillor_personal_steward_intrigue.1003.c:0 "Отслеживайте каждое [agent.GetHerHis] движение и оберегайте меня от вреда!"
+
+ councillor_personal_steward_intrigue.1004.t:1 "Управляющий: Исследование оппозиции"
+ councillor_personal_steward_intrigue.1004.desc:1 "[secret_holder.GetTitledFirstName] [Select_CString(secret_holder.IsFemale, 'доставила', 'доставил' )] немало хлопот, открыто поддерживая фракцию [faction.GetName]. К счастью, я, похоже, беру верх.\n\nМой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('councillor'))] обнаружил [secret_holder.GetHerHis] тщательно охраняемый секрет. \n\n«Я [Select_CString(councillor.IsFemale, 'подумала', 'подумал' )], что вам это может быть интересно...»"
+ councillor_personal_steward_intrigue.1004.a:0 "Небольшой шантаж будет держать [secret_holder.GetHerHis] в узде."
+ councillor_personal_steward_intrigue.1004.b:0 "Это ужасно! Все должны узнать!"
+ councillor_personal_steward_intrigue.1004.c:0 "Иногда лучше попридержать выигрышную карту."
+ councillor_personal_steward_intrigue.1004.c.tt:1 "Вы ещё не раскрываете секрет персонажа [secret_holder.GetFirstNamePossessiveNoTooltip]"
+
+ councillor_personal_steward_intrigue.1005.t:1 "Управляющий: разделяй и властвуй"
+ councillor_personal_steward_intrigue.1005.desc:0 "[faction_member.GetTitledFirstName] активно поддерживает персонажа [leader.GetTitledFirstName] и [leader.GetHerHis] фракцию [faction.GetName]. Однако у [Select_CString(councillor.IsFemale, 'моей', 'моего' )] [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('councillor'))] есть план, как это изменить.\n\n«Поверьте мне, то, что я могу сказать [faction_member.GetTitledFirstName] заставит [faction_member.GetHerHis] мгновенно оставить [leader.GetFirstNameNoTooltip].»"
+ councillor_personal_steward_intrigue.1005.a:0 "Убедитесь, что [faction_member.GetFirstNameNoTooltip] больше никогда не будет поддерживать [leader.GetFirstNameNoTooltip]!"
+ councillor_personal_steward_intrigue.1005.b:0 "Не могли бы вы представить #EMP меня#! в лучшем свете?"
+
+ councillor_personal_steward_intrigue.1006.t:1 "Управляющий: Соответствующий представитель"
+ councillor_personal_steward_intrigue.1006.desc:0 "Хорошо зная о моих планах относительно [target.GetTitledFirstName], мой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('councillor'))] [councillor.GetFirstName] обратился ко мне с предложением.\n\n«У меня есть друзья дворе [court_owner.GetTitledFirstNamePossessive]. Я мог бы попросить их приютить гостя на какое-то время. С небольшим знаком лояльности и всей поддержкой, которую я могу предложить, [plant.GetTitledFirstName] мог бы творить чудеса от вашего имени...»"
+ councillor_personal_steward_intrigue.1006.a:0 "Блестящая идея, [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))]!"
+ councillor_personal_steward_intrigue.1006.b:0 "Думаю, [plant.GetFirstNameNoTooltip] может пригодиться нам здесь."
+
+ #MARTIAL
+ councillor_personal_steward_martial.0001.message:1 "[ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))|U] вдохновляет на сбор людей"
+
+ councillor_personal_steward_martial.0002.message:0 "Помощь армии"
+
+ councillor_personal_steward_martial.0003.message:1 "[Select_CString(councillor.IsFemale, 'Вдохновляющая', 'Вдохновляющий' )] [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))|U]"
+
+ councillor_personal_steward_martial.0004.message:1 "[ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))|U] поддерживает рыцарство"
+
+ councillor_personal_steward_martial.0005.message:0 "Поддерживать переговоры с наёмниками"
+
+ councillor_personal_steward_martial.0006.message:0 "Присматривать за мной"
+
+ councillor_personal_steward_martial.0007.message:1 "[ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))|U] затягивает раны"
+
+ councillor_personal_steward_martial.0008.message:0 "Устрашающее присутствие"
+
+ councillor_personal_steward_martial.0009.message:0 "Тренировка"
+
+ councillor_personal_steward_martial.1001.t:1 "Личный управляющий: день турнира"
+ councillor_personal_steward_martial.1001.desc:2 "Светит солнце, крестьяне толпятся на турнире, который проводит мой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('councillor')]. Все мои $knight_culture_player_plural_no_tooltip_lowercase$ ликуют, когда [councillor.GetTitledFirstName] объявляет турнир в их честь, а я в кои-то веки могу просто сидеть и смотреть.\n\n Однако я не собираюсь провести весь день турнира, прикованный к трону!"
+ councillor_personal_steward_martial.1001.a:2 "Я тоже болею за своих $knight_culture_player_plural_no_tooltip_lowercase$!"
+ councillor_personal_steward_martial.1001.commanders:2 "Каждый $knight_culture_player_no_tooltip_lowercase$"
+ councillor_personal_steward_martial.1001.b:0 "Это прекрасный шанс для того, чтобы [child.GetFirstNameNoTooltip] [Select_CString(child.IsFemale, 'получила', 'получил' )] несколько советов от меня!"
+ councillor_personal_steward_martial.1001.b.education_tt:0 "[child.GetFirstNamePossessiveNoTooltip] обучается военному делу под моим присмотром"
+ councillor_personal_steward_martial.1001.c:0 "Этот день в #EMP нашу#! честь, дорогие мои!"
+
+ councillor_personal_steward_martial.1002.t:1 "Личный управляющий: действовать от моего имени"
+ councillor_personal_steward_martial.1002.desc:0 "[ROOT.Char.Custom2('RelationToMe', SCOPE.sC('councillor')] проводит значительное количество времени, путешествуя по королевству с [councillor.GetHerHis] почётным караулом. Есть много вопросов, которые [councillor.GetSheHe] может решить от моего имени, а [councillor.GetTitledFirstName] и [councillor.GetHerHis] военное присутствие являются твёрдым напоминанием о моём праве на власть."
+ councillor_personal_steward_martial.1002.a:0 "Мой [councillor.GetTitleAsNameNoTooltip] и я готовы встать на защиту королевства!"
+ councillor_personal_steward_martial.1002.b:0 "Убедись, что люди преклоняются должным образом, [Select_CString(councillor.IsFemale, 'моя дорогая', 'мой дорогой' )]."
+ councillor_personal_steward_martial.1002.c:0 "Все должны и бояться меня, и поклоняться мне в ноги, [councillor.GetFirstNameNoTooltip]!"
+
+ councillor_personal_steward_martial.1003.t:1 "Личный управляющий: вопрос чести"
+ councillor_personal_steward_martial.1003.desc:0 "Мой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('councillor')] [ROOT.Char.Custom2('QuirkPresentPosOrNeg', SCOPE.sC('councillor')]. [attacker_vassal.GetTitledFirstName] и [defender_vassal.GetTitledFirstName] развязали конфликт между собой, и [councillor.GetSheHe] хочет это обсудить:\n\n\n «Они бесчестно сражаются и приносят позор нашему королевству. Позвольте мне разобраться с ними. Я знаю, что смогу принудить их к миру.»"
+ councillor_personal_steward_martial.1003.a:0 "Добейся урегулирования, чего бы это ни стоило."
+ councillor_personal_steward_martial.1003.b:0 "Нет, я хочу посмотреть, кто победит!"
+ councillor_personal_steward_martial.1003.b.tt:0 "[attacker_vassal.GetFirstNameNoTooltip] и [defender_vassal.GetFirstNameNoTooltip] продолжают свою войну"
+ councillor_personal_steward_martial.1003.c:0 "Я верю, что ты сможешь, [Select_CString(councillor.IsFemale, 'моя дорогая', 'мой дорогой' )]."
+ councillor_personal_steward_martial.1003.c.unlock_tt:0 "Этот вариант доступен благодаря стратегическому блеску персонажа [councillor.GetFirstNamePossessiveNoTooltip]."
+
+ councillor_personal_steward_martial.1004.t:1 "Личный управляющий: страж"
+ councillor_personal_steward_martial.1004.desc:0 "Я немного [Select_CString(ROOT.Char.IsFemale, 'озадачена', 'озадачен' )], почему мой [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor')] хочет преподнести мне «грандиозный подарок» во дворе. Однако вскоре я всё понимаю, так как [councillor.GetTitledFirstName] приказывает группе солдат построиться в линию. «Полный полк, собранный на моих землях, готовый служить вам.»\n\nЭто #EMP - #! великий подарок!"
+ councillor_personal_steward_martial.1004.a:0 "Больше войск для усиления армии!"
+ councillor_personal_steward_martial.1004.b:0 "Они будут служить моей личной охраной."
+
+ councillor_personal_steward_martial.1005.t:1 "Личный управляющий: оставляя впечатление"
+ councillor_personal_steward_martial.1005.desc:0 "[vassal.GetTitledFirstName] прибывает во владение [captial.GetNameNoTier], чтобы заплатить мне дань. Однако [councillor.GetTitledFirstName] считает, что военная демонстрация может обеспечить дальнейшую лояльность.\n\n «Видя вашу подавляющую мощь, любой подумает дважды, если измена придет ему в голову», - отмечает мой [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor')]."
+ councillor_personal_steward_martial.1005.a:0 "Да, [vassal.GetFirstNameNoTooltip] будет видеть солдат везде, куда бы [vassal.GetSheHe] ни [Select_CString(vassal.IsFemale, 'повернулась', 'повернулся' )]!"
+ councillor_personal_steward_martial.1005.a.tt:1 "[vassal.GetFirstNameNoTooltip] становится более [Select_CString(vassal.IsFemale, 'восприимчивой', 'восприимчивым' )] к [Concept( 'dread', 'устрашению' )|E]."
+ councillor_personal_steward_martial.1005.b:0 "Обычного парада должно быть достаточно."
+
+ #LEARNING
+ #Different religion/culture notifications
+ councillor_personal_steward_learning.1001.religion.t:1 "Личный управляющий выступает посредником с вассалом [councillor.GetFaith.GetAdjectiveNoTooltip]"
+ councillor_personal_steward_learning.1001.culture.t:1 "Личный управляющий выступает посредником с [councillor.GetCulture.GetNameNoTooltip]"
+
+ councillor_personal_steward_learning.1002.religion.t:1 "Личный управляющий выступает посредником с [councillor.GetFaith.GetAdjectiveNoTooltip] [councillor.Custom2('RelationToMeShort', SCOPE.sC('opinion_house_member'))|U]"
+ councillor_personal_steward_learning.1002.culture.t:1 "Личный управляющий выступает посредником с [councillor.GetCulture.GetNameNoTooltip] [councillor.Custom2('RelationToMeShort', SCOPE.sC('opinion_house_member'))|U]"
+
+ #Same religion/culture notifications
+ councillor_personal_steward_learning.1003.religion.desc:1 "Личный управляющий выступает посредником с поддаными [councillor.GetFaith.GetAdjectiveNoTooltip]"
+ councillor_personal_steward_learning.1003.culture.desc:1 "Личный управляющий выступает посредником с поддаными [councillor.GetCulture.GetNameNoTooltip]"
+ councillor_personal_steward_learning.1301.t:1 "Личный управляющий: влияет на религиозное обращение"
+ councillor_personal_steward_learning.1302.t:1 "Личный управляющий: влияет на культурное обращение"
+ councillor_personal_steward_learning.1303.desc:0 "Личный управляющий – покровитель богословов"
+
+ #General learning notifications
+ councillor_personal_steward_learning.1601.desc:1 "Персональный распорядитель помогает вам в изучении [ROOT.Char.Custom('LifestyleFocus')|U]"
+ councillor_personal_steward_learning.1602.t:1 "[tutored_child.Custom('GetDaughterSon')] процветает под опекой личного управляющего"
+ councillor_personal_steward_learning.1603.root_guardian.t:0 "Подопечный ценит опеку личного управляющего"
+ councillor_personal_steward_learning.1603.personal_steward_guardian.t:0 "Подопечный личного управляющего ценит [councillor.GetHerHis|U] опеку"
+ councillor_personal_steward_learning.1603.other_guardian.t:0 "Подопечный при дворе ценит опеку личного управляющего"
+
+ agot_add_patronage_personal_steward_education_points_effect.t:0 "Ребенок получает преимущество от опеки личного управляющего"
+ agot_add_patronage_personal_steward_education_points_effect.desc:1 "Мой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('patronage_student'))], [patronage_student.GetTitledFirstName] с большей вероятностью получит хорошее [education|E] благодаря опеке [councillor.GetTitledFirstNamePossessive]."
+ add_patronage_personal_steward_education_points_child_effect.desc:0 "Мой [patronage_student.Custom('GetDaughterSon')], [patronage_student.GetTitledFirstName]с большей вероятностью получит хорошее [education|E] благодаря опеке [councillor.GetTitledFirstNamePossessive]."
+
+ #Events
+ councillor_personal_steward_learning.2601.t:1 "Персональный управляющий: дополнительное образование"
+ councillor_personal_steward_learning.2601.not_scholarly.desc:0 ""Тебе не мешало бы время от времени почитать книгу" — часто говорит мне мой [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))], прилежный [councillor.GetTitledFirstName]. [councillor.GetSheHe|U] предложил стать моим наставником, если мне понадобится помощь для начала работы.."
+ councillor_personal_steward_learning.2601.scholarly.desc:0 "Каждый раз, когда мой [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))] [councillor.GetTitledFirstName] находит меня склонившимся над фолиантом, [councillor.GetSheHe] заметно волнуется..\n\n"Вам нужна помощь в учебе? Кто-то, с кем можно обменяться идеями или, может быть, несколько новых томов? Недавно я приобрел том с отличным анализом [ROOT.Char.Custom('education_conversation_subject')]!""
+ councillor_personal_steward_learning.2601.a:0 "Да, я был бы признателен за ваше руководство."
+ councillor_personal_steward_learning.2601.b:0 "[tutoring_student_1.GetTitledFirstNameNoTooltip] нуждается в вашей помощи больше, чем я."
+ councillor_personal_steward_learning.2601.c:0 "Вместо этого вам следует обучать [tutoring_student_2.GetTitledFirstNameNoTooltip]."
+ councillor_personal_steward_learning.2601.d:0 "Вам следует сосредоточиться на собственных исследованиях."
+ agot_councillor_personal_steward_learning_2601_tutoring_effect.critical_success:0 "[THIS.Char.GetTitledFirstNamePossessiveOrMyNoTooltip|U] значительно увеличивает понимание [THIS.Char.Custom('education_focus')]"
+ agot_councillor_personal_steward_learning_2601_tutoring_effect.success:0 "[THIS.Char.GetTitledFirstNamePossessiveOrMyNoTooltip|U] увеличивает понимание [THIS.Char.Custom('education_focus')]"
+
+
+ councillor_personal_steward_learning.2001.faith.t:1 "Личный управляющий: [councillor.GetFaith.GetAdjectiveNoTooltip] вступает в оппозицию"
+ councillor_personal_steward_learning.2001.culture.t:1 "Личный управляющий: [councillor.GetCulture.GetNameNoTooltip] вступает в оппозицию"
+ councillor_personal_steward_learning.2001.start.desc:0 "[faction_leader.GetTitledFirstName] и [faction_leader.GetHerHis] прятельствуют"
+ councillor_personal_steward_learning.2001.faith.desc:0 "[councillor.GetFaith.GetAdjectiveNoTooltip]"
+ councillor_personal_steward_learning.2001.culture.desc:0 "[councillor.GetCulture.GetNameNoTooltip]"
+ councillor_personal_steward_learning.2001.middle.desc:0 "заговорщики из [different_culture_or_faith_faction.GetName] не дают мне ни минуты покоя!"
+ councillor_personal_steward_learning.2001.independence_faction.desc:0 "Они должны быть верными подданными, но я знаю, что они замышляют восстание против меня."
+ councillor_personal_steward_learning.2001.liberty_faction.desc:0 "Они стремятся подорвать мой авторитет на каждом шагу."
+ councillor_personal_steward_learning.2001.claimant_faction.desc:0 "Эти бесчестные воры стремятся завладеть землей, которая принадлежит мне по праву."
+ councillor_personal_steward_learning.2001.end.desc:0 "\n\nК счастью, как "один из них", мой [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))] [councillor.GetTitledFirstName] имеет определенное влияние на них. [councillor.GetSheHe|U] предложил посредничество и хочет знать, как действовать дальше."
+ councillor_personal_steward_learning.2001.a.faith:0 "Умиротворить членов фракции [councillor.GetFaith.GetAdjectiveNoTooltip]."
+ councillor_personal_steward_learning.2001.a.culture:0 "Умиротворить членов фракции [councillor.GetCulture.GetNameNoTooltip]."
+ councillor_personal_steward_learning.2001.a.faction_members_faith:0 "Каждый [councillor.GetFaith.GetAdjective] - член [different_culture_or_faith_faction.GetName]"
+ councillor_personal_steward_learning.2001.a.faction_members_culture:0 "Каждый [councillor.GetCulture.GetName] - член [different_culture_or_faith_faction.GetName]"
+ councillor_personal_steward_learning.2001.b:0 "Заставьте [faction_member_1.GetTitledFirstNameNoTooltip] покинуть фракцию."
+ councillor_personal_steward_learning.2001.c:0 "Убедить [faction_member_2.GetTitledFirstNameNoTooltip] оставаться верным мне."
+
+ councillor_personal_steward_learning.2301.t:1 "Личный управляющий: Высшая сила"
+ councillor_personal_steward_learning.2301.desc:0 "Мой [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))] [councillor.GetTitledFirstName] стал известной фигурой в религиозном мире. [councillor.GetHerHis|U] покровительство [councillor.GetFaith.GetAdjectiveNoTooltip] ученым, [councillor.GetFaith.HouseOfWorshipPlural] и орденам даже привлекло внимание [religious_head.GetHerselfHimself] [religious_head.GetTitledFirstName].\n\nБлагодарность [religious_head.GetTitleAsNamePossessiveNoTooltip] дает огромные преимущества. Мой [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))] предложил связаться с [religious_head.GetHerHim] от моего имени."
+ councillor_personal_steward_learning.2301.a:0 "Не могли бы вы нас друг другу представить?"
+ councillor_personal_steward_learning.2301.a.success:0 "Я подружился с [religious_head.GetTitledFirstName]."
+ councillor_personal_steward_learning.2301.b:0 "Что [religious_head.GetSheHe] может сделать для нас взамен?"
+ councillor_personal_steward_learning.2301.c:0 "Это мой шанс вернуться в святое сообщество!"
+ councillor_personal_steward_learning.2301.d:0 "Пусть [religious_head.GetHerHim] знает — все, что мы делаем, мы делаем для [councillor.GetFaith.HighGodName]."
+
+ councillor_personal_steward_learning.2602.t:1 "Личный управляющий: Расширяя горизонты"
+ councillor_personal_steward_learning.2602.not_root.desc:0 "Хотя мой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('student'))] [student.GetTitledFirstName] определенно знает кое-что о [student.Custom('highest_skill_noun')], [councillor.GetTitledFirstName] считает, что пришло время для [student.GetHerHim] расширить [student.GetHerHis] кругозор.\n\n"Я мог бы достать несколько новых томов, подготовить несколько заданий, немного поучить [student.GetHerHim]. Как вы думаете, какой предмет будет более всего полезен [student.GetFirstNameNoTooltip]?""
+ councillor_personal_steward_learning.2602.root.desc:0 ""Хотя вы кое-что знаете о [student.Custom('highest_skill_noun')], [student.GetTitleTierName] из [student.GetPrimaryTitle.GetNameNoTierNoTooltip] должен обладать широким спектром навыков" говорит [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))] [ROOT.Char.Custom2('QuirkPPPosOrNeg', SCOPE.sC('councillor'))].\n\n"Я мог бы приобрести несколько новых томов, подготовьте несколько заданий, немного подучите вас. Какая тема вам наиболее интересна?""
+ councillor_personal_steward_learning.2602.a:0 "Дипломатия."
+ councillor_personal_steward_learning.2602.b:0 "Военная теория."
+ councillor_personal_steward_learning.2602.c:0 "Экономика королевства."
+ councillor_personal_steward_learning.2602.d:0 "Управление шпионской сетью."
+ councillor_personal_steward_learning.2602.e:0 "Богословие."
+
+ councillor_personal_steward_learning.1304.desc:0 "Личный управляющий является покровителем [religious_vassal.GetTitledFirstNameNoTooltip]"
+ councillor_personal_steward_learning.1305.desc:0 "Благочестие личного управляющего впечатляет [religious_head.GetTitleAsNameNoTooltip]"
+
+
+
+ councillor_personal_steward_learning.2603.t:1 "Личный управляющий: К заданию готов"
+ councillor_personal_steward_learning.2603.desc:0 "Некоторые из моих советников считают, что эта работа принадлежит им только по праву крови или по влиянию — как же они ошибаются! Я ожидаю результатов, но часто разочаровываюсь.\n\nПосле долгого дня я жалуюсь [councillor.GetFirstName] когда [councillor.GetSheHe] прерывает меня. "Позвольте мне что-нибудь с этим сделать, [ROOT.Char.GetWifeHusband]. Несколько уроков могут отточить их ум.""
+ councillor_personal_steward_learning.2603.a:0 "[chancellor.GetCouncilTitle|U] [chancellor.GetFirstNameNoTooltip] не помешали бы наставления."
+ councillor_personal_steward_learning.2603.b:0 "[marshal.GetCouncilTitle|U] [marshal.GetFirstNameNoTooltip] выиграл бы от вашей помощи."
+ councillor_personal_steward_learning.2603.c:0 "Дайте несколько уроков моему [steward.GetCouncilTitle], [steward.GetFirstNameNoTooltip]."
+ councillor_personal_steward_learning.2603.d:0 "Моежт быть, у вас найдется совет для [spymaster.GetCouncilTitle] [spymaster.GetFirstNameNoTooltip]."
+ councillor_personal_steward_learning.2603.e:0 "[court_chaplain.GetCouncilTitle] [court_chaplain.GetFirstNameNoTooltip] нуждается в некоторых наставлениях."
+ councillor_personal_steward_learning.2603.f:0 "Лучше останься здесь со мной..."
+
+ #STEWARDSHIP
+ councillor_personal_steward_stewardship.1001.desc:0 "Военное содержание"
+ councillor_personal_steward_stewardship.1002.desc:0 "Трудолюбие работника"
+ councillor_personal_steward_stewardship.1003.desc:0 "Переговоры о строительстве"
+ councillor_personal_steward_stewardship.1004.desc:0 "Сбережения домашних хозяйств"
+ councillor_personal_steward_stewardship.1005.desc:0 "Безупречное домашнее хозяйство"
+ councillor_personal_steward_stewardship.1006.desc:0 "Хорошо организованный двор"
+ councillor_personal_steward_stewardship_1006_every_courtier:0 "Каждый придворный"
+ councillor_personal_steward_stewardship.1007.desc:0 "Комфортная жизнь"
+ councillor_personal_steward_stewardship.1008.desc:0 "Здоровый двор"
+ councillor_personal_steward_stewardship.1009.desc:0 "Переговоры о развитии"
+ councillor_personal_steward_stewardship.1010.desc:1 "[ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('councillor'))|U] решает проблему с долгами придворного"
+ councillor_personal_steward_stewardship.1011.desc.guilds:0 "Гильдии побеждены"
+ councillor_personal_steward_stewardship.1011.desc.serfs:0 "Крепостные смягчились"
+ councillor_personal_steward_stewardship.1011.desc.corruption:0 "Контроль сборщиков налогов"
+
+ councillor_personal_steward_stewardship.2001.t:1 "Персональный управляющий: Инвестиционный запрос"
+ councillor_personal_steward_stewardship.2001.desc:0 "Благодаря тому, что [councillor.GetTitledFirstNamePossessive] усердно управляет финансами моей семьи, в конце этого сезона золота будет больше, чем ожидалось.\n\n«Как мы должны использовать его наилучшим образом, [ROOT.Char.GetWifeHusband]?»"
+ councillor_personal_steward_stewardship.2001.a:0 "Устроим великолепный званый ужин на радость всем!"
+ councillor_personal_steward_stewardship_2001_every_powerful_vassal:0 "Каждый могущественный вассал"
+ councillor_personal_steward_stewardship.2001.b:0 "Вложим деньги в регион."
+ councillor_personal_steward_stewardship.2001.c:0 "Если что и можно купить за деньги, так это глаза и уши!"
+ councillor_personal_steward_stewardship.2001.d:0 "Давайте пока не будем их тратить."
+
+ councillor_personal_steward_stewardship.2002.t:1 "Личный управляющий: блестящая возможность"
+ councillor_personal_steward_stewardship.2002.desc:0 "«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )].» [courtier_lender.GetTitledFirstName] подходит ко мне и [courtier_lender.Custom('quirk_pos_adverb')] улыбается. «Ко мне [Select_CString(councillor.IsFemale, 'подошла', 'подошёл' )] [councillor.GetTitledFirstName], [Select_CString(councillor.IsFemale, 'которая', 'который' )] в [councillor.GetHerHis] мудрости предложил соглашение между нами двумя. Так как вам не помешала бы финансовая помощь, а мне не помешала бы социальная помощь...»"
+ councillor_personal_steward_stewardship.2002.a:0 "Я отплачу тебе, обещаю."
+ councillor_personal_steward_stewardship.2002.money_loan_tooltip:0 "Я займу [gold_i] #bold [THIS.Var('amount_to_loan').GetValue]#! золота у персонажа [courtier_lender.GetFirstNameNoTooltip]."
+ councillor_personal_steward_stewardship.2002.b:0 "Почему бы вам вместо этого не пожертвовать его [ROOT.Char.GetFaith.HouseOfWorship]?"
+ councillor_personal_steward_stewardship.2002.c:0 "Вы должны пожертвовать его бедным."
+ councillor_personal_steward_stewardship.2002.d:0 "Я с радостью приму эту дань уважения!"
+
+ councillor_personal_steward_stewardship.2003.t:1 "Личный управляющий: возможность торговли"
+ councillor_personal_steward_stewardship.2003.desc:0 "[councillor.GetTitledFirstName] приближается ко мне с тремя свитками пергамента в [councillor.GetHerHis] руках.\n\n«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], я [Select_CString(councillor.IsFemale, 'подготовила', 'подготовил' )] торговые предложения для соседних правителей. Я [Select_CString(councillor.IsFemale, 'уверена', 'уверен' )], что сделка будет выгодна обеим сторонам!»"
+ councillor_personal_steward_stewardship.2003.a:0 "[ruler_1.GetTitledFirstNameNoTooltip] кажется разумным."
+ councillor_personal_steward_stewardship.2003.b:0 "Заключите соглашение с [ruler_2.GetTitledFirstNameNoTooltip]."
+ councillor_personal_steward_stewardship.2003.c:0 "Заключите сделку с [ruler_3.GetTitledFirstNameNoTooltip]."
+ councillor_personal_steward_stewardship.2003.d_greedy:0 "Никто из них не приблизится к моему золоту!"
+ councillor_personal_steward_stewardship.2003.d_arrogant:0 "Ни один из них не достоин сделки со #EMP мной#!!"
+ councillor_personal_steward_stewardship.2003.d:0 "Они все не внушают мне доверия..."
+
+ councillor_personal_steward_stewardship.2004.t:1 "Личный управляющий: рука помощи"
+ councillor_personal_steward_stewardship.2004.desc:0 "«[Select_CString(on_my_hook.IsFemale, 'Ваша', 'Ваш' )] [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('on_my_hook'))], [on_my_hook.GetTitledFirstName], недавно [Select_CString(on_my_hook.IsFemale, 'попала', 'попал' )] в неприятную ситуацию.»\n\n[councillor.GetTitledFirstName] [councillor.Custom('quirk_pos_adverb')] улыбается, а [councillor.GetSheHe] продолжает: «Я [Select_CString(councillor.IsFemale, 'позаботилась', 'позаботился' )] о том, чтобы ситуация разрешилась сама собой, и упомянул вас как благодетеля»"
+ councillor_personal_steward_stewardship.2004.a:0 "Отличная работа!"
+ councillor_personal_steward_stewardship.2004.b:0 "Доброе дело не требует возмещения."
+
+ councillor_personal_steward_stewardship.2005.t:1 "Личный управляющий: инвестиции во владение [county_to_boost.GetNameNoTierNoTooltip]"
+ councillor_personal_steward_stewardship.2005.desc:1 "«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )]. Мне стало известно, что существует редкая возможность инвестировать во владение [county_to_boost.GetName].»\n\nМой [councillor.Custom('WifeHusband')] [councillor.GetFirstName] описывает детали для инвестиций в предприятие, и действительно похоже, что сделка может принести большую пользу владению [county_to_boost.GetNameNoTierNoTooltip] в случае успеха."
+ councillor_personal_steward_stewardship.2005.a:0 "Это стоит риска!"
+ councillor_personal_steward_stewardship.2005.a_1:0 "Результатом сделки является отличный доход для владения [county_to_boost.GetNameNoTierNoTooltip]"
+ councillor_personal_steward_stewardship.2005.a_2:0 "Сделка проваливается"
+ councillor_personal_steward_stewardship.2005.b:0 "Оставьте эту возможность жителям владения [county_to_boost.GetNameNoTierNoTooltip]."
+ councillor_personal_steward_stewardship.2005.c:0 "Этот разговор о местных делах ниже моего достоинства!"
