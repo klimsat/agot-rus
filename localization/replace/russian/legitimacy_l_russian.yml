@@ -20,6 +20,7 @@
  duke_legitimacy_type_name: "[Concept( 'duke', 'Герцогский' )|E] [Concept( 'rank', 'ранг' )|E]"
  king_legitimacy_type_name: "[Concept( 'kingdom', 'Королевский' )|E] [Concept( 'rank', 'ранг' )|E]"
  emperor_legitimacy_type_name: "[Concept( 'emperor', 'Императорский' )|E] [Concept( 'rank', 'ранг' )|E]"
+ nomadic_legitimacy_type_name: "#TOOLTIP:GOVERNMENT_TYPE,nomad_government #L Кочевой#!#!: [Concept('ruler', 'правитель')|E]"
 
  LEGITIMACY_EFFECTS: "#S Эффекты:#!\n[LegitimacyLevel.GetModifierDesc]"
  LEGITIMACY_AVERAGE_EXPECTATIONS: "#S Средняя [Concept( 'expected_legitimacy', 'ожидаемая легитимность' )|E] [Select_CString(Character.IsLocalPlayer, '', 'персонажа ' )][Character.GetShortUINamePossessive][Select_CString(Character.IsLocalPlayer, 'его персонажа', '' )]:#!\n$BULLET$[powerful_vassals|E]: [LegitimacyType.GetFlavorName( Character.GetAveragePowerfulVassalLegitimacyExpectation )|V] #weak ([Character.GetAveragePowerfulVassalLegitimacyExpectation.GetIndex]/[Subtract_int32( GetDataModelSize( LegitimacyType.GetLevels ), '(int32)1' )])#!\n$BULLET$[vassals|E]: [LegitimacyType.GetFlavorName( Character.GetAverageVassalLegitimacyExpectation )|V] #weak ([Character.GetAverageVassalLegitimacyExpectation.GetIndex]/[Subtract_int32( GetDataModelSize( LegitimacyType.GetLevels ), '(int32)1' )])#!"
@@ -29,7 +30,7 @@
  legitimacy_swing_scales_cheaper_tt: "#weak Стоимость снижена, поскольку [recipient.GetShortUIName] [Select_CString(recipient.IsLocalPlayer, 'обладаете', 'обладает' )] низкой [Concept( 'legitimacy', 'легитимностью' )|E] ([recipient.GetLegitimacyLevel.GetIndex|V])#!"
  legitimacy_swing_scales_dearer_tt: "#weak Стоимость увеличена, поскольку [recipient.GetShortUIName] [Select_CString(recipient.IsLocalPlayer, 'обладаете', 'обладает' )] высокой [Concept( 'legitimacy', 'легитимностью' )|E] ([recipient.GetLegitimacyLevel.GetIndex|V])#!"
  legitimacy_hud_tt: "[LegitimacyType.GetFlavorName( LegitimacyLevel.Self )] [LegitimacyLevel.GetIndex|V]/[Subtract_int32( GetDataModelSize( LegitimacyType.GetLevels ), '(int32)1' )]"
- legitimacy_hud_tt_subheading: "[legitimacy_level|E] ([LegitimacyType.GetName])"
+ legitimacy_hud_tt_subheading: "[Concept('legitimacy_level', 'Уровень легитимности')|E] для разновидности «[LegitimacyType.GetName]»"
  legitmacy_flavor_and_level: "[LegitimacyType.GetFlavorName( LegitimacyLevel.Self )|V] #weak ([LegitimacyLevel.GetIndex]/[Subtract_int32( GetDataModelSize( LegitimacyType.GetLevels ), '(int32)1' )])#!"
  LEGITIMACY_TRACK_TITLE: "Легитимность [Character.GetLegitimacy|V^]/[LegitimacyType.GetMaxLegitimacy( Character.Self )|V^]"
  LEGITIMACY_TRACK_TOOLTIP: "#T [LegitimacyType.GetFlavorName( LegitimacyLevel.Self )]#!\nТребуется не менее [LegitimacyLevel.GetThreshold( Character.Self )|V^] легитимности\n\n$LEGITIMACY_EFFECTS$"
