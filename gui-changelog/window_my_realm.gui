@@ -1146,7 +1146,9 @@ types MyRealmWindow
 					button_round = {
 						datacontext = "[MyRealmWindow.GetCharacter.GetLiege]"
 						datacontext = "[MyRealmWindow.GetCharacter.GetVassalContract]"
-						visible = "[And( Character.IsPlayerInteractionShown( 'vassal_modify_vassal_contract_interaction' ), And( GetPlayer.HasLiege, GetPlayer.GetGovernment.IsType( 'feudal_government' ) ))]"
+						#AGOT Modified
+						# visible = "[And( Character.IsPlayerInteractionShown( 'vassal_modify_vassal_contract_interaction' ), And( GetPlayer.HasLiege, GetPlayer.GetGovernment.IsType( 'feudal_government' ) ))]"
+						visible = "[And( Character.IsPlayerInteractionShown( 'vassal_modify_vassal_contract_interaction' ), And( GetPlayer.HasLiege, Or(GetPlayer.GetGovernment.IsType( 'feudal_government' ), GetPlayer.GetGovernment.IsType( 'lp_feudal_government' ))))]"
 
 						onclick = "[Character.OpenPlayerInteraction('vassal_modify_vassal_contract_interaction')]"
 

@@ -2012,7 +2012,9 @@ types Lists
 		spacing = 5
 
 		widget = {
-			visible = "[SubjectContractGroup.IsType('feudal_vassal')]"
+			#AGOT Modified
+			# visible = "[SubjectContractGroup.IsType('feudal_vassal')]"
+			visible = "[Or(SubjectContractGroup.IsType('feudal_vassal'), SubjectContractGroup.IsType('lp_feudal_vassal'))]"
 			size = { 40 40 }
 
 			button_round = {

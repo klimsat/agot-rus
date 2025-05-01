@@ -160,21 +160,21 @@ types CouncilWindow
 		}
 		#Castellan Reassign Button
 		hbox = {
-			position = { 96 -52 }
+			position = { 106 48 }
 			visible = "[GuiPotentialCouncilTask.IsVisible]"
 			widget = {
-				size = { 60 60 }
+				size = { 50 50 }
 				icon = {
 					visible = "[GuiPotentialCouncilTask.IsActive]"
 					texture = "gfx/particles/halo.dds"
-					size = { 60 60 }
+					size = { 50 50 }
 					color = { 1 0.85 0.6 1 }
 				}
 
 				button_round = {
 					shaderfile = "gfx/FX/pdxgui_pushbutton.shader"
 					visible = "[Or(And(GuiPotentialCouncilTask.CanSelect, Not(CouncilWindow.IsLiegeCouncilShown)), GuiPotentialCouncilTask.IsActive)]"
-					size = { 60 60 } #funi number
+					size = { 50 50 }
 					gfxtype = togglepushbuttongfx
 					effectname = "NoHighlight"
 
@@ -192,7 +192,7 @@ types CouncilWindow
 					alwaystransparent = yes
 					parentanchor = center
 					position = { 0 0 }
-					size = { 55 55 }
+					size = { 45 45 }
 					using = tooltip_ws
 				}
 			}
