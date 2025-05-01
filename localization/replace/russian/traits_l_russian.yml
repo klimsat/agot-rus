@@ -545,6 +545,8 @@
  trait_bubonic_plague: "Закатная чума"
  trait_bubonic_plague_desc: "На коже персонажа проступают черные пятна и гроздья бубонов. Пребывать на этом свете ему осталось недолго."
  trait_bubonic_plague_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] не долго задержится на этом свете: на коже уже проступили черные пятна и гроздья бубонов."
+ #AGOT Modifed
+ #trait_smallpox: "Оспа"
  trait_smallpox: "Оспа"
  trait_smallpox_desc: "Если этот покрытый шрамами, сыпью и буграми персонаж выживет, облик его изменится навсегда."
  trait_smallpox_character_desc: "Если [ROOT.GetCharacter.GetFirstNameNoTooltip] выживет, облик [ROOT.GetCharacter.GetHerHis] изменится навсегда из-за шрамов, сыпи и бугров на коже."
@@ -1402,3 +1404,18 @@
  trait_lifestyle_surveyor: "Инспектор"
  trait_lifestyle_surveyor_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] лично следит за процветанием державы. Умело вплетая любовь к путешествиям в управление державой, [Select_CString(ROOT.GetCharacter.IsFemale, 'она', 'он' )] надзирает за вассалами и разбирается со сложностями правления, обеспечивая домену процветание."
  trait_lifestyle_surveyor_adventurer_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] славится познаниями в путешествиях. Прекрасно ориентируясь в дикой природе, [Select_CString(ROOT.GetCharacter.IsFemale, 'она', 'он' )] может обойти вражеские армии, устроить засаду или просто безопасно переместиться из одного города в другой."
+
+ #MPO
+ trait_nomadic_philosophy: "Прирожденный кочевник"
+ trait_nomadic_philosophy_desc: "Этот персонаж с рождения закален суровыми условиями жизни в степи. Мягкотелым оседлым народам никогда не понять уклад кочевников — сильных и хитрых воспитанников степей.\n\n#weak $nomadic_philosophy_ender$#!"
+ trait_nomadic_philosophy_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] с рождения [Select_CString(ROOT.GetCharacter.IsFemale, 'закалена', 'закален' )] суровыми условиями жизни в степи. Мягкотелым оседлым народам никогда не понять уклад кочевников — сильных и хитрых воспитанников степей.\n\n#weak $nomadic_philosophy_ender$#!"
+ nomadic_philosophy_ender: "Я — против моего брата, я и мой брат — против нашего двоюродного брата, я, мой родной и двоюродный братья — против соседей, и все мы — против остального мира."
+
+ trait_lifestyle_seasoned_pastor: "Опытный скотовод"
+ trait_lifestyle_seasoned_pastor_desc: "Этот персонаж значительно поднаторел в деле животноводства и знает, как уберечь скот от голода на любом пастбище."
+ trait_lifestyle_seasoned_pastor_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] значительно [Select_CString(ROOT.GetCharacter.IsFemale, 'поднаторела', 'поднаторел' )] в деле животноводства и знает, как уберечь скот от голода на любом пастбище."
+
+ unlock_maa_steppe_raiders: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('steppe_raiders').GetName|l]"
+ unlock_maa_heavy_horse_archers: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('heavy_horse_archers').GetName|l]"
+ unlock_maa_nomad_lancers: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('nomad_lancers').GetName|l]"
+ TRAIT_FLAG_DESC_gok_obedience_flag: "@obedience_icon![Concept('obedience', 'Покорность')|E] [Concept('subjects', 'субъектов')|E] серьезно увеличена"

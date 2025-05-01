@@ -24,6 +24,12 @@
  MAA_TERRAIN_EFFECT_PURSUIT: "[pursuit|E] $VALUE|+=0$"
  MAA_TERRAIN_EFFECT_SCREEN: "[screen|E] $VALUE|+=0$"
  MAA_TERRAIN_EFFECT_SIEGE_VALUE: "[siege_progress|E]: $VALUE|+=0$/день"
+ MAA_HOLDING_EFFECT_FORMAT: "$EFFECT_LIST_BULLET$От типа владения «$HOLDING_TYPE|V$»: $LIST$"
+ MAA_HOLDING_EFFECT_DAMAGE: "$VALUE|+=0$ к [Concept('damage', 'урону')|E]"
+ MAA_HOLDING_EFFECT_TOUGHNESS: "$VALUE|+=0$ к [Concept('toughness', 'выносливости')|E]"
+ MAA_HOLDING_EFFECT_PURSUIT: "$VALUE|+=0$ к [Concept('pursuit', 'преследованию')|E]"
+ MAA_HOLDING_EFFECT_SCREEN: "$VALUE|+=0$ к [Concept('screen', 'скрытности')|E]"
+ MAA_HOLDING_EFFECT_SIEGE_VALUE: "$VALUE|+=0$ к [Concept('siege_progress', 'прогрессу осады')|E] в день"
  MAA_DOES_NOT_FIGHT_IN_MAIN_PHASE: "Осадные орудия не атакуют в бою"
  MEN_AT_ARMS_TYPE_TOOLTIP_CREATION_COST: "Стоимость создания: [MenAtArmsType.GetCostString(GetPlayer)]"
  SIEGE_TIER_MAX_FORT_LEVEL: "$EFFECT_LIST_BULLET$Максимальный [fort_level|El]: $VALUE|V$"
@@ -31,6 +37,8 @@
  REGIMENT_TERRAIN_MODIFIER_TOOLTIP: "#T [RegimentTerrainModifier.GetTerrain.GetName]#!\n[RegimentTerrainModifier.GetEffectString]"
  REGIMENT_TERRAIN_BONUS_HEADER: "Эффекты [Concept( 'terrain', 'типа местности' )|E]:"
  REGIMENT_TERRAIN_BONUS_NONE: "#weak Нет эффектов местности#!"
+ REGIMENT_HOLDING_BONUS_HEADER: "Эффекты от [Concept('holding_type', 'типа владений')|E]:"
+ REGIMENT_HOLDING_MODIFIER_TOOLTIP: "#T Во владении [RegimentHoldingModifier.GetHolding.GetName]#!\n[RegimentHoldingModifier.GetEffectString]"
  REGIMENT_WINTER_EFFECT_HEADER: "Эффекты зимы:"
  
  REGIMENT_DAMAGE_TT: "#T [Concept( 'damage', 'Урон' )|E]: [MenAtArmsType.GetStat( GetPlayer, Province.Self, 'damage' )|1V] ед.#!\n[MenAtArmsType.GetStatDesc( GetPlayer, Province.Self, Title.Self, 'damage' )]"
@@ -81,7 +89,7 @@
  REGIMENT_WINTER_HARSH_MODIFIER_TOOLTIP: "#T Суровая зима#!\n[MenAtArmsType.GetWinterHarshModifier.GetEffectString]"
 
  TRANSFER_TITLE_MAA_NOT_TITLE_MAA: "@warning_icon! Только [Concept( 'men_at_arms', 'профессионалов' )|E] титула можно перебрасывать между титулами."
- TRANSFER_TITLE_MAA_NOT_ADMINISTRATIVE: "@warning_icon! [TITLE.GetShortUINamePossessiveNoTooltip] — #bold не#! [GetGovernment( 'administrative_government' ).GetName|l]"
+ TRANSFER_TITLE_MAA_NOT_ADMINISTRATIVE: "@warning_icon! [TITLE.GetShortUINameNoTooltip] — #bold не#! [GetGovernment( 'administrative_government' ).GetName|l]"
  TRANSFER_TITLE_MAA_ALREADY_CONTROLS_MAA: "@warning_icon! [TITLE.GetShortUIName] уже контролирует один или несколько выбранных полков профессионалов."
  TRANSFER_TITLE_MAA_ALREADY_OWNS_MAA: "@warning_icon! [TITLE.GetShortUIName] уже контролирует один или несколько выбранных полков профессионалов."
 
@@ -264,3 +272,31 @@
  accolade_maa_elephantiers_flavor: "[Concept( 'retinue_maa', 'Свита профессионалов' )|E]\n#F Опытные махауты в паланкинах доказали: сложнее, чем остановить атакующего слона, только остановить другого, #EMP более крупного#! слона.#!"
  accolade_maa_horse_archers: "Свита конных лучников"
  accolade_maa_horse_archers_flavor: "[Concept( 'retinue_maa', 'Свита профессионалов' )|E]\n#F Обычные степные всадники учатся всю жизнь, а эти ветераны — и того дольше. Отражать их атаки — смертельная опасность, а преследовать — верная смерть.#!"
+
+ #MPO
+ nomadic_riders: "Всадники орды"
+ nomadic_riders_flavor: "#F $nomadic_riders$ рождаются в седле и всю жизнь совершенствуют искусство конного боя.#!"
+ kheshig: "Кэшик"
+ kheshig_flavor: "#F Элитная гвардия кочевого правителя — $kheshig$ — денно и нощно охраняет покой сюзерена. Боевые отряды зовутся #EMP хорчинами#! — они защищают владыку и на поле боя.#!"
+ nomadic_horde: "[Concept('horde', 'Кочевая орда')|E]"
+
+ steppe_raiders: "Степные налетчики"
+ steppe_raiders_flavor: "#F Эти всадники — не просто дозорные: они никогда не преминут жестоко обрушиться на одинокого врага и просто ничего не подозревающих жертв.#!"
+
+ torch_bearers: "Факелоносцы"
+ torch_bearers_flavor: "#F На бескрайних просторах степей не нужны ни осадные башни, ни катапульты — чтобы предать любую юрту огню, достаточно лишь быстрого коня и пылающего факела.#!"
+
+ heavy_horse_archers: "Тяжелые конные лучники"
+ heavy_horse_archers_flavor: "#F Облаченные в доспехи всадники, вооруженные крепкими луками и оседлавшие превосходных скакунов. В открытом поле эти кочевники способны сражаться без устали.#!"
+
+ nomad_lancers: "Кочевые копейщики"
+ nomad_lancers_flavor: "#F В руках эти отборные, не знающие жалости всадники сжимают копья с крючьями, а за спинами у них развеваются знамена из конского волоса.#!"
+
+ mangudai: "Мангуты"
+ mangudai_flavor: "#F Добровольно идущие на гибель всадники первыми врываются во вражеские ряды, сея гибель и смятение.#!"
+
+ cataphract_archers: "Катафрактарии с луками"
+ cataphract_archers_flavor: "#F Стрелы и клинки отскакивают от ламеллярных доспехов этих всадников и их скакунов, не причиняя тем никакого вреда; луки же их несут смерть и горе.#!"
+
+ maturkan_warriors: "Матуркан"
+ maturkan_warriors_flavor: "#F Эти благородные воины встали на защиту родной тайги. Они доблестно сражаются там, где пройдет мало какой конный отряд.#!"
