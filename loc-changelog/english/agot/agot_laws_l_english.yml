@@ -1,6 +1,40 @@
 ﻿l_english:
 
- title_succession_laws_singular:0 "[succession_law|e]"
+ AGOT_MY_TOP_LIEGE_REALM_LAWS_HEADER: "Realm Laws of [GetPlayer.GetTopLiege.GetPrimaryTitle.GetNameNoTierNoTooltip]"
+ AGOT_MY_REALM_LAWS_HEADER: "Realm Laws of [GetPlayer.GetPrimaryTitle.GetNameNoTierNoTooltip]"
+ MY_LIEGES_LAW:0 "#T This is your [liege_possessive|E] [law|E]#!"
+ MY_TOP_LIEGES_LAW:0 "#T Set by [top_liege|E]#!"
+ missing_limited_crown_authority:0 "You do #bold NOT#! have the Law [GetLaw('crown_authority_1').GetName|V]"
+ missing_absolute_crown_authority:0 "You do #bold NOT#! have the Law [GetLaw('crown_authority_3').GetName|V]"
+ insufficient_crown_authority_pending_law_change:0 "#alert_trial Due to your [crown_authority|E], you will automatically adopt this law#!
+ internal_war_allowed_not_desc:0 "Your Liege does #bold NOT#! have the Law [GetLaw('internal_war_allowed_law').GetName|V]"
+ internal_war_disallowed_not_desc:0 "Your Liege does #bold NOT#! have the Law [GetLaw('internal_war_disallowed_law').GetName|V]"
+ external_war_allowed_not_desc:0 "Your Liege does #bold NOT#! have the Law [GetLaw('external_war_allowed_law').GetName|V]"
+ external_war_disallowed_not_desc:0 "Your Liege does #bold NOT#! have the Law [GetLaw('external_war_disallowed_law').GetName|V]"
+
+ end_realm_internal_war_effect_desc:0 "All internal wars are made illegal and forced to end."
+ end_realm_internal_war_effect_desc_past:0 "All internal wars have been made illegal and forced to end."
+ end_realm_external_war_effect_desc:0 "All external wars are made illegal."
+ end_realm_external_war_effect_desc_past:0 "All external wars have been made illegal."
+
+ add_realm_internal_war_effect_desc:0 "All internal wars become legal."
+ add_realm_internal_war_effect_desc_past:0 "All internal wars have become legal."
+ add_realm_external_war_effect_desc:0 "All external wars become legal."
+ add_realm_external_war_effect_desc_past:0 "All external wars have become legal."
+
+ on_declared_internal_war_illegal: "@warning_icon! #X This will break the [internal_war_law|E] of [GetPlayer.GetTopLiege.GetPrimaryTitle.GetNameNoTier]!#!\n"
+ on_declared_external_war_illegal: "@warning_icon! #X This will break the [external_war_law|E] of [GetPlayer.GetTopLiege.GetPrimaryTitle.GetNameNoTier]!#!\n"
+
+ agot_feudal_crown_authority_1: "$EFFECT_LIST_BULLET$#indent_newline:3 Rulers can change between available Partition [succession_laws|E]#!\n$EFFECT_LIST_BULLET$[titles|E] can be revoked\n$EFFECT_LIST_BULLET$[vassals|E] can be retracted"
+ agot_feudal_lp_crown_authority_1: "$EFFECT_LIST_BULLET$#indent_newline:3 Rulers can change between available Partition [succession_laws|E]#!\n$EFFECT_LIST_BULLET$#indent_newline:3 [top_lieges|E] can pass the Law [GetLaw('internal_war_disallowed_law').GetName]#!\n$EFFECT_LIST_BULLET$#indent_newline:3 [titles|E] can be revoked#!\n$EFFECT_LIST_BULLET$#indent_newline:3 [vassals|E] can be retracted#!\n$EFFECT_LIST_BULLET$#indent_newline:3 [lieges|E] may grant a [vassal|E] [agot_war_permission|E] to Declare War#!\n$EFFECT_LIST_BULLET$#indent_newline:3 [lieges|E] can direct their [vassals|E] to join another Vassal's war as a Defender#!\n$EFFECT_LIST_BULLET$#indent_newline:3 Defenders of illegal [vassal|E] [wars|E] may request the intervention of their [liege|E]#!"
+
+ agot_feudal_crown_authority_2: "\n$EFFECT_LIST_BULLET$#indent_newline:3 [vassals|E] cannot wage [war|E] against other Vassals unless they use a [hook|E] on their [liege|E]#!"
+ agot_feudal_lp_crown_authority_2: "\n$EFFECT_LIST_BULLET$#indent_newline:3 [lieges|E] are free to directly demand the end to illegal [vassal|E] [wars|E]#!"
+
+ agot_feudal_crown_authority_3: "$EFFECT_LIST_BULLET$#indent_newline:3 [vassals|E] cannot wage any [war|E] unless they use a [hook|E] on their [liege|E]#!"
+ agot_feudal_lp_crown_authority_3: "$EFFECT_LIST_BULLET$#indent_newline:3 [top_lieges|E] can pass the Law [GetLaw('external_war_disallowed_law').GetName]#!\n$EFFECT_LIST_BULLET$#indent_newline:3 [lieges|E] can subsidize the [crown_authority|E] of any [direct_vassal|E] up to [GetLaw('crown_authority_2').GetName]#!"
+
+ title_succession_laws_singular:0 "Succession Policy"
 
  # Silent Sisters
  the_silent_sisterhood_succession_law:0 "Silent Sisterhood Succession"
@@ -12,18 +46,34 @@
  night_watch_centralization_2:0 "High Night's Watch Organization"
  night_watch_centralization_3:0 "Absolute Night's Watch Organization"
 
- slavery_laws:0 "Slavery"
+ internal_war_laws:0 "[internal_war_law|E]"
+ internal_war_laws_singular:0 "Internal War Policy"
+ internal_war_disallowed_law:0 "Internal Wars Illegal"
+ internal_war_disallowed_law_effects:1 "Unsanctioned [wars|E] between [vassals|E] within the same [top_liege_possessive|E] realm are illegal. Any violation results in the attacker being branded a [criminal|E]."
+ internal_war_allowed_law:0 "Internal Wars Legal"
+ internal_war_allowed_law_effects:1 "[vassals|E] are not prohibited from waging [war|E] against each other."
+
+ external_war_laws:0 "[external_war_law|E]"
+ external_war_laws_singular:0 "External War Policy"
+ external_war_disallowed_law:0 "External Wars Illegal"
+ external_war_disallowed_law_effects:1 "[vassals|E] may not wage [war|E] against foreign rulers unless they have a permission from their [top_liege|E]. Any violation results in the attacker being branded a [criminal|E]."
+ external_war_allowed_law:0 "External Wars Legal"
+ external_war_allowed_law_effects:1 "[vassals|E] are free to wage [wars|E] against foreign [rulers|E]."
+
+ slavery_laws:0 "[slavery_law|E]"
  slavery_laws_singular:0 "Slavery Policy"
  slavery_disallowed_law:0 "Slavery Forbidden"
- slavery_disallowed_law_effect:1 "No form of slavery is tolerated. Rulers have access to the #V Free Slaves#! [casus_bellis|E]."
+ slavery_disallowed_law_effects:1 "No form of slavery is tolerated. Rulers have access to the #V Free Slaves#! [casus_bellis|E]."
  slavery_allowed_law:0 "Slavery Allowed"
- slavery_allowed_law_effect:0 "Rulers can build and use the $building_type_agot_slave_camps_01$ lines of [buildings|E], and sell prisoners into slavery. Rulers may use the #V Raid for Slaves#! [casus_bellis|E] to fill their slave camps."
+ slavery_allowed_law_effects:0 "Rulers can build and use the $building_type_agot_slave_camps_01$ lines of [buildings|E], and sell prisoners into slavery. Rulers may use the #V Raid for Slaves#! [casus_bellis|E] to fill their slave camps."
 
  SLAVERY_LAW_IS_ON_COOLDOWN:0 "You recently changed Slavery Laws. Can be changed again after [GetCurrentDateWithDiff( GetVarTimeRemaining( CHARACTER.MakeScope, 'slavery_law_cooldown') )]"
  SLAVERY_CRIMINAL_UNDER_FAITH:0 "Your faith considers slavery criminal"
  DRAGONPIT_LAW_IS_ON_COOLDOWN:0 "You recently changed Dragonpit Laws. Can be changed again after [GetCurrentDateWithDiff( GetVarTimeRemaining( CHARACTER.MakeScope, 'dragonpit_law_cooldown') )]"
+ INTERNAL_WAR_LAW_IS_ON_COOLDOWN:0 "You recently changed Internal War Laws. Can be changed again after [GetCurrentDateWithDiff( GetVarTimeRemaining( CHARACTER.MakeScope, 'internal_war_law_cooldown') )]"
+ EXTERNAL_WAR_LAW_IS_ON_COOLDOWN:0 "You recently changed External War Laws. Can be changed again after [GetCurrentDateWithDiff( GetVarTimeRemaining( CHARACTER.MakeScope, 'external_war_law_cooldown') )]"
 
- dragonpit_laws:0 "Dragonpit Access Laws"
+ dragonpit_laws:0 "[dragonpit_access_law|E]"
  dragonpit_laws_singular:0 "Dragonpit Access Policy"
  dragonpit_close_family_law:0 "Close Family Only"
  dragonpit_close_family_law_effects:0 "[dragons_plural|E] in your [dragonpit|e] can only be accessed by [close_family_members|e]"

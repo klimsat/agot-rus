@@ -8,3 +8,29 @@
  msg_inherited_legitimate_title_desc:0 "You have gained the title of [title.GetName]. The great lands of your ancestors is now under your rule."
  msg_inherited_illegitimate_title:0 "Pretender to [title.GetNameNoTooltip]"
  msg_inherited_illegitimate_title_desc:0 "You have gained the title of [title.GetName]. As you are not a member of the [agot_legitimate_house|E] of [title.GetNameNoTooltip], your rule is considered illegitimate by many."
+ 
+ # Kings Peace Messages
+ ## War has broken out
+ msg_kings_peace_title:0 "War Rages in [war_kingdom.GetNameNoTierNoTooltip]"
+ msg_kings_peace_desc:0 "The [attacker.GetTopLiege.Custom('GetQueenKing')|U]'s Peace has been broken by [attacker.GetUIName], who has declared war against [defender.GetUIName]."
+ ## A Rebellion has broken out
+ msg_kings_peace_rebellion_title:0 "Rebellion in [war_kingdom.GetNameNoTierNoTooltip]"
+ msg_kings_peace_rebellion_desc:0 "The [attacker.GetTopLiege.Custom('GetQueenKing')|U]'s Peace has been broken by [attacker.GetUIName] who has rebelled against [attacker.GetHerHis|l] liege, [defender.GetUIName]."
+ ## Enforcement
+ msg_kings_peace_enforcement_desc:0 "News has arrived from [war_kingdom.GetNameNoTier]; [command_recipient.GetShortUIName|U] has joined [target.GetName|V] as a Defender against [command_attacker.GetShortUIName] on [command_actor.GetShortUINamePossessive] orders."
+ ## A vassal has joined the war
+ agot_vassal_interaction.war_joiner:1 "News has arrived from [command_recipient.GetPrimaryTitle.GetNameNoTier]. [command_recipient.GetShortUIName|U] has taken up [command_actor.GetShortUINamePossessive] call and joined [target.GetName|V] as a Defender."
+ ## King's Peace enforced
+ msg_vassal_joins_war_title:0 "Enforcing the [recipient.GetTopLiege.Custom('GetQueenKing')]'s Peace"
+ msg_vassal_enforcement_war_title:0 "Enforcing the [command_actor.GetTopLiege.Custom('GetQueenKing')]'s Peace"
+ msg_kings_peace_intervention_external_desc:0 "News has arrived from [war_kingdom.GetNameNoTier]; [intervention_actor.GetShortUIName|U] has enforced the [intervention_actor.GetTopLiege.Custom('GetQueenKing')]'s Peace by bringing an end to the war between [intervention_attacker.GetShortUIName] and [intervention_defender.GetShortUIName]."
+ msg_kings_peace_intervention_internal_desc:0 "News has arrived from [intervention_actor.GetPrimaryTitle.GetNameNoTier]; [intervention_actor.GetShortUIName|U] has enforced the [intervention_actor.GetTopLiege.Custom('GetQueenKing')]'s Peace by bringing an end to the war between [intervention_attacker.GetShortUIName] and [intervention_defender.GetShortUIName]."
+ msg_vassal_intervention_war_title:0 "Enforcing the [intervention_actor.GetTopLiege.Custom('GetQueenKing')]'s Peace"
+ ## King's Peace restored
+ msg_kings_peace_restored_title:0 "The [intervening_liege.GetTopLiege.Custom('GetQueenKing')]'s Peace Restored"
+ msg_kings_peace_restored_desc:0 "[intervening_liege.GetUIName] has successfully put an end to [primary_war_attacker.GetShortUINamePossessive] illegal war. The [intervening_liege.GetTopLiege.Custom('GetQueenKing')]'s Peace has been restored."
+ msg_kings_peace_won_desc:0 "[intervening_liege.GetUIName] has successfully defended against [primary_war_attacker.GetShortUINamePossessive] illegal war. The [intervening_liege.GetTopLiege.Custom('GetQueenKing')]'s Peace has been restored."
+ msg_kings_peace_white_peace_desc:0 "[intervening_liege.GetUIName] has successfully brokered a truce between [primary_war_attacker.GetUIName] and [primary_war_defender.GetUIName]. The [intervening_liege.GetTopLiege.Custom('GetQueenKing')]'s Peace has been restored."
+ msg_kings_peace_failure_title:0 "Violation of the [intervening_liege.GetTopLiege.Custom('GetQueenKing')]'s Peace"
+ msg_kings_peace_failure_desc:0 "[intervening_liege.GetUIName] has failed to put an end to [primary_war_attacker.GetShortUINamePossessive] illegal war and failed to uphold the [intervening_liege.GetTopLiege.Custom('GetQueenKing')]'s Peace."
+ msg_kings_peace_lost_desc:0 "[primary_war_attacker.GetShortUIName] has won [primary_war_attacker.GetHerHis|l] war against [intervening_liege.GetUIName], successfully violating the [intervening_liege.GetTopLiege.Custom('GetQueenKing')]'s Peace."

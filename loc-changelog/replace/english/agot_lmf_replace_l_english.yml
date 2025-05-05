@@ -1,0 +1,46 @@
+﻿l_english:
+
+
+ # Event Option Override
+ court_outcome.0003.a.tt:0 "I will lay with [owner.GetShortUIName|U] and [owner.GetSheHe] might become my Soulmate"
+ #AGOT ADDED - Specific Sibling Naming Conventions
+ relation_sister_normal: "Sister"
+ relation_brother_normal: "Brother"
+ YoungerSisterCharacterIntroduction: "Younger Sister"
+ OlderSisterCharacterIntroduction: "Older Sister"
+ TwinSisterCharacterIntroduction: "Twin Sister"
+ YoungerBrotherCharacterIntroduction: "Younger Brother"
+ OlderBrotherCharacterIntroduction: "Older Brother"
+ TwinBrotherCharacterIntroduction: "Twin Brother"
+ SISTER: "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'target', GetPlayer.MakeScope ).Custom('SisterCharacterIntroduction')]"
+ BROTHER: "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'target', GetPlayer.MakeScope ).Custom('BrotherCharacterIntroduction')]"
+ HALF_BROTHER: "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'target', GetPlayer.MakeScope ).Custom('HalfBrotherCharacterIntroduction')]"
+ YoungerHalfBrotherCharacterIntroduction: "Younger Half Brother"
+ OlderHalfBrotherCharacterIntroduction: "Older Half Brother"
+ relation_brother_normal: "Half Brother"
+ HALF_SISTER: "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'target', GetPlayer.MakeScope ).Custom('HalfSisterCharacterIntroduction')]"
+ YoungerHalfSisterCharacterIntroduction: "Younger Half Sister"
+ OlderHalfSisterCharacterIntroduction: "Older Half Sister"
+ relation_halfsister_normal: "Half Sister"
+
+ #overrides
+ relation_great_uncle:0 "great uncle"
+ relation_great_uncle_possessive:0 "great uncle's"
+ relation_great_aunt:0 "great aunt"
+ relation_great_aunt_possessive:0 "great aunt's"
+ relation_great_nephew:0 "grandnephew"
+ relation_great_nephew_possessive:0 "grandnephew's"
+ relation_great_niece:0 "grandniece"
+ relation_great_niece_possessive:0 "grandniece's"
+ relation_greatgreatgranddaughter:0 "great-great granddaughter"
+ relation_greatgreatgranddaughter_possessive:0 "great-great granddaughter's"
+ relation_greatgreatgrandson:0 "great-great grandson"
+ relation_greatgreatgrandson_possessive:0 "great-great grandson's"
+ relation_motherinlaw:0 "mother-in-law"
+ relation_motherinlaw_possessive:0 "mother-in-law's"
+ relation_fatherinlaw:0 "father-in-law"
+ relation_fatherinlaw_possessive:0 "father-in-law's"
+
+ MARRIAGE_DESPERATION:0 "[secondary_recipient.GetShortUINameNoTooltip|U] [Select_CString( secondary_recipient.IsLocalPlayer, 'are', 'is' )] desperate to marry: $VALUE|+=0$"
+ 
+ can_be_granted_titles_interaction_tt:0 "[recipient.GetWomenMen|U] must either be a Dominant, Equal, or Clerical Gender within your [faith|E] ([actor.GetFaith.GetName]) or they must both be your [primary_heir|E] and have the [GetTrait('education_heir_training_1').GetName( GetNullCharacter )] [trait|E]"

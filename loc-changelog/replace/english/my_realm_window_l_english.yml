@@ -13,7 +13,9 @@
 
  MY_REALM_WINDOW_LAWS_REALM_LAWS: "Realm Laws"
  MY_REALM_WINDOW_LAWS_PROVINCIAL_LAWS: "Provincial Laws"
- MY_REALM_WINDOW_LAWS_PROVINCIAL_LAWS_DESC: "Only the Basileus of the Byzantine Empire can change the Provincial laws"
+ #AGOT Modified
+ # MY_REALM_WINDOW_LAWS_PROVINCIAL_LAWS_DESC: "Only the Basileus of the Byzantine Empire can change the Provincial laws"
+ MY_REALM_WINDOW_LAWS_PROVINCIAL_LAWS_DESC: "Only the [top_liege|E] can change the Provincial laws"
  MY_REALM_WINDOW_LAWS_PROVINCIAL_LAWS_DESC_DISABLED: "@warning_icon! #X $MY_REALM_WINDOW_LAWS_PROVINCIAL_LAWS_DESC$#!"
  MY_REALM_WINDOW_LAWS_SPECIFIC_SUCCESSION_LAWS: "Specific Succession Laws"
 
@@ -287,3 +289,12 @@
 
  MY_REALM_WINDOW_SUZERAIN: "[suzerain|E] : [Character.GetShortUIName]"
  MY_REALM_WINDOW_LIEGE: "[liege|E] : [Character.GetShortUIName]"
+ 
+ #AGOT Added
+ OTHER_LAW_CHANGE_WINDOW_TITLE: "Change [Select_CString(GetPlayer.GetGovernment.IsType('lp_feudal_government'), 'Crown', 'Provincial')] Law"
+ MY_REALM_WINDOW_LAWS_CROWN_LAWS: "[crown_laws|E]"
+ CROWN_LAWS: "#T Crown Laws#!\n#I Click to modify Crown Law#!"
+ MY_REALM_WINDOW_LAWS_CROWN_LAWS_DESC: "Only the Top Liege can change the Crown laws"
+ MY_REALM_WINDOW_LAWS_CROWN_LAWS_DESC_DISABLED: "@warning_icon! #X $MY_REALM_WINDOW_LAWS_CROWN_LAWS_DESC$#!"
+ CROWN_LAW_CHANGE_WINDOW_TITLE: "Changing [crown_laws|E]"
+ CROWN_LAW_CHANGE_WINDOW_DESC: "In the [GetGovernment('lp_feudal_government').GetName] [government|E], [crown_laws|E] are enacted by the [top_liege|E], with their availability determined by the [top_liege_possessive|E] level of [crown_authority|E]. These laws apply to #bold all#! [vassals|E] within the [realm|E], regardless of their rank."

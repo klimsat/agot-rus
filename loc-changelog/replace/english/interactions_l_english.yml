@@ -360,8 +360,12 @@
  REVOKE_TITLE_TYRANNY_WARNING:0 "@warning_icon! #X This is an act of [tyranny|E], causing your subjects to lose #V [EmptyScope.ScriptValue('revoke_title_tyranny_gain')|0]#! [opinion|E] of you#!"
  REVOKE_VASSAL_TYRANNY_WARNING:0 "@warning_icon! #X This is an act of [tyranny|E], causing your subjects to lose #V [EmptyScope.ScriptValue('revoke_vassal_tyranny_gain')|0]#! [opinion|E] of you#!"
  IS_ALLOWED_TO_IMPRISON_DESC:4 "[Select_CString( recipient.IsLocalPlayer, 'You', recipient.GetShortUIName )] [Select_CString( recipient.IsLocalPlayer, 'are', 'is' )] a known [criminal|E] #weak ([recipient.GetImprisonmentReasons( actor.Self )])#!, allowing [imprisoner.GetShortUIName] to imprison [Select_CString( recipient.IsLocalPlayer, 'you', recipient.GetHerHim )] without being viewed as a [tyrant|E]"
- IS_ALLOWED_TO_EXECUTE_DESC:2 "[recipient.GetShortUIName|U] is a known [criminal|E] #weak ([recipient.GetExecuteReasons( actor.Self )])#!, allowing you to execute [recipient.GetHerHim] without being viewed as a [tyrant|E]"
- IS_ALLOWED_TO_EXECUTE_HOSTILE_RELIGION_DESC:2 "[victim.GetShortUINamePossessive|U] faith, [victim.GetFaith.GetName], is considered to be either $hostility_hostile_tooltippable$ or $hostility_evil_tooltippable$ by your faith, allowing you to execute [victim.GetHerHim] without being viewed as a [tyrant|E]."
+ #AGOT Modified
+ #IS_ALLOWED_TO_EXECUTE_DESC:2 "[recipient.GetShortUIName|U] is a known [criminal|E] #weak ([recipient.GetExecuteReasons( actor.Self )])#!, allowing you to execute [recipient.GetHerHim] without being viewed as a [tyrant|E]"
+ IS_ALLOWED_TO_EXECUTE_DESC:2 "[recipient.GetShortUIName|U] [Select_CString( recipient.IsLocalPlayer, 'are', 'is' )] a known [criminal|E] #weak ([recipient.GetExecuteReasons( actor.Self )])#!, allowing [actor.GetShortUIName] to execute [Select_CString( recipient.IsLocalPlayer, 'you', recipient.GetHerHim )] without being viewed as a [tyrant|E]"
+ #AGOT Modified
+ #IS_ALLOWED_TO_EXECUTE_HOSTILE_RELIGION_DESC:2 "[victim.GetShortUINamePossessive|U] faith, [victim.GetFaith.GetName], is considered to be either $hostility_hostile_tooltippable$ or $hostility_evil_tooltippable$ by your faith, allowing you to execute [victim.GetHerHim] without being viewed as a [tyrant|E]."
+ IS_ALLOWED_TO_EXECUTE_HOSTILE_RELIGION_DESC:2 "[victim.GetShortUINamePossessive|U] faith, [victim.GetFaith.GetName], is considered to be either $hostility_hostile_tooltippable$ or $hostility_evil_tooltippable$ by [actor.GetShortUINamePossessive] faith, allowing [Select_CString( actor.IsLocalPlayer, 'you', recipient.GetHerHim )] to execute [Select_CString( victim.IsLocalPlayer, 'you', recipient.GetHerHim )] without being viewed as a [tyrant|E]."
  IS_ALLOWED_TO_IMPRISON_NO_RECIPIENT_DESC:2 "#weak As [Select_CString( imprisoner.IsLocalPlayer, 'I', imprisoner.GetShortUIName )] [Select_CString( imprisoner.IsLocalPlayer, 'have', 'has' )] a fair reason, no one will think [Select_CString( imprisoner.IsLocalPlayer, 'me', imprisoner.GetShortUIName )] a [tyrant|E]#!"
  IS_ALLOWED_TO_EXECUTE_NO_RECIPIENT_DESC:0 "$IS_ALLOWED_TO_IMPRISON_NO_RECIPIENT_DESC$"
  IS_ALLOWED_TO_REVOKE_TITLE_DESC:3 "[recipient.GetShortUIName|U] [Select_CString( recipient.IsLocalPlayer, 'are', 'is' )] a known [criminal|E] #weak ([recipient.GetRevokeReasons( actor.Self )])#!, allowing [Select_CString( actor.IsLocalPlayer, 'you', 'them' )] to revoke [Select_CString( recipient.IsLocalPlayer, 'your', recipient.GetHerHis )] [title|E] without being viewed as a [tyrant|E]"
@@ -443,7 +447,7 @@
  EXECUTION_PROVISIONS: "Turn into Mystery Meat"
  MY_FAITH_HAS_THE_FIXED_APPOINTMENT_CLERGY_DOCTRINE:0 "My [faith|E] #weak ([CHARACTER.GetFaith.GetName])#! has a Clerical Succession [doctrine|E] with Fixed Appointment"
  #AGOT Modified, removed jizya reference
- # vassal_contract_forbids_revocation:2 "You cannot revoke [titles|E] from a [vassal|E] who has a [vassal_contract|E] with #high $title_revocation_rights_protected$#! or is assigned to a [tax_jurisdiction|E] with #high $jizya_special_rights_tax_collector$#! [tax_decree|E]"
+ # vassal_contract_forbids_revocation:2 "You cannot revoke [titles|E] from a [vassal|E] who has a [feudal_contract|E] with #high $title_revocation_rights_protected$#! or a [contract|E] with #high $jizya_special_rights_granted$#!"
  vassal_contract_forbids_revocation:2 "You cannot revoke [titles|E] from a [vassal|E] who has a [vassal_contract|E] with #high $title_revocation_rights_protected$#!"
  I_CANNOT_IMPRISON_ALLY_WITHOUT_REASON:1 "You cannot imprison an [ally|E] without a reason"
  TARGET_WAS_RECENTLY_RANSOMED:0 "[TARGET_CHARACTER.GetShortUIName|U] was recently ransomed"

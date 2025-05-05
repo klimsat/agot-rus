@@ -1,0 +1,106 @@
+﻿l_english:
+ #Request War Permission
+ WILL_BREAK_KINGS_PEACE:0 "Will Break [recipient.GetTopLiege.Custom('GetQueenKing')|U]'s Peace: $VALUE|=+0$"
+ vassal_request_war_permission_interaction: "Request Permission to Declare War"
+ vassal_request_war_permission_interaction_desc: "Ask [recipient.GetShortUIName] for [agot_war_permission|E] to declare a single [war|E] against a fellow [vassal|E] within [recipient.GetHerHis|l] [realm|E]"
+ vassal_request_war_permission_interaction_override_warning: "\n\n@alert_icon! #alert_trial This will override the [agot_war_permission|E] you received from [actor.MakeScope.Var('lp_permission_to_declare_war').Char.GetShortUIName|U]#!"
+ vassal_request_war_permission_interaction_debug_warning: "\n\n@warning_icon! #warning Debug Wars are #bold ENABLED#!; it may take a few minutes to load this interaction#!"
+ vassal_request_war_permission_interaction_extra_icon: "[hook_i]You can use your [hook|E] to make them accept"
+ vassal_request_war_permission_interaction_hook_decline_summary:1 "\n@alert_icon! #alert_trial You will be able to use your [hook|E] if necessary#!#!"
+ vassal_request_war_permission_interaction_decline_summary:1 "\n@alert_icon! #alert_trial You will be able to negotiate with [recipient.GetShortUINameNoTooltip] if necessary#!#!"
+ LIEGE_REFUSED_WAR_PERMISSION:0 "[recipient.GetShortUIName] has already refused this request"
+ NO_VALID_WAR_PERMISSION_CHARACTER:0 "You do not have a valid [casus_belli|E] to declare [war|E] on any ruler within [recipient.GetShortUINamePossessive] [realm|E]"
+ agot_request_war_permission_notification_text:0 "I humbly request your leave to declare war upon [secondary_recipient.GetUIName]."
+ recipient_secondary_vassal_request_war_permission_interaction:0 "Target"
+ feudal_lp_has_war_permission_already_desc:0 "You already have [recipient.GetShortUINamePossessive] [agot_war_permission|E] to declare war"
+ feudal_lp_gained_war_permission_desc:0 "[recipient.GetShortUIName|U] [SelectLocalization( recipient.IsLocalPlayer, 'grant', 'grants')] [actor.GetShortUIName] [agot_war_permission|E] to declare a [war|E] against [secondary_recipient.GetShortUIName]"
+ feudal_lp_loses_war_permission_desc:0 "Will no longer have [actor.MakeScope.Var('lp_permission_to_declare_war').Char.GetShortUINamePossessive|U] permission to declare war upon [actor.MakeScope.Var('lp_permission_to_declare_war_target').Char.GetShortUIName|U]"
+ lp_permission_to_declare_war_spend:0 "@alert_icon! #alert_trial [GetPlayer.GetShortUINameNoTooltip|U] will spend the [agot_war_permission_long|E] granted by [GetPlayer.MakeScope.Var('lp_permission_to_declare_war').Char.GetShortUIName|U]#!\n"
+ FRAME_HAS_WAR_PERMISSION: "#T [agot_war_permitted|E] to Declare [war|E]#!\n[CHARACTER.GetShortUIName|U] [SelectLocalization( CHARACTER.IsLocalPlayer, 'have', 'has')] been granted [agot_war_permission|E] to attack [CHARACTER.MakeScope.Var('lp_permission_to_declare_war_target').Char.GetUIName] by [CHARACTER.MakeScope.Var('lp_permission_to_declare_war').Char.GetUIName]\n@warning_icon! #warning Valid until [GetCurrentDateWithDiff( GetVarTimeRemaining( CHARACTER.MakeScope, 'lp_permission_to_declare_war') )]#!"
+ 
+ #Request War Permission External
+ vassal_request_war_permission_external_interaction: "Request Permission to Attack"
+ vassal_request_war_permission_external_interaction_desc: "Ask [recipient.GetShortUIName] for [agot_war_permission|E] to declare a single [war|E] against [secondary_recipient.GetShortUIName] to expand the borders of the [realm|E]"
+ vassal_request_war_permission_external_interaction_extra_icon: "[hook_i]You can use your [hook|E] to make them accept"
+ recipient_secondary_vassal_request_war_permission_external_interaction:0 "Target"
+ 
+ #Liege Offers to Subsidize Crown Authority
+ vassal_power_boilerplate_postscript_partial:0 "\n\n@warning_icon! #weak This will make this [vassal|E] more powerful#!"
+ liege_subsidise_crown_authority_interaction:0 "Subsidize Vassal Authority"
+ liege_subsidise_crown_authority_interaction_desc:0 "Offer to use your own [prestige|E] to help your [vassal|E] boost [recipient.GetHerHis] [crown_authority|E], which they may require to enforce your realm's [laws|E].$vassal_power_boilerplate_postscript_partial$"
+ LIEGE_SUBSIDISE_AUTHORITY_PROPOSAL:0 "It has come to my attention that your authority is insufficient to enforce order among your vassals. Therefore, I offer to assist you in tightening your authority."
+ custom_description.tt.must_target_vassal:0 "[recipient.GetShortUINameNoTooltip] is not your [vassal|E]"
+ SCHEME_HOOK_LIEGE:1 "Remove any [hook_i][hooks|e] on #V you#!"
+ SCHEME_HOOK_LIEGE_DESC:1 "Will lose my [hook|E]: $VALUE|=+0$"
+ 
+ #Demand End to Vassal War (Attacker)
+ agot_stop_attacker_vassal_war_interaction:0 "$stop_attacker_vassal_war_interaction$"
+ agot_stop_vassal_war_tyranny:0 "@warning_icon! #warning Due to your [crown_authority|E], your subjects will view this as an act of [tyranny|E]#!\n\n"
+ agot_stop_vassal_war_negotiation:2 "Demand that [recipient.GetShortUIName] abandons [recipient.GetHerHis] war and restore the [actor.GetTopLiege.GetTitleAsNamePossessiveNoTooltip|U] Peace\n\n[recipient.GetShortUINamePossessive] willingness to end the war is determined by:\n$BULLET_WITH_TAB$The [internal_war_laws|E] of [actor.GetTopLiege.GetPrimaryTitle.GetNameNoTier|U]\n$BULLET_WITH_TAB$Your [crown_authority|E]\n$BULLET_WITH_TAB$Both of your [diplomacy|E] skills\n$BULLET_WITH_TAB$The state of the war\n$BULLET_WITH_TAB$[recipient.GetHerHis|U] [traits|E]\n$BULLET_WITH_TAB$[recipient.GetHerHis|U] [opinion|E] of you\n$BULLET_WITH_TAB$Whether [recipient.GetSheHe] is [intimidated|E] or [cowed|E] by you"
+ agot_stop_vassal_war_use_hook:1 "\n@alert_icon! #alert_trial You will be able to use your [hook|E] if necessary#!#!"
+ received_permission_for_war:0 "[target.GetActiveCB.GetAttacker.GetShortUIName] received [target.MakeScope.Var('lp_permission_to_declare_war').Char.GetShortUINamePossessive] [agot_war_permission|E] to declare this war"
+ the_common_rabble_will_not_listen:0 "[target.GetActiveCB.GetAttacker.GetShortUIName] will not obey such a command"
+ defender_made_appeal:0 "Due to your [crown_authority|E], you cannot intervene in [recipient.GetShortUINamePossessive|V] [wars|E] without an appeal from the Defender"
+ defender_made_appeal_or_liege:0 "Due to your [crown_authority|E], you cannot intervene in [recipient.GetShortUINamePossessive|V] [wars|E] without an appeal from the Defender #bold OR#! a command from your [liege|E]"
+ vassal_refused_treason_execute_opinion:0 "Refused to End Illegal War"
+ vassal_refused_treason_revoke_opinion:0 "$vassal_refused_treason_execute_opinion$"
+ vassal_refused_treason_opinion:0 "$vassal_refused_treason_execute_opinion$"
+ RELEASE_END_ILLEGAL_WARS: "End Illegal Wars"
+ already_intervening:0 "This war is being dealt with"
+ has_intervention_interaction_cooldown:0 "[target.MakeScope.Var('request_liege_war_intervention_interaction_cooldown').Char.GetShortUIName|U] [Select_CString(target.MakeScope.Var('request_liege_war_intervention_interaction_cooldown').Char.IsLocalPlayer, 'have', 'has' )] already intervened in this [war|E]"
+ actor_has_been_blocked_from_interfering_by_attacker:0 "[actor.GetShortUIName|U] [Select_CString( actor.IsLocalPlayer, 'have', 'has' )] been blocked from attempting this action again by [target.GetActiveCB.GetAttacker.GetShortUIName]"
+ 
+ #Request Liege Intervention in War (as Defender)
+ request_liege_war_intervention_interaction:0 "Intervene in War"
+ request_liege_war_intervention_interaction_desc:0 "Ask [recipient.GetShortUIName] to intervene and end a war against a fellow [vassal|E]"
+ request_liege_war_intervention_interaction_extra_icon: "[hook_i]You can use your [hook|E] to make them accept"
+ REQUEST_LIEGE_INTERVENTION:0 "I respectfully request your intervention in ending the [target.GetName]. Putting an end to [target.GetActiveCB.GetAttacker.GetShortUINamePossessive] unprovoked and illegal war is essential to the restoration of the [actor.GetTopLiege.GetTitleAsNamePossessiveNoTooltip|U] Peace and preservation of the Realm."
+ liege_will_attempt_to_end_war:0 "Will attempt to force the [target.GetName] to end in [white_peace|E]"
+ vassal_interaction.0007.desc_enemy_of_the_crown:0 "\n\nTherefore, I have no choice but to declare you an Enemy of the Crown!"
+ agot_insufficient_crown_authority:1 "\n\n@alert_icon! #alert_trial A [liege|E] higher in the [vassal|E] hierarchy can intervene#!#!"
+ WAR_DEFENDER:0 "Defenders"
+ WAR_ATTACKER:0 "Attackers"
+ recipient_has_been_blocked_from_interfering_by_attacker:0 "[recipient.GetShortUIName|U] [Select_CString( recipient.IsLocalPlayer, 'have', 'has' )] been blocked from attempting this action again by [target.GetActiveCB.GetAttacker.GetShortUIName]"
+ #[Select_CString( recipient.IsLocalPlayer, 'have', 'has' )]
+ 
+ #Demand Surrender of Defender
+ agot_stop_defender_vassal_war_interaction:0 "$stop_defender_vassal_war_interaction$"
+ agot_surrender_vassal_war_negotiation:2 "Demand that [recipient.GetShortUIName] surrenders [recipient.GetHerHis] war\n\n[recipient.GetShortUINamePossessive] willingness to end the war is determined by:\n$BULLET_WITH_TAB$The [internal_war_laws|E] of [actor.GetTopLiege.GetPrimaryTitle.GetNameNoTier|U]\n$BULLET_WITH_TAB$Your [crown_authority|E]\n$BULLET_WITH_TAB$Both of your [diplomacy|E] skills\n$BULLET_WITH_TAB$The state of the war\n$BULLET_WITH_TAB$[recipient.GetHerHis|U] [traits|E]\n$BULLET_WITH_TAB$[recipient.GetHerHis|U] [opinion|E] of you\n$BULLET_WITH_TAB$Whether [recipient.GetSheHe] is [intimidated|E] or [cowed|E] by you"
+ actor_has_been_blocked_from_interfering_by_defender:0 "[actor.GetShortUIName|U] [Select_CString( actor.IsLocalPlayer, 'have', 'has' )] been blocked from attempting this action again by [target.GetActiveCB.GetDefender.GetShortUIName]"
+ 
+ #Liege Commands Intervention of Vassal
+ liege_command_vassal_peace_interaction:0 "Command to Enforce Peace"
+ liege_command_vassal_peace_interaction_desc:0 "Command [recipient.GetShortUIName] to restore peace between [recipient.GetHerHis] vassals."
+ vassal_forced_to_end_their_vassals_wars:0 "Will attempt to put an end to all vassal wars within [recipient.GetPrimaryTitle.GetNameNoTier]"
+ no_vassals_at_war:0 "[recipient.GetUIName] has no vassals currently at war within [recipient.GetHerHis] realm"
+ 
+ #Liege Commands Vassal to Join as Defender
+ liege_command_join_defender_interaction:0 "Command to Join Vassal War"
+ liege_command_join_defender_interaction_desc:0 "Command [recipient.GetShortUIName] to join another [vassal_possessive|E] [war|E] as a defender"
+ liege_command_join_defender_interaction_warning_desc:0 "\n\n@warning_icon! #warning [recipient.GetShortUIName] might ask for something in return#!"
+ open_command_menu:0 "You will command [recipient.GetShortUIName] to join a specific [vassal_possessive|E] [war|E] as a defender"
+ COMMAND_INTERACTION_TITLE:0 "Command to Join Vassal War"
+ has_liege_command_join_defender_interaction_cooldown:0 "#V Command to Join Vassal War#! unavailable until [GetCurrentDateWithDiff( GetVarTimeRemaining( actor.MakeScope, 'liege_command_join_defender_interaction_cooldown') )]"
+ VASSAL_MAY_ASK_FOR_SOMETHING:0 "[GetPlayer.MakeScope.Var('command_target').Char.GetTitledFirstNameNoTooltip] may ask for something"
+ MUST_SELECT_WARNING:0 "@warning_icon! #warning Select a [war|E] from the list above#!"
+ already_received_support_effect_desc:0 "#indent_newline:6 @warning_icon! #warning This [war|E] has already received military support#!#!"
+ cannot_attack_allies_effect_desc:0 "#indent_newline:6 @warning_icon! #warning [GetPlayer.MakeScope.Var('command_target').Char.GetShortUIName] cannot be ordered to attack [GetPlayer.MakeScope.Var('command_target').Char.GetHerHis|l] own [ally|E]#!#!"
+ war_command_liege_effect_accept:0 "$EFFECT_LIST_BULLET$#indent_newline:3 Gains #P 15#! [opinion|E] of [GetPlayer.MakeScope.Var('command_target').Char.GetShortUIName] #weak (-1.20/year) (Pleased)#!#!\n$EFFECT_LIST_BULLET$#indent_newline:3 Spends @prestige_icon!#N 350#!#!"
+ war_command_vassal_effect_accept:0 "$EFFECT_LIST_BULLET$#indent_newline:3 Joins [GetPlayer.MakeScope.Var('selected_war').War.GetName|V] [war|E] as a Defender on [GetPlayer.MakeScope.Var('selected_war').War.GetActiveCB.GetDefender.GetNamePossessive|V] side#!"
+ war_command_liege_effect_decline:0 "$EFFECT_LIST_BULLET$#indent_newline:3 Loses #N 15#! [opinion|E] of [GetPlayer.MakeScope.Var('command_target').Char.GetShortUIName] #weak (+1.20/year) (Refusal)#!#!\n$EFFECT_LIST_BULLET$#indent_newline:3 Spends @prestige_icon!#N 350#!#!"
+ war_command_vassal_effect_decline:0 "$EFFECT_LIST_BULLET$#indent_newline:3 Loses #N 15#! [opinion|E] of [GetPlayer.MakeScope.Var('liege').Char.GetShortUIName] #weak (+1.20/year) (Annoyed)#!#!"
+ 
+ #Arbitrary Liege Revokes War Permission
+ revoke_war_permission_interaction:0 "Revoke War Permission"
+ revoke_war_permission_interaction_desc:0 "An [interaction|E] allowing you to dismiss [recipient.GetShortUINamePossessive] permission to declare [war|E] in exchange for [prestige|E]."
+ lost_war_permission_title:0 "War Permission Revoked"
+ lost_war_permission_desc:0 "[actor.GetShortUIName|U] [SelectLocalization( actor.IsLocalPlayer, 'revoke', 'revokes')] [recipient.GetShortUINamePossessive] permission to go to war."
+ lost_war_permission_past_desc:0 "[actor.GetShortUIName|U] revoked [recipient.GetShortUINamePossessive] permission to go to war."
+ 
+ vassal_request_increase_crown_authority_interaction: "Request Crown Authority Assistance"
+ vassal_request_increase_crown_authority_interaction_desc: "Ask [recipient.GetShortUINameNoTooltip] to assist you in raising your [crown_authority|E] so that you might better enforce the laws of the realm."
+ liege_covers_cost: "[recipient.GetShortUIName] covers the cost of this law change"
+ OFFER_GOLD: "Offer @gold_icon![gold|E]"
+ OFFER_HOOK: "Offer a @weak_hook_icon![hook|E]"
+ A_HOOK_WAS_OFFERED:0 "A [hook|E] was offered: $VALUE|=+0$"
+ GOLD_WAS_OFFERED:0 "[gold|E] was offered: $VALUE|=+0$"
