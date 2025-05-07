@@ -322,9 +322,9 @@
  agot_banking.1001.low_interest:0 "Уровень [agot_bank_interest_rate|E] в этом банке #difficult_easy в данный момент снижен#!."
  agot_banking.1001.medium_interest:0 "Уровень [agot_bank_interest_rate|E] в этом банке #difficult_medium в данный момент сбалансирован#!."
  agot_banking.1001.high_interest:0 "Уровень [agot_bank_interest_rate|E] в этом банке #difficult_hard в данный момент повышен#!."
- agot_banking.1001.b:0 "Я выбираю [director_bank1.Custom('agot_bank_name_list')]."
- agot_banking.1001.c:0 "Я выбираю [director_bank2.Custom('agot_bank_name_list')]."
- agot_banking.1001.d:0 "Я выбираю [director_bank3.Custom('agot_bank_name_list')]."
+ agot_banking.1001.b:0 "Я выбираю [director_bank1.Custom('agot_bank_name')]."
+ agot_banking.1001.c:0 "Я выбираю [director_bank2.Custom('agot_bank_name')]."
+ agot_banking.1001.d:0 "Я выбираю [director_bank3.Custom('agot_bank_name')]."
  agot_banking.1001.e:0 "Я передумал."
 
  set_interest_level_decision:0 "Отрегулировать процентные ставки"
@@ -461,7 +461,34 @@
  bank_name_normal:0 "[ROOT.Var('BankName').Char.GetLocalizedText( 'bank_name' )]"
  bank_name_normal_list:0 "[Character.GetLocalizedText( 'bank_name' )]"
 
- # new stuff
  agot_banking.0700.t:0 "Банк ликвидирован"
  agot_banking.0700.desc:0 "Печальные новости! Штаб-квартира нашего банка перешла под контроль [NewHolder.GetTitledFirstNameNicknamed]. Поскольку в [NewHolder.GetHerHis] владениях уже есть другой банк, [NewHolder.GetSheHe] решает ликвидировать наш, чтобы сократить конкуренцию.\n\nВсе акционеры получат часть текущих денежных резервов банка. После этого банк прекратит своё существование."
  agot_banking.0700.a:0 "Вот и завершилось это предприятие."
+
+
+ # new stuff
+ agot_banking.0701.t:0 "Налёт на банк?"
+ agot_banking.0701.desc:0 "Запах гари и шум веселящихся воинов смешиваются в воздухе вокруг меня. Мой отряд успешно осадил владение [barony.GetNameNoTierNoTooltip], где находится знаменитый [bank_shareholder.Custom('agot_bank_name')].\n\nПеред нами открывается заманчивая возможность: наверняка в хранилищах этого банка хранятся несметные сокровища и невообразимые богатства... А наш контроль над владением означает, что банк беззащитен перед моими войсками.\n\nНо такие действия не останутся незамеченными. Банк не оставит эту агрессию без ответа..."
+ agot_banking.0701.a:0 "Я не могу упустить такую возможность!"
+ agot_banking.0701.b:0 "[bank_shareholder.Custom('agot_bank_name')] - не мои враги."
+
+ agot_banking.0702.t:0 "Разграбление банка"
+ agot_banking.0702.desc:0 "После осады владения [barony.GetNameNoTierNoTooltip] [Select_CString(bank_raider.IsFemale, 'напавшая', 'напавший' )] [bank_raider.GetTitledFirstNameNicknamed] решил совершить налет на штаб-квартиру нашего банка, и [bank_raider.GetHerHis] войска смогли прорваться в некоторые из наших хранилищ. Они похитили [bank_raider.MakeScope.Var('raided_gold').GetValue|2|N] золота из нашего финансового резерва.\n\nБанк должен защищаться от этого враждебного действия всеми доступными ему средствами!\n\n[bank_raider.GetTitledFirstNameNoTooltip] может получить от нас письмо, сообщающее, что [bank_raider.GetHerHis] действия будут иметь тяжёлые последствия - и что украдённые деньги, с учётом компенсации, должны быть возвращены.\n\nЕсли [bank_raider.GetSheHe] откажется, мы поступим с [Select_CString(bank_raider.IsFemale, 'ней как с любой другой неплательщицей', 'ним как с любым другим неплательщиком' )]... #bold сурово.#!"
+ agot_banking.0702.a:0 "Отправить письмо."
+ agot_banking.0702.b:0 "Мы не будем принимать никаких мер..."
+
+ agot_banking.0703.t:0 "[raided_director.Custom2('AppropriateGreetingNegative', bank_raider)]"
+ agot_banking.0703.desc:0 "Ваше ограбление нашего банка не останется без последствий. Мы предлагаем вам одноразовую возможность вернуть украденное золото с учётом компенсации. Если вы откажетесь, мы будем вынуждены вернуть деньги другими способами."
+ agot_banking.0703.a:0 "Я немедленно заплачу то, что вы требуете."
+ agot_banking.0703.b:0 "Мне нужно время для погашения долга."
+ agot_banking.0703.b_tt:0 "Украденные вами деньги будут превращены в займ, который нужно будет погасить через 3 года по процентной ставке 5 % в год."
+ agot_banking.0703.c:0 "Вы не получите от меня ни гроша!"
+ agot_banking.0703.c_tt:0 "Вы отказываетесь от любых выплат банку, и это будет расценено как дефолт..."
+
+ agot_banking.0704.t:0 "[Select_CString(bank_raider.IsFemale, 'Налётчица выплатила', 'Налётчик выплатил' )] компенсацию"
+ agot_banking.0704.desc:0 "[bank_raider.GetTitledFirstNameNicknamed] [Select_CString(bank_raider.IsFemale, 'уступила и вернула', 'уступил и вернул' )] украденное, с учётом компенсации в размере 10%."
+ agot_banking.0704.a:0 "Мудрый выбор."
+
+ agot_banking.0705.t:0 "[Select_CString(bank_raider.IsFemale, 'Налётчица', 'Налётчик' )] обещает вернуть долг"
+ agot_banking.0705.desc:0 "[bank_raider.GetTitledFirstNameNicknamed] [Select_CString(bank_raider.IsFemale, 'уступила и пообещала', 'уступил и пообещал' )] вернуть украденное в течение следующих 3 лет. Мы будем считать это займом с годовой процентной ставкой 5 %."
+ agot_banking.0705.a:0 "Будем надеяться, что [bank_raider.GetSheHe] не нарушит соглашение."
