@@ -322,9 +322,9 @@
  agot_banking.1001.low_interest:0 "The [agot_bank_interest_rate|E] level at this bank is #difficult_easy currently reduced#!."
  agot_banking.1001.medium_interest:0 "The [agot_bank_interest_rate|E] level at this bank is #difficult_medium currently balanced#!."
  agot_banking.1001.high_interest:0 "The [agot_bank_interest_rate|E] level at this bank is #difficult_hard currently increased#!."
- agot_banking.1001.b:0 "I choose the [director_bank1.Custom('agot_bank_name_list')]."
- agot_banking.1001.c:0 "I choose the [director_bank2.Custom('agot_bank_name_list')]."
- agot_banking.1001.d:0 "I choose the [director_bank3.Custom('agot_bank_name_list')]."
+ agot_banking.1001.b:0 "I choose the [director_bank1.Custom('agot_bank_name')]."
+ agot_banking.1001.c:0 "I choose the [director_bank2.Custom('agot_bank_name')]."
+ agot_banking.1001.d:0 "I choose the [director_bank3.Custom('agot_bank_name')]."
  agot_banking.1001.e:0 "I changed my mind."
 
  set_interest_level_decision:0 "Adjust Interest Rates"
@@ -342,7 +342,7 @@
  agot_banking.0208.c:0 "We need to be more profitable."
  agot_banking.0208.c_tt:0 "The annual interest rate is increased by one percent. This will attract fewer customers, while the profits per customer increase."
 
- found_bank_decision:0 "Found a new bank"
+ found_bank_decision:0 "Found a New Bank"
  found_bank_decision_desc:0 "Having accumulated enough wealth and fiscal knowledge, you might want to expand your prosperity by founding a new [agot_bank|E]."
  found_bank_decision_tooltip:0 "A new bank will be established in your capital. You will become the bank's first [agot_bank_director|E], and every character in your realm can invest money in the new bank to become a shareholder."
  found_bank_decision_tooltip_confirm_text_desc:0 "To prosperity!"
@@ -374,11 +374,11 @@
  agot_banking.0604.t:0 "Biggest Debtors of the [ROOT.Char.Custom('agot_bank_name')]"
  agot_banking.0604.desc:0 "These are the biggest debtors of the [ROOT.Char.Custom('agot_bank_name')], ordered descending by owed amount (loaned amount plus interest):"
  agot_banking.0604.a:0 "Thank you."
- 
+
  agot_debtors_list:0 "[Character.GetTitledFirstNamePossessive] total debt: @gold_icon! [Character.MakeScope.Var('total_repayment').GetValue|0]"
 
  agot_shareholder_list:0 "[Character.GetTitledFirstName] has [Character.MakeScope.Var('ShownShares').GetValue] shares"
- 
+
  agot_found_bank_decision_effect_tooltip:0 "A new [agot_bank|E] will be established in your capital. You will become the bank's first [agot_bank_director|E], and every character in your realm can invest money in the new bank to become a shareholder."
 
 
@@ -461,7 +461,34 @@
  bank_name_normal:0 "[ROOT.Var('BankName').Char.GetLocalizedText( 'bank_name' )]"
  bank_name_normal_list:0 "[Character.GetLocalizedText( 'bank_name' )]"
 
-# new stuff
  agot_banking.0700.t:0 "The Bank Was Liquidated"
  agot_banking.0700.desc:0 "Grievous news! The headquarters of our bank is now in the hands of [NewHolder.GetTitledFirstNameNicknamed]. As [NewHolder.GetHerHis] realm already contains another bank, [NewHolder.GetSheHe] decided to liquidate our bank to reduce competition.\n\nAll shareholders will be paid a fraction of the bank's current cash reserve. After that, the bank will cease to exist."
  agot_banking.0700.a:0 "And so this venture comes to an end."
+
+
+# new stuff
+ agot_banking.0701.t:0 "Raiding a Bank?"
+ agot_banking.0701.desc:0 "The smell of cinders and the din of jovial warriors mingle in the air around me. My party has successfully besieged [barony.GetNameNoTierNoTooltip], home to the famous [bank_shareholder.Custom('agot_bank_name')].\n\nBefore us stands an enticing opportunity: surely this bank's vaults contain abundant treasures and unimaginable wealth... And our control of the holding means the bank is defenseless against my troops.\n\nBut such an action would not go unnoticed. The bank would not leave this aggression unanswered..."
+ agot_banking.0701.a:0 "I can't waste this opportunity!"
+ agot_banking.0701.b:0 "The [bank_shareholder.Custom('agot_bank_name')] is not my enemy."
+
+ agot_banking.0702.t:0 "The Bank Was Raided"
+ agot_banking.0702.desc:0 "After the siege of [barony.GetNameNoTierNoTooltip], the attacker [bank_raider.GetTitledFirstNameNicknamed] decided to raid our bank's headquarters and [bank_raider.GetHerHis] troops were able to force their way into some of our vaults. They stole an amount of [bank_raider.MakeScope.Var('raided_gold').GetValue|2|N] gold from our cash reserve.\n\nThe bank must defend itself against this hostile act with all means at its disposal!\n\nWe may inform [bank_raider.GetTitledFirstNameNoTooltip] that [bank_raider.GetHerHis] actions will have dire consequences — and that the stolen money, plus a penalty, must be repaid.\n\nIf [bank_raider.GetSheHe] refuses, we will handle [bank_raider.GetHerHim] like any other defaulter... #bold harshly.#!"
+ agot_banking.0702.a:0 "Send the letter."
+ agot_banking.0702.b:0 "We will take no action..."
+
+ agot_banking.0703.t:0 "[raided_director.Custom2('AppropriateGreetingNegative', bank_raider)]"
+ agot_banking.0703.desc:0 "Your robbery of our bank will not go without consequences. We offer you a one-time opportunity to refund the stolen gold plus a penalty fee. If you refuse, we will be forced to recover the money through other means."
+ agot_banking.0703.a:0 "I will pay what you demand at once."
+ agot_banking.0703.b:0 "I need some time for the repayment."
+ agot_banking.0703.b_tt:0 "The money you stole will be transformed into a loan, to be repaid in 3 years at an interest rate of 5% per year."
+ agot_banking.0703.c:0 "You will see no penny from me!"
+ agot_banking.0703.c_tt:0 "You refuse any payments to the bank, which they will treat as a default..."
+
+ agot_banking.0704.t:0 "The Raider Paid"
+ agot_banking.0704.desc:0 "[bank_raider.GetTitledFirstNameNicknamed] gave in and repaid what was stolen, plus a penalty fee of 10%."
+ agot_banking.0704.a:0 "Smart decision."
+
+ agot_banking.0705.t:0 "The Raider Promised Repayment"
+ agot_banking.0705.desc:0 "[bank_raider.GetTitledFirstNameNicknamed] gave in and promised to repay what was stolen within the next 3 years. We will consider this a loan with a yearly interest rate of 5%."
+ agot_banking.0705.a:0 "Let's hope [bank_raider.GetSheHe] sticks to the agreement."
