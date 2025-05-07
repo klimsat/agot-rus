@@ -2934,7 +2934,7 @@ types CharacterWindow
 			{
 				spacing = 10
 
-				#AGOT Modified
+				#AGOT Disabled
 				# vbox = {
 					# spacing = 10
 
@@ -2961,11 +2961,10 @@ types CharacterWindow
 						# }
 					# }
 				# }
-				agot_expanded_modifiers_vbox = {}
 
-				divider_light = {
-					layoutpolicy_horizontal = expanding
-				}
+				# divider_light = {
+					# layoutpolicy_horizontal = expanding
+				# }
 
 				#AGOT Modified
 				# vbox = {
@@ -3322,142 +3321,144 @@ types CharacterWindow
 			{
 				spacing = 15
 
-				text_label_center = {
-					text = "MODIFIERS"
-				}
+				#AGOT Modified
+				# text_label_center = {
+					# text = "MODIFIERS"
+				# }
 
-				vbox = {
-					layoutpolicy_horizontal = expanding
-					datamodel = "[CharacterWindow.GetTimedModifiers]"
-					spacing = 2
+				# vbox = {
+					# layoutpolicy_horizontal = expanding
+					# datamodel = "[CharacterWindow.GetTimedModifiers]"
+					# spacing = 2
 
-					item = {
-						vbox = {
-							layoutpolicy_horizontal = expanding
+					# item = {
+						# vbox = {
+							# layoutpolicy_horizontal = expanding
 
-							hbox = {
-								layoutpolicy_horizontal = expanding
+							# hbox = {
+								# layoutpolicy_horizontal = expanding
 
-								hbox = {
-									margin_right = 10
-									margin_top = 8
-									margin_left = -4
+								# hbox = {
+									# margin_right = 10
+									# margin_top = 8
+									# margin_left = -4
 
-									icon = {
-										size = { 32 32 }
-										texture = "[ModifierItem.GetIcon]"
-									}
-								}
+									# icon = {
+										# size = { 32 32 }
+										# texture = "[ModifierItem.GetIcon]"
+									# }
+								# }
 
-								text_single = {
-									layoutpolicy_horizontal = expanding
-									text = "[ModifierItem.GetStaticModifier.GetName]"
-								}
-							}
+								# text_single = {
+									# layoutpolicy_horizontal = expanding
+									# text = "[ModifierItem.GetStaticModifier.GetName]"
+								# }
+							# }
 
-							textbox = {
-								layoutpolicy_horizontal = expanding
-								visible = "[ModifierItem.HasTooltipDataByTag('single_modifier')]"
-								datacontext = "[ModifierItem.GetSingleModifierTooltipData]"
-								max_width = 500
-								using = DefaultTooltipText
-								multiline = yes
-								text = "[TimedModifierSingleItem.GetDesc]"
-								alwaystransparent = no
-							}
+							# textbox = {
+								# layoutpolicy_horizontal = expanding
+								# visible = "[ModifierItem.HasTooltipDataByTag('single_modifier')]"
+								# datacontext = "[ModifierItem.GetSingleModifierTooltipData]"
+								# max_width = 500
+								# using = DefaultTooltipText
+								# multiline = yes
+								# text = "[TimedModifierSingleItem.GetDesc]"
+								# alwaystransparent = no
+							# }
 
-							vbox = {
-								visible = "[ModifierItem.HasTooltipDataByTag('preview_list')]"
-								datacontext = "[ModifierItem.GetPreviewList]"
-								layoutpolicy_horizontal = expanding
+							# vbox = {
+								# visible = "[ModifierItem.HasTooltipDataByTag('preview_list')]"
+								# datacontext = "[ModifierItem.GetPreviewList]"
+								# layoutpolicy_horizontal = expanding
 
-								textbox = {
-									layoutpolicy_horizontal = expanding
-									max_width = 500
-									using = DefaultTooltipText
-									multiline = yes
-									text = "[TimedModifierPreviewList.GetScaledDesc]"
-									alwaystransparent = no
-								}
+								# textbox = {
+									# layoutpolicy_horizontal = expanding
+									# max_width = 500
+									# using = DefaultTooltipText
+									# multiline = yes
+									# text = "[TimedModifierPreviewList.GetScaledDesc]"
+									# alwaystransparent = no
+								# }
 
-								vbox = {
-									datamodel = "[TimedModifierPreviewList.GetItems]"
-									layoutpolicy_horizontal = expanding
-									max_width = 500
+								# vbox = {
+									# datamodel = "[TimedModifierPreviewList.GetItems]"
+									# layoutpolicy_horizontal = expanding
+									# max_width = 500
 
-									item = {
-										vbox = {
-											layoutpolicy_horizontal = expanding
+									# item = {
+										# vbox = {
+											# layoutpolicy_horizontal = expanding
 
-											text_single = {
-												layoutpolicy_horizontal = expanding
-												text = "[TimedModifierPreviewItem.GetTitle]"
-											}
+											# text_single = {
+												# layoutpolicy_horizontal = expanding
+												# text = "[TimedModifierPreviewItem.GetTitle]"
+											# }
 
-											text_single = {
-												layoutpolicy_horizontal = expanding
-												text = "[TimedModifierPreviewItem.GetExpirationDate]"
-											}
+											# text_single = {
+												# layoutpolicy_horizontal = expanding
+												# text = "[TimedModifierPreviewItem.GetExpirationDate]"
+											# }
 
-											expand = {}
-										}
-									}
-								}
-							}
+											# expand = {}
+										# }
+									# }
+								# }
+							# }
 
-							vbox = {
-								layoutpolicy_horizontal = expanding
-								visible = "[ModifierItem.HasTooltipDataByTag('scaled_single_modifier')]"
-								datacontext = "[ModifierItem.GetScaledSingleModifierTooltipData]"
+							# vbox = {
+								# layoutpolicy_horizontal = expanding
+								# visible = "[ModifierItem.HasTooltipDataByTag('scaled_single_modifier')]"
+								# datacontext = "[ModifierItem.GetScaledSingleModifierTooltipData]"
 
-								textbox = {
-									layoutpolicy_horizontal = expanding
-									max_width = 500
-									using = DefaultTooltipText
-									multiline = yes
-									text = "[TimedModifierScaledSingleItem.GetDesc]"
-									alwaystransparent = no
-								}
+								# textbox = {
+									# layoutpolicy_horizontal = expanding
+									# max_width = 500
+									# using = DefaultTooltipText
+									# multiline = yes
+									# text = "[TimedModifierScaledSingleItem.GetDesc]"
+									# alwaystransparent = no
+								# }
 
-								vbox = {
-									layoutpolicy_horizontal = expanding
-									datamodel = "[TimedModifierScaledSingleItem.GetEffectItems]"
+								# vbox = {
+									# layoutpolicy_horizontal = expanding
+									# datamodel = "[TimedModifierScaledSingleItem.GetEffectItems]"
 
-									item = {
-										textbox = {
-											layoutpolicy_horizontal = expanding
-											max_width = 500
-											margin_top = 5
-											margin_left = 10
-											margin_right = 5
-											margin_bottom = 10
-											using = DefaultTooltipText
-											using = Background_Area
-											text = "[CString.GetString]"
-											alwaystransparent = no
-										}
-									}
-								}
+									# item = {
+										# textbox = {
+											# layoutpolicy_horizontal = expanding
+											# max_width = 500
+											# margin_top = 5
+											# margin_left = 10
+											# margin_right = 5
+											# margin_bottom = 10
+											# using = DefaultTooltipText
+											# using = Background_Area
+											# text = "[CString.GetString]"
+											# alwaystransparent = no
+										# }
+									# }
+								# }
 
-								text_single = {
-									layoutpolicy_horizontal = growing
-									max_width = 500
-									text = "[TimedModifierScaledSingleItem.GetExpirationDate]"
-								}
-							}
+								# text_single = {
+									# layoutpolicy_horizontal = growing
+									# max_width = 500
+									# text = "[TimedModifierScaledSingleItem.GetExpirationDate]"
+								# }
+							# }
 
-							spacer = {
-								size = { 2 10 }
-							}
+							# spacer = {
+								# size = { 2 10 }
+							# }
 
-							divider_light = {
-								layoutpolicy_horizontal = expanding
-								# Don't show divider after the last item in the datamodel
-								visible = "[Not( EqualTo_int32( PdxGuiWidget.GetIndexInDataModel, Subtract_int32( GetDataModelSize( CharacterWindow.GetTimedModifiers ), '(int32)1' ) ) )]"
-							}
-						}
-					}
-				}
+							# divider_light = {
+								# layoutpolicy_horizontal = expanding
+								# # Don't show divider after the last item in the datamodel
+								# visible = "[Not( EqualTo_int32( PdxGuiWidget.GetIndexInDataModel, Subtract_int32( GetDataModelSize( CharacterWindow.GetTimedModifiers ), '(int32)1' ) ) )]"
+							# }
+						# }
+					# }
+				# }
+				agot_expanded_modifiers_vbox = {}
 			}
 		}
 	}
