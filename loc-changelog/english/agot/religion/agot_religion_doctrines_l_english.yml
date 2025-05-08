@@ -285,6 +285,7 @@
  tenet_weirwoods_desc:0 "When the Pact was signed between the Children of the Forest and the First Men, the men gave up their own god for the Old Gods. In doing so they created Godswoods, groves in which they can worship and commune with the Old Gods. The center of every Godswood is the Heart Tree, for those who follow the Old Gods a Weirwood with a carved face, for others often another type of tree, and it is from the Heart Tree that the gods listen and see the world."
  doctrine_parameter_can_visit_weirwood_groves:0 "[rulers|E] with this tenet can [decide|E] to visit a Weirwood Grove or Godswood where they can experience a variety of events."
  doctrine_parameter_can_build_weirwood_groves:0 "The #V Godswood#! line of [buildings|E] can be built"
+ tenet_the_pact_exclusive_trigger:0 "Such ways are known only to [GetReligionByKey('the_pact_religion').GetName]."
 
  tenet_god_kings_name:0 "God Kings"
  tenet_god_kings_desc:0 "Who can doubt the gods, especially when one walks among us? Not all the divine forswear wearing mortal flesh, and those of this faith are fortunate enough to be led by such a being."
@@ -298,6 +299,8 @@
  tenet_always_winter_name:0 "Lands of Always Winter"
  tenet_always_winter_desc:0 "The cold winds blow across these lands; summer itself has fled from winter and those who bring it. And, the men, if they can be called men, who heed the frozen call welcome all it brings."
  doctrine_parameter_always_winter:0 "All lands in the [realm|E] experience winter all year long."
+ tenet_the_others_exclusive_trigger:0 "Such ways are known only to [GetReligionByKey('the_others_religion').GetName]."
+
 
  tenet_ever_growing_armies_name:0 "Ever Growing Armies"
  tenet_ever_growing_armies_desc:0 "The armies of the Others are the dead themselves. For wights need no rest, no food, no shelter and are replenished by the enemy themselves. What force could stand against such?"
@@ -328,6 +331,7 @@
 
  tenet_the_old_way_name:0 "The Old Way"
  tenet_the_old_way_desc:0 "The Grey King, most blessed in the eyes of the Drowned God, laid out the proper ways for a man to make their way in the world. Some now follow the new ways of the new gods, but it is only from the Old Ways that the true faithful will prosper."
+ tenet_the_ways_exclusive_trigger:0 "Such acts are only practiced by those who follow [GetReligionByKey('the_ways_religion').GetName]."
  doctrine_parameter_cannot_purchase_artifacts:0 "Adherents cannot purchase or commission [artifacts|E]"
  cannot_purchase_artifacts_name:0 "Faith prevents the purchase or commission of [artifacts|E]"
  doctrine_parameter_more_likely_to_take_artifacts:0 "Adherents are more likely to steal [artifacts|E]"
@@ -339,6 +343,7 @@
  tenet_black_barked_trees_name:0 "Black Barked Trees"
  tenet_black_barked_trees_desc:0 "From the heat of the Red Wastes comes the Shade of the Evening, harvested from the Black-Barked Trees, with their leaves of blue, the drink is used by the Warlocks of Qarth and other esoterics of the east."
  doctrine_parameter_can_use_shade_of_the_evening:0 "Can use Shade of the Evening"
+ incompatible_tenet_the_pact_trigger:0 "Incompatible with the [core_tenets|E] [GetFaithDoctrine('tenet_weirwoods').GetName( GetPlayer.GetFaith )] or [GetFaithDoctrine('tenet_greensight').GetName( GetPlayer.GetFaith )]"
 
  tenet_heart_of_fire_name:0 "Heart of Fire"
  tenet_heart_of_fire_desc:0 "Through blessed fire, in a language of ash and cinder and twisting flame R'hllor speaks to the faithful."
@@ -353,6 +358,7 @@
  tenet_healing_flames_name:0 "Healing Flames"
  tenet_healing_flames_desc:0 "Life is warmth, and warmth is fire. It is only through the flames of R'hllor that life can truly exist."
  doctrine_parameter_can_heal_via_flames:0 "Allows adherents to approach a priest for healing fires"
+ tenet_rhllor_exclusive_trigger:0 "Such ways are known only to [GetReligionByKey('the_rhllor_religion').GetName]."
 
  tenet_life_givers_life_takers_name:0 "Life Givers, Life Takers"
  tenet_life_givers_life_takers_desc:0 "The taking of a life, be it in war or judgment, is a serious thing, for who knows what may come from that action? The only ones who can understand it are those that give life, and thus it is to women that the burden falls."
@@ -376,9 +382,11 @@
  tenet_chains_and_whips_desc:0 "Greatness, be it man or empire, is built with brick and blood. Through the bondage, by chain and whip, can a truly prosperous kingdom be built."
  doctrine_parameter_can_build_slave_duchy_buildings:0 "Adherents can build slave duchy buildings"
  can_build_slave_duchy_buildings_name:0 "Can Build Slave Duchy Buildings"
+ tenet_not_seven_or_pact_exclusive_trigger:0 "Can not be a member of either [GetReligionByKey('the_pact_religion').GetName] or [GetReligionByKey('the_seven_religion').GetName]."
 
  tenet_many_faces_name:0 "Many Faces"
  tenet_many_faces_desc:0 "The great lie that divides men is that their gods are different, and not simply the many faces of the one god, and that he changes faces as easily as his faithful."
+ tenet_many_faces_exclusive_trigger:0 "Such secrets are known only to the [GetFaithByKey('fc_pan_faceless').GetName]."
  doctrine_parameter_can_take_new_face:0 "Adherents can take #V Take New Face#! [decision|E]"
 
  tenet_shield_of_the_seas_name:0 "Shield of the Seas"
@@ -393,7 +401,7 @@
 
  tenet_blood_magic_steel_name:0 "Blood, Magic, and Steel"
  tenet_blood_magic_steel_desc:0 "The Freehold of old worked many wonders. How they did so was largely lost to the Doom, but through magic and blood some of their secrets are preserved."
- tenet_blood_magic_steel_exclusive_trigger:0 "Such secrets are known only to the [GetFaithByKey('valyrian_pan_freehold').GetName] and [GetFaithByKey('fc_pan_blackgoat').GetName]"
+ tenet_blood_magic_steel_exclusive_trigger:0 "Such secrets are known only to [GetFaithByKey('valyrian_pan_freehold').GetName] and [GetFaithByKey('fc_pan_blackgoat').GetName]"
  doctrine_parameter_execute_prisoner_to_improve_artifact:0 "Adherents can execute [prisoners|E] to improve [artifacts|E]"
  doctrine_parameter_reforge_valyrian_steel:0 "Adherents can reforge Valyrian Steel [artifacts|E]"
 
@@ -437,6 +445,7 @@
  tenet_blasphemous_sacrifice_name:0 "Blasphemous Sacrifice"
  tenet_blasphemous_sacrifice_desc:0 "It is only through what others see as dark and blasphemous can we truly understand a please the divine, by taking humanity to the extreme do we advance."
  doctrine_parameter_can_sacrifice_dark_ritual:0 "Adherents can sacrifice prisoners in dark rituals"
+ tenet_dark_gods_exclusive_trigger:0 "Must worship the Dark Gods of the Depths."
 
  tenet_blood_is_the_life_name:0 "Blood is the Life"
  tenet_blood_is_the_life_desc:0 "Only through blood, the sacred liquid of life, can power truly be grasped."
