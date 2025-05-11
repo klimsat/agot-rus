@@ -285,6 +285,7 @@
  tenet_weirwoods_desc:0 "Когда между Детьми Леса и Первыми людьми был заключён Договор, люди отказались от своего бога в пользу Старых богов. Для этого они создали богорощи - рощи, в которых они могут поклоняться и общаться со Старыми богами. В центре каждого божьего леса стоит сердце-древо, для тех, кто поклоняется Старым богам, - чардрево с вырезанным ликом, для других - часто другой вид дерева, и именно через сердцо-древо боги слушают и видят мир."
  doctrine_parameter_can_visit_weirwood_groves:0 "[Concept('rulers', 'Правители')|E] с этим догматом могут [Concept('decide', 'решить')|E] посетить богорощи, где они могут принять участие в различных мероприятиях."
  doctrine_parameter_can_build_weirwood_groves:0 "Позволяет строить линейку [Concept('buildings', 'зданий')|E] #V богорощ#!"
+ tenet_the_pact_exclusive_trigger:0 "Такие пути известны только #L [GetReligionByKey('the_pact_religion').GetName|l]им#! последователям."
 
  tenet_god_kings_name:0 "Короли-боги"
  tenet_god_kings_desc:0 "Кто может сомневаться в богах, особенно когда один из них ходит среди нас? Не все божественные сущности отказываются от смертной плоти, и тем, кто исповедует эту конфессию, повезло, что их возглавляет такое существо."
@@ -298,6 +299,8 @@
  tenet_always_winter_name:0 "Земли Вечной зимы"
  tenet_always_winter_desc:0 "Холодные ветры дуют по этим землям; само лето бежит от зимы и тех, кто её приносит. И люди, если их можно назвать людьми, внявшие холодному зову, рады всему, что он приносит."
  doctrine_parameter_always_winter:0 "Во всех землях [Concept('realm', 'державы')|E] зима длится круглый год."
+ tenet_the_others_exclusive_trigger:0 "Такие пути известны только #L [GetReligionByKey('the_others_religion').GetName|l]им#! последователям."
+
 
  tenet_ever_growing_armies_name:0 "Постоянно растущее войско"
  tenet_ever_growing_armies_desc:0 "Войска Иных - это сами мертвецы. Ведь упыри не нуждаются ни в отдыхе, ни в пище, ни в укрытии и пополняются за счет самих врагов. Какая сила может противостоять им?"
@@ -328,6 +331,7 @@
 
  tenet_the_old_way_name:0 "Старый закон"
  tenet_the_old_way_desc:0 "Серый король, наиболее благословенный в глазах Утонувшего бога, изложил правильные пути, по которым человек может проложить себе дорогу в этом мире. Ныне многие следуют новым законам новых богов, но только Старый закон приведёт истинно верующих к процветанию."
+ tenet_the_ways_exclusive_trigger:0 "Такие обычаи практикуют только #L [GetReligionByKey('the_ways_religion').GetName|l]ие#! последователи."
  doctrine_parameter_cannot_purchase_artifacts:0 "Приверженцы не могут покупать или заказывать [Concept('artifacts', 'артефакты')|E]"
  cannot_purchase_artifacts_name:0 "Конфессия препятствует покупке или заказу [Concept('artifacts', 'артефактов')|E]"
  doctrine_parameter_more_likely_to_take_artifacts:0 "Приверженцы чаще крадут [Concept('artifacts', 'артефакты')|E]"
@@ -339,6 +343,7 @@
  tenet_black_barked_trees_name:0 "Черноствольные деревья"
  tenet_black_barked_trees_desc:0 "Из знойных Красных пустошей приходит вечерняя тень, собранная с черноствольных деревьев с синими листьями. Этот напиток употребляют чернокнижники Кварта и другие эзотерики востока."
  doctrine_parameter_can_use_shade_of_the_evening:0 "Позволяет употреблять вечернюю тень"
+ incompatible_tenet_the_pact_trigger:0 "Несовместимо с [Concept('core_tenets', 'догматами')|E] «[GetFaithDoctrine('tenet_weirwoods').GetName( GetPlayer.GetFaith )]» или «[GetFaithDoctrine('tenet_greensight').GetName( GetPlayer.GetFaith )]»"
 
  tenet_heart_of_fire_name:0 "Пламенное сердце"
  tenet_heart_of_fire_desc:0 "Через благословенный огонь, на языке пепла, золы и извивающегося пламени Рглор обращается к верующим."
@@ -353,6 +358,7 @@
  tenet_healing_flames_name:0 "Исцеляющее пламя"
  tenet_healing_flames_desc:0 "Жизнь - это тепло, а тепло - это огонь. Только в пламени Рглора жизнь может существовать по-настоящему."
  doctrine_parameter_can_heal_via_flames:0 "Позволяет приверженцам обращаться к жрецам за исцеляющим пламенем"
+ tenet_rhllor_exclusive_trigger:0 "Такие пути известны только #L [GetReligionByKey('the_rhllor_religion').GetName|l]им#! последователям."
 
  tenet_life_givers_life_takers_name:0 "Даруя и отнимая жизнь"
  tenet_life_givers_life_takers_desc:0 "Лишение жизни, будь то на войне или после вынесения приговора, - дело серьезное, ведь кто знает, что может произойти в результате этого поступка? Единственные, кто может понять это, - те, кто даёт жизнь, и поэтому именно на женщин ложится это бремя."
@@ -376,9 +382,11 @@
  tenet_chains_and_whips_desc:0 "Величие, будь то человек или империя, строится из кирпича и крови. Через рабство, через цепи и кнуты можно построить по-настоящему процветающее королевство."
  doctrine_parameter_can_build_slave_duchy_buildings:0 "Приверженцы могут строить герцогские постройки, специализирующиеся на рабстве"
  can_build_slave_duchy_buildings_name:0 "Позволяет строить герцогские постройки, специализирующиеся на рабстве"
+ tenet_not_seven_or_pact_exclusive_trigger:0 "Несовместимо с #L [GetReligionByKey('the_pact_religion').GetName|l]ими#! или #L [GetReligionByKey('the_seven_religion').GetName|l]ими#! обычаями."
 
  tenet_many_faces_name:0 "Множество ликов"
  tenet_many_faces_desc:0 "Великая ложь, разделяющая людей, заключается в том, что их боги разные, а не просто многоликий единый бог, и что он меняет лица так же легко, как и своих последователей."
+ tenet_many_faces_exclusive_trigger:0 "Такие тайны известны только #L [GetFaithByKey('fc_pan_faceless').GetName|l]им#! последователям."
  doctrine_parameter_can_take_new_face:0 "Приверженцам доступно [Concept('decision', 'решение')|E] #V Принять новый лик#!"
 
  tenet_shield_of_the_seas_name:0 "Щит морей"
@@ -437,6 +445,7 @@
  tenet_blasphemous_sacrifice_name:0 "Богохульное жертвоприношение"
  tenet_blasphemous_sacrifice_desc:0 "Только через то, что другие считают мрачным и кощунственным, мы можем по-настоящему понять божественное, доведя человечность до крайности, мы продвигаемся вперед."
  doctrine_parameter_can_sacrifice_dark_ritual:0 "Приверженцы могут приносить в жертву пленников в ходе тёмных ритуалов"
+ tenet_dark_gods_exclusive_trigger:0 "Необходимо почитать Тёмных богов глубин."
 
  tenet_blood_is_the_life_name:0 "Кровь - это жизнь"
  tenet_blood_is_the_life_desc:0 "Только через кровь, священную живицу, можно по-настоящему постичь силу."
