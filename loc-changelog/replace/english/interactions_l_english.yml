@@ -830,6 +830,8 @@
  offer_vassalization_interaction_aibehavior_best_friend_tt:1 "[recipient.GetSheHe|U] is your [best_friend|E]: $VALUE|=+0$"
  offer_vassalization_interaction_aibehavior_rival_tt:1 "[recipient.GetSheHe|U] is your [rival|E]: $VALUE|=+0$"
  offer_vassalization_interaction_aibehavior_nemesis_tt:1 "[recipient.GetSheHe|U] is your [nemesis|E]: $VALUE|=+0$"
+ offer_vassalization_interaction_aibehavior_rival_confederation_tt: "Rivalry with a [confederate|E]: $VALUE|=+0$"
+ offer_vassalization_interaction_aibehavior_nemesis_confederation_tt: "Nemesis is a [confederate|E]: $VALUE|=+0$"
  offer_vassalization_interaction_aibehavior_dynasty_tt:0 "[recipient.GetSheHe|U] belongs to your [dynasty|E]: $VALUE|=+0$"
  offer_vassalization_interaction_aibehavior_child_tt:1 "You are just a child: $VALUE|=+0$"
  offer_vassalization_interaction_aibehavior_illegitimate_tt:0 "Your claim is illegitimate: $VALUE|=+0$"
@@ -1505,6 +1507,16 @@
  literalist_debate_timing:1 "You have not taken part in a debate recently"
  not_literalist_debate_timing:0 "You have taken part in a debate recently"
 
+ #Exaltation of Pain
+ revel_in_pain_interaction: "Revel in Carnal Pain"
+ revel_in_pain_interaction_desc: "You and [recipient.GetShortUIName] attempt to reach transcendence by adhering to the [GetFaithDoctrine('tenet_exaltation_of_pain').GetBaseName]"
+ REVEL_IN_PAIN_INTERACTION_NOTIFICATION: "The time has come. Let us embrace the [GetFaithDoctrine('tenet_exaltation_of_pain').GetBaseName] and reach higher levels of transcendence together."
+
+ recipient_involved_in_revel_in_pain_recently_tt: "[recipient.GetShortUIName|U] has adhered to the [GetFaithDoctrine('tenet_exaltation_of_pain').GetBaseName] recently"
+ recipient_is_severely_injured_tt: "[recipient.GetShortUIName|U] [CharAreIs(recipient)] $trait_wounded_2$"
+ actor_is_severely_injured_tt: "[actor.GetShortUIName|U] [CharAreIs(actor)] $trait_wounded_2$"
+ recipient_not_in_the_same_location_tt: "[actor.GetShortUIName|U] are not in the same location as [recipient.GetShortUIName]"
+
  # Mongol interactions
  mongol_demand_subjugation_interaction:0 "Demand Subjugation"
  mongol_demand_subjugation_interaction_desc:0 "Demand that [recipient.GetShortUINameNoTooltip] becomes your [vassal|E], under threat of [war|E]"
@@ -1846,9 +1858,12 @@
  char_interaction.0363.desc: "[recipient.GetPrimaryTitle.GetName|U] will never bend to your tyranny."
  char_interaction.0363.a: "A #EMP costly#! mistake."
 
+ char_interaction.0370.opening.herder: "[recipient.Custom2('AppropriateGreetingPositive', actor )]"
  char_interaction.0370.opening: "[actor.Custom2('AppropriateGreetingNegative', recipient )]"
  char_interaction.0370.desc: "I have decided that paying tribute to you is no longer in my best interest."
+ char_interaction.0370.desc.herder: "You have moved far from where I last found you, and I'm not able to keep paying you tribute."
  char_interaction.0370.a: "May [actor.GetShortUINameNoTooltip] find no succor when fortune fails."
+ char_interaction.0370.a.herder: "I should have kept my realm together."
  char_interaction.0370.b: "Then we will have to #EMP make#! [actor.GetShortUINameNoTooltip] pay!"
 
  char_interaction.0380.opening: "[actor.Custom2('AppropriateGreetingNegative', recipient )]"
@@ -2032,6 +2047,8 @@
  ALLY_MILITARY_POWER_REASON: "Military Power including Allies: $VALUE|0+=$"
  DIPLOMACY_NOT_A_THREAT_REASON: "Not considered threatening: $VALUE|0+=$"
  DIPLOMACY_FRIEND_REASON: "Friendly diplomatic stance: $VALUE|0+=$"
+ 
+ REFILL_MAA_AT_WAR_TT: "You are in hostile territory"
 
  nomad_title_name_001: "$nomad_title_name$"
  mpo_vassal_to_tributary_interaction_extra_icon: "$hook_extra_icon$"

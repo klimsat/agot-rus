@@ -1274,7 +1274,8 @@
  game_concept_culture_intermingling_desc:1 "The more of two [cultures|E] that coexist in the same [realm|E], the more intermingling will happen and the Cultures will increase their [cultural_acceptance|E]."
  game_concept_cultural_head:0 "Cultural Head"
  game_concept_culture_head:1 "Culture Head"
- game_concept_culture_head_desc:3 "A '$game_concept_culture_head$' is the [ruler|E] who has the most influence over their own [culture|E].\n\nSpecifically, the ruler with largest total number of same-culture [counties|E] within their [realm|E] will become the $game_concept_cultural_head$, regardless of where their [domain|E] is or what other-culture Counties they may possess.\n\nThe $game_concept_cultural_head$ can influence which [innovation|E] should be prioritized for discovery by setting the [cultural_fascination|E].\n\n[SelectLocalization( HasDlcFeature( 'reform_culture' ), 'game_concept_culture_head_desc_REFORM_DLC', 'game_concept_culture_head_desc_NO_REFORM_DLC' )]"
+ game_concept_culture_head_desc:3 "A '$game_concept_culture_head$' is the [ruler|E] who has the most influence over their own [culture|E].\n\nSpecifically, the ruler with largest total number of same-culture [counties|E] within their [realm|E] will become the $game_concept_cultural_head$, regardless of where their [domain|E] is or what other-culture Counties they may possess.[AddLocalizationIf( HasDlcFeature( 'khans_of_the_steppe' ), 'game_concept_culture_head_desc_NOMAD_DLC', )]\n\nThe $game_concept_cultural_head$ can influence which [innovation|E] should be prioritized for discovery by setting the [cultural_fascination|E].\n\n[SelectLocalization( HasDlcFeature( 'reform_culture' ), 'game_concept_culture_head_desc_REFORM_DLC', 'game_concept_culture_head_desc_NO_REFORM_DLC' )]"
+ game_concept_culture_head_desc_NOMAD_DLC: "\n\n[nomadic|E] [rulers|E], however, will choose their $game_concept_cultural_head$ based on who has the largest [herd|E], regardless of rank. In case of settled rulers being part of the same [culture|E] as nomads, the [military_power|E] will be the deciding factor instead."
  game_concept_culture_head_desc_REFORM_DLC:0 "The $game_concept_culture_head$ can also [reform|E] parts of their Culture."
  game_concept_culture_head_desc_NO_REFORM_DLC:0 "The $game_concept_culture_head$ can also establish new [traditions|E] for their Culture."
  game_concept_county_opinion:0 "Popular Opinion"
@@ -1330,7 +1331,7 @@
  game_concept_embarking_desc:1 "An [army|E] will automatically $game_concept_embark$ onto a [fleet|E] when given a move order into a Sea Zone, or when there is no land path to the targeted [barony|E].\n\n$game_concept_embarking$ costs a sum of [gold|E], symbolizing the procurement and construction of ships. For every #V 100#! men Embarking, a cost of #V [GetDefine('NFleet', 'EMBARK_GOLD_COST_PER_HUNDRED')|0]#! [gold_i] is paid."
  game_concept_era:0 "Era"
  game_concept_eras:0 "Eras"
- game_concept_era_desc:1 "[innovations|E] can only be discovered if the [culture|E] has reached the requisite Era. The next Era can only start past a certain year, and if at least #V 50%#! of the Innovations of the previous Era have been discovered.\n\nRulers with [tribal_government|E] can only make use of Tribal Era Innovations."
+ game_concept_era_desc:1 "[innovations|E] can only be discovered if the [culture|E] has reached the requisite Era. The next Era can only start past a certain year, and if at least #V 50%#! of the Innovations of the previous Era have been discovered.\n\nRulers with [tribal_government|E] and [nomadic_government|E] can only make use of Tribal Era Innovations."
  game_concept_innovation:0 "Innovation"
  game_concept_innovations:0 "Innovations"
  game_concept_innovation_desc:0 "Innovations are technologies and other advances that benefit all characters of a certain [culture|E]. Innovations are grouped into the [eras|E] when they can be discovered.\n\nThrough contact with neighboring Cultures, each Culture is always [exposed|E] to one specific Innovation which will be discovered much quicker.\n\nIn addition, the [culture_head|E] can set another (or the same) Innovation as the [cultural_fascination|E] for an additional boost."
@@ -2630,3 +2631,8 @@
 
  game_concept_master_terrain: "Master Terrain"
  game_concept_master_terrain_desc: "A [decision|E] unlocked from the [wanderer_lifestyle|E] tree, where you can choose a [terrain|E] to specialize in, based on the group one chose in [designated_terrain|E].\n\nThis decision will give significant boons for the terrain chosen, giving bonuses such as increased [advantage|E], improved [combat_roll|E], reducing [attrition|E], and increased [prestige|E] and [prestige_experience|E] from [battle|E]."
+ 
+ game_concept_story_content_temujin: "$game_concept_story_generic_prefix$ $bookmark_nomads_temujin$"
+ game_concept_story_content_temujin_desc: "#tooltip_heading Story Style: Light#!\n\nAs Temüjin you will seak vengeance against a rival tribe that had imprisoned your spouse, and test the loyalty of your closest vassal and friend — Jamukha.\n\n$game_concept_story_generic_desc_boilerplate$"
+ game_concept_story_content_jamukha: "$game_concept_story_generic_prefix$ $bookmark_nomads_temujin$"
+ game_concept_story_content_jamukha_desc: "#tooltip_heading Story Style: Light#!\n\nAs Jamukha you have always lived under the long shadow of Temüjin, but it is time to prove your own might. Will you remain loyal to him, or will you slit his throat in the dark?\n\n$game_concept_story_generic_desc_boilerplate$"

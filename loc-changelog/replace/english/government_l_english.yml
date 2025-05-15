@@ -262,8 +262,12 @@
 
  SUPPLY_MULT_DIFERENT_GOVERNMENT:0 "[GOVERNMENT_TYPE.GetAdjective] Lands"
  
- CONTRACT_LIEGE_SIGNATURE:0 "The Liege,\n[SubjectContract.GetLiege.GetTitledFirstNameNoTooltip]\nof House [SubjectContract.GetLiege.GetHouse.GetBaseNameNoTooltip]"
- CONTRACT_VASSAL_SIGNATURE:0 "The Vassal,\n[SubjectContract.GetSubject.GetTitledFirstNameNoTooltip]\nof House [SubjectContract.GetSubject.GetHouse.GetBaseNameNoTooltip]"
+ CONTRACT_LIEGE_SIGNATURE:0 "The [SelectLocalization( SubjectContract.IsTributary, 'CONTRACT_LIEGE_SIGNATURE_SUZERAIN_TYPE', 'CONTRACT_LIEGE_SIGNATURE_LIEGE_TYPE' )],\n[SubjectContract.GetLiege.GetTitledFirstNameNoTooltip]\nof House [SubjectContract.GetLiege.GetHouse.GetBaseNameNoTooltip]"
+ CONTRACT_LIEGE_SIGNATURE_LIEGE_TYPE: "Liege"
+ CONTRACT_LIEGE_SIGNATURE_SUZERAIN_TYPE: "Suzerain"
+ CONTRACT_VASSAL_SIGNATURE:0 "The [SelectLocalization( SubjectContract.IsTributary, 'CONTRACT_VASSAL_SIGNATURE_TRIBUTARY_TYPE', 'CONTRACT_VASSAL_SIGNATURE_VASSAL_TYPE' )],\n[SubjectContract.GetSubject.GetTitledFirstNameNoTooltip]\nof House [SubjectContract.GetSubject.GetHouse.GetBaseNameNoTooltip]"
+ CONTRACT_VASSAL_SIGNATURE_VASSAL_TYPE: "Vassal"
+ CONTRACT_VASSAL_SIGNATURE_TRIBUTARY_TYPE: "Tributary"
 
  marriage_favor_rights:0 "Marriage Favor"
  marriage_favor_rights_default:0 "Default $marriage_favor_rights$"

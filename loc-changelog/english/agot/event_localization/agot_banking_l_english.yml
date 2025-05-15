@@ -137,7 +137,7 @@
  agot_banking.0203.c:0 "Not now, I've changed my mind."
 
  agot_banking.0204.t:0 "Selling a Share of the Bank"
- agot_banking.0204.desc:0 "I am unhappy with how much money I have tied up in the [ROOT.Char.Custom('agot_bank_name')] for the few petty coins they send me every few years! It would be better if I sold one of my shares and retrieved my gold while I still can, lest the value of the share collapses.\n\nI may sell a share in the Bank of [ROOT.Char.GetTopLiege.GetPrimaryTitle.GetNameNoTierNoTooltip] and receive its current value, equal to @gold_icon! [ROOT.Var('ShareSellingPrice').GetValue|2|N]."
+ agot_banking.0204.desc:0 "I am unhappy with how much money I have tied up in the [ROOT.Char.Custom('agot_bank_name')] for the few petty coins they send me every few years! It would be better if I sold one of my shares and retrieved my gold while I still can, lest the value of the share collapses.\n\nI may sell a share in the [ROOT.Char.Custom('agot_bank_name')] and receive its current value, equal to @gold_icon! [ROOT.Var('ShareSellingPrice').GetValue|2|N]."
  agot_banking.0204.a:0 "This is acceptable."
  agot_banking.0204.b:0 "Actually, I will keep my share."
 
@@ -256,9 +256,9 @@
 
  buy_shares_decision:0 "Invest in Bank"
  buy_shares_decision_shareholder_IB_desc:0 "The Iron Bank of Braavos is currently accepting investments. You may invest in the bank to acquire an additional share. Owning more shares will increase the [Concept('agot_bank_dividend_level','dividend') |E] you receive based on the [agot_bank_profits|E] of the bank.\n\nYou currently hold [ROOT.Var('IB_Shares').GetValue] shares in the Iron Bank of Braavos."
- buy_shares_decision_shareholder_bank1_desc:0 "The [ROOT.Char.Custom('agot_bank_name')] is currently accepting investments. You may invest in the bank to acquire an additional share. Owning more shares will increase the [Concept('agot_bank_dividend_level','dividend') |E] you receive based on the [agot_bank_profits|E] of the bank.\n\nYou currently hold [ROOT.Var('bank1_Shares').GetValue] shares in the Bank of [ROOT.Char.GetTopLiege.GetPrimaryTitle.GetNameNoTierNoTooltip]."
- buy_shares_decision_shareholder_bank2_desc:0 "The [ROOT.Char.Custom('agot_bank_name')] is currently accepting investments. You may invest in the bank to acquire an additional share. Owning more shares will increase the [Concept('agot_bank_dividend_level','dividend') |E] you receive based on the [agot_bank_profits|E] of the bank.\n\nYou currently hold [ROOT.Var('bank2_Shares').GetValue] shares in the Bank of [ROOT.Char.GetTopLiege.GetPrimaryTitle.GetNameNoTierNoTooltip]."
- buy_shares_decision_shareholder_bank3_desc:0 "The [ROOT.Char.Custom('agot_bank_name')] is currently accepting investments. You may invest in the bank to acquire an additional share. Owning more shares will increase the [Concept('agot_bank_dividend_level','dividend') |E] you receive based on the [agot_bank_profits|E] of the bank.\n\nYou currently hold [ROOT.Var('bank3_Shares').GetValue] shares in the Bank of [ROOT.Char.GetTopLiege.GetPrimaryTitle.GetNameNoTierNoTooltip]."
+ buy_shares_decision_shareholder_bank1_desc:0 "The [ROOT.Char.Custom('agot_bank_name')] is currently accepting investments. You may invest in the bank to acquire an additional share. Owning more shares will increase the [Concept('agot_bank_dividend_level','dividend') |E] you receive based on the [agot_bank_profits|E] of the bank.\n\nYou currently hold [ROOT.Var('bank1_Shares').GetValue] shares in the [ROOT.Char.Custom('agot_bank_name')]."
+ buy_shares_decision_shareholder_bank2_desc:0 "The [ROOT.Char.Custom('agot_bank_name')] is currently accepting investments. You may invest in the bank to acquire an additional share. Owning more shares will increase the [Concept('agot_bank_dividend_level','dividend') |E] you receive based on the [agot_bank_profits|E] of the bank.\n\nYou currently hold [ROOT.Var('bank2_Shares').GetValue] shares in the [ROOT.Char.Custom('agot_bank_name')]."
+ buy_shares_decision_shareholder_bank3_desc:0 "The [ROOT.Char.Custom('agot_bank_name')] is currently accepting investments. You may invest in the bank to acquire an additional share. Owning more shares will increase the [Concept('agot_bank_dividend_level','dividend') |E] you receive based on the [agot_bank_profits|E] of the bank.\n\nYou currently hold [ROOT.Var('bank3_Shares').GetValue] shares in the [ROOT.Char.Custom('agot_bank_name')]."
  buy_shares_decision_desc:0 "Your local [agot_bank|E] is currently accepting new investors. You may buy a share, which will grant you a say in the bank's decisions and a [Concept('agot_bank_dividend_level','dividend') |E] based on the bank's [agot_bank_profit|E]."
  buy_shares_decision_tooltip:0 "You will be offered one share. The price depends on the bank's current overall value."
  buy_shares_decision_tooltip_confirm_text_desc:0 "What is the current price of a share?"
@@ -352,7 +352,7 @@
  agot_banking.0601.a:0 "The future is bright!"
 
  agot_banking.0602.t:0 "A New Important Debtor"
- agot_banking.0602.desc:0 "Today, the [ROOT.Char.Custom('agot_bank_name')] loaned the huge amount of [NewDebtor.MakeScope.Var('loaned_amount').GetValue|2|P] gold to [NewDebtor.GetTitledFirstName]. This makes [NewDebtor.GetHerHim] one of our biggest customers."
+ agot_banking.0602.desc:0 "Today, the [messaged_director.Custom('agot_bank_name')] loaned the huge amount of [NewDebtor.MakeScope.Var('loaned_amount').GetValue|2|P] gold to [NewDebtor.GetTitledFirstName]. This makes [NewDebtor.GetHerHim] one of our biggest customers."
  agot_banking.0602.a:0 "A pleasure doing business with you."
 
  show_shareholders_decision:0 "Show Shareholders"
@@ -427,7 +427,7 @@
  repay_vassal_loan_decision_tooltip_confirm_text_desc:0 "One less thing to worry about."
  repay_vassal_loan_decision_effect:0 "You may repay your current vassal loan before the loan's term ends."
 
- agot_bank_list_name:0 "#high;SIZE:24 [Character.Custom('agot_bank_name_list')]#!"
+ agot_bank_list_name:0 "#high;SIZE:24 [Character.Custom('agot_bank_name')]#!"
  agot_bank_list_value:0 "$EFFECT_LIST_BULLET$Bank value: #clickable [Character.MakeScope.Var('BankValue').GetValue|0]#!"
  agot_bank_list_interest:0 "[Character.Custom('agot_banking_interest_level')]"
  agot_bank_list_interest_low:0 "$EFFECT_LIST_BULLET$Interest rate is #positive_value low#!"

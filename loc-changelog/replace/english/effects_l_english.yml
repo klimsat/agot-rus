@@ -2674,10 +2674,12 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  RESET_CULTURE_CREATION_DATE:0 "The creation date of [CULTURE.GetName|V] is reset"
  RESET_CULTURE_CREATION_DATE_PAST:0 "The creation date of [CULTURE.GetName|V] was reset"
 
- ADD_COMPANION_EFFECT:1 "Recruit [TARGET_CHARACTER.GetShortUIName] to the travel [entourage|E]"
- THEY_ADD_COMPANION_EFFECT:1 "[TARGET_CHARACTER.GetShortUIName] will be recruited to the travel [entourage|E]"
- I_ADD_COMPANION_EFFECT:0 "You recruit [TARGET_CHARACTER.GetShortUIName] to your travel entourage"
- I_ADDED_COMPANION_EFFECT:1 "You recruited [TARGET_CHARACTER.GetShortUIName] to your travel [entourage|E]"
+ ADD_COMPANION_EFFECT:1 "Recruit [TARGET_CHARACTER.GetShortUIName] to the [travel|E] [entourage|E]"
+ ADDED_COMPANION_EFFECT:1 "Recruited [TARGET_CHARACTER.GetShortUIName] to the [travel|E] [entourage|E]"
+ THEY_ADD_COMPANION_EFFECT:1 "[TARGET_CHARACTER.GetShortUIName] will be recruited to the [travel|E] [entourage|E]"
+ THEY_ADDED_COMPANION_EFFECT:1 "[TARGET_CHARACTER.GetShortUIName] was recruited to the [travel|E] [entourage|E]"
+ I_ADD_COMPANION_EFFECT:0 "You recruit [TARGET_CHARACTER.GetShortUIName] to your [travel|E] [entourage|E]"
+ I_ADDED_COMPANION_EFFECT:1 "You recruited [TARGET_CHARACTER.GetShortUIName] to your [travel|E] [entourage|E]"
 
  COMPLETE_TRAVEL_PLAN_EFFECT:0 "The [travel|E] will complete"
  COMPLETE_TRAVEL_PLAN_EFFECT_PAST:0 "The [travel|E] is completed"
@@ -2789,9 +2791,9 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  I_HAVE_SET_POWER_LEVEL:1 "My [CHARACTER.GetDiarchyTypeName] [scales_of_power|E] swing has been set to $VALUE|0$"
  THEY_HAVE_SET_POWER_LEVEL:1 "[CHARACTER.GetNamePossessive] [CHARACTER.GetDiarchyTypeName] [scales_of_power|E] swing has been set to $VALUE|0$"
 
- I_CHANGE_POWER_LEVEL:1 "My [CHARACTER.GetDiarchyTypeName] [scales_of_power|E] swing changes by $VALUE|0$"
- THEY_CHANGE_POWER_LEVEL:1 "[CHARACTER.GetNamePossessive] [CHARACTER.GetDiarchyTypeName] [scales_of_power|E] swing changes by $VALUE|0$"
- GLOBAL_CHANGE_POWER_LEVEL:0 "[CHARACTER.GetShortUINamePossessive|U] [CHARACTER.GetDiarchyTypeName] [scales_of_power|E] swing changes by $VALUE|0$"
+ I_CHANGE_POWER_LEVEL:1 "My [CHARACTER.GetDiarchyTypeName] [scales_of_power|E] swing changes by $VALUE|0+=$"
+ THEY_CHANGE_POWER_LEVEL:1 "[CHARACTER.GetNamePossessive] [CHARACTER.GetDiarchyTypeName] [scales_of_power|E] swing changes by $VALUE|0+=$"
+ GLOBAL_CHANGE_POWER_LEVEL:0 "[CHARACTER.GetShortUINamePossessive|U] [CHARACTER.GetDiarchyTypeName] [scales_of_power|E] swing changes by $VALUE|0+=$"
  GLOBAL_CHANGED_POWER_LEVEL:0 "$GLOBAL_CHANGE_POWER_LEVEL$"
 
  # Neg duplicates here for error suppression.
@@ -3077,6 +3079,7 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  local_inspection_perk_effect: "Gain access to the @activity_inspection![GetActivityType('activity_survey').GetName] [activity|E]"
  first_local_inspection_perk_effect: "You gain access to the @activity_inspection![GetActivityType('activity_survey').GetName] [activity|E]"
  local_inspection_perk_2_effect: "[designated_terrain|E] [provisions|E] Use: [provisions_i]#P -25%#!\nUnlocks the [GetCourtPositionType('quartermaster_camp_officer').GetName] [officer|E]\n[GetCourtPositionType('quartermaster_camp_officer').GetName] [aptitude|E]: #P +10#!\nUnlocks the [GetCourtPositionType('head_porter_camp_officer').GetName] [officer|E]\n[GetCourtPositionType('head_porter_camp_officer').GetName] [aptitude|E]: #P +10#!"
+ local_inspection_perk_3_effect: "[designated_terrain|E] [county_fertility|E] Growth: [county_fertility_i]#P 30%#!"
 
  local_hero_perk_effect: "Unlocks the [GetTravelOption('leisurely_option').GetName ( GetPlayer )] [travel_option|E]\nUnlocks the [GetTravelOption('appeasement_option').GetName ( GetPlayer )] [travel_option|E]"
 
@@ -3094,6 +3097,7 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  personal_touch_effect: "Holding an @activity_inspection![GetActivityType('activity_survey').GetName] [activity|E] will also apply the effects of a [GetDecisionWithKey('local_arbitration_decision').GetName] in that [county|E]\n[GetPerk('no_stone_unturned_perk').GetName(GetPlayer)] Effects: #p +50%#!"
  personal_touch_2_effect: "Unlock the [master_terrain|E] [decision|E]"
  personal_touch_3_effect: "Effects for [master_terrain|E]:\n$BULLET_WITH_TAB$[travel_danger|E]: [travel_danger_i]#P -20#!\n$BULLET_WITH_TAB$[provisions|E] Use: [provisions_i]#P -25%#!\n$BULLET_WITH_TAB$#color_white Refill Men-at-Arms#! Cost: [gold_i][provisions_i]#P -25%#!\n$BULLET_WITH_TAB$[prestige|E] and [prestige_experience|E] from [battles|E]: [prestige_i]#P +50%#!\n$BULLET_WITH_TAB$[command_modifier_i][advantage|E]: @advantage_icon!#P +5#!\n$BULLET_WITH_TAB$[command_modifier_i]Maximum [combat_roll|E]: #P +1#!\n$BULLET_WITH_TAB$[command_modifier_i]Minimum [combat_roll|E]: #P +1#!\n$BULLET_WITH_TAB$[command_modifier_i]Negate [supply_limit|E] Penalty: #P Yes#!\n$BULLET_WITH_TAB$[command_modifier_i][attrition|E] Taken: #P -50%#!"
+ personal_touch_4_effect: "[GetPerk('know_your_land_know_your_people_perk').GetName(GetPlayer)] Effects: #p +50%#!"
  local_adjudicate_location_tt: "The following effects will be applied in your current location:"
  realm_charts_perk_effect: "Same Realm Scheme Secrecy @scheme_secrecy_icon!#P +[EmptyScope.ScriptValue('realm_charts_perk_value')|+0%/]#!"
  realm_charts_perk_2_effect: "Unlocks the [draw_up_new_charts|E] [decision|E]"
@@ -3165,6 +3169,8 @@ REMOVE_JOINED_FACTION_DISCONTENT_EFFECT_FIRST: "[CHARACTER.GetShortUINamePossess
  remove_confederation_member_third_past: "[TARGET_CHARACTER.GetShortUIName|U] left the [CONFEDERATION.GetName]"
  disband_confederation_global: "The [CONFEDERATION.GetName] is disbanded"
  disband_confederation_global_past: "The [CONFEDERATION.GetName] was disbanded"
+ disband_confederation_third: "The [CONFEDERATION.GetName] is disbanded"
+ disband_confederation_third_past: "The [CONFEDERATION.GetName] was disbanded"
  any_land_neighboring_realm_with_tributaries_owner: "Any neighboring [independent_ruler|E] (counting [tributaries|E]):"
  custom.every_confederation_member: "Every member of your [confederation|E]"
 
