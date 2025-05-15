@@ -3,6 +3,8 @@ widget = {
 	name = "mainmenu_panel_bottom"
 	parentanchor = center
 	size = { 100% 100% }
+	#AGOT Added
+	using = Version_Warning
 
 	state = {
 		name = _show
@@ -266,6 +268,8 @@ widget = {
 		parentanchor = center
 		size = { 1920 1080 }
 		scale = "[ScaleToFitElementInside('(int32)1920', '(int32)1080')]"
+		#AGOT Added
+		using = Version_Detection # contains visible
 
 		icon = {
 			name = "left_panel"
@@ -1247,8 +1251,9 @@ widget = {
 
 	widget = {
 		name = "challenge_character"
-		#AGOT Disabled
-		# visible = "[FrontEndMainView.ShouldShowChallengeCharacter]"
+		#AGOT Modified; added template
+		# visible = "[FrontEndMainView.ShouldShowChallengeCharacter]".
+		using = Version_Detection # contains visible
 		datacontext = "[FrontEndMainView.GetChallengeCharacter]"
 		datacontext = "[ChallengeCharacter.GetBookmarkCharacter]"
 		allow_outside = yes
@@ -1701,5 +1706,7 @@ widget = {
 			texture_density = 2
 		}
 	}
+	#AGOT Added
+	agot_version_mismatch_warning = {}
 }
 

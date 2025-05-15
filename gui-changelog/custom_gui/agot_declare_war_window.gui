@@ -54,7 +54,7 @@ types DeclareWarTypes
 						button_standard = {
 							layoutpolicy_horizontal = expanding
 							size = { 550 45 }
-							visible =  "[GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
+							visible = "[GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
 							onclick = "[GetScriptedGui('rv_toggle_prisoner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
 							down =	"[GetScriptedGui('rv_rescue_trigger').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
 
@@ -77,7 +77,7 @@ types DeclareWarTypes
 								}
 
 								warning_icon = {
-									visible =  "[GetScriptedGui('rv_criminal_warning_icon_visible').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
+									visible = "[GetScriptedGui('rv_criminal_warning_icon_visible').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
 									size = { 25 25 }
 									alwaystransparent = yes
 									tooltip = "RV_IS_CRIMINAL"
@@ -105,7 +105,7 @@ types DeclareWarTypes
 							layoutpolicy_horizontal = expanding
 							size = { 550 45 }
 							datacontext = "[Scope.GetCharacter]"
-							visible =  "[GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
+							visible = "[GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
 							onclick = "[GetScriptedGui('rv_toggle_prisoner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
 							down =	"[GetScriptedGui('rv_rescue_trigger').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
 
@@ -128,7 +128,7 @@ types DeclareWarTypes
 								}
 
 								warning_icon = {
-									visible =  "[GetScriptedGui('rv_criminal_warning_icon_visible').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
+									visible = "[GetScriptedGui('rv_criminal_warning_icon_visible').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
 									size = { 25 25 }
 									alwaystransparent = yes
 									tooltip = "RV_IS_CRIMINAL"
@@ -230,7 +230,7 @@ types DeclareWarTypes
 	type agot_rv_declare_war_send_button = button_standard_big
 	{
 		name = "rv_send_button"
-		enabled =  "[GetScriptedGui('rv_can_send_rescue_war').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+		enabled = "[GetScriptedGui('rv_can_send_rescue_war').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 		onclick = "[DeclareWarInteractionWindow.Send]"
 
 		datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"

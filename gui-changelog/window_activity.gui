@@ -839,10 +839,16 @@
 		}
 	}
 
-	activity_pulse_action_popup_right = {
-		datacontext = "[ActivityWindow.GetLastWeeklyPulseEffectData]"
-		visible = "[And( ActivityPulseEffect.IsValid, Not( ActivityWindow.HasActiveEvent ) )]"
-		position = { -35 80 }
+	widget = {
+		parentanchor = top|right
+		size = { 750 124 }
+		position = { -30 70 }
+		
+		activity_pulse_action_popup_right = {
+			datacontext = "[ActivityWindow.GetLastWeeklyPulseEffectData]"
+			visible = "[And( ActivityPulseEffect.IsValid, Not( ActivityWindow.HasActiveEvent ) )]"
+			parentanchor = right
+		}
 	}
 
 	widget = {

@@ -559,6 +559,20 @@
         datacontext = "[GetPlayer]"
         widgetanchor = center
 
+        # Default Toast Animations
+        state = {
+            name = _show
+            using = Animation_FadeIn_Standard
+            bezier = { 0.7 0 0.7 1 }
+        }
+
+        state = {
+            name = _hide
+            using = Animation_FadeOut_Standard
+            size = { 1 200}
+            bezier = { 0.7 0 0.7 1 }
+        }
+        
         notifications_toasts_default = {
             position = "[Select_CVector2f( IsGameViewOpen('activity_locale'), '(CVector2f)-600,195', '(CVector2f)0,150' )]"
             datacontext = "[ToastMessageHandler.GetMessage]"
@@ -586,19 +600,6 @@
         widgetanchor = center
         parentanchor = center
         allow_outside = yes
-
-        state = {
-            name = _show
-            using = Animation_FadeIn_Standard
-            bezier = { 0.7 0 0.7 1 }
-        }
-
-        state = {
-            name = _hide
-            using = Animation_FadeOut_Standard
-            size = { 1 200}
-            bezier = { 0.7 0 0.7 1 }
-        }
 
         state = {
             name = _mouse_hierarchy_enter
@@ -1934,7 +1935,7 @@
                                         align = nobaseline
                                         #AGOT Modified
                                         # max_width = 355
-										# fontsize_min = 14
+                                        # fontsize_min = 14
 										max_width = 275
 										fontsize_min = 12
                                     }
@@ -1969,9 +1970,9 @@
                                                 name = "date"
                                                 #AGOT Modified
                                                 # margin_left = 16
-												# parentanchor = vcenter|left
-                                                margin_right = -58
-                                                parentanchor = vcenter|right
+                                                # parentanchor = vcenter|left
+												margin_right = -58
+												parentanchor = vcenter|right
 
                                                 text = "[PlayerMessageItem.GetArrivalDate.GetStringShortNoYear]"
                                                 align = nobaseline

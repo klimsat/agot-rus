@@ -1,0 +1,38 @@
+###########################################################
+################# AGOT DECISIONS WINDOW ###################
+###########################################################
+
+types Decisions
+{
+	type agot_decisions_in_group_layout = dynamicgridbox
+	{
+		name = "decisions_in_group"
+		datamodel = "[DecisionGroupItem.GetDecisions]"
+
+		item = {
+			button_decision_entry = {
+				datacontext = "[DecisionsViewItem.GetDecision]"
+
+				blockoverride "button_size" {
+					minimumsize = "[Select_CVector2f( DecisionGroupType.HasTag('big_button'), '(CVector2f)527,55', '(CVector2f)527,45' )]"
+				}
+
+				blockoverride "size_illustration" {
+					minimumsize = "[Select_CVector2f( DecisionGroupType.HasTag('big_button'), '(CVector2f)527,55', '(CVector2f)527,45' )]"
+				}
+
+				blockoverride "decision_texture_icon" {
+					texture = "[DecisionsViewItem.GetDecisionPicture]"
+				}
+
+				blockoverride "decision_texture_highlight" {
+					texture = "[DecisionsViewItem.GetDecisionPicture]"
+				}
+
+				onclick = "[DecisionsViewItem.OnSelect]"
+				onclick = "[PdxGuiTriggerAllAnimations('decisions_detail_refresh')]"
+				down = "[DecisionsViewItem.IsSelected]"
+			}
+		}
+	}
+}

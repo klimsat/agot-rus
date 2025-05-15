@@ -495,17 +495,17 @@ template agot_dragon_army_comp # Character Window Army Tooltip
 				margin_bottom = -3
 			}
 			cooltip_paragraph = {
-				raw_text  = "@dragon_icon![owned_dragons|E]: #V [CharacterWindow.GetCharacter.MakeScope.ScriptValue('owned_dragons_in_realm')|0#!]"
+				raw_text = "@dragon_icon![owned_dragons|E]: #V [CharacterWindow.GetCharacter.MakeScope.ScriptValue('owned_dragons_in_realm')|0#!]"
 				visible = "[GetScriptedGui('agot_can_see_owned_dragons_military').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]"
 				margin_bottom = -3
 			}
 			cooltip_paragraph = {
-				raw_text  = "@dragon_icon![tamed_dragons|E]: #V [CharacterWindow.GetCharacter.MakeScope.ScriptValue('tamed_dragons_in_realm')|0#!]"
+				raw_text = "@dragon_icon![tamed_dragons|E]: #V [CharacterWindow.GetCharacter.MakeScope.ScriptValue('tamed_dragons_in_realm')|0#!]"
 				visible = "[GetScriptedGui('agot_can_see_tamed_dragons_military').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]"
 				margin_bottom = -3
 			}
 			cooltip_paragraph = {
-				raw_text  = "@dragon_icon![wild_dragons|E]: #V [CharacterWindow.GetCharacter.MakeScope.ScriptValue('wild_dragons_in_realm')|0#!]"
+				raw_text = "@dragon_icon![wild_dragons|E]: #V [CharacterWindow.GetCharacter.MakeScope.ScriptValue('wild_dragons_in_realm')|0#!]"
 				visible = "[GetScriptedGui('agot_can_see_wild_dragons_military').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]"
 				margin_bottom = -3
 			}
@@ -535,17 +535,17 @@ template agot_hud_dragon_army_comp # HUD Army Tooltip
 				margin_bottom = -3
 			}
 			cooltip_paragraph = {
-				raw_text  = "@dragon_icon![owned_dragons|E]: #V [GetPlayer.MakeScope.ScriptValue('owned_dragons_in_realm')|0#!]"
+				raw_text = "@dragon_icon![owned_dragons|E]: #V [GetPlayer.MakeScope.ScriptValue('owned_dragons_in_realm')|0#!]"
 				visible = "[GetScriptedGui('agot_can_see_owned_dragons_military').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				margin_bottom = -3
 			}
 			cooltip_paragraph = {
-				raw_text  = "@dragon_icon![tamed_dragons|E]: #V [GetPlayer.MakeScope.ScriptValue('tamed_dragons_in_realm')|0#!]"
+				raw_text = "@dragon_icon![tamed_dragons|E]: #V [GetPlayer.MakeScope.ScriptValue('tamed_dragons_in_realm')|0#!]"
 				visible = "[GetScriptedGui('agot_can_see_tamed_dragons_military').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				margin_bottom = -3
 			}
 			cooltip_paragraph = {
-				raw_text  = "@dragon_icon![wild_dragons|E]: #V [GetPlayer.MakeScope.ScriptValue('wild_dragons_in_realm')|0#!]"
+				raw_text = "@dragon_icon![wild_dragons|E]: #V [GetPlayer.MakeScope.ScriptValue('wild_dragons_in_realm')|0#!]"
 				visible = "[GetScriptedGui('agot_can_see_wild_dragons_military').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				margin_bottom = -3
 			}
@@ -576,7 +576,7 @@ template agot_war_portrait_dragon_army_comp # Individual Participant Portrait Ar
 				margin_bottom = -4
 			}
 			cooltip_paragraph = {
-				raw_text  = "[tamed_dragons|E]:@dragon_icon![WarParticipantItem.GetCharacter.MakeScope.ScriptValue('individual_dragons_in_army')|0]"
+				raw_text = "[tamed_dragons|E]:@dragon_icon![WarParticipantItem.GetCharacter.MakeScope.ScriptValue('individual_dragons_in_army')|0]"
 				visible = "[GetScriptedGui('agot_visible_dragons_military_war_participant').IsShown( GuiScope.SetRoot( WarParticipantItem.GetCharacter.MakeScope ).End )]"
 			}
 			spacer = {
@@ -608,7 +608,7 @@ template agot_war_allies_dragon_army_comp # Total Troop Count with Strength for 
 				size = { 0 4 }
 			}
 			cooltip_paragraph = {
-				raw_text  = "    •@dragon_icon![tamed_dragons|E]: #V [WarParticipantItem.GetCharacter.MakeScope.ScriptValue('individual_dragons_in_army')|0#!]"
+				raw_text = "    •@dragon_icon![tamed_dragons|E]: #V [WarParticipantItem.GetCharacter.MakeScope.ScriptValue('individual_dragons_in_army')|0#!]"
 				visible = "[GetScriptedGui('agot_visible_dragons_military_war_participant').IsShown( GuiScope.SetRoot( WarParticipantItem.GetCharacter.MakeScope ).End )]"
 				margin_top = -5
 			}
@@ -641,12 +641,12 @@ template agot_war_combined_dragon_army_comp # Combined Total Troop Count with St
 				size = { 0 4 }
 			}
 			cooltip_paragraph = {
-				raw_text  = "    •@dragon_icon![tamed_dragons|E]: #V [WarOverviewWindow.GetWar.MakeScope.ScriptValue('tamed_dragons_in_army_attacker')|0#!]"
+				raw_text= "    •@dragon_icon![tamed_dragons|E]: #V [WarOverviewWindow.GetWar.MakeScope.ScriptValue('tamed_dragons_in_army_attacker')|0#!]"
 				visible = "[GetScriptedGui('agot_dragons_military_war_overview_attacker').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('attacker', WarParticipantItem.GetCharacter.MakeScope).End)]"
 				margin_top = -5
 			}
 			cooltip_paragraph = {
-				raw_text  = "    •@dragon_icon![tamed_dragons|E]: #V [WarOverviewWindow.GetWar.MakeScope.ScriptValue('tamed_dragons_in_army_defender')|0#!]"
+				raw_text = "    •@dragon_icon![tamed_dragons|E]: #V [WarOverviewWindow.GetWar.MakeScope.ScriptValue('tamed_dragons_in_army_defender')|0#!]"
 				visible = "[GetScriptedGui('agot_dragons_military_war_overview_defender').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).AddScope('defender', WarParticipantItem.GetCharacter.MakeScope).End)]"
 				margin_top = -5
 			}
@@ -677,7 +677,7 @@ template agot_war_comparison_dragon_army_comp # Overall Versus Comparison Armies
 				margin_bottom = -6
 			}
 			cooltip_paragraph = {
-				raw_text  = "@dragon_icon![tamed_dragons|E]: #V [WarOverviewWindow.GetWar.MakeScope.ScriptValue('tamed_dragons_in_army_attacker')|0#!]"
+				raw_text = "@dragon_icon![tamed_dragons|E]: #V [WarOverviewWindow.GetWar.MakeScope.ScriptValue('tamed_dragons_in_army_attacker')|0#!]"
 				visible = "[GetScriptedGui('agot_dragons_versus_war_overview_attacker').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).End)]"
 			}
 			spacer = {
@@ -692,7 +692,7 @@ template agot_war_comparison_dragon_army_comp # Overall Versus Comparison Armies
 				margin_bottom = -6
 			}
 			cooltip_paragraph = {
-				raw_text  = "@dragon_icon![tamed_dragons|E]: #V [WarOverviewWindow.GetWar.MakeScope.ScriptValue('tamed_dragons_in_army_defender')|0#!]"
+				raw_text = "@dragon_icon![tamed_dragons|E]: #V [WarOverviewWindow.GetWar.MakeScope.ScriptValue('tamed_dragons_in_army_defender')|0#!]"
 				visible = "[GetScriptedGui('agot_dragons_versus_war_overview_defender').IsShown(GuiScope.SetRoot(WarOverviewWindow.GetWar.MakeScope).End)]"
 			}
 			spacer = {
@@ -774,88 +774,88 @@ template agot_legitimate_house_contribution # Legitimate House Contribution Tool
 			vbox = {
 				layoutpolicy_horizontal = expanding
 				visible = "[And(TitleHistoryWindow.GetTitle.HasHolder, Not(EqualTo_int32( FixedPointToInt(TitleHistoryWindow.GetTitle.MakeScope.Var('new_house_progress').GetValue), '(int32)100')))]"
-				cooltip_paragraph = { text  = "LEGITIMATE_HOUSE_PROGRESS" }
-				cooltip_paragraph = { text  = "NEW_HOUSE_LEGITIMACY_INCREASES_BY" }
+				cooltip_paragraph = { text = "LEGITIMATE_HOUSE_PROGRESS" }
+				cooltip_paragraph = { text = "NEW_HOUSE_LEGITIMACY_INCREASES_BY" }
 				cooltip_paragraph = {
 					size = { 0 12 }
 					visible = "[Not(EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_base_value'), '(CFixedPoint)0.00'))]"
-					text  = "NEW_HOUSE_LEGITIMACY_BASE_VALUE"
+					text = "NEW_HOUSE_LEGITIMACY_BASE_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {
 					size = { 0 12 }
 					visible = "[Not(EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_holders_of_current_dynasty'), '(CFixedPoint)0.00'))]"
-					text  = "NEW_HOUSE_LEGITIMACY_ANCESTOR_VALUE"
+					text = "NEW_HOUSE_LEGITIMACY_ANCESTOR_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {
 					size = { 0 12 }
 					visible = "[ObjectsEqual(TitleHistoryWindow.GetTitle.MakeScope.Var('current_house').House.GetDynasty, TitleHistoryWindow.GetTitle.MakeScope.Var('legitimate_house').House.GetDynasty)]"
-					text  = "NEW_HOUSE_SAME_DYNASTY_VALUE"
+					text = "NEW_HOUSE_SAME_DYNASTY_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {
 					size = { 0 12 }
 					visible = "[EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_extinct'), '(CFixedPoint)1.00')]"
-					text  = "NEW_HOUSE_EXTINCT_OLD_HOUSE_VALUE"
+					text = "NEW_HOUSE_EXTINCT_OLD_HOUSE_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {
 					size = { 0 12 }
 					visible = "[EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_parentage_level'), '(CFixedPoint)2.00')]"
-					text  = "NEW_HOUSE_HAS_BOTH_PARENTS_VALUE"
+					text = "NEW_HOUSE_HAS_BOTH_PARENTS_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {
 					size = { 0 12 }
 					visible = "[EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_parentage_level'), '(CFixedPoint)1.00')]"
-					text  = "NEW_HOUSE_HAS_ONE_PARENT_VALUE"
+					text = "NEW_HOUSE_HAS_ONE_PARENT_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {
 					size = { 0 12 }
 					visible = "[EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_parentage_level'), '(CFixedPoint)0.50')]"
-					text  = "NEW_HOUSE_HAS_GRANDPARENT_VALUE"
+					text = "NEW_HOUSE_HAS_GRANDPARENT_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {
 					size = { 0 12 }
 					visible = "[EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_spouse_level'), '(CFixedPoint)0.5')]"
-					text  = "NEW_HOUSE_HAS_SPOUSE_VALUE"
+					text = "NEW_HOUSE_HAS_SPOUSE_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {
 					size = { 0 12 }
 					visible = "[GreaterThan_int32( TitleHistoryWindow.GetTitle.GetTierFrame, '(int32)5' )]"
-					text  = "NEW_HOUSE_EMPIRE_TIER_TITLE_VALUE"
+					text = "NEW_HOUSE_EMPIRE_TIER_TITLE_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {
 					size = { 0 12 }
 					visible = "[Not(EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_the_north_remembers_value'), '(CFixedPoint)0.00'))]"
-					text  = "NEW_HOUSE_LEGITIMACY_NORTH_REMEMBERS_VALUE"
+					text = "NEW_HOUSE_LEGITIMACY_NORTH_REMEMBERS_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {
 					size = { 0 12 }
 					visible = "[Not(EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_the_iron_price_value'), '(CFixedPoint)0.00'))]"
-					text  = "NEW_HOUSE_LEGITIMACY_IRON_PRICE_VALUE"
+					text = "NEW_HOUSE_LEGITIMACY_IRON_PRICE_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {
 					size = { 0 12 }
-					text  = "NEW_HOUSE_POPULAR_OPINION_VALUE"
+					text = "NEW_HOUSE_POPULAR_OPINION_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {
 					size = { 0 12 }
-					text  = "NEW_HOUSE_VASSAL_OPINION_VALUE"
+					text = "NEW_HOUSE_VASSAL_OPINION_VALUE"
 					margin_bottom = -3
 				}
 				cooltip_paragraph = {
 					size = { 0 12 }
 					visible = "[Not(EqualTo_CFixedPoint( TitleHistoryWindow.GetTitle.MakeScope.ScriptValue('agot_legitimate_house_missing_de_jure_holdings'), '(CFixedPoint)0.00'))]"
-					text  = "NEW_HOUSE_MISSING_HOLDINGS_VALUE"
+					text = "NEW_HOUSE_MISSING_HOLDINGS_VALUE"
 					margin_bottom = -3
 				}
 			}
@@ -863,7 +863,7 @@ template agot_legitimate_house_contribution # Legitimate House Contribution Tool
 			vbox = {
 				layoutpolicy_horizontal = expanding
 				visible = "[And(TitleHistoryWindow.GetTitle.HasHolder, EqualTo_int32( FixedPointToInt(TitleHistoryWindow.GetTitle.MakeScope.Var('new_house_progress').GetValue), '(int32)100'))]"
-				cooltip_paragraph = { text  = "CURRENT_HOUSE_IS_LEGITIMATE_HOUSE_PROGRESS_TT" }
+				cooltip_paragraph = { text = "CURRENT_HOUSE_IS_LEGITIMATE_HOUSE_PROGRESS_TT" }
 			}
 			# TT for if the title does not exist
 			cooltip_paragraph = {

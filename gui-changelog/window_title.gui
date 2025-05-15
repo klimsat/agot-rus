@@ -60,6 +60,7 @@ window = {
 
 				background = {
 					using = Background_Header_Tall
+					margin_bottom = 10
 				}
 
 				vbox = {
@@ -365,8 +366,8 @@ window = {
 					visible = "[And(DataModelHasItems(TitleViewWindow.GetVassalGroupItems), Not(Or(GetVariableSystem.Exists( 'display_allegiance' ), Or(Title.IsMercenaryCompany,Title.IsHolyOrder))))]"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
-					margin_top = 10
-					spacing = 15
+					margin_top = 15
+					spacing = 10
 
 					text_label_center = {
 						text = "[TitleViewWindow.GetDeJureDescription]"
@@ -1067,14 +1068,6 @@ window = {
 									}
 								}
 
-							}
-
-							#AGOT Added
-							button_tertiary = {
-								name = "three_daughters"
-								text = "HIGH_COUNCIL_TRIARCHY"
-								visible = "[GetScriptedGui('is_three_daughters').IsShown(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End)]"
-								onclick = "[GetVariableSystem.Toggle('window_three_daughters')]"
 							}
 
 							expand = {}

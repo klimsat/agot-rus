@@ -105,7 +105,7 @@ types PatronWindow {
 
 			hbox = {
 				icon = { # Standard
-					visible = "[GetScriptedGui('has_this_patron_god').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag(  Scope.GetFlagName)).End)]"
+					visible = "[GetScriptedGui('has_this_patron_god').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag( Scope.GetFlagName)).End)]"
 					size = { 130 130 }
 					texture = "[GetCultureInnovationType(Concatenate(Scope.GetFlagName, '_patron_icon')).GetIcon]"
 					using = Mask_Rough_Edges
@@ -318,7 +318,7 @@ types PatronWindow {
 
 		vbox = {
 			container = {
-				button_standard_hover  = {
+				button_standard_hover = {
 					layoutpolicy_horizontal = expanding
 					size = { 30 30 }
 					onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'patron' )]"
@@ -487,7 +487,7 @@ types PatronWindow {
 
 		# # Extra Icon - purpose TBD
 		# vbox = {
-		# 	button_standard_hover  = {
+		# 	button_standard_hover = {
 		# 		layoutpolicy_horizontal = expanding
 		# 		size = { 30 30 }
 		# 		onclick = "[]"
@@ -509,7 +509,7 @@ types PatronWindow {
 
 		# # Extra Icon - purpose TBD
 		# vbox = {
-		# 	button_standard_hover  = {
+		# 	button_standard_hover = {
 		# 		layoutpolicy_horizontal = expanding
 		# 		size = { 30 30 }
 		# 		onclick = "[]"
