@@ -105,11 +105,11 @@
 
  # Ceremony starts, choose which option to take
  agot_targaryen_exile_invasion.0602.t:0 "Церемония"
- agot_targaryen_exile_invasion.0602.desc:0 "Ко мне подходит [guide.GetName] и сообщает, что церемония готова к началу. Вместе мы молча идем к ближайшей поляне, где я быстро замечаю, как три яйца кладут на костёр.\n\nКак только яйца размещены, [guide.GetNameNoTooltip] начинает читать странные заклинания, наводя жуткую тишину среди собравшихся гостей и замерших слуг. Я наблюдаю за происходящим в полном нетерпении, приковав взгляд к растущему пламени.\n\n[guide.GetNameNoTooltip] поворачивается и говорит мне, что пришло время расплаты. [guide.GetSheHe|U] говорит мне, что я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] принести жертву, чтобы пробудить драконов из яиц."
+ agot_targaryen_exile_invasion.0602.desc:0 "Ко мне подходит [guide.GetName] и сообщает, что церемония готова к началу. Вместе мы молча идем к ближайшей поляне, где я быстро замечаю, как три яйца кладут на костёр.\n\nКак только яйца размещены, [guide.GetNameNoTooltip] начинает читать странные заклинания, наводя жуткую тишину среди собравшихся гостей и замерших слуг. Я наблюдаю за происходящим в полном нетерпении, приковав взгляд к растущему пламени.\n\n[guide.GetNameNoTooltip] поворачивается и говорит мне, что требуется плата. Я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] принести жертву, чтобы пробудить драконов из яиц."
  agot_targaryen_exile_invasion.0602.a:0 "Кровь из моего собственного тела."
- agot_targaryen_exile_invasion.0602.b:0 "Кровь моего наследника."
- agot_targaryen_exile_invasion.0602.c:0 "Я принесу в жертву своего наследника."
- agot_targaryen_exile_invasion.0602.d:0 "Я принесу в жертву своего гостя."
+ agot_targaryen_exile_invasion.0602.b:0 "[heir.GetFullName] пожертвует свою кровь."
+ agot_targaryen_exile_invasion.0602.c:0 "[heir.GetName] отдаст свою жизнь!"
+ agot_targaryen_exile_invasion.0602.d:0 "Я принесу в жертву своего гостя..."
 
  # GUI selection widget. IGNORE (that means you!)
  agot_targaryen_exile_invasion.0603.t:0 "Жертва"
@@ -123,17 +123,21 @@
  agot_targaryen_exile_invasion.0604.desc_sacrifice:0 "[guide.GetName] отдаёт приказ, и [sacrifice.GetName] [Select_CString(sacrifice.IsFemale, 'прикована', 'прикован' )] у огня, и я с ужасом наблюдаю, как разгорается пламя.\n\n$agot_targaryen_exile_invasion.0604.desc_main_text$"
  agot_targaryen_exile_invasion.0604.desc_blood_donation:0 "[guide.GetName] и [heir_blood_donor.GetName] стоят у жаровни. [guide.GetName] делает надрез на руке и капли [heir_blood_donor.GetHerHis] крови падают в огонь.\n\n$agot_targaryen_exile_invasion.0604.desc_main_text$"
  agot_targaryen_exile_invasion.0604.desc_main_text_failure:0 "По мере того как кровь смешивается с пламенем, поднимающийся дым начинает притуплять мои чувства. Где-то сквозь него я слышу кашель и хрипы гостей, но больше не вижу ничего и никого. Даже [guide.GetNameNoTooltip], [Select_CString(guide.IsFemale, 'которая была', 'который был' )] рядом со мной всего несколько мгновений назад.\n\nВнезапно я чувствую шипение пламени и слышу оглушительный треск. Жар усиливается, и кажется, что мои внутренности #italic кипят#!. Я пытаюсь отползти в сторону, но еще один оглушительный треск заста`т меня врасплох, и я, как [Select_CString(ROOT.Char.IsFemale, 'дура', 'дурак' )], оборачиваюсь и с ужасом наблюдаю, как разрушаются яйца. Церемония провалилась!"
- agot_targaryen_exile_invasion.0604.desc_self_fail_fail:0 "[guide.GetName] делает надрез на моей руке и капли моей крови падают в огонь.\n\n$agot_targaryen_exile_invasion.0604.desc_main_text_failure$"
+ agot_targaryen_exile_invasion.0604.desc_self_fail:0 "[guide.GetName] делает надрез на моей руке и капли моей крови падают в огонь.\n\n$agot_targaryen_exile_invasion.0604.desc_main_text_failure$"
  agot_targaryen_exile_invasion.0604.desc_sacrifice_fail:0 "[guide.GetName] отдаёт приказ, и [sacrifice.GetName] [Select_CString(sacrifice.IsFemale, 'прикована', 'прикован' )] у огня, и я с ужасом наблюдаю, как разгорается пламя.\n\n$agot_targaryen_exile_invasion.0604.desc_main_text_failure$"
  agot_targaryen_exile_invasion.0604.desc_blood_donation_fail:0 "[guide.GetName] и [heir_blood_donor.GetName] стоят у жаровни. [guide.GetName] делает надрез на руке и капли [heir_blood_donor.GetHerHis] крови падают в огонь.\n\n$agot_targaryen_exile_invasion.0604.desc_main_text_failure$"
  agot_targaryen_exile_invasion.0604.a:0 "Это всё меняет!"
- agot_targaryen_exile_invasion.0604.b:0 "[guide.GetName], ты [Select_CString(guide.IsFemale, 'подвела', 'подвёл' )] меня!"
+ agot_targaryen_exile_invasion.0604.b:0 "[guide.GetNameNoTooltip], ты [Select_CString(guide.IsFemale, 'подвела', 'подвёл' )] меня!"
 
  # Dragons hatched outcome event
  agot_targaryen_exile_invasion.0605.t:0 "Выбор дракона"
  agot_targaryen_exile_invasion.0605.desc:0 "Я в полном восторге от того, как дракончики выходят из яиц и расправляют крылья. Их нежное щебетание сразу же вызывает на моем лице улыбку, а в голове роятся мысли о том, что эти маленькие существа однажды вырастут и станут такими же легендарными, как [GetScriptedCharacterByHistoryID('dragon_balerion').GetNameNicknamed].\n\nТеперь я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] выбрать одного из драконов, чтобы он стал моим скакуном."
- agot_targaryen_exile_invasion.0605.desc_heir:0 "Я в полном восторге от того, как дракончики выходят из яиц и расправляют крылья. Но мое волнение утихает, когда я наблюдаю, как [heir_blood_donor.GetName] [Select_CString(heir_blood_donor.IsFemale, 'окружена', 'окружён' )] драконами, приходя в беспокойство, когда они усаживаются на [heir_blood_donor.GetHerHis] плечи.\n\nРевность и ярость закипают в моем сердце, но быстро исчезают, когда я вижу, как улыбается [heir_blood_donor.GetNameNoTooltip]. Когда [heir_blood_donor.GetSheHe] смотрит на меня, [heir_blood_donor.GetSheHe] предлагает мне выбрать одного, к моему облегчению."
- agot_targaryen_exile_invasion.0605.a:0 "Я [Select_CString(ROOT.Char.IsFemale, 'готова', 'готов' )] выбирать."
+ agot_targaryen_exile_invasion.0605.desc_heir:0 "Я в полном восторге от того, как дракончики выходят из яиц и расправляют крылья. Но мое волнение утихает, когда я наблюдаю, как [heir_blood_donor.GetName] [Select_CString(heir_blood_donor.IsFemale, 'окружена', 'окружён' )] драконами, приходя в беспокойство, когда они усаживаются на [heir_blood_donor.GetHerHis] плечи.\n\n"
+ agot_targaryen_exile_invasion.0605.desc_heir_emote_bad:0 "Ревность и ярость"
+ agot_targaryen_exile_invasion.0605.desc_heir_emote_good:0 "Тревога и беспокойство"
+ agot_targaryen_exile_invasion.0605.desc_heir_end:0 "закипают в моем сердце, но быстро исчезают, когда я вижу, как улыбается [heir_blood_donor.GetNameNoTooltip]. «Мы сделали это вместе», - начинает говорить мне [heir_blood_donor.GetSheHe], к моему облегчения. «Я знаю, что один из них станет твоим, [ROOT.Char.GetFirstName] - так же, как [heir_blood_donor_dragon.GetName] принадлежит мне».\n\nЯ смотрю на двух других драконов и чувствую искру связи с..."
+ agot_targaryen_exile_invasion.0605.a:0 "Вот этим!"
+ agot_targaryen_exile_invasion.0605.a_tt:0 "Вы выберете дракона, с которым свяжетесь узами."
 
  # GUI selection widget. IGNORE (that means you!)
  agot_targaryen_exile_invasion.0606.t:0 "Выбор дракона"
@@ -298,6 +302,7 @@
  d_laamp_targaryen_host_generic:0 "отряд Таргариенов" # Не изменять "the"
  targ_exiles_and_faegon_truce_name:0 "Перемирие, подписанное благодаря поддержке во время вторжения"
  targ_exiles_and_faegon_iron_doesnt_exist_war_invalidation:0 "Война [war.GetName] завершена: [GetTitleByKey('e_the_iron_throne').GetNameNoTier] больше не существует"
+ agot_targaryen_exile_invasion.0003.desc:0 "Two rulers locked in a heated negotiation, one with a crown on [petitioned_ruler.GetHerHis] temples, while mine are still bare. But is it the weariness I feel, that sudden weight on my head, or is the crown of [claimed_title.GetName] so close now?\n\nA grimace must have betrayed my thoughts, as [petitioned_ruler.GetName] smiles knowingly. "A fine [claimed_title.GetHolder.GetTitleAsNameNoTooltip] you will make, and soon — [TopScope.ScriptValue('agot_time_to_win_invasion_for_underage_exiles_value')] years at most. Our troops and gold will see to it. And please, do not worry, we will remind you if you... happen to forget about your end of our agreement."\n\n[petitioned_ruler.GetSheHe|U] raises [petitioned_ruler.GetHerHis] goblet, a final toast to seal the deal."
  agot_targaryen_exile_invasion.0003.a_tt:0 "У вас есть #bold [TopScope.ScriptValue('agot_time_to_win_invasion_for_underage_exiles_value')] лет, чтобы претендовать на [claimed_title.GetName]#!"
  targaryen_follower_spawned_army_name:0 "Лоялисты Таргариенов"
  agot_targaryen_exile_invasion_war_cb:0 "Восстановление Таргариенов"
