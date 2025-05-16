@@ -838,6 +838,8 @@
  offer_vassalization_interaction_aibehavior_best_friend_tt: "[recipient.GetSheHe|U] — [Select_CString(recipient.IsFemale, 'ваша', 'ваш')] [Concept('best_friend', Select_CString(recipient.IsFemale, 'лучшая подруга', 'лучший друг'))|E]: $VALUE|=+0$"
  offer_vassalization_interaction_aibehavior_rival_tt: "[recipient.GetSheHe|U] [Concept('rival', Select_CString(recipient.IsFemale, 'ваша соперница', 'ваш соперник') )]: $VALUE|=+0$"
  offer_vassalization_interaction_aibehavior_nemesis_tt: "[recipient.GetSheHe|U] — ваш [nemesis|El]: $VALUE|=+0$"
+ offer_vassalization_interaction_aibehavior_rival_confederation_tt: "Соперничество с [Concept('confederate', 'конфедератом')|E]: $VALUE|=+0$"
+ offer_vassalization_interaction_aibehavior_nemesis_confederation_tt: "Заклятая вражда с [Concept('confederate', 'конфедератом')|E]: $VALUE|=+0$"
  offer_vassalization_interaction_aibehavior_dynasty_tt: "[recipient.GetSheHe|U] принадлежит к моей [Concept( 'dynasty', 'династии' )|E]: $VALUE|=+0$"
  offer_vassalization_interaction_aibehavior_child_tt: "Вы еще ребенок: $VALUE|=+0$"
  offer_vassalization_interaction_aibehavior_illegitimate_tt: "Вы выдвигаете незаконные претензии: $VALUE|=+0$"
@@ -1510,6 +1512,16 @@
  literalist_debate_timing: "В последнее время вы не участвовали в дебатах"
  not_literalist_debate_timing: "Вы недавно уже участвовали в дебатах"
 
+ #Exaltation of Pain
+ revel_in_pain_interaction: "Упиваться телесной болью"
+ revel_in_pain_interaction_desc: "Вы и [recipient.GetShortUIName] попытаетесь приобщиться к высшему в соответствии с догматом «[GetFaithDoctrine('tenet_exaltation_of_pain').GetBaseName]»"
+ REVEL_IN_PAIN_INTERACTION_NOTIFICATION: "Время пришло. [GetFaithDoctrine('tenet_exaltation_of_pain').GetBaseName] поможет нам вместе достичь высших уровней понимания."
+
+ recipient_involved_in_revel_in_pain_recently_tt: "[recipient.GetShortUIName|U] недавно [Select_CString(recipient.IsLocalPlayer, 'соблюли', Select_CString(recipient.IsFemale, 'соблюла', 'соблюл' ))] догмат «[GetFaithDoctrine('tenet_exaltation_of_pain').GetBaseName]»"
+ recipient_is_severely_injured_tt: "[recipient.GetShortUIName|U] [Select_CString(recipient.IsLocalPlayer, 'обладаете', 'обладает' )] свойством «$trait_wounded_2$»"
+ actor_is_severely_injured_tt: "[actor.GetShortUIName|U] [Select_CString(actor.IsLocalPlayer, 'обладаете', 'обладает' )] свойством «$trait_wounded_2$»"
+ recipient_not_in_the_same_location_tt: "[actor.GetShortUIName|U] и [recipient.GetShortUIName] в разных местах"
+
  # Mongol interactions
  mongol_demand_subjugation_interaction: "Потребовать подчинения"
  mongol_demand_subjugation_interaction_desc: "Потребовать, чтобы [recipient.GetShortUINameNoTooltip] [Select_CString(recipient.IsFemale, 'стала', 'стал' )] вашим [Concept( 'vassal', 'вассалом' )|E], пригрозив [Concept( 'war', 'войной' )|E]"
@@ -1848,9 +1860,13 @@
  char_interaction.0363.opening: "[recipient.Custom2('AppropriateGreetingNegative', actor )]"
  char_interaction.0363.desc: "[recipient.GetPrimaryTitle.GetName|U] никогда не склонится перед таким тираном, как ты."
  char_interaction.0363.a: "Эта ошибка тебе #EMP дорого#! обойдется."
+
+ char_interaction.0370.opening.herder: "[recipient.Custom2('AppropriateGreetingPositive', actor )]"
  char_interaction.0370.opening: "[actor.Custom2('AppropriateGreetingNegative', recipient )]"
  char_interaction.0370.desc: "Платить тебе дань больше не в моих интересах."
+ char_interaction.0370.desc.herder: "Наши пути разошлись достаточно далеко, и я больше не могу платить вам дань."
  char_interaction.0370.a: "Когда ветра переменятся, [actor.GetShortUINameNoTooltip] не [Select_CString(actor.IsLocalPlayer, 'найдете', 'найдет')] ни помощи, ни поддержки."
+ char_interaction.0370.a.herder: "Не стоило мне разделять свою державу."
  char_interaction.0370.b: "Значит, [actor.GetShortUINameNoTooltip] [Select_CString(actor.IsLocalPlayer, 'заплатите', 'заплатит')] #EMP поневоле#!!"
  char_interaction.0380.opening: "[actor.Custom2('AppropriateGreetingNegative', recipient )]"
  char_interaction.0380.desc: "Я больше не имею желания тебя защищать и не нуждаюсь в твоих мизерных подачках."
@@ -2025,5 +2041,8 @@
  ALLY_MILITARY_POWER_REASON: "Сила армии с учетом союзников: $VALUE|0+=$"
  DIPLOMACY_NOT_A_THREAT_REASON: "Не считается угрозой: $VALUE|0+=$"
  DIPLOMACY_FRIEND_REASON: "Дружественная дипломатическая позиция: $VALUE|0+=$"
+
+ REFILL_MAA_AT_WAR_TT: "Вы во враждебных землях"
+
  nomad_title_name_001: "$nomad_title_name$"
  mpo_vassal_to_tributary_interaction_extra_icon: "$hook_extra_icon$"
