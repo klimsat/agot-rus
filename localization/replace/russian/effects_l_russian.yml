@@ -2675,10 +2675,12 @@
  RESET_CULTURE_CREATION_DATE: "Дата создания #L [CULTURE.GetCollectiveNoun|Vl]ой#! культуры сброшена"
  RESET_CULTURE_CREATION_DATE_PAST: "Дата создания #L [CULTURE.GetCollectiveNoun|Vl]ой#! культуры была сброшена"
 
- ADD_COMPANION_EFFECT: "Пригласить персонажа [TARGET_CHARACTER.GetShortUIName] в [Concept( 'entourage', 'свиту' )|E] сопровождающих в путешествии"
- THEY_ADD_COMPANION_EFFECT: "[TARGET_CHARACTER.GetShortUIName] добавится в [Concept( 'entourage', 'свиту' )|E] сопровождающих в путешествии"
- I_ADD_COMPANION_EFFECT: "Вы приглашаете персонажа [TARGET_CHARACTER.GetShortUIName] в свиту сопровождающих в путешествии"
- I_ADDED_COMPANION_EFFECT: "Вы пригласили персонажа [TARGET_CHARACTER.GetShortUIName] в [Concept( 'entourage', 'свиту' )|E] сопровождающих в путешествии"
+ ADD_COMPANION_EFFECT: "Пригласить персонажа [TARGET_CHARACTER.GetShortUIName] в [Concept('entourage', 'свиту')|E] сопровождающих в [Concept('travel', 'путешествии')|E]"
+ ADDED_COMPANION_EFFECT: "Персонаж [TARGET_CHARACTER.GetShortUIName] приглашен в [Concept('entourage', 'свиту')|E] сопровождающих в [Concept('travel', 'путешествии')|E]"
+ THEY_ADD_COMPANION_EFFECT: "[TARGET_CHARACTER.GetShortUIName] добавится в [Concept('entourage', 'свиту')|E] сопровождающих в [Concept('travel', 'путешествии')|E]"
+ THEY_ADDED_COMPANION_EFFECT: "[TARGET_CHARACTER.GetShortUIName] [Select_CString(TARGET_CHARACTER.IsFemale, 'была приглашена', 'был приглашен' )] в [Concept('entourage', 'свиту')|E] сопровождающих в [Concept('travel', 'путешествии')|E]"
+ I_ADD_COMPANION_EFFECT: "Вы приглашаете персонажа [TARGET_CHARACTER.GetShortUIName] в [Concept('entourage', 'свиту')|E] сопровождающих в [Concept('travel', 'путешествии')|E]"
+ I_ADDED_COMPANION_EFFECT: "Вы пригласили персонажа [TARGET_CHARACTER.GetShortUIName] в [Concept('entourage', 'свиту')|E] сопровождающих в [Concept('travel', 'путешествии')|E]"
 
  COMPLETE_TRAVEL_PLAN_EFFECT: "[Concept('travel', 'Путешествие')|E] будет окончено"
  COMPLETE_TRAVEL_PLAN_EFFECT_PAST: "[Concept('travel', 'Путешествие')|E] окончено"
@@ -2790,9 +2792,9 @@
  I_HAVE_SET_POWER_LEVEL: "Мое [scales_of_power|El] в диархии [CHARACTER.GetDiarchyTypeName|l] склонилось на $VALUE|0$"
  THEY_HAVE_SET_POWER_LEVEL: "[scales_of_power|E] персонажа [CHARACTER.GetName] в диархии [CHARACTER.GetDiarchyTypeName|l] склонилось на $VALUE|0$"
 
- I_CHANGE_POWER_LEVEL: "Мое [scales_of_power|El] в диархии [CHARACTER.GetDiarchyTypeName|l] склоняется на $VALUE|0$"
- THEY_CHANGE_POWER_LEVEL: "[scales_of_power|E] персонажа [CHARACTER.GetName] в диархии [CHARACTER.GetDiarchyTypeName|l] склоняется на $VALUE|0$"
- GLOBAL_CHANGE_POWER_LEVEL: "[scales_of_power|E] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ')][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '')] в диархии [CHARACTER.GetDiarchyTypeName|l] склоняется на $VALUE|0$"
+ I_CHANGE_POWER_LEVEL: "Мое [Concept('scales_of_power', 'равновесие сил')|E] в диархии [CHARACTER.GetDiarchyTypeName|l] изменяется на $VALUE|0+=$ ед."
+ THEY_CHANGE_POWER_LEVEL: "[Concept('scales_of_power', 'Равновесие сил')|E] персонажа [CHARACTER.GetName] в диархии [CHARACTER.GetDiarchyTypeName|l] изменяется на $VALUE|0+=$ ед."
+ GLOBAL_CHANGE_POWER_LEVEL: "[Select_CString(CHARACTER.IsLocalPlayer, 'Ваше ', '')][Concept('scales_of_power', Select_CString(CHARACTER.IsLocalPlayer, 'равновесие сил', 'Равновесие сил')|E][Select_CString(CHARACTER.IsLocalPlayer, '', Concatenate(' персонажа ',CHARACTER.GetShortUIName))] в диархии [CHARACTER.GetDiarchyTypeName|l] изменяется на $VALUE|0+=$ ед."
  GLOBAL_CHANGED_POWER_LEVEL: "$GLOBAL_CHANGE_POWER_LEVEL$"
 
  #Neg duplicates here for error suppression.
@@ -3076,6 +3078,7 @@
  local_inspection_perk_effect: "Доступ к [Concept('activity', 'занятию')|E] @activity_inspection!«[GetActivityType('activity_survey').GetName]»"
  first_local_inspection_perk_effect: "Вы получите доступ к [Concept('activity', 'занятию')|E] @activity_inspection!«[GetActivityType('activity_survey').GetName]»"
  local_inspection_perk_2_effect: "Расход [Concept('provisions', 'припасов лагеря')|E] на [Concept('designated_terrain', 'предпочтительной местности')|E]: [provisions_i]#P -25%#!\nОткрывает [Concept('officer', 'подручного')|E] «[GetCourtPositionType('quartermaster_camp_officer').GetName]»\n[Concept('aptitude', 'Пригодность')|E] подручного «[GetCourtPositionType('quartermaster_camp_officer').GetName]»: #P +10#!\nОткрывает [Concept('officer', 'подручного')|E] «[GetCourtPositionType('head_porter_camp_officer').GetName]»\n[Concept('aptitude', 'Пригодность')|E] подручного «[GetCourtPositionType('head_porter_camp_officer').GetName]»: #P +10#!"
+ local_inspection_perk_3_effect: "Прирост [Concept('county_fertility', 'тучности пастбищ')|E] на [Concept('designated_terrain', 'выбранном типе местности')|E]: [county_fertility_i]#P 30%#!"
 
  local_hero_perk_effect: "Открывает [Concept('travel_option', 'особенность путешествия')E] «[GetTravelOption('leisurely_option').GetName ( GetPlayer )]»\nОткрывает [Concept('travel_option', 'особенность путешествия')E] «[GetTravelOption('appeasement_option').GetName ( GetPlayer )]»"
 
@@ -3093,6 +3096,7 @@
  personal_touch_effect: "Проведение [Concept('activity', 'занятия')|E] @activity_inspection!«[GetActivityType('activity_survey').GetName]» также накладывает на [Concept('county', 'графство')|E] эффект «[GetDecisionWithKey('local_arbitration_decision').GetName]»\nЭффекты достоинства «[GetPerk('no_stone_unturned_perk').GetName(GetPlayer)]»: #p +50%#!"
  personal_touch_2_effect: "Открывает [Concept('decision', 'решение')|E] «[master_terrain|E]»"
  personal_touch_3_effect: "Эффекты для [Concept('master_terrain', 'излюбленной местности')|E]:\n$BULLET_WITH_TAB$[Concept('travel_danger', 'Опасность')|E]: [travel_danger_i]#P -20#!\n$BULLET_WITH_TAB$Расход [Concept('provisions', 'припасов лагеря')|E]: [provisions_i]#P -25%#!\n$BULLET_WITH_TAB$Стоимость #color_white пополнения профессионалов#!: [gold_i][provisions_i]#P -25%#!\n$BULLET_WITH_TAB$[Concept('prestige', 'Престиж')|E] и [Concept('prestige_experience', 'репутация')|E] от [Concept('battles', 'битв')|E]: [prestige_i]#P +50%#!\n$BULLET_WITH_TAB$[command_modifier_i][Concept('advantage', 'Преимущество')|E]: @advantage_icon!#P +5#!\n$BULLET_WITH_TAB$[command_modifier_i]Максимальный [Concept('combat_roll', 'бросок на результаты боя')|E]: #P +1#!\n$BULLET_WITH_TAB$[command_modifier_i]Минимальный [Concept('combat_roll', 'бросок на результаты боя')|E]: #P +1#!\n$BULLET_WITH_TAB$[command_modifier_i]Устранение штрафа к [Concept('supply_limit', 'максимуму припасов')|E]: #P Да#!\n$BULLET_WITH_TAB$[command_modifier_i][Concept('attrition', 'Потери')|E]: #P -50%#!"
+ personal_touch_4_effect: "Эффекты достоинства «[GetPerk('know_your_land_know_your_people_perk').GetName(GetPlayer)]»: #p +50%#!"
  local_adjudicate_location_tt: "На ваше текущее местоположение будут наложены следующие эффекты:"
  realm_charts_perk_effect: "Секретность происков в той же державе @scheme_secrecy_icon!#P +[EmptyScope.ScriptValue('realm_charts_perk_value')|+0%/]#!"
  realm_charts_perk_2_effect: "Открывает [Concept('decision', 'решение')|E] «[draw_up_new_charts|E]»"
@@ -3158,6 +3162,8 @@
  remove_confederation_member_third_past: "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString(TARGET_CHARACTER.IsFemale, 'покинула', 'покинул' )] конфедерацию «[CONFEDERATION.GetName]»"
  disband_confederation_global: "Конфедерация «[CONFEDERATION.GetName]» распущена"
  disband_confederation_global_past: "Конфедерация «[CONFEDERATION.GetName]» была распущена"
+ disband_confederation_third: "Конфедерация «[CONFEDERATION.GetName]» распущена"
+ disband_confederation_third_past: "Конфедерация «[CONFEDERATION.GetName]» была распущена"
  any_land_neighboring_realm_with_tributaries_owner: "Любой соседний [Concept('independent_ruler', 'независимый правитель')|E] (в том числе [Concept('tributaries', 'данники')|E]):"
  custom.every_confederation_member: "Каждый участник вашей [Concept('confederation', 'конфедерации')|E]"
  PRAETORIAN_GUARD_NOMADIC_PERK_EFFECT: "Увеличена [Concept('aptitude', 'пригодность')|E] к придворным должностям «[GetCourtPositionType('boyan_court_position').GetName()]» и «[GetCourtPositionType('cherbi_court_position').GetName()]»"

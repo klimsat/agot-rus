@@ -254,8 +254,13 @@
 
  SUPPLY_MULT_DIFERENT_GOVERNMENT: "#L [GOVERNMENT_TYPE.GetAdjective]ие#! земли"
 
- CONTRACT_LIEGE_SIGNATURE: "Сюзерен,\n[SubjectContract.GetLiege.GetTitledFirstNameNoTooltip]\nдома [SubjectContract.GetLiege.GetHouse.GetBaseNameNoTooltip]"
- CONTRACT_VASSAL_SIGNATURE: "Вассал,\n[SubjectContract.GetSubject.GetTitledFirstNameNoTooltip]\nдома [SubjectContract.GetSubject.GetHouse.GetBaseNameNoTooltip]"
+ CONTRACT_LIEGE_SIGNATURE: "[SelectLocalization( SubjectContract.IsTributary, 'CONTRACT_LIEGE_SIGNATURE_SUZERAIN_TYPE', 'CONTRACT_LIEGE_SIGNATURE_LIEGE_TYPE' )],\n[SubjectContract.GetLiege.GetTitledFirstNameNoTooltip]\nдома [SubjectContract.GetLiege.GetHouse.GetBaseNameNoTooltip]"
+ CONTRACT_LIEGE_SIGNATURE_LIEGE_TYPE: "Сюзерен"
+ CONTRACT_LIEGE_SIGNATURE_SUZERAIN_TYPE: "Повелитель"
+ CONTRACT_VASSAL_SIGNATURE: "[SelectLocalization( SubjectContract.IsTributary, 'CONTRACT_VASSAL_SIGNATURE_TRIBUTARY_TYPE', 'CONTRACT_VASSAL_SIGNATURE_VASSAL_TYPE' )],\n[SubjectContract.GetSubject.GetTitledFirstNameNoTooltip]\nдома [SubjectContract.GetSubject.GetHouse.GetBaseNameNoTooltip]"
+ CONTRACT_VASSAL_SIGNATURE_VASSAL_TYPE: "Вассал"
+ CONTRACT_VASSAL_SIGNATURE_TRIBUTARY_TYPE: "Данник"
+
  marriage_favor_rights: "Брачное обязательство"
  marriage_favor_rights_default: "$marriage_favor_rights$ по умолчанию"
  marriage_favor_rights_default_short: "По умолчанию"
