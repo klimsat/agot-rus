@@ -526,46 +526,19 @@ types CharacterWindow
 							name = "skills_culture_religion"
 							layoutpolicy_horizontal = expanding
 
-							## Traits
-							agot_dragon_trait_expanding_button = {}
-
 							background = {
 								using = Background_Area
 							}
 
-							vbox = {
-								layoutpolicy_horizontal = expanding
-								layoutpolicy_vertical = expanding
-								margin = { -2 7 }
-
-								using = Animation_Character_Window_Refresh
-
-								fixedgridbox = {
-									name = "modifiers_grid"
-									datamodel = "[CharacterWindow.GetTimedModifiers]"
-									addcolumn = 22
-									addrow = 23
-									datamodel_wrap = 2
-									maxhorizontalslots = 2
-
-									item = {
-										modifier_item_icon = {
-											size = { 22 22 }
-
-											# blockoverride "input_info_text" {
-												# text = "CHARACTER_WINDOW_MODIFIERS"
-											# }
-										}
-									}
-								}
-								expand = {}
-							}
+							## Traits and Modifiers
+							agot_dragon_trait_expanding_button = {}
+							agot_dragon_modifiers_expanding_button = {}
 
 							hbox = {
 								# Divider
-								spacer = {
-									size = { 4 4 }
-								}
+								# spacer = {
+									# size = { 4 4 }
+								# }
 
 								divider_light = {
 									layoutpolicy_vertical = expanding
@@ -1258,13 +1231,24 @@ types CharacterWindow
 			{
 				spacing = 10
 
-				agot_expanded_modifiers_vbox = {}
-
-				divider_light = {
-					layoutpolicy_horizontal = expanding
-				}
-
 				agot_expanded_traits_vbox = {}
+			}
+		}
+
+		# Modifiers expanded
+		scrollbox = {
+			name = "modifiers_expanded"
+			visible = "[CharacterWindow.AreModifiersExpanded]"
+			layoutpolicy_vertical = expanding
+			layoutpolicy_horizontal = expanding
+
+			using = Animation_Tab_Switch
+
+			blockoverride "scrollbox_content"
+			{
+				spacing = 15
+
+				agot_expanded_modifiers_vbox = {}
 			}
 		}
 	}
@@ -1623,7 +1607,6 @@ types CharacterWindow
 	###########################
 	type agot_dragon_trait_expanding_button = button_standard_hover
 	{
-		layoutpolicy_horizontal = fixed
 		size = { 400 57 }
 		button_ignore = none
 		onclick = "[CharacterWindow.ToggleExpandedTraits]"
@@ -1984,6 +1967,36 @@ types CharacterWindow
 			}
 		}
 		expand = {}
+	}
+
+	type agot_dragon_modifiers_expanding_button = button_standard_hover
+	{
+		layoutpolicy_horizontal = expanding
+		size = { 48 57 }
+		maximumsize = { 48 57 }
+		button_ignore = none
+		onclick = "[CharacterWindow.ToggleExpandedModifiers]"
+		using = tooltip_nw
+		tooltip = "OUTLINER_EXPAND"
+
+		vbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			using = Animation_Character_Window_Refresh
+
+			fixedgridbox = {
+				name = "modifiers_grid"
+				datamodel = "[CharacterWindow.GetTimedModifiers]"
+				addcolumn = 22
+				addrow = 22
+				datamodel_wrap = 2
+				maxhorizontalslots = 2
+				setitemsizefromcell = yes
+
+				item = { modifier_item_icon = {} }
+			}
+		}
 	}
 
 	#######################
