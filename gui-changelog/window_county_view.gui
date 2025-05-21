@@ -1143,6 +1143,8 @@ window = {
 											#AGOT Modified
 											# visible = "[HoldingView.CanSetCountyCapital]"
 											visible = "[And(HoldingView.CanSetCountyCapital, GetScriptedGui('agot_can_set_realm_capital').IsShown(GuiScope.SetRoot(HoldingView.GetProvince.MakeScope).AddScope('actor', GetPlayer.MakeScope).End))]"
+											#AGOT Added
+											enabled = "[And(HoldingView.CanSetCountyCapital, GetScriptedGui('agot_can_set_realm_capital').IsValid(GuiScope.SetRoot(HoldingView.GetProvince.MakeScope).AddScope('actor', GetPlayer.MakeScope).End))]"
 											texture = "gfx/interface/icons/flat_icons/move_capital.dds"
 
 											onclick = "[HoldingView.SetCountyCapital]"
