@@ -4,7 +4,6 @@ widget = {
 	size = { 450 300 }
 
 	vbox = {
-		#text_single = {block "header" { text = "This is a Header" } }
 		container = {
 			allow_outside = yes
 			layoutpolicy_horizontal = expanding
@@ -25,12 +24,10 @@ widget = {
 								button_standard = {
 									size = { 410 100 }
 									datacontext = "[Scope.Artifact]"
-
 									down = "[GetScriptedGui( 'agot_artifact_selecting' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_artifact', Artifact.MakeScope ).End )]"
 									onclick = "[GetScriptedGui( 'agot_artifact_selecting' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_artifact', Artifact.MakeScope ).End )]"
 
 									hbox = {
-
 										widget = {
 											size = { 80 80 }
 											alwaystransparent = yes
@@ -43,28 +40,19 @@ widget = {
 											layoutpolicy_horizontal = expanding
 											layoutpolicy_vertical = expanding
 
-
-
-											#expand = {}
-
 											hbox = {
 												layoutpolicy_horizontal = expanding
-
 												text_single = {
 													layoutpolicy_horizontal = expanding
 													text = "[Artifact.GetRarityAndSlotType]"
 													max_width = 300
 													using = Font_Size_Small
 												}
-
 												expand = {}
-
-
 											}
 
 											hbox = {
 												layoutpolicy_horizontal = expanding
-
 												text_multi = {
 													layoutpolicy_horizontal = expanding
 													text = "[Artifact.GetNameNoTooltip]"
@@ -73,9 +61,7 @@ widget = {
 													default_format = "#high"
 													autoresize = yes
 												}
-
 												expand = {}
-
 											}
 
 											hbox = {
@@ -89,13 +75,10 @@ widget = {
 												}
 												expand = {}
 											}
-
-
 										}
 										hbox = {
 											layoutpolicy_horizontal = expanding
 											layoutpolicy_vertical = expanding
-											#hbox_artifact_durability = {}
 											expand = {}
 
 											vbox = {
@@ -104,10 +87,8 @@ widget = {
 													datacontext = "[Artifact.GetOwner]"
 												}
 												expand = {}
-
 											}
 										}
-
 									}
 								}
 							}
