@@ -699,3 +699,7 @@ types CharacterWindow
 		blockoverride "expand_button" {}
 	}
 }
+
+template agot_character_standard {
+	visible = "[And(Not(Or(Character.HasTrait(GetTrait('dragon').Self), Character.HasTrait(GetTrait('ruin').Self))), Not(GetScriptedGui('fake_death_character').IsShown(GuiScope.AddScope('char', Character.MakeScope).End)))]"
+}
