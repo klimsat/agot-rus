@@ -1,6 +1,6 @@
 widget = {
 	allow_outside = yes
-	name = "event_window_valyrian_steel_selection"
+	name = "agot_event_window_widget_dragon_egg_selection"
 	size = { 450 300 }
 
 	vbox = {
@@ -18,7 +18,7 @@ widget = {
 					minimumsize = { 450 180 }
 					blockoverride "scrollbox_content" {
 						vbox = {
-							datamodel = "[Scope.GetList('possible_valyrian_steel')]"
+							datamodel = "[Scope.GetList('possible_dragon_eggs')]"
 
 							item = {
 								button_standard = {
@@ -42,7 +42,6 @@ widget = {
 
 											hbox = {
 												layoutpolicy_horizontal = expanding
-
 												text_single = {
 													layoutpolicy_horizontal = expanding
 													text = "[Artifact.GetRarityAndSlotType]"
@@ -54,7 +53,6 @@ widget = {
 
 											hbox = {
 												layoutpolicy_horizontal = expanding
-
 												text_multi = {
 													layoutpolicy_horizontal = expanding
 													text = "[Artifact.GetNameNoTooltip]"
@@ -77,8 +75,6 @@ widget = {
 												}
 												expand = {}
 											}
-
-
 										}
 										hbox = {
 											layoutpolicy_horizontal = expanding

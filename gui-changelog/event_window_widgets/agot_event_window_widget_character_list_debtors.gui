@@ -1,7 +1,7 @@
 widget = {
 	allow_outside = yes
-	name = "event_window_character_selection_five_options"
-	size = { 440 154 } # Size of the insert inside the event window; needs to fit under the text box since a margin will only push the content and not the widget
+	name = "agot_event_window_widget_character_list_debtors"
+	size = { 440 380 } # Size of the insert inside the event window; needs to fit under the text box since a margin will only push the content and not the widget
 
 	vbox = {
 		allow_outside = yes
@@ -26,8 +26,6 @@ widget = {
 							using = tooltip_ws
 							layoutpolicy_vertical = expanding
 							datacontext = "[Scope.GetCharacter]"
-							onclick = "[GetScriptedGui('si_set_selected_character').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_char', Character.MakeScope).End)]"
-							down = "[GetScriptedGui('si_set_selected_character').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_char', Character.MakeScope).End)]"
 
 							tooltipwidget = {
 								cooltip_type = {
@@ -46,10 +44,10 @@ widget = {
 							}
 							text_single = {
 								name = "character_name"
-								text = "[Character.GetUINameNotMeNoTooltip]"
+								text = "agot_debtors_list"
 								using = Font_Size_Medium
 								align = center
-								max_width = 320 # Position where the text begins to resize; needs to fit within the button size, taking into account anything this text shares the button with
+								max_width = 320
 								position = { 70 20 }
 							}
 							expand = {}

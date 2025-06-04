@@ -281,6 +281,10 @@ types CouncilWindow
 
 		visible = "[GetPlayer.GetGovernment.IsType('nights_watch_government')]"
 
+		blockoverride "skill_visible" {
+			visible = no
+		}
+
 		background = {
 			texture = "gfx/interface/skinned/illustrations/council/bg_council_spouse.dds"
 			margin_bottom = 20
@@ -303,7 +307,7 @@ types CouncilWindow
 
 		blockoverride "regular_task" {}
 
-		blockoverride "spouse_task"
+		blockoverride "assist_task"
 		{
 			hbox = {
 				visible = "[Character.IsValid]"
@@ -312,7 +316,7 @@ types CouncilWindow
 				spacing = 3
 
 				button_standard = {
-					size = { 202 25 }
+					size = { 210 25 }
 					onclick = "[GuiCouncilPosition.ShowHideTasks]"
 					tooltip = "[GuiCouncilPosition.GetShowHideTooltip]"
 					down = "[GuiCouncilPosition.ArePotentialTasksVisible]"
