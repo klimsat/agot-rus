@@ -1,0 +1,93 @@
+widget = {
+	allow_outside = yes
+	name = "agot_dragon_egg_selection"
+	size = { 440 300 }
+
+	vbox = {
+		allow_outside = yes
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		position = { 0 4 } # Pushes the box around
+		datacontext = "[GetPlayer.MakeScope]" # Needs player scope to reference stored values
+
+		scrollbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			blockoverride "scrollbox_content" {
+				vbox = {
+					datamodel = "[Scope.GetList('possible_dragon_eggs')]"
+
+					item = {
+						button_standard = {
+							size = { 400 90 } # Size of the button frame borders; needs to fit within the widget size
+							datacontext = "[Scope.Artifact]"
+							down = "[GetScriptedGui( 'agot_artifact_selecting' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_artifact', Artifact.MakeScope ).End )]"
+							onclick = "[GetScriptedGui( 'agot_artifact_selecting' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_artifact', Artifact.MakeScope ).End )]"
+
+							hbox = {
+								widget = {
+									size = { 80 80 }
+									alwaystransparent = yes
+									button_artifact = {
+										size = { 100% 100% }
+									}
+								}
+
+								vbox = {
+									layoutpolicy_horizontal = expanding
+									layoutpolicy_vertical = expanding
+									margin_top = 9
+
+									hbox = {
+										layoutpolicy_horizontal = expanding
+										text_single = {
+											layoutpolicy_horizontal = expanding
+											text = "[Artifact.GetRarityAndSlotType]"
+											max_width = 300
+											using = Font_Size_Small
+										}
+									}
+
+									hbox = {
+										layoutpolicy_horizontal = expanding
+										text_multi = {
+											layoutpolicy_horizontal = expanding
+											text = "[Artifact.GetNameNoTooltip]"
+											max_width = 350
+											using = Font_Size_Medium
+											default_format = "#high"
+											autoresize = yes
+										}
+									}
+
+									hbox = {
+										layoutpolicy_horizontal = expanding
+										text_single = {
+											layoutpolicy_horizontal = expanding
+											text = [Artifact.GetOwner.GetShortUIName]
+											using = Font_Size_Small
+											align = left|nobaseline
+											autoresize = yes
+										}
+									}
+									expand = {}
+								}
+								hbox = {
+									layoutpolicy_horizontal = expanding
+									layoutpolicy_vertical = expanding
+									expand = {}
+
+									portrait_head_small = {
+										datacontext = "[Artifact.GetOwner]"
+									}
+								}
+							}
+						}
+					}
+				}
+				spacer = { size = { 0 20 } }
+			}
+		}
+	}
+}

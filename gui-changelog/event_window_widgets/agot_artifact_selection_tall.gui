@@ -1,0 +1,219 @@
+widget = {
+	allow_outside = yes
+	name = "agot_artifact_selection_tall"
+	size = { 440 340 }
+
+	vbox = {
+		allow_outside = yes
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		position = { 0 4 } # Pushes the box around
+		datacontext = "[GetPlayer.MakeScope]" # Needs player scope to reference stored values
+
+		scrollbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			blockoverride "scrollbox_content" {
+				vbox = {
+					datamodel = "[Scope.GetList('possible_artifacts')]"
+
+					item = {
+						button_standard = {
+							size = { 400 90 } # Size of the button frame borders; needs to fit within the widget size
+							datacontext = "[Scope.Artifact]"
+
+							down = "[GetScriptedGui( 'agot_artifact_selecting' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_artifact', Artifact.MakeScope ).End )]"
+							onclick = "[GetScriptedGui( 'agot_artifact_selecting' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_artifact', Artifact.MakeScope ).End )]"
+
+							widget = {
+								size = { 90 90 }
+								parentanchor = left
+								icon_artifact = {
+									blockoverride "tooltipwidget" {
+										tooltipwidget = {
+											widget = {
+												using = GeneralTooltipSetup
+												alwaystransparent = no
+
+												widget = {
+													name = "background"
+													using = DefaultTooltipBackground
+													size = { 100% 100% }
+													alwaystransparent = no
+												}
+
+												vbox = {
+													set_parent_size_to_minimum = yes
+													margin = { 20 10 }
+													margin_bottom = 16
+
+													vbox = {
+														layoutpolicy_horizontal = expanding
+														layoutpolicy_vertical = expanding
+														margin = { 6 4 }
+														margin_bottom = 12
+
+														background = {
+															name = "header"
+															texture = "gfx/interface/component_tiles/tile_title_big_top_01.dds"
+															spriteType = Corneredstretched
+															align = vcenter|left
+															margin = { 15 0 }
+															texture_density = 2
+
+															modify_texture = {
+																name = "mask"
+																texture = "gfx/interface/component_masks/mask_title_big_top.dds"
+																spriteType = Corneredstretched
+																spriteborder = { 160 0 }
+																blend_mode = alphamultiply
+																alpha = 0.5
+															}
+
+															modify_texture = {
+																name = "overlay"
+																texture = "gfx/interface/component_overlay/overlay_title_big_top.dds"
+																spriteType = Corneredstretched
+																spriteborder = { 0 0 }
+																blend_mode = overlay
+															}
+														}
+
+														hbox = {
+															layoutpolicy_horizontal = expanding
+
+															vbox = {
+																text_single = {
+																	layoutpolicy_horizontal = expanding
+																	name = "rarity"
+																	text = "[Artifact.GetRarityAndSlotType]"
+																	align = top
+																	using = Font_Size_Medium
+																}
+
+																text_single = {
+																	layoutpolicy_horizontal = expanding
+																	name = "title"
+																	text = "[Artifact.GetNameNoTooltip]"
+																	align = top
+																	using = Font_Size_Big
+																}
+															}
+
+															expand = {}
+
+															vbox = {
+																layoutpolicy_vertical = expanding
+
+																text_single = {
+																	name = "artifact_category"
+																	text = "[Artifact.GetCategory]"
+																	align = right
+																	fonttintcolor = "[TooltipInfo.GetTintColor]"
+																}
+
+																expand = {}
+															}
+														}
+													}
+
+													vbox = {
+														layoutpolicy_horizontal = expanding
+														layoutpolicy_vertical = expanding
+														spacing = 10
+
+														hbox = { #icon, durability and effects
+															layoutpolicy_horizontal = expanding
+															spacing = 10
+
+															background = {
+																layoutpolicy_horizontal = expanding
+																using = Background_Area
+																margin = { 15 5 }
+																margin_top = 5
+															}
+
+															vbox = {
+																layoutpolicy_vertical = expanding
+
+																icon_artifact = {
+																	size = { 160 160 }
+																	blockoverride "tooltipwidget" {}
+																}
+
+																expand = {}
+															}
+
+															vbox = {
+																name = "main_text"
+																layoutpolicy_horizontal = expanding
+																layoutpolicy_vertical = expanding
+																spacing = 5
+
+																hbox = {
+																	name = "modifiers"
+																	layoutpolicy_horizontal = expanding
+
+																	text_multi = {
+																		visible = "[Artifact.CanBenefitPlayer]"
+																		max_width = 300
+																		autoresize = yes
+																		text = ARTIFACT_EFFECT
+																	}
+
+																	text_multi = {
+																		visible = "[Not( Artifact.CanBenefitPlayer )]"
+																		max_width = 300
+																		autoresize = yes
+																		text = ARTIFACT_EFFECT
+																		default_format = "#low"
+																		format_override = { P low }
+																		format_override = { E low }
+																	}
+
+																	expand = {}
+																}
+
+																hbox = {
+																	name = "fallback"
+																	layoutpolicy_horizontal = expanding
+
+																	visible = "[Not( Artifact.CanBenefitPlayer )]"
+
+																	text_multi = {
+																		max_width = 300
+																		autoresize = yes
+																		text = "ARTIFACT_FALLBACK_EFFECT"
+																	}
+																	expand = {}
+																}
+																expand = {}
+															}
+
+															expand = {}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+							widget = {
+								size = { 360 90 }
+								parentanchor = right
+								text_single = {
+									text = "[Scope.Artifact.GetNameNoTooltip]"
+									parentanchor = center
+									using = Font_Size_Medium
+								}
+							}
+						}
+					}
+				}
+				spacer = { size = { 0 20 } }
+			}
+		}
+	}
+}
