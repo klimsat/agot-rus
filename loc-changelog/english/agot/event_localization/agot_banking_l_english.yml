@@ -134,7 +134,8 @@
  agot_banking.0203.desc:0 "The [ROOT.Char.Custom('agot_bank_name')] has sent an emissary inquiring whether I would be willing to invest in the bank by purchasing a share of their operations. Every five years, I would receive [agot_bank_dividends|E] on the share, or I could sell it to receive gold earlier, if needed.\n\nThe current price of a share is @gold_icon! [ROOT.Var('ShareBuyingPrice').GetValue|2|N]."
  agot_banking.0203.a:0 "I can't afford that!"
  agot_banking.0203.b:0 "You have a deal!"
- agot_banking.0203.c:0 "Not now, I've changed my mind."
+ agot_banking.0203.c:0 "I will buy 5 shares."
+ agot_banking.0203.d:0 "Not now, I've changed my mind."
 
  agot_banking.0204.t:0 "Selling a Share of the Bank"
  agot_banking.0204.desc:0 "I am unhappy with how much money I have tied up in the [ROOT.Char.Custom('agot_bank_name')] for the few petty coins they send me every few years! It would be better if I sold one of my shares and retrieved my gold while I still can, lest the value of the share collapses.\n\nI may sell a share in the [ROOT.Char.Custom('agot_bank_name')] and receive its current value, equal to @gold_icon! [ROOT.Var('ShareSellingPrice').GetValue|2|N]."
@@ -291,17 +292,17 @@
  show_bank_numbers_decision_tooltip:0 "Let's take a look at the books"
  show_bank_numbers_decision_effect:0 "You will be presented with an overview of all the bank's current key figures."
 
-# delegate_defaulter_handling_decision:0 "Delegate Management of Defaults"
-# delegate_defaulter_handling_decision_desc:0 "I no longer wish to manage debtors who are defaulting on their debts. Instead, a shareholder will be tasked with overseeing, handling, and resolving these cases."
-# delegate_defaulter_handling_decision_tooltip:0 "You will no longer receive messages about debtors defaulting."
-# delegate_defaulter_handling_decision_confirm:0 "Do not bother me with this."
-# delegate_defaulter_handling_decision_effect:0 "You will no longer receive messages about debtors defaulting. A shareholder will automatically be tasked with handling defaults."
+ # delegate_defaulter_handling_decision:0 "Delegate Management of Defaults"
+ # delegate_defaulter_handling_decision_desc:0 "I no longer wish to manage debtors who are defaulting on their debts. Instead, a shareholder will be tasked with overseeing, handling, and resolving these cases."
+ # delegate_defaulter_handling_decision_tooltip:0 "You will no longer receive messages about debtors defaulting."
+ # delegate_defaulter_handling_decision_confirm:0 "Do not bother me with this."
+ # delegate_defaulter_handling_decision_effect:0 "You will no longer receive messages about debtors defaulting. A shareholder will automatically be tasked with handling defaults."
 
-# handle_defaulters_again_decision:0 "Manage Defaults"
-# handle_defaulters_again_decision_desc:0 "I am willing to resume managing defaulting debtors personally."
-# handle_defaulters_again_decision_tooltip:0 "You will receive a message each time a default occurs."
-# handle_defaulters_again_decision_confirm:0 "It is my duty to handle such cases."
-# handle_defaulters_again_decision_effect:0 "You will receive reports of loan defaults again."
+ # handle_defaulters_again_decision:0 "Manage Defaults"
+ # handle_defaulters_again_decision_desc:0 "I am willing to resume managing defaulting debtors personally."
+ # handle_defaulters_again_decision_tooltip:0 "You will receive a message each time a default occurs."
+ # handle_defaulters_again_decision_confirm:0 "It is my duty to handle such cases."
+ # handle_defaulters_again_decision_effect:0 "You will receive reports of loan defaults again."
 
  fill_investment_fund_decision:0 "Replenish Investment Fund"
  fill_investment_fund_decision_desc:0 "As [agot_bank_director|E] of the [ROOT.Char.Custom('agot_bank_name')], you have the opportunity to increase the bank's investment fund. The money in this fund is invested in small businesses and projects, providing opportunities for continued profits. However, invested money always runs the risk of being lost entirely, which could threaten the bank's liquidity. A good understanding of the sustainability and reliability of the investment opportunities is key to ensuring good long-term performance."
@@ -382,7 +383,7 @@
  agot_found_bank_decision_effect_tooltip:0 "A new [agot_bank|E] will be established in your capital. You will become the bank's first [agot_bank_director|E], and every character in your realm can invest money in the new bank to become a shareholder."
 
 
- #vassal loan stuff
+ # vassal loan stuff
  take_vassal_loan_interaction:0 "Ask a Vassal for a Loan"
  take_vassal_loan_interaction_desc:0 "Ask your vassal for a personal loan. The loan will have 25% interest and is expected to be repaid after a term of 5 years."
 
@@ -427,6 +428,8 @@
  repay_vassal_loan_decision_tooltip_confirm_text_desc:0 "One less thing to worry about."
  repay_vassal_loan_decision_effect:0 "You may repay your current vassal loan before the loan's term ends."
 
+
+
  agot_bank_list_name:0 "#high;SIZE:24 [Character.Custom('agot_bank_name')]#!"
  agot_bank_list_value:0 "$EFFECT_LIST_BULLET$Bank value: #clickable [Character.MakeScope.Var('BankValue').GetValue|0]#!"
  agot_bank_list_interest:0 "[Character.Custom('agot_banking_interest_level')]"
@@ -466,7 +469,7 @@
  agot_banking.0700.desc:0 "Grievous news! The headquarters of our bank is now in the hands of [NewHolder.GetTitledFirstNameNicknamed]. As [NewHolder.GetHerHis] realm already contains another bank, [NewHolder.GetSheHe] decided to liquidate our bank to reduce competition.\n\nAll shareholders will be paid a fraction of the bank's current cash reserve. After that, the bank will cease to exist."
  agot_banking.0700.a:0 "And so this venture comes to an end."
 
- event_window_widget_enter_bank_name_prompt:0 "Choose Bank Name:"
+ event_window_widget_enter_bank_name_prompt:0 "Choose Bank Name (do not start with "The"):"
 
  agot_banking.0701.t:0 "Raiding a Bank?"
  agot_banking.0701.desc:0 "The smell of cinders and the din of jovial warriors mingle in the air around me. My party has successfully besieged [barony.GetNameNoTierNoTooltip], home to the famous [bank_shareholder.Custom('agot_bank_name')].\n\nBefore us stands an enticing opportunity: surely this bank's vaults contain abundant treasures and unimaginable wealth... And our control of the holding means the bank is defenseless against my troops.\n\nBut such an action would not go unnoticed. The bank would not leave this aggression unanswered..."
@@ -494,7 +497,6 @@
  agot_banking.0705.desc:0 "[bank_raider.GetTitledFirstNameNicknamed] gave in and promised to repay what was stolen within the next 3 years. We will consider this a loan with a yearly interest rate of 5%."
  agot_banking.0705.a:0 "Let's hope [bank_raider.GetSheHe] sticks to the agreement."
 
- #new stuff
  gift_share_interaction:0 "Gift a Bank Share"
  gift_share_interaction_desc:0 "Gift the character one of your bank shares"
  gift_share:0 "Here, have a share"
@@ -502,3 +504,17 @@
  take_share_interaction:0 "Take Bank Shares"
  take_share_interaction_desc:0 "Take all bank shares from a house member"
  take_share:0 "Gimme your shares"
+
+ # new stuff
+ agot_banking.0801.t:0 "A Threat of Bankruptcy"
+ agot_banking.0801.desc:0 "The [ROOT.Char.Custom('agot_bank_name')] lacks sufficient cash reserves to cover its operating costs. All shareholders are therefore asked to purchase additional shares immediately in order to avoid bankruptcy.\n\nIf insufficient funds are raised, the bank will be forced to close its doors permanently."
+ agot_banking.0801.a:0 "I will do my part."
+ agot_banking.0801.b:0 "I will rely on the other shareholders."
+
+ agot_banking.0803.t:0 "Bankruptcy"
+ agot_banking.0803.desc:0 "Disaster!\n\nThe [ROOT.Char.Custom('agot_bank_name')] was unable to raise enough new investments to meet its operating costs. As a result, the bank is now officially bankrupt and will permanently cease operations."
+ agot_banking.0803.a:0 "My investment is lost..."
+
+ agot_banking.0804.t:0 "The Bank Is Saved"
+ agot_banking.0804.desc:0 "Thanks to the willingness of enough shareholders to increase their investment once again, the bank's impending bankruptcy has been averted."
+ agot_banking.0804.a:0 "What a relief!"

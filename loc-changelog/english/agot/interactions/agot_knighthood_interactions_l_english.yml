@@ -13,18 +13,18 @@
  agot_educate_squire_interaction_notification:0 "Educate Squire"
 
  agot_offer_squire_interaction:0 "Offer Squire"
- agot_offer_squire_interaction_desc:0 "Offer [recipient.GetShortUIName] a [squire|E], making someone in [recipient.GetHerHis] [court|E], the [agot_knight|E] of the chosen character"
+ agot_offer_squire_interaction_desc:0 "Offer [recipient.GetShortUIName] a [squire|E], making [recipient.GetHerHim], or someone in [recipient.GetHerHis] [court|E], the [agot_knight|E] of the chosen character"
  agot_offer_squire_interaction_extra_icon:0 "$hook_extra_icon$"
 
- agot_offer_knight_education_interaction:0 "Offer Knight Tutelage"
- agot_offer_knight_education_interaction_desc:0 "Offer [recipient.GetShortUIName] a [agot_knight|E], making someone in [recipient.GetHerHis] [court|E] the [squire|E] of the chosen adult"
- agot_oagot_offer_knight_education_interaction_extra_icon:0 "$hook_extra_icon$"
+ agot_offer_knight_tutelage_interaction:0 "Offer Knight Tutelage"
+ agot_offer_knight_tutelage_interaction_desc:0 "Offer [recipient.GetShortUIName] a [agot_knight|E], making [recipient.GetHerHim], or someone in [recipient.GetHerHis] [court|E], the [squire|E] of the chosen character"
+ agot_oagot_offer_knight_tutelage_interaction_extra_icon:0 "$hook_extra_icon$"
 
  actor_secondary_agot_offer_squire_interaction:0 "Squire"
  recipient_secondary_agot_offer_squire_interaction:0 "Knight"
 
- actor_secondary_agot_offer_knight_education_interaction:0 "Knight"
- recipient_secondary_agot_offer_knight_education_interaction:0 "Squire"
+ actor_secondary_agot_offer_knight_tutelage_interaction:0 "Knight"
+ recipient_secondary_agot_offer_knight_tutelage_interaction:0 "Squire"
 
  EDUCATE_SELECT_YOUR_SQUIRE_OR_KNIGHT:0 "#I Choose a [squire|E] or [agot_knight|E] from your [court|E]#!"
  EDUCATE_SELECT_THEIR_KNIGHT:0 "#I Choose a [agot_knight|E] from their [court|E]#!"
@@ -46,13 +46,13 @@
  OFFER_SQUIREHOOD_NOTIFICATION:0 "The road to knighthood begins with squirehood. Become my squire and I will ensure that, should you be a worthy student, you will one day become a knight by my hand!" #AGOT TODO  please rewrite this
 
  agot_remove_my_squire_interaction:0 "Remove Squire"
- agot_remove_my_squire_interaction_desc:0 "[recipient.GetFirstNameNicknamedNoTooltipRegnal] is your squire, but with a few words, you can remove them from that position."
+ agot_remove_my_squire_interaction_desc:0 "Remove [recipient.GetFirstNameNicknamedNoTooltipRegnal] from [recipient.GetHerHis] position as your [squire|E]."
 
  squirehood_removal:0 "Removed from Squirehood"
  REMOVAL_OF_SQUIREHOOD_NOTIFICATION:0 "In my eyes, you are no longer worthy of being a squire! You will need to find a different knight to continue your knightly training!"
 
  agot_train_squire_interaction:0 "Train Squire"
- agot_train_squire_interaction_desc:0 "Train [recipient.GetFirstNameNicknamedNoTooltipRegnal] in the ways of knighthood."
+ agot_train_squire_interaction_desc:0 "Train [recipient.GetFirstNameNicknamedNoTooltipRegnal] in the ways of knighthood. [recipient.GetSheHe|U] will still experience automatic [squire|E] training events outside of this interaction."
 
  remove_knight_interaction:0 "Remove Child's Knight"
  remove_knight_interaction_desc:0 "Remove [recipient.GetNamePossessive] knight."
@@ -64,7 +64,7 @@
  agot_train_squire_actor.tt:0 "Will be prompted to select what type of training [recipient.GetName] will receive."
  agot_train_squire_recipient.tt:0 "Will receive training based on the selection of [actor.GetName]."
 
- is_squire_or_prev_squire:0 "Is currently a [squire|eE], or is not a knightless squire."
+ is_squire_or_prev_squire:0 "Is currently a [squire|E], or is not a knightless squire."
 
  agot_can_become_a_knight_trigger_age_tt:0 "Is not 16 or older; or, is not at least 12 with extremely high [prowess|E]."
  agot_knighthood_was_revoked_tt:0 "Previously had their knighthood revoked"
@@ -75,106 +75,106 @@
  agot_char_interaction.0081.desc:0 "Unfortunately, we do not find your proposed squiring arrangement to our liking."
  agot_char_interaction.0081.a:0 "Such a shame."
 
-agot_view_squire_progress_interaction:0 "View Squire Progress"
-agot_view_squire_progress_interaction_desc:0 "View your squire's progress to knighthood."
+ agot_view_squire_progress_interaction:0 "View Squire Progress"
+ agot_view_squire_progress_interaction_desc:0 "View your squire's progress to knighthood."
 
-view_progress_very_bad_ptk_tt:0 "This squire is having a #N very bad time#! learning the ropes about knighthood. Their current form does not inspire anyone."
+ view_progress_very_bad_ptk_tt:0 "This squire is having a #N very bad time#! learning the ropes about knighthood. Their current form does not inspire anyone."
 
-view_progress_bad_ptk_tt:0 "This [squire|E] is having some minor troubles learning the ropes about knighthood."
+ view_progress_bad_ptk_tt:0 "This [squire|E] is having some minor troubles learning the ropes about knighthood."
 
-view_progress_zero_ptk_tt:0 "This [squire|E] is either starting off their squire journey, or has made neutral progress."
+ view_progress_zero_ptk_tt:0 "This [squire|E] is either starting off their squire journey, or has made neutral progress."
 
-view_progress_basic_good_ptk_tt:0 "This [squire|E] is showing basic understanding of knightood. They still have a long way to go."
+ view_progress_basic_good_ptk_tt:0 "This [squire|E] is showing basic understanding of knightood. They still have a long way to go."
 
-view_progress_decent_ptk_tt:0 "This [squire|E] is showing decent understanding of knighthood. They are improving, but still have some ways to go."
+ view_progress_decent_ptk_tt:0 "This [squire|E] is showing decent understanding of knighthood. They are improving, but still have some ways to go."
 
-view_progress_good_ptk_tt:0 "This [squire|E] is doing good, and will be ready to made a [agot_knight|E] soon!"
+ view_progress_good_ptk_tt:0 "This [squire|E] is doing good, and will be ready to made a [agot_knight|E] soon!"
 
-view_progress_very_good_ptk_tt:0 "This [squire|E] is nearly ready for knighthood. After a few months more training, they will be ready to be knighted."
+ view_progress_very_good_ptk_tt:0 "This [squire|E] is nearly ready for knighthood. After a few months more training, they will be ready to be knighted."
 
-view_progress_knight_this_char_now_ptk_tt:0 "This [squire|E] is eligible to be made a [agot_knight|E], once they are eligible age wise!"
+ view_progress_knight_this_char_now_ptk_tt:0 "This [squire|E] is eligible to be made a [agot_knight|E], once they are eligible age wise!"
 
-OFFER_SQUIRE:0 "Offer Squire"
-OFFER_KNIGHT_TUTELAGE:0 "Offer Knight Tutelage"
-OFFER_EDUCATE_SQUIRE:0 "Educate Squire"
+ OFFER_SQUIRE:0 "Offer Squire"
+ OFFER_KNIGHT_TUTELAGE:0 "Offer Knight Tutelage"
+ OFFER_EDUCATE_SQUIRE:0 "Educate Squire"
 
-##
+ ##
 
-ACTOR_IS_MY_AGOT_KNIGHT_REASON:0 "[recipient.GetShortUIName|U] is [actor.GetShortUINamePossessive] squire: $VALUE|=+0$"
+ ACTOR_IS_MY_AGOT_KNIGHT_REASON:0 "[recipient.GetShortUIName|U] is [actor.GetShortUINamePossessive] squire: $VALUE|=+0$"
 
-LOWBORN_DESIRES_KNIGHTHOOD_REASON:0 "As a [lowborn|E], I am more inclined to accept an increase in social status: $VALUE|=+0$"
+ LOWBORN_DESIRES_KNIGHTHOOD_REASON:0 "As a [lowborn|E], I am more inclined to accept an increase in social status: $VALUE|=+0$"
 
-HIGHBORN_DISLIKES_LOWBORN_KNIGHT_OFFER:0 "A [lowborn|E] knighting me would be inappropriate: $VALUE|=+0$"
+ HIGHBORN_DISLIKES_LOWBORN_KNIGHT_OFFER:0 "A [lowborn|E] knighting me would be inappropriate: $VALUE|=+0$"
 
-HIGHBORN_IS_HUMBLE:0 "[actor.GetShortUIName|U] is a [lowborn|E], but I don't mind as I'm humble: $VALUE|=+0$"
+ HIGHBORN_IS_HUMBLE:0 "[actor.GetShortUIName|U] is a [lowborn|E], but I don't mind as I'm humble: $VALUE|=+0$"
 
-## PERSONALITY REASONS
+ ## PERSONALITY REASONS
 
-KNIGHTHOOD_LOW_BOLDNESS_REASON:0 "[personality|E] — #italic Knighthood sounds scary:#! $VALUE|=+0$"
+ KNIGHTHOOD_LOW_BOLDNESS_REASON:0 "[personality|E] — #italic Knighthood sounds scary:#! $VALUE|=+0$"
 
-KNIGHTHOOD_HIGH_BOLDNESS_REASON:0 "[personality|E] — #italic I relish the chance to prove my worth by being a knight!:#! $VALUE|=+0$"
+ KNIGHTHOOD_HIGH_BOLDNESS_REASON:0 "[personality|E] — #italic I relish the chance to prove my worth by being a knight!:#! $VALUE|=+0$"
 
-KNIGHTHOOD_FAITH_ZEALOUT_REASON:0 "[personality|E] — #italic Knighthood is a sign of my greater devotion:#! $VALUE|=+0$"
+ KNIGHTHOOD_FAITH_ZEALOUT_REASON:0 "[personality|E] — #italic Knighthood is a sign of my greater devotion:#! $VALUE|=+0$"
 
-KNIGHTHOOD_GREED_REASON:0 "[personality|E] — #italic Becoming a knight will personally improve my social status:#! $VALUE|=+0$"
+ KNIGHTHOOD_GREED_REASON:0 "[personality|E] — #italic Becoming a knight will personally improve my social status:#! $VALUE|=+0$"
 
-KNIGHTHOOD_ENERGY_REASON:0 "[personality|E] — #italic Knighthood sounds like a lot of work:#! $VALUE|=+0$"
+ KNIGHTHOOD_ENERGY_REASON:0 "[personality|E] — #italic Knighthood sounds like a lot of work:#! $VALUE|=+0$"
 
-KNIGHTHOOD_HONOR_REASON:0 "[personality|E] — #italic Becoming a knight is a great honor:#! $VALUE|=+0$"
+ KNIGHTHOOD_HONOR_REASON:0 "[personality|E] — #italic Becoming a knight is a great honor:#! $VALUE|=+0$"
 
-KNIGHTHOOD_LOW_SOCIABILITY:0 "[personality|E] — #italic I am weary of others:#! $VALUE|=+0$"
+ KNIGHTHOOD_LOW_SOCIABILITY:0 "[personality|E] — #italic I am weary of others:#! $VALUE|=+0$"
 
-## EDUCATION REASONS
+ ## EDUCATION REASONS
 
-KNIGHTHOOD_EDUCATION_MARTIAL_REASON:0 "[education|E]: I have a martial education: $VALUE|=+0$"
+ KNIGHTHOOD_EDUCATION_MARTIAL_REASON:0 "[education|E]: I have a martial education: $VALUE|=+0$"
 
-KNIGHTHOOD_EDUCATION_LEARNING_REASON:0 "[education|E]: I am a learned man, not a warrior!: $VALUE|=+0$"
+ KNIGHTHOOD_EDUCATION_LEARNING_REASON:0 "[education|E]: I am a learned man, not a warrior!: $VALUE|=+0$"
 
-KNIGHTHOOD_EDUCATION_NON_MARTIAL_REASON:0 "[education|E]: I am educated in a skill other than martial: $VALUE|+=0$"
+ KNIGHTHOOD_EDUCATION_NON_MARTIAL_REASON:0 "[education|E]: I am educated in a skill other than martial: $VALUE|+=0$"
 
-KNIGHTHOOD_I_AM_A_WARRIOR_REASON:0 "[education|E]: I am a trained warrior, but I am not yet a knight: $VALUE|+=0$"
+ KNIGHTHOOD_I_AM_A_WARRIOR_REASON:0 "[education|E]: I am a trained warrior, but I am not yet a knight: $VALUE|+=0$"
 
-KNIGHTHOOD_MY_FAITH_DOES_NOT_CARE:0 "[faith|E]: [recipient.GetShortUINamePossessiveNoTooltip|U] faith does not value knighthood: $VALUE|+=0$"
+ KNIGHTHOOD_MY_FAITH_DOES_NOT_CARE:0 "[faith|E]: [recipient.GetShortUINamePossessiveNoTooltip|U] faith does not value knighthood: $VALUE|+=0$"
 
-KNIGHTHOOD_HAS_KNIGHTHOOD_TENET_REASON:0 "[faith|e]: [recipient.GetShortUINamePossessiveNoTooltip|U] faith values knighthood: $VALUE|=+0$"
+ KNIGHTHOOD_HAS_KNIGHTHOOD_TENET_REASON:0 "[faith|e]: [recipient.GetShortUINamePossessiveNoTooltip|U] faith values knighthood: $VALUE|=+0$"
 
-## LANDED TITLES
+ ## LANDED TITLES
 
-OUR_HOUSES_ARE_FEUDING_REASON:0 "Our houses are feuding: $VALUE|=+0$"
+ OUR_HOUSES_ARE_FEUDING_REASON:0 "Our houses are feuding: $VALUE|=+0$"
 
-WE_COME_FROM_NEIGHBORING_COUNTIES:0 "[recipient.GetShortUINameNoTooltip|U] and [actor.GetShortUINameNoTooltip] come from neighboring lands: $VALUE|=+0$"
+ WE_COME_FROM_NEIGHBORING_COUNTIES:0 "[recipient.GetShortUINameNoTooltip|U] and [actor.GetShortUINameNoTooltip] come from neighboring lands: $VALUE|=+0$"
 
-KNIGHTING_THEY_ARE_MORE_POWERFUL_REASON:0 "[actor.GetShortUINameNoTooltip|U] are more powerful than [recipient.GetShortUINameNoTooltip]: $VALUE|=+0$"
+ KNIGHTING_THEY_ARE_MORE_POWERFUL_REASON:0 "[actor.GetShortUINameNoTooltip|U] are more powerful than [recipient.GetShortUINameNoTooltip]: $VALUE|=+0$"
 
-## PRESTIGE
+ ## PRESTIGE
 
-KNIGHTHOOD_THEY_HAVE_A_BAD_REPUTATION:0 "[actor.GetShortUINamePossessive|U] [prestige_level|E] is disgraced, or they have negative prestige: $VALUE|=+0$"
+ KNIGHTHOOD_THEY_HAVE_A_BAD_REPUTATION:0 "[actor.GetShortUINamePossessive|U] [prestige_level|E] is disgraced, or they have negative prestige: $VALUE|=+0$"
 
-KNIGHTHOOD_THEY_HAVE_LOW_PRESTIGE:0 "[actor.GetShortUINamePossessive|U] [prestige_level|E] is inconsequential: $VALUE|=+0$"
+ KNIGHTHOOD_THEY_HAVE_LOW_PRESTIGE:0 "[actor.GetShortUINamePossessive|U] [prestige_level|E] is inconsequential: $VALUE|=+0$"
 
-KNIGHTHOOD_I_AM_MORE_FAMOUS_THAN_YOU:0 "[actor.GetShortUINamePossessive|U] [prestige_level|E] is less than mine: $VALUE|=+0$"
+ KNIGHTHOOD_I_AM_MORE_FAMOUS_THAN_YOU:0 "[actor.GetShortUINamePossessive|U] [prestige_level|E] is less than mine: $VALUE|=+0$"
 
-## OTHER
+ ## OTHER
 
-FAVORS_BEING_A_SQUIRE_REASON:0 "I prefer being a squire: $VALUE|=+0$"
+ FAVORS_BEING_A_SQUIRE_REASON:0 "I prefer being a squire: $VALUE|=+0$"
 
-### SQUIRE REASONS
+ ### SQUIRE REASONS
 
-SQUIREHOOD_I_AM_A_RULER_ALREADY:0 "[secondary_actor.GetShortUIName|U] is a legal-aged ruler: $VALUE|=+0$"
+ SQUIREHOOD_I_AM_A_RULER_ALREADY:0 "[secondary_actor.GetShortUIName|U] is a legal-aged ruler: $VALUE|=+0$"
 
-SQUIREHOOD_SQUIRE_CANDIDATE_IS_LOWBORN:0 "The proposed squire is a [lowborn|E]: $VALUE|=+0$"
+ SQUIREHOOD_SQUIRE_CANDIDATE_IS_LOWBORN:0 "The proposed squire is a [lowborn|E]: $VALUE|=+0$"
 
-SQUIREHOOD_SQUIRE_CANDIDATE_DOES_NOT_HAVE_KNIGHTHOOD_TENET:0 "[faith|E]: The proposed squire's faith does not value squirehood and knighthood: $VALUE|=+0$"
+ SQUIREHOOD_SQUIRE_CANDIDATE_DOES_NOT_HAVE_KNIGHTHOOD_TENET:0 "[faith|E]: The proposed squire's faith does not value squirehood and knighthood: $VALUE|=+0$"
 
-SQUIREHOOD_I_AM_OLD_ENOUGH_TO_BE_A_KNIGHT:0 "The proposed squire is old enough to be knighted: $VALUE|=+0$"
+ SQUIREHOOD_I_AM_OLD_ENOUGH_TO_BE_A_KNIGHT:0 "The proposed squire is old enough to be knighted: $VALUE|=+0$"
 
-SQUIREHOOD_SQUIRE_CANDIDATE_IS_NOT_RIGHT_IN_THE_HEAD:0 "The proposed squire is not right in the mind: $VALUE|=+0$"
+ SQUIREHOOD_SQUIRE_CANDIDATE_IS_NOT_RIGHT_IN_THE_HEAD:0 "The proposed squire is not right in the mind: $VALUE|=+0$"
 
-KNIGHTING_AI_GUARDIAN_SKILL_MARTIAL:0 "Knight's [martial|E] Skill: $VALUE|=+0$"
-KNIGHTING_AI_GUARDIAN_SKILL_PROWESS:0 "Knight's [prowess|E] Skill: $VALUE|=+0$"
+ KNIGHTING_AI_GUARDIAN_SKILL_MARTIAL:0 "Knight's [martial|E] Skill: $VALUE|=+0$"
+ KNIGHTING_AI_GUARDIAN_SKILL_PROWESS:0 "Knight's [prowess|E] Skill: $VALUE|=+0$"
 
-educate_squire_interaction_notification:0 "Educate Squire"
+ educate_squire_interaction_notification:0 "Educate Squire"
 
-## OTHER STUFF
+ ## OTHER STUFF
 
-THEY_ARE_MY_SQUIRE:0 "They are my squire, and they are ready for knighthood!"
+ THEY_ARE_MY_SQUIRE:0 "They are my squire, and they are ready for knighthood!"
