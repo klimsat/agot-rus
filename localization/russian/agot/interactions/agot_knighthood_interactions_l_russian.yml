@@ -13,18 +13,18 @@
  agot_educate_squire_interaction_notification:0 "Обучить оруженосца"
 
  agot_offer_squire_interaction:0 "Предложить оруженосца"
- agot_offer_squire_interaction_desc:0 "Предложить персонажу [recipient.GetShortUIName] [Concept( 'squire', 'оруженосца' )|E], сделав кого-то при [recipient.GetHerHis] [Concept( 'court', 'дворе' )|E], [Concept( 'agot_knight', 'рыцарем-наставником' )|E] выбранного персонажа."
+ agot_offer_squire_interaction_desc:0 "Предложить персонажу [recipient.GetShortUIName] [Concept( 'squire', 'оруженосца' )|E], сделав [recipient.GetHerHis] или кого-то при [recipient.GetHerHis] [Concept( 'court', 'дворе' )|E] [Concept( 'agot_knight', 'рыцарем-наставником' )|E] выбранного персонажа."
  agot_offer_squire_interaction_extra_icon:0 "$hook_extra_icon$"
 
- agot_offer_knight_education_interaction:0 "Предложить рыцарское наставничество"
- agot_offer_knight_education_interaction_desc:0 "Предложить персонажу [recipient.GetShortUIName] [Concept( 'agot_knight', 'рыцаря-наставника')|E], сделав кого-то при [recipient.GetHerHis] [Concept( 'court', 'дворе' )|E] [Concept( 'squire', 'оруженосцем' )|E]"
- agot_offer_knight_education_interaction_extra_icon:0 "$hook_extra_icon$"
+ agot_offer_knight_tutelage_interaction:0 "Предложить рыцарское наставничество"
+ agot_offer_knight_tutelage_interaction_desc:0 "Предложить персонажу [recipient.GetShortUIName] [Concept( 'agot_knight', 'рыцаря-наставника')|E], сделав [recipient.GetHerHis] или кого-то при [recipient.GetHerHis] [Concept( 'court', 'дворе' )|E] [Concept( 'squire', 'оруженосцем' )|E] выбранного персонажа"
+ agot_offer_knight_tutelage_interaction_extra_icon:0 "$hook_extra_icon$"
 
  actor_secondary_agot_offer_squire_interaction:0 "Оруженосец"
  recipient_secondary_agot_offer_squire_interaction:0 "Рыцарь"
 
- actor_secondary_agot_offer_knight_education_interaction:0 "Рыцарь"
- recipient_secondary_agot_offer_knight_education_interaction:0 "Оруженосец"
+ actor_secondary_agot_offer_knight_tutelage_interaction:0 "Рыцарь"
+ recipient_secondary_agot_offer_knight_tutelage_interaction:0 "Оруженосец"
 
  EDUCATE_SELECT_YOUR_SQUIRE_OR_KNIGHT:0 "#Я выберу [Concept( 'squire', 'оруженосца' )|E] или [Concept( 'agot_knight', 'рыцаря' )|E] при вашем [Concept( 'court', 'дворе')|E]#!"
  EDUCATE_SELECT_THEIR_KNIGHT:0 "#Я выберу [Concept( 'agot_knight', 'рыцаря' )|E] при их [Concept( 'court', 'дворе' )|E]#!"
@@ -46,13 +46,13 @@
  OFFER_SQUIREHOOD_NOTIFICATION:0 "Путь к рыцарству начинается со звания оруженосца. Стань моим оруженосцем, и если ты будешь достойным учеником, я позабочусь о том, чтобы ты однажды стал рыцарем!" #AGOT TODO  please rewrite this
 
  agot_remove_my_squire_interaction:0 "Отстранить от должности оруженосца"
- agot_remove_my_squire_interaction_desc:0 "[recipient.GetFirstNameNicknamedNoTooltipRegnal] является вашим оруженосцем, но вы можете отстранить [Select_CString(recipient.IsFemale, 'её', 'его')] от этой должности."
+ agot_remove_my_squire_interaction_desc:0 "Отстранить персонажа [recipient.GetFirstNameNicknamedNoTooltipRegnal] от должности вашего [Concept('squire', 'оруженосца')|E]."
 
  squirehood_removal:0 "Отстранение от должности оруженосца"
  REMOVAL_OF_SQUIREHOOD_NOTIFICATION:0 "В моих глазах вы больше не достойны быть оруженосцем! Вам придётся найти другого рыцаря, чтобы продолжить своё обучение!"
 
  agot_train_squire_interaction:0 "Обучить оруженосца"
- agot_train_squire_interaction_desc:0 "Обучить персонажа [recipient.GetFirstNameNicknamedNoTooltipRegnal] рыцарскому искусству."
+ agot_train_squire_interaction_desc:0 "Обучить персонажа [recipient.GetFirstNameNicknamedNoTooltipRegnal] рыцарскому искусству. [recipient.GetSheHe|U] будет по-прежнему получать автоматические события обучения [Concept('squire', 'оруженосца')|E] вне этого взаимодействия."
 
  remove_knight_interaction:0 "Отстранить рыцаря-наставника"
  remove_knight_interaction_desc:0 "Отстранить рыцаря-наставника персонажа [recipient.GetNamePossessive]."
