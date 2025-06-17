@@ -13,6 +13,7 @@
  agot_dayne_prodigy.0002.gainednoprowess:0 "[prodigy.GetFirstNameNoTooltip] не [Select_CString(prodigy.IsFemale, 'получила', 'получил' )] прироста [Concept ('prowess', 'доблести')|E]"
  agot_dayne_prodigy.0002.gainedtraitbrave:0 "[prodigy.GetFirstNameNoTooltip] [Select_CString(prodigy.IsFemale, 'приобрела', 'приобрел' )] черту [trait|E] [GetTrait('brave').GetName( prodigy )]"
  agot_dayne_prodigy.0002.gainedtraitcraven:0 "[prodigy.GetFirstNameNoTooltip] [Select_CString(prodigy.IsFemale, 'приобрела', 'приобрел' )] черту [trait|E] [GetTrait('craven').GetName( prodigy )]"
+
  # Parent will have option to push their child for prowess training, or to make them just
  # Scopes are: prodigy
  agot_dayne_prodigy.0003.t:0 "Справедливость и Сталь"
@@ -40,6 +41,7 @@
  # Scopes are: prodigy
  agot_dayne_prodigy.0005.t:0 "Испытание на Рассвете"
  agot_dayne_prodigy.0005.desc:0 "[prodigy.GetFirstName] всю свою жизнь [Select_CString(prodigy.IsFemale, 'тренировалась', 'тренировался' )] ради этого дня, дня, когда [prodigy.GetSheHe] либо докажет своё мастерство в бою, либо навсегда потеряет надежду на [dawn.GetName]. Чтобы стать Мечом Зари, нужно прежде всего быть истинным мастером клинка, возможно, величайшим в Вестеросе или за его пределами.\n\nТолько непревзойдённый рыцарь достоин [dawn.GetNameNoTooltip], и вот настало время испытания. [prodigy.GetFirstNameNoTooltip] [Select_CString(prodigy.IsFemale, 'должна', 'должен' )] сразиться с полноправным рыцарем в бою — и не просто победить, но показать исключительное мастерство. Если [prodigy.GetSheHe] преуспеет, [prodigy.GetSheHe] докажет своё мастерство вне всяких сомнений. Это опасное испытание, которое может закончиться даже смертью [prodigy.GetFirstNamePossessiveNoTooltip].\n\nГотов ли я пойти на такой риск?"
+
  # They put their son through extreme trials, leading to their death, maiming, or becoming a blademaster
  agot_dayne_prodigy.0005.a:0 "Истинный рыцарь рискует жизнью, начинайте испытание."
  agot_dayne_prodigy.0005.a.tt:0 "[prodigy.GetFirstNameNoTooltip] попытается пройти смертельно опасное испытание мастерства"
@@ -53,15 +55,19 @@
 
  # See if the prodigy is worthy of being SOTM
  agot_dayne_prodigy.0007.t:0 "Восходящее Солнце"
- #Description if dynasty head is not their parent
+
+ # Description if dynasty head is not their parent
  agot_dayne_prodigy.0007.desc.non_parent:0 "В последнее время до меня доносились слухи, шепот о вундеркинде нашего дома, искусном в обращении с клинком и благородном сердцем, говорят. Мне сказали, что [prodigy.GetSheHe] — будущее нашего дома, и, более того, что [prodigy.GetHerHim] предначертано стать Мечом Зари.\n\nЧто бы ни было правдой, окончательное решение лежит на мне не меньше, чем на ком-либо: Готов ли [prodigy.GetFullNameNicknamed] стать Мечом Зари?"
  agot_dayne_prodigy.0007.desc:0 "День суда настал, и весь наш дом собрался, чтобы стать свидетелем. Я слышал рассказы лордов и леди, простолюдинов и рыцарей. Сказания о мастерстве, храбрости и благородном сердце. Хотя их подвиги ещё не записаны, не все, кто претендовал на [dawn.GetName], были известны в королевстве, когда впервые поднимали древний клинок. У них ещё много времени, чтобы обрести славу.\n\nСвет утра разливается по комнате, падая на молочно-белый клинок [dawn.GetNameNoTooltip] в моей руке, освещая его поверхность и заставляя мурашки бежать по моей спине. Настал час, больше нечего слушать, но многое нужно обдумать.\n\nОкончательное решение лежит на мне не меньше, чем на ком-либо: Достоин ли мой [ROOT.Char.Custom2('RelationToMe', prodigy)] стать легендарным Мечом Зари? Можно ли доверить им нести свет в мир, полный тьмы?"
- #Prodigy becomes SOTM
+
+ # Prodigy becomes SOTM
  agot_dayne_prodigy.0007.a:0 "[prodigy.GetSheHe|U] [Select_CString(prodigy.IsFemale, 'достойна', 'достоин' )]!"
  agot_dayne_prodigy.0007.a.tt:0 "[prodigy.GetFirstNameNoTooltip] станет Мечом Зари"
- #Prodigy fails to become SOTM may attempt to steal Dawn
+
+ # Prodigy fails to become SOTM may attempt to steal Dawn
  agot_dayne_prodigy.0007.b:0 "[prodigy.GetFirstNameNoTooltip] [Select_CString(prodigy.IsFemale, 'показала', 'показал' )] [prodigy.GetHerselfHimself] [Select_CString(prodigy.IsFemale, 'недостойной', 'недостойным)]."
  agot_dayne_prodigy.0007.b.tt:0 "[prodigy.GetFirstNameNoTooltip] не станет Мечом Зари"
+
  # Prodigy is worthy but denied the sword anyway
  agot_dayne_prodigy.0007.c:0 "[prodigy.GetFirstNameNoTooltip] может быть [Select_CString(prodigy.IsFemale, 'достойна', 'достоин' )], но я не вручу [prodigy.GetHerHim] [dawn.GetNameNoTooltip]."
  agot_dayne_prodigy.0007.c.tt:0 "[prodigy.GetFirstNameNoTooltip] не станет Мечом Зари"
@@ -72,14 +78,17 @@
  agot_dayne_prodigy.0008.a:0 "Терпение — тяжёлый урок."
  agot_dayne_prodigy.0008.a.tt:0 "[prodigy.GetFirstNameNoTooltip] пока не может стать Мечом Зари"
 
+
  # Events for if Prodigy's parent is dead
 
  # Prodigy will have choice of either trying to be brave, or training with a sword
  agot_dayne_prodigy.0009.t:0 "Отважная Звезда"
  agot_dayne_prodigy.0009.desc:0 "Я два года посвятил изучению военного дела и тренировкам с моим клинком, и теперь, возможно, пришло время доказать мою отвагу! Чтобы стать Мечом Зари, нужно быть готовым встретить даже самых грозных врагов. У меня есть два пути подготовки: рыцарский турнир, который испытает мою храбрость, или сосредоточиться на уроках с мечом."
+
  # Prodigy tries to become brave
  agot_dayne_prodigy.0009.a:0 "Подать мне коня!"
  agot_dayne_prodigy.0009.a.tt:0 "Вы попытаетесь доказать свою храбрость"
+
  # Prodigy trains with sword
  agot_dayne_prodigy.0009.b:0 "[dawn.GetNameNoTooltip] должен быть в руках непревзойдённого рыцаря."
  agot_dayne_prodigy.0009.b.tt:0 "Вы будете тренироваться с мечом"
@@ -93,9 +102,11 @@
  # Prodigy will have choice of either trying to be just, or training with a sword
  agot_dayne_prodigy.0010.t:0 "Честь и Сталь"
  agot_dayne_prodigy.0010.desc:0 "Скоро состоится суд над местным преступником; все истории говорят о рыцарях как о благородных исполнителях справедливости своего сюзерена, и если я хочу доказать, что достоин [dawn.GetName], я должен стремиться к тому же. На этом суде я вижу шанс увидеть правосудие своими глазами, или, по крайней мере, его провал. Это займёт время, которое я мог бы провести с мечом в руке.\n\nЧто ценнее: честь или мастерство?"
+
  # Prodigy tries to become just
  agot_dayne_prodigy.0010.a:0 "Я выберу честь."
  agot_dayne_prodigy.0010.a.tt:0 "Вы попытаетесь постичь пути справедливости, хотя можете стать более чёрствым, чем надеялись"
+
  # Prodigy trains with sword
  agot_dayne_prodigy.0010.b:0 "Я выберу мастерство."
  agot_dayne_prodigy.0010.b.tt:0 "Вы проведёте время, тренируясь с мечом"
@@ -105,9 +116,11 @@
  # Prodigy will have choice of either trying to be compassionate, or training with a sword
  agot_dayne_prodigy.0011.t:0 "Нежное Сердце"
  agot_dayne_prodigy.0011.desc:0 "В историях рассказывается о рыцарях, спасающих прекрасных дев из башен и защищающих простолюдинов от тех, кто их угнетает. Чтобы быть похожим на рыцаря из этих историй, я должен доказать, что в моей душе есть та же доброта.\n\nСледует ли мне провести время среди простолюдинов, в надежде научиться и проявить сострадание? Или сосредоточиться на мастерстве владения оружием?"
+
  # Prodigy tries to become compassionate
  agot_dayne_prodigy.0011.a:0 "Я пойду среди людей."
  agot_dayne_prodigy.0011.a.tt:0 "Вы попытаетесь доказать своё сострадание, хотя результат может быть обратным"
+
  # Prodigy trains with sword
  agot_dayne_prodigy.0011.b:0 "Я сосредоточусь на мече."
  agot_dayne_prodigy.0011.b.tt:0 "Вы продолжите тренироваться с мечом"
@@ -117,9 +130,11 @@
  # Prodigy may try to become a blademaster with a bunch of xp, or give up on the dream of being SOTM, may result in death at the trials
  agot_dayne_prodigy.0012.t:0 "Испытание на Рассвете"
  agot_dayne_prodigy.0012.desc:0 "Одинокий рыцарь ждёт меня на тренировочном дворе, и пурпурный свет зари падает на его сияющие доспехи. Члены моего дома собрались здесь, чтобы увидеть это испытание и оценить мою ценность. Я должен сразиться с этим полноправным рыцарем в одиночном бою, не с затупленными тренировочными мечами, а с острой сталью. Поединок не до смерти, но не одна звезда пала в этом самом испытании. Я глубоко вздыхаю, полируя поверхность моего меча. Ещё есть время отступить, защитить свою жизнь и отказаться от мечты владеть [dawn.GetName] от имени моей семьи.\n\nТак приму ли я это испытание? Или убегу от всех своих надежд?"
+
  # Prodigy goes through extreme trials to become a blademaster, may result in death
  agot_dayne_prodigy.0012.a:0 "Я приму вызов."
  agot_dayne_prodigy.0012.a.tt:0 "Вы попытаетесь доказать себя мастером клинка, хотя это рискованно"
+
  # Prodigy gives up on being SOTM
  agot_dayne_prodigy.0012.b:0 "Забуду о мечте, сохраню жизнь."
  agot_dayne_prodigy.0012.b.tt:0 "Вы откажетесь от мечты стать Мечом Зари"
@@ -131,10 +146,12 @@
  agot_dayne_prodigy.0013.desc.unworthynothousehead:0 "С разочарованным взглядом [dayne_dynasty_head.GetFullName], глава дома Дейнов, запрещает мне когда-либо держать [dawn.GetName], не говоря уже о том, чтобы владеть им от имени моего дома. Я недостоин нести этот клинок, и мои мечты стать Мечом Зари лежат в пыли."
  agot_dayne_prodigy.0013.desc.worthyhousehead:0 "Как глава моего дома, мне предстоит решить, достоин ли рыцарь взять [dawn.GetName]. Без эгоизма я могу сказать, что никто не усомнится в моей достойности, я многократно доказал своё мастерство и благородство, и это моё право взять наш древний клинок. Сегодня я стану Мечом Зари и вырежу своё имя в истории Вестероса!"
  agot_dayne_prodigy.0013.desc.unworthyhousehead:0 "Как глава дома Дейнов, мне предстоит решить, достоин ли кто-либо из рыцарей среди нас взять [dawn.GetName] и стать Мечом Зари. Глядя на клинок в его священном месте, каждая частичка меня хочет взять его, назвать себя Мечом Зари и ощутить славу этого титула.\n\nНо я знаю правду: я не заслужил ни этот клинок, ни титул, который за ним следует. Взять его сейчас означало бы лишь бесчестить себя и мой дом. [dawn.GetNameNoTooltip] должен остаться на месте, ожидая более достойной руки."
- #Prodigy becomes SOTM
+
+ # Prodigy becomes SOTM
  agot_dayne_prodigy.0013.a:0 "Я — Меч Зари!"
  agot_dayne_prodigy.0013.a.tt:0 "Вы стали Мечом Зари и будете владеть [dawn.GetNameNoTooltip]"
- #Prodigy fails to become SOTM
+
+ # Prodigy fails to become SOTM
  agot_dayne_prodigy.0013.b:0 "Я подвёл свой дом."
  agot_dayne_prodigy.0013.b.tt:0 "Вы никогда не станете Мечом Зари"
 
@@ -147,7 +164,8 @@
  # Prodigy has stolen Dawn
  agot_dayne_prodigy.0015.t:0 "Вор в Ночи"
  agot_dayne_prodigy.0015.desc:0 "[prodigy.GetFirstName], которому было отказано в праве стать Мечом Зари, [Select_CString(prodigy.IsFemale, 'украла', 'украл' )] [dawn.GetName] с её места. Если не действовать быстро, [prodigy.GetSheHe] может сбежать, и у меня нет выбора, кроме как попытаться вернуть [prodigy.GetHerHim] в железной клетке, чтобы свершилось правосудие.\n\nХотя я надеялся, что [prodigy.GetSheHe] станет нашим новым Мечом Зари, [prodigy.GetSheHe] выбрал ночь."
- #Attempt to imprison them
+
+ # Attempt to imprison them
  agot_dayne_prodigy.0015.a:0 "Верните его в железной клетке!"
  agot_dayne_prodigy.0015.a.tt:0 "Вы попытаетесь заключить [prodigy.GetFirstNameNoTooltip] в тюрьму, хотя [prodigy.GetSheHe] может сбежать"
 

@@ -134,7 +134,8 @@
  agot_banking.0203.desc:0 "[ROOT.Char.Custom('agot_bank_name')] прислал эмиссара с предложением вложиться в банк, приобретя долю в его деятельности. Каждые пять лет я буду получать [Concept( 'agot_bank_dividends', 'дивиденды' )|E] с этой доли или смогу продать её досрочно и получить золото, если понадобится.\n\nТекущая стоимость одной доли: @gold_icon! [ROOT.Var('ShareBuyingPrice').GetValue|2|N]."
  agot_banking.0203.a:0 "Мне это не по карману!"
  agot_banking.0203.b:0 "Договорились!"
- agot_banking.0203.c:0 "Не сейчас, я передумал."
+ agot_banking.0203.c:0 "Я куплю 5 долей."
+ agot_banking.0203.d:0 "Не сейчас, я [Select_CString(ROOT.Char.IsFemale, 'передумала', 'передумал' )]."
 
  agot_banking.0204.t:0 "Продажа доли банка"
  agot_banking.0204.desc:0 "Меня не устраивает, сколько золота у меня вложено в [ROOT.Char.Custom('agot_bank_name')] ради пары медяков, что они присылают мне каждые несколько лет! Куда разумнее продать одну из моих долей и вернуть своё золото, пока ещё не поздно — вдруг цена доли обрушится.\n\nЯ могу продать долю в [ROOT.Char.Custom('agot_bank_name')] и получить её текущую стоимость — @gold_icon! [ROOT.Var('ShareSellingPrice').GetValue|2|N]."
@@ -291,17 +292,17 @@
  show_bank_numbers_decision_tooltip:0 "Давайте посмотрим книги."
  show_bank_numbers_decision_effect:0 "Вам будет представлено общее представление о текущих ключевых показателях банка."
 
-# delegate_defaulter_handling_decision:0 "Delegate Management of Defaults"
-# delegate_defaulter_handling_decision_desc:0 "I no longer wish to manage debtors who are defaulting on their debts. Instead, a shareholder will be tasked with overseeing, handling, and resolving these cases."
-# delegate_defaulter_handling_decision_tooltip:0 "You will no longer receive messages about debtors defaulting."
-# delegate_defaulter_handling_decision_confirm:0 "Do not bother me with this."
-# delegate_defaulter_handling_decision_effect:0 "You will no longer receive messages about debtors defaulting. A shareholder will automatically be tasked with handling defaults."
+ # delegate_defaulter_handling_decision:0 "Delegate Management of Defaults"
+ # delegate_defaulter_handling_decision_desc:0 "I no longer wish to manage debtors who are defaulting on their debts. Instead, a shareholder will be tasked with overseeing, handling, and resolving these cases."
+ # delegate_defaulter_handling_decision_tooltip:0 "You will no longer receive messages about debtors defaulting."
+ # delegate_defaulter_handling_decision_confirm:0 "Do not bother me with this."
+ # delegate_defaulter_handling_decision_effect:0 "You will no longer receive messages about debtors defaulting. A shareholder will automatically be tasked with handling defaults."
 
-# handle_defaulters_again_decision:0 "Manage Defaults"
-# handle_defaulters_again_decision_desc:0 "I am willing to resume managing defaulting debtors personally."
-# handle_defaulters_again_decision_tooltip:0 "You will receive a message each time a default occurs."
-# handle_defaulters_again_decision_confirm:0 "It is my duty to handle such cases."
-# handle_defaulters_again_decision_effect:0 "You will receive reports of loan defaults again."
+ # handle_defaulters_again_decision:0 "Manage Defaults"
+ # handle_defaulters_again_decision_desc:0 "I am willing to resume managing defaulting debtors personally."
+ # handle_defaulters_again_decision_tooltip:0 "You will receive a message each time a default occurs."
+ # handle_defaulters_again_decision_confirm:0 "It is my duty to handle such cases."
+ # handle_defaulters_again_decision_effect:0 "You will receive reports of loan defaults again."
 
  fill_investment_fund_decision:0 "Пополнить инвестиционный фонд"
  fill_investment_fund_decision_desc:0 "Как [Concept('agot_bank_director', 'директор банка')|E] [ROOT.Char.Custom('agot_bank_name')], вы можете пополнить инвестиционный фонд банка. Средства из этого фонда вкладываются в малые предприятия и проекты, создавая возможности для устойчивой прибыли. Однако любые инвестиции сопряжены с риском полной потери капитала, что может поставить под угрозу ликвидность банка. Хорошее понимание устойчивости и надёжности инвестиционных возможностей — ключ к долгосрочному успеху."
@@ -382,7 +383,7 @@
  agot_found_bank_decision_effect_tooltip:0 "Ваша столица станет местом для нового [agot_bank|E]. Вы станете первым [agot_bank_director|E] банка, и каждый персонаж в вашем королевстве сможет инвестировать деньги в новый банк, чтобы стать акционером."
 
 
- #vassal loan stuff
+ # vassal loan stuff
  take_vassal_loan_interaction:0 "Попросить вассала о кредите"
  take_vassal_loan_interaction_desc:0 "Попросите вашего вассала о личном кредите. Кредит будет иметь 25% процентную ставку и должен быть возвращен по истечении 5 лет."
 
@@ -426,6 +427,8 @@
  repay_vassal_loan_decision_tooltip:0 "Вы погасите весь долг вместе с начисленными процентами."
  repay_vassal_loan_decision_tooltip_confirm_text_desc:0 "Одно меньшее беспокойство."
  repay_vassal_loan_decision_effect:0 "Вы можете вернуть текущий заем вампассалу до окончания его срока."
+
+
 
  agot_bank_list_name:0 "#high;SIZE:24 [Character.Custom('agot_bank_name')]#!"
  agot_bank_list_value:0 "$EFFECT_LIST_BULLET$Стоимость банка: #clickable [Character.MakeScope.Var('BankValue').GetValue|0]#!"
@@ -494,7 +497,6 @@
  agot_banking.0705.desc:0 "[bank_raider.GetTitledFirstNameNicknamed] [Select_CString(bank_raider.IsFemale, 'уступила и пообещала', 'уступил и пообещал' )] вернуть украденное в течение следующих 3 лет. Мы будем считать это займом с годовой процентной ставкой 5 %."
  agot_banking.0705.a:0 "Будем надеяться, что [bank_raider.GetSheHe] не нарушит соглашение."
 
- #new stuff
  gift_share_interaction:0 "Подарить акции банка"
  gift_share_interaction_desc:0 "Подарить персонажу одну из акций вашего банка."
  gift_share:0 "Вот, держи акцию."
@@ -502,3 +504,17 @@
  take_share_interaction:0 "Отнять акции банка"
  take_share_interaction_desc:0 "Отнять все акции банка у члена дома."
  take_share:0 "Давай сюда свои акции."
+
+ # new stuff
+ agot_banking.0801.t:0 "Угроза банкротства"
+ agot_banking.0801.desc:0 "[ROOT.Char.Custom('agot_bank_name')] не имеет достаточно резервов для покрытия операционных расходов. Поэтому всех акционеров просят немедленно приобрести дополнительные доли, чтобы избежать банкротства.\n\nЕсли не будет собрано достаточное количество средств, банк будет вынужден навсегда закрыть свои двери."
+ agot_banking.0801.a:0 "Я внесу свой вклад."
+ agot_banking.0801.b:0 "Я положусь на других вкладчиков."
+
+ agot_banking.0803.t:0 "Банкротство"
+ agot_banking.0803.desc:0 "Катастрофа!\n\n[ROOT.Char.Custom('agot_bank_name')] не смог привлечь достаточное количество новых вкладов для покрытия своих операционных расходов. В результате банк теперь официально обанкротился и навсегда прекратит свою деятельность."
+ agot_banking.0803.a:0 "Мои вложения потеряны..."
+
+ agot_banking.0804.t:0 "Банк спасён"
+ agot_banking.0804.desc:0 "Благодаря готовности достаточного количества акционеров снова увеличить свои вклады, неизбежное банкротство банка было предотвращено."
+ agot_banking.0804.a:0 "Какое облегчение!"
