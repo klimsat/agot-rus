@@ -1,0 +1,568 @@
+﻿######################################################
+################# AGOT KNIGHT TREE ###################
+######################################################
+
+types DynastyTreeView
+{
+	type agot_knight_tree_top = container {
+		name = "agot_knight_tree_top"
+		ignoreinvisible = yes
+
+		flowcontainer = {
+			name = "agot_knight_tree_top_line_area"
+			direction = vertical
+			ignoreinvisible = yes
+			position = { 1000 400 } # Tree head default position
+
+			container = {
+				parentanchor = hcenter
+
+				widget = {
+					name = "top_pin"
+					parentanchor = hcenter
+					size = { 0 0 }
+					position = { 0 -10 }
+				}
+
+				text_single = {
+					parentanchor = hcenter
+					autoresize = yes
+					text = "[Scope.GetCharacter.GetBirthDate]"
+				}
+
+				flowcontainer = { ##### Tree Stump Container
+					name = "character_container"
+					direction = vertical
+					ignoreinvisible = yes
+
+					container = {
+						datacontext = "[Scope.GetCharacter]"
+						ignoreinvisible = yes
+
+						flowcontainer = {
+							name = "tree_header"
+
+							visible = "[ObjectsEqual(GetPlayer.MakeScope.Var('knight_tree_being_shown').Var('knight_tree_founder').Char, Character.Self)]"
+							ignoreinvisible = yes
+							direction = vertical
+							minimumsize = { 100 100 }
+							position = { 44 -10 }
+						}
+
+						portrait_body = {
+							datacontext = "[Scope.GetCharacter]"
+							visible = "[ObjectsEqual(GetPlayer.MakeScope.Var('knight_tree_being_shown').Var('knight_tree_founder').Char, Character.Self)]"
+							parentanchor = hcenter
+						}
+
+						portrait_shoulders = {
+							datacontext = "[Scope.GetCharacter]"
+							visible = "[Not(ObjectsEqual(GetPlayer.MakeScope.Var('knight_tree_being_shown').Var('knight_tree_founder').Char, Character.Self))]"
+							position = { 25 20 }
+
+							flowcontainer = {
+								direction = vertical
+								ignoreinvisible = yes
+								parentanchor = right
+
+								button_me = {
+									size = { 25 25 }
+									visible = "[Character.IsLocalPlayer]"
+									alwaystransparent = yes
+									tooltip = "CV_TT_YOU"
+								}
+
+								icon = {
+									size = { 25 25 }
+									framesize = { 40 40 }
+									frame = 4
+									visible = "[Character.IsBastard]"
+									texture = "gfx/interface/icons/portraits/relation.dds"
+									tooltip = "CV_TT_BASTARD"
+								}
+							}
+
+							blockoverride "opinion_box" {}
+							blockoverride "status_icons" {}
+						}
+					}
+
+					text_single = {
+						name = "knight_name"
+						size = { 180 30 }
+						parentanchor = hcenter
+						# Must be autoresize no, since the text scales to nearest whole size increment, and therefore would push around other elements in the flowcontainer parent
+						autoresize = no
+						elide = right
+						align = center
+						text = "AGOT_NAME_KNIGHT_TREE"
+						default_format = "#high"
+						fontsize = 18
+						fontsize_min = 10
+					}
+					text_single = {
+						parentanchor = hcenter
+						autoresize = yes
+						default_format = "#medium"
+						raw_text = "[Localize('agot_birth_date')] - [Select_CString(Scope.GetCharacter.IsAlive, '?', Localize('agot_death_date') )]"
+					}
+
+					button = {
+						name = "show_hide"
+						visible = "[GetScriptedGui('agot_knight_tree_top').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+						size = { 25 25 }
+						framesize = { 60 60 }
+						texture = "gfx/interface/icons/symbols/plus_minus.dds"
+						parentanchor = hcenter
+						tooltip = "[SelectLocalization(GetVariableSystem.Exists('agot_knight_tree_children_visible'), 'DYNASTY_VIEW_CHILDREN_HIDE', 'DYNASTY_VIEW_CHILDREN_SHOW')]"
+						frame = "[BoolTo1And2(GetVariableSystem.Exists('agot_knight_tree_children_visible'))]" # To make +/- change
+						onclick = "[GetVariableSystem.Toggle('agot_knight_tree_children_visible')]"
+					}
+				}
+			}
+
+			flowcontainer = {
+				direction = vertical
+				ignoreinvisible = yes
+				datacontext = "[Scope.GetCharacter]"
+				visible = "[And(GetVariableSystem.Exists('agot_knight_tree_children_visible'), GetScriptedGui('agot_knight_tree_top').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End))]"
+				widget = {
+					parentanchor = hcenter
+					visible = "[GetVariableSystem.Exists('agot_knight_tree_children_visible')]"
+
+					line = {
+						resizeparent = yes
+						using = Line_DynastyTree
+						from = { 0 0 }
+						to = { 0 50 }
+					}
+				}
+				widget = {
+					parentanchor = hcenter
+					size = { 96% 5 }
+					background = {
+						position = { 0 50 }
+						texture = "gfx/lines/line_diffuse_07.dds"
+						color = { 0.86 0.87 0.87 1 }
+
+					}
+				}
+
+				container = { # Teacher Recursion
+					parentanchor = hcenter
+					datacontext = "[Scope.GetCharacter]"
+
+					dynamicgridbox = {
+						datamodel = "[GetPlayer.MakeScope.Var('knight_tree_stump').GetList('student_container')]"
+						flipdirection = yes
+
+						item = {
+							recursive = yes
+							agot_knight_tree_item = {}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	type agot_knight_tree_item = container {
+		name = "knight_tree_item"
+		ignoreinvisible = yes
+
+		flowcontainer = { ##### Tree Branch Container
+			name = "knight_tree_item_line_area"
+			direction = vertical
+			ignoreinvisible = yes
+			margin = { 0 10 }
+
+			container = {
+				parentanchor = hcenter
+
+				widget = {
+					name = "top_pin"
+					parentanchor = hcenter
+					size = { 0 0 }
+					position = { 0 -10 }
+				}
+
+				line = {
+					using = Line_DynastyTree
+					parentanchor = hcenter
+					from = { 0 -8 }
+					to = { 0 12 }
+				}
+
+				flowcontainer = { ##### Student Container
+					name = "character_container"
+					direction = vertical
+					ignoreinvisible = yes
+
+					container = {
+						datacontext = "[Scope.GetCharacter]"
+						ignoreinvisible = yes
+
+						flowcontainer = { ##### Student Header Container
+							name = "tree_header"
+
+							visible = "[ObjectsEqual(GetPlayer.MakeScope.Var('knight_tree_being_shown').Var('knight_tree_founder').Char, Character.Self)]"
+							ignoreinvisible = yes
+							direction = vertical
+							minimumsize = { 100 100 }
+							position = { 44 -10 }
+						}
+
+						portrait_body = {
+							datacontext = "[Scope.GetCharacter]"
+							visible = "[ObjectsEqual(GetPlayer.MakeScope.Var('knight_tree_being_shown').Var('knight_tree_founder').Char, Character.Self)]"
+							parentanchor = hcenter
+						}
+
+						portrait_shoulders = {
+							datacontext = "[Scope.GetCharacter]"
+							visible = "[Not(ObjectsEqual(GetPlayer.MakeScope.Var('knight_tree_being_shown').Var('knight_tree_founder').Char, Character.Self))]"
+							position = { 30 20 }
+
+							flowcontainer = {
+								direction = vertical
+								ignoreinvisible = yes
+								parentanchor = right
+
+								button_me = {
+									size = { 25 25 }
+									visible = "[Character.IsLocalPlayer]"
+									alwaystransparent = yes
+									tooltip = "CV_TT_YOU"
+								}
+
+								icon = {
+									size = { 25 25 }
+									framesize = { 20 20 }
+									frame = 4
+									visible = "[Character.IsBastard]"
+									texture = "gfx/interface/icons/portraits/relation.dds"
+									tooltip = "CV_TT_BASTARD"
+								}
+							}
+							blockoverride "opinion_box" {}
+							blockoverride "status_icons" {}
+						}
+					}
+
+					text_single = {
+						name = "knight_name"
+						size = { 180 30 }
+						parentanchor = hcenter
+						# Must be autoresize no, since the text scales to nearest whole size increment, and therefore would push around other elements in the flowcontainer parent
+						autoresize = no
+						elide = right
+						align = center
+						text = "AGOT_NAME_KNIGHT_TREE"
+						default_format = "#high"
+						fontsize = 18
+						fontsize_min = 10
+					}
+					text_single = {
+						parentanchor = hcenter
+						autoresize = yes
+						default_format = "#medium"
+						raw_text = "[Localize('agot_birth_date')] - [Select_CString(Scope.GetCharacter.IsAlive, '?', Localize('agot_death_date') )]"
+					}
+				}
+			}
+
+			flowcontainer = {
+				direction = vertical
+				ignoreinvisible = yes
+				margin = { 0 3 }
+				datacontext = "[Scope.GetCharacter]"
+				visible = "[GetScriptedGui('agot_knight_tree_child').IsShown(GuiScope.SetRoot(Character.MakeScope).AddScope('tree_story', GetPlayer.MakeScope.Var('knight_tree_being_shown').Story.MakeScope).End)]"
+				widget = {
+					parentanchor = hcenter
+
+					line = {
+						resizeparent = yes
+						using = Line_DynastyTree
+						from = { 0 0 }
+						to = { 0 50 }
+					}
+				}
+				widget = {
+					parentanchor = hcenter
+					size = { 96% 5 }
+					background = {
+						position = { 0 50 }
+						texture = "gfx/lines/line_diffuse_07.dds"
+						color = { 0.86 0.87 0.87 1 }
+					}
+				}
+
+				container = { # Student Recursion
+					parentanchor = hcenter
+
+					dynamicgridbox = {
+						datamodel = "[GetPlayer.MakeScope.Var('knight_tree_being_shown').GetList('teacher_story_container')]"
+						item = {
+							dynamicgridbox = {
+								visible = "[ObjectsEqual(Scope.Var('this_teacher').Char, Character.Self)]"
+								datamodel = "[Scope.GetList('student_container')]"
+								flipdirection = yes
+
+								item = {
+									recursive = yes
+									agot_knight_tree_item = {}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+template Window_Background_Knight_Tree
+{
+	background = {
+		name = "paper_texture_flat"
+		texture = "gfx/interface/skinned/window_letter/tile_letter_flat.dds"
+		spriteType = Corneredtiled
+		spriteborder = { 200 200 }
+		size = { 100% 100% }
+		color = { 0.3 0.285 0.25 1 }
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Standard
+		}
+
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Standard
+		}
+
+		modify_texture = {
+			name = "paper_texture_overlay"
+			texture = "gfx/interface/window_event/overlay_letter_texture.dds"
+			spriteType = Corneredstretched
+			blend_mode = overlay
+		}
+	}
+
+	background = {
+		texture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+		alpha = 0.15
+		color = { 0.65 0.65 0.65 1 }
+
+		fittype = centercrop
+	}
+}
+
+window = {
+	name = "agot_knight_tree"
+	parentanchor = center
+	spriteType = Corneredtiled
+	size = { 102% 102% }
+	movable = no
+	layer = middle
+	using = Window_Background_Knight_Tree
+	datacontext = "[GetPlayer]"
+	datacontext = "[GetVariableSystem]"
+	visible = "[And(And(GetVariableSystem.Exists('knight_tree_visible'), IsInGame), GetPlayer.MakeScope.Var('knight_tree_being_shown').IsSet)]"
+
+	state = {
+		name = _show
+		alpha = 1
+	}
+
+	state = {
+		name = _hide
+		on_start = "[GetVariableSystem.Clear('knight_tree_visible')]"
+	}
+
+	state = {
+		name = dismiss
+		next = _hide
+		trigger_when = "[Not(GetVariableSystem.Exists('knight_tree_visible'))]"
+		on_finish = "[GetScriptedGui('agot_close_knight_tree').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+	}
+
+	widget = {
+		size = { 100% 100% }
+
+		widget = {
+			size = { 100% 100% }
+			vbox = {
+				margin = { 10 10 }
+				zoomarea = {
+					name = "knight_tree_zoom_area"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					scissor = yes
+					zoom = 1
+					zoom_step = 0.2
+					zoom_min = 0.2
+					zoom_max = 1.0
+					pan_position = { 0 0 }
+					draggable_by = left|middle
+
+					state = {
+						name = "_zoom_changed"
+						duration = 0.1
+					}
+
+					zoomwidget = {
+						widget = {
+							flowcontainer = {
+								alwaystransparent = no
+								direction = vertical
+								resizeparent = yes
+
+								dynamicgridbox = {
+									name = "knight_tree"
+									setitemsizefromcell = yes
+									datamodel = "[GetPlayer.MakeScope.Var('knight_tree_being_shown').GetList('knight_tree_gui')]"
+									item = {
+										recursive = yes
+										agot_knight_tree_top = {}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	### TOP RIGHT INFO
+	widget = {
+		datacontext = "[GetPlayer.MakeScope.Var('knight_tree_being_shown').Var('knight_tree_founder').Char]"
+		size = { 520 155 }
+		parentanchor = top|right
+		widgetanchor = top|right
+		position = { -33 20 }
+
+		vbox = {
+			margin = { 10 5 }
+			margin_left = 20
+			margin_bottom = 15
+
+			background = {
+				using = Background_Area_Dark
+			}
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				spacing = 2
+
+				coa_dynasty_big = {
+					datacontext = "[Character.GetDynasty]"
+					blockoverride "OnClickDefault" {
+						onclick = "[DefaultOnDynastyCoatOfArmsClick(Dynasty.GetID)]"
+						onclick = "[GetVariableSystem.Clear('knight_tree_visible')]"
+					}
+				}
+
+				vbox = {
+					layoutpolicy_vertical = expanding
+					margin_top = 7
+
+					text_multi = {
+						autoresize = yes
+						text = "knight_tree_founding_dynasty"
+						using = Font_Size_Medium
+						default_format = "#high"
+					}
+
+					expand = {}
+
+					text_multi = {
+						autoresize = yes
+						text = "AGOT_TITLE_KNIGHT_TREE"
+						using = Font_Size_Medium
+						default_format = "#high"
+					}
+
+					expand = {}
+				}
+
+				expand = {}
+
+				vbox = {
+					layoutpolicy_vertical = expanding
+
+					hbox = {
+						margin_top = 7
+						vbox = {
+							text_single = {
+								name = "total_members"
+								text = "knight_tree_members"
+								align = nobaseline
+							}
+							text_single = {
+								name = "total_living"
+								text = "knight_tree_living"
+								align = nobaseline
+							}
+						}
+					}
+
+					hbox = {
+						margin_top = 7
+						spacing = 3
+						visible = "[InDebugMode]"
+						vbox = {
+							text_single = {
+								name = "tree_count"
+								text = "knight_tree_count"
+								align = nobaseline
+							}
+							text_single = {
+								name = "teacher_count"
+								text = "knight_tree_teachers"
+								align = nobaseline
+							}
+							text_single = {
+								name = "destroyed_count"
+								text = "knight_tree_destroyed"
+								align = nobaseline
+							}
+						}
+					}
+
+					expand = {}
+				}
+				vbox = {
+					layoutpolicy_vertical = expanding
+					buttons_window_control = {
+						name = "close_button"
+
+						blockoverride "button_close" {
+							name = "button_close"
+							shortcut = "close_window"
+							tooltip = "CLOSE_TOOLTIP"
+							onclick = "[GetVariableSystem.Clear('knight_tree_visible')]"
+							clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_close"
+							using = Animation_ShowHide_Standard
+						}
+					}
+					expand = {}
+				}
+			}
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				margin_top = 5
+				spacing = 5
+				text_single = {
+					text = "DYNASTY_VIEW_CLICK_TO_PAN"
+					autoresize = yes
+					max_width = 470
+					fontsize_min = 13
+				}
+				expand = {}
+			}
+		}
+	}
+}

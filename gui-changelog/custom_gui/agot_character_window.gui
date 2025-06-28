@@ -20,22 +20,31 @@ types CharacterWindow
 		fontcolor = { 1.0 1.0 1.0 1.0 }
 	}
 
-	########################
-	# RUINS CHARACTER VIEW #
-	########################
-	type agot_ruins_character_view = vbox
+	#########################
+	# HIDDEN CHARACTER VIEW #
+	#########################
+	type agot_hidden_character_view = vbox
 	{
-		name = "main_content_ruins"
+		name = "main_content_hidden"
 		using = Window_Margins_Sidebar
-		using = agot_character_is_ruin
+		using = agot_character_is_hidden
 
 		# Character box
 		widget = {
-			size = { 600 40 }
+			size = { 620 40 }
 
 			buttons_window_control = {
 				parentanchor = top|right
-				position = { 10 -20 }
+
+				blockoverride "extra_buttons"
+				{
+					icon = {
+						visible = "[And( InDebugMode, Not( Character.AccessDenied ) )]"
+						size = { 30 30 }
+						texture = "gfx/interface/icons/icon_group_of_characters.dds"
+						tooltip = "CHARACTER_AI_VALUES_DEBUG_TOOLTIP"
+					}
+				}
 
 				blockoverride "button_close"
 				{
@@ -54,19 +63,36 @@ types CharacterWindow
 					visible = "[Not(Character.IsLocalPlayer)]"
 					onclick = "[DefaultOnCharacterClick(GetPlayer.GetID)]"
 				}
+			}
 
-				blockoverride "button_pin" {}
+			watch_window_button = {
+				parentanchor = top|hcenter
+				size = { 60 40 }
+				onclick = "[AddWatchWindow( CharacterWindow.GetCharacter.MakeScope )]"
 			}
 		}
+		expand = {}
 
 		vbox = {
 			layoutpolicy_horizontal = fixed
 			layoutpolicy_vertical = fixed
-			margin = { 320 120 }
-			spacing = 0
+			margin = { 320 180 }
 
 			background = {
+				using = agot_character_is_ruin
 				texture = "gfx/interface/illustrations/holding_types/ruin_generic.dds"
+				fittype = centercrop
+				margin = { -30 0 }
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_rough_edges.dds"
+					blend_mode = alphamultiply
+				}
+			}
+
+			background = {
+				using = agot_character_is_unknown
+				texture = "gfx/interface/illustrations/holding_types/unknown.dds"
 				fittype = centercrop
 				margin = { -30 0 }
 
@@ -81,65 +107,32 @@ types CharacterWindow
 		vbox = {
 			name = "history"
 			layoutpolicy_horizontal = expanding
+			margin_top = 20
 
 			## Name
 			hbox = {
 				layoutpolicy_horizontal = expanding
-				margin = { 0 0 }
-				margin_top = 0
 
 				text_multi = {
+					using = agot_character_is_ruin
 					parentanchor = left|top
 					widgetanchor = left
 					text = "ruin_history_generic"
 					using = Font_Size_Big
 					size = { 560 460 }
 				}
+
+				text_multi = {
+					using = agot_character_is_unknown
+					parentanchor = left|top
+					widgetanchor = left
+					text = "unknown_generic"
+					using = Font_Size_Big
+					size = { 560 460 }
+				}
 			}
 		}
-
-		### DEBUG STUFF, please make sure those are visible and usable, especially the watch button, type "watch" into the console to show it
-		flowcontainer = {
-			name = "debug_buttons"
-			parentanchor = top|left
-			ignoreinvisible = yes
-
-			# Debug personality
-			text_single = {
-				visible = "[InDebugMode]"
-				tooltip = "CHARACTER_AI_VALUES_DEBUG_TOOLTIP"
-				raw_text = "#D AIValue#!"
-				align = nobaseline
-			}
-
-			button = {
-				using = editor_button
-				name = "ai_watch_button"
-				size = { 60 40 }
-				raw_text = "AI Watch"
-				align = center|nobaseline
-				onclick = "[CharacterWindow.OnAIWatch]"
-				visible = "[AIWatchWindowsEnabled]"
-				fontcolor = { 1.0 1.0 1.0 1.0 }
-			}
-
-			watch_window_button = {
-				size = { 60 40 }
-				onclick = "[AddWatchWindow( CharacterWindow.GetCharacter.MakeScope )]"
-			}
-
-			button = {
-				using = editor_button
-				name = "copy_portrait_button"
-				parentanchor = right
-				size = { 60 40 }
-				raw_text = "portrait"
-				align = center|nobaseline
-				onclick = "[CharacterWindow.OnCopyPortrait]"
-				visible = "[IsGameViewOpen('portrait_editor')]"
-				fontcolor = { 1.0 1.0 1.0 1.0 }
-			}
-		}
+		expand = {}
 	}
 
 	######################
@@ -698,8 +691,30 @@ types CharacterWindow
 		}
 		blockoverride "expand_button" {}
 	}
+
+	type agot_knight_tree_button = button_knight_tree
+	{
+		name = "knight_tree_button"
+		visible = "[And(And(GetPlayer.IsValid, Not(IsObserver)),GetScriptedGui('agot_knight_tree_check').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End))]"
+		datacontext = "[CharacterWindow.GetCharacter]"
+		size = { 30 30 }
+
+		onclick = "[GetVariableSystem.Toggle('knight_tree_visible')]"
+		onclick = "[GetScriptedGui('agot_open_knight_tree').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('opened_character', Character.MakeScope).End)]"
+		using = tooltip_ne
+		tooltip = "KNIGHT_TREE_TT"
+	}
 }
 
 template agot_character_standard {
-	visible = "[And(Not(Or(Character.HasTrait(GetTrait('dragon').Self), Character.HasTrait(GetTrait('ruin').Self))), Not(GetScriptedGui('fake_death_character').IsShown(GuiScope.AddScope('char', Character.MakeScope).End)))]"
+	visible = "[And(Not(Or(Character.HasTrait(GetTrait('dragon').Self), Or(Character.HasTrait(GetTrait('ruin').Self), Character.HasTrait(GetTrait('unknown').Self)))), Not(GetScriptedGui('fake_death_character').IsShown(GuiScope.AddScope('char', Character.MakeScope).End)))]"
+}
+template agot_character_is_hidden {
+	visible = "[Or(Character.HasTrait(GetTrait('ruin').Self), Character.HasTrait(GetTrait('unknown').Self))]"
+}
+template agot_character_is_ruin {
+	visible = "[Character.HasTrait(GetTrait('ruin').Self)]"
+}
+template agot_character_is_unknown {
+	visible = "[Character.HasTrait(GetTrait('unknown').Self)]"
 }

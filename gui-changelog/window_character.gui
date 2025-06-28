@@ -155,6 +155,8 @@ window = {
 						onclick = "[Character.CopyCharacterPersistentDna]"
 						raw_tooltip = "Copy Persistent DNA"
 					}
+					#AGOT Added
+					agot_knight_tree_button = {}
 				}
 
 				blockoverride "button_close"
@@ -3500,7 +3502,7 @@ window = {
 		}
 	}
 	#AGOT Added, Ruins, Dragons, Fake Death
-	agot_ruins_character_view = {}
+	agot_hidden_character_view = {}
 	agot_dragons_character_view = {}
 	agot_fake_death_character_view = {}
 
@@ -3870,7 +3872,9 @@ types CharacterWindow
 			maximumsize = { 430 -1 }
 
 			text_single = {
-				maximumsize = { 281 -1 }
+				#AGOT Modified
+				# maximumsize = { 281 -1 }
+				maximumsize = { 320 -1 }
 				name = "character_relation_to_you"
 				text = "[Character.GetRelationToString( GetPlayer )]"
 				tooltip = "EXTENDED_RELATIONS_TOOLTIP"
