@@ -995,7 +995,9 @@
 					position = { 0 20 }
 					size = { 650 1100 }
 					scale = "[ScaleToFitElementInside('(int32)650', '(int32)1100')]"
-					texture = "[RulerDesignerWindow.GetPortrait( 'environment_body', 'camera_ruler_designer', PdxGetWidgetScreenSize( PdxGuiWidget.Self ) )]"
+					#AGOT Modified
+					# texture = "[RulerDesignerWindow.GetPortrait( 'environment_body', 'camera_ruler_designer', PdxGetWidgetScreenSize( PdxGuiWidget.Self ) )]"
+					texture = "[RulerDesignerWindow.GetPortrait( 'environment_character_creator_neutral', 'camera_ruler_designer', PdxGetWidgetScreenSize( PdxGuiWidget.Self ) )]"
 
 					state = {
 						name = "ruler_designer_portrait_refresh"
@@ -1863,6 +1865,8 @@
 							}
 						}
 					}
+					#AGOT Added
+					agot_ruler_designer_side_profile_button = {}
 					button_checkbox_label = {
 						name = "toggle_show_accessories"
 
@@ -1880,6 +1884,8 @@
 							text = "RULER_DESIGNER_TOGGLE_SHOW_ACCESSORIES_LABEL"
 						}
 					}
+					#AGOT Added
+					agot_ruler_designer_undress_button = {}
 
 					expand = {}
 
@@ -1926,9 +1932,15 @@
 
 					icon = {
 						parentanchor = center
-						position = { 130 -80 }
-						size = { 500 700 }
-						texture = "[RulerDesignerWindow.GetPortrait( 'environment_head', 'camera_ruler_designer_head_profile', PdxGetWidgetScreenSize( PdxGuiWidget.Self ) )]"
+						#AGOT Modified
+						# position = { 130 -80 }
+						# size = { 500 700 }
+						# texture = "[RulerDesignerWindow.GetPortrait( 'environment_head', 'camera_ruler_designer_head_profile', PdxGetWidgetScreenSize( PdxGuiWidget.Self ) )]"
+						position = { 170 -150 }
+						size = { 1200 800 }
+						texture = "[RulerDesignerWindow.GetPortrait( 'environment_character_creator_neutral', 'camera_ruler_designer_head_profile', PdxGetWidgetScreenSize( PdxGuiWidget.Self ) )]"
+						#AGOT Added
+						visible = "[Not(GetGlobalVariable('true_profile_view').IsSet)]"
 
 						using = Animation_ShowHide_Quick
 
@@ -1952,12 +1964,20 @@
 							blend_mode = alphamultiply
 						}
 					}
+					#AGOT Added
+					agot_ruler_designer_true_profile_icon_right = {}
 
 					icon = {
 						parentanchor = center
-						position = { -130 -80 }
-						size = { 500 700 }
-						texture = "[RulerDesignerWindow.GetPortrait( 'environment_head', 'camera_head', PdxGetWidgetScreenSize( PdxGuiWidget.Self ) )]"
+						#AGOT Modified
+						# position = { -130 -150 }
+						# size = { 500 700 }
+						# texture = "[RulerDesignerWindow.GetPortrait( 'environment_head', 'camera_head', PdxGetWidgetScreenSize( PdxGuiWidget.Self ) )]"
+						position = { -150 -160 }
+						size = { 500 1060 }
+						texture = "[RulerDesignerWindow.GetPortrait( 'environment_character_creator_neutral', 'camera_head', PdxGetWidgetScreenSize( PdxGuiWidget.Self ) )]"
+						#AGOT Added
+						visible = "[Not(GetGlobalVariable('true_profile_view').IsSet)]"
 
 						using = Animation_ShowHide_Quick
 
@@ -1975,6 +1995,8 @@
 							blend_mode = alphamultiply
 						}
 					}
+					#AGOT Added
+					agot_ruler_designer_true_profile_icon_left = {}
 				}
 
 				icon = {
@@ -1983,7 +2005,9 @@
 					position = { 0 20 }
 					size = { 650 1100 }
 					scale = "[ScaleToFitElementInside('(int32)650', '(int32)1100')]"
-					texture = "[RulerDesignerWindow.GetPortrait( 'environment_body', 'camera_ruler_designer', PdxGetWidgetScreenSize( PdxGuiWidget.Self ) )]"
+					#AGOT Modified
+					# texture = "[RulerDesignerWindow.GetPortrait( 'environment_body', 'camera_ruler_designer', PdxGetWidgetScreenSize( PdxGuiWidget.Self ) )]"
+					texture = "[RulerDesignerWindow.GetPortrait( 'environment_character_creator_neutral', 'camera_ruler_designer', PdxGetWidgetScreenSize( PdxGuiWidget.Self ) )]"
 
 					using = Animation_ShowHide_Standard
 
@@ -2129,6 +2153,8 @@
 
 												vbox = {
 													layoutpolicy_vertical = expanding
+													#AGOT Added
+													visible = "[Not(ObjectsEqual(GeneCategory.GetName, Localize('gene_height')))]"
 
 													text_label_left = {
 														layoutpolicy_horizontal = expanding
@@ -2140,6 +2166,9 @@
 
 													expand = {}
 												}
+												#AGOT Added
+												agot_height_ft_text_label_vbox = {}
+												agot_height_mt_text_label_vbox = {}
 
 
 												vbox = {
