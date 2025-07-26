@@ -2,17 +2,20 @@
 
  ### Declare Private War
  rv_declare_private_war_interaction:0 "Declare Private War"
+ rv_declare_private_war_desc:0 "Use a [casus_belli|E] to declare [war|E] on [recipient.GetShortUINameNoTooltip]"
  rv_liege_warning:0 "Defender's [liege|E] will join the war"
  ### Rescue CB
+ RESCUE_WAR_NAME:0 "War to Free Captives"
  rv_rescue_war:0 "War to Free Captives"
  rv_duskendale_rescue_war:0 "War to Free Captives"
  rv_duskendale_rescue_war_invalidated_desc:0 "War to Free Captives has concluded."
- RESCUE_WAR_NAME:0 "War to Free Captives"
  CB_RESCUE_COST:0 "Number of Targeted Captives"
  CB_RESCUE_CRIMINAL_COST:0 "Number of Targeted Criminals"
  rv_release_effect:0 "• [Scope.GetCharacter.GetShortUIName|U] will be set free"
+ rv_transfer_effect:0 "• [Scope.GetCharacter.GetShortUIName|U] will be imprisoned by you"
  rv_other_effect:0 "• Your allies share [prestige_i][EmptyScope.ScriptValue('medium_prestige_value')|+0] based on their contribution \n• [Scope.GetCharacter.GetImprisonedBy.GetUIName|U]:\n  • Allies shared [prestige_i][EmptyScope.ScriptValue('medium_prestige_value')|V0] based on their contribution\n  • Increases [Scope.GetCharacter.GetImprisonedBy.GetHerHis] opinion of [Scope.GetCharacter.GetImprisonedBy.GetHerHis] allies based on their contribution"
- rescue_war_victory_desc:0 "You free all selected [prisoners|E] in [defender.GetShortUINamePossessive] dungeon."
+ rescue_war_victory_desc:0 "You free all selected [prisoners|E] and [concubines|E] being held by [defender.GetShortUINamePossessive]."
+ rv_house_effect:0 "• [house|E] [Scope.GetCharacter.GetDynastyHouseName|V] [house_unity|E] changes by [EmptyScope.ScriptValue('medium_unity_gain')|+0] @dynasty_house_unity!"
  rescue_war_victory_desc_defender:0 "[attacker.GetShortUIName|U] free all listed [prisoners|E] in your dungeon."
  rv_failed_rescue:0 "Failed Rescue"
  rv_rescue_war_invalidated_desc:0 "War to Free Captive invalidated!"
@@ -47,12 +50,12 @@
  rv_revenge_war:0 "War of Revenge"
  CB_REVENGE_COST:0 "Victims to be Avenged"
  REVENGE_LABEL:0 "Victims to be Avenged"
- rv_no_revenge_target_trigger:0 "rv_no_revenge_target"
+ rv_no_revenge_target_trigger:0 "$rv_no_revenge_target$"
  rv_no_revenge_target:0 "There is no one to be avenged"
- revenge_war_victory_desc:0 "You take revenge for [defender.GetShortUINamePossessive] crimes against those close to you."
- revenge_war_victory_desc_defender:0 "[attacker.GetShortUIName|U] takes revenge for your crimes against those close to [attacker.GetHerHim]."
- rv_revenge_war_white_peace_desc:0 "Crimes committed by [defender.GetShortUIName|U] were not avenged."
- rv_revenge_war_defeat_desc:0 "Crimes committed by [defender.GetShortUIName|U] were not avenged. [attacker.GetShortUIName|U] will pay War Reparations, [attacker.GetShortUIName|U] will lose [prestige_i][EmptyScope.ScriptValue('major_prestige_value')|-0], [defender.GetShortUIName|U] will gain an [imprisonment_reason|E] on [attacker.GetShortUIName|U]."
+ revenge_war_victory_desc:0 "You took revenge for [defender.GetShortUINamePossessive] crime against those close to you."
+ revenge_war_victory_desc_defender:0 "[attacker.GetShortUIName|U] took revenge for your crime against those close to [attacker.GetHerHim]."
+ rv_revenge_war_white_peace_desc:0 "Crime committed by [defender.GetShortUIName|U] was not avenged."
+ rv_revenge_war_defeat_desc:0 "$rv_revenge_war_white_peace_desc$"
  rv_revenge_war_invalidated_desc:0 "War for revenge invalidated!"
 
  # Successfule revenge memory
@@ -96,3 +99,11 @@
  rv_failed_revenge_desc_second_perspective_1:0 "you failed to exact revenge on [target_killer.GetName]."
  rv_failed_revenge_desc_third_perspective_1:0 "[owner.GetName] failed to exact revenge on [target_killer.GetName]."
  rv_failed_revenge:0 "Failed Revenge"
+
+ #Tooltip
+ rv_is_your_family_member:0 "this character is your family member"
+
+ #gui texts
+ rv_lover_header:0 "Lover"
+
+ rv_error_suppression:0 "error suppression"
