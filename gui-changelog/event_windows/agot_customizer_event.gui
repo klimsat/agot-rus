@@ -30,8 +30,17 @@
 	}
 
 	state = {
+		name = pasted_dna
+		trigger_when = "[GetScriptedGui('agot_has_saved_dragon_dna').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		on_start = "[GetVariableSystem.Set('applied_dragon_dna', 'false')]"
+	}
+
+	state = {
 		name = _hide
 		using = Animation_FadeOut_Standard
+
+		on_start = "[GetScriptedGui('agot_clear_backup_dragon_dna').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		on_start = "[GetVariableSystem.Clear('applied_dragon_dna')]"
 
 		start_sound = {
 			soundeffect = "event:/MUSIC/Cues/Events/kill_mx_cue"
@@ -401,8 +410,6 @@
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding
 							margin_bottom = 10
-							#AGOT Modified
-							# margin_top = 85
 							margin_top = 79
 
 							scrollarea = {
@@ -749,14 +756,11 @@
 							parentanchor = bottom|hcenter
 							position = { 20 -5 }
 							alwaystransparent = yes
-							#AGOT Modified
-							# text = "[Character.GetShortUINameNoTooltip]"
 							raw_text = "#high [Character.Custom('AGOTCustomGetTitledFirstName')]#!"
 							visible = "[EventWindowData.ShouldShowPortraitInfo('lower_left_portrait')]"
 							max_width = 115
 							align = center
 							fontsize_min = 12
-							#AGOT Added
 							margin_left = 10
 						}
 					}
@@ -848,14 +852,11 @@
 							parentanchor = bottom|hcenter
 							position = { 20 -5 }
 							alwaystransparent = yes
-							#AGOT Modified
-							# text = "[Character.GetShortUINameNoTooltip]"
 							raw_text = "#high [Character.Custom('AGOTCustomGetTitledFirstName')]#!"
 							visible = "[EventWindowData.ShouldShowPortraitInfo('lower_center_portrait')]"
 							max_width = 115
 							align = center
 							fontsize_min = 12
-							#AGOT Added
 							margin_left = 10
 						}
 					}
@@ -964,14 +965,11 @@
 							parentanchor = bottom|hcenter
 							position = { 20 -5 }
 							alwaystransparent = yes
-							#AGOT Modified
-							# text = "[Character.GetShortUINameNoTooltip]"
 							raw_text = "#high [Character.Custom('AGOTCustomGetTitledFirstName')]#!"
 							visible = "[EventWindowData.ShouldShowPortraitInfo('lower_right_portrait')]"
 							max_width = 115
 							align = center
 							fontsize_min = 12
-							#AGOT Added
 							margin_left = 10
 						}
 					}
@@ -1153,7 +1151,7 @@
 		position = { -100 25 }
 		ignoreinvisible = yes
 
-		using = Event_Window_Debug_Info
+		using = Dragon_Customizer_Event_Window_Debug_Info
 	}
 
 	vbox = { # Event shaders (in front of character portraits)
@@ -1483,6 +1481,121 @@ types Events
 					}
 				}
 			}
+		}
+	}
+}
+
+template Dragon_Customizer_Event_Window_Debug_Info
+{
+	button_round = {
+		alwaystransparent = no
+		tooltip = "REGENERATE_EVENT_CONTENTS"
+		using = tooltip_below
+
+		using = Animation_ShowHide_Quick
+
+		block "event_reset_onclick"
+		{
+			onclick = "[EventWindow.ResetContents]"
+		}
+
+		button_replace = {
+			parentanchor = center
+			alwaystransparent = yes
+		}
+	}
+
+	button_round = {
+		size = { 40 40 }
+
+		button_icon = {
+			size = { 30 30 }
+			parentanchor = center
+			texture = "gfx/interface/icons/flat_icons/history.dds"
+			tooltip = "TOGGLE_DEBUG_OPTION_TOOLTIPS"
+			using = tooltip_below
+			onclick = "[EventWindowData.ToggleDebugOptionTooltips]"
+			fontsize = 24
+		}
+	}
+
+	button_round = {
+		size = { 40 40 }
+
+		button_icon = {
+			size = { 100% 100% }
+			texture = "gfx/interface/icons/flat_icons/data_system.dds"
+			tooltip = "TOGGLE_DATA_SYSTEM"
+			using = tooltip_below
+			onclick = "[ExecuteConsoleCommand('Localization.ToggleSkipDataSystemInLocOutput')]"
+			fontsize = 24
+		}
+	}
+
+	button_round = {
+		size = { 40 40 }
+		button_copy = {
+			parentanchor = center
+			onclick = "[EventWindowData.CopyToClipboard]"
+			tooltip = "DRAGON_DESIGNER_EXPORT_VALUES"
+			using = tooltip_below
+		}
+	}
+
+	button_round = {
+		size = { 40 40 }
+
+		button_paste = {
+			size = { 30 30 }
+			parentanchor = center
+			tooltip = "DRAGON_DESIGNER_IMPORT_VALUES"
+			using = tooltip_below
+			onclick = "[ExecuteConsoleCommand('run import_dragon_dna.txt')]"
+			fontsize = 24
+		}
+	}
+
+	button_round = {
+		name = "debug_icon"
+		size = { 40 40 }
+		button_search = {
+			parentanchor = center
+			size = { 26 26 }
+			tooltip = "EVENT_DEBUG_TOOLTIP"
+			using = tooltip_se
+			onclick = "[EventWindowData.DebugOpen]"
+			button_ignore = none
+		}
+	}
+
+	container = {
+		tooltip = "[EventWindowData.GetTriggerBreakdown]"
+		using = tooltip_es
+		icon = {
+			visible = "[EventWindowData.IsTriggerFulfilled]"
+			size = { 40 40 }
+			texture = "gfx/interface/icons/symbols/icon_check.dds"
+		}
+
+		icon = {
+			visible = "[Not( EventWindowData.IsTriggerFulfilled )]"
+			size = { 40 40 }
+			texture = "gfx/interface/icons/symbols/icon_cross.dds"
+		}
+	}
+
+	button = {
+		size = { 40 40 }
+
+		button = {
+			size = { 100% 100% }
+			tooltip = "[EventWindowData.GetDebugInfo]"
+			using = tooltip_es
+			onclick = "[EventWindowData.CopyToClipboard]"
+			onrightclick = "[EventWindowData.DebugOpen]"
+			button_ignore = none
+			raw_text = "?"
+			fontsize = 24
 		}
 	}
 }

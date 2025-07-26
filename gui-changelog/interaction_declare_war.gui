@@ -6,7 +6,7 @@
 window = {
 	name = "declare_war_window"
 	datacontext = "[DeclareWarInteractionWindow.GetCharacterInteractionConfirmationWindow]"
-	#AGOT Added - RV
+	#AGOT Added; RV
 	datacontext = "[DeclareWarInteractionWindow.GetDefenderCharacter]"
 	datacontext = "[CharacterItem.GetCharacter]"
 	parentanchor = top|right
@@ -20,7 +20,7 @@ window = {
 		name = _show
 		using = Animation_FadeIn_Quick
 		using = Sound_WindowShow_Standard
-		#AGOT Added - RV
+		#AGOT Added; RV
 		on_start = "[GetScriptedGui('rv_save_defender').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_defender', Character.MakeScope ).End )]"
 	}
 
@@ -28,7 +28,7 @@ window = {
 		name = _hide
 		using = Animation_FadeOut_Quick
 		using = Sound_WindowHide_Standard
-		#AGOT Added - RV
+		#AGOT Added; RV
 		on_start = "[GetScriptedGui('rv_clear_revenge_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 		on_start = "[GetScriptedGui('rv_clear_concubine_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 	}
@@ -209,7 +209,7 @@ window = {
 
 						text_multi = {
 							name = "comparison_text"
-							#AGOT Added - RV
+							#AGOT Added; RV
 							datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
 							visible = "[Not(Or(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel),EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel)))]"
 							text = "[DeclareWarInteractionWindow.GetMilitaryStrength]"
@@ -299,7 +299,7 @@ window = {
 									down = "[CasusBelliItem.IsSelected]"
 									onclick = "[CasusBelliItem.OnClick]"
 									onclick = "[PdxGuiTriggerAllAnimations('declare_war_goal_refresh')]"
-									#AGOT Added - RV
+									#AGOT Added; RV
 									visible = "[Or(Not(EqualTo_string(Localize('rv_declare_private_war_interaction'),CharacterInteractionConfirmationWindow.GetSendName)),Or(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel),EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel)))]"
 									onclick = "[GetScriptedGui('rv_create_revenge_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_defender', Character.MakeScope ).End )]"
 									onclick = "[GetScriptedGui('rv_create_concubine_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_defender', Character.MakeScope ).End )]"
@@ -747,7 +747,7 @@ window = {
 							}
 						}
 					}
-					#AGOT Added - RV
+					#AGOT Added; RV
 					agot_rv_declare_war_send_button = {}
 				}
 

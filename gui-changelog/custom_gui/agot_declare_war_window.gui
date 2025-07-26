@@ -34,6 +34,12 @@ types DeclareWarTypes
 				margin = { 10 10 }
 			}
 
+			blockoverride "scrollbox_empty"
+			{
+				text = NO_VALID_CASUS_BELLIS
+				visible = no
+			}
+
 			blockoverride "scrollbox_content"
 			{
 				vbox = {
@@ -86,6 +92,9 @@ types DeclareWarTypes
 						}
 					}
 				}
+				spacer = {
+					size = { 0 5 }
+				}
 				vbox = {
 					name = "rv_concubine_items"
 					datamodel = "[GetPlayer.MakeScope.GetList('rv_defender_concubines')]"
@@ -107,7 +116,7 @@ types DeclareWarTypes
 							datacontext = "[Scope.GetCharacter]"
 							visible = "[GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
 							onclick = "[GetScriptedGui('rv_toggle_prisoner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
-							down =	"[GetScriptedGui('rv_rescue_trigger').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
+							down = "[GetScriptedGui('rv_rescue_trigger').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Character.MakeScope ).End )]"
 
 							hbox = {
 								name = "rv_concubine_item"
@@ -193,7 +202,7 @@ types DeclareWarTypes
 
 						blockoverride "header_text"
 						{
-							raw_text = "Lover"
+							text = "rv_lover_header"
 						}
 
 						blockoverride "gridbox_slots" {}
@@ -213,14 +222,39 @@ types DeclareWarTypes
 			datamodel = "[GetPlayer.MakeScope.GetList('rv_rescue_list_temp')]"
 			visible = "[And(DeclareWarInteractionWindow.IsWarEffectsExpanded, DeclareWarInteractionWindow.IsEffectsTabVictory)]"
 			item = {
-				hbox = {
-					visible = "[GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Scope.GetCharacter.MakeScope ).End )]"
+				vbox = {
 					layoutpolicy_horizontal = expanding
-					text_multi = {
-						text = "rv_release_effect"
+					hbox = {
+						visible = "[And(GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Scope.GetCharacter.MakeScope ).End ),Not(GetScriptedGui('rv_transfer_on_demand_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Scope.GetCharacter.MakeScope ).End )))]"
 						layoutpolicy_horizontal = expanding
-						autoresize = yes
-						max_width = 360
+						text_multi = {
+							text = "rv_release_effect"
+							layoutpolicy_horizontal = expanding
+							autoresize = yes
+							max_width = 360
+						}
+					}
+
+					hbox = {
+						visible = "[And(GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Scope.GetCharacter.MakeScope ).End ),GetScriptedGui('rv_transfer_on_demand_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Scope.GetCharacter.MakeScope ).End ))]"
+						layoutpolicy_horizontal = expanding
+						text_multi = {
+							text = "rv_transfer_effect"
+							layoutpolicy_horizontal = expanding
+							autoresize = yes
+							max_width = 360
+						}
+					}
+
+					hbox = {
+						visible = "[And(GetScriptedGui('rv_rescue_visible_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Scope.GetCharacter.MakeScope ).End ),GetScriptedGui('rv_rescue_same_house_trigger').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_prisoner_target', Scope.GetCharacter.MakeScope ).End ))]"
+						layoutpolicy_horizontal = expanding
+						text_multi = {
+							text = "rv_house_effect"
+							layoutpolicy_horizontal = expanding
+							autoresize = yes
+							max_width = 360
+						}
 					}
 				}
 			}
@@ -326,7 +360,7 @@ types rv_interaction_declare_war
 					}
 
 					item = {
-						portrait_head_small = {
+						portrait_head_small_relationship = {
 							block "portrait_visibility"
 							{
 

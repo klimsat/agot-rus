@@ -13,17 +13,47 @@ widget = {
 		# Increment Buttons
 		hbox = {
 			layoutpolicy_horizontal = expanding
+			max_width = 500
+
 			button_standard = {
 				size = { 150 32 }
 				onclick = "[GetScriptedGui('agot_dragon_skin_color_menu_01').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 				text = plusminus1_de_gui
 				tooltip = plusminus1_de_gui_tt
+				using = tooltip_above
+			}
+			# Copy and Paste
+			hbox = {
+				button_store_values = {
+					size = { 32 32 }
+					onclick = "[GetScriptedGui('agot_store_dragon_dna').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('dragon',Scope.GetCharacter.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Set('applied_dragon_dna', 'false')]"
+					tooltip = DRAGON_DESIGNER_STORE_DNA_TOOLTIP
+					using = tooltip_above
+				}
+				button_apply_values = {
+					size = { 32 32 }
+					enabled = "[And(GetScriptedGui('agot_has_saved_dragon_dna').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End), GetVariableSystem.HasValue('applied_dragon_dna', 'false'))]"
+					onclick = "[GetScriptedGui('agot_apply_dragon_dna').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('dragon',Scope.GetCharacter.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Set('applied_dragon_dna', 'true')]"
+					tooltip = DRAGON_DESIGNER_APPLY_DNA_TOOLTIP
+					using = tooltip_above
+				}
+				button_restore_values = {
+					size = { 32 32 }
+					enabled = "[GetVariableSystem.HasValue('applied_dragon_dna', 'true')]"
+					onclick = "[GetScriptedGui('agot_undo_applied_dragon_dna').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('dragon',Scope.GetCharacter.MakeScope).End)]"
+					onclick = "[GetVariableSystem.Set('applied_dragon_dna', 'false')]"
+					tooltip = DRAGON_DESIGNER_UNDO_DNA_TOOLTIP
+					using = tooltip_above
+				}
 			}
 			button_standard = {
 				size = { 150 32 }
 				onclick = "[GetScriptedGui('agot_dragon_skin_color_menu_05').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 				text = plusminus5_de_gui
 				tooltip = plusminus5_de_gui_tt
+				using = tooltip_above
 			}
 		}
 
@@ -47,7 +77,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_primary_color_value_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_primary_color_value_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -110,7 +140,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_primary_color_hue_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_primary_color_hue_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -176,7 +206,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_secondary_value_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_secondary_value_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -241,7 +271,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_secondary_hue_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_secondary_hue_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -307,7 +337,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_tertiary_value_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_tertiary_value_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -372,7 +402,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_tertiary_hue_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_tertiary_hue_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -438,7 +468,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horn_color_value_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_horn_color_value_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -503,7 +533,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horn_color_hue_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_horn_color_hue_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -569,7 +599,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_eye_color_value_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_eye_color_value_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -635,7 +665,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_eye_color_hue_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_eye_color_hue_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -701,7 +731,7 @@ widget = {
 					text_single = {
 						block "value" {
 							# outputs "gene_dragon_horn_shape_template_" with a number corresponding to template
-							text = "[Localize(Concatenate('gene_dragon_horn_shape_template_',GetString_CFixedPoint(Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_main_horn_shape_template_svalue'))))]"
+							text = "[Localize(Concatenate('gene_dragon_horn_shape_template_',GetString_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_main_horn_shape_template_svalue'))))]"
 						}
 					}
 
@@ -764,7 +794,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_main_horn_shape_value_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_main_horn_shape_value_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -831,7 +861,7 @@ widget = {
 					text_single = {
 						block "value" {
 							# outputs "gene_dragon_body_shading_template_" with a number corresponding to template
-							text = "[Localize(Concatenate('gene_dragon_body_shading_template_',GetString_CFixedPoint(Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_body_shading_template_svalue'))))]"
+							text = "[Localize(Concatenate('gene_dragon_body_shading_template_',GetString_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_body_shading_template_svalue'))))]"
 						}
 					}
 
@@ -894,7 +924,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_body_shading_value_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_body_shading_value_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -961,7 +991,7 @@ widget = {
 					text_single = {
 						block "value" {
 							# outputs "gene_dragon_wings_shading_template_" with a number corresponding to template
-							text = "[Localize(Concatenate('gene_dragon_wings_shading_template_',GetString_CFixedPoint(Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_wings_shading_template_svalue'))))]"
+							text = "[Localize(Concatenate('gene_dragon_wings_shading_template_',GetString_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_wings_shading_template_svalue'))))]"
 						}
 					}
 
@@ -1024,7 +1054,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_wings_shading_value_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_wings_shading_value_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -1091,7 +1121,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_neck_length_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_neck_length_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -1156,7 +1186,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_metallic_scales_strength_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_metallic_scales_strength_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -1222,7 +1252,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_wounded_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_wounded_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -1289,7 +1319,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_old_neck_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_old_neck_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -1354,7 +1384,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_tail_length_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_tail_length_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -1419,7 +1449,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_center_fin_size_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_center_fin_size_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -1484,7 +1514,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_side_fin_size_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_side_fin_size_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -1549,7 +1579,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_crest_depth_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_crest_depth_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -1615,7 +1645,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_back_spike_size_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_back_spike_size_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -1681,7 +1711,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_neck_spike_size_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_neck_spike_size_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -1747,7 +1777,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horns_eyebrow_length_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_horns_eyebrow_length_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -1813,7 +1843,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_horns_eyebrow_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_horns_eyebrow_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -1879,7 +1909,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_length_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_snout_length_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -1945,7 +1975,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_height_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_snout_height_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -2010,7 +2040,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_width_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_snout_width_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -2077,7 +2107,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_end_width_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_snout_end_width_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -2143,7 +2173,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_snout_profile_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_snout_profile_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -2209,7 +2239,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_chin_profile_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_chin_profile_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -2275,7 +2305,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_jaw_width_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_jaw_width_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -2341,7 +2371,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_upper_jaw_width_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_upper_jaw_width_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -2406,7 +2436,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_lower_jaw_width_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_lower_jaw_width_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -2472,7 +2502,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_lower_jaw_height_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_lower_jaw_height_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -2538,7 +2568,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_cheek_width_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_cheek_width_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -2603,7 +2633,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_head_roundness_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_head_roundness_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -2668,7 +2698,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_brow_width_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_brow_width_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
@@ -2734,7 +2764,7 @@ widget = {
 					expand = {}
 					text_single = {
 						block "value" {
-							text = "[Scope.Char.MakeScope.Var('editing_dragon').ScriptValue('gene_dragon_outer_brow_height_svalue')|0%]"
+							text = "[Scope.Var('editing_dragon').ScriptValue('gene_dragon_outer_brow_height_svalue')|0%]"
 						}
 						autoresize = yes
 						min_width = 40
