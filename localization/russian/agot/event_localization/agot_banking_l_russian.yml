@@ -64,7 +64,7 @@
  agot_banking.0103.a:0 "Проклятые алчные счетоводы!"
 
  agot_banking.0104.t:0 "Валар адеммис"
- agot_banking.0104.desc:0 "Какая жестокая ирония - Безликий, посланный банком, явился мне в тот самый момент, когда я [Select_CString(ROOT.Char.IsFemale, 'размышляла', 'размышлял' )] о своей долговой проблеме. Приняв облик слуги, убийца без труда подкрался и приставил клинок к моему горлу.\n\nКровь хлещет из раны, а удар был нанесён так искусно, что я не могу даже позвать на помощь.\n\nВ последние мгновения я осознаю, что кредиторы потеряли терпение и надеются, что [Select_CString(ROOT.Char.GetHeir.IsFemale, 'моя наследница', 'мой наследник')], [ROOT.Char.GetHeir.GetFirstName], окажется сговорчивее. Остаётся лишь надеяться, что [Select_CString(ROOT.Char.GetHeir.IsFemale, 'она', 'он')] будет мудрее меня..."
+ agot_banking.0104.desc:0 "Какая жестокая ирония - Безликий, посланный банком, явился мне в тот самый момент, когда я [Select_CString(ROOT.Char.IsFemale, 'размышляла', 'размышлял' )] о своей долговой проблеме. Приняв облик слуги, убийца без труда подкрался и приставил клинок к моему горлу.\n\nКровь хлещет из раны, а удар был нанесён так искусно, что я не могу даже позвать на помощь.\n\nВ последние мгновения я осознаю, что кредиторы потеряли терпение и надеются, что мои наследники окажутся сговорчивее."
  agot_banking.0104.a:0 "[ROOT.Char.Custom('Scream')]"
 
  agot_banking.0105.t:0 "Сорванный переворот"
@@ -462,6 +462,7 @@
  bank_name_default_IB:0 "Железный банк Браавоса"
  bank_name_default_Rogare:0 "Банк Рогаре"
  bank_name_default_blank:0 ""
+ bank_name_fallback:0 "[ROOT.Char.GetCulture.GetCollectiveNounNoTooltip]ий банк"
 
  bank_name_normal:0 "[ROOT.Var('BankName').Char.GetLocalizedText( 'bank_name' )]"
  bank_name_normal_list:0 "[Character.GetLocalizedText( 'bank_name' )]"
