@@ -4,6 +4,21 @@
 
 types CountyViewTypes
 {
+	####################
+	# TITLES AND NAMES #
+	####################
+	type agot_county_view_foreign_county_iron_throne = text_single
+	{
+		name = "foreign_county_iron_throne"
+		visible = "[And(HasIronThroneTopLiege, Not(Or(ObjectsEqual( Character.Self, GetPlayer ),Character.IsOtherLiegeOrAbove( GetPlayer ))))]"
+		layoutpolicy_horizontal = expanding
+		text = "AGOT_HOLDING_VIEW_COUNTY_SEVEN_KINGDOMS"
+		margin_bottom = 5
+		using = Font_Size_Small
+		fontsize_min = 10
+		max_width = 420
+	}
+
 	#################
 	# RUINS RESTORE #
 	#################

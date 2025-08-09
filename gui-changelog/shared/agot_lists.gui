@@ -125,6 +125,50 @@ types Lists
 		fontsize_min = 14
 	}
 
+	type agot_lists_trait_box = hbox
+	{
+		margin_right = 10
+		fixedgridbox = {
+			name = "traits_grid"
+			datamodel = "[CharacterListItem.GetTraits]"
+			flipdirection = yes
+			size = { 150 35 }
+			addcolumn = 28
+			addrow = 35
+			block "horizontal_slots"
+			{
+				maxhorizontalslots = 7
+			}
+			maxverticalslots = 1
+
+			item = {
+				widget = {
+					visible = "[Trait.IsValid]"
+					size = { 35 35 }
+
+					icon_trait = {
+						parentanchor = center
+
+						blockoverride "icon_size"
+						{
+							size = { 28 28 }
+						}
+
+						blockoverride "tooltip_placement"
+						{
+							using = tooltip_se
+						}
+
+						blockoverride "glow_radius"
+						{
+							glow_radius = 2
+						}
+					}
+				}
+			}
+		}
+	}
+
 	# Dragon List Appearance COA
 	type agot_lists_dragon_rider_coa = coa_title_small_crown
 	{

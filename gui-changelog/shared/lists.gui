@@ -184,12 +184,12 @@ types Lists
 								layoutpolicy_horizontal = expanding
 								layoutpolicy_vertical = expanding
 
-								margin_left = 10
+								#AGOT Modified
+								# margin_left = 10
+								margin_left = 5
 
 								min_width = 320
-								#AGOT Modified
-								# max_width = 320
-								max_width = 368
+								max_width = 320
 
 								text_single = {
 									layoutpolicy_horizontal = expanding
@@ -251,6 +251,8 @@ types Lists
 										widget_skill_item_no_icon = {}
 									}
 								}
+								#AGOT Added
+								agot_lists_trait_box = {}
 
 								expand = {}
 							}
@@ -274,9 +276,7 @@ types Lists
 							size = { 100% 44 }
 							parentanchor = left
 							scissor = yes
-							#AGOT Modified
-							# position = { 0 -4 }
-							position = { 0 -8 }
+							position = { 0 -4 }
 
 							hbox = {
 								layoutpolicy_horizontal = expanding
@@ -331,57 +331,55 @@ types Lists
 										}
 									}
 								}
-								#AGOT Added
-								expand = {}
 
 								# Traits
-								fixedgridbox = {
-									name = "traits_grid"
-									datamodel = "[CharacterListItem.GetTraits]"
-									flipdirection = yes
-									size = { 150 35 }
-									addcolumn = 30
-									addrow = 35
-									block "horizontal_slots"
-									{
-										maxhorizontalslots = 8
-									}
-									maxverticalslots = 1
+								#AGOT Disabled; moved above
+								# fixedgridbox = {
+									# name = "traits_grid"
+									# datamodel = "[CharacterListItem.GetTraits]"
+									# flipdirection = yes
+									# size = { 150 35 }
+									# addcolumn = 30
+									# addrow = 35
+									# block "horizontal_slots"
+									# {
+										# maxhorizontalslots = 8
+									# }
+									# maxverticalslots = 1
 
-									item = {
-										widget = {
-											visible = "[Trait.IsValid]"
-											size = { 35 35 }
+									# item = {
+										# widget = {
+											# visible = "[Trait.IsValid]"
+											# size = { 35 35 }
 
-											icon_trait = {
-												parentanchor = center
+											# icon_trait = {
+												# parentanchor = center
 
-												blockoverride "icon_size"
-												{
-													size = { 30 30 }
-												}
+												# blockoverride "icon_size"
+												# {
+													# size = { 30 30 }
+												# }
 
-												blockoverride "tooltip_placement"
-												{
-													using = tooltip_se
-												}
+												# blockoverride "tooltip_placement"
+												# {
+													# using = tooltip_se
+												# }
 
-												blockoverride "glow_radius"
-												{
-													glow_radius = 3
-												}
-											}
-										}
-									}
-								}
+												# blockoverride "glow_radius"
+												# {
+													# glow_radius = 3
+												# }
+											# }
+										# }
+									# }
+								# }
 
 								vbox = {
 									datacontext = "[CharacterListItem.GetCharacter]"
 									margin_right = 5
 								}
 
-								#AGOT Disabled
-								# expand = {}
+								expand = {}
 							}
 
 							block "bottom_right_box"
@@ -460,13 +458,14 @@ types Lists
 									expand = {}
 
 									hbox = {
-										background = {
-											using = Background_Area_Light
-											using = Mask_Rough_Edges
-											margin_top = 8
-											margin_left = 12
-											margin_bottom = 2
-										}
+										#AGOT Disabled; fugly
+										# background = {
+											# using = Background_Area_Light
+											# using = Mask_Rough_Edges
+											# margin_top = 8
+											# margin_left = 12
+											# margin_bottom = 2
+										# }
 
 										block "button_box_content" {}
 									}
@@ -605,7 +604,6 @@ types Lists
 							#AGOT Modified
 							# hbox_skills_grid = {}
 							hbox_skills_grid = { using = visible_if_not_dragon }
-
 							#AGOT Added
 							agot_lists_dragon_size_icon = {}
 							agot_lists_dragon_size_text = {}
@@ -635,7 +633,6 @@ types Lists
 									# Dynasty
 									widget = {
 										size = { 45 40 }
-
 										#AGOT Added
 										agot_lists_dragon_host_coa = {}
 										agot_lists_dragon_bonded_coa = {}
@@ -1503,7 +1500,6 @@ types Lists
 					#AGOT Modified
 					# hbox_skills_grid = {}
 					hbox_skills_grid = { using = visible_if_not_dragon }
-
 					#AGOT Added
 					agot_lists_dragon_size_icon = {}
 					agot_lists_dragon_size_text = {}
@@ -1556,7 +1552,6 @@ types Lists
 								alpha = 0.5
 							}
 						}
-
 						#AGOT Added
 						agot_dragonrider_courtier_list_relation = {}
 						agot_bonded_courtier_list_relation = {}
@@ -1629,7 +1624,6 @@ types Lists
 						widget = {
 							layoutpolicy_vertical = expanding
 							size = { 45 40 }
-
 							#AGOT Added
 							agot_lists_dragon_host_coa = {}
 							agot_lists_dragon_bonded_coa = {}

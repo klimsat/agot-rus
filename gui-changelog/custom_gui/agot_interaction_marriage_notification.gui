@@ -1,0 +1,68 @@
+###################################################################################
+################# AGOT INTERACTION MARRIAGE NOTIFICATION WINDOW ###################
+###################################################################################
+
+types MarriageInteractionNotificationWindow
+{
+	### LMF: replace normal header text for introductions, as it ignores the character interaction loc entry
+	type agot_lmf_marriage_notification_intro_header = header_pattern_interaction
+	{
+		layoutpolicy_horizontal = expanding
+		visible = "[GetScriptedGui('use_introduction_gui_check').IsValid(GuiScope.SetRoot(CharacterInteractionNotificationWindow.GetSender.MakeScope).End)]"
+
+		blockoverride "header_text"
+		{
+			text = "make_introduction_send"
+		}
+
+		blockoverride "button_close"
+		{
+			onclick = "[CharacterInteractionNotificationWindow.Close]"
+		}
+	}
+
+	type agot_lmf_marriage_notification_intro_tooltip = vbox
+	{
+		layoutpolicy_horizontal = expanding
+		visible = "[GetScriptedGui('use_introduction_gui_check').IsValid(GuiScope.SetRoot(CharacterInteractionNotificationWindow.GetSender.MakeScope).End)]"
+		
+		hbox = {
+			name = "introduction_tooltip_display"
+			margin_top = 10
+			text_label_center = {
+				name = introduction_gui_tooltip
+				max_width = 510
+				text = "begin_introduction_invite_secrec.gui.tt"
+			}
+		}
+	}
+
+	### LMF: replace Accept/Reject buttons when using introduction interaction, to prevent automatic marriage/betrothal on Accept and execute effects via scripted gui instead
+	type agot_lmf_marriage_notification_intro_options = hbox
+	{
+		name = "introduction_answer_area"
+		visible = "[GetScriptedGui('use_introduction_gui_check').IsValid(GuiScope.SetRoot(CharacterInteractionNotificationWindow.GetSender.MakeScope).End)]"
+		margin_bottom = 15
+		margin_top = 10
+		spacing = 10
+		
+		button_standard = {
+			name = "introduction_reject_button"
+			size = { 230 42 }
+			text = "[CharacterInteractionNotificationWindow.GetAnswerRejectText]"
+			onclick = "[GetScriptedGui('refuse_introduction_gui_effect').Execute(GuiScope.SetRoot(CharacterInteractionNotificationWindow.GetSender.MakeScope).End)]"
+			onclick = "[CharacterInteractionNotificationWindow.Reject]"
+			enabled = "[CharacterInteractionNotificationWindow.CanReject]"
+		}
+		
+		button_standard = {
+			name = "introduction_accept_button"
+			texture = "gfx/interface/buttons/button_verb_primary.dds"
+			size = { 230 42 }
+			text = "[CharacterInteractionNotificationWindow.GetAnswerAcceptText]"
+			onclick = "[GetScriptedGui('start_introduction_gui_effect').Execute(GuiScope.SetRoot(CharacterInteractionNotificationWindow.GetSender.MakeScope).End)]"
+			onclick = "[CharacterInteractionNotificationWindow.Reject]"
+			enabled = "[CharacterInteractionNotificationWindow.CanAccept]"
+		}
+	}
+}

@@ -4,94 +4,112 @@
 
 types MapModes
 {
+	type agot_mapmodes_close_shortcut = button
+	{
+		visible = "[IsMapMode('realms')]"
+		onclick = "[GetVariableSystem.Clear( 'mapmodes_expand' )]"
+		shortcut = "close_window"
+	}
+
 	type agot_roads_map_mode_legend = flowcontainer
 	{
 		name = "agot_roads_mapmode_legend"
-		visible = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') )]"
-		parentanchor = top|right
-		position = { 0 -80 }
+		visible = "[IsMapMode('agot_roads')]"
+		parentanchor = top|hcenter
 		direction = vertical
 		ignoreinvisible = yes
-		min_width = 160
 
 		state = {
 			name = _show
-			using = Animation_FadeIn_Standard
+			using = Animation_Curve_Default
+			duration = 0.25
+			alpha = 1
 		}
 
 		state = {
 			name = _hide
-			using = Animation_FadeOut_Standard
-		}
-
-		background = {
-			using = Background_Area_Dark
-			color = { 0.15 0.15 0.15 0.3 }
-			margin = { 10 10 }
-			margin_top = 5
+			alpha = 0
 		}
 
 		text_single = {
 			parentanchor = hcenter
 			text = "AGOT_ROADS_MAP_LEGEND"
-			margin_bottom = 8
-			default_format = "#Bold #color_white"
+			default_format = "#medium"
+			margin_bottom = 2
+		}
+
+		spacer = {
+			size = { 0 5 }
 		}
 
 		flowcontainer = {
 			direction = vertical
-			spacing = 20
-			margin_bottom = 12
 			widget = {
 				hbox = {
-					expand = {}
 					icon = {
 						texture = "gfx/interface/colors/white.dds"
 						size = { 12 12 }
-						color = { 0.7 0.2 0.1 1 }
+						color = { 0.765 0.059 0.059 0.75 } # 195 15 15
 					}
-					spacing = 5
+					spacer = {
+						size = { 5 0 }
+					}
 					text_single = {
-						margin_top = -6
+						margin_top = -5
 						align = center
 						text = "AGOT_ROADS_MAP_URBAN_TERRAIN"
+						fontsize = 14
 					}
-					expand = {}
 				}
+			}
+			spacer = {
+				size = { 0 20 }
 			}
 			widget = {
 				hbox = {
-					expand = {}
 					icon = {
 						texture = "gfx/interface/colors/white.dds"
 						size = { 12 12 }
-						color = { 0.7 0.6 0.1 1 }
+						color = { 0.843 0.706 0.059 0.75 } # 215 180 15
 					}
-					spacing = 5
+					spacer = {
+						size = { 5 0 }
+					}
 					text_single = {
-						margin_top = -6
+						margin_top = -5
 						align = center
 						text = "AGOT_ROADS_MAP_MAJOR_ROAD"
+						fontsize = 14
 					}
-					expand = {}
 				}
+			}
+			spacer = {
+				size = { 0 20 }
 			}
 			widget = {
 				hbox = {
-					expand = {}
 					icon = {
 						texture = "gfx/interface/colors/white.dds"
 						size = { 12 12 }
-						color = { 0.7 0.6 0.5 1 }
+						color = { 0.843 0.863 0.471 .75 } # 215 220 120
 					}
-					spacing = 5
+					spacer = {
+						size = { 5 0 }
+					}
 					text_single = {
-						margin_top = -6
+						margin_top = -5
 						align = center
 						text = "AGOT_ROADS_MAP_MINOR_ROAD"
+						fontsize = 14
 					}
-					expand = {}
 				}
+			}
+			spacer = {
+				size = { 0 20 }
+			}
+			divider_light = {
+				min_width = 100
+				parentanchor = hcenter
 			}
 		}
 	}
@@ -102,9 +120,9 @@ types MapModes
 		parentanchor = vcenter
 		size = { 32 32 }
 
-		blockoverride 'mm_datacontext'
+		blockoverride "mm_datacontext"
 		{
-			datacontext = "[GetMapMode( 'agot_custom_mapmode' )]"
+			datacontext = "[GetMapMode('agot_roads')]"
 		}
 
 		blockoverride "mm_icon"
@@ -114,10 +132,11 @@ types MapModes
 		}
 	}
 
-	type agot_icon_button_mapmode = widget {
+	type agot_icon_button_mapmode = widget
+	{
 		size = { 40 40 }
 
-		block 'mm_datacontext'
+		block "mm_datacontext"
 		{
 			datacontext = "[GetMapMode( 'realms' )]"
 		}
@@ -150,10 +169,8 @@ types MapModes
 			size = { 100% 100% }
 			using = tooltip_nw
 
-			onclick = "[SetMapMode('agot_custom_mapmode')]"
-			onclick = "[GetScriptedGui('agot_roads_map').Execute(GuiScope.End)]"
-			down = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') )]"
-			enabled = "[GetScriptedGui('agot_roads_map').IsValid(GuiScope.End)]"
+			onclick = "[SetMapMode('agot_roads')]"
+			down = "[IsMapMode('agot_roads')]"
 			tooltip = "[MapMode.GetDesc]"
 
 			block "mm_button" {}
@@ -161,7 +178,7 @@ types MapModes
 			button_icon = {
 				parentanchor = center
 				alwaystransparent = yes
-				down = "[And( GetScriptedGui('agot_roads_map').IsShown(GuiScope.End), IsMapMode('agot_custom_mapmode') )]"
+				down = "[IsMapMode('agot_roads')]"
 				texture = "[MapMode.GetIcon]"
 
 				block "mm_icon" {}

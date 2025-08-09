@@ -169,30 +169,6 @@ types DynastyTreeView
 							datacontext = "[Scope.GetCharacter]"
 							visible = "[Not(ObjectsEqual(GetPlayer.MakeScope.Var('dragon_tree_being_shown').Var('dragon_tree_founder').Char, Character.Self))]"
 							position = { -40 0 }
-
-							flowcontainer = {
-								direction = vertical
-								ignoreinvisible = yes
-								parentanchor = right
-
-								button_me = {
-									size = { 25 25 }
-									visible = "[Character.IsLocalPlayer]"
-									alwaystransparent = yes
-									tooltip = "CV_TT_YOU"
-								}
-
-								icon = {
-									size = { 25 25 }
-									framesize = { 20 20 }
-									frame = 4
-									visible = "[Character.IsBastard]"
-									texture = "gfx/interface/icons/portraits/relation.dds"
-									tooltip = "CV_TT_BASTARD"
-								}
-							}
-							blockoverride "opinion_box" {}
-							blockoverride "status_icons" {}
 						}
 					}
 

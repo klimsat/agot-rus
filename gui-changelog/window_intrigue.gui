@@ -409,7 +409,9 @@ window = {
 
 					## Autofill agent button
 					hbox = {
-						visible = "[IntrigueWindow.IsTabShown( 'schemes' )]"
+						#AGOT Modified
+						#visible = "[IntrigueWindow.IsTabShown( 'schemes' )]"
+						visible = "[GetVariableSystem.HasValue( 'intrigue_view_tabs', 'schemes' )]"
 						layoutpolicy_horizontal = expanding
 						margin = { 10 10 }
 						spacing = 5
@@ -2210,7 +2212,7 @@ types IntrigueWindowTypes
 							datacontext = "[IntrigueWindowSecretGroup.GetFirstSecret.GetSecret]"
 							size = { 120 25 }
 							#AGOT Added
-							enabled =  "[GetScriptedGui('agot_can_expose').IsValid( GuiScope.SetRoot( IntrigueWindowSecretGroup.GetFirstSecret.GetSecret.MakeScope ).End )]"
+							enabled = "[GetScriptedGui('agot_can_expose').IsValid( GuiScope.SetRoot( IntrigueWindowSecretGroup.GetFirstSecret.GetSecret.MakeScope ).End )]"
 							onclick = "[Character.OpenPlayerInteraction( 'expose_secret_interaction' )]"
 							#"[IntrigueWindow.ExposeSecret( Character.Self, 'blackmail_interaction', Secret.Self )]"
 							text = "INTRIGUE_WINDOW_SECRET_EXPOSE"

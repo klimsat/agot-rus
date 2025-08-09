@@ -53,6 +53,29 @@ types DynastyTreeView
 							datacontext = "[Scope.GetCharacter]"
 							visible = "[ObjectsEqual(GetPlayer.MakeScope.Var('knight_tree_being_shown').Var('knight_tree_founder').Char, Character.Self)]"
 							parentanchor = hcenter
+
+							flowcontainer = {
+								direction = vertical
+								ignoreinvisible = yes
+								parentanchor = right
+
+								button_me = {
+									size = { 25 25 }
+									visible = "[Character.IsLocalPlayer]"
+									alwaystransparent = yes
+									tooltip = "CV_TT_YOU"
+								}
+
+								icon = {
+									size = { 25 25 }
+									framesize = { 40 40 }
+									frame = 4
+									visible = "[Character.IsBastard]"
+									texture = "gfx/interface/icons/portraits/relation.dds"
+									tooltip = "CV_TT_BASTARD"
+								}
+							}
+							blockoverride "opinion_box" {}
 						}
 
 						portrait_shoulders = {
@@ -81,9 +104,7 @@ types DynastyTreeView
 									tooltip = "CV_TT_BASTARD"
 								}
 							}
-
 							blockoverride "opinion_box" {}
-							blockoverride "status_icons" {}
 						}
 					}
 
@@ -216,6 +237,29 @@ types DynastyTreeView
 							datacontext = "[Scope.GetCharacter]"
 							visible = "[ObjectsEqual(GetPlayer.MakeScope.Var('knight_tree_being_shown').Var('knight_tree_founder').Char, Character.Self)]"
 							parentanchor = hcenter
+
+							flowcontainer = {
+								direction = vertical
+								ignoreinvisible = yes
+								parentanchor = right
+
+								button_me = {
+									size = { 25 25 }
+									visible = "[Character.IsLocalPlayer]"
+									alwaystransparent = yes
+									tooltip = "CV_TT_YOU"
+								}
+
+								icon = {
+									size = { 25 25 }
+									framesize = { 40 40 }
+									frame = 4
+									visible = "[Character.IsBastard]"
+									texture = "gfx/interface/icons/portraits/relation.dds"
+									tooltip = "CV_TT_BASTARD"
+								}
+							}
+							blockoverride "opinion_box" {}
 						}
 
 						portrait_shoulders = {
@@ -237,7 +281,7 @@ types DynastyTreeView
 
 								icon = {
 									size = { 25 25 }
-									framesize = { 20 20 }
+									framesize = { 40 40 }
 									frame = 4
 									visible = "[Character.IsBastard]"
 									texture = "gfx/interface/icons/portraits/relation.dds"
@@ -245,7 +289,6 @@ types DynastyTreeView
 								}
 							}
 							blockoverride "opinion_box" {}
-							blockoverride "status_icons" {}
 						}
 					}
 

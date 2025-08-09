@@ -1,11 +1,11 @@
 ﻿window = {
-	name = "character_event"
+	name = "agot_lmf_feast_event_window"
 
 	parentanchor = center
 	widgetanchor = center
-	size = { 1120 585 }
+	size = { 1390 750 }
 	layer = events
-	alpha = 1
+	alpha = 0
 
 	datacontext = "[EventWindow.AccessEventWindowData]"
 
@@ -60,40 +60,11 @@
 			duration = 0.7
 		}
 
-		state = {
-			#TODO[WL]: TIT-53953 Add a trigger
-			name = background_shake_loop
-			next = background_shake_loop_1
-			duration = 0.0
-			alpha = 1.0
-		}
-
-		state = {
-			name = background_shake_loop_1
-			next = background_shake_loop_2
-			position = { -6 0 }
-			duration = 0.2
-		}
-
-		state = {
-			name = background_shake_loop_2
-			next = background_shake_loop_3
-			position = { 5 0 }
-			duration = 0.12
-		}
-
-		state = {
-			name = background_shake_loop_3
-			next = background_shake_loop_1
-			position = { 7 1 }
-			duration = 0.12
-		}
-
+		blockoverride "event_mask" {}
 		blockoverride "event_picture_properties"
 		{}
 	}
 
-	#AGOT Added
 	vbox = { # Event shaders (behind character portraits)
 		name = "agot_shader_event_background"
 		margin = { 30 15 }
@@ -110,216 +81,234 @@
 
 	###CHARACTERS
 	widget = {
-		layoutstretchfactor_horizontal = 55
-		parentanchor = bottom|hcenter
-		position = { -40 -15 }
-		size = { 100% 100% }
+		name = "has_center_character"
+		parentanchor = top|hcenter
+		position = { 260 -20 }
+		size = { 80% 100% }
+		visible = "[EventWindowData.HasPortraitCharacter('center_portrait')]"
 		scissor = yes
 
-		state = {
-			name = appear
-			trigger_on_create = yes
-			delay = 0.5
-			using = Animation_Curve_Default
-			alpha = 1
-			duration = 0.5
-		}
+		hbox = {
+			layoutpolicy_horizontal = expanding
 
-		state = {
-			# TODO[WL]: TIT-53953 Add a trigger
-			name = character_shake_loop
-			next = character_shake_loop_1
-			duration = 0.0
-			alpha = 1.0
-		}
+			expand = {
+				visible = "[EventWindowData.HasPortraitCharacter('left_portrait')]"
+			}
 
-		state = {
-			name = character_shake_loop_1
-			next = character_shake_loop_2
-			position = { -35 -15 }
-			duration = 0.2
-		}
+			## LEFT CHARACTER ###
+			widget = {
+				name = "left_character"
+				size = { 300 650 }
 
-		state = {
-			name = character_shake_loop_2
-			next = character_shake_loop_3
-			position = { -27 -15 }
-			duration = 0.12
-		}
+				allow_outside = no
 
-		state = {
-			name = character_shake_loop_3
-			next = character_shake_loop_1
-			position = { -25 -17 }
-			duration = 0.12
-		}
+				block "transition_left_character" {
+					alpha = 0
 
-		### RIGHT CHARACTER ###
-		widget = {
-			parentanchor = bottom|right
-			position = { 20 0 }
-			size = { 330 558 }
-
-			allow_outside = no
-			
-			portrait_event = {
-				name = "portrait_right"
-				datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
-				visible = "[EventWindowData.HasPortraitCharacter('right_portrait')]"
-				parentanchor = bottom|hcenter
-				position = { -80 -2 }
-				size = { 500 558 }
-
-				blockoverride "portrait_button"
-				{
-					size = { 700 558 }
-					portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('right_portrait', 'camera_event_right', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
-					alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('right_portrait'))]"
-
-					tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
-					tooltip_offset = { 100 600 }
-					using = tooltip_es
-					tooltip_widgetanchor = center
+					state = {
+						name = appear
+						trigger_on_create = yes
+						delay = 0.2
+						using = Animation_Curve_Default
+						alpha = 1
+						duration = 0.6
+					}
 				}
 
-				blockoverride "highlight_visible"
-				{
-					visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('right_portrait') ))]"
-					position = { 80 0 }
+				portrait_event = {
+					name = "portrait_left"
+					datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
+					visible = "[EventWindowData.HasPortraitCharacter('left_portrait')]"
+					parentanchor = bottom|hcenter
+					size = { 500 650 }
+					position = { 80 60 }
+
+					blockoverride "portrait_button"
+					{
+						size = { 125% 125% }
+						position = { -20 0 }
+						portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('left_portrait', 'camera_event_scheme_left', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+						alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
+
+						tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
+						tooltip_widgetanchor = center
+						using = tooltip_below
+					}
+
+					blockoverride "highlight_visible"
+					{
+						visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('left_portrait') ))]"
+						position = { -40 0 }
+					}
+
+					blockoverride "grayscale" {}
+
+					highlight_icon = {
+						name = "prison_bars"
+						visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('left_portrait')))]"
+						visible_at_creation = no
+						parentanchor = bottom|left
+						position = { 70 32 }
+						size = { 340 100% }
+						effectname = "NoHighlight"
+						spriteType = corneredTiled
+						texture_density = 1.5
+						texture = "gfx/portraits/portrait_prison_body.dds"
+
+						modify_texture = {
+							name = "mask"
+							texture =  "gfx/portraits/portrait_mask_event.dds"
+							spriteType = Corneredstretched
+							blend_mode = alphamultiply
+						}
+					}
+				}
+			}
+
+			## CENTER CHARACTER ###
+			widget = {
+				name = "center_character"
+				size = { 300 650 }
+
+				allow_outside = no
+
+				block "transition_center_character" {
+					alpha = 0
+
+					state = {
+						name = appear
+						trigger_on_create = yes
+						delay = 0.4
+						using = Animation_Curve_Default
+						alpha = 1
+						duration = 0.6
+					}
+				}
+				
+				portrait_event = {
+					name = "portrait_center"
+					datacontext = "[EventWindowData.GetPortraitCharacter('center_portrait')]"
+					visible = "[EventWindowData.HasPortraitCharacter('center_portrait')]"
+					parentanchor = bottom|hcenter
+					size = { 500 650 }
+					position = { 40 60 }
+
+					blockoverride "portrait_button"
+					{
+						size = { 125% 125% }
+						position = { -30 0 }
+						portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('center_portrait', 'camera_event_scheme_left', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+						alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('center_portrait'))]"
+
+						tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('center_portrait')]"
+						tooltip_widgetanchor = center
+						using = tooltip_below
+					}
+
+					blockoverride "highlight_visible"
+					{
+						visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('center_portrait') ))]"
+						position = { -40 0 }
+					}
+
+					blockoverride "grayscale" {}
+
+					highlight_icon = {
+						name = "prison_bars"
+						visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('center_portrait')))]"
+						visible_at_creation = no
+						parentanchor = bottom|hcenter
+						position = { -32 32 }
+						size = { 340 100% }
+						effectname = "NoHighlight"
+						spriteType = corneredTiled
+						texture_density = 1.5
+						texture = "gfx/portraits/portrait_prison_body.dds"
+
+						modify_texture = {
+							name = "mask"
+							texture =  "gfx/portraits/portrait_mask_event.dds"
+							spriteType = Corneredstretched
+							blend_mode = alphamultiply
+						}
+					}
+				}
+			}
+
+			### RIGHT CHARACTER ###
+			widget = {
+				name = "right_character"
+				size = { 300 650 }
+
+				allow_outside = no
+
+				block "transition_right_character" {
+					alpha = 0
+
+					state = {
+						name = appear
+						trigger_on_create = yes
+						delay = 0.6
+						using = Animation_Curve_Default
+						alpha = 1
+						duration = 0.6
+					}
 				}
 
-				blockoverride "grayscale" {}
-
-				highlight_icon = {
-					name = "prison_bars"
-					visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('right_portrait')))]"
-					visible_at_creation = no
-					size = { 285 500 }
-					position = { -30 0 }
+				portrait_event = {
+					name = "portrait_right"
+					datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
+					visible = "[EventWindowData.HasPortraitCharacter('right_portrait')]"
 					parentanchor = bottom|right
-					effectname = "NoHighlight"
-					spriteType = corneredTiled
-					texture_density = 1.5
-					texture = "gfx/portraits/portrait_prison_body.dds"
+					size = { 500 650 }
+					position = { 0 60 }
 
-					modify_texture = {
-						name = "mask"
-						texture =  "gfx/portraits/portrait_mask_event.dds"
-						spriteType = Corneredstretched
-						blend_mode = alphamultiply
+					blockoverride "portrait_button"
+					{
+						size = { 125% 125% }
+						portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('right_portrait', 'camera_event_scheme_right', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+						alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('right_portrait'))]"
+
+						tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
+						tooltip_offset = { -210 0 }
+					}
+
+					blockoverride "highlight_visible"
+					{
+						visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('right_portrait') ))]"
+						position = { 30 0 }
+					}
+
+					blockoverride "grayscale" {}
+
+					highlight_icon = {
+						name = "prison_bars"
+						visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('right_portrait')))]"
+						visible_at_creation = no
+						parentanchor = bottom|right
+						position = { -30 32 }
+						size = { 340 100% }
+						effectname = "NoHighlight"
+						spriteType = corneredTiled
+						texture_density = 1.5
+						texture = "gfx/portraits/portrait_prison_body.dds"
+
+						modify_texture = {
+							name = "mask"
+							texture =  "gfx/portraits/portrait_mask_event.dds"
+							spriteType = Corneredstretched
+							blend_mode = alphamultiply
+						}
 					}
 				}
 			}
-		}
 
-		## LEFT CHARACTER ###
-		widget = {
-			parentanchor = bottom|hcenter
-			#AGOT Modified
-			# position = { 100 - }
-			position = { 100 -1 }
-			size = { 330 558 }
-
-			allow_outside = no
-
-			portrait_event = {
-				name = "portrait_left"
-				datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
-				visible = "[And(EventWindowData.HasPortraitCharacter('left_portrait'), EventWindowData.HasPortraitCharacter('right_portrait'))]"
-				parentanchor = bottom|hcenter
-				position = { 80 0 }
-				size = { 500 558 }
-
-				blockoverride "portrait_button"
-				{
-					size = { 1000 558 }
-					portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('left_portrait', 'camera_event_left', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
-					alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
-
-					tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
-					tooltip_widgetanchor = center
-					tooltip_offset = { 350 600 }
-					using = tooltip_ws
-				}
-
-				blockoverride "highlight_visible"
-				{
-					visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('left_portrait') ))]"
-					position = { -40 0 }
-				}
-
-				blockoverride "grayscale" {}
-
-				highlight_icon = {
-					name = "prison_bars"
-					visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('left_portrait')))]"
-					visible_at_creation = no
-					size = { 280 500 }
-					position = { 70 0 }
-					parentanchor = bottom|left
-					effectname = "NoHighlight"
-					spriteType = corneredTiled
-					texture_density = 1.5
-					texture = "gfx/portraits/portrait_prison_body.dds"
-
-					modify_texture = {
-						name = "mask"
-						texture =  "gfx/portraits/portrait_mask_event.dds"
-						spriteType = Corneredstretched
-						blend_mode = alphamultiply
-					}
-				}
-			}
-		}
-
-
-		### Use this for single character
-		portrait_event = {
-			name = "portrait_center"
-			visible = "[And(EventWindowData.HasPortraitCharacter('left_portrait'), Not(EventWindowData.HasPortraitCharacter('right_portrait')))]"
-			datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
-			size = { 500 558 }
-			position = { 200 -2 }
-			parentanchor = bottom|hcenter
-
-			blockoverride "portrait_button"
-			{
-				size = { 1000 558 }
-				portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('left_portrait', 'camera_event_center', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
-				alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
-				tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
-				using = tooltip_below
-				tooltip_offset = { 550 -580 }
-			}
-
-			blockoverride "highlight_visible"
-			{
-				visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('left_portrait') ))]"
-			}
-
-			blockoverride "grayscale" {}
-
-			highlight_icon = {
-				name = "prison_bars"
-				visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('left_portrait')))]"
-				visible_at_creation = no
-				size = { 300 500 }
-				position = { -60 0 }
-				parentanchor = bottom|hcenter
-				effectname = "NoHighlight"
-				spriteType = corneredTiled
-				texture_density = 1.5
-				texture = "gfx/portraits/portrait_prison_body.dds"
-
-				modify_texture = {
-					name = "mask"
-					texture =  "gfx/portraits/portrait_mask_event.dds"
-					spriteType = Corneredstretched
-					blend_mode = alphamultiply
-				}
+			expand = {
+				visible = "[Or(EventWindowData.HasPortraitCharacter('center_portrait'),EventWindowData.HasPortraitCharacter('right_portrait'))]"
 			}
 		}
 	}
+	agot_lmf_center_portrait_exclude = {}
 
 	# Event Effect Video
 	event_window_effect_2d_widget = {
@@ -366,7 +355,7 @@
 					layoutstretchfactor_horizontal = 45
 
 					widget = {
-						size = { 155% 96%}
+						size = { 155% 98%}
 						position = { 5 18 }
 
 						background = {
@@ -374,7 +363,7 @@
 							spriteType = Corneredtiled
 							spriteborder = { 18 0 }
 							texture_density = 2
-							alpha = 0.7
+							alpha = 0.8
 
 							modify_texture = {
 								texture = "gfx/interface/component_overlay/overlay_effect.dds"
@@ -404,11 +393,8 @@
 						hbox = {
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding
-							#AGOT Modified
-							# margin_bottom = 10
-							# margin_top = 85
 							margin_bottom = -8
-							margin_top = 79
+							margin_top = 85
 
 							scrollarea = {
 								name = "description_scrollarea"
@@ -641,8 +627,8 @@
 
 	margin_widget = {
 		name = "bottom_characters"
-		size = { 55% 170 }
-		position = { -14 -10}
+		size = { 65% 170 }
+		position = { -40 -10}
 		parentanchor = bottom|right
 		margin_bottom = 10
 		allow_outside = yes
@@ -650,14 +636,18 @@
 		icon = {
 			name = "bottom_characters_bg"
 			visible = "[Or(EventWindowData.HasPortraitOrArtifact('lower_left_portrait'), Or(EventWindowData.HasPortraitOrArtifact('lower_center_portrait'), EventWindowData.HasPortraitOrArtifact('lower_right_portrait')))]"
-			position = { 0 0 }
+			position = { 30 0 }
 			size = { 100% 100% }
 			texture = "gfx/interface/window_event/event_bottom_char_bg.dds"
 		}
 
 		flowcontainer = {
-			spacing = 20
+			spacing = 60
 			parentanchor = bottom|hcenter
+
+			spacer = {
+				size = { 10 0 }
+			}
 
 			flowcontainer = {
 				parentanchor = bottom
@@ -668,23 +658,6 @@
 					datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
 					visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
 
-					#AGOT Disabled; fugly
-					# background = {
-						# texture = "gfx/interface/window_event/event_character_status_icons_bg.dds"
-						# spriteType = Corneredtiled
-						# spriteborder = { 20 20 }
-						# shaderfile = "gfx/FX/pdxgui_default.shader"
-						# alpha = 0.5
-						# margin = { 5 5 }
-
-						# modify_texture = {
-							# texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
-							# spriteType = Corneredstretched
-							# spriteborder = { 0 0 }
-							# blend_mode = overlay
-							# alpha = 0.5
-						# }
-					# }
 				}
 
 				spacer = {
@@ -728,50 +701,31 @@
 
 						blockoverride "coa"
 						{
-							#AGOT Modified
-							# event_portrait_status_icons_left = {
-							agot_event_portrait_status_icons_left = {
+							event_portrait_status_icons_left = {
 								visible = "[EventWindowData.ShouldShowPortraitInfo('lower_right_portrait')]"
 								parentanchor = bottom|left
 								position = { -15 -5 }
 								scale = 0.8
 
-								#AGOT Disabled; fugly
-								# background = {
-									# using = Background_Bottom_Fade
-									# margin = { 5 15 }
-									# using = Color_Black
-									# using = Mask_Rough_Edges
-									# alpha =  0.5
-
-									# modify_texture = {
-										# texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
-										# spriteType = Corneredstretched
-										# spriteborder = { 0 0 }
-										# blend_mode = overlay
-									# }
-								# }
 							}
 						}
 
-						#AGOT Modified
-						# text_label_center = {
-						agot_text_label_center = {
+						text_label_center = {
 							parentanchor = bottom|hcenter
 							position = { 20 -5 }
 							alwaystransparent = yes
-							#AGOT Modified
-							# text = "[Character.GetShortUINameNoTooltip]"
 							raw_text = "#high [Character.Custom('AGOTCustomGetTitledFirstName')]#!"
 							visible = "[EventWindowData.ShouldShowPortraitInfo('lower_left_portrait')]"
 							max_width = 115
 							align = center
 							fontsize_min = 12
-							#AGOT Added
-							margin_left = 10
 						}
 					}
 				}
+			}
+
+			spacer = {
+				size = { 20 0 }
 			}
 
 			flowcontainer = {
@@ -779,6 +733,36 @@
 				direction = vertical
 				ignoreinvisible = yes
 
+				flowcontainer = {
+					ignoreinvisible = yes
+					direction = horizontal
+					datacontext = "[EventWindowData.GetPortraitCharacter('center_portrait')]"
+					visible = "[EventWindowData.ShouldShowPortraitInfo('center_portrait')]"
+					coa_realm_small_crown = {
+						visible = "[Character.HasLandedTitles]"
+						parentanchor = bottom
+					}
+					portrait_status_icons = {
+						parentanchor = bottom
+						margin_bottom = 5
+					}
+					
+					background = {
+						texture = "gfx/interface/window_event/event_character_status_icons_bg.dds"
+						spriteType = Corneredtiled
+						spriteborder = { 20 20 }
+						shaderfile = "gfx/FX/pdxgui_default.shader"
+						alpha = 0.5
+						margin = { 5 5 }
+						modify_texture = {
+							texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
+							spriteType = Corneredstretched
+							spriteborder = { 0 0 }
+							blend_mode = overlay
+							alpha = 0.5
+						}
+					}
+				}
 				spacer = {
 					size = { 140 0 }
 				}
@@ -833,49 +817,32 @@
 
 						blockoverride "coa"
 						{
-							#AGOT Modified
-							# event_portrait_status_icons_left = {
-							agot_event_portrait_status_icons_left = {
+							event_portrait_status_icons_left = {
 								visible = "[EventWindowData.ShouldShowPortraitInfo('lower_center_portrait')]"
 								parentanchor = bottom|left
 								position = { -15 -5 }
 								scale = 0.8
 
-								#AGOT Disabled; fugly
-								# background = {
-									# using = Background_Bottom_Fade
-									# margin = { 5 15 }
-									# color = { 0.1 0.1 0.1 0.8 }
-
-									# modify_texture = {
-										# texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
-										# spriteType = Corneredstretched
-										# spriteborder = { 0 0 }
-										# blend_mode = overlay
-									# }
-								# }
 							}
 						}
 
 
-						#AGOT Modified
-						# text_label_center = {
-						agot_text_label_center = {
+						text_label_center = {
 							parentanchor = bottom|hcenter
 							position = { 20 -5 }
 							alwaystransparent = yes
-							#AGOT Modified
-							# text = "[Character.GetShortUINameNoTooltip]"
 							raw_text = "#high [Character.Custom('AGOTCustomGetTitledFirstName')]#!"
 							visible = "[EventWindowData.ShouldShowPortraitInfo('lower_center_portrait')]"
 							max_width = 115
 							align = center
 							fontsize_min = 12
-							#AGOT Added
-							margin_left = 10
 						}
 					}
 				}
+			}
+
+			spacer = {
+				size = { 20 0 }
 			}
 
 			flowcontainer = {
@@ -888,23 +855,6 @@
 					visible = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
 					parentanchor = right
 
-					#AGOT Disabled; fugly
-					# background = {
-						# texture = "gfx/interface/window_event/event_character_status_icons_bg.dds"
-						# spriteType = Corneredtiled
-						# spriteborder = { 20 20 }
-						# shaderfile = "gfx/FX/pdxgui_default.shader"
-						# alpha = 0.5
-						# margin = { 5 5 }
-
-						# modify_texture = {
-							# texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
-							# spriteType = Corneredstretched
-							# spriteborder = { 0 0 }
-							# blend_mode = overlay
-							# alpha = 0.5
-						# }
-					# }
 				}
 
 				spacer = {
@@ -954,47 +904,24 @@
 
 						blockoverride "coa"
 						{
-							#AGOT Modified
-							# event_portrait_status_icons_left = {
-							agot_event_portrait_status_icons_left = {
+							event_portrait_status_icons_left = {
 								visible = "[EventWindowData.ShouldShowPortraitInfo('lower_right_portrait')]"
 								parentanchor = bottom|left
 								position = { -15 -5 }
 								scale = 0.8
 
-								#AGOT Disabled; fugly
-								# background = {
-									# using = Background_Bottom_Fade
-									# margin = { 5 15 }
-									# using = Color_Black
-									# using = Mask_Rough_Edges
-									# alpha =  0.5
-
-									# modify_texture = {
-										# texture = "gfx/interface/window_event/event_character_status_icons_bg_overlay.dds"
-										# spriteType = Corneredstretched
-										# spriteborder = { 0 0 }
-										# blend_mode = overlay
-									# }
-								# }
 							}
 						}
 
-						#AGOT Modified
-						# text_label_center = {
-						agot_text_label_center = {
+						text_label_center = {
 							parentanchor = bottom|hcenter
 							position = { 20 -5 }
 							alwaystransparent = yes
-							#AGOT Modified
-							# text = "[Character.GetShortUINameNoTooltip]"
 							raw_text = "#high [Character.Custom('AGOTCustomGetTitledFirstName')]#!"
 							visible = "[EventWindowData.ShouldShowPortraitInfo('lower_right_portrait')]"
 							max_width = 115
 							align = center
 							fontsize_min = 12
-							#AGOT Added
-							margin_left = 10
 						}
 					}
 				}
@@ -1010,8 +937,8 @@
 			icon = {
 				name = "theme_header"
 				position = { 24 20 }
-				size = { 1072 57 }
-				texture = "[EventWindowData.GetThemeHeader]"
+				size = { 1342 57 }
+				texture = "[EventWindowData.GetThemeHeaderWide]"
 
 				modify_texture = {
 					name = overlay
@@ -1101,8 +1028,6 @@
 				name = "theme_icon"
 				parentanchor = vcenter
 				position = { 28 10 }
-				#AGOT Modified
-				# size = { 90 90 }
 				size = { 80 80 }
 				texture = "[EventWindowData.GetThemeIcon]"
 
@@ -1179,10 +1104,179 @@
 		using = Event_Window_Debug_Info
 	}
 
-	#AGOT Added
 	vbox = { # Event shaders (in front of character portraits)
 		name = "agot_shader_event_foreground"
 		margin = { 30 15 }
 		layoutpolicy_horizontal = expanding
+	}
+}
+
+######################################################
+################ TYPES AND TEMPLATES #################
+######################################################
+
+types Events
+{
+	type agot_lmf_center_portrait_exclude = widget
+	{
+		name = "no_center_character"
+		parentanchor = top|hcenter
+		position = { 330 -20 }
+		size = { 70% 100% }
+		visible = "[Not(EventWindowData.HasPortraitCharacter('center_portrait'))]"
+		scissor = yes
+
+		hbox = {
+			layoutpolicy_horizontal = expanding
+
+			expand = {
+				visible = "[EventWindowData.HasPortraitCharacter('left_portrait')]"
+			}
+
+			## LEFT CHARACTER ###
+			widget = {
+				name = "left_character"
+				size = { 300 650 }
+
+				allow_outside = no
+
+				block "transition_left_character" {
+					alpha = 0
+
+					state = {
+						name = appear
+						trigger_on_create = yes
+						delay = 0.2
+						using = Animation_Curve_Default
+						alpha = 1
+						duration = 0.6
+					}
+				}
+
+				portrait_event = {
+					name = "portrait_left"
+					datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
+					visible = "[EventWindowData.HasPortraitCharacter('left_portrait')]"
+					parentanchor = bottom|hcenter
+					size = { 500 650 }
+					position = { 0 60 }
+
+					blockoverride "portrait_button"
+					{
+						size = { 125% 125% }
+						portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('left_portrait', 'camera_event_scheme_left', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+						alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
+
+						tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
+						tooltip_widgetanchor = center
+						using = tooltip_below
+					}
+
+					blockoverride "highlight_visible"
+					{
+						visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('left_portrait') ))]"
+						position = { -40 0 }
+					}
+
+					blockoverride "grayscale" {}
+
+					highlight_icon = {
+						name = "prison_bars"
+						visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('left_portrait')))]"
+						visible_at_creation = no
+						parentanchor = bottom|left
+						position = { 70 32 }
+						size = { 340 100% }
+						effectname = "NoHighlight"
+						spriteType = corneredTiled
+						texture_density = 1.5
+						texture = "gfx/portraits/portrait_prison_body.dds"
+
+						modify_texture = {
+							name = "mask"
+							texture =  "gfx/portraits/portrait_mask_event.dds"
+							spriteType = Corneredstretched
+							blend_mode = alphamultiply
+						}
+					}
+				}
+			}
+
+			expand = {
+				visible = "[EventWindowData.HasPortraitCharacter('left_portrait')]"
+			}
+
+			### RIGHT CHARACTER ###
+			widget = {
+				name = "right_character"
+				size = { 300 650 }
+
+				allow_outside = no
+
+				block "transition_right_character" {
+					alpha = 0
+
+					state = {
+						name = appear
+						trigger_on_create = yes
+						delay = 0.6
+						using = Animation_Curve_Default
+						alpha = 1
+						duration = 0.6
+					}
+				}
+
+				portrait_event = {
+					name = "portrait_right"
+					datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
+					visible = "[EventWindowData.HasPortraitCharacter('right_portrait')]"
+					parentanchor = bottom|right
+					size = { 500 650 }
+					position = { 0 60 }
+
+					blockoverride "portrait_button"
+					{
+						size = { 125% 125% }
+						portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('right_portrait', 'camera_event_scheme_right', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+						alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('right_portrait'))]"
+
+						tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
+						tooltip_offset = { -210 0 }
+					}
+
+					blockoverride "highlight_visible"
+					{
+						visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('right_portrait') ))]"
+						position = { 30 0 }
+					}
+
+					blockoverride "grayscale" {}
+
+					highlight_icon = {
+						name = "prison_bars"
+						visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('right_portrait')))]"
+						visible_at_creation = no
+						parentanchor = bottom|right
+						position = { -30 32 }
+						size = { 340 100% }
+						effectname = "NoHighlight"
+						spriteType = corneredTiled
+						texture_density = 1.5
+						texture = "gfx/portraits/portrait_prison_body.dds"
+
+						modify_texture = {
+							name = "mask"
+							texture =  "gfx/portraits/portrait_mask_event.dds"
+							spriteType = Corneredstretched
+							blend_mode = alphamultiply
+						}
+					}
+				}
+			}
+
+			expand = {
+				visible = "[Or(EventWindowData.HasPortraitCharacter('center_portrait'),EventWindowData.HasPortraitCharacter('right_portrait'))]"
+			}
+		}
 	}
 }

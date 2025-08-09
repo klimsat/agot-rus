@@ -464,10 +464,13 @@ types MapModes
 		alwaystransparent = no
 		filter_mouse = all
 
-		state = {
-			name = _mouse_hierarchy_leave
-			on_finish = "[GetVariableSystem.Toggle( 'mapmodes_expand' )]"
-		}
+		#AGOT Disabled
+		# state = {
+			# name = _mouse_hierarchy_leave
+			# on_finish = "[GetVariableSystem.Toggle( 'mapmodes_expand' )]"
+		# }
+		#AGOT Added
+		agot_mapmodes_close_shortcut = {}
 
 		state = {
 			name = _show
@@ -484,10 +487,8 @@ types MapModes
 			margin = { 10 10 }
 			margin_top = 5
 			ignoreinvisible = yes
-
 			#AGOT Added
 			agot_roads_map_mode_legend = {}
-			spacer = { size = { 0 10 } }
 
 			background = {
 				using = Background_Area_Dark
@@ -824,6 +825,8 @@ types MapModes
 				direction = vertical
 				margin = { 5 5 }
 				ignoreinvisible = yes
+				#AGOT Added
+				parentanchor = hcenter
 
 				background = {
 					using = Background_Area_Dark
