@@ -581,14 +581,25 @@
  GRANDSON: "Внук"
  GREATGRANDDAUGHTER: "Правнучка"
  GREATGRANDSON: "Правнук"
- BROTHER: "Брат"
- SISTER: "Сестра"
- HALF_BROTHER: "Сводный брат"
- HALF_SISTER: "Сводная сестра"
+ #AGOT Modified
+ #BROTHER: "Брат"
+ BROTHER:0 "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'target', GetPlayer.MakeScope ).Custom('BrotherCharacterIntroduction')]"
+ #AGOT Modified
+ #SISTER: "Сестра"
+ SISTER:0 "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'target', GetPlayer.MakeScope ).Custom('SisterCharacterIntroduction')]"
+ #AGOT Modified
+ #HALF_BROTHER: "Сводный брат"
+ HALF_BROTHER:0 "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'target', GetPlayer.MakeScope ).Custom('HalfBrotherCharacterIntroduction')]"
+ #AGOT Modified
+ #HALF_SISTER: "Сводная сестра"
+ HALF_SISTER:0 "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'target', GetPlayer.MakeScope ).Custom('HalfSisterCharacterIntroduction')]"
  BROTHER_HUSBAND: "Брат-муж"
  SISTER_WIFE: "Сестра-жена"
- BROTHER_IN_LAW: "Шурин"
- SISTER_IN_LAW: "Свояченица"
+ #AGOT Modified
+ #BROTHER_IN_LAW: "Шурин"
+ #SISTER_IN_LAW: "Свояченица"
+ BROTHER_IN_LAW:0 "[good_brother|E]"
+ SISTER_IN_LAW:0 "[good_sister|E]"
  RELATION_CONCUBINE_MAN: "$game_concept_concubine_male$"
  RELATION_CONCUBINE_WOMAN: "$game_concept_concubine_female$"
  PLAYER_HEIR_RELATION: "[player_heir|E]"
