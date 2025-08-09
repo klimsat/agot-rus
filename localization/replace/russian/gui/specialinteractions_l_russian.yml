@@ -42,7 +42,9 @@
  ACTOR_RIVAL_TO_ME_REASON: "[recipient.GetShortUIName|U] и [actor.GetShortUIName] соперники: $VALUE|+0$"
  NEMESIS_TO_ME_REASON: "[secondary_recipient.GetShortUIName|U] заклятый враг персонажа [recipient.GetShortUINamePossessive]: $VALUE|+0$"
  ACTOR_NEMESIS_TO_ME_REASON: "[recipient.GetShortUIName|U] заклятый враг персонажа [actor.GetShortUINamePossessive]: $VALUE|+0$"
- MARRIAGE_DESPERATION: "Возраст [secondary_recipient.GetShortUINamePossessive]: $VALUE|+=0$"
+ #AGOT Modified
+ #MARRIAGE_DESPERATION: "Возраст [secondary_recipient.GetShortUINamePossessive]: $VALUE|+=0$"
+ MARRIAGE_DESPERATION: "[secondary_recipient.GetShortUINameNoTooltip|U] отчаянно [Select_CString( secondary_recipient.IsLocalPlayer, 'хотите', 'хочет')] заключить брак: $VALUE|+=0$"
  MARRY_CONSANGUINITY_REASON: "Такой брак — [incestuous|El]: $VALUE|+=0$"
  MATRILINEAL_WARNING: "@warning_icon! #X Дети, рожденные в этом браке, будут принадлежать к [dynasties|El] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] («[CHARACTER.GetDynastyName]»)!#!"
  MATRILINEAL_REASON: "Матрилинейный брак: $VALUE|=+0$"
