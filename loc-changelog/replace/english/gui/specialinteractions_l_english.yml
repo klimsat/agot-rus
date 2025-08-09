@@ -42,7 +42,9 @@
  ACTOR_RIVAL_TO_ME_REASON:0 "[recipient.GetShortUIName|U] is [actor.GetShortUINamePossessive] Rival: $VALUE|+0$"
  NEMESIS_TO_ME_REASON:0 "[secondary_recipient.GetShortUIName|U] is [recipient.GetShortUINamePossessive] Nemesis: $VALUE|+0$"
  ACTOR_NEMESIS_TO_ME_REASON:0 "[recipient.GetShortUIName|U] is [actor.GetShortUINamePossessive] Nemesis: $VALUE|+0$"
- MARRIAGE_DESPERATION:2 "[secondary_recipient.GetShortUINamePossessive] Age: $VALUE|+=0$"
+ #AGOT Modified
+ #MARRIAGE_DESPERATION:2 "[secondary_recipient.GetShortUINamePossessive] Age: $VALUE|+=0$"
+ MARRIAGE_DESPERATION:2 "[secondary_recipient.GetShortUINameNoTooltip|U] [Select_CString( secondary_recipient.IsLocalPlayer, 'are', 'is' )] desperate to marry: $VALUE|+=0$"
  MARRY_CONSANGUINITY_REASON:0 "The marriage would be [incestuous|E]: $VALUE|+=0$"
  MATRILINEAL_WARNING:0 "@warning_icon! #X Children born of this Marriage will be of [CHARACTER.GetShortUINamePossessive] [dynasty|E] ('[CHARACTER.GetDynastyName]')!#!"
  MATRILINEAL_REASON:0 "Matrilineal Marriage: $VALUE|=+0$"

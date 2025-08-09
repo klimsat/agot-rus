@@ -581,14 +581,25 @@
  GRANDSON:0 "Grandson"
  GREATGRANDDAUGHTER:0 "Great-granddaughter"
  GREATGRANDSON:0 "Great-grandson"
- BROTHER:0 "Brother"
- SISTER:0 "Sister"
- HALF_BROTHER:0 "Half Brother"
- HALF_SISTER:0 "Half Sister"
+ #AGOT Modified
+ #BROTHER:0 "Brother"
+ BROTHER:0 "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'target', GetPlayer.MakeScope ).Custom('BrotherCharacterIntroduction')]"
+ #AGOT Modified
+ #SISTER:0 "Sister"
+ SISTER:0 "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'target', GetPlayer.MakeScope ).Custom('SisterCharacterIntroduction')]"
+ #AGOT Modified
+ #HALF_BROTHER:0 "Half Brother"
+ HALF_BROTHER:0 "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'target', GetPlayer.MakeScope ).Custom('HalfBrotherCharacterIntroduction')]"
+ #AGOT Modified
+ #HALF_SISTER:0 "Half Sister"
+ HALF_SISTER:0 "[GuiScope.SetRoot( Character.MakeScope ).AddScope( 'target', GetPlayer.MakeScope ).Custom('HalfSisterCharacterIntroduction')]"
  BROTHER_HUSBAND:0 "Brother-husband"
  SISTER_WIFE:0 "Sister-wife"
- BROTHER_IN_LAW:0 "Brother-in-law"
- SISTER_IN_LAW:0 "Sister-in-law"
+ #AGOT Modified
+ #BROTHER_IN_LAW:0 "Brother-in-law"
+ #SISTER_IN_LAW:0 "Sister-in-law"
+ BROTHER_IN_LAW:0 "[good_brother|E]"
+ SISTER_IN_LAW:0 "[good_sister|E]"
  RELATION_CONCUBINE_MAN:0 "$game_concept_concubine_male$"
  RELATION_CONCUBINE_WOMAN:0 "$game_concept_concubine_female$"
  PLAYER_HEIR_RELATION:2 "[player_heir|E]"
