@@ -1,0 +1,20 @@
+##########################################################
+################# AGOT GOV ADMIN WINDOW ##################
+##########################################################
+
+types GovernmentAdministration
+{
+	type agot_free_cities_election_progressbar = vbox
+	{
+		visible = "[GetScriptedGui('agot_election_progress_bar').IsShown(GuiScope.SetRoot(GovernmentAdministrationWindow.GetTitle.GetHolder.MakeScope).End)]"
+		agot_election_progressbar = {
+			size = { 200 25 }
+			value = "[GovernmentAdministrationWindow.GetTitle.MakeScope.ScriptValue('free_city_election_progress')]"
+			using = tooltip_es
+		}
+		text_single = {
+			margin_bottom = 10
+			text = agot_election_progress_loc_admin_window
+		}
+	}
+}

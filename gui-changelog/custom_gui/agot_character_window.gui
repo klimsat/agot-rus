@@ -27,7 +27,7 @@ types CharacterWindow
 	{
 		name = "main_content_hidden"
 		using = Window_Margins_Sidebar
-		using = agot_character_is_hidden
+		visible = "[IsCharacterHidden]"
 
 		# Character box
 		widget = {
@@ -73,63 +73,94 @@ types CharacterWindow
 		}
 		expand = {}
 
-		vbox = {
-			layoutpolicy_horizontal = fixed
-			layoutpolicy_vertical = fixed
-			margin = { 320 180 }
+		background = {
+			visible = "[IsCharacterRuin]"
+			texture = "gfx/interface/illustrations/character_view/ruins.dds"
+			fittype = centercrop
 
-			background = {
-				using = agot_character_is_ruin
-				texture = "gfx/interface/illustrations/holding_types/ruin_generic.dds"
-				fittype = centercrop
-				margin = { -30 0 }
-
-				modify_texture = {
-					texture = "gfx/interface/component_masks/mask_rough_edges.dds"
-					blend_mode = alphamultiply
-				}
-			}
-
-			background = {
-				using = agot_character_is_unknown
-				texture = "gfx/interface/illustrations/holding_types/unknown.dds"
-				fittype = centercrop
-				margin = { -30 0 }
-
-				modify_texture = {
-					texture = "gfx/interface/component_masks/mask_rough_edges.dds"
-					blend_mode = alphamultiply
-				}
+			modify_texture = {
+				texture = "gfx/interface/component_masks/mask_rough_edges_right.dds"
+				blend_mode = alphamultiply
 			}
 		}
 
+		background = {
+			visible = "[IsCharacterUnknown]"
+			texture = "gfx/interface/illustrations/character_view/unknown.dds"
 
-		vbox = {
-			name = "history"
+			modify_texture = {
+				texture = "gfx/interface/component_masks/mask_rough_edges_right.dds"
+				blend_mode = alphamultiply
+			}
+		}
+
+		background = {
+			visible = "[IsCharacterWilderness]"
+			texture = "gfx/interface/illustrations/character_view/wilderness.dds"
+			fittype = centercrop
+
+			modify_texture = {
+				texture = "gfx/interface/component_masks/mask_rough_edges_right.dds"
+				blend_mode = alphamultiply
+			}
+		}
+
+		## Name
+		hbox = {
 			layoutpolicy_horizontal = expanding
-			margin_top = 20
 
-			## Name
-			hbox = {
-				layoutpolicy_horizontal = expanding
+			text_multi = {
+				visible = "[IsCharacterRuin]"
+				margin = { 20 10 }
+				max_width = 560
 
-				text_multi = {
-					using = agot_character_is_ruin
-					parentanchor = left|top
-					widgetanchor = left
-					text = "ruin_history_generic"
-					using = Font_Size_Big
-					size = { 560 460 }
+				background = {
+					texture = "gfx/interface/component_masks/mask_rough_edges.dds"
+					spriteType = Corneredtiled
+					spriteborder = { 20 20 }
+					color = { 0 0 0 0.25 }
+					texture_density = 2
 				}
 
-				text_multi = {
-					using = agot_character_is_unknown
-					parentanchor = left|top
-					widgetanchor = left
-					text = "unknown_generic"
-					using = Font_Size_Big
-					size = { 560 460 }
+				text = "ruin_history_generic"
+				default_format = "#high;SIZE:20;glow_color:{0,0,0,1}"
+				autoresize = yes
+			}
+
+			text_multi = {
+				visible = "[IsCharacterUnknown]"
+				margin = { 20 10 }
+				max_width = 560
+
+				background = {
+					texture = "gfx/interface/component_masks/mask_rough_edges.dds"
+					spriteType = Corneredtiled
+					spriteborder = { 20 20 }
+					color = { 10 10 10 0.25 }
+					texture_density = 2
 				}
+
+				text = "unknown_generic"
+				default_format = "#light_background;SIZE:20"
+				autoresize = yes
+			}
+
+			text_multi = {
+				visible = "[IsCharacterWilderness]"
+				margin = { 20 10 }
+				max_width = 560
+
+				background = {
+					texture = "gfx/interface/component_masks/mask_rough_edges.dds"
+					spriteType = Corneredtiled
+					spriteborder = { 20 20 }
+					color = { 0 0 0 0.25 }
+					texture_density = 2
+				}
+
+				text = "wilderness_generic"
+				default_format = "#high;SIZE:20;glow_color:{0,0,0,1}"
+				autoresize = yes
 			}
 		}
 		expand = {}
@@ -684,7 +715,7 @@ types CharacterWindow
 	#####################
 	type agot_paramour_relationship_row = vbox_character_row_item
 	{
-		name = "Paramour"
+		name = "paramour"
 		visible = "[GetScriptedGui('agot_can_have_paramour').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
 		layoutpolicy_vertical = expanding
 		blockoverride "portrait_datamodel" {
@@ -697,10 +728,76 @@ types CharacterWindow
 		blockoverride "expand_button" {}
 	}
 
+	type agot_lovers_plus_two = vbox_character_row_relationship_item
+	{
+		name = "lovers_plus_two"
+		visible = "[And(CharacterWindow.GetCharacter.IsAdult, Or(And(CharacterShowingSquires, Not(CharacterWindow.GetCharacter.HasActiveDiarchy)), And(Not(CharacterShowingSquires), And(CharacterShowingKnight, CharacterWindow.GetCharacter.HasActiveDiarchy))))]"
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) )]"
+		}
+
+		blockoverride "header_text"
+		{
+			text = "LOVERS_LABEL"
+		}
+
+		blockoverride "remaining_items"
+		{
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)3' )]"
+			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)3' )|=]"
+		}
+
+		blockoverride "expand_button_inside" {
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)3' )]"
+			onclick = "[CharacterWindow.ToggleExpandedRelation( 'lovers' )]"
+		}
+
+		blockoverride "gridbox_slots"
+		{
+			maxhorizontalslots = 3
+		}
+	}
+
+	type agot_lovers_plus_three = vbox_character_row_relationship_item
+	{
+		name = "lovers_plus_three"
+		visible = "[And(And(CharacterWindow.GetCharacter.IsAdult, CharacterWindow.GetCharacter.HasActiveDiarchy), CharacterShowingSquires)]"
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) )]"
+		}
+
+		blockoverride "header_text"
+		{
+			text = "LOVERS_LABEL"
+		}
+
+		blockoverride "remaining_items"
+		{
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)2' )]"
+			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)2' )|=]"
+		}
+
+		blockoverride "expand_button_inside" {
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)2' )]"
+			onclick = "[CharacterWindow.ToggleExpandedRelation( 'lovers' )]"
+		}
+
+		blockoverride "gridbox_slots"
+		{
+			maxhorizontalslots = 2
+		}
+	}
+
 	type agot_squire_relationship_row = vbox_character_row_item
 	{
 		name = "squires"
-		visible = "[GetScriptedGui('agot_can_have_squire').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+		visible = "[CharacterShowingSquires]"
 		layoutpolicy_vertical = expanding
 		blockoverride "portrait_datamodel" {
 			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'agot_squire' ) )]"
@@ -784,16 +881,54 @@ types CharacterWindow
 	type agot_knight_relationship_row = vbox_character_row_item
 	{
 		name = "knights"
-		visible = "[GetScriptedGui('agot_can_have_knight').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+		visible = "[CharacterShowingKnight]"
 		layoutpolicy_vertical = expanding
+		blockoverride "minimum_width" {}
 		blockoverride "portrait_datamodel" {
 			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'agot_knight' ) )]"
 		}
 		blockoverride "header_text"
 		{
 			text = "KNIGHT_LABEL"
+			max_width = 75
 		}
 		blockoverride "expand_button" {}
+		blockoverride "find_partner"
+		{
+			### FIND KNIGHT FOR COURTIER
+			fixedgridbox = {
+				name = "find_knight"
+				datamodel = "[GetNullCharacterDataModel( CharacterWindow.CalcUnusedRelationSlots( GetRelation( 'agot_knight' ), '(int32)1' ) )]"
+				visible = "[Character.IsPlayerInteractionValid('agot_offer_knight_tutelage_interaction')]"
+				flipdirection = yes
+				addcolumn = 85
+				addrow = 90
+				maxverticalslots = 1
+				maxhorizontalslots = 1
+				item = {
+					container = {
+						portrait_head_small = {
+							blockoverride "portrait_button_template_onclick"
+							{
+								onclick = "[CharacterWindow.GetCharacter.OpenPlayerInteraction( 'agot_offer_knight_tutelage_interaction' )]"
+								enabled = "[CharacterWindow.GetCharacter.IsPlayerInteractionValid( 'agot_offer_knight_tutelage_interaction' )]"
+								button_icon = {
+									parentanchor = center
+									alwaystransparent = yes
+									size = { 26 26 }
+									position = {-2 -4}
+									texture = "gfx/interface/icons/flat_icons/plus.dds"
+								}
+							}
+							blockoverride "portrait_button_template_tooltip"
+							{
+								tooltip = "[CharacterWindow.GetCharacter.GetPlayerInteractionTooltip( 'agot_offer_knight_tutelage_interaction' )]"
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	type agot_bodyguard_relationship_row = vbox_character_row_item
@@ -801,14 +936,14 @@ types CharacterWindow
 		name = "bodyguard"
 		visible = "[GetScriptedGui('agot_can_have_bodyguard').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
 		layoutpolicy_vertical = expanding
-		margin_right = -6
-		margin_left = -6
+		blockoverride "minimum_width" {}
 		blockoverride "portrait_datamodel" {
 			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'bodyguard' ) )]"
 		}
 		blockoverride "header_text"
 		{
 			text = "BODYGUARD_LABEL"
+			max_width = 75
 		}
 		blockoverride "expand_button" {}
 	}
@@ -818,16 +953,136 @@ types CharacterWindow
 		name = "bodyguard_target"
 		visible = "[GetScriptedGui('agot_can_have_bodyguard_target').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
 		layoutpolicy_vertical = expanding
-		margin_right = -6
-		margin_left = -6
+		blockoverride "minimum_width" {}
 		blockoverride "portrait_datamodel" {
 			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'bodyguard_target' ) )]"
 		}
 		blockoverride "header_text"
 		{
 			text = "BODYGUARD_TARGET_LABEL"
+			max_width = 75
 		}
 		blockoverride "expand_button" {}
+	}
+
+	type agot_friends_with_bodyguards = vbox_character_row_relationship_item
+	{
+		name = "friends_with_bodyguards"
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		visible = "[And(CharacterHasBodyguard, Not(CharacterHasDragon))]"
+
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
+			maxhorizontalslots = 6
+		}
+
+		blockoverride "header_text"
+		{
+			text = "FRIENDS_LABEL"
+		}
+
+		blockoverride "remaining_items"
+		{
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )]"
+			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )|=]"
+		}
+
+		blockoverride "expand_button_inside" {
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )]"
+			onclick = "[CharacterWindow.ToggleExpandedRelation( 'friends' )]"
+		}
+	}
+
+	type agot_friends_with_both = vbox_character_row_relationship_item
+	{
+		name = "friends_with_both"
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		visible = "[And(CharacterHasBodyguard, CharacterHasDragon)]"
+
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
+			maxhorizontalslots = 6
+		}
+
+		blockoverride "header_text"
+		{
+			text = "FRIENDS_LABEL"
+		}
+
+		blockoverride "remaining_items"
+		{
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)5' )]"
+			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)5' )|=]"
+		}
+
+		blockoverride "expand_button_inside" {
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)5' )]"
+			onclick = "[CharacterWindow.ToggleExpandedRelation( 'friends' )]"
+		}
+	}
+
+	#############################
+	# DRAGONS RELATIONSHIP ROWS #
+	#############################
+	type agot_dragons_relationship_row = vbox_character_row_relationship_item
+	{
+		name = "dragons"
+		visible = "[GetScriptedGui('agot_can_have_dragon').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
+		layoutpolicy_vertical = expanding
+		blockoverride "minimum_width" {}
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) )]"
+		}
+		blockoverride "portrait_texture" {
+			#I'm scaling the portrait texture by the same amount here as in the below "portrait_transformation" to zoom in on the head. This couldn't be done with regular camera as the baby dragon would go off-frame
+			portrait_texture = "[Character.GetPortrait('environment_body', 'camera_dragon_small', 'dragon_head', Multiply_CVector2f( PdxGetWidgetScreenSize(PdxGuiWidget.Self) , '(CVector2f)9,9'))]"
+		}
+
+		blockoverride "header_text"
+		{
+			text = "DRAGON_LABEL"
+			max_width = 75
+		}
+		blockoverride "remaining_items"
+		{
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) ) ), '(int32)3' )]"
+			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) ) ), '(int32)3' )|=]"
+		}
+		blockoverride "expand_button_inside" {
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) ) ), '(int32)3' )]"
+			onclick = "[CharacterWindow.ToggleExpandedRelation( 'agot_dragons' )]"
+		}
+	}
+
+	type agot_friends_with_dragons = vbox_character_row_relationship_item
+	{
+		name = "friends_with_dragons"
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		visible = "[And(Not(CharacterHasBodyguard), CharacterHasDragon)]"
+
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
+			maxhorizontalslots = 6
+		}
+
+		blockoverride "header_text"
+		{
+			text = "FRIENDS_LABEL"
+		}
+
+		blockoverride "remaining_items"
+		{
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )]"
+			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )|=]"
+		}
+
+		blockoverride "expand_button_inside" {
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )]"
+			onclick = "[CharacterWindow.ToggleExpandedRelation( 'friends' )]"
+		}
 	}
 
 	type agot_knight_tree_button = button_knight_tree
@@ -842,17 +1097,4 @@ types CharacterWindow
 		using = tooltip_ne
 		tooltip = "KNIGHT_TREE_TT"
 	}
-}
-
-template agot_character_standard {
-	visible = "[And(Not(Or(Character.HasTrait(GetTrait('dragon').Self), Or(Character.HasTrait(GetTrait('ruin').Self), Character.HasTrait(GetTrait('unknown').Self)))), Not(GetScriptedGui('fake_death_character').IsShown(GuiScope.AddScope('char', Character.MakeScope).End)))]"
-}
-template agot_character_is_hidden {
-	visible = "[Or(Character.HasTrait(GetTrait('ruin').Self), Character.HasTrait(GetTrait('unknown').Self))]"
-}
-template agot_character_is_ruin {
-	visible = "[Character.HasTrait(GetTrait('ruin').Self)]"
-}
-template agot_character_is_unknown {
-	visible = "[Character.HasTrait(GetTrait('unknown').Self)]"
 }

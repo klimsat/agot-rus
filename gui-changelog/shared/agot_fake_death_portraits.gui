@@ -151,21 +151,21 @@ types PortraitTypes
 }
 
 template shown_if_not_fake_death {
-	visible = "[Not(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End ))]"
+	visible = "[Not(IsCharacterFakeDead)]"
 }
 
 template shown_if_fake_death {
-	visible = "[GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End )]"
+	visible = "[IsCharacterFakeDead]"
 }
 
 template shown_if_not_fake_death_and_not_dragon {
-	visible = "[And(Not(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End )), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
+	visible = "[And(Not(IsCharacterFakeDead), Not(IsCharacterDragon))]"
 }
 
 template shown_if_not_fake_death_dragon_or_herder {
-	visible = "[And( Not( And( Character.GetGovernment.IsType( 'herder_government' ), Character.HasLandedTitles) ), And(Not(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End )), Not(Character.HasTrait(GetTrait('dragon').Self))))]"
+	visible = "[And( Not( And( Character.GetGovernment.IsType( 'herder_government' ), Character.HasLandedTitles) ), And(Not(IsCharacterFakeDead), Not(IsCharacterDragon)))]"
 }
 
 template shown_if_fake_death_and_not_dragon {
-	visible = "[And(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End ), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
+	visible = "[And(IsCharacterFakeDead, Not(IsCharacterDragon))]"
 }

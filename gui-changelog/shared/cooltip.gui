@@ -692,7 +692,7 @@ types GameTooltipTypes
 									portrait_opinion = {
 										#AGOT Modified
 										#visible = "[And( Character.IsAlive, Not( Character.IsPlayer ) )]"
-										visible = "[And( And( Character.IsAlive, Not( Character.HasTrait(GetTrait('dragon')) )), Not( Character.IsPlayer ) )]"
+										visible = "[And( And( Character.IsAlive, Not( IsCharacterDragon )), Not( Character.IsPlayer ) )]"
 									}
 
 									expand = {}
@@ -701,7 +701,7 @@ types GameTooltipTypes
 								spacer = {
 									#AGOT Modified
 									#visible = "[And( Character.IsAlive, Not( Character.IsPlayer ) )]"
-									visible = "[And( And( Character.IsAlive, Not( Character.HasTrait(GetTrait('dragon')) )), Not( Character.IsPlayer ) )]"
+									visible = "[And( And( Character.IsAlive, Not( IsCharacterDragon )), Not( Character.IsPlayer ) )]"
 									size = { 8 5 }
 								}
 
@@ -779,7 +779,7 @@ types GameTooltipTypes
 							text_single = {
 								#AGOT Modified
 								#visible = "[Not( Character.IsPlayer )]"
-								visible = "[And( Not( Character.IsPlayer ), Not( Character.HasTrait( GetTrait('dragon') )))]"
+								visible = "[And( Not( Character.IsPlayer ), Not(IsCharacterDragon))]"
 								text = "[Character.GetAIPersonalityNoTooltip]"
 								default_format = "#L"
 								tooltip = "AI_PERSONALITY_TT"
@@ -844,7 +844,7 @@ types GameTooltipTypes
 							text_single = {
 								#AGOT Modified
 								#visible = "[Character.IsAlive]"
-								visible = "[And( Character.IsAlive, Not( Character.HasTrait( GetTrait('dragon') )))]"
+								visible = "[And( Character.IsAlive, Not(IsCharacterDragon))]"
 								text = "[Character.Custom('CooltipSpouseListing')]"
 								layoutpolicy_horizontal = expanding
 								align = nobaseline
@@ -875,7 +875,7 @@ types GameTooltipTypes
 
 					hbox = {
 						#AGOT Added
-						visible = "[Not( Character.HasTrait( GetTrait('dragon') ))]"
+						visible = "[Not(IsCharacterDragon)]"
 						layoutpolicy_horizontal = expanding
 						spacing = 10
 

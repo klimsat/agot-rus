@@ -206,7 +206,7 @@ types Lists
 									layoutpolicy_horizontal = expanding
 									layoutpolicy_vertical = expanding
 									#AGOT Added
-									margin_top = -5
+									margin_top = -8
 
 									using = character_age_or_death_text
 									blockoverride "list_layout" {}
@@ -276,7 +276,9 @@ types Lists
 							size = { 100% 44 }
 							parentanchor = left
 							scissor = yes
-							position = { 0 -4 }
+							#AGOT Modified
+							# position = { 0 -4 }
+							position = { 0 -8 }
 
 							hbox = {
 								layoutpolicy_horizontal = expanding
@@ -605,13 +607,9 @@ types Lists
 							# hbox_skills_grid = {}
 							hbox_skills_grid = { using = visible_if_not_dragon }
 							#AGOT Added
-							agot_lists_dragon_size_icon = {}
 							agot_lists_dragon_size_text = {}
-							agot_lists_dragon_combat_icon = {}
 							agot_lists_dragon_combat_text = {}
-							agot_lists_dragon_dread_icon = {}
 							agot_lists_dragon_dread_text = {}
-							agot_lists_dragon_temper_icon = {}
 							agot_lists_dragon_temper_text = {}
 						}
 
@@ -1501,13 +1499,9 @@ types Lists
 					# hbox_skills_grid = {}
 					hbox_skills_grid = { using = visible_if_not_dragon }
 					#AGOT Added
-					agot_lists_dragon_size_icon = {}
 					agot_lists_dragon_size_text = {}
-					agot_lists_dragon_combat_icon = {}
 					agot_lists_dragon_combat_text = {}
-					agot_lists_dragon_dread_icon = {}
 					agot_lists_dragon_dread_text = {}
-					agot_lists_dragon_temper_icon = {}
 					agot_lists_dragon_temper_text = {}
 				}
 
@@ -1539,7 +1533,7 @@ types Lists
 							max_width = 370
 							#AGOT Modified
 							# visible = "[Not(Character.IsHostage)]"
-							visible = "[And(Not(Character.IsHostage), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
+							visible = "[And(Not(Character.IsHostage), Not(IsCharacterDragon))]"
 
 							block "description_relation_text" {
 								text = "[Character.GetRelationToString( CharacterWindow.GetCourtOwner )]"

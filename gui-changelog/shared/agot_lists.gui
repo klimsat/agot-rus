@@ -206,145 +206,52 @@ types Lists
 	}
 
 	# Dragon stats
-	type agot_lists_dragon_size_icon = vbox
-	{
-		using = visible_if_dragon
-		tooltip = "[dragon_size|E]"
-		using = tooltip_ne
-		spacing = -3
-		margin_top = 2
-
-		using = Animation_Character_Window_Refresh
-
-		icon = {
-			name = "dragon_size_icon"
-			size = { 24 24 }
-			texture = "gfx/interface/icons/icon_dragon_size.dds"
-		}
-	}
-
 	type agot_lists_dragon_size_text = vbox
 	{
 		using = visible_if_dragon
-		tooltip = "[dragon_size|E]"
-		using = tooltip_ne
-		spacing = -3
-		margin_top = 5
-		margin_right = 2
-
-		using = Animation_Character_Window_Refresh
+		margin_right = 5
 
 		text_single = {
 			name = "dragon_size_value"
-			text = "[CharacterListItem.GetCharacter.MakeScope.ScriptValue('dragon_size')|0]"
+			text = "[dragon_size_lists_i]"
 			align = nobaseline
 			fontsize = 13
-		}
-	}
-
-	type agot_lists_dragon_combat_icon = vbox
-	{
-		using = visible_if_dragon
-		tooltip = "[dragon_combat_effectiveness|E]"
-		using = tooltip_ne
-		spacing = -3
-		margin_top = 2
-
-		using = Animation_Character_Window_Refresh
-
-		icon = {
-			name = "dragon_combat_effectiveness_icon"
-			size = { 24 24 }
-			texture = "gfx/interface/icons/icon_dragon_combat_effectiveness.dds"
 		}
 	}
 
 	type agot_lists_dragon_combat_text = vbox
 	{
 		using = visible_if_dragon
-		tooltip = "[dragon_combat_effectiveness|E]"
-		using = tooltip_ne
-		spacing = -3
-		margin_top = 5
-		margin_right = 2
-
-		using = Animation_Character_Window_Refresh
+		margin_right = 5
 
 		text_single = {
 			name = "dragon_combat_effectiveness_value"
-			text = "[CharacterListItem.GetCharacter.MakeScope.ScriptValue('dragon_combat_effectiveness')|0]"
+			text = "[dragon_combat_effectiveness_lists_i]"
 			align = nobaseline
 			fontsize = 13
-		}
-	}
-
-	type agot_lists_dragon_dread_icon = vbox
-	{
-		using = visible_if_dragon
-		tooltip = "[draconic_dread|E]"
-		using = tooltip_ne
-		spacing = -3
-		margin_top = 2
-
-		using = Animation_Character_Window_Refresh
-
-		icon = {
-			name = "draconic_dread_icon"
-			size = { 24 24 }
-			texture = "gfx/interface/icons/icon_draconic_dread.dds"
 		}
 	}
 
 	type agot_lists_dragon_dread_text = vbox
 	{
 		using = visible_if_dragon
-		tooltip = "[draconic_dread|E]"
-		using = tooltip_ne
-		spacing = -3
-		margin_top = 5
-		margin_right = 2
-
-		using = Animation_Character_Window_Refresh
+		margin_right = 5
 
 		text_single = {
 			name = "draconic_dread_value"
-			text = "[CharacterListItem.GetCharacter.MakeScope.ScriptValue('draconic_dread')|0]"
+			text = "[draconic_dread_lists_i]"
 			align = nobaseline
 			fontsize = 13
-		}
-	}
-
-	type agot_lists_dragon_temper_icon = vbox
-	{
-		using = visible_if_dragon
-		tooltip = "[temperament|E]"
-		using = tooltip_ne
-		spacing = -3
-		margin_top = 2
-
-		using = Animation_Character_Window_Refresh
-
-		icon = {
-			name = "temperament_icon"
-			size = { 24 24 }
-			texture = "gfx/interface/icons/icon_draconic_temperament.dds"
 		}
 	}
 
 	type agot_lists_dragon_temper_text = vbox
 	{
 		using = visible_if_dragon
-		tooltip = "[temperament|E]"
-		using = tooltip_ne
-		spacing = -3
-		margin_top = 5
-		margin_right = 2
-
-		using = Animation_Character_Window_Refresh
 
 		text_single = {
 			name = "temperament_value"
-			text = "[CharacterListItem.GetCharacter.MakeScope.ScriptValue('temperament')|0]"
+			text = "[temperament_lists_i]"
 			align = nobaseline
 			fontsize = 13
 		}
@@ -398,9 +305,8 @@ types Lists
 
 		text_single = {
 			name = "dragon_combat_effectiveness_value"
-			text = "[Character.MakeScope.Var('current_dragon').Char.MakeScope.ScriptValue('dragon_combat_effectiveness')|0]"
+			text = "[dragon_combat_effectiveness_num]"
 			align = nobaseline
-			tooltip = "[dragon_combat_effectiveness|E]"
 			fontsize = 16
 		}
 	}

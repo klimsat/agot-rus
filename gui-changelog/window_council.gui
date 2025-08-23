@@ -1534,9 +1534,7 @@ types CouncilTaskTypes
 				margin = { 10 0 }
 				spacing = 5
 
-				#AGOT Modified
-				# visible = "[Not( CouncilOwnerNomadic )]"
-				visible = "[And( Not( CouncilOwnerNomadic ), Not(IsNWAdventurer(GetPlayer)))]"
+				visible = "[Not( CouncilOwnerNomadic )]"
 
 				widget_councillor_item = { # Chancellor
 					layoutpolicy_horizontal = expanding
@@ -1546,7 +1544,9 @@ types CouncilTaskTypes
 					datacontext = "[ActiveCouncilTask.GetPositionType]"
 					datacontext = "[ActiveCouncilTask.GetCouncillor]"
 
-					visible = "[Not( CouncilOwnerNomadic )]"
+					#AGOT Modified
+					#visible = "[Not( CouncilOwnerNomadic )]"
+					visible = "[And( Not( CouncilOwnerNomadic ), Not(IsNWAdventurer(GetPlayer)))]"
 
 					background =  {
 						texture = "gfx/interface/skinned/illustrations/council/bg_council_chancellor.dds"
@@ -1572,6 +1572,9 @@ types CouncilTaskTypes
 					datacontext = "[GuiCouncilPosition.GetActiveCouncilTask]"
 					datacontext = "[ActiveCouncilTask.GetPositionType]"
 					datacontext = "[ActiveCouncilTask.GetCouncillor]"
+
+					#AGOT Added
+					visible = "[And( Not( CouncilOwnerNomadic ), Not(IsNWAdventurer(GetPlayer)))]"
 
 					background =  {
 						texture = "gfx/interface/skinned/illustrations/council/bg_council_steward.dds"

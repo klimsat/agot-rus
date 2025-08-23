@@ -38,7 +38,7 @@ window = {
 		name = "main_content"
 		using = Window_Margins_Sidebar
 		#AGOT Added
-		using = agot_character_standard
+		visible = "[IsCharacterNormal]"
 
 		###############
 		# Character box
@@ -2191,10 +2191,6 @@ window = {
 							agot_squire_relationship_row = {}
 							agot_knight_relationship_row = {}
 
-							#AGOT Added; Bodyguards and their targets
-							agot_bodyguard_relationship_row = {}
-							agot_bodyguard_target_relationship_row = {}
-
 							vbox_character_row_item = {
 								name = "wards"
 								visible = "[CharacterWindow.GetCharacter.IsAdult]"
@@ -2322,7 +2318,9 @@ window = {
 							### LOVERS 5 PORTRAITS
 							vbox_character_row_relationship_item = {
 								name = "lovers_no_diarchy"
-								visible = "[And( CharacterWindow.GetCharacter.IsAdult, Not( CharacterWindow.GetCharacter.HasActiveDiarchy ) )]"
+								#AGOT Modified
+								# visible = "[And( CharacterWindow.GetCharacter.IsAdult, Not( CharacterWindow.GetCharacter.HasActiveDiarchy ) )]"
+								visible = "[And(CharacterWindow.GetCharacter.IsAdult, And(And(Not(CharacterWindow.GetCharacter.HasActiveDiarchy), Not(CharacterShowingSquires)), Not(CharacterShowingKnight)))]"
 								layoutpolicy_vertical = expanding
 								layoutpolicy_horizontal = expanding
 
@@ -2355,7 +2353,9 @@ window = {
 							### LOVERS 4 PORTRAITS (FOR WHEN REGENT PORTRAIT IS VISIBLE)
 							vbox_character_row_relationship_item = {
 								name = "lovers_diarchy"
-								visible = "[And( CharacterWindow.GetCharacter.IsAdult, CharacterWindow.GetCharacter.HasActiveDiarchy )]"
+								#AGOT Modified
+								# visible = "[And( CharacterWindow.GetCharacter.IsAdult, CharacterWindow.GetCharacter.HasActiveDiarchy )]"
+								visible = "[And(CharacterWindow.GetCharacter.IsAdult, And(Not(CharacterShowingSquires), Or(And(CharacterWindow.GetCharacter.HasActiveDiarchy, Not(CharacterShowingKnight)), And(Not(CharacterWindow.GetCharacter.HasActiveDiarchy), CharacterShowingKnight))))]"
 								layoutpolicy_vertical = expanding
 								layoutpolicy_horizontal = expanding
 
@@ -2384,6 +2384,9 @@ window = {
 									maxhorizontalslots = 4
 								}
 							}
+							#AGOT Added
+							agot_lovers_plus_two = {}
+							agot_lovers_plus_three = {}
 
 							vbox_character_row_item = {
 								name = "guardian"
@@ -2505,16 +2508,22 @@ window = {
 						scissor = yes
 
 						hbox = {
+							#AGOT Added; Bodyguards and their targets
+							agot_bodyguard_relationship_row = {}
+							agot_bodyguard_target_relationship_row = {}
+							agot_friends_with_bodyguards = {}
+
 							#AGOT Added; Dragons
 							agot_dragons_relationship_row = {}
 							agot_friends_with_dragons = {}
+							agot_friends_with_both = {}
 
 							vbox_character_row_relationship_item = {
 								name = "friends"
 								layoutpolicy_vertical = expanding
 								layoutpolicy_horizontal = expanding
 								#AGOT Added
-								visible = "[Not(GreaterThanOrEqualTo_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) ) ), '(int32)1' ))]"
+								visible = "[Not(Or(CharacterHasBodyguard, CharacterHasDragon))]"
 
 								blockoverride "portrait_datamodel" {
 									datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
@@ -3916,7 +3925,7 @@ types CharacterWindow
 		icon = {
 			#AGOT Modified
 			#visible = "[Not(Character.IsFemale)]"
-			visible = "[GetScriptedGui('agot_male_gender_shown').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]"
+			visible = "[GetScriptedGui('agot_male_gender_shown').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
 			size = { 20 20 }
 			framesize = { 40 40 }
 			frame = "[Character.GetSexualityFrame]"
@@ -3927,7 +3936,7 @@ types CharacterWindow
 		icon = {
 			#AGOT Modified
 			#visible = "[Character.IsFemale]"
-			visible = "[GetScriptedGui('agot_female_gender_shown').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End )]" 
+			visible = "[GetScriptedGui('agot_female_gender_shown').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
 			size = { 20 20 }
 			framesize = { 40 40 }
 			frame = "[Character.GetSexualityFrame]"
@@ -5022,7 +5031,7 @@ types CharacterWindow
 
 			hbox = {
 				#AGOT Added
-				visible = "[Not(GetScriptedGui('agot_can_see_dragon_military_view').IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).End ))]"
+				visible = "[Not(GetScriptedGui('agot_can_see_dragon_military_view').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End))]"
 				spacing = 3
 
 				expand = {}

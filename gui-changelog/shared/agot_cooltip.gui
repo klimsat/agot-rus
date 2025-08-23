@@ -122,7 +122,7 @@ types GameTooltipTypes
 	# Dragon Types
 	type agot_dragon_type_living = text_single
 	{
-		visible = "[And( Character.HasTrait( GetTrait('dragon') ), Character.IsAlive )]"
+		visible = "[And( IsCharacterDragon, Character.IsAlive )]"
 		text = "[Character.Custom('GetDragonTypeGuiTooltip')]"
 		align = nobaseline
 		fonttintcolor = "[TooltipInfo.GetTintColor]"
@@ -131,7 +131,7 @@ types GameTooltipTypes
 	type agot_dragon_type_dead = text_single
 	{
 		maximumsize = { 149 -1 }
-		visible = "[And( Character.HasTrait( GetTrait('dragon') ), Character.IsDeadAndValid )]"
+		visible = "[And( IsCharacterDragon, Character.IsDeadAndValid )]"
 		raw_text = "[dragon|E;L]"
 		align = nobaseline
 		fonttintcolor = "[TooltipInfo.GetTintColor]"

@@ -2087,7 +2087,7 @@ types PortraitTypes
 		name = "tutorial_highlight_portrait_opinion"
 		#AGOT Modified
 		#visible = "[And(Character.IsValid, And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
-		visible = "[And( And( Character.IsValid, Not( Character.HasTrait(GetTrait('dragon')) )), And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
+		visible = "[And( And( Character.IsValid, Not( IsCharacterDragon )), And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
 		ignoreinvisible = yes
 
 		background = {
@@ -2103,7 +2103,7 @@ types PortraitTypes
 			block "dread_logic" {
 				#AGOT Modified
 				# visible = "[Character.ShouldShowDreadEffectIcon]"
-				visible = "[And( Not( Character.HasTrait( GetTrait('dragon') ) ), Character.ShouldShowDreadEffectIcon )]"
+				visible = "[And( Not(IsCharacterDragon), Character.ShouldShowDreadEffectIcon )]"
 				frame = "[Character.GetPlayerDreadEffectIconFrame]"
 				tooltip = "[Character.GetPlayerDreadEffectTooltip]"
 			}
@@ -2125,7 +2125,7 @@ types PortraitTypes
 			name = "tutorial_highlight_character_view_opinion"
 			#AGOT Modified
 			# visible = "[Character.IsValid]"
-			visible = "[And(Character.IsValid, Not(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End )))]"
+			visible = "[And(Character.IsValid, Not(IsCharacterFakeDead))]"
 			max_width = 45
 			align = nobaseline
 			margin = { 3 0 }
@@ -2146,7 +2146,7 @@ types PortraitTypes
 		#name = "tutorial_highlight_portrait_opinion"
 		#AGOT Modified
 		#visible = "[And(Character.IsValid, And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
-		visible = "[And( And( Character.IsValid, Not( Character.HasTrait(GetTrait('dragon')) )), And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
+		visible = "[And( And( Character.IsValid, Not( IsCharacterDragon )), And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
 		ignoreinvisible = yes
 		margin_right = 2
 
@@ -2163,7 +2163,7 @@ types PortraitTypes
 			name = "dread"
 			#AGOT Modified
 			# visible = "[Character.ShouldShowDreadEffectIcon]"
-			visible = "[And( Not( Character.HasTrait( GetTrait('dragon') ) ), Character.ShouldShowDreadEffectIcon )]"
+			visible = "[And( Not(IsCharacterDragon), Character.ShouldShowDreadEffectIcon )]"
 			size = { 16 16 }
 			texture = "gfx/interface/icons/portraits/dread_values.dds"
 			framesize = { 40 40 }
@@ -2174,7 +2174,7 @@ types PortraitTypes
 		text_single = {
 			#AGOT Modified
 			# visible = "[Character.IsValid]"
-			visible = "[And(Character.IsValid, Not(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End )))]"
+			visible = "[And(Character.IsValid, Not(IsCharacterFakeDead))]"
 			max_width = 45
 			align = nobaseline
 			fontsize = 13
@@ -2217,7 +2217,7 @@ types PortraitTypes
 		flowcontainer = {
 			#AGOT Modified
 			# visible = "[Character.IsValid]"
-			visible = "[And(Character.IsValid, Not(GetScriptedGui( 'fake_death_character' ).IsShown( GuiScope.AddScope('char', Character.MakeScope).End )))]"
+			visible = "[And(Character.IsValid, Not(IsCharacterFakeDead))]"
 			ignoreinvisible = yes
 			direction = vertical
 			parentanchor = bottom

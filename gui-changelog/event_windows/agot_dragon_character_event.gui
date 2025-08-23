@@ -1718,25 +1718,25 @@ types Events
 }
 
 template left_portrait_no_dragon {
-	visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), EventWindowData.HasPortraitCharacter('right_portrait')), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
+	visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), EventWindowData.HasPortraitCharacter('right_portrait')), Not(IsCharacterDragon))]"
 }
 
 template left_portrait_dragon {
-    visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), EventWindowData.HasPortraitCharacter('right_portrait')), Character.HasTrait(GetTrait('dragon').Self))]"
+    visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), EventWindowData.HasPortraitCharacter('right_portrait')), IsCharacterDragon)]"
 }
 
 template right_portrait_no_dragon {
-   visible = "[And(EventWindowData.HasPortraitCharacter('right_portrait'), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
+   visible = "[And(EventWindowData.HasPortraitCharacter('right_portrait'), Not(IsCharacterDragon))]"
 }
 
 template right_portrait_dragon {
-    visible = "[And(EventWindowData.HasPortraitCharacter('right_portrait'), Character.HasTrait(GetTrait('dragon').Self))]"
+    visible = "[And(EventWindowData.HasPortraitCharacter('right_portrait'), IsCharacterDragon)]"
 }
 
 template center_portrait_no_dragon {
-    visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), Not(EventWindowData.HasPortraitCharacter('right_portrait'))), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
+    visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), Not(EventWindowData.HasPortraitCharacter('right_portrait'))), Not(IsCharacterDragon))]"
 }
 
 template center_portrait_dragon {
-    visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), Not(EventWindowData.HasPortraitCharacter('right_portrait'))), Character.HasTrait(GetTrait('dragon').Self))]"
+    visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), Not(EventWindowData.HasPortraitCharacter('right_portrait'))), IsCharacterDragon)]"
 }

@@ -10,7 +10,7 @@ types CharacterWindow
 	type agot_dragons_character_view = vbox {
 		name = "main_content_dragon"
 		using = Window_Margins_Sidebar
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 
 		###############
 		# Character box
@@ -535,36 +535,23 @@ types CharacterWindow
 							agot_dragon_modifiers_expanding_button = {}
 
 							hbox = {
-								# Divider
-								# spacer = {
-									# size = { 4 4 }
-								# }
-
 								divider_light = {
 									layoutpolicy_vertical = expanding
 									visible = "[Not(Character.IsDeadAndValid)]"
 								}
 
-								spacer = {
-									size = { 4 4 }
-								}
-
 								# Dragon size
 								vbox = {
-									tooltip = "[dragon_size|E]"
 									visible = "[Not(Character.IsDeadAndValid)]"
-									using = tooltip_ne
-									spacing = -3
-									margin_top = 10
+									margin_top = 4
+									margin_right = 5
+									margin_left = 5
 
-									using = Animation_Character_Window_Refresh
-
-									icon = {
+									text_single = {
 										name = "dragon_size_icon"
-										size = { 32 32 }
-										texture = "gfx/interface/icons/icon_dragon_size.dds"
+										text = "[dragon_size_i]"
+										align = nobaseline
 									}
-
 									text_single = {
 										name = "dragon_size_value"
 										text = "[CharacterWindow.GetCharacter.MakeScope.ScriptValue('dragon_size')|0]"
@@ -572,36 +559,23 @@ types CharacterWindow
 									}
 								}
 
-								# Divider
-								spacer = {
-									size = { 4 4 }
-								}
-
 								divider_light = {
 									layoutpolicy_vertical = expanding
 									visible = "[Not(Character.IsDeadAndValid)]"
 								}
 
-								spacer = {
-									size = { 4 4 }
-								}
-
 								# Combat Effectiveness
 								vbox = {
-									tooltip = "[dragon_combat_effectiveness|E]"
 									visible = "[Not(Character.IsDeadAndValid)]"
-									using = tooltip_ne
-									spacing = -3
-									margin_top = 10
+									margin_top = 4
+									margin_right = 5
+									margin_left = 5
 
-									using = Animation_Character_Window_Refresh
-
-									icon = {
+									text_single = {
 										name = "dragon_combat_effectiveness_icon"
-										size = { 32 32 }
-										texture = "gfx/interface/icons/icon_dragon_combat_effectiveness.dds"
+										text = "[dragon_combat_effectiveness_i]"
+										align = nobaseline
 									}
-
 									text_single = {
 										name = "dragon_combat_effectiveness_value"
 										text = "[CharacterWindow.GetCharacter.MakeScope.ScriptValue('dragon_combat_effectiveness')|0]"
@@ -609,36 +583,23 @@ types CharacterWindow
 									}
 								}
 
-								# Divider
-								spacer = {
-									size = { 4 4 }
-								}
-
 								divider_light = {
 									layoutpolicy_vertical = expanding
 									visible = "[Not(Character.IsDeadAndValid)]"
 								}
 
-								spacer = {
-									size = { 4 4 }
-								}
-
 								# Draconic dread
 								vbox = {
-									tooltip = "[draconic_dread|E]"
 									visible = "[Not(Character.IsDeadAndValid)]"
-									using = tooltip_ne
-									spacing = -3
-									margin_top = 10
+									margin_top = 4
+									margin_right = 5
+									margin_left = 6
 
-									using = Animation_Character_Window_Refresh
-
-									icon = {
+									text_single = {
 										name = "draconic_dread_icon"
-										size = { 32 32 }
-										texture = "gfx/interface/icons/icon_draconic_dread.dds"
+										text = "[draconic_dread_i]"
+										align = nobaseline
 									}
-
 									text_single = {
 										name = "draconic_dread_value"
 										text = "[CharacterWindow.GetCharacter.MakeScope.ScriptValue('draconic_dread')|0]"
@@ -646,36 +607,23 @@ types CharacterWindow
 									}
 								}
 
-								# Divider
-								spacer = {
-									size = { 4 4 }
-								}
-
 								divider_light = {
 									layoutpolicy_vertical = expanding
 									visible = "[Not(Character.IsDeadAndValid)]"
 								}
 
-								spacer = {
-									size = { 4 4 }
-								}
-
 								# Temperament
 								vbox = {
-									tooltip = "[temperament|E]"
 									visible = "[Not(Character.IsDeadAndValid)]"
-									using = tooltip_ne
-									spacing = -3
-									margin_top = 10
+									margin_top = 4
+									margin_right = 5
+									margin_left = 5
 
-									using = Animation_Character_Window_Refresh
-
-									icon = {
+									text_single = {
 										name = "temperament_icon"
-										size = { 32 32 }
-										texture = "gfx/interface/icons/icon_draconic_temperament.dds"
+										text = "[temperament_i]"
+										align = nobaseline
 									}
-
 									text_single = {
 										name = "temperament_value"
 										text = "[CharacterWindow.GetCharacter.MakeScope.ScriptValue('temperament')|0]"
@@ -683,18 +631,9 @@ types CharacterWindow
 									}
 								}
 
-								# Divider
-								spacer = {
-									size = { 4 4 }
-								}
-
 								divider_light = {
 									layoutpolicy_vertical = expanding
 									visible = "[Not(Character.IsDeadAndValid)]"
-								}
-
-								spacer = {
-									size = { 4 4 }
 								}
 							}
 							expand = {}
@@ -1357,67 +1296,6 @@ types CharacterWindow
 		expand = {}
 	}
 
-	#############################
-	# DRAGONS RELATIONSHIP ROWS #
-	#############################
-	type agot_dragons_relationship_row = vbox_character_row_relationship_item
-	{
-		name = "dragons"
-		visible = "[GetScriptedGui('agot_can_have_dragon').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
-		layoutpolicy_vertical = expanding
-		blockoverride "portrait_datamodel" {
-			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) )]"
-		}
-		blockoverride "portrait_texture" {
-			#I'm scaling the portrait texture by the same amount here as in the below "portrait_transformation" to zoom in on the head. This couldn't be done with regular camera as the baby dragon would go off-frame
-			portrait_texture = "[Character.GetPortrait('environment_body', 'camera_dragon_small', 'dragon_head', Multiply_CVector2f( PdxGetWidgetScreenSize(PdxGuiWidget.Self) , '(CVector2f)9,9'))]"
-		}
-
-		blockoverride "header_text"
-		{
-			text = "DRAGON_LABEL"
-		}
-		blockoverride "remaining_items"
-		{
-			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) ) ), '(int32)3' )]"
-			margin = { 120 }
-			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) ) ), '(int32)3' )|=]"
-		}
-		blockoverride "expand_button_inside" {
-			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) ) ), '(int32)3' )]"
-			onclick = "[CharacterWindow.ToggleExpandedRelation( 'agot_dragons' )]"
-		}
-	}
-
-	type agot_friends_with_dragons = vbox_character_row_relationship_item
-	{
-		name = "friends_with_dragons"
-		layoutpolicy_vertical = expanding
-		layoutpolicy_horizontal = expanding
-		visible = "[GreaterThanOrEqualTo_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'agot_dragon' ) ) ), '(int32)1' )]"
-
-		blockoverride "portrait_datamodel" {
-			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
-			maxhorizontalslots = 6
-		}
-
-		blockoverride "header_text"
-		{
-			text = "FRIENDS_LABEL"
-		}
-
-		blockoverride "remaining_items"
-		{
-			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )]"
-			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )|=]"
-		}
-
-		blockoverride "expand_button_inside" {
-			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )]"
-			onclick = "[CharacterWindow.ToggleExpandedRelation( 'friends' )]"
-		}
-	}
-
 	###########################
 	# DRAGONS RELATION AND AI #
 	###########################
@@ -1517,7 +1395,7 @@ types CharacterWindow
 			text_single = {
 				maximumsize = { 149 -1 }
 				name = "ai_personality"
-				visible = "[And( Not( Character.IsPlayer ), Not( Character.HasTrait( GetTrait('dragon') )))]"
+				visible = "[And( Not( Character.IsPlayer ), Not(IsCharacterDragon))]"
 
 				raw_text = " • #L [Character.GetAIPersonalityNoTooltip]#!"
 				tooltip = "AI_PERSONALITY_TT"
@@ -1560,7 +1438,7 @@ types CharacterWindow
 	type agot_dragon_relation_and_ai = text_single
 	{
 		maximumsize = { 149 -1 }
-		visible = "[And( Character.HasTrait( GetTrait('dragon') ), Character.IsAlive )]"
+		visible = "[And( IsCharacterDragon, Character.IsAlive )]"
 		raw_text = " • [Character.Custom('GetDragonTypeGuiTooltip')]"
 		using = tooltip_se
 		fontsize_min = 13
@@ -1570,7 +1448,7 @@ types CharacterWindow
 	type agot_dragon_dead_relation_and_ai = text_single
 	{
 		maximumsize = { 149 -1 }
-		visible = "[And( Character.HasTrait( GetTrait('dragon') ), Character.IsDeadAndValid )]"
+		visible = "[And( IsCharacterDragon, Character.IsDeadAndValid )]"
 		raw_text = "[dragon|E;L]"
 		using = tooltip_se
 		fontsize_min = 13
@@ -2030,7 +1908,7 @@ types CharacterWindow
 # DRAGONS TEMPLATES #
 #####################
 template visible_if_dragon {
-	visible = "[Character.HasTrait(GetTrait('dragon').Self)]"
+	visible = "[IsCharacterDragon]"
 }
 
 template visible_if_dragon_normal {
@@ -2042,7 +1920,7 @@ template visible_if_dragon_small {
 }
 
 template visible_if_not_dragon {
-	visible = "[Not(Character.HasTrait(GetTrait('dragon').Self))]"
+	visible = "[Not(IsCharacterDragon)]"
 }
 
 template visible_if_dragonrider_flight {

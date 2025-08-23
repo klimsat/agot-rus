@@ -217,6 +217,12 @@ template Version_Warning
 		on_start = "[GetVariableSystem.Set('inconsistent_game_version', 'false')]"
 		trigger_when = "[ObjectsEqual(GetGameVersionInfoShort, Localize('AGOT_REQUIRED_VERSION'))]"
 	}
+	state = {
+		name = invalid
+		next = _show
+		on_finish = "[GetVariableSystem.Set('inconsistent_game_version', 'false')]"
+		trigger_when = "[Not(Or(UsingEnglish, Or(UsingFrench, UsingChinese)))]"
+	}
 }
 
 template Version_Detection

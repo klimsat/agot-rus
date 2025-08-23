@@ -1679,6 +1679,8 @@ widget = {
 				datacontext = "[GetPlayer.GetHouse]"
 				onclick = "[DefaultOnHouseCoatOfArmsClick(DynastyHouse.GetID)]"
 				parentanchor = left
+				#AGOT Added
+				visible = "[GetPlayer.GetDynasty.IsValid]"
 
 				using = tooltip_es
 				tooltip_offset = { 20 0 }
@@ -5906,40 +5908,42 @@ types HUD
 							texture = "gfx/interface/skinned/resource_panel_end.dds"
 						}
 
-						vbox = {
-							margin_top = 4
+						#AGOT Modified
+						# vbox = {
+							# margin_top = 4
 
-							hbox = {
-								margin_bottom = 16
+							# hbox = {
+								# margin_bottom = 16
 
-								expand = {}
-								hbox = {
-									margin = { 5 5 }
-									spacing = 5
+								# expand = {}
+								# hbox = {
+									# margin = { 5 5 }
+									# spacing = 5
 
-									background = {
-										visible = "[GreaterThan_int32( Character.GetDomainSize, Character.GetDomainLimit )]"
-										using = Status_Bad
-										margin_bottom = -3
-									}
+									# background = {
+										# visible = "[GreaterThan_int32( Character.GetDomainSize, Character.GetDomainLimit )]"
+										# using = Status_Bad
+										# margin_bottom = -3
+									# }
 
-									icon = {
-										texture = "gfx/interface/icons/icon_domain.dds"
-										size = { 25 25 }
-									}
+									# icon = {
+										# texture = "gfx/interface/icons/icon_domain.dds"
+										# size = { 25 25 }
+									# }
 
-									text_single = {
-										name = "value"
-										text = "[Character.GetDomainSize]/[Character.GetDomainLimit]"
-										align = nobaseline
-										margin_bottom = 1
-										max_width = 110
-									}
-								}
-								expand = {}
-							}
-							expand = {}
-						}
+									# text_single = {
+										# name = "value"
+										# text = "[Character.GetDomainSize]/[Character.GetDomainLimit]"
+										# align = nobaseline
+										# margin_bottom = 1
+										# max_width = 110
+									# }
+								# }
+								# expand = {}
+							# }
+							# expand = {}
+						# }
+						agot_hud_domain_limit = {}
 					}
 				}
 			}
