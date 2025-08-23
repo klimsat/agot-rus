@@ -33,7 +33,7 @@
  # Scheme Events - These are the events that fire as part of the scheme.
  dragon_bond_events.3000.t:0 "$dragon_bond_events.t$ Дорогое мясо"
  dragon_bond_events.3000.desc:0 "[dragon|E] [target.GetNameNicknamed] - переменчивое создание. В некоторые дни [target.Custom('GetDragonSheHe')] не хочет ничего, кроме как расправить свои крылья и порхать по небу вокруг своего логова во владении [ROOT.Char.GetCapitalLocation.GetNameNoTooltip], а уже на следующий день [Select_CString(EqualTo_string('он', target.Custom('GetDragonSheHe')), 'его', 'ее')] практически невозможно вывести из сна. [target.Custom('GetDragonHerHis')|U] вкусы столь же разнообразны, и хотя [target.Custom('GetDragonSheHe')] по-прежнему ест всю зарезанную дичь, которую мои слуги переправляют [target.Custom('GetDragonHerHim')], я подумываю послать на кухню за более вкусными блюдами. [Select_CString(ROOT.Char.IsFemale, 'Уверена', 'Уверен' )], что хорошее угощение приведёт к тому, что я и [target.GetNameNoTooltip] сблизимся."
- dragon_bond_events.3000.a:0 "[target.GetNameNoTooltip] будет обедать как [ROOT.Char.GetTitleTierName]. Я накормлю [target.Custom('GetDragonHerHis')] жареной бараниной."
+ dragon_bond_events.3000.a:0 "[target.GetNameNoTooltip] будет обедать как [ROOT.Char.GetTitleAsNameNoTooltip]. Я накормлю [target.Custom('GetDragonHerHis')] жареной бараниной."
  dragon_bond_events.3000.b:0 "У н[target.Custom('GetDragonHerHis')] изысканный вкус. Я накормлю [target.Custom('GetDragonHerHis')] жареной свининой."
  dragon_bond_events.3000.c:0 "Драконы предназначены для войны, а не для пиров. [target.Custom('GetDragonSheHe')|U] не получит #italic угощения#!..."
 
@@ -42,7 +42,7 @@
  dragon_bond_events.3001.a:0 "Кушай на здоровье, мой дракон!"
 
  dragon_bond_events.3002.t:0 "$dragon_bond_events.t$ Дорогое мясо отвергнуто"
- dragon_bond_events.3002.desc:0 "Кухни всю ночь работают над подношением для дракона [target.GetName]. Мясо получается нежным, а его золотистая кожа трескается под тяжестью сочной начинки. Некоторые мои [GetPlayer.Custom('KnightCulturePluralNoTooltipLowercase')] с тоской смотрят на мясо, пока его везут с кухни, но это редкое блюдо могут отведать лишь [ROOT.Char.GetTitleTierName|l] и драконы. \n\nЯ вкатываю тележку в логово дракона и уже собираюсь позвать [target.Custom('GetDragonHerHis')], когда меня опрокидывает на пол клубящаяся масса чешуи и мышц. [target.GetNameNoTooltip] с жадностью набрасывается на мясо, [target.Custom('GetDragonHerHis')] мощные челюсти быстро вскрыли дверцы повозки, чтобы добраться до угощения внутри."
+ dragon_bond_events.3002.desc:0 "Кухни всю ночь работают над подношением для дракона [target.GetName]. Мясо получается нежным, а его золотистая кожа трескается под тяжестью сочной начинки. Некоторые мои [GetPlayer.Custom('KnightCulturePluralNoTooltipLowercase')] с тоской смотрят на мясо, пока его везут с кухни, но это редкое блюдо могут отведать лишь [ROOT.Char.GetTitleAsNameNoTooltip|l] и драконы. \n\nЯ вкатываю тележку в логово дракона и уже собираюсь позвать [target.Custom('GetDragonHerHis')], когда меня опрокидывает на пол клубящаяся масса чешуи и мышц. [target.GetNameNoTooltip] с жадностью набрасывается на мясо, [target.Custom('GetDragonHerHis')] мощные челюсти быстро вскрыли дверцы повозки, чтобы добраться до угощения внутри."
  dragon_bond_events.3002.a:0 "Проклятье!"
 
  dragon_bond_events.3003.t:0 "$dragon_bond_events.t$ Живое угощение"
@@ -129,7 +129,7 @@
  dragon_bond_events.3021.t:0 "$dragon_bond_events.t$ Взгляд в небо"
  dragon_bond_events.3021.desc:0 "Я выношу утреннюю кашу на балкон, где передо мной открывается сияющее голубое небо, на котором нет ни единого облачка. Что-то во мне знает, что это не тот день, который можно провести без дела. Как будто [ROOT.Char.GetFaith.FateGodName] создал сегодняшний день для единственной цели - полета.\n\nИ все же у меня плохое предчувствие. Последние несколько полетов на драконе прошли не очень удачно, и за последние несколько лунных оборотов [target.GetNamePossessive] иногда [Select_CString(EqualTo_string('он', target.Custom('GetDragonSheHe')), 'предпочитал', 'предпочитала')] выборочно игнорировать те команды, которые [target.Custom('GetDragonSheHe')] находит неудобными, - команды, которые обычно связаны с тем, что я пытаюсь избежать падения на смерть.\n\nТем не менее, больше времени верхом могло бы улучшить наше взаимопонимание и [target.Custom('GetDragonHerHis')] готовность прислушиваться к моим командам. И все же это такой великолепный день..."
  dragon_bond_events.3021.a:0 "Провести день в закрытом помещении не принесет пользы никому из нас. В небо!"
- dragon_bond_events.3021.b:0 "Как [ROOT.Char.GetTitleTierName] я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] служить своей державе, а не своим капризам. Сегодня мы не полетим."
+ dragon_bond_events.3021.b:0 "Как [ROOT.Char.GetTitleAsNamePossessiveNoTooltip] я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] служить своей державе, а не своим капризам. Сегодня мы не полетим."
  dragon_bond_events.3021.custom_tt:0 "Ваши узы не усилятся"
 
  dragon_bond_events.3022.t:0 "$dragon_bond_events.t$ Достижение новых высот"
