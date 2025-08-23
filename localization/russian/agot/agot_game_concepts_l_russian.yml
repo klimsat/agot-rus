@@ -48,6 +48,18 @@
  game_concept_unknown_holdings:0 "Неизвестные владения"
  game_concept_unknown_holding_desc:0 "Владения этой державы неизвестны, поскольку она находится вне пределов досягаемости вашего дипломатического радиуса."
 
+ game_concept_wilderness_holding: "Владение в дебрях"
+ game_concept_wilderness: "Дебри"
+ game_concept_wilderness_desc: "Обширные пустоши, не принадлежащие никому и крайне малонаселённые."
+ game_concept_wilderness_holdings: "Владения в дебрях"
+ game_concept_wilderness_holding_desc: "Владения в дебрях совершенно непродуктивны и должны быть заменены на [Concept('settlement_holding', 'владения-поселения')|E] в ходе [Concept('colonisation', 'колонизации')|E], чтобы раскрыть их потенциал."
+
+ game_concept_settlement_holding: "Владение-поселение"
+ game_concept_settlement: "Поселение"
+ game_concept_settlements:0 "Поселения"
+ game_concept_settlement_holdings:0 "Владения-поселения"
+ game_concept_settlement_holding_desc:0 "Владения-поселения преставляют собой небольшие аванпосты, городки и колонии, создаваемые в процессе [Concept('colonisation', 'колонизации')|E].\n\nОни менее продуктивны, другие [Concept('holding_types', 'типы владений')|E], но устранение всех [Concept('colonisation_blockers', 'препятствий для колонизации')|E] и увеличение [Concept('county_development', 'развития')|E] позволит нарастить их производительность, что в конечном итоге позволит преобразовать их в стандартное [holding|El]."
+
  game_concept_ruin_holding:0 "Руины"
  game_concept_ruin_holding_desc:0 "Владение, которое был давно забыто и заброшено, являясь лишь тенью себя прежнего. Можно начать [Concept('reconstruction_effort', 'восстановление')|E] через взаимодействие с самими руинами."
  game_concept_ruin:0 "Руины"
@@ -61,6 +73,24 @@
  game_concept_reconstruction_desc:0 "Благодаря улучшению [Concept( 'buildings', 'зданий' )|E] руины могут быть восстановлены в надлежащее владение, хотя процесс этот долгий и трудный."
  game_concept_reconstruction_effort:0 "Восстановление руин"
  game_concept_reconstruction_effort_desc:0 "Благодаря улучшению [Concept( 'buildings', 'зданий' )|E] руины могут быть восстановлены в надлежащее владение, хотя процесс этот долгий и трудный."
+
+ game_concept_colonization:0 "Колонизация"
+ game_concept_colonize:0 "Колонизировать"
+ game_concept_colony:0 "Колония"
+ game_concept_colonization_desc:0 "Колонизация - игровая механика, позволяющая [Concept('independent_ruler', 'независимому правителю')|E] расширять свою [Concept('realm', 'державу')|E] на соседние [Concept('wilderness', 'пустующие')|E] [Concept('counties', 'графства')|E].\n\nПосле первоначальных вложений [Concept('gold', 'золота')|E], можно основать [settlement_holding|El], включив [county|El] в свои [Concept('domain', 'владения')|E]. Изначально это поселение будет малопродуктивным, в нём недоступно строительство стандартных [Concept('buildings', 'сооружений')|E] [Concept('holding', 'владения')|E]. Вместо этого необходимо потратить время и [gold|El], чтобы увеличить [development|El] в новом поселении и устранить все существующие [colonisation_blockers|El].\n\nКогда все препятствия будут устранены, [settlement_holding|El] полностью улучшено, а [Concept('county_development', 'развитие')|E] колонии будет равно 3 или выше, поселение может быть преобразовано в стандартное [holding|El]."
+
+ game_concept_colonisation_blocker: "Препятствие для колонизации"
+ game_concept_colonisation_blockers: "Препятствия для колонизации"
+ game_concept_blockers: "Препятствия"
+ game_concept_colonisation_blocker_desc: "Препятствия для колонизации - это [buildings|El] в [Concept('wilderness', 'диких')|E] [Concept('counties', 'графствах')|E], которые препятствуют [Concept('colonisation', 'колонизации')|E] этой территории.\n\nЭти препятствия применяют негативные [modifiers|El] к графству, снижая его производительность и не позволяя преобразовать его в стандартное [holding|El]."
+
+ game_concept_ongoing_colonies:0 "Текущие колонии"
+ game_concept_settlement_holding_limit:0 "Предел поселений"
+ game_concept_settlement_holding_limit_i:0 "@hud_wilderness! [Character.MakeScope.Var('num_settled_wilderness').GetValue]/[Character.MakeScope.ScriptValue('settlement_title_tier_limit')|0]"
+ game_concept_settlement_holding_limit_desc:0 "Количество поселений, которыми [ruler|El] может владеть в определённый момент, определяется уровнем его титула.\n\nНапример:\n\n$EFFECT_LIST_BULLET$ #bold [count|E] #!может владеть 1 [Concept('settlement_holding', 'владением-поселением')|E] без повышения [Concept('additional_settlement_upkeep', 'дополнительного содержания')|E] поселения.\n\n$EFFECT_LIST_BULLET$ #bold [duke|E] #!может владеть 2 [Concept('settlement_holding', 'владениями-поселениями')|E] без повышения  [Concept('additional_settlement_upkeep', 'дополнительного содержания')|E] поселения.\n\n$EFFECT_LIST_BULLET$A #bold [king|E] #!может владеть 3 [Concept('settlement_holding', 'владениями-поселениями')|E] без повышения [Concept('additional_settlement_upkeep', 'дополнительного содержания')|E] поселения.\n\n$EFFECT_LIST_BULLET$ #bold [emperor|E] #!может владеть 4 [Concept('settlement_holding', 'владениями-поселениями')|E] без повышения [Concept('additional_settlement_upkeep', 'дополнительного содержания')|E] поселения."
+
+ game_concept_additional_settlement_upkeep:0 "Дополнительное содержание"
+ game_concept_additional_settlement_upkeep_desc:0 "Дополнительное содержание означает снижение ежемесячного дохода из-за владения большим количеством [Concept('settlement_holding', 'владений-поселений')|E].\n\nПравители могут #V забросить#! свои владения-поселения, если содержание начинает разрушать экономику [Concept('realm', 'державы')|E]."
 
  game_concept_bastard_house:0 "Бастардская линия"
  game_concept_bastard_branch:0 "Бастардская линия"
@@ -112,21 +142,30 @@
  game_concept_tamed_dragons:0 "Приручённые драконы"
  game_concept_tamed_dragon_desc:0 "$game_concept_tamed_dragons$ - это драконы, которых приручил какой-либо [GetTrait('dragonrider').GetName(GetNullCharacter)|l]. Если их наездник является [Concept('ruler', 'правителем')|E], они остаются в его столице, в противном случае - в столице принимающей стороны наездника. Это происходит только если они не прикреплены к [Concept('army', 'армии')|E] или не используются для [Concept('travel', 'путешествий')|E].\n\nОни являются одним из трёх типов [Concept('dragon', 'драконов')|E]. Два других - это [Concept('wild_dragons', 'дикие')|E] и [Concept('owned_dragon', 'одомашненные')|E] драконы. Приручённые драконы, не содержащиеся в [Concept('dragonpit', 'драконьем логове')|E], становятся дикими после смерти наездника."
 
- game_concept_draconic_dread:0 "Драконий ужас"
- game_concept_draconic_dread_desc:0 "$game_concept_draconic_dread$ - это [dread|El], который внушает [dragon|El], а не его владелец. Он представляет собой внутренний страх, который это существо вселяет в сердца людей. В значительной степени отражая [dragons_size|El], он также может зависеть от его [Concept('personality', 'личности')|E] и поступков."
-
- game_concept_temperament:0 "Темперамент"
- game_concept_temperament_desc:0 "$game_concept_temperament$ - это общий нрав и отношение, которое проявляет [dragon|El]. Положительное значение указывает на более дружелюбного дракона, в то время как дракон с отрицательным темпераментом - более дикий и своенравный зверь. На темперамент дракона влияют его [education|El], [personality|El] и опыт."
-
- game_concept_taming_chance:0 "Шанс приручения"
- game_concept_taming_chance_desc:0 "$game_concept_taming_chance$ - это врождённая вероятность того, что [dragon|El] будет приручён и связан с кем-либо. Более высокий шанс приручения указывает на то, что дракон более восприимчив к взаимодействию с людьми, в то время как более низкий шанс приручения представляет собой дракона, которого с трудом смогут приручить все, кроме самых волевых. На шанс приручения дракона влияют его [education|El], [personality|El] и опыт."
-
  game_concept_dragon_size:0 "Размер дракона"
  game_concept_dragons_size:0 "Размер дракона"
  game_concept_dragon_size_desc:0 "$game_concept_dragon_size$ - это физический размер [Concept('dragon', 'дракона')|E]. Он представляет собой совокупность длины, размаха крыльев и веса дракона. Размер дракона сильно влияет на его [Concept('dragon_combat_effectiveness', 'боевую эффективность')|E], а также его [draconic_dread|El] и [taming_chance|El].\n\nДракон никогда не перестанет расти, но с возрастом темпы роста замедляются. Драконы, содержащиеся в искусственных [Concept('dragonpit', 'драконьих логовах')|E], будут расти медленнее, чем те, что растут на свободе или в [Concept('natural_dragonpit', 'естественных драконьих логовах')|E]."
+ game_concept_dragon_size_i:0 "@dragon_size_stat_icon!"
+ game_concept_dragon_size_lists_i:0 "@dragon_size_lists_icon! [Character.MakeScope.ScriptValue('dragon_size')|0]"
 
  game_concept_dragon_combat_effectiveness:0 "Боевая эффективность"
  game_concept_dragon_combat_effectiveness_desc:0 "$game_concept_dragon_combat_effectiveness$ - это показатель того, насколько эффективен [dragon|El] в бою. На него в основном влияет [dragons_size|El], но также могут влиять [traits|El] и опыт, которым обладает его [GetTrait('dragonrider').GetName(GetNullCharacter)|l]. Дракон с высокой боевой эффективностью будет более эффективен в бою."
+ game_concept_dragon_combat_effectiveness_num:0 "[Character.MakeScope.Var('current_dragon').Char.MakeScope.ScriptValue('dragon_combat_effectiveness')|0]"
+ game_concept_dragon_combat_effectiveness_i:0 "@dragon_combat_effectiveness_stat_icon!"
+ game_concept_dragon_combat_effectiveness_lists_i:0 "@dragon_combat_effectiveness_lists_icon!  [Character.MakeScope.ScriptValue('dragon_combat_effectiveness')|0]"
+
+ game_concept_draconic_dread:0 "Драконий ужас"
+ game_concept_draconic_dread_desc:0 "$game_concept_draconic_dread$ - это [dread|El], который внушает [dragon|El], а не его владелец. Он представляет собой внутренний страх, который это существо вселяет в сердца людей. В значительной степени отражая [dragons_size|El], он также может зависеть от его [Concept('personality', 'личности')|E] и поступков."
+ game_concept_draconic_dread_i:0 "@draconic_dread_stat_icon!"
+ game_concept_draconic_dread_lists_i:0 "@draconic_dread_lists_icon! [Character.MakeScope.ScriptValue('draconic_dread')|0]"
+
+ game_concept_temperament:0 "Темперамент"
+ game_concept_temperament_desc:0 "$game_concept_temperament$ - это общий нрав и отношение, которое проявляет [dragon|El]. Положительное значение указывает на более дружелюбного дракона, в то время как дракон с отрицательным темпераментом - более дикий и своенравный зверь. На темперамент дракона влияют его [education|El], [personality|El] и опыт."
+ game_concept_temperament_i:0 "@temperament_stat_icon!"
+ game_concept_temperament_lists_i:0 "@temperament_lists_icon! [Character.MakeScope.ScriptValue('temperament')|0]"
+
+ game_concept_taming_chance:0 "Шанс приручения"
+ game_concept_taming_chance_desc:0 "$game_concept_taming_chance$ - это врождённая вероятность того, что [dragon|El] будет приручён и связан с кем-либо. Более высокий шанс приручения указывает на то, что дракон более восприимчив к взаимодействию с людьми, в то время как более низкий шанс приручения представляет собой дракона, которого с трудом смогут приручить все, кроме самых волевых. На шанс приручения дракона влияют его [education|El], [personality|El] и опыт."
 
  game_concept_dragonpit:0 "Драконье логово"
  game_concept_dragonpits:0 "Драконьи логова"
@@ -258,13 +297,17 @@
  game_concept_host_govt_desc:0 "$game_concept_host_govt$ это не столько форма правления, сколько временное собрание людей, часто с определённой целью. Воинство не является постоянной [Concept('government', 'формой правления')|E], оно меняется или распускается, как только цель достигнута."
  game_concept_host_govt_i:0 "@host_government!"
 
+ game_concept_ruins_govt:0 "Руины"
+ game_concept_ruins_govt_desc:0 "$game_concept_ruins_govt$ - это неиграбельная форма правления, представляющая владения, которые пришли в упадок, и теперь за ними надзирают смотрители, пока они не будут восстановлены."
+ game_concept_ruins_govt_i:0 "@ruins_government!"
+
  game_concept_unknown_govt:0 "Неизвестно"
  game_concept_unknown_govt_desc:0 "$game_concept_unknown_govt$ - это неиграбельная форма правления, представляющая державы, которые находятся за пределами вашего дипломатического радиуса."
  game_concept_unknown_govt_i:0 "@unknown_government!"
 
- game_concept_ruins_govt:0 "Руины"
- game_concept_ruins_govt_desc:0 "$game_concept_ruins_govt$ - это неиграбельная форма правления, представляющая владения, которые пришли в упадок, и теперь за ними надзирают смотрители, пока они не будут восстановлены."
- game_concept_ruins_govt_i:0 "@ruins_government!"
+ game_concept_wilderness_govt:0 "Дебри"
+ game_concept_wilderness_govt_desc:0 "$game_concept_wilderness_govt$ - это неиграбельная форма правления, представляющая державы, которые не заселены или их население слишком малочисленно, чтобы создать правительство."
+ game_concept_wilderness_govt_i:0 "@wilderness_government!"
 
  game_concept_agot_spoils_of_war:0 "Военные трофеи"
  game_concept_agot_spoils_of_war_desc:0 "$game_concept_agot_spoils_of_war$ - это событие, которое может произойти после победы претендента над [Concept('title', 'титулом')|E] [Concept('empire', 'имперского')|E] уровня. Три участника войны с самым высоким значением, внесшие не менее 10% вклада, могут попросить у коронованного претендента определённую награду.\n\nК этим наградам относятся:\n$EFFECT_LIST_BULLET$#V Золото#!\n$EFFECT_LIST_BULLET$#V Место в Малом совете#!\n$EFFECT_LIST_BULLET$#V Королевский брак#!\n$EFFECT_LIST_BULLET$#V Принятие члена семьи в [Concept('kingsguard', 'Королевскую гвардию')|E]#!\n$EFFECT_LIST_BULLET$#V Титул верховного лордства#!"
