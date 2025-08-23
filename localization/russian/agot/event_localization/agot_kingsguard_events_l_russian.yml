@@ -43,7 +43,7 @@
  agot_kingsguard.1005.opening:0 "[kingsguard_candidate.Custom2('AppropriateGreeting', ROOT.Char)]"
  agot_kingsguard.1005.opening_desc:0 "Для меня будет честью служить среди славных рыцарей ордена [ROOT.Char.Custom('KingsguardName')]!"
  agot_kingsguard.1005.host_likes_me:0 "Надеюсь, вы прибудете, поскольку мне будет очень нехватать вашего присутствия."
- agot_kingsguard.1005.host_gets_along_with_me:0 "Как выдающийся [ROOT.Char.GetTitleTierName], для меня было бы честью Ваше присутствие."
+ agot_kingsguard.1005.host_gets_along_with_me:0 "Как [Select_CString(ROOT.Char.IsFemale, 'выдающаяся', 'выдающийся' )] [ROOT.Char.GetTitleAsNameNoTooltip], для меня было бы честью Ваше присутствие."
  agot_kingsguard.1005.host_dislikes_me:0 "Я жду каждого знаменитого воина, к сожалению, вас это тоже касается."
  agot_kingsguard.1005.a:0 "Вы прибудете в столицу, чтобы принести свои клятвы!"
 
@@ -57,7 +57,7 @@
  agot_kingsguard.1007.hate:0 "Да я скорее поцелую мёртвую свинью в гузно, чем буду служить вам!"
  agot_kingsguard.1007.a:0 "На этот раз найди мне тех, кто будет служить королевству!" 
  agot_kingsguard.1007.a.tt:0 "Вы найдёте новых рыцарей." 
- agot_kingsguard.1007.b:0 "Я [ROOT.Char.GetTitleTierName]! И [kingsguard_candidate.GetSheHe] отвергает меня?!"
+ agot_kingsguard.1007.b:0 "Я [ROOT.Char.GetTitleAsNameNoTooltip]! И [kingsguard_candidate.GetSheHe] отвергает меня?!"
 
  agot_kingsguard.1008.t:0 "Принесение клятв"
  agot_kingsguard.1008.desc:0 "[kingsguard_candidate.Custom2('MyCharacterIntroduction',ROOT.Char)|U] преклоняет передо мной колени, принося клятву отдать свою жизнь за меня, повиноваться моему слову, хранить доверие, говорить или держать язык за зубами по моему приказу, и защищать честь моего имени, моей династии, и моего трона. [kingsguard_candidate.GetSheHe|U] встаёт, и обязуется оберегать меня всеми [kingsguard_candidate.GetHerHis] силами и отдать свою жизнь за меня."
@@ -67,7 +67,7 @@
  agot_kingsguard.1009.desc.mad:0 "«Вы считаете, что можете действовать за моей спиной, назначив [family_member.Custom2('RelationToMeShort', kingsguard_candidate)] в вашу гвардию? Вы [ROOT.Char.Custom('InsultAdjective')] [ROOT.Char.Custom('InsultNoun')]!?» Мой [ROOT.Char.Custom2('DescriptorNegative', SCOPE.sC('family_member') )] [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('family_member'))] [family_member.GetName] обрушивается на меня после церемонии помазания рыцаря [kingsguard_candidate.GetNameNicknamedNoTooltip]. \n\n"
  agot_kingsguard.1009.desc.heir:0 "«Вы можете лишить меня наследника, но я этого не забуду.»"
 
- agot_kingsguard.1009.desc.glad:0 "«Я [Select_CString(family_member.IsFemale, 'должна', 'должен' )] поблагодарить вас, [Select_CString(ROOT.Char.IsFemale, 'моя', 'мой' )] [ROOT.Char.Custom('ComplimentAdjective')] [ROOT.Char.GetTitleTierName], за то, что оказали честь, позволив [family_member.Custom2('RelationToMeShort', kingsguard_candidate)] служить в рядах гвардии.» [Select_CString(family_member.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.Custom2('DescriptorPositive', SCOPE.sC('family_member') )] [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('family_member'))] [family_member.GetName] подходит ко мне после церемонии посвящения в ряды ордена [ROOT.Char.Custom('KingsguardName')], [kingsguard_candidate.GetFullName]" 
+ agot_kingsguard.1009.desc.glad:0 "«Я [Select_CString(family_member.IsFemale, 'должна', 'должен' )] поблагодарить вас, [Select_CString(ROOT.Char.IsFemale, 'моя', 'мой' )] [ROOT.Char.Custom('ComplimentAdjective')] [ROOT.Char.GetTitleAsNameNoTooltip], за то, что оказали честь, позволив [family_member.Custom2('RelationToMeShort', kingsguard_candidate)] служить в рядах гвардии.» [Select_CString(family_member.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.Custom2('DescriptorPositive', SCOPE.sC('family_member') )] [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('family_member'))] [family_member.GetName] подходит ко мне после церемонии посвящения в ряды ордена [ROOT.Char.Custom('KingsguardName')], [kingsguard_candidate.GetFullName]" 
 
  agot_kingsguard.1009.a.mad:0 "Я не [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] извиняться перед такими, как вы."
  agot_kingsguard.1009.a.glad:0 "Несомненно, защищать меня - это честь."
@@ -147,7 +147,7 @@
 
  agot_kingsguard.3004.t:0 "Дорогу [ROOT.Char.Custom('KingsguardName')|U]!"
  agot_kingsguard.3004.desc:0 "«Дорогу [ROOT.Char.Custom('KingsguardName')]!». Крик эхом раздался в конце тронного зала. Вы поворачиваетесь как раз вовремя, чтобы увидеть, как [marching_kingsguard.GetNameNicknamed], марширует с угрожающей скоростью, кричит на молодого [obstructing_brat.GetName], который стоит безмолвно у н[marching_kingsguard.GetHerHis] на пути. \n\nНамеренно или случайно, [obstructing_brat.GetName] не откликается. Ребёнок растоптан пятой гвардейца [ROOT.Char.Custom('KingsguardName')], кто проносится через [obstructing_brat.GetHerHis] всего лишь немного взглянул на ребёнка, как если бы [marching_kingsguard.GetSheHe] наступил в лужу.\n\nРаздавленный ботинком, [obstructing_brat.GetName] теперь лежит на полу дворца, стонет от боли, а [marching_kingsguard.GetName] марширует в мою сторону заступая в утренний дозор."
- agot_kingsguard.3004.a:0 "Никто не прерывает [ROOT.Char.Custom('KingsguardName')] в [ROOT.Char.GetTitleTierNamePossessive] делах."
+ agot_kingsguard.3004.a:0 "Никто не прерывает [ROOT.Char.Custom('KingsguardName')] в [ROOT.Char.GetTitleAsNamePossessiveNoTooltip] делах."
  agot_kingsguard.3004.b:0 "[marching_kingsguard.GetName], ты с ума сошёл?! Помоги [obstructing_brat.GetName] встать на ноги."
  agot_kingsguard.3004.c:0 "Отошлите ребенка к мейстеру."
  agot_kingsguard.3004.cure_toast:0 "Мейстер успешно лечит персонажа [obstructing_brat.GetName]"
@@ -182,7 +182,7 @@
  agot_kingsguard.3010.a:0 "Возможно, вы бы могли бы позировать для портрета, [strong_kingsguard.Custom('SisterBrother')]!"
 
  agot_kingsguard.3011.t:0 "Претендент на горизонте"
- agot_kingsguard.3011.desc:0 "Унылый день при дворе оживился, когда глашатай объявил о прибытии персонажа [challenger.GetFullName], который вошёл в тронный зал, одетый более подходяще для поле боя, чем для появления при дворе. «[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.Custom('FormalComplimentAdjective')] [ROOT.Char.GetTitleTierName]», - говорит [challenger.GetSheHe], когда я подзываю [challenger.GetHerHis]. «[ROOT.Char.Custom('KingsguardName')] - столп этого королевства. Но один червь защищает вас. [unworthy_kingsguard.Custom('InsultAdjective')] [unworthy_kingsguard.Custom('InsultNoun')] [unworthy_kingsguard.GetFullName] не имеет права бросать тень на вас!»\n[unworthy_kingsguard.GetFirstName] внезапно встаёт по стойке смирно, когда понимает, о ком идёт речь. «[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetTitleTierName], [ROOT.Char.Custom('KingsguardName')] - братство, скреплённое клятвами. Мы служим всю жизнь, моя кровь обязательно однажды прольётся за вас», заикается [unworthy_kingsguard.GetSheHe|l].\n\n«Это не проблема», - отвечает [challenger.GetName], [challenger.Custom('quirk_pos_pp')]. «Я с радостью освобожу вас от занимаемой должности.»"
+ agot_kingsguard.3011.desc:0 "Унылый день при дворе оживился, когда глашатай объявил о прибытии персонажа [challenger.GetFullName], который вошёл в тронный зал, одетый более подходяще для поле боя, чем для появления при дворе. «[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.Custom('FormalComplimentAdjective')] [ROOT.Char.GetTitleAsNameNoTooltip]», - говорит [challenger.GetSheHe], когда я подзываю [challenger.GetHerHis]. «[ROOT.Char.Custom('KingsguardName')] - столп этого королевства. Но один червь защищает вас. [unworthy_kingsguard.Custom('InsultAdjective')] [unworthy_kingsguard.Custom('InsultNoun')] [unworthy_kingsguard.GetFullName] не имеет права бросать тень на вас!»\n[unworthy_kingsguard.GetFirstName] внезапно встаёт по стойке смирно, когда понимает, о ком идёт речь. «[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetTitleTierName], [ROOT.Char.Custom('KingsguardName')] - братство, скреплённое клятвами. Мы служим всю жизнь, моя кровь обязательно однажды прольётся за вас», заикается [unworthy_kingsguard.GetSheHe|l].\n\n«Это не проблема», - отвечает [challenger.GetName], [challenger.Custom('quirk_pos_pp')]. «Я с радостью освобожу вас от занимаемой должности.»"
  agot_kingsguard.3011.a:0 "Пусть кто-нибудь другой охраняет мою дверь."
  agot_kingsguard.3011.a.challenger.toast:0 "[challenger.GetTitledFirstName] убивает персонажа [unworthy_kingsguard.GetTitledFirstName]"
  agot_kingsguard.3011.a.unworthy_kingsguard.toast:0 "[unworthy_kingsguard.GetTitledFirstName] убивает персонажа [challenger.GetTitledFirstName]"

@@ -1,0 +1,61 @@
+﻿l_russian:
+
+ COLONIZE:0 "Колонизировать"
+ COLONIZATION_ACTIONS:0 "Колонизация"
+ colonize_land:0 "Колонизировать"
+ colonize_land_cost_desc:0 "Вы потратите [gold_i]#high [GetPlayer.MakeScope.ScriptValue('colonize_cost_val')]#!\n[GetPlayer.MakeScope.GetScriptValueDesc('colonize_cost_val')]"
+ colonize_land_holding_desc:0 "Вы получите [Concept('settlement_holding', 'поселение')|E] во владении [wilderness.GetCounty.GetName]"
+
+ colonize_border_county_trigger_tooltip:0 "Вы должны граничить с [Concept('county', 'графством')|E] [Concept('wilderness', 'дебрей')|E] по суше или воде."
+ colonize_btw:0 "Вы должны граничить с [Concept('county', 'графством')|E] [Concept('wilderness', 'дебрей')|E] по суше или воде."
+
+ no_settlement_or_wilderness_counties:0 "В регионе [region_title.GetNameNoTier] нет [Concept('wilderness_holding', 'дебрей')|E] или [Concept('settlement_holding', 'поселений')|E]"
+
+ colonization_cost_over_water:0 "Стоимость заселения острова"
+ colonization_cost_count_tier:0 "[count|E]"
+ colonization_cost_duke_tier:0 "[duke|E]"
+ colonization_cost_king_tier:0 "[king|E]"
+ colonization_cost_emperor_tier:0 "[emperor|E]"
+ colonization_cost_lord_tier_over_hold_limit:0 "Количество [Concept( 'settlement_holdings', 'владений-поселений' )|E] превышает то, которым вы можете владеть без ограничений"
+ colonization_cost_blockers:0 "Количество [Concept('blockers', 'препятствий')|E]"
+ colonization_cooldown:0 "Вы не можете колонизировать другое графство до #color_white [GetCurrentDateWithDiff( GetVarTimeRemaining( GetPlayer.MakeScope, 'colonization_cooldown') )]#!."
+ colonization_started_title:0 "Колонизация начата!"
+
+ ##Feudalize Into Castle Holding
+ feudalize_into_castle_holding_interaction:0 "Феодализировать в замок"
+ feudalize_into_castle_holding_interaction_desc:0 "Уничтожить все [buildings|El] в этом [Concept( 'holdings', 'владении' )|E] и превратить его в [castle|El]."
+ feudalize_into_castle_holding_interaction_notification:0 "[barony|E] превращено в замковое [holding|El]"
+
+ ##Feudalize Into City Holding
+ feudalize_into_city_holding_interaction: "Феодализировать в город"
+ feudalize_into_city_holding_interaction_desc: "Уничтожить все [buildings|El] в этом [Concept( 'holdings', 'владении' )|E] и превратить его в [city|El]."
+ feudalize_into_city_holding_interaction_notification: "[barony|E] превращено в [Concept( 'city', 'городское' )|E] [holding|El]"
+
+ ##Feudalize Into Temple Holding
+ feudalize_into_temple_holding_interaction: "Феодализировать в храм"
+ feudalize_into_temple_holding_interaction_desc: "Уничтожить все [buildings|El] в этом [Concept( 'holdings', 'владении' )|E] и превратить его в [temple|El]."
+ feudalize_into_temple_holding_interaction_notification: "[barony|E] превращено в [Concept( 'temple', 'храмовое' )|E] [holding|El]"
+
+ ##Return Settlement Holding to Wilderness
+ return_settlement_county_to_wilderness: "Покинуть это [settlement_holding|El]"
+ return_settlement_county_to_wilderness_desc: "Уничтожить все [buildings|El] в этом [Concept( 'holdings', 'владении' )|E] и превратить его в [settlement_holding|El]."
+ return_settlement_county_to_wilderness_notification: "Заброшенное [settlement_holding|El]"
+
+ ##Tribalize Settlement Holding
+ tribalize_settlement_holding_interaction:0 "Заселить племя"
+ tribalize_settlement_holding_interaction_desc:0 "Уничтожить все [buildings|El] в этом [Concept( 'holdings', 'владении' )|E] и превратить его в [tribe|El]."
+ tribalize_settlement_holding_interaction_notification:0 "[barony|E] превращено в [tribal_holding|El]"
+
+ ##Destroy Holding
+ destroy_holding_interaction: "Уничтожить владение"
+ destroy_holding_interaction_desc: "Уничтожить это [holding|El]."
+ destroy_holding_interaction_notification: "Разрушенное [barony|El]"
+
+ tribalize_settlement_holding_interaction_title_not_county_or_below:0 "[title|E] не является [Concept('barony', 'баронством')|E]"
+ blockers_remain_in_settlement:0 "В этом [Concept( 'settlement_holding', 'поселении' )|E] всё ещё присутствуют [colonisation_blockers|El]"
+ one_or_fewer_blockers_remain_in_settlement:0 "Более чем один [colonisation_blocker|El] присутствует в этом [Concept( 'settlement_holding', 'поселении' )|El]"
+ two_or_fewer_blockers_remain_in_settlement:0 "Более двух [Concept( 'colonisation_blockers', 'препятствий для колонизации' )|E] присутствует в этом [Concept( 'settlement_holding', 'поселении' )|E]"
+ has_fully_upgraded_settlement_holding:0 "[building|E] [Concept( 'settlement_holding', 'поселения' )|El] не до конца улучшено"
+ NOT_MUST_NOT_HAVE_BLOCKERS_TRIGGER:0 "Провинция имеет одно или несколько [Concept( 'colonisation_blockers', 'препятствий для колонизации' )|E]"
+
+ settlement_holding_limit:0 "#size:18 #bold [ongoing_colonies|E]: [Character.MakeScope.Var('num_settled_wilderness').GetValue]/[Character.MakeScope.ScriptValue('settlement_title_tier_limit')] [Concept( 'holdings', 'владений' )|E]#!#!\nПоселение: [Character.MakeScope.Var('num_settled_wilderness').GetValue]\n\n#size:16 #italic [settlement_holding_limit|E]: #high [Character.MakeScope.ScriptValue('settlement_title_tier_limit')]#!#!#!\n[title_tier|E] основного титула: #P +[Character.MakeScope.ScriptValue('settlement_title_tier_limit')]#!"

@@ -89,7 +89,7 @@ window = {
 
 				coa_title_small = {
 					#AGOT Added
-					visible = "[And(ProvinceIsNotRuin, ProvinceIsNotUnknown)]"
+					visible = "[ProvinceIsNotHidden]"
 					datacontext = "[HoldingView.GetCountyTitle]"
 				}
 
@@ -500,7 +500,7 @@ window = {
 				datacontext = "[HoldingView.GetProvince.GetCountyCapitalProvince]"
 				layoutpolicy_horizontal = expanding
 				#AGOT Added
-				visible = "[And(ProvinceIsNotRuin, ProvinceIsNotUnknown)]"
+				visible = "[ProvinceIsNotHidden]"
 
 				background = {
 					using = Background_Area
@@ -1000,6 +1000,9 @@ window = {
 				minimumsize = { 0 320 }
 				margin = { 5 5 }
 
+				#AGOT Added
+				agot_county_view_settlement_buttons = {}
+
 				state = {
 					name = "holding_view_refresh"
 					next = a
@@ -1020,7 +1023,9 @@ window = {
 				}
 
 				background = {
-					visible = "[HoldingView.HasHolding]"
+					#AGOT Modified
+					#visible = "[HoldingView.HasHolding]"
+					visible = "[And(HoldingView.HasHolding, ProvinceIsNotWilderness)]"
 					texture = "[HoldingView.GetHolding.GetIllustration]"
 					alpha = 0.8
 
@@ -1034,7 +1039,9 @@ window = {
 				}
 
 				background = {
-					visible = "[Not(HoldingView.HasHolding)]"
+					#AGOT Modified
+					#visible = "[Not(HoldingView.HasHolding)]"
+					visible = "[Or(Not(HoldingView.HasHolding), Not(ProvinceIsNotWilderness))]"
 					texture = "[HoldingView.GetProvince.GetTerrain.GetIllustration]"
 					alpha = 0.7
 
@@ -1224,7 +1231,7 @@ window = {
 										datacontext = "[HoldingView.GetProvince]"
 										#AGOT Modified
 										# visible = "[HoldingStatus.IsTerrainType]"
-										visible = "[And(HoldingStatus.IsTerrainType, And(ProvinceIsNotRuin, ProvinceIsNotUnknown))]"
+										visible = "[And(HoldingStatus.IsTerrainType, ProvinceIsNotHidden)]"
 
 										texture = "[Terrain.GetIcon]"
 										size = { 35 35 }
@@ -1356,7 +1363,7 @@ window = {
 										datacontext = "[HoldingStatus.GetTimedModifier]"
 										#AGOT Modified
 										# visible = "[HoldingStatus.IsTimedModifier]"
-										visible = "[And(HoldingStatus.IsTimedModifier, And(ProvinceIsNotRuin, ProvinceIsNotUnknown))]"
+										visible = "[And(HoldingStatus.IsTimedModifier, ProvinceIsNotHidden)]"
 										ignoreinvisible = yes
 
 										modifier_item_icon = {
@@ -1379,7 +1386,7 @@ window = {
 					vbox = {
 						layoutpolicy_vertical = expanding
 						#AGOT Added
-						visible = "[And(ProvinceIsNotRuin, ProvinceIsNotUnknown)]"
+						visible = "[ProvinceIsNotHidden]"
 
 						margin = { 15 0 }
 						margin_bottom = 10
@@ -1545,6 +1552,8 @@ window = {
 							name = "construct_holding"
 							size = { 300 50 }
 							text = "CREATE_NEW_HOLDING_BUTTON"
+							#AGOT Added
+							visible = "[And(ProvinceIsNotWilderness, CapitalTypeIsNotWilderment)]"
 
 							enabled = "[And(HoldingView.CanNewHoldingBeConstructed, Not(HoldingView.IsSelectingHoldingType))]"
 							onclick = "[HoldingView.OnConstructHoldingClick]"
@@ -1594,13 +1603,18 @@ window = {
 					}
 				}
 
+				#AGOT Added
+				agot_county_view_colonize_button = {}
+
 				hbox = {
 					layoutpolicy_horizontal = expanding
 					allow_outside = yes
 
 					### BOTTOM LEFT
 					background = {
-						visible = "[And(NotEqualTo_uint32( HoldingView.GetCountyTitle.GetHolder.GetID, HoldingView.GetTitle.GetLesseeOrHolder.GetID ), HoldingView.GetTitle.HasHolder)]"
+						#AGOT Modified
+						# visible = "[And(NotEqualTo_uint32( HoldingView.GetCountyTitle.GetHolder.GetID, HoldingView.GetTitle.GetLesseeOrHolder.GetID ), HoldingView.GetTitle.HasHolder)]"
+						visible = "[And(ProvinceIsNotHidden, And(NotEqualTo_uint32( HoldingView.GetCountyTitle.GetHolder.GetID, HoldingView.GetTitle.GetLesseeOrHolder.GetID ), HoldingView.GetTitle.HasHolder))]"
 
 						texture = "gfx/interface/component_masks/patterns/mask_pattern_02.dds"
 						spriteType = Corneredtiled
@@ -1668,15 +1682,15 @@ window = {
 
 							widget = {
 								datacontext = "[HoldingView.GetTitle.GetLesseeOrHolder]"
-								visible = "[And( NotEqualTo_uint32( HoldingView.GetCountyTitle.GetHolder.GetID, HoldingView.GetProvince.GetTitle.GetLesseeOrHolder.GetID ), HoldingView.GetTitle.HasHolder )]"
+								#AGOT Modified
+								# visible = "[And( NotEqualTo_uint32( HoldingView.GetCountyTitle.GetHolder.GetID, HoldingView.GetProvince.GetTitle.GetLesseeOrHolder.GetID ), HoldingView.GetTitle.HasHolder )]"
+								visible = "[And(ProvinceIsNotHidden, And( NotEqualTo_uint32( HoldingView.GetCountyTitle.GetHolder.GetID, HoldingView.GetProvince.GetTitle.GetLesseeOrHolder.GetID ), HoldingView.GetTitle.HasHolder ))]"
 								allow_outside = yes
 								size = { 85 90 }
 
 								text_single = {
 									datacontext = "[HoldingView.GetTitle]"
-									#AGOT Modified
-									#visible = "[Not(Title.IsLeasedOut)]"
-									visible = "[And(Not(Title.IsLeasedOut), And(ProvinceIsNotRuin, ProvinceIsNotUnknown))]"
+									visible = "[Not(Title.IsLeasedOut)]"
 									layoutpolicy_horizontal = expanding
 									parentanchor = top|left
 									position = { 0 -22 }
@@ -1793,6 +1807,7 @@ window = {
 						widget_building_item = {
 							name = "special_building_no_others"
 							datacontext = "[HoldingView.GetGUISpecialBuilding]"
+							#AGOT Modified
 							# visible = "[And(HoldingView.HasSpecialBuildingSlot, HoldingView.GetHolding.GetType.HasParameter('no_buildings'))]"
 							visible = "[And(And(HoldingView.HasSpecialBuildingSlot, HoldingView.GetHolding.GetType.HasParameter('no_buildings')), ProvinceIsNotUnknown)]"
 
@@ -1828,7 +1843,7 @@ window = {
 								#AGOT Disabled; This removes the ability to swap out disabled buildings
 								# enabled = "[GUIBuildingItem.IsBuildingButtonEnabled]"
 								#AGOT Added
-								visible = "[ProvinceIsNotUnknown]"
+								visible = "[And(ProvinceIsNotUnknown, ProvinceIsNotWilderness)]"
 
 								tooltip = "[GUIBuildingItem.GetTooltip]"
 
@@ -1850,7 +1865,7 @@ window = {
 										widget = {
 											size = { 50 40 }
 											#AGOT Added
-											visible = "[And(ProvinceIsNotRuin, ProvinceIsNotUnknown)]"
+											visible = "[ProvinceIsNotRuin]"
 
 											tooltip = "[HoldingView.GetGarrisonTooltip]"
 
@@ -1901,7 +1916,7 @@ window = {
 												spacing = 3
 												tooltip = "[Province.GetFortLevelTooltip]"
 												#AGOT Added
-												visible = "[And(ProvinceIsNotRuin, ProvinceIsNotUnknown)]"
+												visible = "[ProvinceIsNotRuin]"
 
 												icon = {
 													name = "icon_fort"
@@ -2047,7 +2062,9 @@ window = {
 									widget_building_item = {
 										name = "duchy_capital_building"
 										datacontext = "[HoldingView.GetGUIDuchyCapitalBuilding]"
-										visible = "[HoldingView.HasDuchyCapitalBuildingSlot]"
+										#AGOT Modified
+										# visible = "[HoldingView.HasDuchyCapitalBuildingSlot]"
+										visible = "[And(HoldingView.HasDuchyCapitalBuildingSlot, ProvinceIsNotWilderness)]"
 
 										button_standard = {
 											size = { 100% 100% }
@@ -2065,7 +2082,9 @@ window = {
 									widget_building_item = {
 										name = "special_building"
 										datacontext = "[HoldingView.GetGUISpecialBuilding]"
-										visible = "[HoldingView.HasSpecialBuildingSlot]"
+										#AGOT Modified
+										# visible = "[HoldingView.HasSpecialBuildingSlot]"
+										visible = "[And(HoldingView.HasSpecialBuildingSlot, ProvinceIsNotWilderness)]"
 
 										button_standard = {
 											size = { 100% 100% }
