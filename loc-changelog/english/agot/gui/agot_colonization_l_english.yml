@@ -1,0 +1,61 @@
+﻿l_english:
+
+ COLONIZE:0 "Colonize"
+ COLONIZATION_ACTIONS:0 "Colonization"
+ colonize_land:0 "Colonize"
+ colonize_land_cost_desc:0 "You spend [gold_i]#high [GetPlayer.MakeScope.ScriptValue('colonize_cost_val')]#!\n[GetPlayer.MakeScope.GetScriptValueDesc('colonize_cost_val')]"
+ colonize_land_holding_desc:0 "You gain a [settlement_holding|E] in [wilderness.GetCounty.GetName]"
+
+ colonize_border_county_trigger_tooltip:0 "You must border the [wilderness|E] [county|E] by land or sea."
+ colonize_btw:0 "You must border the [wilderness|E] [county|E] by land."
+
+ no_settlement_or_wilderness_counties:0 "No holdings in [region_title.GetNameNoTier] are [wilderness_holding|E] or [settlement_holding|E]"
+
+ colonization_cost_over_water:0 "Cost from settling an island"
+ colonization_cost_count_tier:0 "[count|E]"
+ colonization_cost_duke_tier:0 "[duke|E]"
+ colonization_cost_king_tier:0 "[king|E]"
+ colonization_cost_emperor_tier:0 "[emperor|E]"
+ colonization_cost_lord_tier_over_hold_limit:0 "Number of [settlement_holdings|E] exceeds what you can comfortably hold"
+ colonization_cost_blockers:0 "Number of [blockers|E]"
+ colonization_cooldown:0 "You cannot colonize another county until #color_white [GetCurrentDateWithDiff( GetVarTimeRemaining( GetPlayer.MakeScope, 'colonization_cooldown') )]#!."
+ colonization_started_title:0 "Colonization Started!"
+
+ ##Feudalize Into Castle Holding
+ feudalize_into_castle_holding_interaction:0 "Feudalize into a Castle"
+ feudalize_into_castle_holding_interaction_desc:0 "Destroy all [buildings|E] in this [holding|E] and convert it into a [castle|E]."
+ feudalize_into_castle_holding_interaction_notification:0 "Converted [barony|E] into a Castle [holding|E]"
+
+ ##Feudalize Into City Holding
+ feudalize_into_city_holding_interaction:0 "Feudalize into a City"
+ feudalize_into_city_holding_interaction_desc:0 "Destroy all [buildings|E] in this [holding|E] and convert it into a [city|E]."
+ feudalize_into_city_holding_interaction_notification:0 "Converted [barony|E] into a [city|E] [holding|E]"
+
+ ##Feudalize Into Temple Holding
+ feudalize_into_temple_holding_interaction:0 "Feudalize into a Temple"
+ feudalize_into_temple_holding_interaction_desc:0 "Destroy all [buildings|E] in this [holding|E] and convert it into a [temple|E]."
+ feudalize_into_temple_holding_interaction_notification:0 "Converted [barony|E] into a [temple|E] [holding|E]"
+
+ ##Return Settlement Holding to Wilderness
+ return_settlement_county_to_wilderness:0 "Abandon this [settlement_holding|E]"
+ return_settlement_county_to_wilderness_desc:0 "Destroy all [buildings|E] in this [holding|E] and revert it into a [wilderness_holding|E]."
+ return_settlement_county_to_wilderness_notification:0 "Abandoned [settlement_holding|E]"
+
+ ##Tribalize Settlement Holding
+ tribalize_settlement_holding_interaction:0 "Settle Tribe"
+ tribalize_settlement_holding_interaction_desc:0 "Destroy all [buildings|E] in this [holding|E] and settle it as a [tribe|E]."
+ tribalize_settlement_holding_interaction_notification:0 "Converted [barony|E] into a [tribal_holding|E]"
+
+ ##Destroy Holding
+ destroy_holding_interaction:0 "Destroy Holding"
+ destroy_holding_interaction_desc:0 "Destroy this [holding|E]."
+ destroy_holding_interaction_notification:0 "Destroyed [barony|E]."
+
+ tribalize_settlement_holding_interaction_title_not_county_or_below:0 "[title|E] is not a [barony|E]"
+ blockers_remain_in_settlement:0 "[colonization_blockers|E] still remain in this [settlement_holding|E]"
+ one_or_fewer_blockers_remain_in_settlement:0 "More than one [colonization_blocker|E] remains in this [settlement_holding|E]"
+ two_or_fewer_blockers_remain_in_settlement:0 "More than two [colonization_blockers|E] remain in this [settlement_holding|E]"
+ has_fully_upgraded_settlement_holding:0 "The [settlement_holding|E] [building|E] is not fully upgraded"
+ NOT_MUST_NOT_HAVE_BLOCKERS_TRIGGER:0 "Province contains one or more [colonization_blockers|E]"
+
+ settlement_holding_limit:0 "#size:18 #bold [ongoing_colonies|E]: [Character.MakeScope.Var('num_settled_wilderness').GetValue]/[Character.MakeScope.ScriptValue('settlement_title_tier_limit')] [holdings|E]#!#!\nSettlement: [Character.MakeScope.Var('num_settled_wilderness').GetValue]\n\n#size:16 #italic [settlement_holding_limit|E]: #high [Character.MakeScope.ScriptValue('settlement_title_tier_limit')]#!#!#!\nPrimary Title [title_tier|E]: #P +[Character.MakeScope.ScriptValue('settlement_title_tier_limit')]#!"

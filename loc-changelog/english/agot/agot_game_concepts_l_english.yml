@@ -48,6 +48,18 @@
  game_concept_unknown_holdings:0 "Unknown Holdings"
  game_concept_unknown_holding_desc:0 "The holding of this realm is unknown, as it lies beyond the reach of your diplomatic sight."
 
+ game_concept_wilderness_holding:0 "Wilderness"
+ game_concept_wilderness:0 "Wilderness"
+ game_concept_wilderness_desc:0 "A wide and empty land, unclaimed and very sparsely populated."
+ game_concept_wilderness_holdings:0 "Wilderness Holdings"
+ game_concept_wilderness_holding_desc:0 "Wilderness Holdings are entirely unproductive and must be replaced by a [settlement_holding|E] during [colonization|E] to unlock their potential."
+
+ game_concept_settlement_holding:0 "Settlement"
+ game_concept_settlement:0 "Settlement"
+ game_concept_settlements:0 "Settlements"
+ game_concept_settlement_holdings:0 "Settlement Holdings"
+ game_concept_settlement_holding_desc:0 "Settlement Holdings represent the small outposts, towns, and colonies established as part of the [colonization|E] process.\n\nThey are less productive than other [holding_types|E], but clearing all [colonization_blockers|E] and increasing [county_development|E] will allow their productivity to grow, eventually enabling them to be converted into a standard [holding|E]."
+
  game_concept_ruin_holding:0 "Ruin"
  game_concept_ruin_holding_desc:0 "A holding which has been long forgotten and abandoned, a mere shadow of its former self. One may begin the [reconstruction_effort|E] by interacting with the ruin itself."
  game_concept_ruin:0 "Ruin"
@@ -61,6 +73,24 @@
  game_concept_reconstruction_desc:0 "Through upgrading a ruin's [buildings|E], a ruin may be rebuilt back into a proper holding, though the process of doing so is long and ardous.\n\nTo begin the reconstruction, click on the ruin character which holds the ruin, which will take you to another window. There, click on the 'Restore Ruins' button."
  game_concept_reconstruction_effort:0 "Ruin Reconstruction"
  game_concept_reconstruction_effort_desc:0 "Through upgrading a ruin's [buildings|E], a ruin may be rebuilt back into a proper holding, though the process of doing so is long and ardous.\n\nTo begin the reconstruction, click on the ruin character which holds the ruin, which will take you to another window. There, click on the 'Restore Ruins' button."
+
+ game_concept_colonization:0 "Colonization"
+ game_concept_colonize:0 "Colonize"
+ game_concept_colony:0 "Colony"
+ game_concept_colonization_desc:0 "Colonization is how an [independent_ruler|E] expands their [realm|E] into neighboring [wilderness|E] [counties|E].\n\nAfter an initial investment of [gold|E], a [settlement_holding|E] can be established, bringing the [county|E] into their [domain|E]. Initially, this settlement will be unproductive and unable to build standard [buildings|E] in the [holding|E]. Instead, time and [gold|E] must be invested to increase [development|E] in the new settlement and clear any [colonization_blockers|E] that exist.\n\nOnce all blockers have been cleared, the [settlement_holding|E] is fully upgraded, and the colony has reached a [county_development|E] of three or greater, the settlement can be converted into a standard [holding|E]."
+
+ game_concept_colonization_blocker:0 "Colonization Blocker"
+ game_concept_colonization_blockers:0 "Colonization Blockers"
+ game_concept_blockers:0 "Blockers"
+ game_concept_colonization_blocker_desc:0 "Colonization Blockers are [buildings|E] in [wilderness|E] [counties|E] that represent obstacles to the [colonization|E] of the area.\n\nThese blockers apply negative [modifiers|E] to the county, reducing its productivity and preventing it from being converted into a standard [holding|E]."
+
+ game_concept_ongoing_colonies:0 "Ongoing Colonies"
+ game_concept_settlement_holding_limit:0 "Settlement Limit"
+ game_concept_settlement_holding_limit_i:0 "@hud_wilderness! [Character.MakeScope.Var('num_settled_wilderness').GetValue]/[Character.MakeScope.ScriptValue('settlement_title_tier_limit')|0]"
+ game_concept_settlement_holding_limit_desc:0 "The number of settlements a [ruler|E] can hold at any given point in time is determined by their title tier.\n\n$EFFECT_LIST_BULLET$A #bold [count|E] #!can hold a maximum of 1 [settlement_holding|E] without incurring [additional_settlement_upkeep|E].\n\n$EFFECT_LIST_BULLET$A #bold [duke|E] #!can hold a maximum of 2 [settlement_holdings|E] without incurring [additional_settlement_upkeep|E].\n\n$EFFECT_LIST_BULLET$A #bold [king|E] #!can hold a maximum of 3 [settlement_holdings|E] without incurring [additional_settlement_upkeep|E].\n\n$EFFECT_LIST_BULLET$An #bold [emperor|E] #!can hold a maximum of 4 [settlement_holdings|E] without incurring [additional_settlement_upkeep|E]."
+
+ game_concept_additional_settlement_upkeep:0 "Additional Upkeep"
+ game_concept_additional_settlement_upkeep_desc:0 "Additional upkeep refers to the monthly income reduction due to holding too many [settlement_holdings|E].\n\nRulers can #V abandon#! their settlement holdings if the upkeep starts to ruin the economy of the [realm|E]."
 
  game_concept_bastard_house:0 "Bastard Branch"
  game_concept_bastard_branch:0 "Bastard Branch"
@@ -112,21 +142,30 @@
  game_concept_tamed_dragons:0 "Tamed Dragons"
  game_concept_tamed_dragon_desc:0 "$game_concept_tamed_dragons$ are dragons that have been tamed by a [GetTrait('dragonrider').GetName(GetNullCharacter)]. If their rider is a [ruler|E] they will remain in their capital, else they will remain in their rider's employer's capital. That is, unless they are in an [army|E] or being used to [travel|E].\n\nThey are one of the three types of [dragon|E]. The other two are [wild_dragons|E] and [owned_dragons|E]. Tamed dragons will become wild if their rider dies while they are not kept in a [dragonpit|E]."
 
- game_concept_draconic_dread:0 "Draconic Dread"
- game_concept_draconic_dread_desc:0 "$game_concept_draconic_dread$ is the [dread|E] that a [dragon|E], rather than a ruler, possesses. It represents the intrinsic fear that the creature strikes into the hearts of men. While largely reflecting the [dragons_size|E], it can also be affected by its [personality|E] and deeds."
-
- game_concept_temperament:0 "Temperament"
- game_concept_temperament_desc:0 "$game_concept_temperament$ is the general disposition and attitude that a [dragon|E] displays. Positive values indicate a more sociable dragon, while a dragon with a negative temperament is a more wild and willful beast. A dragon's temperament will be affected by their [education|E], [personality|E], and experiences."
-
- game_concept_taming_chance:0 "Taming Chance"
- game_concept_taming_chance_desc:0 "$game_concept_taming_chance$ is the innate likelihood of a [dragon|E] to be tamed and bonded with. A higher taming chance indicates a dragon more susceptible to human interaction, while a lower taming chance represents a dragon that all but the strongest wills will struggle to tame. A dragon's taming chance will be affected by their [education|E], [personality|E], and experiences."
-
  game_concept_dragon_size:0 "Dragon Size"
  game_concept_dragons_size:0 "Dragon's Size"
  game_concept_dragon_size_desc:0 "$game_concept_dragon_size$ is the physical size of a [dragon|E]. It is a collective measure of the dragon's length, wingspan, and weight. A dragon's size will greatly affect its [dragon_combat_effectiveness|E] as well as its [draconic_dread|E] and [taming_chance|E].\n\nA dragon will never stop growing, but the rate at which they do so will slow as they age. Dragons kept in a man-made [dragonpit|E] will grow slower than those that grow in the wild or in a [natural_dragonpit|E]."
+ game_concept_dragon_size_i:0 "@dragon_size_stat_icon!"
+ game_concept_dragon_size_lists_i:0 "@dragon_size_lists_icon! [Character.MakeScope.ScriptValue('dragon_size')|0]"
 
  game_concept_dragon_combat_effectiveness:0 "Combat Effectiveness"
  game_concept_dragon_combat_effectiveness_desc:0 "$game_concept_dragon_combat_effectiveness$ is a measure of how effective a [dragon|E] is in combat. It is largely affected by the [dragons_size|E], but may be influenced by [traits|E] and the experience of its [GetTrait('dragonrider').GetName(GetNullCharacter)]. A dragon with high combat effectiveness will be more effective in battle."
+ game_concept_dragon_combat_effectiveness_num:0 "[Character.MakeScope.Var('current_dragon').Char.MakeScope.ScriptValue('dragon_combat_effectiveness')|0]"
+ game_concept_dragon_combat_effectiveness_i:0 "@dragon_combat_effectiveness_stat_icon!"
+ game_concept_dragon_combat_effectiveness_lists_i:0 "@dragon_combat_effectiveness_lists_icon!  [Character.MakeScope.ScriptValue('dragon_combat_effectiveness')|0]"
+
+ game_concept_draconic_dread:0 "Draconic Dread"
+ game_concept_draconic_dread_desc:0 "$game_concept_draconic_dread$ is the [dread|E] that a [dragon|E], rather than a ruler, possesses. It represents the intrinsic fear that the creature strikes into the hearts of men. While largely reflecting the [dragons_size|E], it can also be affected by its [personality|E] and deeds."
+ game_concept_draconic_dread_i:0 "@draconic_dread_stat_icon!"
+ game_concept_draconic_dread_lists_i:0 "@draconic_dread_lists_icon! [Character.MakeScope.ScriptValue('draconic_dread')|0]"
+
+ game_concept_temperament:0 "Temperament"
+ game_concept_temperament_desc:0 "$game_concept_temperament$ is the general disposition and attitude that a [dragon|E] displays. Positive values indicate a more sociable dragon, while a dragon with a negative temperament is a more wild and willful beast. A dragon's temperament will be affected by their [education|E], [personality|E], and experiences."
+ game_concept_temperament_i:0 "@temperament_stat_icon!"
+ game_concept_temperament_lists_i:0 "@temperament_lists_icon! [Character.MakeScope.ScriptValue('temperament')|0]"
+
+ game_concept_taming_chance:0 "Taming Chance"
+ game_concept_taming_chance_desc:0 "$game_concept_taming_chance$ is the innate likelihood of a [dragon|E] to be tamed and bonded with. A higher taming chance indicates a dragon more susceptible to human interaction, while a lower taming chance represents a dragon that all but the strongest wills will struggle to tame. A dragon's taming chance will be affected by their [education|E], [personality|E], and experiences."
 
  game_concept_dragonpit:0 "Dragonpit"
  game_concept_dragonpits:0 "Dragonpits"
@@ -258,13 +297,17 @@
  game_concept_host_govt_desc:0 "The $game_concept_host_govt$ is less of a government and more of a temporary gathering of people, often for a specific purpose. The host is not a permanent [government|E], and will change or disband once the purpose is fulfilled."
  game_concept_host_govt_i:0 "@host_government!"
 
+ game_concept_ruins_govt:0 "Ruin"
+ game_concept_ruins_govt_desc:0 "The $game_concept_ruins_govt$ is a nonplayable government representing realms that have fallen into ruin and are now tended by Wardens until they can be restored."
+ game_concept_ruins_govt_i:0 "@ruins_government!"
+
  game_concept_unknown_govt:0 "Unknown"
  game_concept_unknown_govt_desc:0 "The $game_concept_unknown_govt$ is a nonplayable government representing realms that are beyond the bounds of your diplomatic range."
  game_concept_unknown_govt_i:0 "@unknown_government!"
 
- game_concept_ruins_govt:0 "Ruin"
- game_concept_ruins_govt_desc:0 "The $game_concept_ruins_govt$ is a nonplayable government representing realms that have fallen into ruin and are now tended by Wardens until they can be restored."
- game_concept_ruins_govt_i:0 "@ruins_government!"
+ game_concept_wilderness_govt:0 "Wilderness"
+ game_concept_wilderness_govt_desc:0 "The $game_concept_wilderness_govt$ is a nonplayable government representing realms that are uninhabited or too sparsely populated to maintain a government."
+ game_concept_wilderness_govt_i:0 "@wilderness_government!"
 
  game_concept_agot_spoils_of_war:0 "Spoils of War"
  game_concept_agot_spoils_of_war_desc:0 "$game_concept_agot_spoils_of_war$ is an event that can fire following a claimant's victory over an [empire|E] tier [title|e]. The top 3 war attackers who achieved a minimum 10% war score may request certain boons from the newly crowned claimant.\n\nThese boons include:\n$EFFECT_LIST_BULLET$#V Gold#!\n$EFFECT_LIST_BULLET$#V A small council position#!\n$EFFECT_LIST_BULLET$#V A royal marriage#!\n$EFFECT_LIST_BULLET$#V Place a family member into the [kingsguard|E]#!\n$EFFECT_LIST_BULLET$#V A lord paramountcy#!"
