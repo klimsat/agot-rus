@@ -12,6 +12,8 @@
  CONVINCING_PERK:1 "Убедительность: $VALUE|=+0$"
  CHARISMATIC_PERK:1 "Харизма: $VALUE|=+0$"
 
+ HISTORICAL_NOT_ADMIN_REASON: "Историческое [recipient.GetCulture.GetHeritage.GetNameNoTooltip|l]ое презрение к [Concept('administrative', 'бюрократической')|E] [Concept('government', 'форме правления')|E]: $VALUE|=+0$"
+
  AGOT_LEGITIMATE_HOUSE_MARRIAGE_GOOD:0 "[secondary_actor.GetFirstName] является членом соответствующего [Concept('agot_legitimate_house', 'законного дома')|E]: $VALUE|=+0$"
  AGOT_LEGITIMATE_HOUSE_MARRIAGE_GOOD_OWN:0 "Вы являетесь членом соответствующего [Concept('agot_legitimate_house', 'законного дома')|E]: $VALUE|=+0$"
  AGOT_POSSIBLE_HEIR_REASON:0 "[secondary_recipient.GetShortUIName|U] находится в линии наследования: $VALUE|=+0$"
@@ -41,3 +43,7 @@
  AGOT_DIVIDED_DYNASTY_MARRIAGE_REASON:0 "Ваши [Concept('houses', 'дома')|E] разделяет [GetModifier('divided_dynasty_house_modifier').GetNameWithTooltip]: $VALUE|=+0$"
  agot_grant_title_blocked:0 "Вы не можете передать этот [Concept('title', 'титул')|E]"
  AGOT_IS_DWARF:0 "[secondary_actor.GetFirstName] является карликом: $VALUE|=+0$"
+
+ grant_only_one_settlement_at_a_time:0 "#N #italic Одновременно может быть даровано только одно [Concept('settlement_holding', 'поселение')|E]#!#!\n"
+ recipient_at_settlement_limit:0 "#N #italic [recipient.GetShortUINameNotMe] [Select_CString(recipient.IsFemale, 'достигла', 'достиг' )] [Concept('settlement_holding_limit', 'предела поселений')|E]#!#!\n"
+ recipient_needs_to_border_settlement_county:0 "#N #italic [recipient.GetShortUINameNotMe] [Select_CString(recipient.IsFemale, 'должна', 'должен' )] граничить с графством поселения, которое [Select_CString(recipient.IsFemale, 'она', 'он' )] получит#!#!\n"
