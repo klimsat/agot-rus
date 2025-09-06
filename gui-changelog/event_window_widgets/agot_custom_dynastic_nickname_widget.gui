@@ -1,0 +1,30 @@
+vbox = {
+	name = "agot_custom_dynastic_nickname_widget"
+	layoutpolicy_horizontal = expanding
+	margin = { 5 0 }
+	spacing = 10
+	minimumsize = { 220 -1 }
+	margin_right = 70
+	margin_left = -50
+
+	editbox_standard_with_label = {
+		layoutpolicy_horizontal = expanding
+		blockoverride "editbox_properties"
+		{
+			name = "enter_text"
+			ontextedited = "[EventWindowWidgetEnterText.OnEdit]"
+			ontextedited = "[GetVariableSystem.Set('agot_options_enabled', 'yes')]"
+			state = {
+				name = optionEnabledState
+				onclick = "[GetVariableSystem.Clear( 'agot_options_enabled' )]"
+			}
+		}
+
+		blockoverride "editbox_label"
+		{
+			text = event_window_widget_enter_text_prompt
+		}
+	}
+
+	expand = {}
+}
