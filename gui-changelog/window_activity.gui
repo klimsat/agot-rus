@@ -1687,11 +1687,46 @@ types ActivityWindowTypes
 						addcolumn = 420
 						addrow = 42
 						datamodel = "[EventWindowData.GetOptions]"
+						visible = "[LessThan_int32( GetDataModelSize(EventWindowData.GetOptions), '(int32)7' )]"
 						alwaystransparent = no
 						layoutpolicy_horizontal = expanding
 
 						item = {
 							button_eventoption = {
+								blockoverride "option_tooltip_position" {}
+
+								blockoverride "onmousehierarchy_callbacks"
+								{
+									onmousehierarchyenter = "[EventWindowViewInsert.OnMouseEnterOption( EventOption.Self )]"
+									onmousehierarchyleave = "[EventWindowViewInsert.OnMouseLeaveOption]"
+								}
+							}
+						}
+					}
+
+					fixedgridbox = {
+						size = { 480 500 }
+						datamodel_wrap = 2
+						flipdirection = yes
+						addcolumn = 240
+						addrow = 46
+						datamodel = "[EventWindowData.GetOptions]"
+						visible = "[GreaterThanOrEqualTo_int32( GetDataModelSize(EventWindowData.GetOptions), '(int32)7' )]"
+						alwaystransparent = no
+						layoutpolicy_horizontal = expanding
+
+						item = {
+							button_eventoption = {
+								background = {
+									using = Background_Area_Dark
+									using = Mask_Rough_Edges
+									margin = { 8 8 }
+									alpha = 0.5
+								}
+								blockoverride "button_size" {
+									size = { 224 36 }
+								}
+
 								blockoverride "option_tooltip_position" {}
 
 								blockoverride "onmousehierarchy_callbacks"
