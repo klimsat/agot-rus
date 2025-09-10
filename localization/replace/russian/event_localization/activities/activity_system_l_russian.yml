@@ -85,13 +85,12 @@
 
  #AGOT Modified, fixing Paradox oops
  #activity_system.0310.desc.intro: "Звук рогов, зовущий на войну, долетел даже в место под названием [target_activity_location.GetName], где проводится [target_activity_type.GetNameNoTooltip], что устраивает [target_activity_host.GetPossessiveNameRegnal|U] и где участвую я. [attacker.GetTitledFirstName|U] и [defender.GetTitledFirstName|U] вступили в войну, и меня призывают принять в ней участие."
- activity_system.0310.desc.intro: "Звук рогов, зовущий на войну, долетел даже в место под названием [target_activity_location.GetName], где проводится [target_activity_type.GetNameNoTooltip], что устраивает [target_activity_host.GetNamePossessiveRegnal|U] и где участвую я. [attacker.GetTitledFirstName|U] и [defender.GetTitledFirstName|U] вступили в войну, и меня призывают принять в ней участие."
+ activity_system.0310.desc.intro: "Звук рогов, зовущий на войну, долетел даже в место под названием [target_activity_location.GetName], где проводится [target_activity_type.GetNameNoTooltip], что устраивает [target_activity_host.GetNamePossessive|U] и где участвую я. [attacker.GetTitledFirstName|U] и [defender.GetTitledFirstName|U] вступили в войну, и меня призывают принять в ней участие."
  activity_system.0310.a.tt: "Вы продолжаете участвовать в занятии [target_activity_type.GetNameNoTooltip]"
  activity_system.0310.b.tt: "Вы прекращаете участвовать в занятии [target_activity_type.GetNameNoTooltip] и отправляетесь домой"
  
  activity_system.0320.t: "Неожиданный исход"
- activity_system.0320.desc:1 "Наш устроитель [host.GetName] [Select_CString(host.IsFemale, 'утратила', 'утратил' )] контроль над владением [province.GetNameNoTooltip()], так что [activity_type.GetNameNoTooltip()] отменяется.\n\nКонечно, никто не ожидал такого развития событий — после таких-то помпезных обещаний и приготовлений... Что ж, придётся мне со свитой возвращаться домой. Открывай ворота, [ROOT.Char.GetCapitalLocation.GetNameNoTooltip]..."
- activity_system.0320.a: "Что сделано, то сделано."
+ activity_system.0320.desc: "Наш устроитель [host.GetName] [Select_CString(host.IsFemale, 'утратила', 'утратил' )] контроль над землями, так что [activity_type.GetNameNoTooltip()] отменяется.\n\nКонечно, никто не ожидал такого развития событий — после таких-то помпезных обещаний и приготовлений… Что ж, придется мне со свитой возвращаться домой. Открывай ворота, [ROOT.Char.GetCapitalLocation.GetNameNoTooltip]…"
 
  # If you have gained the incapable trait 
  activity_system.0330.t: "Недееспособность"
@@ -140,6 +139,18 @@
  activity_system.0500.t: "Печальный конец"
  activity_system.0500.desc: "До меня дошла весть: [host.GetNameNoTooltip] [Select_CString(host.IsFemale, 'скончалась', 'скончался')]. Из-за этого организованное [Select_CString(host.IsFemale, 'ею', 'им')] мероприятие отменяется."
  activity_system.0500.a: "Настоящая трагедия."
+ activity_system.0550.t: "Испорченные планы"
+ activity_system.0550.desc: "Из-за того, что меня внезапно заточили в темницу, мероприятие продолжаться не может. Всё отменяется.\n\nА ведь мы столько готовились…"
+ activity_system.0550.a: "Это не входило в мои планы..."
+
+ activity_system.0551.t: "Устроитель в тюрьме"
+ activity_system.0551.desc: "Мероприятие, в котором я участвую, отменяется, так как его организатор, [host.GetNameNoTooltip], [Select_CString(host.IsFemale, 'угодила', 'угодил')] в темницу. Кто бы мог представить…"
+ activity_system.0551.a: "Пора поворачивать домой."
+
+ activity_system.0500.t: "Печальный конец"
+ activity_system.0500.desc: "До меня дошла весть: [host.GetNameNoTooltip] [Select_CString(host.IsFemale, 'скончалась', 'скончался')]. Из-за этого организованное [Select_CString(host.IsFemale, 'ею', 'им')] мероприятие отменяется."
+ activity_system.0500.a: "Настоящая трагедия."
+
  activity_system.0550.t: "Испорченные планы"
  activity_system.0550.desc: "Из-за того, что меня внезапно заточили в темницу, мероприятие продолжаться не может. Всё отменяется.\n\nА ведь мы столько готовились…"
  activity_system.0550.a: "Это не входило в мои планы..."
