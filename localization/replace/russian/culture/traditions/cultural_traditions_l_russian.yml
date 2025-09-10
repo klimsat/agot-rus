@@ -1287,7 +1287,7 @@
  capital_province_development_level_desc: "Уровень [Concept( 'county_development', 'развития' )|E] столицы [Concept( 'culture_head', 'культурного идеолога' )|E] ниже #high 30#!"
 
  culture_parameter_other_cultures_more_likely_to_hybridize: "[rulers|E] других [Concept( 'culture', 'культур' )|E] с большей вероятностью создадут [Concept( 'hybridize', 'гибриды' )|E] с этой культурой."
- culture_parameter_estate_building_upgrade_development_gain: "При строительстве или улучшении [Concept('estate_buildings', 'поместных построек')|E] [Concept('development_growth', 'прирост развития')|E] [Concept('estate', 'поместного')|E] [Concept('county', 'графства')|E] ускоряется на #P [EmptyScope.ScriptValue('cultivated_sophistication_development_gain')|=+0]#!"
+ culture_parameter_estate_building_upgrade_development_gain: "[Concept('realm_capital', 'Столица вашей державы')|E] будет получать #V [EmptyScope.ScriptValue('cultivated_sophistication_development_gain')|0]#! ед. [Concept('development_growth', 'прироста развития')|E] за каждую построенную или улучшенную [Concept('estate_building', 'поместную постройку')|E] в том же [Concept('county', 'графстве')|E]"
 
  tradition_ep3_cultivated_sophistication_name: "Поддержка изысков"
  tradition_ep3_cultivated_sophistication_desc: "Варвары с завистью глядят на ослепительную роскошь и изысканность этой культуры. Она столь упивается собственным превосходством, что отсекает любые противоречия, которые не укладываются в их космополитическое общественное устройство."
@@ -1418,3 +1418,14 @@
  mpo_siberian_permafrost_modifier_bad: "$mpo_siberian_permafrost_modifier$"
  mpo_siberian_permafrost_modifier_bad_desc: "$mpo_siberian_permafrost_modifier$"
  cannot_hybridize_northern_tribes: "[Concept('hybrid_culture', 'Гибридной культуре')|E] недоступна [Concept('tradition', 'традиция')|E] «#high $tradition_mpo_northern_tribes_name$#!»"
+
+
+ #ACH
+
+ oath_mend_the_fracture_tradition_name: "Исполнение обета о примирении"
+ oath_mend_the_fracture_tradition_desc: "Под руководством своего верного властителя представители этой культуры смогли преодолеть разногласия и примириться с другими народами державы. Теперь вражда и недоверие сменились миром и процветанием."
+ culture_parameter_synergy_cultures_counties_development: "Каждые три года [Concept('counties', 'графства')|E] этой [Concept('culture', 'культуры')|E] могут получить [modifier|El] «[GetModifier('oath_mend_the_fracture_county').GetNameWithTooltip]»"
+ culture_parameter_synergy_cultures_maa_spawn: "Каждые три года [culture_head|El] может получить дополнительных особых [Concept('soldiers', 'солдат')|E]."
+ culture_parameter_synergy_cultures_opinion_gain: "Каждые три года [Concept('culture_head', 'культурный идеолог')|E] может улучшить [Concept('opinion', 'мнение')|E] о себе со стороны [Concept('culture_head', 'идеолога')|E] той культуры, с которой он примирился."
+ culture_parameter_synergy_cultures_positive_chance_desc: "Вероятность получения вышеупомянутых эффектов и их сила зависят от [Concept('cultural_acceptance', 'терпимости')|E] между примирившимися [Concept('cultures', 'культурами')|E], а также от [Concept('opinion', 'мнения')|E] другого [Concept('culture_head', 'культурного идеолога')|E]"
+ ach_culture_synergy_troops: "Верные бойцы"

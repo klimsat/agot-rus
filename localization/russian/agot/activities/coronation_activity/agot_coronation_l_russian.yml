@@ -9,15 +9,15 @@
  agot_in_coronation:0 "Вы не можете заказать корону во время церемонии коронации"
 
  #Coronation
- activity_coronation:0 "Коронация"
- activity_coronation_name:0 "Коронация"
- invite_to_activity_flavor_coronation_seven_kingdoms:1 "С большой гордостью и нетерпением, я, [ROOT.Char.GetFirstNameNoTooltip|U] из дома [ROOT.Char.GetHouse.GetName|U], [ROOT.Char.GetTitleAsNameNoTooltip|U] андалов, ройнаров и Первых людей, [Select_CString(ROOT.Char.IsFemale, 'Владычица', 'Владыка' )] Семи Королевств и [Select_CString(ROOT.Char.IsFemale, 'Защитница', 'Защитник' )] державы, направляю вам это приглашение. Моя торжественная [GetActivityType('activity_coronation').GetName|l] состоится во владении [ROOT.Char.GetInvolvedActivity.GetCurrentPhase.GetLocation.GetName]."
- invite_to_activity_flavor_coronation_other:1 "С большой гордостью и нетерпением, я, [ROOT.Char.GetFirstNameNoTooltip|U] из дома [ROOT.Char.GetHouse.GetName|U], [ROOT.Char.GetTitleAsNameNoTooltip|U] державы [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip], направляю вам это приглашение. Моя торжественная [GetActivityType('activity_coronation').GetName|l] состоится во владении [ROOT.Char.GetInvolvedActivity.GetCurrentPhase.GetLocation.GetName]."
+ activity_agot_coronation:0 "Коронация"
+ activity_agot_coronation_name:0 "Коронация"
+ invite_to_activity_flavor_coronation_seven_kingdoms:1 "С большой гордостью и нетерпением, я, [ROOT.Char.GetFirstNameNoTooltip|U] из дома [ROOT.Char.GetHouse.GetName|U], [ROOT.Char.GetTitleAsNameNoTooltip|U] андалов, ройнаров и Первых людей, [Select_CString(ROOT.Char.IsFemale, 'Владычица', 'Владыка' )] Семи Королевств и [Select_CString(ROOT.Char.IsFemale, 'Защитница', 'Защитник' )] державы, направляю вам это приглашение. Моя торжественная [GetActivityType('activity_agot_coronation').GetName|l] состоится во владении [ROOT.Char.GetInvolvedActivity.GetCurrentPhase.GetLocation.GetName]."
+ invite_to_activity_flavor_coronation_other:1 "С большой гордостью и нетерпением, я, [ROOT.Char.GetFirstNameNoTooltip|U] из дома [ROOT.Char.GetHouse.GetName|U], [ROOT.Char.GetTitleAsNameNoTooltip|U] державы [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip], направляю вам это приглашение. Моя торжественная [GetActivityType('activity_agot_coronation').GetName|l] состоится во владении [ROOT.Char.GetInvolvedActivity.GetCurrentPhase.GetLocation.GetName]."
 
- coronation_invite_to_activity_interaction_desc:1 "С большой гордостью и нетерпением, я, [actor.GetFirstNameNoTooltip|U] из дома [actor.GetHouse.GetName|U], [actor.GetTitleAsNameNoTooltip|U] державы [actor.GetPrimaryTitle.GetNameNoTierNoTooltip], направляю вам это приглашение. Моя торжественная [GetActivityType('activity_coronation').GetName|l] в местечке [actor.GetInvolvedActivity.GetCurrentPhase.GetLocation.GetName] во владении $ACTIVITY_CURRENT_LOCATION$."
+ coronation_invite_to_activity_interaction_desc:1 "С большой гордостью и нетерпением, я, [actor.GetFirstNameNoTooltip|U] из дома [actor.GetHouse.GetName|U], [actor.GetTitleAsNameNoTooltip|U] державы [actor.GetPrimaryTitle.GetNameNoTierNoTooltip], направляю вам это приглашение. Моя торжественная [GetActivityType('activity_agot_coronation').GetName|l] в местечке [actor.GetInvolvedActivity.GetCurrentPhase.GetLocation.GetName] во владении $ACTIVITY_CURRENT_LOCATION$."
 
  coronation_activity_cost_desc:0 "Базовая стоимость"
- activity_coronation_predicted_cost:0 "Стоимость коронации в первую очередь зависит от [Concept('activity_options', 'вариантов занятия')|E] [Concept('title_tier', 'уровня')|E] титула."
+ activity_agot_coronation_predicted_cost:0 "Стоимость коронации в первую очередь зависит от [Concept('activity_options', 'вариантов занятия')|E] [Concept('title_tier', 'уровня')|E] титула."
  coronation_cost_pomp_grandiose:0 "Грандиозная помпезность"
  coronation_cost_pomp_impressive:0 "Впечатляющая помпезность"
  coronation_cost_pomp_appropriate:0 "Подобающая помпезность"
@@ -26,15 +26,15 @@
  needs_to_be_of_age:0 "Вам #bold нет#! ещё как минимум #high 7#! лет"
  needs_crown_for_to_select:0 "У вас нет короны ([artifact|El])"
  ruler_under_regency_coronation:0 "Вы еще ребенок. Только ваш регент может организовать вашу коронацию."
- activity_coronation_selection_tooltip:1 "Будет проведена [GetActivityType('activity_coronation').GetName], церемония ознаменует официальное начало вашего правления, докажет вашу легитимность [Concept('realm', 'державе')|E] и возобновит клятвы верности [Concept('vassals', 'вассалов')|E].\n\nОжидаемые награды:\n$BULLET_WITH_TAB$[legitimacy_i][legitimacy|E]\n$BULLET_WITH_TAB$[prestige_i][prestige|E]\n$BULLET_WITH_TAB$[piety_i][piety|E]\n$BULLET_WITH_TAB$[opinion_i][opinion|E]\n$BULLET_WITH_TAB$Снижение [stress_loss_i][Concept('stress', 'стресса')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'glory_hound' ).GetTextIcon]ищущих славы [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'courtly' ).GetTextIcon]куртуазных [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'parochial' ).GetTextIcon]местечковых [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'zealot' ).GetTextIcon]фанатичных [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$Можно получить [Concept('trait_level_track_xp', 'опыт пути развития')|E] свойства [GetTrait('lifestyle_reveler').GetName( GetNullCharacter )]"
- activity_coronation_desc:0 "Каждый [vassal|El] и высокопоставленные люди державы были приглашены стать свидетелями коронации нового монарха, преклонить колены и присягнуть ему на верность."
+ activity_agot_coronation_selection_tooltip:1 "Будет проведена [GetActivityType('activity_agot_coronation').GetName], церемония ознаменует официальное начало вашего правления, докажет вашу легитимность [Concept('realm', 'державе')|E] и возобновит клятвы верности [Concept('vassals', 'вассалов')|E].\n\nОжидаемые награды:\n$BULLET_WITH_TAB$[legitimacy_i][legitimacy|E]\n$BULLET_WITH_TAB$[prestige_i][prestige|E]\n$BULLET_WITH_TAB$[piety_i][piety|E]\n$BULLET_WITH_TAB$[opinion_i][opinion|E]\n$BULLET_WITH_TAB$Снижение [stress_loss_i][Concept('stress', 'стресса')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'glory_hound' ).GetTextIcon]ищущих славы [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'courtly' ).GetTextIcon]куртуазных [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'parochial' ).GetTextIcon]местечковых [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'zealot' ).GetTextIcon]фанатичных [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$Можно получить [Concept('trait_level_track_xp', 'опыт пути развития')|E] свойства [GetTrait('lifestyle_reveler').GetName( GetNullCharacter )]"
+ activity_agot_coronation_desc:0 "Каждый [vassal|El] и высокопоставленные люди державы были приглашены стать свидетелями коронации нового монарха, преклонить колены и присягнуть ему на верность."
 
  coronation_invite_to_activity_interaction:0 "$invite_to_activity_interaction$"
 
  #Special Guests
  coronation_target:0 "Монарх"
  coronation_target_for_host:0 "$coronation_target$"
- coronation_target_desc:0 "[GetActivityType( 'activity_coronation' ).GetName] знаменует официальное начало правления. Таким образом, для участия может быть выбран только новый правитель Семи Королевств."
+ coronation_target_desc:0 "[GetActivityType( 'activity_agot_coronation' ).GetName] знаменует официальное начало правления. Таким образом, для участия может быть выбран только новый правитель Семи Королевств."
  coronation_target_desc_for_host:0 "$coronation_target_desc$"
 
  coronation_officiant:0 "Церемониймейстер"
@@ -43,7 +43,7 @@
  coronation_officiant_desc_for_host:0 "$coronation_officiant_desc$"
 
 
- TRAVEL_NAME_FOR_activity_coronation:1 "Путешествие [Select_CString(Character.IsLocalPlayer, '', 'персонажа ' )][Character.GetNamePossessiveOrMy][Select_CString(Character.IsLocalPlayer, 'его персонажа', '' )] на коронацию"
+ TRAVEL_NAME_FOR_activity_agot_coronation:1 "Путешествие [Select_CString(Character.IsLocalPlayer, '', 'персонажа ' )][Character.GetNamePossessiveOrMy][Select_CString(Character.IsLocalPlayer, 'его персонажа', '' )] на коронацию"
  HEAD_OF_FAITH_REASON:0 "[ROOT.Char.GetSheHe|U] является главой вашей конфессии: $VALUE|=+0$"
  CORONATION_ALLY_REASON:0 "Вы [Concept('allies', 'союзники')|E]: $VALUE|=+0$"
  CORONATION_OFFICIANT_REASON:0 "[ROOT.Char.GetSheHe|U] будет церемониймейстером: $VALUE|=+0$"
@@ -53,12 +53,12 @@
  ACTIVITY_GUEST_OPTION_CORONATION_POMP_APPROPRIATE:0 "Подобающая помпезность: $VALUE|=+0$"
  ACTIVITY_GUEST_OPTION_CORONATION_POMP_HUMBLE:0 "Скромная помпезность: $VALUE|=+0$"
 
- activity_coronation_host_an_a: ""
- activity_coronation_destination_selection:0 "Выбранное графство получит модификатор [GetModifier( 'recent_coronation_modifier' ).GetNameWithTooltip|L] на 5 лет."
- activity_coronation_host_desc:0 "\n$BULLET_WITH_TAB$[legitimacy_i][legitimacy|E]\n$BULLET_WITH_TAB$[prestige_i][prestige|E]\n$BULLET_WITH_TAB$[piety_i][piety|E]\n$BULLET_WITH_TAB$[opinion_i][opinion|E]\n$BULLET_WITH_TAB$Снижение [stress_loss_i][Concept('stress', 'стресса')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'glory_hound' ).GetTextIcon]ищущих славы [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'courtly' ).GetTextIcon]куртуазных [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'parochial' ).GetTextIcon]местечковых [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'zealot' ).GetTextIcon]фанатичных [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$Можно получить [Concept('trait_level_track_xp', 'опыт пути развития свойства')|E] [GetTrait('lifestyle_reveler').GetName( GetNullCharacter )]\n\n@alert_icon! #alert_trial Коронация может проводиться только #V один раз в жизни#!#!"
- activity_coronation_guest_desc:0 "$BULLET_WITH_TAB$ Участники могут улучшить [Concept('opinion', 'мнение')|E] о других приглашённых персонажах\n$BULLET_WITH_TAB$ Участники могут потерять [stress_loss_i][stress|El]"
- activity_coronation_conclusion_desc:1 "[GetActivityType( 'activity_coronation' ).GetName] завершилась"
- activity_coronation_guest_help_text:0 "У всех приглашённых [Concept('guests', 'гостей')|E] будет возможность улучшить своё [Concept('opinion', 'мнение')|E] о вас.\nКоронация - это также возможность завоевать [prestige|El], потерять часть [Concept('stress', 'стресса')|E], получить [piety|El] и повысить свою [Concept('legitimacy', 'легитимность')|E]."
+ activity_agot_coronation_host_an_a: ""
+ activity_agot_coronation_destination_selection:0 "Выбранное графство получит модификатор [GetModifier( 'recent_coronation_modifier' ).GetNameWithTooltip|L] на 5 лет."
+ activity_agot_coronation_host_desc:0 "\n$BULLET_WITH_TAB$[legitimacy_i][legitimacy|E]\n$BULLET_WITH_TAB$[prestige_i][prestige|E]\n$BULLET_WITH_TAB$[piety_i][piety|E]\n$BULLET_WITH_TAB$[opinion_i][opinion|E]\n$BULLET_WITH_TAB$Снижение [stress_loss_i][Concept('stress', 'стресса')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'glory_hound' ).GetTextIcon]ищущих славы [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'courtly' ).GetTextIcon]куртуазных [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'parochial' ).GetTextIcon]местечковых [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$[opinion|E] [GetVassalStance( 'zealot' ).GetTextIcon]фанатичных [Concept('vassals', 'вассалов')|E]\n$BULLET_WITH_TAB$Можно получить [Concept('trait_level_track_xp', 'опыт пути развития свойства')|E] [GetTrait('lifestyle_reveler').GetName( GetNullCharacter )]\n\n@alert_icon! #alert_trial Коронация может проводиться только #V один раз в жизни#!#!"
+ activity_agot_coronation_guest_desc:0 "$BULLET_WITH_TAB$ Участники могут улучшить [Concept('opinion', 'мнение')|E] о других приглашённых персонажах\n$BULLET_WITH_TAB$ Участники могут потерять [stress_loss_i][stress|El]"
+ activity_agot_coronation_conclusion_desc:1 "[GetActivityType( 'activity_agot_coronation' ).GetName] завершилась"
+ activity_agot_coronation_guest_help_text:0 "У всех приглашённых [Concept('guests', 'гостей')|E] будет возможность улучшить своё [Concept('opinion', 'мнение')|E] о вас.\nКоронация - это также возможность завоевать [prestige|El], потерять часть [Concept('stress', 'стресса')|E], получить [piety|El] и повысить свою [Concept('legitimacy', 'легитимность')|E]."
  coronation_positive_increase:0 "#P Повысит#!"
  coronation_negative_decrease:0 "#N Снизит#!"
  coronation_option_pomp:0 "Помпезность"
@@ -84,15 +84,12 @@
  coronation_phase_ceremony_desc:0 "Перед ликом богов и людей будет коронован новый правитель." 
  coronation_phase_homage:0 "Почести"
  coronation_phase_homage_desc:0 "Лорды державы должны преклонить колено и выказать почтение своему новому сюзерену."
- coronation_phase_banquet:0 "Банкет"
- coronation_phase_banquet_desc:0 "Праздник в честь этого события. Возможность повеселиться и завести новых друзей."
 
  #Memories
  was_coronated:1 "коронация персонажем [officiant.GetTitledFirstNameNicknamed]"
  was_coronated_desc_1:1 "[officiant.GetTitledFirstNameNicknamed] [Select_CString(officiant.IsFemale, 'короновала', 'короновал' )] меня"
  was_coronated_desc_second_perspective_1:1 "[officiant.GetTitledFirstNameNicknamed] [Select_CString(officiant.IsFemale, 'короновала', 'короновал' )] вас"
  was_coronated_desc_third_perspective_1:1 "[owner.GetName] [Select_CString(owner.IsFemale, 'была коронована', 'был коронован' )] персонажем [officiant.GetTitledFirstNameNicknamed]"
-
 
  performed_coronation:1 "проведение коронации персонажа [coronation_target.GetTitledFirstNameNicknamedPossessive]"
  performed_coronation_desc_1:1 "мной проведена коронация персонажа [coronation_target.GetTitledFirstNameNicknamedPossessive]"
@@ -145,9 +142,6 @@
  
  friend_coronation_saved_from_beasts:0 "[CHARACTER.GetShortUIName|U] [Select_CString( CHARACTER.IsLocalPlayer, 'спасли', Select_CString(CHARACTER.IsFemale, 'спасла', 'спас' ))] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )] от вырвавшихся на свободу зверей на коронационном банкете."
  friend_coronation_saved_from_beasts_corresponding: "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString( TARGET_TARGET_CHARACTER.IsLocalPlayer, 'спасли', Select_CString(TARGET_CHARACTER.IsFemale, 'спасла', 'спас' ))] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] от вырвавшихся на свободу зверей на коронационном банкете."
- 
- rival_dishonored_coronation_banquet:0 "[CHARACTER.GetShortUIName] [Select_CString( CHARACTER.IsLocalPlayer, 'обиделись', Select_CString(CHARACTER.IsFemale, 'обиделась', 'обиделся' ))], когда [TARGET_CHARACTER.GetShortUIName] [Select_CString( TARGET_CHARACTER.IsLocalPlayer, 'сбежали', Select_CString(TARGET_CHARACTER.IsFemale, 'сбежала', 'сбежал' ))] с коронационного банкета, чтобы избежать встречи с [Select_CString( CHARACTER.IsLocalPlayer, 'вами', Select_CString(CHARACTER.IsFemale, 'ней', 'ним' ))]."
- rival_dishonored_coronation_banquet_corresponding:0 "[TARGET_CHARACTER.GetShortUIName] [Select_CString( TARGET_CHARACTER.IsLocalPlayer, 'обиделись', Select_CString(TARGET_CHARACTER.IsFemale, 'обиделась', 'обиделся' ))], когда [CHARACTER.GetShortUIName] [Select_CString( CHARACTER.IsLocalPlayer, 'сбежали', Select_CString(CHARACTER.IsFemale, 'сбежала', 'сбежал' ))] с коронационного банкета, чтобы избежать встречи с [Select_CString( TARGET_CHARACTER.IsLocalPlayer, 'вами', Select_CString(TARGET_CHARACTER.IsFemale, 'ней', 'ним' ))]."
  
  friend_coronation:0 "[CHARACTER.GetShortUIName|U] и [TARGET_CHARACTER.GetShortUIName|U] сблизились во время коронации"
  
