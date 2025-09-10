@@ -12,7 +12,7 @@
 
  # Tournament - Activity Invalidated
  activity_system.0040.t:1 "Tournament Ended"
- activity_system.0040.desc:1 "Alas! With the new circumstances surrounding the Tournament, a quick chat with the organizers confirms your fears: the Tournament must be cancelled.\n\nFiles of despondent people file past, sniffling and disappointed children clutching their parents' hands. Hopefully, in the near future, there might be another chance for these festivities to resume."
+ activity_system.0040.desc:1 "Alas! With the new circumstances surrounding the Tournament, a quick chat with the organizers confirms your fears: the Tournament must be canceled.\n\nFiles of despondent people file past, sniffling and disappointed children clutching their parents' hands. Hopefully, in the near future, there might be another chance for these festivities to resume."
  activity_system.0040.a:1 "A true pity."
 
  # New Host after Character Death
@@ -79,18 +79,18 @@
  activity_system.0300.b.tt:0 "The [target_activity_type.GetNameNoTooltip] will be canceled and all attendees will begin traveling home"
  activity_system.0300.b.tt.cost:0 "Some costs may be recouped"
 
- activity_system.0301.t:0 "[target_activity_type.GetNameNoTooltip] Cancelled"
- activity_system.0301.desc:0 "#EMP "To war! To war!"#! call [target_activity_host.GetTitledFirstNamePossessive] [knights|l] as they thunder past, their horns bellowing and banners flashing brilliant against the sky.\n\nThat [war_opponent.Custom('InsultNoun')] [war_opponent.GetNameRegnal] has no regard for our [target_activity_type.GetNameNoTooltip], it seems! The event is to be cancelled, as the [target_activity_host.GetTitleAsNameNoTooltip] sends for his levies and prays to [target_activity_host.GetFaith.WarGodName] for victory.\n\nA [target_activity_type.GetNameNoTooltip] is a noble and worthy amusement, but the call to arms rings louder than any other."
+ activity_system.0301.t:0 "[target_activity_type.GetNameNoTooltip] Canceled"
+ activity_system.0301.desc:0 "#EMP "To war! To war!"#! call [target_activity_host.GetTitledFirstNamePossessive] [knights|l] as they thunder past, their horns bellowing and banners flashing brilliant against the sky.\n\nThat [war_opponent.Custom('InsultNoun')] [war_opponent.GetNameRegnal] has no regard for our [target_activity_type.GetNameNoTooltip], it seems! The event is to be canceled, as the [target_activity_host.GetTitleAsNameNoTooltip] sends for his levies and prays to [target_activity_host.GetFaith.WarGodName] for victory.\n\nA [target_activity_type.GetNameNoTooltip] is a noble and worthy amusement, but the call to arms rings louder than any other."
  activity_system.0301.a:0 "What a travesty..."
 
  #AGOT Modified, fixing Paradox oops
- #activity_system.0310.desc.intro:0 "The blaring of the war horns have reached me here in [target_activity_location.GetName] as I am attending [target_activity_host.GetPossessiveNameRegnal|U] [target_activity_type.GetNameNoTooltip]. I have been summoned to aid in the war between [attacker.GetTitledFirstName|U] and [defender.GetTitledFirstName|U]."
- activity_system.0310.desc.intro:0 "The blaring of the war horns have reached me here in [target_activity_location.GetName] as I am attending [target_activity_host.GetNamePossessiveRegnal|U] [target_activity_type.GetNameNoTooltip]. I have been summoned to aid in the war between [attacker.GetTitledFirstName|U] and [defender.GetTitledFirstName|U]."
+ #activity_system.0310.desc.intro:0 "The blaring of the war horns have reached me here in [target_activity_location.GetName] as I am attending [target_activity_host.GetNamePossessive|U] [target_activity_type.GetNameNoTooltip]. I have been summoned to aid in the war between [attacker.GetTitledFirstName|U] and [defender.GetTitledFirstName|U]."
+ activity_system.0310.desc.intro:0 "The blaring of the war horns have reached me here in [target_activity_location.GetName] as I am attending [target_activity_host.GetNamePossessive|U] [target_activity_type.GetNameNoTooltip]. I have been summoned to aid in the war between [attacker.GetTitledFirstName|U] and [defender.GetTitledFirstName|U]."
  activity_system.0310.a.tt:0 "You continue participating in the [target_activity_type.GetNameNoTooltip]"
  activity_system.0310.b.tt:0 "You leave the [target_activity_type.GetNameNoTooltip] and begin traveling home"
  
  activity_system.0320.t:0 "An Unexpected Conclusion"
- activity_system.0320.desc:1 "Our host, [host.GetName], has lost [host.GetHerHis] possession of [province.GetNameNoTooltip()] and so the [activity_type.GetNameNoTooltip()] has come to an untimely end.\n\nThis is certainly not how I expected this affair to conclude after all the fanfare of invitations and buildup. I suppose all that is left is for my entourage and I to return home to [ROOT.Char.GetCapitalLocation.GetNameNoTooltip]..."
+ activity_system.0320.desc:1 "Our host, [host.GetName], has lost [host.GetHerHis] landed possessions and so the [activity_type.GetNameNoTooltip()] has come to an untimely end.\n\nThis is certainly not how I expected this affair to conclude after all the fanfare of invitations and buildup. I suppose all that is left is for my entourage and I to return home to [ROOT.Char.GetCapitalLocation.GetNameNoTooltip]..."
  activity_system.0320.a:0 "What's done is done."
 
  # If you have gained the incapable trait 
@@ -136,3 +136,15 @@
  hold_standard_activity_option_play_date_desc:0 "$activity_play_date$"
  hold_standard_activity_option_witch_ritual:0 "$activity_witch_ritual$"
  hold_standard_activity_option_witch_ritual_desc:0 "$activity_witch_ritual$"
+
+ activity_system.0500.t: "A Grim End"
+ activity_system.0500.desc: "I have received the news that our host, [host.GetNameNoTooltip], has passed away. Due to these unforeseen circumstances, [host.GetHerHis] activity has been canceled."
+ activity_system.0500.a: "A tragedy, truly."
+
+ activity_system.0550.t: "Foiled Plans"
+ activity_system.0550.desc: "Due to my sudden and unforeseen imprisonment, I find myself unable to continue taking part in my activity, and it has to be cancelled.\n\nAll the time I spent planning..."
+ activity_system.0550.a: "This was not a part of my plan..."
+
+ activity_system.0551.t: "Host Imprisonment"
+ activity_system.0551.desc: "Due to the sudden and unforeseen imprisonment of my host, [host.GetNameNoTooltip], the activity I was taking part in has been cancelled."
+ activity_system.0551.a: "Time to look homewards."
