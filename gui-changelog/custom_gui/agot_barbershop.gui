@@ -1,0 +1,26 @@
+###########################################################
+################# AGOT BARBERSHOP WINDOW ##################
+###########################################################
+
+types Barbershop
+{
+	type agot_barbershop_label_plus_search = hbox
+	{
+		minimumsize = { 268 -1 }
+		layoutpolicy_horizontal = expanding
+
+		text_label_left = {
+			text = "[BarbershopAccessoryCategory.GetName]"
+		}
+
+		expand = {}
+
+		button_search = {
+			size = { 25 25 }
+			onclick = "[BarbershopWindow.ShowSearchFilter( PdxGuiWidget.GetIndexInDataModel )]"
+
+			tooltip = "BARBERSHOP_FUZZY_SEARCH_TT"
+			using = tooltip_ne
+		}
+	}
+}

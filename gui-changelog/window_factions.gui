@@ -588,7 +588,7 @@ types  FactionWindow
 
 			button_standard = {
 				#AGOT Modified
-				#visible = "[And( FactionItem.IsPlayerLeader, Not( Faction.IsAtWar ) )]"
+				# visible = "[And( FactionItem.IsPlayerLeader, Not( Faction.IsAtWar ) )]"
 				visible = "[And( FactionItem.IsPlayerLeader, Not( Or( Faction.IsAtWar, GetScriptedGui('agot_loyalist_faction_is_shown').IsShown(GuiScope.SetRoot(FactionItem.GetFaction.MakeScope).End) ) ) )]"
 				name = "press_demands_button"
 				enabled = "[FactionItem.CanPressDemands]"

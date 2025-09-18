@@ -170,7 +170,7 @@ window = {
 						#AGOT Added; Kingsguard Tab
 						agot_kingsguard_tab_layout = {}
 						}
-					}
+					}#
 				}
 			}
 		}
@@ -397,7 +397,6 @@ types CouncilWindow
 				}
 			}
 		}
-
 		#AGOT Added: Show target court also for infinite tasks (e.g. Bodyguard)
 		vbox = {
 			visible = "[And(And(Not(CouncilTaskType.IsPercentageTask), Not(CouncilTaskType.IsValueTask)), ActiveCouncilTask.GetTargetCourt.IsValid)]"
@@ -420,7 +419,7 @@ types CouncilWindow
 		#AGOT Modified; controls Size of Councillor Boxes
 		#size = { 260 250 }
 		size = { 260 280 }
-		
+
 		state = {
 			name = _mouse_hierarchy_enter
 			on_start = "[PdxGuiWidget.FindChild('character_skills').TriggerAnimation('mouse_enter_panel')]"
@@ -645,8 +644,9 @@ types CouncilWindow
 						layoutpolicy_horizontal = expanding
 						#AGOT Modified
 						# text = "[Character.GetShortUINameNoTooltip|U]"
-						visible = "[Character.IsValid]"
 						raw_text = "[Character.Custom('AGOTCustomGetTitledFullNameDynasty')]"
+						#AGOT Added
+						visible = "[Character.IsValid]"
 						default_format = "#high"
 						align = nobaseline
 						autoresize = no
@@ -1572,7 +1572,6 @@ types CouncilTaskTypes
 					datacontext = "[GuiCouncilPosition.GetActiveCouncilTask]"
 					datacontext = "[ActiveCouncilTask.GetPositionType]"
 					datacontext = "[ActiveCouncilTask.GetCouncillor]"
-
 					#AGOT Added
 					visible = "[And( Not( CouncilOwnerNomadic ), Not(IsNWAdventurer(GetPlayer)))]"
 
@@ -1612,7 +1611,6 @@ types CouncilTaskTypes
 					datacontext = "[GuiCouncilPosition.GetActiveCouncilTask]"
 					datacontext = "[ActiveCouncilTask.GetPositionType]"
 					datacontext = "[ActiveCouncilTask.GetCouncillor]"
-
 					#AGOT Added
 					visible = "[Not(IsNWAdventurer(GetPlayer))]"
 
@@ -1640,7 +1638,6 @@ types CouncilTaskTypes
 					datacontext = "[GuiCouncilPosition.GetActiveCouncilTask]"
 					datacontext = "[ActiveCouncilTask.GetPositionType]"
 					datacontext = "[ActiveCouncilTask.GetCouncillor]"
-
 					#AGOT Added
 					visible = "[Not(IsNWAdventurer(GetPlayer))]"
 
