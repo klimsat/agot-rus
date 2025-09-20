@@ -1636,8 +1636,8 @@
  DYNASTY_NO_NAME_GAINS_PRESTIGE_LEVEL_EFFECT: "Увеличивает [dynasty_prestige_level|El] на $VALUE|+0$"
  DYNASTY_NO_NAME_LOSES_PRESTIGE_LEVEL_EFFECT: "Снижает [dynasty_prestige_level|El] на $VALUE|-0$"
 
- DYNASTY_GAINS_PRESTIGE_LEVEL_EFFECT: "[dynasty|E] [DYNASTY.GetBaseName|V] повышает уровень величия на $VALUE|+0$"
- DYNASTY_LOSES_PRESTIGE_LEVEL_EFFECT: "[dynasty|E] [DYNASTY.GetBaseName|V] снижает уровень величия на $VALUE|-0$"
+ DYNASTY_GAINS_PRESTIGE_LEVEL_EFFECT: "[Concept('dynasty_prestige_level', 'Уровень величия')|E] [Concept('dynasty', 'династии')|E] [DYNASTY.GetBaseName] увеличивается на $VALUE|+0$"
+ DYNASTY_LOSES_PRESTIGE_LEVEL_EFFECT: "[Concept('dynasty_prestige_level', 'Уровень величия')|E] [Concept('dynasty', 'династии')|E] [DYNASTY.GetBaseName] уменьшается на $VALUE|-0$"
  DYNASTY_GAINS_PRESTIGE_EFFECT: "[dynasty|E] [DYNASTY.GetBaseName|V] получит [dynasty_prestige|El]: [dynasty_prestige_i]$VALUE|+0$"
  DYNASTY_LOSES_PRESTIGE_EFFECT: "[dynasty|E] [DYNASTY.GetBaseName|V] теряет [dynasty_prestige|El]: $VALUE|-0$[dynasty_prestige_i]"
  DYNAST_GAINED_PRESTIGE_EFFECT: "[dynasty|E] [DYNASTY.GetBaseName|V] получила [dynasty_prestige|El]: [dynasty_prestige_i]$VALUE|+0$"
@@ -1745,8 +1745,8 @@
  YOU_MUST_DECIDE_ON_CULTURE_CONVERSION: "Вы получите право решать, изменится ли культура"
  THEY_MUST_DECIDE_ON_CULTURE_CONVERSION: "[CHARACTER.GetShortUIName|U] получит право решать, изменится ли культура"
 
- INCREASE_CULTURAL_ACCEPTANCE: "[Concept( 'cultural_acceptance', 'Терпимость' )|E] к #L [CULTURE.GetCollectiveNoun|l]ой#! культуре увеличивается на $VALUE|+^/%$"
- REDUCE_CULTURAL_ACCEPTANCE: "[Concept('cultural_acceptance', 'Терпимость')|E] к #L [CULTURE.GetCollectiveNoun|l]ой#! культуре снижается на $VALUE|-^/%$"
+ INCREASE_CULTURAL_ACCEPTANCE: "[Concept('cultural_acceptance', 'Терпимость')|E] к #L [TARGET_CULTURE.GetCollectiveNoun|l]ой#! культуре увеличивается на $VALUE|+^/%$"
+ REDUCE_CULTURAL_ACCEPTANCE: "[Concept('cultural_acceptance', 'Терпимость')|E] к #L [TARGET_CULTURE.GetCollectiveNoun|l]ой#! культуре уменьшается на $VALUE|-^/%$"
  INCREASED_CULTURAL_ACCEPTANCE: "[Concept( 'cultural_acceptance', 'Терпимость' )|E] к #L [CULTURE.GetCollectiveNoun|l]ой#! культуре увеличена на $VALUE|+^/%$"
  REDUCED_CULTURAL_ACCEPTANCE: "[Concept( 'cultural_acceptance', 'Терпимость' )|E] к #L [CULTURE.GetCollectiveNoun|l]ой#! культуре снижена на $VALUE|-^/%$"
  INCREASE_CULTURAL_ACCEPTANCE_WITH: "[CULTURE.GetName] и [TARGET_CULTURE.GetName|l] повышают [Concept( 'cultural_acceptance', 'взаимную терпимость' )|E] на $VALUE|+^/%$"
@@ -2513,6 +2513,7 @@
  custom.every_other_follower: "Каждый второй [Concept('follower', 'последователь')|E]"
  custom.every_contact_with_positive_opinion: "Каждый [Concept('contact_list_contact', 'покровитель')|E] с положительным [Concept('opinion', 'мнением')|E]"
  custom.every_contact_with_negative_opinion: "Каждый [Concept('contact_list_contact', 'покровитель')|E] с отрицательным [Concept('opinion', 'мнением')|E]"
+ custom.every_activity_guest_with_gregarious_trait: "Каждый [Concept('activity_guest_short', 'гость')|E], имеющий [Concept('trait', 'свойство')|E] «[GetTrait('gregarious').GetName( GetNullCharacter )]»"
 
  guest_and_family_move_to_specific_pool_effect.tt.family: "[character|E] и путешествующие с ним члены [Concept( 'family', 'семьи' )|E]"
 
