@@ -371,120 +371,8 @@ widget = {
 			size = "[GetResolutionWithAspectRatio]"
 			scale = "[ScaleToFitElementInside('(int32)1920', '(int32)1080')]"
 			allow_outside = yes
-
-			#AGOT Added; Background Layered
-			### Left sidebar
-			widget = {
-				size = { 300 100% }
-				position = {0 83 }
-
-				state = {
-					name = "bookmark_group_change"
-					next = "fadein"
-
-					alpha = 0
-				}
-
-				state = {
-					name = "fadein"
-					delay = 0.2
-					duration = 0.5
-					using = Animation_Curve_Default
-
-					alpha = 1
-				}
-
-				state = {
-					name = "bookmarks_game_start"
-					using = Animation_Curve_Default
-					duration = 0.2
-					alpha = 0
-					position_x = -100
-				}
-
-				state = {
-					name = "bookmarks_reset"
-					using = Animation_Curve_Default
-					duration = 0.2
-
-					alpha = 1
-					position_x = 0
-				}
-
-				state = {
-					name = "bookmarks_bars_appear"
-					next = b
-
-					alpha = 0
-					position_x = -100
-				}
-
-				state = {
-					name = b
-					using = Animation_Curve_Default
-
-					alpha = 1
-					delay = 0.5
-					position_x = 0
-					duration = 0.15
-				}
-
-				widget = {
-					size = { 40 100%}
-					position = { -10 -90 }
-
-					background = {
-						using = Background_Area_Solid
-					}
-
-					icon = {
-						name = "tile_left_sidebar"
-						parentanchor = top|right
-						size = { 22 100% }
-						position = { 10 -40 }
-
-						texture = "gfx/interface/component_decoration/decoration_frame_side_clean.dds"
-						spriteType = Corneredtiled
-						spriteborder = { 100 0 }
-						texture_density = 2
-					}
-				}
-
-				scrollbox = {
-					name = "bookmarks"
-					size = { 330 80% }
-
-					blockoverride "scrollbox_background" {}
-					blockoverride "scrollbox_margins" {}
-					blockoverride "scrollbox_background_fade" {}
-
-					scrollbaralign_vertical = left
-
-					blockoverride "scrollbox_content" {
-						vbox = {
-
-							vbox = {
-								datamodel = "[GameSetup.GetBookmarksInGroup( GameSetup.GetSelectedBookmarkGroup )]"
-
-								item = {
-									widget = {
-										visible = "[Bookmark.HasRequiredDLC]"
-										size = { 290 80 }
-
-										#Bookmark Button
-										bookmark_button = {}
-
-									}
-								}
-							}
-
-							widget = {
-								size = { 290 150}
-							}
-						}
-					}
-				}
-			}
+			#AGOT Added; Layering Left Sidebar
+			agot_bookmark_left_sidebar = {}
 
 			### Top Bar
 			widget = {
@@ -2038,7 +1926,6 @@ widget = {
 														autoresize = no
 														align = nobaseline
 													}
-
 													#AGOT Added, 2x text_single
 													text_single = {
 														layoutpolicy_horizontal = expanding
@@ -2069,7 +1956,7 @@ widget = {
 												}
 											}
 
-											#AGOT Modified; scrollbox -> hbox
+											#AGOT Modified
 											# scrollbox = {
 												# name = "character_text_scroll"
 												# size = { 390 300 }
@@ -2085,21 +1972,7 @@ widget = {
 													# }
 												# }
 											# }
-											hbox = {
-												visible = "[GetVariableSystem.Exists( 'show_character_info' )]"
-												layoutpolicy_vertical = expanding
-												maximumsize = { 390 300 }
-
-												text_multi = {
-													name = "character_text"
-													layoutpolicy_horizontal = expanding
-													text = "[BookmarkCharacter.GetDescription]"
-													autoresize = yes
-													maximumsize = { 390 300 }
-													margin_top = 10
-													margin_bottom = 10
-												}
-											}
+											agot_bookmark_character_description = {}
 										}
 
 										expand = {}
