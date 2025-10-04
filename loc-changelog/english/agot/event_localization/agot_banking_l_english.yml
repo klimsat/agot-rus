@@ -131,7 +131,7 @@
  agot_banking.0202.a:0 "A thorough assessment!"
 
  agot_banking.0203.t:0 "The Bank's Offer"
- agot_banking.0203.desc:0 "The [ROOT.Char.Custom('agot_bank_name')] has sent an emissary inquiring whether I would be willing to invest in the bank by purchasing a share of their operations. Every five years, I would receive [agot_bank_dividends|E] on the share, or I could sell it to receive gold earlier, if needed.\n\nThe current price of a share is @gold_icon! [ROOT.Var('ShareBuyingPrice').GetValue|2|N]."
+ agot_banking.0203.desc:0 "The [ROOT.Char.Custom('agot_bank_name')] has sent an emissary in response to my inquiry about purchasing shares. For each share I hold, I would receive [Concept('agot_bank_dividend_level','dividends')|E] every five years. And should I ever find myself in dire financial straits, I could always sell it for a lump sum.\n\nThe current price of a share is @gold_icon! [ROOT.Var('ShareBuyingPrice').GetValue|2|N]."
  agot_banking.0203.a:0 "I can't afford that!"
  agot_banking.0203.b:0 "You have a deal!"
  agot_banking.0203.c:0 "I will buy 5 shares."
@@ -256,14 +256,15 @@
  agot_repay_loan_decision_effect:0 "You may repay your current loan fully or partially before the loan's term ends."
 
  buy_shares_decision:0 "Invest in Bank"
- buy_shares_decision_shareholder_IB_desc:0 "The Iron Bank of Braavos is currently accepting investments. You may invest in the bank to acquire an additional share. Owning more shares will increase the [Concept('agot_bank_dividend_level','dividend') |E] you receive based on the [agot_bank_profits|E] of the bank.\n\nYou currently hold [ROOT.Var('IB_Shares').GetValue] shares in the Iron Bank of Braavos."
- buy_shares_decision_shareholder_bank1_desc:0 "The [ROOT.Char.Custom('agot_bank_name')] is currently accepting investments. You may invest in the bank to acquire an additional share. Owning more shares will increase the [Concept('agot_bank_dividend_level','dividend') |E] you receive based on the [agot_bank_profits|E] of the bank.\n\nYou currently hold [ROOT.Var('bank1_Shares').GetValue] shares in the [ROOT.Char.Custom('agot_bank_name')]."
- buy_shares_decision_shareholder_bank2_desc:0 "The [ROOT.Char.Custom('agot_bank_name')] is currently accepting investments. You may invest in the bank to acquire an additional share. Owning more shares will increase the [Concept('agot_bank_dividend_level','dividend') |E] you receive based on the [agot_bank_profits|E] of the bank.\n\nYou currently hold [ROOT.Var('bank2_Shares').GetValue] shares in the [ROOT.Char.Custom('agot_bank_name')]."
- buy_shares_decision_shareholder_bank3_desc:0 "The [ROOT.Char.Custom('agot_bank_name')] is currently accepting investments. You may invest in the bank to acquire an additional share. Owning more shares will increase the [Concept('agot_bank_dividend_level','dividend') |E] you receive based on the [agot_bank_profits|E] of the bank.\n\nYou currently hold [ROOT.Var('bank3_Shares').GetValue] shares in the [ROOT.Char.Custom('agot_bank_name')]."
- buy_shares_decision_desc:0 "Your local [agot_bank|E] is currently accepting new investors. You may buy a share, which will grant you a say in the bank's decisions and a [Concept('agot_bank_dividend_level','dividend') |E] based on the bank's [agot_bank_profit|E]."
- buy_shares_decision_tooltip:0 "You will be offered one share. The price depends on the bank's current overall value."
+ buy_shares_decision_shareholder_IB_desc:0 "The [ROOT.Char.Custom('agot_bank_name')] is accepting new investments.\n\nI currently hold [ROOT.Var('IB_Shares').GetValue] shares, but I would be wise to claim a greater stake while I still can. A larger share means a larger [Concept('agot_bank_dividend_level','dividend')|E] from the bank's [Concept('agot_bank_profits','profits')|E]."
+ buy_shares_decision_shareholder_bank1_desc:0 "The [ROOT.Char.Custom('agot_bank_name')] is accepting new investments.\n\nI currently hold [ROOT.Var('bank1_Shares').GetValue] shares, but I would be wise to claim a greater stake while I still can. A larger share means a larger [Concept('agot_bank_dividend_level','dividend')|E] from the bank's [Concept('agot_bank_profits','profits')|E]."
+ buy_shares_decision_shareholder_bank2_desc:0 "The [ROOT.Char.Custom('agot_bank_name')] is accepting new investments.\n\nI currently hold [ROOT.Var('bank2_Shares').GetValue] shares, but I would be wise to claim a greater stake while I still can. A larger share means a larger [Concept('agot_bank_dividend_level','dividend')|E] from the bank's [Concept('agot_bank_profits','profits')|E]."
+ buy_shares_decision_shareholder_bank3_desc:0 "The [ROOT.Char.Custom('agot_bank_name')] is accepting new investments.\n\nI currently hold [ROOT.Var('bank3_Shares').GetValue] shares, but I would be wise to claim a greater stake while I still can. A larger share means a larger [Concept('agot_bank_dividend_level','dividend')|E] from the bank's [Concept('agot_bank_profits','profits')|E]."
+ buy_shares_decision_desc:0 "Gold sitting idle serves no purpose. With my local bank open to investors, I could purchase a share — and with it, a voice in its affairs and a portion of its [agot_bank_profit|E]."
+ buy_shares_decision_tooltip:0 "Purchase shares of your local bank"
  buy_shares_decision_tooltip_confirm_text_desc:0 "What is the current price of a share?"
- buy_shares_decision_effect:0 "You will be offered one share. The price depends on the bank's current overall value."
+ buy_shares_decision_effect:0 "You will be offered the chance to buy bank shares at a rate determined by its current valuation."
+ bank_needs_no_cash:0 "The bank has sufficient cash reserves and is not accepting new investments at this time"
 
  sell_shares_decision:0 "Sell Share"
  sell_shares_decision_IB_desc:0 "The [ROOT.Char.Custom('agot_bank_name')] currently holds enough gold to pay you out for one of your shares.\n\nYou currently hold [ROOT.Var('IB_Shares').GetValue] shares in the Iron Bank."
@@ -348,6 +349,13 @@
  found_bank_decision_tooltip:0 "A new bank will be established in your capital. You will become the bank's first [agot_bank_director|E], and every character in your realm can invest money in the new bank to become a shareholder."
  found_bank_decision_tooltip_confirm_text_desc:0 "To prosperity!"
  not_in_a_megawar_realm:0 "Your realm cannot be divided by war"
+ agot_found_bank_decision_effect_tooltip:0 "A new [agot_bank|E] will be established in your capital. You will become the bank's first [agot_bank_director|E], and every character in your realm can invest money in the new bank to become a shareholder."
+
+ rename_bank_decision:0 "Rename Bank"
+ rename_bank_decision_desc:0 "Names hold power. As of late, I have become concerned that the [ROOT.Char.Custom('agot_bank_name')] fails to inspire the confidence it should. A fresh name could breathe new life into its image and help secure greater trust and more investments."
+ rename_bank_decision_tooltip:0 "Choose a new name for your bank"
+ rename_bank_decision_tooltip_confirm_text_desc:0 "Let's give it a name worth remembering."
+ agot_rename_bank_decision_effect_tooltip:0 "You may select a new name for the bank."
 
  agot_banking.0601.t:0 "A New Bank"
  agot_banking.0601.desc:0 "Today, a new bank opened its doors, and I will be its first [agot_bank_director|E]. The bank will start to hand out loans immediately, and new investors will be found to strengthen the bank's prosperity.\n\nWhat should the new bank be called?"
@@ -356,6 +364,10 @@
  agot_banking.0602.t:0 "A New Important Debtor"
  agot_banking.0602.desc:0 "Today, the [messaged_director.Custom('agot_bank_name')] loaned the huge amount of [NewDebtor.MakeScope.Var('loaned_amount').GetValue|2|P] gold to [NewDebtor.GetTitledFirstName]. This makes [NewDebtor.GetHerHim] one of our biggest customers."
  agot_banking.0602.a:0 "A pleasure doing business with you."
+
+ agot_banking.0607.t:0 "The Weight of a Name"
+ agot_banking.0607.desc:0 "A name can shape perception, define legacy, and carry weight far beyond coin. As the bank's director, the privilege — and the power — of renaming it now falls to me. The current name has served its time... but I believe it is no longer enough. If this institution is to reflect my ambitions, then it must bear a name worthy of them."
+ agot_banking.0607.a:0 "A fitting name."
 
  show_shareholders_decision:0 "Show Shareholders"
  show_shareholders_decision_desc:0 "The clerks of the [ROOT.Char.Custom('agot_bank_name')] will provide you with a list of the bank's current shareholders."
@@ -380,9 +392,6 @@
  agot_debtors_list:0 "[Character.GetTitledFirstNamePossessive] total debt: @gold_icon! [Character.MakeScope.Var('total_repayment').GetValue|0]"
 
  agot_shareholder_list:0 "[Character.GetTitledFirstName] has [Character.MakeScope.Var('ShownShares').GetValue] shares"
-
- agot_found_bank_decision_effect_tooltip:0 "A new [agot_bank|E] will be established in your capital. You will become the bank's first [agot_bank_director|E], and every character in your realm can invest money in the new bank to become a shareholder."
-
 
  # vassal loan stuff
  take_vassal_loan_interaction:0 "Ask a Vassal for a Loan"
