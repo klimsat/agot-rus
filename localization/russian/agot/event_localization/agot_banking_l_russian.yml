@@ -264,6 +264,7 @@
  buy_shares_decision_tooltip:0 "Вам будет предложена одна доля. Цена зависит от текущей общей стоимости банка."
  buy_shares_decision_tooltip_confirm_text_desc:0 "Какова текущая цена доли?"
  buy_shares_decision_effect:0 "Вам будет предложена одна доля. Цена зависит от текущей общей стоимости банка." 
+ bank_needs_no_cash:0 "The bank has sufficient cash reserves and is not accepting new investments at this time"
  
  sell_shares_decision:0 "Продать долю"
  sell_shares_decision_IB_desc:0 "[ROOT.Char.Custom('agot_bank_name')] в данный момент располагает достаточным количеством золота, чтобы выкупить одну из ваших долей.\n\nВ настоящее время у вас [ROOT.Var('IB_Shares').GetValue] долей в Железном Банке."
@@ -348,6 +349,13 @@
  found_bank_decision_tooltip:0 "Ваша столица станет местом для нового банка. Вы станете первым [agot_bank_director|E] банка, и каждый персонаж в вашем королевстве сможет инвестировать деньги в новый банк, чтобы стать акционером."
  found_bank_decision_tooltip_confirm_text_desc:0 "К процветанию!"
  not_in_a_megawar_realm:0 "Ваша держава не должна быть разделена войной"
+ agot_found_bank_decision_effect_tooltip:0 "A new [agot_bank|E] will be established in your capital. You will become the bank's first [agot_bank_director|E], and every character in your realm can invest money in the new bank to become a shareholder."
+
+ rename_bank_decision:0 "Rename Bank"
+ rename_bank_decision_desc:0 "Names hold power. As of late, I have become concerned that the [ROOT.Char.Custom('agot_bank_name')] fails to inspire the confidence it should. A fresh name could breathe new life into its image and help secure greater trust and more investments."
+ rename_bank_decision_tooltip:0 "Choose a new name for your bank"
+ rename_bank_decision_tooltip_confirm_text_desc:0 "Let's give it a name worth remembering."
+ agot_rename_bank_decision_effect_tooltip:0 "You may select a new name for the bank."
 
  agot_banking.0601.t:0 "Новый банк"
  agot_banking.0601.desc:0 "Сегодня открылся новый банк, и я стану его первым [Concept('agot_bank_director', 'директором банка')|E]. Банк немедленно начнёт выдавать займы, а также привлечёт новых инвесторов для укрепления своего процветания.\n\nКак назвать новый банк?"
@@ -356,6 +364,10 @@
  agot_banking.0602.t:0 "Новый важный должник"
  agot_banking.0602.desc:0 "Сегодня [messaged_director.Custom('agot_bank_name')] выдал огромный заём в размере [NewDebtor.MakeScope.Var('loaned_amount').GetValue|2|P] золотых [NewDebtor.GetTitledFirstName]. Это делает [NewDebtor.GetHerHim] одним из наших крупнейших клиентов."
  agot_banking.0602.a:0 "Приятно вести с вами дела."
+ 
+ agot_banking.0607.t:0 "The Weight of a Name"
+ agot_banking.0607.desc:0 "A name can shape perception, define legacy, and carry weight far beyond coin. As the bank's director, the privilege — and the power — of renaming it now falls to me. The current name has served its time... but I believe it is no longer enough. If this institution is to reflect my ambitions, then it must bear a name worthy of them."
+ agot_banking.0607.a:0 "A fitting name."
 
  show_shareholders_decision:0 "Показать акционеров"
  show_shareholders_decision_desc:0 "Клерки [ROOT.Char.Custom('agot_bank_name')] предоставят вам список текущих акционеров банка."
@@ -380,9 +392,6 @@
  agot_debtors_list:0 "[Character.GetTitledFirstNamePossessive] общая задолженность: @gold_icon! [Character.MakeScope.Var('total_repayment').GetValue|0]"
 
  agot_shareholder_list:0 "[Character.GetTitledFirstName] имеет [Character.MakeScope.Var('ShownShares').GetValue] акций"
-
- agot_found_bank_decision_effect_tooltip:0 "Ваша столица станет местом для нового [agot_bank|E]. Вы станете первым [agot_bank_director|E] банка, и каждый персонаж в вашем королевстве сможет инвестировать деньги в новый банк, чтобы стать акционером."
-
 
  # vassal loan stuff
  take_vassal_loan_interaction:0 "Попросить вассала о кредите"
