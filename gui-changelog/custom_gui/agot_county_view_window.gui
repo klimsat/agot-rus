@@ -183,7 +183,7 @@ types CountyViewTypes
 				}
 			}
 
-			button_round  = { ## TRIBALIZE AN ELVEN HOLDING ###
+			button_round  = { ## TRIBALIZE A HOLDING ###
 				datacontext = "[HoldingView.GetGUIHoldingBuilding]"
 				datacontext = "[HoldingView.GetTitle]"
 				datacontext = "[HoldingView.GetHolder]"
@@ -193,6 +193,24 @@ types CountyViewTypes
 				oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
 				clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
 				onclick = "[Character.OpenPlayerInteractionWithTargetTitle('tribalize_settlement_holding_interaction', Title.Self)]"
+
+				button_feudalize_holding = {
+					size = { 25 25 }
+					parentanchor = center
+					alwaystransparent = yes
+				}
+			}
+
+			button_round  = { ## COLONIZE A PIRATE DEN ###
+				datacontext = "[HoldingView.GetGUIHoldingBuilding]"
+				datacontext = "[HoldingView.GetTitle]"
+				datacontext = "[HoldingView.GetHolder]"
+				visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('colonize_pirate_den_interaction', Title.Self) )]"
+				enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('colonize_pirate_den_interaction', Title.Self)]"
+				tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('colonize_pirate_den_interaction', Title.Self)]"
+				oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
+				clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
+				onclick = "[Character.OpenPlayerInteractionWithTargetTitle('colonize_pirate_den_interaction', Title.Self)]"
 
 				button_feudalize_holding = {
 					size = { 25 25 }
