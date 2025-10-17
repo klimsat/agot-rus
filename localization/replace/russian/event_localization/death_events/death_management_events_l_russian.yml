@@ -310,17 +310,8 @@
  death_management.death.uninvolved: "«#EMP Мы подтверждаем, что [dead_character.GetTitledFirstName] [Select_CString(dead_character.IsFemale, 'погибла', 'погиб' )] в бою. [dead_character.GetHerHis|U] убили [battle_death_leader.GetPrimaryTitle.GetAdjectiveNoTooltip]ие [battle_death_leader.Custom('GetRandomEmployedMAA')]."
  #Killer
  death_management.killer.witnessed.enemy: "Через несколько мгновений на н[dead_character.GetHerHis|l] отважно [Select_CString(battle_death_killer.IsFemale, 'бросилась', 'бросился' )] [battle_death_killer.GetTitledFirstName], [battle_death_killer.GetLiege.Custom2('RelationToMe', SCOPE.sC('battle_death_killer'))] своего сюзерена, коим является [battle_death_killer.GetLiege.GetTitledFirstName]. [battle_death_killer.GetHerHis|U] [battle_death_killer.Custom('signature_weapon')] обрушивается на врага, и [dead_character.GetFirstNameNoTooltip] уже не в силах парировать смертельный удар. "
- # AGOT Added
- death_management.killer.witnessed.enemy_dragon: "Никто не мог противостоять силе дракона [battle_death_killer.GetFirstName], которого [Select_CString(battle_death_killer_rider.IsFemale, 'вела', 'вёл' )] в бой [battle_death_killer_rider.GetTitledFirstName]. Они прорвались сквозь ряды врагов, и [dead_character.GetFirstNameNoTooltip] [Select_CString(dead_character.IsFemale, 'стала', 'стал' )] одной из их многочисленных жертв. "
- #
  death_management.killer.witnessed.friendly: "Я вижу, как на солнце блестит [battle_death_killer.Custom('signature_weapon')]. [battle_death_killer.GetTitledFirstName], [battle_death_killer.GetLiege.Custom2('RelationToMe', SCOPE.sC('battle_death_killer'))] своего сюзерена, коим является [battle_death_killer.GetLiege.GetTitledFirstName], замахивается и со всей силы наносит разящий удар."
- # AGOT Added
- death_management.killer.witnessed.friendly_dragon: "Никто не мог противостоять ужасу [battle_death_killer.GetFirstName], которого [Select_CString(battle_death_killer_rider.IsFemale, 'вела', 'вёл' )] в бой [battle_death_killer_rider.GetTitledFirstName]. Они прорвали наши ряды, и [dead_character.GetFirstNameNoTooltip] [Select_CString(dead_character.IsFemale, 'стала одной', 'стал одним' )] из многих, кто пал в огне и пламени. "
- #
  death_management.killer: "[battle_death_killer.GetTitledFirstName], [battle_death_killer.GetLiege.Custom2('RelationToMe', SCOPE.sC('battle_death_killer'))] своего сюзерена, коим является [battle_death_killer.GetLiege.GetTitledFirstName], [Select_CString(battle_death_killer.IsFemale, 'сразила', 'сразил' )] [dead_character.GetHerHis|l] в жестоком поединке#!»."
- # AGOT Added
- death_management.killer_dragon: "[dead_character.GetSheHe|U] [Select_CString(dead_character.IsFemale, 'была одной', 'был одним' )] из многих, кто пал перед драконом [battle_death_killer.GetFirstName], которым [Select_CString(battle_death_killer_rider.IsFemale, 'управляла', 'управлял' )] [battle_death_killer_rider.GetTitledFirstName]#!»."
- #
  death_management.no_killer: "[dead_character.GetSheHe|U] [Select_CString(dead_character.IsFemale, 'погибла', 'погиб' )] от случайной стрелы в яростной стычке#!»."
  #Spouse
  death_management.1200.t: "Гибель [Select_CString(dead_character.IsFemale, 'супруги', 'супруга' )]"
@@ -329,9 +320,6 @@
  # AGOT Modified - vanilla scope error
  #death_management.1200.a: "[battle_death_killer.GetFirstNameNoTooltip] — труп! Я убью [battle_death_killer.GetHerHis|l] собственными руками!"
  death_management.1200.a: "[battle_death_killer.GetFirstNameNoTooltip] — труп! Я убью [battle_death_killer.GetHerHis|l] собственными руками!"
- # AGOT Added
- death_management.1200.a_dragon: "[battle_death_killer_rider.GetFirstNameNoTooltip] — труп! Я убью [battle_death_killer_rider.GetHerHis|l] собственными руками!"
- #
  death_management.1200.b: "Я никогда тебя не забуду…"
  death_management.1200.c: "Ты [Select_CString(dead_character.IsFemale, 'доказала', 'доказал' )] свою храбрость, любовь моя…"
  death_management.1200.d: "Свобода! Наконец-то!"
@@ -339,9 +327,6 @@
  death_management.1201.t: " Гибель [Select_CString(dead_character.IsFemale, 'дочери', 'сына' )]"
  death_management.1201.desc: "\n\nУ меня не было возможности [dead_character.GetHerHis|l] спасти… О, горе родителям, пережившим своих детей…"
  death_management.1201.a: "[battle_death_killer.GetFirstNameNoTooltip] поплатится за это!"
- # AGOT Added
- death_management.1201.a_dragon: "[battle_death_killer_rider.GetFirstNameNoTooltip] поплатится за это!"
- #
  death_management.1201.b: "#EMP О, [Select_CString(dead_character.IsFemale, 'моя храбрая дочка', 'мой отважный сын' )]…#!"
  death_management.1201.c: "Ты [Select_CString(dead_character.IsFemale, 'ушла', 'ушел' )] от нас раньше срока…"
  death_management.1201.d: "Покойся с миром, дитя."
@@ -350,9 +335,6 @@
  death_management.1202.desc: "\n\nТеперь уже ничего не изменишь. Надеюсь, что [dead_character.GetFaith.PositiveAfterLife] распахнет для н[dead_character.GetHerHis|l] свои двери."
  death_management.1202.a: "#EMP [Select_CString(dead_character.IsFemale, 'Мамочка', 'Папочка' )], как они могли забрать тебя у меня!#!"
  death_management.1202.b: "[battle_death_killer.GetFirstNameNoTooltip] заплатит за все."
- # AGOT Added
- death_management.1202.b_dragon: "[battle_death_killer_rider.GetFirstNameNoTooltip] заплатит за все."
- #
  #Lover
  death_management.1204.t: "Гибель [Select_CString(dead_character.IsFemale, 'любовницы', 'любовника' )]"
  death_management.1204.desc: "\n\nСердце мое леденеет. Я понимаю, что никогда больше не почувствую жарких объятий [Select_CString(dead_character.IsFemale, 'моей любимой', 'моего любимого' )]…"
@@ -363,26 +345,17 @@
  death_management.1205.desc: "\n\nНеужели я больше никогда [dead_character.GetHerHis|l] не увижу…"
  death_management.1205.a: "О нет, только не [dead_character.GetFirstNameNoTooltip]!"
  death_management.1205.b: "[battle_death_killer.GetFirstNameNoTooltip] за это заплатит!"
- # AGOT Added
- death_management.1205.b_dragon: "[battle_death_killer_rider.GetFirstNameNoTooltip] за это заплатит!"
- #
  #Rival
  death_management.1206.t: "Гибель [Select_CString(dead_character.IsFemale, 'соперницы', 'соперника' )]"
  death_management.1206.desc: "\n\nЯ едва сдерживаю смех. Подумать только, [dead_character.GetFirstNameNoTooltip] [Select_CString(dead_character.IsFemale, 'погибла', 'погиб' )], сражаясь на #EMP моей#! войне! Вот это поворот!"
  death_management.1206.a: "Скатертью дорога."
  death_management.1206.b: "[dead_character.GetFirstNameNoTooltip] [Select_CString(dead_character.IsFemale, 'должна была', 'должен был' )] умереть от моей руки!"
  death_management.1206.c: "Настоящий #EMP героизм#!! Надо проследить, чтобы [battle_death_killer.GetFirstNameNoTooltip] [Select_CString(battle_death_killer.IsFemale, 'получила','получил')] букет посимпатичнее! Первое, что приходит на ум, — [ROOT.Char.GetCurrentLocation.Custom('get_region_flower_type')]!"
- # AGOT Added
- death_management.1206.c_dragon:2 "О, #EMP [Select_CString(dead_character.IsFemale, 'моя героиня', 'мой герой' )]#!! Надо проследить, чтобы [battle_death_killer_rider.GetFirstNameNoTooltip] [Select_CString(battle_death_killer_rider.IsFemale, 'получила', 'получил' )] [ROOT.Char.GetCurrentLocation.Custom('get_region_flower_type')]!"
- #
  #Heir
  death_management.1207.t: "Гибель [Select_CString(dead_character.IsFemale, 'наследницы', 'наследника' )]"
  death_management.1207.desc: "\n\nВопрос наследования во владении [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip] будет значительно усложнен…"
  death_management.1207.a: "Ты [Select_CString(dead_character.IsFemale, 'была', 'был' )] еще не [Select_CString(dead_character.IsFemale, 'готова', 'готов' )]…"
  death_management.1207.b: "[battle_death_killer.GetFirstNameNoTooltip] даже не представляет, что [battle_death_killer.GetHerHis|l] ждет!"
- # AGOT Added
- death_management.1207.b_dragon: "[battle_death_killer_rider.GetFirstNameNoTooltip] даже не представляет, что [battle_death_killer_rider.GetHerHis|l] ждет!"
- #
  death_battle_new_rivalry_title: "[avenger.GetTitledFirstNameNoTooltip] жаждет мести"
  #Family Feud
  death_management.3006.b: "Жаль. Мне казалось, что [dead_character.GetSheHe|l] протянет подольше."
