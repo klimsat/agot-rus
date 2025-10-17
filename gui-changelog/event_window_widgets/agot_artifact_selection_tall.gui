@@ -16,15 +16,15 @@ widget = {
 
 			blockoverride "scrollbox_content" {
 				vbox = {
-					datamodel = "[Scope.GetList('possible_artifacts')]"
+					datamodel = "[Scope.GetList('possible_artifacts_tall')]"
 
 					item = {
 						button_standard = {
 							size = { 400 90 } # Size of the button frame borders; needs to fit within the widget size
 							datacontext = "[Scope.Artifact]"
 
-							down = "[GetScriptedGui( 'agot_artifact_selecting' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_artifact', Artifact.MakeScope ).End )]"
-							onclick = "[GetScriptedGui( 'agot_artifact_selecting' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_artifact', Artifact.MakeScope ).End )]"
+							down = "[GetScriptedGui( 'agot_artifact_selecting_tall' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_artifact_tall', Artifact.MakeScope ).End )]"
+							onclick = "[GetScriptedGui( 'agot_artifact_selecting_tall' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_artifact_tall', Artifact.MakeScope ).End )]"
 
 							widget = {
 								size = { 90 90 }
