@@ -623,7 +623,7 @@
  feature_book_title_soulmate: "Книга «Набожность:» $artifact_name_prefix_artifact_scope$"
  feature_book_topic_soulmate: "[Artifact.GetOwner.Custom('ArtifactArticleWealth')|U]ый и красочно иллюстрированный манускрипт, [Artifact.GetOwner.Custom('ArtifactAdverbBookContentQuality')] описывающий любовь, что испытывали друг к другу [Artifact.GetOwner.GetTitledFirstName] и [Artifact.GetOwner.MakeScope.Var('book_topic_relationship').Char.GetTitledFirstName]."
  feature_book_title_nemesis: "[Artifact.GetOwner.GetTitledFirstName] и вечная ненависть"
- feature_book_topic_nemesis: "[Artifact.GetOwner.Custom('ArtifactArticleWealth')|U]ый манускрипт, [Artifact.GetOwner.Custom('ArtifactAdverbBookContentQuality')] передающий ненависть, что испытывает [Artifact.GetOwner.GetTitleAsName|l]. В нем [Artifact.GetOwner.MakeScope.Var('book_topic_relationship').Char.GetTitledFirstName] описывается как [Artifact.GetOwner.MakeScope.Var('book_topic_relationship').Char.Custom('InsultAdjectiveArticle')][Select_CString(nemesis.IsFemale, 'ая', 'ый' )] [Artifact.GetOwner.MakeScope.Var('book_topic_relationship').Char.Custom('InsultNoun')] и не только. Текст снабжен дотошными иллюстрациями, на которых [nemesis.GetTitledFirstName] изображается в как можно более неприглядном свете."
+ feature_book_topic_nemesis: "[Artifact.GetOwner.Custom('ArtifactArticleWealth')|U]ый манускрипт, [Artifact.GetOwner.Custom('ArtifactAdverbBookContentQuality')] передающий ненависть, что испытывает [Artifact.GetOwner.GetTitleAsName|l]. В нем [Artifact.GetOwner.MakeScope.Var('book_topic_relationship').Char.GetTitledFirstName] описывается как [Artifact.GetOwner.MakeScope.Var('book_topic_relationship').Char.Custom2('InsultAdjectiveArticle', ROOT.Char)][Select_CString(nemesis.IsFemale, 'ая', 'ый' )] [Artifact.GetOwner.MakeScope.Var('book_topic_relationship').Char.Custom2('InsultNoun', ROOT.Char)] и не только. Текст снабжен дотошными иллюстрациями, на которых [nemesis.GetTitledFirstName] изображается в как можно более неприглядном свете."
  
 # mystical animal
  feature_book_title_mystical_animal: "[Artifact.GetOwner.Custom('GetAnimalType')|U] с белой шкурой"
@@ -858,3 +858,16 @@
 
  artifact_wall_icon_court_large: "Большая икона"
  artifact_wall_icon_court_small: "Маленькая икона"
+
+ artifact_wall_sakanoue_sword_name: "Банкэ-но хокэн"
+ artifact_wall_sakanoue_sword_desc: "Считается, что этот меч, которым некогда владел знаменитый полководец $dynn_Sakanoue$ $Tamuramaro$, оберегает императорский двор от врагов. После смерти этого выдающегося военачальника тэнно $Saga_JP$ передал Банкэ-но хокэн в дворцовую сокровищницу."
+ artifact_higekiri_sword_name: "Хигэкири"
+ artifact_higekiri_sword_desc: "Хигэкири («Бородорез») вместе с другим мечом — Хидзамару — был выкован по заказу $dynn_Minamoto$-но Мицунаки. Со временем он превратился в реликвию, передающуюся из поколения в поколение в семействе $Seiwa$ $dynn_Minamoto$."
+ artifact_hizamaru_sword_name: "Хидзамару"
+ artifact_hizamaru_sword_desc: "Это оружие вместе с другим мечом — Хигэкири — было выковано по заказу $dynn_Minamoto$-но Мицунаки. Со временем оно превратилось в реликвию, передающуюся из поколения в поколение в семействе $Seiwa$ $dynn_Minamoto$."
+ artifact_dojigiri_sword_name: "Додзигири"
+ artifact_dojigiri_sword_desc: "Этот меч выковал прославленный кузнец $Yasutsuna_4$, им владел $dynn_Fujiwara$ $Toshihito$. Со временем оружие превратилось в реликвию, передающуюся из поколения в поколение в семействе $dynn_Fujiwara$."
+ artifact_mikazuki_munechika_sword_name: "Микадзуки"
+ artifact_mikazuki_munechika_sword_desc: "Микадзуки («Полумесяц») был выкован знаменитым кузнецом $dynn_SanjO_$ Мунэтикой в годы правления тэнно $IchijO_$."
+ artifact_odenta_sword_name: "Отэнта"
+ artifact_odenta_sword_desc: "«Великий Тэнта» был выкован знаменитым кузнецом $Mitsuyo$, также известным как Тэнта, в годы правления тэнно Сиракавы."

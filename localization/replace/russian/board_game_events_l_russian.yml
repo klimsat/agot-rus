@@ -36,7 +36,7 @@
  board_games.0001.desc.opponent_winning.trait.impatient: "«[SCOPE.Custom('BG_GameType')|U] делает вас медлительнее», — бормочет [Select_CString(bg_opponent.IsFemale, 'моя противница', 'мой противник' )], барабаня пальцами по доске."
  board_games.0001.desc.opponent_winning.trait.arrogant: "«Не огорчайтесь, [bg_myself.GetFirstNameNoTooltip], — примирительным тоном тянет [Select_CString(bg_opponent.IsFemale, 'моя противница', 'мой противник' )], устраиваясь поудобнее. — Не все #EMP талантливы#! от природы»."
  board_games.0001.desc.opponent_winning.trait.humble: "«Честное слово, у вас прекрасно получается, — щебечет [Select_CString(bg_opponent.IsFemale, 'моя противница', 'мой противник' )]. — Меня не назовешь хорошим игроком, так что это, скорее всего, простое невезение»."
- board_games.0001.desc.opponent_winning.trait.deceitful: "«Не огорчайтесь, — успокаивает [Select_CString(bg_opponent.IsFemale, 'моя противница', 'мой противник' )], и в голосе [bg_opponent.GetHerHis] мешаются мед и едкая насмешка. — Меня не обыграет даже [bg_opponent.GetFaith.TricksterGodName]»."
+ board_games.0001.desc.opponent_winning.trait.deceitful: "«Не огорчайтесь, — успокаивает [Select_CString(bg_opponent.IsFemale, 'моя противница', 'мой противник' )] медовым голосом. — Меня не обыграет даже [bg_opponent.GetFaith.TricksterGodName]»."
  board_games.0001.desc.opponent_winning.trait.honest: "«Подумать только, всё идет #EMP гораздо#! лучше, чем я [Select_CString(bg_opponent.IsFemale, 'ожидала', 'ожидал' )]! — восклицает [Select_CString(bg_opponent.IsFemale, 'моя противница', 'мой противник' )]. — Вас совсем не трудно одолеть... ой, прошу простить мою бестактность. Что-то я [Select_CString(bg_opponent.IsFemale, 'разоткровенничалась', 'разоткровенничался' )]»."
  board_games.0001.desc.opponent_winning.trait.craven: "«Я... выигрываю?! Я выигрываю! — кричит [Select_CString(bg_opponent.IsFemale, 'моя противница', 'мой противник' )]. [bg_opponent.GetSheHe|U], похоже, искренне [Select_CString(bg_opponent.IsFemale, 'изумлена', 'изумлен' )], но ведь [bg_opponent.GetSheHe] #EMP и впрямь#! [Select_CString(bg_opponent.IsFemale, 'просидела', 'просидел' )] большую часть партии в не менее искреннем ужасе."
  board_games.0001.desc.opponent_winning.trait.brave: "«Извините за невольный смешок, — замечает [Select_CString(bg_opponent.IsFemale, 'моя противница', 'мой противник' )], — но, чтобы справиться со #EMP мной#!, нужно играть гораздо #EMP смелее#!»."
@@ -111,7 +111,7 @@
  board_games.0001.desc.i_am_winning.trait.generous: "[Select_CString(bg_opponent.IsFemale, 'Моя противница', 'Мой противник' )] смотрит на меня с доброй улыбкой: «У вас #EMP очень#! хорошо получается, продолжайте!»"
  board_games.0001.desc.i_am_winning.trait.lazy: "«О, мой ход? — зевает [Select_CString(bg_opponent.IsFemale, 'моя противница', 'мой противник' )], — простите, я #EMP едва#! слежу за игрой»."
  board_games.0001.desc.i_am_winning.trait.diligent: "«Да, вы ведете, — напыщенно заявляет [Select_CString(bg_opponent.IsFemale, 'моя противница', 'мой противник' )], — но если я немного постараюсь, то смогу вас догнать!»"
- board_games.0001.desc.i_am_winning.trait.wrathful: "[bg_opponent.Custom('MaskFace')|U] [Select_CString(bg_opponent.IsFemale, 'моей противницы', 'моего противника' )] заметно напрягается. «Если продолжишь выигрывать, [bg_myself.Custom('InsultNoun')], я #EMP всю#! эту доску кровью заплюю!»"
+ board_games.0001.desc.i_am_winning.trait.wrathful: "[bg_opponent.Custom('MaskFace')|U] [Select_CString(bg_opponent.IsFemale, 'моей противницы', 'моего противника' )] заметно напрягается. «Если продолжишь выигрывать, [bg_myself.Custom2('InsultNoun', SCOPE.sC('bg_opponent'))], я #EMP всю#! эту доску кровью заплюю!»"
  board_games.0001.desc.i_am_winning.trait.calm: "Обычное умиротворение покидает [Select_CString(bg_opponent.IsFemale, 'моей противницы', 'моего противника' )]. [bg_opponent.GetHerHis|U] [bg_opponent.Custom('MaskFace')] едва заметно омрачается."
  board_games.0001.desc.i_am_winning.trait.patient: "«Думаешь, везение продлится вечно? — задумчиво тянет [Select_CString(bg_opponent.IsFemale, 'моя противница', 'мой противник' )]. — Везение всегда заканчивается»."
  board_games.0001.desc.i_am_winning.trait.impatient: "«Во имя [bg_opponent.GetFaith.HighGodNamePossessive], да твоя победа, #EMP твоя#!! — кричит [Select_CString(bg_opponent.IsFemale, 'моя противница', 'мой противник' )]. — #EMP Кончай#! уже с этим»."
@@ -168,7 +168,7 @@
  ##################################################
  #Introductions
  board_games.0001.desc.intro.opening.defender: "[bg_opponent.GetTitledFirstName] уже ждет начала игры. На [bg_opponent.GetHerHis] лице #color_blue_gray [bg_myself.Custom('BG_RandomFacialExpression')]#!."
- board_games.0001.desc.intro.opening.attacker: "[bg_opponent.GetTitledFirstName] садится напротив. Игра вот-вот начнется, и #color_blue_gray [SCOPE.Custom('BG_RandomFacialExpression')]#! на [bg_opponent.GetHerHis] лице дает понять, насколько [Select_CString(bg_opponent.IsFemale, 'уверена моя', 'уверен мой' )] [bg_myself.Custom2('RelationToMeShort',bg_opponent)] в себе.\n\n[bg_opponent.GetSheHe|U] ходит [Select_CString(bg_opponent.IsFemale, 'первой', 'первым' )] и открывает игру"
+ board_games.0001.desc.intro.opening.attacker: "[bg_opponent.GetTitledFirstName] садится напротив. Игра вот-вот начнется, и #color_blue_gray [SCOPE.Custom('BG_RandomFacialExpression')]#! на [bg_opponent.GetHerHis] лице дает понять, насколько [Select_CString(bg_opponent.IsFemale, 'уверена моя', 'уверен мой' )] [bg_myself.Custom2('RelationToMeShort', bg_opponent)] в себе.\n\n[bg_opponent.GetSheHe|U] ходит [Select_CString(bg_opponent.IsFemale, 'первой', 'первым' )] и открывает игру"
  board_games.0001.desc.intro.subsequent: "Игра в разгаре, и [bg_opponent.GetFirstName] продолжает ее"
 
  ##################################################
@@ -412,7 +412,7 @@
  board_games.0031.a: "Хорошо поиграли!"
  board_games.0031.a.a: "Отличная игра!"
  board_games.0031.b: "Понравилось проигрывать, жалкий мой человек?"
- board_games.0031.b.a: "Кланяйся мне, [bg_loser.Custom('InsultNoun')|l]!"
+ board_games.0031.b.a: "Кланяйся мне, [bg_loser.Custom2('InsultNoun', ROOT.Char)|l]!"
  board_games.0031.b.b: "Не #EMP слишком#! расстраивайтесь, не всем же быть умными, как я."
  board_games.0031.b.progress_towards_rival: "[bg_loser.GetTitledFirstName] принимает поражение близко к сердцу"
  board_games.0031.c: "Можно будет как-нибудь повторить..."
@@ -434,7 +434,7 @@
 
  board_games.0041.desc.end.01: "\n\nНеужели [SCOPE.Custom('BG_GameType')] — не для меня?"
  board_games.0041.desc.end.02: "\n\nМои ладони потеют, а колени дрожат, когда я понимаю, что [bg_victor.GetFirstName] [Select_CString(bg_victor.IsFemale, 'победила', 'победил' )] меня и мое мастерство меня не спасло."
- board_games.0041.desc.end.03: "\n\nВот [recipient.Custom('InsultNoun')|l]! Вот же [recipient.Custom('InsultNoun')|l]! Наверняка не обошлось без мошенничества, ведь не могу же #EMP я#! проиграть?!"
+ board_games.0041.desc.end.03: "\n\nВот [recipient.Custom2('InsultNoun', ROOT.Char)|l]! Вот же [recipient.Custom2('InsultNoun', ROOT.Char)|l]! Наверняка не обошлось без мошенничества, ведь не могу же #EMP я#! проиграть?!"
 
  board_games.0041.a: "Посмотрим, кто выиграет в следующий раз..."
  board_games.0041.b: "Сегодня у тебя появился враг."
