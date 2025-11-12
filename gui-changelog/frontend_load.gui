@@ -236,7 +236,7 @@ types LoadGameTypes
 
 								block "button_load_save"
 								{
-									onclick = "[FrontEndLoadView.OnLoad]"
+									onclick = "[FrontEndLoadView.OnLoadSavedGameButton]"
 								}
 							}
 						}
@@ -421,6 +421,8 @@ types LoadGameTypes
 				hbox = {
 					layoutpolicy_horizontal = expanding
 					spacing = 10
+
+					visible = "[SaveGameItem.HasValidCharacterToShow]"
 
 					background = {
 						using = Background_Area_Dark

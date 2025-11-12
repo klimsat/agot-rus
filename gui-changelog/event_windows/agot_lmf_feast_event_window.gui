@@ -10,6 +10,7 @@
 	datacontext = "[EventWindow.AccessEventWindowData]"
 
 	using = Event_Window_Debug_OptionTooltips
+	using = Event_Window_Debug_EventTools
 
 	state = {
 		name = show
@@ -119,6 +120,7 @@
 					name = "portrait_left"
 					datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
 					visible = "[EventWindowData.HasPortraitCharacter('left_portrait')]"
+					visible_at_creation = no
 					parentanchor = bottom|hcenter
 					size = { 500 650 }
 					position = { 80 60 }
@@ -138,6 +140,7 @@
 					blockoverride "highlight_visible"
 					{
 						visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('left_portrait') ))]"
+						visible_at_creation = no
 						position = { -40 0 }
 					}
 
@@ -189,6 +192,7 @@
 					name = "portrait_center"
 					datacontext = "[EventWindowData.GetPortraitCharacter('center_portrait')]"
 					visible = "[EventWindowData.HasPortraitCharacter('center_portrait')]"
+					visible_at_creation = no
 					parentanchor = bottom|hcenter
 					size = { 500 650 }
 					position = { 40 60 }
@@ -259,6 +263,7 @@
 					name = "portrait_right"
 					datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
 					visible = "[EventWindowData.HasPortraitCharacter('right_portrait')]"
+					visible_at_creation = no
 					parentanchor = bottom|right
 					size = { 500 650 }
 					position = { 0 60 }
@@ -470,6 +475,7 @@
 							vbox = {
 								name = "travel_event_info"
 								visible = "[And(EventWindowData.ThemeKeyStartsWith('travel'), GetPlayer.GetTravelPlan.IsValid)]"
+								visible_at_creation = no
 								layoutpolicy_horizontal = expanding
 								margin = { 20 0 }
 
@@ -657,6 +663,7 @@
 				event_portrait_status_icons_left = {
 					datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
 					visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
+					visible_at_creation = no
 
 				}
 
@@ -667,6 +674,7 @@
 				flowcontainer = {
 					datacontext = "[EventWindowData.GetArtifact('lower_left_portrait')]"
 					visible = "[EventWindowData.HasArtifact('lower_left_portrait')]"
+					visible_at_creation = no
 					direction = vertical
 					spacing =-5
 
@@ -676,6 +684,7 @@
 				widget = {
 					datacontext = "[EventWindowData.GetPortraitCharacter('lower_left_portrait')]"
 					visible = "[EventWindowData.HasPortraitCharacter('lower_left_portrait')]"
+					visible_at_creation = no
 					size = { 140 150 }
 
 					portrait_event_small = {
@@ -770,6 +779,7 @@
 				flowcontainer = {
 					datacontext = "[EventWindowData.GetArtifact('lower_center_portrait')]"
 					visible = "[EventWindowData.HasArtifact('lower_center_portrait')]"
+					visible_at_creation = no
 					direction = vertical
 					spacing =-5
 
@@ -792,6 +802,7 @@
 				widget = {
 					datacontext = "[EventWindowData.GetPortraitCharacter('lower_center_portrait')]"
 					visible = "[EventWindowData.HasPortraitCharacter('lower_center_portrait')]"
+					visible_at_creation = no
 					size = { 140 150 }
 
 					portrait_event_small = {
@@ -853,6 +864,7 @@
 				event_portrait_status_icons_right = {
 					datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
 					visible = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
+					visible_at_creation = no
 					parentanchor = right
 
 				}
@@ -864,6 +876,7 @@
 				flowcontainer = {
 					datacontext = "[EventWindowData.GetArtifact('lower_right_portrait')]"
 					visible = "[EventWindowData.HasArtifact('lower_right_portrait')]"
+					visible_at_creation = no
 					direction = vertical
 					spacing =-5
 
@@ -873,6 +886,7 @@
 				widget = {
 					datacontext = "[EventWindowData.GetPortraitCharacter('lower_right_portrait')]"
 					visible = "[EventWindowData.HasPortraitCharacter('lower_right_portrait')]"
+					visible_at_creation = no
 					size = { 140 150 }
 
 					portrait_event_small = {
@@ -1097,6 +1111,7 @@
 	flowcontainer = {
 		name = "debug_stuff"
 		visible = "[InDebugMode]"
+		visible_at_creation = no
 		parentanchor = top|right
 		position = { -100 25 }
 		ignoreinvisible = yes

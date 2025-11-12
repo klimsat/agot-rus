@@ -432,13 +432,13 @@ types PortraitTypes
 						icon = {
 							name = "obedient_to_someone_else"
 							visible = "[And(Character.UsesObedience,And(Not(Character.GetOverlord.IsLocalPlayer),Character.IsObedientTo(Character.GetOverlord)))]"
-			
+
 							size = { 14 14 }
 							enabled = no
 							texture = "gfx/interface/icons/portraits/obedient_small.dds"
 							tooltipwidget = widget_obedience_tooltip
 						}
-			
+
 						icon = {
 							name = "disobedient_to_me"
 							visible = "[And(Character.UsesObedience,And(Character.GetOverlord.IsLocalPlayer, And(Not(Character.IsObedientTo(GetPlayer)), Not(Character.IsPlayer))))]"
@@ -446,7 +446,7 @@ types PortraitTypes
 							texture = "gfx/interface/icons/portraits/disobedient_small.dds"
 							tooltipwidget = widget_obedience_tooltip
 						}
-			
+
 						icon = {
 							name = "disobedient_to_someone_else"
 							visible = "[And(Character.UsesObedience,And(Not(Character.GetOverlord.IsLocalPlayer),Not(Character.IsObedientTo(Character.GetOverlord))))]"
@@ -454,6 +454,64 @@ types PortraitTypes
 							enabled = no
 							texture = "gfx/interface/icons/portraits/disobedient_small.dds"
 							tooltipwidget = widget_obedience_tooltip
+						}
+
+						flowcontainer = {
+							visible = "[And(HasDlcFeature( 'all_under_heaven' ), Character.ShouldShowMovementPower)]"
+							ignoreinvisible = yes
+							direction = vertical
+							datacontext = "[Character]"
+							datacontext = "[GetSituation('dynastic_cycle')]"
+		
+							icon = {
+								name = "advancement_movement"
+								visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('advancement_movement').Self)]"
+								size = { 14 14 }
+			
+								texture = "gfx/interface/icons/portraits/dynastic_cycle_group_advance_small.dds"
+			
+								tooltip = "FRAME_ADVANCEMENT_MOVEMENT"
+							}
+		
+							icon = {
+								name = "expansion_movement"
+								visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('expansion_movement').Self)]"
+								size = { 14 14 }
+			
+								texture = "gfx/interface/icons/portraits/dynastic_cycle_group_expand_small.dds"
+			
+								tooltip = "FRAME_EXPANSION_MOVEMENT"
+							}
+		
+							icon = {
+								name = "conservative_movement"
+								visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('conservative_movement').Self)]"
+								size = { 14 14 }
+			
+								texture = "gfx/interface/icons/portraits/dynastic_cycle_group_anti_small.dds"
+			
+								tooltip = "FRAME_CONSERVATIVE_MOVEMENT"
+							}
+		
+							icon = {
+								name = "pro_hegemon_movement"
+								visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('pro_hegemon_movement').Self)]"
+								size = { 14 14 }
+			
+								texture = "gfx/interface/icons/portraits/dynastic_cycle_group_pro_small.dds"
+			
+								tooltip = "FRAME_PRO_HEGEMON_MOVEMENT"
+							}
+		
+							icon = {
+								name = "undecided_movement"
+								visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('undecided_movement').Self)]"
+								size = { 14 14 }
+			
+								texture = "gfx/interface/icons/portraits/dynastic_cycle_group_unaligned_small.dds"
+			
+								tooltip = "FRAME_UNDECIDED_MOVEMENT"
+							}
 						}
 
 						icon = {
@@ -780,6 +838,7 @@ types PortraitTypes
 
 	## Standard portrait from shoulders up
 	type portrait_shoulders = widget {
+
 		size = { 125 160 }
 
 		widget = {
@@ -794,7 +853,11 @@ types PortraitTypes
 			#AGOT Added
 			using = visible_if_not_dragon
 			parentanchor = bottom|hcenter
-			size = { 145 175 }
+
+			block "portrait_size"
+			{
+				size = { 145 175 }
+			}
 			using = portrait_base
 
 			block "portrait_texture"
@@ -826,17 +889,19 @@ types PortraitTypes
 		#AGOT Added
 		agot_dragons_portrait_shoulders = {}
 
-		portrait_status_icons = {
-			#AGOT Added
-			visible = "[Not(UsingEventWindow)]"
-			parentanchor = bottom|right
-			position = { 0 -3 }
-			scale = 0.85
+		block "portrait_status_icons" {
+			portrait_status_icons = {
+				parentanchor = bottom|right
+				position = { 0 -3 }
+				scale = 0.85
+				#AGOT Added
+				visible = "[Not(UsingEventWindow)]"
 
-			background = {
-				using = Background_Area_Dark
-				margin = { 2 3 }
-				alpha = 0.8
+				background = {
+					using = Background_Area_Dark
+					margin = { 2 3 }
+					alpha = 0.8
+				}
 			}
 		}
 
@@ -1581,6 +1646,11 @@ types PortraitTypes
 			#AGOT Added
 			using = visible_if_not_dragon
 			size = { 100% 100% }
+			blockoverride "portrait_size"
+			{
+				size = { 100% 100% }
+			}
+
 			blockoverride "portrait_glows" {}
 		}
 		#AGOT Added
@@ -1621,7 +1691,12 @@ types PortraitTypes
 
 		portrait_shoulders = {
 			size = { 100% 100% }
+			blockoverride "portrait_size"
+			{
+				size = { 100% 100% }
+			}
 			blockoverride "portrait_glows" {}
+			blockoverride "coa" {}
 		}
 	}
 
@@ -2085,8 +2160,8 @@ types PortraitTypes
 	type portrait_opinion = flowcontainer {
 		name = "tutorial_highlight_portrait_opinion"
 		#AGOT Modified
-		#visible = "[And(Character.IsValid, And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
-		visible = "[And( And( Character.IsValid, Not( IsCharacterDragon )), And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
+		# visible = "[And(Character.IsValid, And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
+		visible = "[And(And(Character.IsValid, Not(IsCharacterDragon)), And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
 		ignoreinvisible = yes
 
 		background = {
@@ -2102,7 +2177,7 @@ types PortraitTypes
 			block "dread_logic" {
 				#AGOT Modified
 				# visible = "[Character.ShouldShowDreadEffectIcon]"
-				visible = "[And( Not(IsCharacterDragon), Character.ShouldShowDreadEffectIcon )]"
+				visible = "[And(Not(IsCharacterDragon), Character.ShouldShowDreadEffectIcon)]"
 				frame = "[Character.GetPlayerDreadEffectIconFrame]"
 				tooltip = "[Character.GetPlayerDreadEffectTooltip]"
 			}
@@ -2144,8 +2219,8 @@ types PortraitTypes
 	type portrait_opinion_small = flowcontainer {
 		#name = "tutorial_highlight_portrait_opinion"
 		#AGOT Modified
-		#visible = "[And(Character.IsValid, And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
-		visible = "[And( And( Character.IsValid, Not( IsCharacterDragon )), And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
+		# visible = "[And(Character.IsValid, And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
+		visible = "[And(And(Character.IsValid, Not(IsCharacterDragon)), And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
 		ignoreinvisible = yes
 		margin_right = 2
 
@@ -2162,7 +2237,7 @@ types PortraitTypes
 			name = "dread"
 			#AGOT Modified
 			# visible = "[Character.ShouldShowDreadEffectIcon]"
-			visible = "[And( Not(IsCharacterDragon), Character.ShouldShowDreadEffectIcon )]"
+			visible = "[And(Not(IsCharacterDragon), Character.ShouldShowDreadEffectIcon)]"
 			size = { 16 16 }
 			texture = "gfx/interface/icons/portraits/dread_values.dds"
 			framesize = { 40 40 }
@@ -2331,17 +2406,17 @@ types PortraitTypes
 					texture = "gfx/interface/icons/portraits/obedient_small.dds"
 					tooltipwidget = widget_obedience_tooltip
 				}
-	
+
 				icon = {
 					name = "obedient_to_someone_else"
 					visible = "[And(Not(Character.IsPlayer),And(Character.UsesObedience,And(Not(Character.GetOverlord.IsLocalPlayer),Character.IsObedientTo(Character.GetOverlord))))]"
-	
+
 					size = { 14 14 }
 					enabled = no
 					texture = "gfx/interface/icons/portraits/obedient_small.dds"
 					tooltipwidget = widget_obedience_tooltip
 				}
-	
+
 				icon = {
 					name = "disobedient_to_me"
 					visible = "[And(Character.UsesObedience,And(Character.GetOverlord.IsLocalPlayer, And(Not(Character.IsObedientTo(GetPlayer)), Not(Character.IsPlayer))))]"
@@ -2349,7 +2424,7 @@ types PortraitTypes
 					texture = "gfx/interface/icons/portraits/disobedient_small.dds"
 					tooltipwidget = widget_obedience_tooltip
 				}
-	
+
 				icon = {
 					name = "disobedient_to_someone_else"
 					visible = "[And( Not(Character.IsPlayer), And(Character.UsesObedience,And(Not(Character.GetOverlord.IsLocalPlayer),Not(Character.IsObedientTo(Character.GetOverlord)))))]"
@@ -2357,6 +2432,64 @@ types PortraitTypes
 					enabled = no
 					texture = "gfx/interface/icons/portraits/disobedient_small.dds"
 					tooltipwidget = widget_obedience_tooltip
+				}
+
+				flowcontainer = {
+					visible = "[And(HasDlcFeature( 'all_under_heaven' ), Character.ShouldShowMovementPower)]"
+					ignoreinvisible = yes
+					direction = vertical
+					datacontext = "[Character]"
+					datacontext = "[GetSituation('dynastic_cycle')]"
+
+					icon = {
+						name = "advancement_movement"
+						visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('advancement_movement').Self)]"
+						size = { 14 14 }
+	
+						texture = "gfx/interface/icons/portraits/dynastic_cycle_group_advance_small.dds"
+	
+						tooltip = "FRAME_ADVANCEMENT_MOVEMENT"
+					}
+
+					icon = {
+						name = "expansion_movement"
+						visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('expansion_movement').Self)]"
+						size = { 14 14 }
+	
+						texture = "gfx/interface/icons/portraits/dynastic_cycle_group_expand_small.dds"
+	
+						tooltip = "FRAME_EXPANSION_MOVEMENT"
+					}
+
+					icon = {
+						name = "conservative_movement"
+						visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('conservative_movement').Self)]"
+						size = { 14 14 }
+	
+						texture = "gfx/interface/icons/portraits/dynastic_cycle_group_anti_small.dds"
+	
+						tooltip = "FRAME_CONSERVATIVE_MOVEMENT"
+					}
+
+					icon = {
+						name = "pro_hegemon_movement"
+						visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('pro_hegemon_movement').Self)]"
+						size = { 14 14 }
+	
+						texture = "gfx/interface/icons/portraits/dynastic_cycle_group_pro_small.dds"
+	
+						tooltip = "FRAME_PRO_HEGEMON_MOVEMENT"
+					}
+
+					icon = {
+						name = "undecided_movement"
+						visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('undecided_movement').Self)]"
+						size = { 14 14 }
+	
+						texture = "gfx/interface/icons/portraits/dynastic_cycle_group_unaligned_small.dds"
+	
+						tooltip = "FRAME_UNDECIDED_MOVEMENT"
+					}
 				}
 
 				icon = {
@@ -2571,6 +2704,8 @@ types PortraitTypes
 				texture = "gfx/interface/icons/portraits/disobedient.dds"
 				tooltipwidget = widget_obedience_tooltip
 			}
+
+			container_dynastic_cycle_group_icons = {}
 
 			icon = {
 				name = "unpredictable"
@@ -2944,6 +3079,34 @@ types portrait_icons
 			using = Portrait_Relation_Icon_Normal_Size
 		}
 	}
+	
+	type elder_relation_icon = icon
+	{
+		name = "elder"
+
+		datacontext = "[GetRelation( 'elder' )]"
+
+		texture = "gfx/interface/icons/portraits/elder.dds"
+		frame = 2
+
+		block "icon_template" {
+			using = Portrait_Relation_Icon_Normal_Size
+		}
+	}
+	
+	type disciple_relation_icon = icon
+	{
+		name = "disciple"
+
+		datacontext = "[GetRelation( 'disciple' )]"
+
+		texture = "gfx/interface/icons/portraits/disciple.dds"
+		frame = 2
+
+		block "icon_template" {
+			using = Portrait_Relation_Icon_Normal_Size
+		}
+	}
 
 	# Small size icons
 	type lover_relation_icon_small = icon
@@ -3041,6 +3204,107 @@ types portrait_icons
 
 		using = Portrait_Relation_Icon_Small_Size
 	}
+	
+	type elder_relation_icon_small = icon
+	{
+		name = "elder"
+
+		datacontext = "[GetRelation( 'elder' )]"
+
+		texture = "gfx/interface/icons/portraits/elder_small.dds"
+		frame = 1
+
+		block "icon_template" {
+			using = Portrait_Relation_Icon_Small_Size
+		}
+	}
+	
+	type disciple_relation_icon_small = icon
+	{
+		name = "disciple"
+
+		datacontext = "[GetRelation( 'disciple' )]"
+
+		texture = "gfx/interface/icons/portraits/disciple_small.dds"
+		frame = 1
+
+		block "icon_template" {
+			using = Portrait_Relation_Icon_Small_Size
+		}
+	}
+
+	type container_dynastic_cycle_group_icons = container {
+		name = "container_dynastic_cycle_group_icons"
+		visible = "[And(HasDlcFeature( 'all_under_heaven' ), Character.ShouldShowMovementPower)]"
+		datacontext = "[Character]"
+		datacontext = "[GetSituation('dynastic_cycle')]"
+		ignoreinvisible = yes
+
+		icon = {
+			name = "advancement_movement"
+			visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('advancement_movement').Self)]"
+			size = { 20 20 }
+	
+			texture = "gfx/interface/icons/portraits/dynastic_cycle_group_advance.dds"
+
+			block "dynastic_cycle_group_icon_tooltip"
+			{
+				tooltip = "FRAME_ADVANCEMENT_MOVEMENT"
+			}
+		}
+
+		icon = {
+			name = "expansion_movement"
+			visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('expansion_movement').Self)]"
+			size = { 20 20 }
+
+			texture = "gfx/interface/icons/portraits/dynastic_cycle_group_expand.dds"
+
+			block "dynastic_cycle_group_icon_tooltip"
+			{
+				tooltip = "FRAME_EXPANSION_MOVEMENT"
+			}
+		}
+
+		icon = {
+			name = "conservative_movement"
+			visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('conservative_movement').Self)]"
+			size = { 20 20 }
+
+			texture = "gfx/interface/icons/portraits/dynastic_cycle_group_anti.dds"
+
+			block "dynastic_cycle_group_icon_tooltip"
+			{
+				tooltip = "FRAME_CONSERVATIVE_MOVEMENT"
+			}
+		}
+
+		icon = {
+			name = "pro_hegemon_movement"
+			visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('pro_hegemon_movement').Self)]"
+			size = { 20 20 }
+
+			texture = "gfx/interface/icons/portraits/dynastic_cycle_group_pro.dds"
+
+			block "dynastic_cycle_group_icon_tooltip"
+			{
+				tooltip = "FRAME_PRO_HEGEMON_MOVEMENT"
+			}
+		}
+
+		icon = {
+			name = "undecided_movement"
+			visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('undecided_movement').Self)]"
+			size = { 20 20 }
+
+			texture = "gfx/interface/icons/portraits/dynastic_cycle_group_unaligned.dds"
+
+			block "dynastic_cycle_group_icon_tooltip"
+			{
+				tooltip = "FRAME_UNDECIDED_MOVEMENT"
+			}
+		}
+	}
 }
 
 template Portrait_Relation_Icons
@@ -3053,6 +3317,8 @@ template Portrait_Relation_Icons
 	nemesis_relation_icon = {}
 	grudge_relation_icon = {}
 	blood_brother_relation_icon = {}
+	elder_relation_icon = {}
+	disciple_relation_icon = {}
 }
 
 template Portrait_Relation_Icons_Small
@@ -3065,6 +3331,8 @@ template Portrait_Relation_Icons_Small
 	nemesis_relation_icon_small = {}
 	grudge_relation_icon_small = {}
 	blood_brother_relation_icon_small = {}
+	elder_relation_icon_small = {}
+	disciple_relation_icon_small = {}
 }
 
 template Portrait_Relation_Icons_Character_Window
@@ -3112,6 +3380,18 @@ template Portrait_Relation_Icons_Character_Window
 		}
 	}
 	blood_brother_relation_icon = {
+		blockoverride "icon_template"
+		{
+			using = Character_Window_Relation_Icon
+		}
+	}
+	elder_relation_icon = {
+		blockoverride "icon_template"
+		{
+			using = Character_Window_Relation_Icon
+		}
+	}
+	disciple_relation_icon = {
 		blockoverride "icon_template"
 		{
 			using = Character_Window_Relation_Icon

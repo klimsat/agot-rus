@@ -2,15 +2,48 @@
 ################# AGOT KINGSGUARD WINDOW ###################
 ############################################################
 
-types Kingsguard {
+types Kingsguard
+{
+	type agot_kingsguard_council_tabs_hbox = hbox
+	{
+		layoutpolicy_horizontal = expanding
+		visible = "[And(GetPlayer.IsIndependentRuler, GetScriptedGui('kingsguard_tab').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+
+		button_tab = {
+			layoutpolicy_horizontal = expanding
+			down = "[GetVariableSystem.HasValue('council_tabs','my_council')]"
+			onclick = "[CouncilWindow.SetPlayerCouncil]"
+			onclick = "[GetVariableSystem.Clear( 'diarchy_tab' )]"
+			onclick = "[GetVariableSystem.Set('council_tabs', 'my_council')]"
+
+			text_single = {
+				minimumsize = { 281 38 }
+				margin = { 15 0 }
+				text = "COUNCIL_WINDOW_PLAYER_COUNCIL"
+				resizeparent = yes
+				align = center|nobaseline
+				default_format = "#low"
+			}
+		}
+		agot_kingsguard_tab_button = {}
+	}
+
 	type agot_kingsguard_tab_button = button_tab
 	{
+		layoutpolicy_horizontal = preferred
 		visible = "[GetScriptedGui('kingsguard_tab').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-		layoutpolicy_horizontal = expanding
-		raw_text = "KINGSGUARD_TAB_BUTTON_TEXT"
 		down = "[GetVariableSystem.HasValue('council_tabs','kingsguard')]"
 		onclick = "[GetVariableSystem.Set('council_tabs','kingsguard')]"
 		onclick = "[GetVariableSystem.Clear('my_council')]"
+
+		text_single = {
+			minimumsize = { 281 38 }
+			margin = { 15 0 }
+			text = "KINGSGUARD_TAB_BUTTON_TEXT"
+			resizeparent = yes
+			align = center|nobaseline
+			default_format = "#low"
+		}
 	}
 
 	type agot_kingsguard_tab_layout = vbox
@@ -75,6 +108,21 @@ types Kingsguard {
 			expand = {}
 			expand = {}
 			expand = {}
+		}
+	}
+
+	type agot_kingsguard_council_task_target = vbox
+	{
+		visible = "[And(And(Not(CouncilTaskType.IsPercentageTask), Not(CouncilTaskType.IsValueTask)), ActiveCouncilTask.GetTargetCourt.IsValid)]"
+		layoutpolicy_horizontal = expanding
+		margin = { 5 -5 }
+
+		text_single = {
+			name = "location"
+			layoutpolicy_horizontal = expanding
+			text = "[ActiveCouncilTask.GetTaskTarget]"
+			default_format = "#high"
+			autoresize = no
 		}
 	}
 

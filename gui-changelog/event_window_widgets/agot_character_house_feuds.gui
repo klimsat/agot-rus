@@ -22,7 +22,6 @@ widget = {
 						button_standard = {
 							size = { 400 108 } # Size of the button frame borders; needs to fit within the widget size
 							datacontext = "[Scope.GetCharacter]"
-
 							hbox = {
 								vbox = {
 									layoutpolicy_horizontal = expanding
@@ -35,17 +34,6 @@ widget = {
 										text = agot_house_feud_viewer_title
 										max_width = 240
 										using = Font_Size_Medium
-										align = left
-										margin = { 15 0 }
-										autoresize = yes
-									}
-
-									text_multi = {
-										layoutpolicy_horizontal = expanding
-										text = "[Scope.GetCharacter.GetHouse.GetName] [Scope.GetCharacter.Custom('GetFamilyFeudBalance')] [Scope.GetCharacter.MakeScope.Var('feud_viewer').Var('house_feud_house').House.GetName]"
-										using = Font_Size_Tiny
-										default_format = "#italic"
-										max_width = 240
 										align = left
 										margin = { 15 0 }
 										autoresize = yes
@@ -75,12 +63,12 @@ widget = {
 										layoutpolicy_vertical = expanding
 										margin_right = 3
 										portrait_head_small = {
-											datacontext = "[Scope.GetCharacter.MakeScope.Var('feud_viewer').Var('house_feud_rival').Char]"
+											datacontext = "[Scope.GetCharacter.MakeScope.Var('feud_viewer').Char]"
 											blockoverride "coa" {}
 											blockoverride "opinion_box" {}
 											# The normal COA is blockoverride'd since it disappears if the character becomes landless, so it's forced fetched with the coa_house_tiny block
 											coa_house_tiny = {
-												datacontext = "[Scope.GetCharacter.MakeScope.Var('feud_viewer').Var('house_feud_house').House]"
+												datacontext = "[Scope.GetCharacter.MakeScope.Var('feud_viewer').GetCharacter.GetHouse]"
 												parentanchor = bottom|left
 												position = { 0 10 }
 											}

@@ -1440,6 +1440,12 @@ window = {
 				widgetanchor = bottom|right
 			}
 		}
+
+		error_horse = {
+			parentanchor = bottom|left
+			position = { 610 -280 }
+			visible = "[And( Not( IsPauseMenuShown ), Not(ReleaseMode) )]"
+		}
 	}
 
 	### HOSTAGE EXCHANGE CHILD WINDOW ###
@@ -3603,10 +3609,13 @@ types WarOverView
 									}
 
 									hbox = {
+										name = "ai_acceptance"
+										visible = "[Not(HostageExchangeWindow.GetRecipient.IsPlayer)]"
+
 										### Will Accept ###
 										icon = {
-											visible = "[GreaterThan_CFixedPoint( HostageExchangeWindow.GetHostageAcceptanceValue( CharacterListItem.Self ), '(CFixedPoint)0' )]"
-											size = { 60 60 }
+											visible = "[HostageExchangeWindow.WouldPotentiallyAcceptHostage( CharacterListItem.Self )]"
+											size = { 45 45 }
 
 											texture = "gfx/interface/icons/symbols/icon_check.dds"
 
@@ -3616,8 +3625,8 @@ types WarOverView
 
 										### Will Not Accept ###
 										icon = {
-											visible = "[LessThanOrEqualTo_CFixedPoint( HostageExchangeWindow.GetHostageAcceptanceValue( CharacterListItem.Self ), '(CFixedPoint)0' )]"
-											size = { 60 60 }
+											visible = "[Not(HostageExchangeWindow.WouldPotentiallyAcceptHostage( CharacterListItem.Self ))]"
+											size = { 45 45 }
 
 											texture = "gfx/interface/icons/symbols/icon_cross.dds"
 

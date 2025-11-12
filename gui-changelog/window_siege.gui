@@ -47,7 +47,7 @@ window = {
 		margin_left = 20
 		margin_bottom = 20
 		texture_density = 2
-		
+
 		modify_texture = {
 			name = "overlay"
 			texture = "gfx/interface/component_overlay/overlay_effect.dds"
@@ -155,8 +155,8 @@ window = {
 					texture = "[Terrain.GetIcon]"
 					tooltip = "HOLDING_TERRAIN_TOOLTIP"
 					size = { 35 35 }
-				}	
-			}		
+				}
+			}
 
 			button_group = {
 				onclick = "[SiegeWindow.OpenArmyWindow]"
@@ -264,7 +264,7 @@ window = {
 
 				using = Animation_ShowHide_Standard
 				using = Animation_Frames_100_Modify
-				
+
 				state = {
 					name = "siege_progress_0"
 					duration = 0.3
@@ -597,7 +597,7 @@ window = {
 					hbox = {
 						name = "tutorial_highlight_holding_view_loot_box"
 						datacontext = "[SiegeWindow.GetSiege]"
-						tooltip = "[Province.GetRaidLootTooltip]"
+						tooltip = "[Province.GetLootTooltip]"
 						margin = { 15 5 }
 						spacing = 3
 
@@ -612,7 +612,7 @@ window = {
 						}
 
 						text_single = {
-							raw_text = "@gold_icon! [Siege.GetProvince.GetRaidLoot|0]"
+							text = "PROVINCE_LOOT_VALUE"
 							default_format = "#high"
 							align = nobaseline
 						}
@@ -940,7 +940,8 @@ window = {
 
 							widget = {
 								name = "siege_machine_box"
-								datacontext = "[SiegeWindow.GetStrongestSiegeRegiment.GetMAAType]"
+								datacontext = "[SiegeWindow.GetStrongestSiegeRegiment]"
+								datacontext = "[Regiment.GetMAAType]"
 								datacontext = "[GetPlayer]"
 								visible = "[DataModelHasItems(SiegeWindow.GetSiegeMachinesRegiments)]"
 								size = { 100% 100% }
@@ -1000,7 +1001,7 @@ window = {
 														}
 
 														tooltipwidget = {
-															using = maa_type_container_tooltip
+															widget_maa_type_container_tooltip = {}
 														}
 
 														using = tooltip_nw
@@ -1014,7 +1015,7 @@ window = {
 								}
 
 								background = {
-									texture = "[MenAtArmsType.GetHorizontalImage]"
+									texture = "[MenAtArmsType.GetHorizontalImageForCulture( Regiment.GetOwner.GetCulture )]"
 									using = Mask_Rough_Edges
 								}
 
@@ -1433,7 +1434,7 @@ window = {
 								size = { 100% 60 }
 								tooltip = "[SiegeWindow.GetBreachStateTooltip]"
 							}
-							
+
 
 							state = {
 								name = "siege_breach_flash"
@@ -1753,7 +1754,7 @@ window = {
 
 									using = Animation_ShowHide_Standard
 								}
-								expand = {}								
+								expand = {}
 							}
 						}
 					}
@@ -1777,7 +1778,7 @@ types SiegeWindow
 
 			icon = {
 				size = { 365 40 }
-				
+
 				block "progressbar_texture"
 				{
 					texture = "gfx/interface/progressbars/war_progress_blue.dds"

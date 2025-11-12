@@ -160,7 +160,7 @@ types CouncilWindow
 		}
 		#Castellan Reassign Button
 		hbox = {
-			position = { 106 48 }
+			position = { 100 36 }
 			visible = "[GuiPotentialCouncilTask.IsVisible]"
 			widget = {
 				size = { 50 50 }
@@ -220,7 +220,7 @@ types CouncilWindow
 			datacontext = "[ActiveCouncilTask.GetPositionType]"
 			datacontext = "[ActiveCouncilTask.GetCouncillor]"
 
-			visible = "[Or(And(CouncilWindow.IsLiegeCouncilShown, GetScriptedGui('agot_admiral_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.GetLiege.MakeScope).End)), GetScriptedGui('agot_admiral_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+			visible = "[Or(And(CouncilWindow.IsLiegeCouncilShown, GetScriptedGui('agot_admiral_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.GetLiege.MakeScope).End)), GetScriptedGui('agot_admiral_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 
 			background = {
 				texture = "gfx/interface/illustrations/council/bg_council_admiral.dds"
@@ -247,7 +247,7 @@ types CouncilWindow
 			datacontext = "[ActiveCouncilTask.GetCouncillor]"
 
 			datacontext = "[GetIllustration('agot_chaplain')]"
-			visible = "[Or(And(CouncilWindow.IsLiegeCouncilShown, GetScriptedGui('agot_chaplain_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.GetLiege.MakeScope).End)), GetScriptedGui('agot_chaplain_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
+			visible = "[Or(And(CouncilWindow.IsLiegeCouncilShown, GetScriptedGui('agot_chaplain_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.GetLiege.MakeScope).End)), GetScriptedGui('agot_chaplain_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 
 			background = {
 				texture = "[Illustration.GetTexture( ActiveCouncilTask.GetCouncillor.GetFaith.MakeScope )]"

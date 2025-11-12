@@ -1,0 +1,24 @@
+################################################################
+################# AGOT COURT AMENITIES WINDOW ##################
+################################################################
+
+types CourtAmenitiesWindow
+{
+	type agot_dragonpit_amenities = widget
+	{
+		name = "agot_dragonpit_amenities"
+		visible = "[GetScriptedGui('agot_dragonpit_amenities_gui').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
+		parentanchor = left
+		position = { -120 75 }
+		size = { 307 82 }
+
+		widget_court_amenity_right = {
+			datacontext = "[CourtAmenitiesWindow.GetCategory('agot_dragonpit_amenities')]"
+
+			blockoverride "amenity_icon_texture"
+			{
+				texture = "gfx/interface/window_roco_grandeur/icon_amenity_dragonpit.dds"
+			}
+		}
+	}
+}

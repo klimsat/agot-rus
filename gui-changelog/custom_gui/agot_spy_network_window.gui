@@ -37,11 +37,6 @@ window = {
 			{
 				text = INTRIGUE_WINDOW_SPY_NETWORK
 			}
-
-			#blockoverride "button_close"
-			#{
-			#	onclick = "[ExecuteConsoleCommand('gui.ClearWidgets spy_network_window')]"
-			#}
 		}
 
 		vbox_spy_list = {
@@ -53,22 +48,48 @@ window = {
 types SpyNetworkWindow {
 	type vbox_spy_list = vbox {
 		name = "spy_list"
-		spacing = 16
+		spacing = 2
 
 		layoutpolicy_vertical = expanding
 		layoutpolicy_horizontal = expanding
 
-		hbox = {
-			text_single = {
-				default_format = "#high"
-				raw_text = "[GetPlayer.Custom('YourSpies')]"
+		vbox = {
+			name = "my_spies"
+			layoutpolicy_horizontal = expanding
+			spacing = 2
 
-				using = Font_Type_Flavor
-				using = Font_Size_Big
-				fontsize_min = 14
+			widget = {
+				size = { -1 24 }
+				layoutpolicy_horizontal = expanding
+
+				hbox = {
+					text_label_center = {
+						layoutpolicy_horizontal = expanding
+						align = center
+						text = "INTRIGUE_WINDOW_MY_SPIES_TITLE"
+					}
+				}
+
+				hbox = {
+					margin = { 35 0 }
+					spacing = 10
+
+					expand = {}
+
+					hbox = {
+						tooltip = "INTRIGUE_WINDOW_SPIES_MAX_COUNT"
+						icon = {
+							size = { 23 23 }
+							texture = "gfx/interface/icons/message_feed/spy_master.dds"						
+						}
+
+						text_single = {
+							text = "[GetPlayer.MakeScope.ScriptValue('spy_network_members_count_gui')|0] / [GetPlayer.MakeScope.ScriptValue('spy_network_limit')|0]"
+						}
+					}
+				}
 			}
 		}
-
 
 		block "special_character" {}
 
@@ -80,10 +101,12 @@ types SpyNetworkWindow {
 			blockoverride "scrollbox_content" {
 
 				block "container_implementation" {
-					vbox = {
+					fixedgridbox = {
 						name = "characters_grid"
 						layoutpolicy_horizontal = expanding
-
+						addcolumn = 520
+						addrow = 130
+						setitemsizefromcell = yes
 						datamodel = "[GetPlayer.MakeScope.GetList('spy_network_members')]"
 
 						item = {
@@ -107,175 +130,76 @@ types SpyNetworkWindow {
 					text = "INTRIGUE_WINDOW_NO_SPIES"
 				}
 			}
-
-			blockoverride "button"
-			{
-				using = Background_Guest
-			}
-
-			blockoverride "base_button"
-			{
-				alwaystransparent = yes
-			}
-
-			blockoverride "bottom_right_box"
-			{
-				hbox = {
-					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
-
-					expand = {}
-				}
-			}
-		}
-
-		block "character_count"
-		{
-			hbox = {
-				layoutpolicy_horizontal = growing
-				margin = { 15 5 }
-				margin_bottom = 8
-				spacing = 5
-				block "bottom_bar" {}
-
-				expand = {}
-
-				widget = {
-					size = { 20 15 }
-
-					#icon = {
-					#	size = { 20 20 }
-					#	#visible = "[Not( CharacterSelectionList.IsAllDefault )]"
-					#	tooltip = "CHARACTER_FINDER_FILTER_SET"
-					#	texture = "gfx/interface/icons/symbols/icon_warning.dds"
-					#}
-				}
-
-				text_single = {
-					name = "character_count"
-					#datacontext = "[CharacterSelectionList]"
-					text = "CHARACTER_FINDER_COUNT"
-					align = center|nobaseline
-					default_format = "#low"
-				}
-			}
 		}
 	}
 
 	type widget_spy_list_item = widget {
-		#datacontext = "[CharacterListItem.GetCharacter]"
 		datacontext = "[Scope.GetCharacter]"
-		size = { 10 111 }
-
-		block "divider" {
-			divider = {
-				parentanchor = bottom|hcenter
-				size = { 100% 3 }
-			}
-		}
 		hbox = {
+			max_width = 470
+			background = {
+				using = Background_Area_With_Header
+				margin_right = 7
+				margin_left = 5
+			}
 			portrait_head = {}
 
 			vbox = {
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
 
-				# Name and age
-				vbox = {
+				# Name, intrigue, health
+				hbox = {
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
-					margin_left = 10
+					margin_left = 8
 
 					text_single = {
 						layoutpolicy_horizontal = expanding
 						using = Font_Size_Medium
-						autoresize = no
-
-						text = "SPY_NETWORK_NAME_DISPLAY"
+						autoresize = yes
+						text = "[Character.GetShortUINameNoTooltip]"
 					}
-
-					hbox = {
-						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
-
-						using = character_age_or_death_text
-						blockoverride "list_layout" {}
-
-						block "character_relation"
-						{
-							text_single = {
-								name = "character_relation"
-								layoutpolicy_horizontal = expanding
-								raw_text = "|  [Character.GetRelationToString( GetPlayer )]"
-								default_format = "#low"
-								autoresize = no
-								align = nobaseline
-								visible = "[Character.HasRelationTo( GetPlayer )]"
-							}
-
-							expand = {
-								visible = "[Not(Character.HasRelationTo( GetPlayer ))]"
-							}
-						}
+					icon = {
+						name = "intrigue"
+						size = { 23 23 }
+						texture = "gfx/interface/icons/icon_skill_intrigue.dds"
+					}
+					text_single = {
+						name = "intrigue_skill_value"
+						text = "[Character.GetSkill( 'intrigue' )]"
+						using = Font_Size_Medium
+						autoresize = yes
+					}
+					icon = {
+						visible = "[Character.IsDeadAndValid]"
+						size = { 23 23 }
+						texture = "[Character.GetDeathReasonIcon]"
+						tooltip = "CHARACTER_DEAD_TOOLTIP"
+					}
+					icon = {
+						name = "health"
+						visible = "[Not(Character.IsDeadAndValid)]"
+						size = { 23 23 }
+						framesize = { 60 60 }
+						frame = "[Character.GetHealthIconFrame]"
+						texture = "gfx/interface/icons/character_status/icon_health.dds"
+						tooltip = "[Character.GetHealthInfo]"
+					}
+					text_single = {
+						name = "wombat2"
+						text = "[Character.GetAge]"
+						using = Font_Size_Medium
+						autoresize = yes
+						tooltip = "[Character.GetDeathOrBirthDateInfo]"
 					}
 				}
-
-				# Dynasty and location
+				# Location
 				hbox = {
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
-					margin_left = 5
+					margin_left = 8
 
-					widget = {
-						size = { 45 60 }
-
-						coa_house_small = {
-							datacontext = "[Character.GetHouse]"
-							scale = 0.7
-						}
-					}
-
-					# Traits
-
-					#fixedgridbox = {
-					#	name = "traits_grid"
-					#	datamodel = "[CharacterListItem.GetTraits]"
-					#	flipdirection = yes
-					#	size = { 150 60 }
-					#	addcolumn = 30
-					#	addrow = 45
-					#	maxhorizontalslots = 8
-					#	maxverticalslots = 1
-					#
-					#	item = {
-					#		container = {
-					#			visible = "[Trait.IsValid]"
-					#
-					#			icon_trait = {
-					#				blockoverride "icon_size"
-					#				{
-					#					size = { 30 30 }
-					#				}
-					#
-					#				blockoverride "tooltip_placement"
-					#				{
-					#					using = tooltip_se
-					#				}
-					#
-					#				blockoverride "glow_radius"
-					#				{
-					#					glow_radius = 3
-					#				}
-					#			}
-					#		}
-					#	}
-					#}
-
-					block "bottom_middle_box" {
-						expand = {}
-					}
-
-					# Location
 					text_single = {
 						name = "government_type"
 						layoutpolicy_horizontal = expanding
@@ -287,11 +211,39 @@ types SpyNetworkWindow {
 						autoresize = no
 					}
 				}
-			}
+				# Relation to liege
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					margin_left = 8
 
-			vbox = {
-				# Button to fire character
-				# TODO: implement this (call interaction 'agot_remove_from_spy_network_interaction')
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						text = "[Character.GetRelationToString( GetPlayer )]"
+						tooltip = "EXTENDED_RELATIONS_TOOLTIP"
+						default_format = "#low"
+						autoresize = no
+						align = nobaseline
+					}
+				}
+				# Dismiss button
+				hbox = {
+					visible = "[Character.IsPlayerInteractionShown('agot_remove_from_spy_network_interaction')]"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+					margin_bottom = 10
+					margin_right = 225
+
+					button_standard_small = {
+						name = "dismiss button"
+						size = { 120 25 }
+						onclick = "[Character.OpenPlayerInteraction( 'agot_remove_from_spy_network_interaction' )]"
+						text = "INTRIGUE_WINDOW_DISMISS"
+						tooltip = "INTRIGUE_WINDOW_DISMISS_BUTTON_TT"
+						using = tooltip_se
+					}
+				}
 			}
 		}
 	}

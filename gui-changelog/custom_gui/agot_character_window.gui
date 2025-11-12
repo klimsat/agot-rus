@@ -169,137 +169,262 @@ types CharacterWindow
 	######################
 	# NAME FLAVOR FILTER #
 	######################
-	type agot_name_flavorization = container
+	type agot_name_flavorization_hbox = hbox
 	{
-		ignoreinvisible = yes
+		layoutpolicy_horizontal = expanding
+		margin_top = -2
+		margin_left = 2
 
 		text_single = {
 			name = "character_name"
 			visible = "[GetScriptedGui('agot_name').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			text = AGOT_NAME_CHARACTER_COMMA
-			max_width = 398
+			block "name_width"
+			{
+				max_width = 398
+			}
+
+			default_format = "#high"
 			fontsize = 20
 			fontsize_min = 14
 			align = nobaseline
-			default_format = "#medium"
-			tooltip = AGOT_NAME_CHARACTER_TOOLTIP
+
+			block "name_text"
+			{
+				text = "AGOT_NAME_CHARACTER_COMMA"
+			}
+
+			tooltip = "AGOT_NAME_CHARACTER_TOOLTIP"
 		}
 
 		text_single = {
 			name = "character_name_unlanded"
 			visible = "[GetScriptedGui('agot_name_unlanded').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			text = AGOT_NAME_UNLANDED_CHARACTER_COMMA
-			max_width = 398
+			block "name_width"
+			{
+				max_width = 398
+			}
+
+			default_format = "#high"
 			fontsize = 20
 			fontsize_min = 14
 			align = nobaseline
-			default_format = "#high"
-			tooltip = AGOT_NAME_UNLANDED_CHARACTER_TOOLTIP
+
+			block "name_text"
+			{
+				text = "AGOT_NAME_UNLANDED_CHARACTER_COMMA"
+			}
+
+			tooltip = "AGOT_NAME_UNLANDED_CHARACTER_TOOLTIP"
 		}
 
 		text_single = {
 			name = "character_name_high_septon"
 			visible = "[GetScriptedGui('agot_high_septon').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			text = AGOT_NAME_HIGH_SEPTON_COMMA
-			margin_left = 0
-			max_width = 398
+			block "name_width"
+			{
+				max_width = 398
+			}
+
+			default_format = "#high"
 			fontsize = 20
 			fontsize_min = 14
 			align = nobaseline
-			default_format = "#high"
+
+			block "name_text"
+			{
+				text = "AGOT_NAME_HIGH_SEPTON_COMMA"
+			}
+
 			tooltip = "[Character.GetNickname]"
 		}
 
 		text_single = {
 			name = "character_name_knight"
 			visible = "[GetScriptedGui('agot_ser_knight').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			text = AGOT_NAME_SER_COMMA
-			margin_left = 2
-			max_width = 398
+			block "name_width"
+			{
+				max_width = 398
+			}
+
+			default_format = "#high"
 			fontsize = 20
 			fontsize_min = 14
 			align = nobaseline
-			default_format = "#high"
-			tooltip = AGOT_NAME_SER_TOOLTIP
+
+			block "name_text"
+			{
+				text = "AGOT_NAME_SER_COMMA"
+			}
+
+			tooltip = "AGOT_NAME_SER_TOOLTIP"
 		}
 
 		text_single = {
 			name = "character_name_maester"
 			visible = "[GetScriptedGui('agot_maester').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			text = AGOT_NAME_MAESTER_COMMA
-			margin_left = 2
-			max_width = 398
+			block "name_width"
+			{
+				max_width = 398
+			}
+
+			default_format = "#high"
 			fontsize = 20
 			fontsize_min = 14
 			align = nobaseline
-			default_format = "#high"
-			tooltip = AGOT_NAME_MAESTER_TOOLTIP
+
+			block "name_text"
+			{
+				text = "AGOT_NAME_MAESTER_COMMA"
+			}
+
+			tooltip = "AGOT_NAME_MAESTER_TOOLTIP"
 		}
 
 		text_single = {
 			name = "character_name_silent_sister"
 			visible = "[GetScriptedGui('agot_silent_sister').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			text = AGOT_NAME_SILENT_SISTER_COMMA
-			margin_left = 2
-			max_width = 398
+			block "name_width"
+			{
+				max_width = 398
+			}
+
+			default_format = "#high"
 			fontsize = 20
 			fontsize_min = 14
 			align = nobaseline
-			default_format = "#high"
-			tooltip = AGOT_NAME_SILENT_SISTER_TOOLTIP
+
+			block "name_text"
+			{
+				text = "AGOT_NAME_SILENT_SISTER_COMMA"
+			}
+
+			tooltip = "AGOT_NAME_SILENT_SISTER_TOOLTIP"
 		}
 
 		text_single = {
 			name = "character_name_bastard"
 			visible = "[GetScriptedGui('agot_name_bastard').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			text = AGOT_NAME_BASTARD_COMMA
-			margin_left = 2
-			max_width = 398
+			block "name_width"
+			{
+				max_width = 398
+			}
+
+			default_format = "#high"
 			fontsize = 20
 			fontsize_min = 14
 			align = nobaseline
-			default_format = "#high"
-			tooltip = AGOT_NAME_BASTARD_TOOLTIP
+
+			block "name_text"
+			{
+				text = "AGOT_NAME_BASTARD_COMMA"
+			}
+
+			tooltip = "AGOT_NAME_BASTARD_TOOLTIP"
 		}
 
 		text_single = {
 			name = "character_name_knight_bastard"
 			visible = "[GetScriptedGui('agot_ser_knight_bastard').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			text = AGOT_NAME_SER_BASTARD_COMMA
-			margin_left = 2
-			max_width = 398
+			block "name_width"
+			{
+				max_width = 398
+			}
+
+			default_format = "#high"
 			fontsize = 20
 			fontsize_min = 14
 			align = nobaseline
-			default_format = "#high"
-			tooltip = AGOT_NAME_SER_BASTARD_TOOLTIP
+
+			block "name_text"
+			{
+				text = "AGOT_NAME_SER_BASTARD_COMMA"
+			}
+
+			tooltip = "AGOT_NAME_SER_BASTARD_TOOLTIP"
 		}
 
 		text_single = {
 			name = "character_birthplace_nickname"
 			visible = "[GetScriptedGui('agot_birthplace_surname').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			text = AGOT_BIRTHPLACE_BASED_NICKNAME_COMMA
-			margin_left = 2
-			max_width = 398
+			block "name_width"
+			{
+				max_width = 398
+			}
+
+			default_format = "#high"
 			fontsize = 20
 			fontsize_min = 14
 			align = nobaseline
-			default_format = "#high"
-			tooltip = AGOT_BIRTHPLACE_BASED_NICKNAME_TOOLTIP
+
+			block "name_text"
+			{
+				text = "AGOT_BIRTHPLACE_BASED_NICKNAME_COMMA"
+			}
+
+			tooltip = "AGOT_BIRTHPLACE_BASED_NICKNAME_TOOLTIP"
 		}
 
 		text_single = {
 			name = "character_ser_birthplace_nickname"
 			visible = "[GetScriptedGui('agot_ser_birthplace_surname').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-			text = AGOT_SER_BIRTHPLACE_BASED_NICKNAME_COMMA
-			margin_left = 2
-			max_width = 398
+			block "name_width"
+			{
+				max_width = 398
+			}
+
+			default_format = "#high"
 			fontsize = 20
 			fontsize_min = 14
 			align = nobaseline
-			default_format = "#high"
-			tooltip = AGOT_SER_BIRTHPLACE_BASED_NICKNAME_TOOLTIP
+
+			block "name_text"
+			{
+				text = "AGOT_SER_BIRTHPLACE_BASED_NICKNAME_COMMA"
+			}
+
+			tooltip = "AGOT_SER_BIRTHPLACE_BASED_NICKNAME_TOOLTIP"
 		}
+
+		text_single = {
+			name = "character_age"
+			layoutpolicy_horizontal = expanding
+			max_width = 28
+
+			text = "CHARACTER_VIEW_AGE"
+			default_format = "#low"
+			fontsize = 20
+			align = nobaseline
+
+			tooltip = "CHARACTER_VIEW_AGE_TT"
+		}
+
+		hbox = {
+			block "health_margin"
+			{
+				margin_left = 2
+			}
+
+			icon = {
+				visible = "[Not( Character.IsDeadAndValid )]"
+				size = { 23 23 }
+
+				framesize = { 60 60 }
+				frame = "[Character.GetHealthIconFrame]"
+				texture = "gfx/interface/icons/character_status/icon_health.dds"
+
+				tooltip = "CHARACTER_VIEW_ALIVE_TT"
+			}
+
+			icon = {
+				visible = "[Character.IsDeadAndValid]"
+				size = { 23 23 }
+
+				texture = "gfx/interface/icons/character_status/icon_dead.dds"
+
+				tooltip = "CHARACTER_DEAD_TOOLTIP"
+			}
+		}
+		expand = {}
 	}
 
 	##################
@@ -682,6 +807,22 @@ types CharacterWindow
 	}
 
 	######################
+	# KNIGHT TREE BUTTON #
+	######################
+	type agot_knight_tree_button = button_knight_tree
+	{
+		name = "knight_tree_button"
+		visible = "[And(And(GetPlayer.IsValid, Not(IsObserver)),GetScriptedGui('agot_knight_tree_check').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End))]"
+		datacontext = "[CharacterWindow.GetCharacter]"
+		size = { 30 30 }
+
+		onclick = "[GetVariableSystem.Toggle('knight_tree_visible')]"
+		onclick = "[GetScriptedGui('agot_open_knight_tree').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('opened_character', Character.MakeScope).End)]"
+		using = tooltip_ne
+		tooltip = "KNIGHT_TREE_TT"
+	}
+
+	######################
 	# PERSONAL COA ENTRY #
 	######################
 	type agot_personal_coat_of_arms = agot_coa_house_small
@@ -726,72 +867,6 @@ types CharacterWindow
 			text = "PARAMOUR_LABEL"
 		}
 		blockoverride "expand_button" {}
-	}
-
-	type agot_lovers_plus_two = vbox_character_row_relationship_item
-	{
-		name = "lovers_plus_two"
-		visible = "[And(CharacterWindow.GetCharacter.IsAdult, Or(And(CharacterShowingSquires, Not(CharacterWindow.GetCharacter.HasActiveDiarchy)), And(Not(CharacterShowingSquires), And(CharacterShowingKnight, CharacterWindow.GetCharacter.HasActiveDiarchy))))]"
-		layoutpolicy_vertical = expanding
-		layoutpolicy_horizontal = expanding
-
-		blockoverride "portrait_datamodel" {
-			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) )]"
-		}
-
-		blockoverride "header_text"
-		{
-			text = "LOVERS_LABEL"
-		}
-
-		blockoverride "remaining_items"
-		{
-			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)3' )]"
-			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)3' )|=]"
-		}
-
-		blockoverride "expand_button_inside" {
-			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)3' )]"
-			onclick = "[CharacterWindow.ToggleExpandedRelation( 'lovers' )]"
-		}
-
-		blockoverride "gridbox_slots"
-		{
-			maxhorizontalslots = 3
-		}
-	}
-
-	type agot_lovers_plus_three = vbox_character_row_relationship_item
-	{
-		name = "lovers_plus_three"
-		visible = "[And(And(CharacterWindow.GetCharacter.IsAdult, CharacterWindow.GetCharacter.HasActiveDiarchy), CharacterShowingSquires)]"
-		layoutpolicy_vertical = expanding
-		layoutpolicy_horizontal = expanding
-
-		blockoverride "portrait_datamodel" {
-			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) )]"
-		}
-
-		blockoverride "header_text"
-		{
-			text = "LOVERS_LABEL"
-		}
-
-		blockoverride "remaining_items"
-		{
-			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)2' )]"
-			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)2' )|=]"
-		}
-
-		blockoverride "expand_button_inside" {
-			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)2' )]"
-			onclick = "[CharacterWindow.ToggleExpandedRelation( 'lovers' )]"
-		}
-
-		blockoverride "gridbox_slots"
-		{
-			maxhorizontalslots = 2
-		}
 	}
 
 	type agot_squire_relationship_row = vbox_character_row_item
@@ -965,67 +1040,6 @@ types CharacterWindow
 		blockoverride "expand_button" {}
 	}
 
-	type agot_friends_with_bodyguards = vbox_character_row_relationship_item
-	{
-		name = "friends_with_bodyguards"
-		layoutpolicy_vertical = expanding
-		layoutpolicy_horizontal = expanding
-		visible = "[And(CharacterHasBodyguard, Not(CharacterHasDragon))]"
-
-		blockoverride "portrait_datamodel" {
-			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
-			maxhorizontalslots = 6
-		}
-
-		blockoverride "header_text"
-		{
-			text = "FRIENDS_LABEL"
-		}
-
-		blockoverride "remaining_items"
-		{
-			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )]"
-			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )|=]"
-		}
-
-		blockoverride "expand_button_inside" {
-			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )]"
-			onclick = "[CharacterWindow.ToggleExpandedRelation( 'friends' )]"
-		}
-	}
-
-	type agot_friends_with_both = vbox_character_row_relationship_item
-	{
-		name = "friends_with_both"
-		layoutpolicy_vertical = expanding
-		layoutpolicy_horizontal = expanding
-		visible = "[And(CharacterHasBodyguard, CharacterHasDragon)]"
-
-		blockoverride "portrait_datamodel" {
-			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
-			maxhorizontalslots = 6
-		}
-
-		blockoverride "header_text"
-		{
-			text = "FRIENDS_LABEL"
-		}
-
-		blockoverride "remaining_items"
-		{
-			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)5' )]"
-			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)5' )|=]"
-		}
-
-		blockoverride "expand_button_inside" {
-			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)5' )]"
-			onclick = "[CharacterWindow.ToggleExpandedRelation( 'friends' )]"
-		}
-	}
-
-	#############################
-	# DRAGONS RELATIONSHIP ROWS #
-	#############################
 	type agot_dragons_relationship_row = vbox_character_row_relationship_item
 	{
 		name = "dragons"
@@ -1056,16 +1070,87 @@ types CharacterWindow
 		}
 	}
 
-	type agot_friends_with_dragons = vbox_character_row_relationship_item
+	###############
+	# LOVERS PLUS #
+	###############
+	type agot_lovers_plus_three = vbox_character_row_relationship_item
 	{
-		name = "friends_with_dragons"
+		name = "lovers_plus_three"
+		visible = "[And(CharacterWindow.GetCharacter.IsAdult, Or(Or(And(And(Not(CharacterShowingSquires), CharacterShowingKnight), And(CharacterShowingElder, CharacterWindow.GetCharacter.HasActiveDiarchy)), And(And(CharacterShowingSquires, CharacterShowingKnight), And(Not(CharacterShowingElder), Not(CharacterWindow.GetCharacter.HasActiveDiarchy)))), Or(And(And(CharacterShowingSquires, Not(CharacterShowingKnight)), And(CharacterShowingElder, Not(CharacterWindow.GetCharacter.HasActiveDiarchy))) , And(And(CharacterShowingSquires, Not(CharacterShowingKnight)), And(Not(CharacterShowingElder), CharacterWindow.GetCharacter.HasActiveDiarchy)))))]"
 		layoutpolicy_vertical = expanding
 		layoutpolicy_horizontal = expanding
-		visible = "[And(Not(CharacterHasBodyguard), CharacterHasDragon)]"
+
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) )]"
+		}
+
+		blockoverride "header_text"
+		{
+			text = "LOVERS_LABEL"
+		}
+
+		blockoverride "remaining_items"
+		{
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)2' )]"
+			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)2' )|=]"
+		}
+
+		blockoverride "expand_button_inside" {
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)2' )]"
+			onclick = "[CharacterWindow.ToggleExpandedRelation( 'lovers' )]"
+		}
+
+		blockoverride "gridbox_slots"
+		{
+			maxhorizontalslots = 2
+		}
+	}
+
+	type agot_lovers_plus_four = vbox_character_row_relationship_item
+	{
+		name = "lovers_plus_four"
+		visible = "[And(CharacterWindow.GetCharacter.IsAdult, And(CharacterShowingSquires, Or(Or(And(And(CharacterWindow.GetCharacter.HasActiveDiarchy, CharacterShowingKnight), Not(CharacterShowingElder)), And(And(Not(CharacterWindow.GetCharacter.HasActiveDiarchy), CharacterShowingKnight), CharacterShowingElder)), And(And(CharacterWindow.GetCharacter.HasActiveDiarchy, Not(CharacterShowingKnight)), CharacterShowingElder))))]"
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) )]"
+		}
+
+		blockoverride "header_text"
+		{
+			text = "LOVERS_LABEL"
+		}
+
+		blockoverride "remaining_items"
+		{
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)1' )]"
+			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)1' )|=]"
+		}
+
+		blockoverride "expand_button_inside" {
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'lover' ) ) ), '(int32)1' )]"
+			onclick = "[CharacterWindow.ToggleExpandedRelation( 'lovers' )]"
+		}
+
+		blockoverride "gridbox_slots"
+		{
+			maxhorizontalslots = 1
+		}
+	}
+
+	################
+	# FRIENDS PLUS #
+	################
+	type agot_friends_plus_one = vbox_character_row_relationship_item
+	{
+		name = "friends_plus_one"
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		visible = "[Or(And(And(CharacterHasBodyguard, Not(CharacterHasDragon)), Not(CharacterShowingDisciples)), And(And(Not(CharacterHasBodyguard), CharacterHasDragon), Not(CharacterShowingDisciples)))]"
 
 		blockoverride "portrait_datamodel" {
 			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
-			maxhorizontalslots = 6
 		}
 
 		blockoverride "header_text"
@@ -1083,18 +1168,109 @@ types CharacterWindow
 			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)6' )]"
 			onclick = "[CharacterWindow.ToggleExpandedRelation( 'friends' )]"
 		}
+
+		blockoverride "gridbox_slots"
+		{
+			maxhorizontalslots = 6
+		}
 	}
 
-	type agot_knight_tree_button = button_knight_tree
+	type agot_friends_plus_two = vbox_character_row_relationship_item
 	{
-		name = "knight_tree_button"
-		visible = "[And(And(GetPlayer.IsValid, Not(IsObserver)),GetScriptedGui('agot_knight_tree_check').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End))]"
-		datacontext = "[CharacterWindow.GetCharacter]"
-		size = { 30 30 }
+		name = "friends_plus_two"
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		visible = "[And(And(CharacterHasBodyguard, CharacterHasDragon), Not(CharacterShowingDisciples))]"
 
-		onclick = "[GetVariableSystem.Toggle('knight_tree_visible')]"
-		onclick = "[GetScriptedGui('agot_open_knight_tree').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('opened_character', Character.MakeScope).End)]"
-		using = tooltip_ne
-		tooltip = "KNIGHT_TREE_TT"
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
+		}
+
+		blockoverride "header_text"
+		{
+			text = "FRIENDS_LABEL"
+		}
+
+		blockoverride "remaining_items"
+		{
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)5' )]"
+			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)5' )|=]"
+		}
+
+		blockoverride "expand_button_inside" {
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)5' )]"
+			onclick = "[CharacterWindow.ToggleExpandedRelation( 'friends' )]"
+		}
+
+		blockoverride "gridbox_slots"
+		{
+			maxhorizontalslots = 5
+		}
+	}
+
+	type agot_friends_plus_four = vbox_character_row_relationship_item
+	{
+		name = "friends_plus_four"
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		visible = "[And(CharacterShowingDisciples, Or(And(Not(CharacterHasBodyguard), CharacterHasDragon), And(CharacterHasBodyguard, Not(CharacterHasDragon))))]"
+
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
+		}
+
+		blockoverride "header_text"
+		{
+			text = "FRIENDS_LABEL"
+		}
+
+		blockoverride "remaining_items"
+		{
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)3' )]"
+			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)3' )|=]"
+		}
+
+		blockoverride "expand_button_inside" {
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)3' )]"
+			onclick = "[CharacterWindow.ToggleExpandedRelation( 'friends' )]"
+		}
+
+		blockoverride "gridbox_slots"
+		{
+			maxhorizontalslots = 3
+		}
+	}
+
+	type agot_friends_plus_five = vbox_character_row_relationship_item
+	{
+		name = "friends_plus_five"
+		layoutpolicy_vertical = expanding
+		layoutpolicy_horizontal = expanding
+		visible = "[And(CharacterShowingDisciples, And(CharacterHasBodyguard, CharacterHasDragon))]"
+
+		blockoverride "portrait_datamodel" {
+			datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) )]"
+		}
+
+		blockoverride "header_text"
+		{
+			text = "FRIENDS_LABEL"
+		}
+
+		blockoverride "remaining_items"
+		{
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)2' )]"
+			text = "[GetNumberAbove_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)2' )|=]"
+		}
+
+		blockoverride "expand_button_inside" {
+			visible = "[GreaterThan_int32( GetDataModelSize( CharacterWindow.GetRelationsOfType( GetRelation( 'friend' ) ) ), '(int32)2' )]"
+			onclick = "[CharacterWindow.ToggleExpandedRelation( 'friends' )]"
+		}
+
+		blockoverride "gridbox_slots"
+		{
+			maxhorizontalslots = 2
+		}
 	}
 }

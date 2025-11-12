@@ -10,13 +10,19 @@ window = {
 
 	using = Window_Size_MainTab
 
+	# Tabs setup
+	oncreate = "[BindTabsContext]"
+
 	state = {
 		name = _show
 		using = Animation_FadeIn_Quick
 		using = Sound_WindowShow_Standard
 		using = Window_Position_MainTab
 
-		on_start = "[GetVariableSystem.Set( 'factions_view_tabs', 'against_you' )]"
+		on_start = "[PdxGuiTabs.RemoveTab( 'targeting_factions' )]"
+		on_start = "[PdxGuiTabs.RemoveTab( 'my_factions' )]"
+		on_start = "[PdxGuiTabs.AddTabIf( 'targeting_factions', Not( And( FactionsWindow.IsPrimaryTitleTitular, Not( GetPlayer.IsIndependentRuler ) ) ) )]"
+		on_start = "[PdxGuiTabs.AddTabIf( 'my_factions', Not( And( GetPlayer.IsIndependentRuler, Not( FactionsWindow.IsInAnyFaction ) ) ) )]"
 	}
 
 	state = {
@@ -24,8 +30,6 @@ window = {
 		using = Animation_FadeOut_Quick
 		using = Sound_WindowHide_Standard
 		using = Window_Position_MainTab_Hide
-
-		on_finish = "[GetVariableSystem.Set( 'factions_view_tabs', 'against_you' )]"
 	}
 
 	margin_widget = {
@@ -54,30 +58,12 @@ window = {
 					}
 				}
 
-				hbox = {
-					layoutpolicy_horizontal = expanding
-
-					button_tab = {
-						name = "targeting_factions"
-						layoutpolicy_horizontal = expanding
-						visible = "[Not(IsLandlessAdventurer(GetPlayer))]"
-						onclick = "[GetVariableSystem.Set( 'factions_view_tabs', 'against_you' )]"
-						down = "[GetVariableSystem.HasValue( 'factions_view_tabs', 'against_you' )]"
-
-						text = "FACTIONS_WINDOW_TARGETING_FACTIONS"
-						using = tooltip_above
-					}
-
-					button_tab = {
-						name = "my_factions"
-						layoutpolicy_horizontal = expanding
-						visible = "[Or( Not(GetPlayer.IsIndependentRuler), FactionsWindow.IsInAnyFaction)]"
-						onclick = "[GetVariableSystem.Set( 'factions_view_tabs', 'against_liege' )]"
-						down = "[GetVariableSystem.HasValue( 'factions_view_tabs', 'against_liege' )]"
-
-						text = "FACTIONS_WINDOW_MY_FACTIONS"
-
-						using = tooltip_above
+				### Tabs header
+				hbox_tab_buttons = {
+					name = "factions_panel_tab_buttons" #tutorial uses this
+					blockoverride "tab_name"
+					{
+						text = "[PdxGuiTabItem.LocalizeTab( 'factions_tab' )]"
 					}
 				}
 
@@ -103,18 +89,21 @@ window = {
 					# Outer container for factions against player character
 					scrollbox = {
 						name = "against_you"
-						visible = "[And( GetVariableSystem.HasValue( 'factions_view_tabs', 'against_you' ), Not( IsLandlessAdventurer( GetPlayer ) ) ) ]"
+						visible = "[PdxGuiTabs.IsTabSet( 'targeting_factions' )]"
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
 
 						using = Animation_Tab_Switch
 
+						blockoverride "scrollbox_margins" {}
+
 						blockoverride "scrollbox_content"
 						{
 							vbox = {
 								layoutpolicy_horizontal = expanding
-								margin_bottom = 15
+								margin_bottom = 12
 								spacing = 10
+								margin_top = 12
 
 								text_label_center = {
 									visible = "[GetPlayer.IsIndependentRuler]"
@@ -186,11 +175,12 @@ window = {
 													}
 
 													icon = {
-														size = { 60 60 }
+														size = { 32 32 }
 														parentanchor = top|right
+														position = { -6 6 }
 														texture = "gfx/interface/icons/faction_type/claimant_faction.dds"
 														visible = "[CantCreateOrJoinFactionVassal.IsSoftBlock]"
-														
+
 														modify_texture = {
 															texture = "gfx/interface/colors/colors_textured.dds"
 															blend_mode = add
@@ -223,11 +213,13 @@ window = {
 					# Outer container for factions against players liege
 					scrollbox = {
 						name = "against_liege"
-						visible = "[Or( GetVariableSystem.HasValue( 'factions_view_tabs', 'against_liege' ), IsLandlessAdventurer( GetPlayer ) )]"
+						visible = "[Or( PdxGuiTabs.IsTabSet( 'my_factions' ), FactionsWindow.IsPrimaryTitleTitular ) ]"
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
 
 						using = Animation_Tab_Switch
+
+						blockoverride "scrollbox_margins" {}
 
 						blockoverride "scrollbox_content"
 						{
@@ -236,6 +228,7 @@ window = {
 							vbox = {
 								layoutpolicy_horizontal = expanding
 								spacing = 5
+								margin_top = 10
 
 								text_label_center = {
 									text = "FACTION_WINDOW_JOINED_FACTIONS"
@@ -252,6 +245,8 @@ window = {
 											layoutpolicy_horizontal = expanding
 										}
 									}
+
+									expand = {}
 								}
 
 								text_multi = {
@@ -267,6 +262,10 @@ window = {
 									background = {
 										using = Background_Area
 									}
+								}
+
+								text_label_center = {
+									text = "FACTION_WINDOW_OTHER_FACTIONS"
 								}
 
 								# Factions to Join
@@ -313,6 +312,7 @@ window = {
 
 								vbox = {
 									name = "creatable_factions"
+									widgetid = "faction_panel_potential_factions" #tutorial uses this
 									datamodel = "[FactionsWindow.GetCreateFactionItems]"
 									visible = "[FactionsWindow.CanCreateAnyFaction]"
 									layoutpolicy_horizontal = growing
@@ -323,6 +323,7 @@ window = {
 										button_standard = {
 											layoutpolicy_horizontal = growing
 											name = "create_faction"
+											visible = "[CreateFactionItem.IsShown]"
 											enabled = "[CreateFactionItem.CanPlayerCreateFaction]"
 											text = "[CreateFactionItem.GetCreateFactionText]"
 											tooltip = "[CreateFactionItem.BuildCreateFactionTooltip]"
@@ -370,103 +371,195 @@ types  FactionWindow
 			using = Background_Area_With_Header
 		}
 
-		text_single = {
-			layoutpolicy_horizontal = expanding
-			text = "[Faction.GetName]"
-			autoresize = no
-			default_format = "#high"
-			align = center
-			using = tooltip_nw
-			max_width = 495
+		background = {
+			visible = "[And(Faction.IsDangerous, Not(FactionItem.IsPlayerMember))]"
+			texture = "gfx/interface/colors/red.dds"
+			alpha = 0.2
+			using = Mask_Rough_Edges
+			margin_top = -30
+
+			modify_texture = {
+				name = "mask"
+				texture = "gfx/interface/component_masks/mask_fade_horizontal_right.dds"
+				blend_mode = alphamultiply
+			}
 		}
 
 		hbox = {
 			layoutpolicy_horizontal = expanding
+
+			expand = {}
+
+			text_single = {
+				text = "[Faction.GetName|E]"
+				using = Font_Size_Medium
+				align = center|nobaseline
+				using = tooltip_nw
+				max_width = 350
+			}
+
+			icon = {
+				name = "cannot_join"
+				visible = "[FactionItem.ShowCannotJoin]"
+				alwaystransparent = yes
+				size = { 36 30 }
+				texture = "gfx/interface/icons/symbols/icon_cross.dds"
+				tooltip = "PLAYER_CANNOT_JOIN_FACTION_OF_THIS_TYPE"
+			}
+
+			expand = {}
+
+		}
+
+		hbox = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
 			margin_top = 5
 
 			# Faction Leader / Claimant
-			widget = {
-				size = { 120 120 }
-				name = "leader"
 
-				# Dangerous faction
+			vbox = {
+				layoutpolicy_vertical = expanding
+				allow_outside = yes
+				spacing = -4
+
 				background = {
-					visible = "[Faction.IsDangerous]"
-					using = Status_Bad
-					alpha = 0.5
-					margin = { -5 0 }
+					using = Background_Area_Dark
+					margin = { 0 2 }
 				}
+				
+				widget = {
+					size = { 100 100 }
+					name = "leader"
+					allow_outside = yes
 
-				icon_flat_standard = {
-					visible = "[Not( Faction.HasSpecialCharacter )]"
-					size = { 120 120 }
-					texture = "[Faction.GetIcon]"
+					icon_flat_standard = {
+						visible = "[Not( Faction.HasSpecialCharacter )]"
+						size = { 76 76 }
+						texture = "[Faction.GetIcon]"
+						parentanchor = center
+					}
+
+					portrait_head_small = {
+						datacontext = "[Faction.GetSpecialCharacter]"
+						visible = "[Faction.HasSpecialCharacter]"
+						parentanchor = center
+
+						blockoverride "opinion_box" {}
+						blockoverride "status_icons" {}
+					}
+
+					icon = {
+						visible = "[And(Faction.IsDangerous, Not(FactionItem.IsPlayerMember))]"
+						size = { 32 32 }
+						position = { -6 -4 }
+						texture = "gfx/interface/icons/symbols/icon_warning.dds"
+						parentanchor = bottom|right
+
+						tooltip = "FACTION_WINDOW_IS_DANGEROUS"
+
+						icon = {
+							size = { 100% 100% }
+							alwaystransparent = yes
+							texture = "gfx/interface/icons/symbols/icon_warning.dds"
+
+							modify_texture = {
+								texture = "gfx/interface/icons/focuses/hud_icon_mask.dds"
+								blend_mode = alphamultiply
+							}
+
+							modify_texture = {
+								texture = "gfx/interface/colors/red.dds"
+								blend_mode = colordodge
+							}
+
+							state = {
+								name = a
+								next = b
+								alpha = 0
+								trigger_on_create = yes
+								duration = 1.2
+								using = Animation_Curve_Default
+							}
+
+							state = {
+								name = b
+								next = a
+								alpha = 0.8
+								duration = 0.6
+								using = Animation_Curve_Default
+							}
+						}
+					}
 				}
-
-				portrait_head = {
-					datacontext = "[Faction.GetSpecialCharacter]"
+				text_multi = {
 					visible = "[Faction.HasSpecialCharacter]"
-					parentanchor = center
-
-					blockoverride "opinion_box" {}
-					blockoverride "status_icons" {}
-				}
-
-				coa_title_tiny = {
-					position = { 75 5 }
-					datacontext = "[Faction.GetSpecialTitle]"
-					visible = "[And( Faction.GetShowSpecialTitle, Faction.HasSpecialTitle )]"
-				}
-
-				text_label_center = {
-					visible = "[Faction.HasSpecialCharacter]"
-					parentanchor = bottom|hcenter
+					max_width = 100
+					min_width = 100
+					align = center|nobaseline
+					autoresize = yes
+					
 					text = "[Faction.GetSpecialCharacterTitle]"
 				}
+				expand = {}
 			}
 
 			vbox = {
 				layoutpolicy_horizontal = expanding
-				margin_top = 10
+				margin_top = 2
+				margin_left = 2
 
-				text_single = {
+				hbox = {
 					layoutpolicy_horizontal = expanding
-					text = "[Faction.GetShortEffectDescription]"
-					autoresize = no
-				}
+					spacing = 8
 
+					coa_title_tiny = {
+						datacontext = "[Faction.GetSpecialTitle]"
+						visible = "[And( Faction.ShouldShowSpecialTitle, Faction.HasSpecialTitle )]"
+					}
+
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						text = "[Faction.GetShortEffectDescription]"
+						autoresize = no
+					}
+				}
 				### Discontent and power // Not at war
 				vbox = {
 					visible = "[Not(Faction.IsAtWar)]"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
-					margin_right = 10
+					margin_right = 20
 					spacing = 5
 
-					### Power
-					widget = {
-						name = "power_widget"
-						size = { 0 60 }
+					hbox = {
 						layoutpolicy_horizontal = expanding
-						tooltip = "[FactionItem.GetPowerTooltip]"
+						spacing = 8
 
 						text_single = {
-							position = { 3 0 }
 							text = "FACTIONS_WINDOW_POWER"
-							using = Font_Size_Medium
+							using = Font_Size_Small
 						}
 
 						text_single = {
-							parentanchor =  top|right
-							position = { -3 0 }
 							text = "[FactionItem.GetPower|%0V]"
 							default_format = "#high"
 						}
 
+						expand = {}
+					}
+
+					### Power
+					widget = {
+						name = "power_widget"
+						size = { 0 28 }
+						layoutpolicy_horizontal = expanding
+						tooltip = "[FactionItem.GetPowerTooltip]"
+
 						widget = {
 							name = "progressbar_power_holder"
-							size = { 100% 30 }
-							position = { 0 25 }
+							size = { 100% 28 }
+							position = { -2 4 }
 
 							progressbar_red = {
 								visible = "[And( FactionItem.IsPowerThresholdVisible, Not(FactionItem.HasEnoughPower))]"
@@ -474,7 +567,7 @@ types  FactionWindow
 								position = { 0 1 }
 								max = 1
 								value = "[FactionItem.GetPowerPushPercentage]"
-								noprogresstexture = "gfx/interface/progressbars/progress_blue_bg.dds"
+								noprogresstexture = "gfx/interface/progressbars/progress_transparent_bg.dds"
 							}
 
 							progressbar_red = {
@@ -483,7 +576,7 @@ types  FactionWindow
 								position = { 0 1 }
 								max = 1
 								value = "[FactionItem.GetPowerPushPercentage]"
-								noprogresstexture = "gfx/interface/progressbars/progress_blue_bg.dds"
+								noprogresstexture = "gfx/interface/progressbars/progress_transparent_bg.dds"
 							}
 
 							container = {
@@ -503,68 +596,158 @@ types  FactionWindow
 
 					# Discontent
 					vbox = {
-						margin_left = 3
 						layoutpolicy_horizontal = expanding
 
 						hbox = {
-							name = "discontent_widget"
 							layoutpolicy_horizontal = expanding
-							tooltip = "[FactionItem.GetDiscontentTooltip]"
 
-							text_single = {
-								text = "FACTIONS_WINDOW_DISCONTENT"
-								using = Font_Size_Medium
+							vbox = {
+								layoutpolicy_horizontal = expanding
+
+								hbox = {
+									name = "discontent_widget"
+									layoutpolicy_horizontal = expanding
+									tooltip = "[FactionItem.GetDiscontentTooltip]"
+
+									text_single = {
+										text = "FACTIONS_WINDOW_DISCONTENT"
+										using = Font_Size_Small
+									}
+									icon = {
+										visible = "[FactionItem.IsDiscontentIncreasing]"
+										texture = "gfx/interface/icons/icon_trend_arrow.dds"
+										framesize = { 22 22 }
+										frame = 1
+									}
+									icon = {
+										visible = "[FactionItem.IsDiscontentDecreasing]"
+										texture = "gfx/interface/icons/icon_trend_arrow.dds"
+										framesize = { 22 22 }
+										frame = 2
+									}
+									expand = {}
+								}
+
+								text_single = {
+									visible = "[FactionItem.IsDiscontentIncreasing]"
+									layoutpolicy_horizontal = expanding
+									text = "FACTIONS_WINDOW_DISCONTENT_INCREASING"
+								}
+
+								text_single = {
+									visible = "[FactionItem.IsDiscontentAtMax]"
+									layoutpolicy_horizontal = expanding
+									text = "FACTIONS_WINDOW_DISCONTENT_CAN_SEND"
+								}
+
+								text_single = {
+									visible = "[Not( Or( FactionItem.IsDiscontentAtMax, FactionItem.IsDiscontentIncreasing) )]"
+									layoutpolicy_horizontal = expanding
+									text = "FACTIONS_WINDOW_DISCONTENT_TO_WEAK"
+								}
+
 							}
-							icon = {
-								visible = "[FactionItem.IsDiscontentIncreasing]"
-								texture = "gfx/interface/icons/icon_trend_arrow.dds"
-								framesize = { 22 22 }
-								frame = 1
-							}
-							icon = {
-								visible = "[FactionItem.IsDiscontentDecreasing]"
-								texture = "gfx/interface/icons/icon_trend_arrow.dds"
-								framesize = { 22 22 }
-								frame = 2
-							}
+
 							expand = {}
-						}
 
-						text_single = {
-							visible = "[FactionItem.IsDiscontentIncreasing]"
-							layoutpolicy_horizontal = expanding
-							text = "FACTIONS_WINDOW_DISCONTENT_INCREASING"
-						}
+							vbox = {
+								margin_top = 10
 
-						text_single = {
-							visible = "[FactionItem.IsDiscontentAtMax]"
-							layoutpolicy_horizontal = expanding
-							text = "FACTIONS_WINDOW_DISCONTENT_CAN_SEND"
-						}
+								button_standard = {
+									#AGOT Modified
+									# visible = "[And( FactionItem.IsPlayerLeader, Not( Faction.IsAtWar ) )]"
+									visible = "[And( FactionItem.IsPlayerLeader, Not( Or( Faction.IsAtWar, GetScriptedGui('agot_loyalist_faction_is_shown').IsShown(GuiScope.SetRoot(FactionItem.GetFaction.MakeScope).End) ) ) )]"
+									name = "press_demands_button"
+									enabled = "[FactionItem.CanPressDemands]"
+									text = "FACTION_WINDOW_PRESS_DEMANDS"
+									tooltip = "[FactionItem.BuildPressDemandsTooltip]"
+									onclick = "[FactionItem.PressDemmands]"
+								}
 
-						text_single = {
-							visible = "[Not( Or( FactionItem.IsDiscontentAtMax, FactionItem.IsDiscontentIncreasing) )]"
-							layoutpolicy_horizontal = expanding
-							text = "FACTIONS_WINDOW_DISCONTENT_TO_WEAK"
-						}
+								button_standard = {
+									visible = "[And(And( FactionItem.IsPlayerMember, Not( FactionItem.IsPlayerLeader)), Not( Faction.IsAtWar ) )]"
+									name = "press_demands_button_disabled"
+									enabled = no
+									text = "FACTION_WINDOW_PRESS_DEMANDS"
+									tooltip = "FACTION_WINDOW_PRESS_DEMANDS_CANNOT_LEADER"
+								}
 
+								button_standard = {
+									name = "join"
+									visible = "[FactionItem.ShowJoinButton]"
+									enabled = "[FactionItem.CanJoinFaction]"
+									onclick = "[FactionItem.JoinFaction]"
+									text = "FACTION_WINDOW_JOIN"
+									tooltip = "[FactionItem.BuildJoinFactionTooltip]"
+								}
+
+								button_standard = {
+									name = "show_members_tageting_factions"
+									visible = "[And(PdxGuiTabs.IsTabSet('targeting_factions'), Not(FactionItem.ShowCannotJoin))]"
+
+									onclick = "[FactionItem.ShowHideMembersFrame]"
+
+									button_expand = {
+										name = "show_members_tageting_factions_2"
+										frame = "[FactionItem.GetShowMembersFrame]"
+										parentanchor = left|vcenter
+										position = { 8 0 }
+										alwaystransparent = yes
+
+										using = tooltip_ws
+										tooltip = "[FactionItem.GetShowHideMembersTooltip]"
+									}
+
+									text_single = {
+										text = "[FactionItem.GetMembersString]"
+										align = nobaseline
+										parentanchor = left|vcenter
+										position = { 32 0 }
+									}
+								}
+
+								button_standard = {
+									name = "show_members_against_liege"
+									visible = "[And(PdxGuiTabs.IsTabSet('my_factions'), FactionItem.ShowCannotJoin)]"
+
+									onclick = "[FactionItem.ShowHideMembersFrame]"
+
+									button_expand = {
+										name = "show_members_against_liege_2"
+										frame = "[FactionItem.GetShowMembersFrame]"
+										parentanchor = left|vcenter
+										position = { 8 0 }
+										alwaystransparent = yes
+
+										using = tooltip_ws
+										tooltip = "[FactionItem.GetShowHideMembersTooltip]"
+									}
+
+									text_single = {
+										text = "[FactionItem.GetMembersString]"
+										align = nobaseline
+										parentanchor = left|vcenter
+										position = { 32 0 }
+									}
+								}
+							}
+						}
 					}
 				}
-
 
 				### Faction at war
 				hbox = {
 					layoutpolicy_horizontal = expanding
-					expand = {}
 
 					vbox = {
 						name = "faction_in_war"
 						visible = "[Faction.IsAtWar]"
-						margin_top = -20
-						spacing = -30
+						margin_top = 10
+						spacing = -2
 
 						icon = {
-							texture = "gfx/interface/window_factions/faction_at_war.dds"
+							texture = "gfx/interface/icons/character_interactions/icon_coax_to_war.dds"
+							size = { 64 64 }
 						}
 
 						text_single = {
@@ -579,53 +762,16 @@ types  FactionWindow
 			}
 		}
 
-		hbox = {
-			layoutpolicy_horizontal = expanding
-			margin = { 15 5 }
-			margin_top = 10
-
-			expand = {}
-
-			button_standard = {
-				#AGOT Modified
-				# visible = "[And( FactionItem.IsPlayerLeader, Not( Faction.IsAtWar ) )]"
-				visible = "[And( FactionItem.IsPlayerLeader, Not( Or( Faction.IsAtWar, GetScriptedGui('agot_loyalist_faction_is_shown').IsShown(GuiScope.SetRoot(FactionItem.GetFaction.MakeScope).End) ) ) )]"
-				name = "press_demands_button"
-				enabled = "[FactionItem.CanPressDemands]"
-				text = "FACTION_WINDOW_PRESS_DEMANDS"
-				tooltip = "[FactionItem.BuildPressDemandsTooltip]"
-				onclick = "[FactionItem.PressDemmands]"
-			}
-		}
-
-
 		### Faction members
 
 		# Member buttons
 		hbox = {
 			name = "faction_buttons"
 			layoutpolicy_horizontal = expanding
-			margin = { 15 0 }
-			margin_bottom = 15
-			spacing = 3
-
-			button_group = {
-				onclick = "[FactionItem.ShowHideMembersFrame]"
-
-				button_expand = {
-					name = "show_members"
-					frame = "[FactionItem.GetShowMembersFrame]"
-
-					using = tooltip_ws
-					tooltip = "[FactionItem.GetShowHideMembersTooltip]"
-				}
-
-				text_single = {
-					text = "[FactionItem.GetMembersString]"
-					align = nobaseline
-					position = { 25 0 }
-				}
-			}
+			margin_right = 20
+			margin_top = 10
+			margin_bottom = 8
+			spacing = 10
 
 			expand = {}
 
@@ -646,21 +792,28 @@ types  FactionWindow
 				tooltip = "FACTION_ADD_MEMBER_TT"
 			}
 
-			icon = {
-				name = "cannot_join"
-				visible = "[FactionItem.ShowCannotJoin]"
-				size = { 30 30 }
-				texture = "gfx/interface/icons/symbols/icon_cross.dds"
-				tooltip = "PLAYER_CANNOT_JOIN_FACTION_OF_THIS_TYPE"
-			}
-
 			button_standard = {
-				name = "join"
-				visible = "[FactionItem.ShowJoinButton]"
-				enabled = "[FactionItem.CanJoinFaction]"
-				onclick = "[FactionItem.JoinFaction]"
-				text = "FACTION_WINDOW_JOIN"
-				tooltip = "[FactionItem.BuildJoinFactionTooltip]"
+				name = "show_members"
+				visible = "[And(PdxGuiTabs.IsTabSet('my_factions'), Not(FactionItem.ShowCannotJoin))]"
+				onclick = "[FactionItem.ShowHideMembersFrame]"
+
+				button_expand = {
+					name = "show_members_2"
+					frame = "[FactionItem.GetShowMembersFrame]"
+					parentanchor = left|vcenter
+					position = { 8 0 }
+					alwaystransparent = yes
+
+					using = tooltip_ws
+					tooltip = "[FactionItem.GetShowHideMembersTooltip]"
+				}
+
+				text_single = {
+					text = "[FactionItem.GetMembersString]"
+					align = nobaseline
+					parentanchor = left|vcenter
+					position = { 32 0 }
+				}
 			}
 		}
 
@@ -726,8 +879,9 @@ types  FactionWindow
 
 						button_icon = {
 							name = "county_faction_member"
-							size = { 68 68 }
+							size = { 54 54 }
 							onclick = "[Title.SelectTitle]"
+							parentanchor = right
 							using = State_Title_MouseEntry
 							texture = "gfx/interface/icons/faction_type/peasants.dds"
 						}
@@ -739,10 +893,14 @@ types  FactionWindow
 							parentanchor = bottom
 							tooltip = "FACTIONS_WINDOW_COUNTY_OPINION_TOOLTIP"
 
-							text_single= {
+							text_single = {
 								position = { 10 -10 }
 								parentanchor = center
 								text = "FACTIONS_WINDOW_COUNTY_OPINION"
+
+								background = {
+									using = Background_Area_Dark
+								}
 							}
 						}
 

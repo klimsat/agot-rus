@@ -235,7 +235,7 @@ window = {
 				layoutpolicy_horizontal = expanding
 				onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'beliefs' )]"
 				#AGOT Modified
-				#down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'beliefs' )]"
+				# down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'beliefs' )]"
 				down = "[Not(Or(GetVariableSystem.HasValue( 'faith_view_tabs', 'holy_sites' ), GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' )))]"
 				text = "FAITH_BELIEFS"
 				default_format = "#low"
@@ -259,7 +259,7 @@ window = {
 		vbox = {
 			name = "tab_beliefs"
 			#AGOT Modified
-			#visible = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'beliefs' )]"
+			# visible = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'beliefs' )]"
 			visible = "[Or(Not(GetVariableSystem.Exists('faith_view_tabs')), GetVariableSystem.HasValue('faith_view_tabs', 'beliefs'))]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
@@ -477,7 +477,7 @@ window = {
 								hbox = {
 									name = "important_doctrines"
 									datamodel = "[FaithWindow.GetGroupingHelper( 'main_group' ).GetGrouping]"
-									#spacing = 15
+									spacing = -6
 									layoutpolicy_vertical = expanding
 									minimumsize = { 0 108 }
 
@@ -500,7 +500,6 @@ window = {
 											text_single = {
 												name = "doctrine_name"
 												align = center
-												#raw_text = "Bingo Bongo Tongo gyngo"
 												text = "[FaithDoctrine.GetNameNoTooltip( GuiFaithDoctrineItem.GetFaith )]"
 												default_format = "#high"
 												multiline = yes
@@ -897,7 +896,7 @@ window = {
 					name = "create_faith"
 					minimumsize = { 240 0 }
 					#AGOT Modified
-					#visible = "[And( ObjectsEqual(Faith.Self, GetPlayer.GetFaith ), GetVariableSystem.HasValue( 'faith_view_tabs', 'beliefs' ))]"
+					# visible = "[And( ObjectsEqual(Faith.Self, GetPlayer.GetFaith ), GetVariableSystem.HasValue( 'faith_view_tabs', 'beliefs' ))]"
 					visible = "[Not(Or(GetVariableSystem.HasValue( 'faith_view_tabs', 'holy_sites' ), GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' )))]"
 					text = "CREATE_REFORM_FAITH_TEXT"
 					onclick = "[OpenGameViewData( 'faith_creation', Faith.GetID )]"

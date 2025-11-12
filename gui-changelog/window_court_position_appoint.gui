@@ -92,8 +92,8 @@ window = {
 
 					text_single = {
 						align = right
-						text = "APPOINT_COURT_POSITION_VIEW_salary"
-						tooltip = "[CourtPositionType.GetSalaryBreakdownFor( Character.Self )]"
+						text = "APPOINT_COURT_POSITION_VIEW_EMPLOYER_SALARY"
+						tooltip = "[CourtPositionType.GetEmployerSalaryBreakdownFor( Character.Self )]"
 					}
 				}
 
@@ -205,7 +205,7 @@ window = {
 							text_single = {
 								layoutpolicy_horizontal = expanding
 								text = "APPOINT_COURT_POSITION_VIEW_REPLACE_CURRENT_SALARY"
-								tooltip = "[CourtPosition.GetSalaryBreakdownTooltip]"
+								tooltip = "[CourtPosition.GetEmployerSalaryBreakdownTooltip]"
 								max_width = 200
 								align = right
 							}
@@ -594,7 +594,7 @@ types AppointCourtPositionTypes
 				blockoverride "portrait_button" {
 					text_single = {
 						name = "tutorial_highlight_character_view_opinion"
-						visible = "[InDebugMode]"
+						visible = "[AIWatchWindowsEnabled]"
 						max_width = 100
 						margin = { 3 0 }
 						using = tooltip_es

@@ -42,6 +42,7 @@ window = {
 				visible = "[GetScriptedGui('agot_same_culture_noble').IsShown(GuiScope.SetRoot(FindVassalListWindow.GetTitle.MakeScope).End)]"
 				onclick = "[FindVassalListWindow.GetTitle.CreateHolderForTitle]"
 				onclick = "[FindVassalListWindow.Close]"
+				shortcut = "grant_to_same_culture_noble"
 				using = tooltip_se
 				tooltip = "[FindVassalListWindow.GetGrantVassalToSameCultureTooltip]"
 				
@@ -102,6 +103,7 @@ window = {
 				visible = "[Not( ObjectsEqual( FindVassalListWindow.GetTitle.GetProvince.GetCulture, GetPlayer.GetCulture ) )]"
 				onclick = "[FindVassalListWindow.GetTitle.CreateLocalHolderForTitle]"
 				onclick = "[FindVassalListWindow.Close]"
+				shortcut = "grant_to_local_culture_noble"
 				using = tooltip_se
 				tooltip = "[FindVassalListWindow.GetTitle.GetAutoGrantTitleToLocalRulerDesc]"
 				

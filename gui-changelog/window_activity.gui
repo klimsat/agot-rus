@@ -239,6 +239,7 @@
 			alwaystransparent = yes
 		}
 
+		allow_outside = yes
 		activity_event_widget = {
 			name = "activity_event"
 			parentanchor = center
@@ -518,27 +519,26 @@
 								}
 
 								hbox = {
-									datacontext_from_model = {
-										datamodel = "[Character.GetCompletedIntents]"
-										index = 0
-									}
-									datacontext = "[ActivityIntentData.GetType]"
-
+									datamodel = "[Character.GetCompletedIntents]"
 									spacing = 4
 
-									icon_flat_standard = {
-										name = "intent_icon"
-										size = { 30 30 }
-										texture = "[ActivityIntent.GetIcon]"
-									}
+									item = {
+										hbox = {
+											datacontext = "[ActivityIntentData.GetType]"
 
-									text_single = {
-										name = "intent_name_completed"
-										text = "[ActivityIntent.GetName]"
+											icon_flat_standard = {
+												name = "intent_icon"
+												size = { 30 30 }
+												texture = "[ActivityIntent.GetIcon]"
+											}
+
+											text_single = {
+												name = "intent_name_completed"
+												text = "[ActivityIntent.GetName]"
+											}
+										}
 									}
 								}
-
-								#expand = {}
 							}
 
 							hbox = {
@@ -643,6 +643,14 @@
 								down = "[Not( GetVariableSystem.Exists( 'activity_charioteers_view' ) )]"
 								onclick = "[GetVariableSystem.Toggle( 'activity_charioteers_view' )]"
 							}
+
+							button_standard = {
+								name = "entrants"
+								text = "ENTRANTS_WINDOW_LABEL"
+								visible = "[DataModelHasItems( ActivityWindow.GetCurrentPhaseGuestSubset( 'scoreboard' ) )]"
+								down = "[Not( GetVariableSystem.Exists( 'activity_scoreboard_view' ) )]"
+								onclick = "[GetVariableSystem.Toggle( 'activity_scoreboard_view' )]"
+							}
 						}
 					}
 				}
@@ -733,9 +741,10 @@
 			parentanchor = top|hcenter
 		}
 
-		container = {
+		flowcontainer = {
 			name = "non_event_titles"
 			visible = "[Not( ActivityWindow.HasActiveEvent )]"
+			ignoreinvisible = yes
 
 			parentanchor = hcenter
 			position = { 0 17 }
@@ -897,7 +906,7 @@ types ActivityWindowTypes
 		max_width = 1000
 	}
 
-	type activity_phase_timeline_icon = icon
+	type phase_timeline_icon = icon
 	{
 		size = { 50 50 }
 		texture = "gfx/interface/icons/activity_phases/button_activity_base.dds"
@@ -914,7 +923,7 @@ types ActivityWindowTypes
 
 		icon_flat_standard = {
 			parentanchor = center
-			size = { 40 40 }
+			size = { 35 35 }
 
 			block "texture"
 			{
@@ -938,16 +947,16 @@ types ActivityWindowTypes
 				hbox = {
 					layoutpolicy_horizontal = expanding
 
-					activity_phase_timeline_icon = {
+					phase_timeline_icon = {
 						name = "starting_phase_icon"
-
-						tooltip = "ACTIVITY_TIMELINE_START"
 
 						blockoverride "texture"
 						{
 							texture = "gfx/interface/icons/activity_phases/phase_planning.dds"
 							size = { 36 36 }
 						}
+
+						tooltip = "ACTIVITY_TIMELINE_START"
 					}
 
 					filled_line_progressbar_icon = {
@@ -963,23 +972,22 @@ types ActivityWindowTypes
 
 			hbox = {
 				name = "planned_phases"
-				layoutpolicy_horizontal = expanding
-				datamodel = "[Activity.GetPlannedPhases]"
-				layoutstretchfactor_horizontal = "[GetDataModelSize( Activity.GetPlannedPhases )]"
 				datacontext = "[Activity.GetLastWeeklyPulseAction]"
-
+				datamodel = "[Activity.GetPlannedPhases]"
+				layoutpolicy_horizontal = expanding
+				layoutstretchfactor_horizontal = "[GetDataModelSize( Activity.GetPlannedPhases )]"
+				
 				item = {
 					hbox = {
-						layoutpolicy_horizontal = expanding
 						datacontext = "[PlannedActivityPhase.GetPhase]"
+						layoutpolicy_horizontal = expanding
 
 						hbox = {
 							name = "current_phase"
+							visible = "[EqualTo_int32( Activity.GetPhaseIndexOf( PlannedActivityPhase.Self ), Activity.GetCurrentPhaseIndex )]"
 							layoutpolicy_horizontal = expanding
 
-							visible = "[EqualTo_int32( Activity.GetPhaseIndexOf( PlannedActivityPhase.Self ), Activity.GetCurrentPhaseIndex )]"
-
-							activity_phase_timeline_icon = {
+							phase_timeline_icon = {
 								name = "current_phase_icon"
 
 								blockoverride "texture"
@@ -1023,10 +1031,10 @@ types ActivityWindowTypes
 							}
 						}
 
-						activity_phase_timeline_icon = {
+						phase_timeline_icon = {
 							name = "not_current_phase"
-
 							visible = "[NotEqualTo_int32( Activity.GetPhaseIndexOf( PlannedActivityPhase.Self ), Activity.GetCurrentPhaseIndex )]"
+
 							tooltip = "ACTIVITY_PHASE_TOOLTIP"
 
 							blockoverride "texture"
@@ -1059,16 +1067,16 @@ types ActivityWindowTypes
 				}
 			}
 
-			activity_phase_timeline_icon = {
+			phase_timeline_icon = {
 				name = "conclusion_phase_icon"
-
-				tooltip = "ACTIVITY_TIMELINE_CONCLUSION"
 
 				blockoverride "texture"
 				{
 					texture = "gfx/interface/icons/activity_phases/phase_conclusion.dds"
 					size = { 36 36 }
 				}
+
+				tooltip = "ACTIVITY_TIMELINE_CONCLUSION"
 			}
 		}
 	}
@@ -1086,6 +1094,7 @@ types ActivityWindowTypes
 		visible = "[EventWindowViewInsert.HasOpenEvent]"
 
 		using = Event_Window_Debug_OptionTooltips
+		using = Event_Window_Debug_EventTools
 
 		state = {
 			name = activity_new_event_shown
@@ -1794,6 +1803,7 @@ types ActivityWindowTypes
 		visible = "[EventWindowViewInsert.HasOpenEvent]"
 
 		using = Event_Window_Debug_OptionTooltips
+		using = Event_Window_Debug_EventTools
 
 		using = Window_Background
 		using = Window_Decoration_Frontend_Flat
