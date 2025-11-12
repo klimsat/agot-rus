@@ -9,38 +9,27 @@
  #baron_female:0 "Baroness"
  baron_female:0 "Lady"
  #AGOT Modified
- #barony:0 "Barony"
- barony:0 "Province"
- #AGOT Modified
  #count:0 "Count"
  count:0 "Lord"
  #AGOT Modified
  #count_female:0 "Countess"
  count_female:0 "Lady"
  #AGOT Modified
- #county:0 "County"
- county:0 "Lordship"
- #AGOT Modified
  #duke:0 "Duke"
  duke:0 "Lord"
  #AGOT Modified
  #duke_female:0 "Duchess"
  duke_female:0 "Lady"
- #AGOT Modified
- #duchy:0 "Duchy"
- duchy:0 "High Lordship"
  king:0 "King"
  king_female:0 "Queen"
- kingdom:0 "Kingdom"
  #AGOT Modified
  #emperor:0 "Emperor"
  emperor:0 "King"
  #AGOT Modified
  #emperor_female:0 "Empress"
  emperor_female:0 "Queen"
- #AGOT Modified
- #empire:0 "Empire"
- empire:0 "Kingdom"
+ hegemon: "Hegemon"
+ hegemon_female: "Hegemoness"
  
  #AGOT Modified
  #baron_plural:0 "Barons"
@@ -318,6 +307,7 @@
 # Buddhism
  baron_theocracy_male_buddhism_religion:0 "Bhikkhu"
  baron_theocracy_female_buddhism_religion:0 "Bhikkhu"
+ barony_theocracy_buddhism_religion: "Vihara"
  count_theocracy_male_buddhism_religion:0 "Bhikkhu"
  count_theocracy_female_buddhism_religion:0 "Bhikkhu"
  duke_theocracy_male_buddhism_religion:0 "Bhikkhu"
@@ -922,6 +912,8 @@
  king_feudal_female_dravidian_group:0 "Maharani"
  emperor_feudal_male_dravidian_group:0 "Samrat"
  emperor_feudal_female_dravidian_group:0 "Samrajni"
+ hegemon_male_indic: "Chakravartin"
+ hegemon_female_indic: "Chakravartini"
  samanta:0 "Samanta"
  samanta_female:0 "Samanta"
  mahasamanta:0 "Mahasamanta"
@@ -942,6 +934,61 @@
  emperor_feudal_muslim_male_dravidian_group:0 "Padishah"
  emperor_feudal_muslim_female_dravidian_group:1 "Shahbanu"
  empire_feudal_muslim_dravidian_group:0 "$empire_feudal_arabic_group$"
+
+ #Special Titles: Devaraja
+ devaraja: "Devaraja"
+ devarani: "Devarani"
+
+ ## Tai Group ###
+ baron_feudal_male_tai_group: "Khun"
+ baron_feudal_female_tai_group: "Khun"
+ baron_republican_male_tai_group: "Chao"
+ baron_republican_female_tai_group: "Nang Chao"
+ baron_theocracy_male_tai_group: "Bhikkhu"
+ baron_theocracy_female_tai_group: "Bhikkhuni"
+ barony_feudal_tai_group: "Mueang"
+ count_feudal_male_tai_group: "Phraya"
+ count_feudal_female_tai_group: "Nang Phraya"
+ county_feudal_tai_group: "Phray"
+ duke_feudal_male_tai_group: "Ratcha"
+ duke_feudal_female_tai_group: "Ratchinee"
+ duchy_feudal_tai_group: "Ratch"
+ king_feudal_female_tai_group: "Maharatchinee"
+ king_feudal_male_tai_group: "Maharat"
+ emperor_feudal_male_tai_group: "Devaraja"
+ emperor_feudal_female_tai_group: "Devarani"
+
+ ## Khmer Group ###
+ baron_feudal_male_khmer_group: "Khlon"
+ baron_feudal_female_khmer_group: "Khlon"
+ barony_feudal_khmer_group: "Sruk"
+ count_feudal_male_khmer_group: "Khlon"
+ count_feudal_female_khmer_group: "Khlon"
+ county_feudal_khmer_group: "Visaya"
+ duke_feudal_male_khmer_group: "Sdach"
+ duke_feudal_female_khmer_group: "Sdach"
+ duchy_feudal_khmer_group: "Nokor"
+ king_feudal_female_khmer_group: "Maharani"
+ king_feudal_male_khmer_group: "Maharaja"
+ emperor_feudal_male_khmer_group: "Samdach"
+ emperor_feudal_female_khmer_group: "Samdach"
+
+ ## Austronesian Group ###
+ baron_feudal_male_austronesian_group: "Khlon Sruk"
+ baron_feudal_female_austronesian_group: "Khlon Sruk"
+ barony_feudal_austronesian_group: "Sruk"
+ count_feudal_male_austronesian_group: "Praya"
+ count_feudal_female_austronesian_group: "Praya"
+ bhupati: "Bhupati"
+ bhupati_female: "Bhupati"
+ county_feudal_austronesian_group: "Pray"
+ duke_feudal_male_austronesian_group: "Raja"
+ duke_feudal_female_austronesian_group: "Raja"
+ duchy_feudal_austronesian_group: "Raj"
+ king_feudal_female_austronesian_group: "Maharani"
+ king_feudal_male_austronesian_group: "Maharaja"
+ emperor_feudal_male_austronesian_group: "Devaraja"
+ emperor_feudal_female_austronesian_group: "Devarani"
 
 ### GUANCHE (Canary Islands) ###
  duchy_guanche:0 "Menceyo"
@@ -1037,6 +1084,12 @@
  prince_female_dravidian_group:0 "Rajkumari"
  prince_male_dravidian_group_empire:0 "Rajkumar"
  prince_female_dravidian_group_empire:0 "Rajkumari"
+
+### Southeast Asian
+ prince_male_southeast_asian_group:0 "$prince_male_dravidian_group$"
+ prince_female_southeast_asian_group:0 "$prince_female_dravidian_group$"
+ prince_male_southeast_asian_group_empire:0 "$prince_male_dravidian_group_empire$"
+ prince_female_southeast_asian_group_empire:0 "$prince_female_dravidian_group_empire$"
 
  ### Muslim Dravidian / Muslim Indo-Aryan ### 
  ### Uses Iranian Titles
@@ -1237,6 +1290,14 @@
  count_republic_latin_male:0 "Podesta"
  count_republic_latin_female:0 "Podestaressa"
 
+### Swahili ###
+# Feudal / Clan / Tribal / Admin
+ duke_feudal_male_swahili_sultan_independent: "Sultan"
+ duke_feudal_female_swahili_sultan_independent: "Sultana"
+ duchy_feudal_swahili_sultan_independent: "Sultanate"
+ baron_republic_swahili_male: "Tamim"
+ baron_republic_swahili_female: "Tamim"
+
 ### Administrative
 
  baron_administrative_male_byzantine_group: "Archon"
@@ -1287,6 +1348,8 @@
  kingdom_administrative_independent_roman: "Regnum"
  emperor_administrative_male_roman: "Imperator"
  emperor_administrative_female_roman: "Imperatrix"
+ hegemon_administrative_male_roman: "Augustus"
+ hegemon_administrative_female_roman: "Augusta"
  empire_administrative_roman: "Imperium"
 
  co_ruler_male: "Co-[SelectLocalization( Character.GetLiege.IsFemale, 'co_ruler_male_gender_fallback', 'co_ruler_actual')]"
@@ -1348,7 +1411,64 @@
  feudal_castellan_female_german_group: "Burgravine"
  feudal_castellan_title: "Castellany"
  feudal_castellan_title_german_group: "Burgravate"
- 
+
  ### Herders
  count_herder_male: "Shepherd"
  count_herder_female: "Shepherdess"
+
+ # Celestial Admin
+ hegemon_celestial_male_chinese: "Huángdì"
+ hegemon_celestial_female_chinese: "$hegemon_celestial_male_chinese$"
+ spouse_hegemon_celestial_male_chinese: "Húangfū"
+ spouse_hegemon_celestial_female_chinese: "Húanghòu"
+
+ emperor_celestial_male_chinese_civilian_governor: "Coordinator"
+ emperor_celestial_male_chinese_military_governor: "Supreme Commander"
+ king_celestial_male_chinese_civilian_governor: "Intendant"
+ king_celestial_male_chinese_military_governor: "Commandant"
+ duke_celestial_male_chinese_governor: "Governor"
+ count_celestial_male_chinese_governor: "Prefect"
+ baron_celestial_male_chinese_governor: "Magistrate"
+
+ emperor_celestial_female_chinese_civilian_governor: "Coordinator"
+ emperor_celestial_female_chinese_military_governor: "Supreme Commander"
+ king_celestial_female_chinese_civilian_governor: "Intendant"
+ king_celestial_female_chinese_military_governor: "Commandant"
+ duke_celestial_female_chinese_governor: "Governor"
+ count_celestial_female_chinese_governor: "Prefect"
+ baron_celestial_female_chinese_governor: "Magistrate"
+
+ hegemony_celestial_chinese: "Hegemony"
+ empire_celestial_chinese_vassal: "Secretariat"
+ kingdom_celestial_chinese_vassal: "Circuit"
+ duchy_celestial_chinese_vassal: "Province"
+ county_celestial_chinese_vassal: "Prefecture"
+ barony_celestial_chinese_vassal: "District"
+
+ spouse_celestial_governor_female: "Lady"
+ spouse_celestial_governor_male: "Gentleman"
+
+ prince_male_celestial_chinese: "Imperial Prince"
+ princess_female_celestial_chinese: "Imperial Princess"
+
+ celestial_estate_holder_male: "Gentleman"
+ celestial_estate_holder_female: "Lady"
+
+ celestial_empress_dowager: "Empress Dowager"
+
+ baron_republic_male_chinese: "Ward Head"
+ 
+ # Ministers
+ minister_chancellor_male: "Grand Chancellor"
+ minister_chancellor_female: "Grand Chancellor"
+ minister_censor_male: "Imperial Censor"
+ minister_censor_female: "Imperial Censor"
+ minister_grand_marshal_male: "Grand Marshal"
+ minister_grand_marshal_female: "Grand Marshal"
+ minister_any_male: "Minister"
+ minister_any_female: "Minister"
+
+ jiedushi: "Jiédùshǐ" # Military Commissioner
+ dudu: "Dūdū" # Commander-in-Chief
+ cishi: "Cìshǐ" # Regional Prefect
+ jinglueshi: "Jīnglüèshǐ" # Pacification Commissioner
