@@ -70,7 +70,7 @@
  ep2_locale_events.1014.f:0 "После такого не помешает выпить!"
 
  ep2_locale_events.1050.t:1 "$tournament_locale_tavern$: не желаете ставку?"
- ep2_locale_events.1050.desc:0 "Едва я вхожу в таверну, как ко мне кто-то подходит. [wealthy_gambler.GetFirstName] хлопает меня по плечу и предлагает отойти в темный угол, после чего обращается ко мне приглушенным голосом.\n\n«Вы участвуете в воинских состязаниях, да? — [wealthy_gambler.GetSheHe|U] продолжает, не дожидаясь моего ответа. — Понимаете, я [Select_CString(wealthy_gambler.IsFemale, 'сделала', 'сделал' )] довольно необычную ставку. Один из моих... деловых партнеров считает, что вы, как бы это помягче, #EMP трусоваты#!». [wealthy_gambler.GetSheHe|U] прерывает мои возмущения.\n\n«Я, естественно, [Select_CString(wealthy_gambler.IsFemale, 'вступилась', 'вступился' )] за вашу честь, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )]! Я [Select_CString(wealthy_gambler.IsFemale, 'сказала', 'сказал' )], что вы настолько храбры, что будете выступать на турнире без шлема! Разумеется, если бы вы #EMP пообещали#!, что так и будет, то я могу щедро отблагодарить вас за это...»"
+ ep2_locale_events.1050.desc: "Едва я вхожу в таверну, как ко мне кто-то подходит. [wealthy_gambler.GetFirstName] хлопает меня по плечу и предлагает отойти в темный угол, после чего обращается ко мне приглушенным голосом.\n\n«Вы участвуете в воинских состязаниях, да? — [wealthy_gambler.GetSheHe|U] продолжает, не дожидаясь моего ответа. — Понимаете, я [Select_CString(wealthy_gambler.IsFemale, 'сделала', 'сделал' )] довольно необычную ставку. Один из моих... деловых партнеров считает, что вы, как бы это помягче, #EMP трусоваты#!». [wealthy_gambler.GetSheHe|U] прерывает мои возмущения.\n\n«Я, естественно, [Select_CString(wealthy_gambler.IsFemale, 'вступилась', 'вступился' )] за вашу честь, [ROOT.Char.Custom('FormOfAddressForLiege')]! Я [Select_CString(wealthy_gambler.IsFemale, 'сказала', 'сказал' )], что вы настолько храбры, что будете выступать на турнире без шлема! Разумеется, если бы вы #EMP пообещали#!, что так и будет, то я могу щедро отблагодарить вас за это...»"
  ep2_locale_events.1050.a:0 "А это не другие игроки там стоят?"
  ep2_locale_events.1050.a.tt:0 "Возможно, им будет интересно узнать об этом. Хотя достойная награда убедит вас держать язык за зубами..."
  ep2_locale_events.1050.b:0 "#EMP [Select_CString(ROOT.Char.IsFemale, 'Трусовата', 'Трусоват' )]?!#! Я и #EMP рукавицы#! сниму перед боем!"
@@ -197,7 +197,7 @@
  ep2_locale_events.2500.d:0 "Очень хорошая работа..."
 
  ep2_locale_events.2501.t:0 "$tournament_locale_tailor$: Папский наряд"
- ep2_locale_events.2501.desc:0 "Ткани в лавке портного варьируются от посконного полотна до камчата, бархата и шелков. Я и [Select_CString(random_knight.IsFemale, 'моя', 'мой' )] [ROOT.Char.Custom2('RelationToMeShort', random_knight)] [random_knight.GetFirstName] осматриваем товары, когда вдруг я замечаю знакомый узор.\n\nЯ расправляю наряд на свету и распахиваю глаза от изумления. Это точная копия папских регалий!\n\n«У нас есть и кардинальские одеяния, [Select_CString(ROOT.Char.IsFemale, 'госпожа', 'господин' )]!» — подходит к нам [tournament_tailor.GetFirstName]. [random_knight.GetFirstNameNoTooltip] яростно пихает меня в бок, [random_knight.GetHerHis|l] глаза блестят от восторга. Тем временем, портной продолжает.\n\n«К этому наряду и головной убор есть»."
+ ep2_locale_events.2501.desc: "Ткани в лавке портного варьируются от посконного полотна до камчата, бархата и шелков. Я и [Select_CString(random_knight.IsFemale, 'моя', 'мой' )] [ROOT.Char.Custom2('RelationToMeShort', random_knight)] [random_knight.GetFirstName] осматриваем товары, когда вдруг я замечаю знакомый узор.\n\nЯ расправляю наряд на свету и распахиваю глаза от изумления. Это точная копия папских регалий!\n\n«У нас есть и кардинальские одеяния, [ROOT.Char.Custom('FormOfAddressForLiege')]!» — подходит к нам [tournament_tailor.GetFirstName]. [random_knight.GetFirstNameNoTooltip] яростно пихает меня в бок, [random_knight.GetHerHis|l] глаза блестят от восторга. Тем временем, портной продолжает.\n\n«К этому наряду и головной убор есть»."
  ep2_locale_events.2501.a:0 "#EMP ПРОДАНО!#!"
  ep2_locale_events.2501.a.tt:0 "Вы и ваши [knights|El] принаряжаетесь..."
  ep2_locale_events.2501.b:0 "Это богохульство!"
@@ -245,8 +245,8 @@
  
  ep2_locale_events.2560.t:0 "$tournament_locale_tailor$: новая покупка"
  ep2_locale_events.2560.desc.intro:0 "На моих глазах [tailor.GetTitledFirstName] разрезает кусок ткани. Под [Select_CString(tailor.IsFemale, 'ее', 'его' )] работу отведено несколько столов. На них лежат чулки и головные уборы, капюшоны и рукава. Напротив столов слегка потрескивает огонь в очаге.\n\n"
- ep2_locale_events.2560.desc.previous_artifact:0 "«Вы ищете, чем украсить свой наряд, [Select_CString(ROOT.Char.IsFemale, 'госпожа', 'господин' )]? Вижу, вы захватили кое-какие артефакты из столицы... Если позволите, мне бы хотелось изучить работу [capital_barony.GetAdjectiveNoTooltip|l]их мастеров»."
- ep2_locale_events.2560.desc.new_artifact:0 "«Осторожней! — предупреждает меня [Select_CString(tailor.IsFemale, 'она', 'он' )], почти роняя инструмент. — Вы чуть не споткнулись о холстину, [Select_CString(ROOT.Char.IsFemale, 'госпожа', 'господин' )], — извиняющимся тоном бормочет [Select_CString(tailor.IsFemale, 'она', 'он' )], быстро подбирая ткань. — Думаю, мне удастся угадать причину вашего визита», — [Select_CString(tailor.IsFemale, 'ее', 'его' )] лицо едва виднеется в царящем беспорядке."
+ ep2_locale_events.2560.desc.previous_artifact: "«Вы ищете, чем украсить свой наряд, [ROOT.Char.Custom('FormOfAddressForLiege')]? Вижу, вы захватили кое-какие артефакты из столицы... Если позволите, мне бы хотелось изучить работу [capital_barony.GetAdjectiveNoTooltip|l]их мастеров»."
+ ep2_locale_events.2560.desc.new_artifact: "«Осторожней! — предупреждает меня [Select_CString(tailor.IsFemale, 'она', 'он' )], почти роняя инструмент. — Вы чуть не споткнулись о холстину, [ROOT.Char.Custom('FormOfAddressForLiege')], — извиняющимся тоном бормочет [Select_CString(tailor.IsFemale, 'она', 'он' )], быстро подбирая ткань. — Думаю, мне удастся угадать причину вашего визита», — [Select_CString(tailor.IsFemale, 'ее', 'его' )] лицо едва виднеется в царящем беспорядке."
  ep2_locale_events.2560.desc.new_artifact_2: "«[Select_CString(ROOT.Char.IsFemale, 'Госпожа', 'Господин' )] ищет что-то конкретное?» — [tailor.Custom('quirk_pos_standalone')|l]. Расположенный рядом ассортимент превосходит все мои ожидания."
  ep2_locale_events.2560.a:0 "«Думаю, [previous_artifact.GetNameNoTooltip|l] нуждается в украшении...»"
  ep2_locale_events.2560.b:0 "«Меня интересует [purchasable_trinket.GetNameNoTooltip|l]»."
@@ -308,7 +308,7 @@
  ep2_locale_events.4001.a.success:1 "[tournament_bowyer.GetFirstNameNoTooltip] бесплатно заменяет лук"
  ep2_locale_events.4001.a.failure:1 "[tournament_bowyer.GetFirstNameNoTooltip] отказывается платить"
  ep2_locale_events.4001.b:0 "Чтоб тебя. Есть у вас луки на продажу?"
- ep2_locale_events.4001.c:1 "Ах ты [tournament_bowyer.Custom('InsultNoun')]! Ты, ты... #EMP [tournament_bowyer.Custom('InsultNoun')]#!!"
+ ep2_locale_events.4001.c: "Ах ты [tournament_bowyer.Custom2('InsultNoun', ROOT.Char)]! Ты, ты... #EMP [tournament_bowyer.Custom2('InsultNoun', ROOT.Char)]#!!"
 
  ep2_locale_events.4010.t:0 "$tournament_locale_bowyer$: Меткие подарки"
  ep2_locale_events.4010.desc:0 "Я осматриваю товары на прилавке лукодела, восхищаясь луками, стрелами и прочими принадлежностями.\n\nМне сразу вспоминается [befriend_target.GetFirstName], когда я вижу столь богатый выбор.\n\nПожалуй, что-нибудь из представленного может [befriend_target.GetHerHis|l] заинтересовать..."
@@ -323,12 +323,12 @@
  ep2_locale_events.4011.reply_quiver:0 "Внутри интересного вида колчан, больше обычного.\n\n"
  ep2_locale_events.4011.reply_hunt:0 "Внутри великолепно выполненные охотничьи стрелы.\n\n"
  ep2_locale_events.4011.opening:0 "[befriend_actor.GetTitledFirstName] неожиданно подходит ко мне, держа на вытянутых руках сверток необычной формы. Подарок?\n\n"
- ep2_locale_events.4011.success_bow:0 "$ep2_locale_events.4511.reply_bow$Это великолепная работа, лук, достойный дворянина."
- ep2_locale_events.4011.bow:0 "$ep2_locale_events.4511.reply_bow$Трудно скрыть разочарование. Серьезно, лук?"
- ep2_locale_events.4011.success_quiver:0 "$ep2_locale_events.4511.reply_quiver$После пристального изучения я прихожу к выводу, что это самый продуманный колчан из всех, что мне доводилось видеть!"
- ep2_locale_events.4011.quiver:0 "$ep2_locale_events.4511.reply_quiver$Зачем мне это? Правда, зачем..."
- ep2_locale_events.4011.success_hunt:0 "$ep2_locale_events.4511.reply_hunt$Они необычно крепкие и должны идеально подходить для охоты на мелкую дичь."
- ep2_locale_events.4011.hunt:0 "$ep2_locale_events.4511.reply_hunt$Охотничьи стрелы? Право #EMP не стоило#!..."
+ ep2_locale_events.4011.success_bow: "$ep2_locale_events.4011.reply_bow$Это великолепная работа, лук, достойный дворянина."
+ ep2_locale_events.4011.bow: "$ep2_locale_events.4011.reply_bow$Трудно скрыть разочарование. Серьезно, лук?"
+ ep2_locale_events.4011.success_quiver: "$ep2_locale_events.4011.reply_quiver$После пристального изучения я прихожу к выводу, что это самый продуманный колчан из всех, что мне доводилось видеть!"
+ ep2_locale_events.4011.quiver: "$ep2_locale_events.4011.reply_quiver$Зачем мне это? Правда, зачем..."
+ ep2_locale_events.4011.success_hunt: "$ep2_locale_events.4011.reply_hunt$Они необычно крепкие и должны идеально подходить для охоты на мелкую дичь."
+ ep2_locale_events.4011.hunt: "$ep2_locale_events.4011.reply_hunt$Охотничьи стрелы? Право #EMP не стоило#!..."
  ep2_locale_events.4011.a:0 "Я не могу скрыть улыбку, [befriend_actor.GetSheHe] [Select_CString(befriend_actor.IsFemale, 'сделала', 'сделал' )] хороший выбор!"
  ep2_locale_events.4011.b:0 "«Какой... продуманный подарок...»"
  ep2_locale_events.4012.opening:0 "[befriend_target.GetTitledFirstName] радостно принимает сверток и с детским восторгом распаковывает его.\n\n"
@@ -346,7 +346,7 @@
  ep2_locale_events.4012.b:0 "Бесполезно..."
 
  ep2_locale_events.4050.t:0 "$tournament_locale_bowyer$: По рукам"
- ep2_locale_events.4050.desc:0 "Копаясь в кипах стрел и связках тетив, я натыкаюсь на необычайно качественные кожаные наручи. Если надеть такой на предплечье, то крепкая кожа защитит внутреннюю часть моей руки.\n\n«Это наши лучшие наручи, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )]. Десять тысяч ударов тетивы им нипочем!» — [tournament_bowyer.GetFirstName] чует возможного покупателя и быстро подходит ко мне.\n\nЯ пристально изучаю кожу, прикидывая ее вес в руке."
+ ep2_locale_events.4050.desc: "Копаясь в кипах стрел и связках тетив, я натыкаюсь на необычайно качественные кожаные наручи. Если надеть такой на предплечье, то крепкая кожа защитит внутреннюю часть моей руки.\n\n«Это наши лучшие наручи, [ROOT.Char.Custom('FormOfAddressForLiege')]. Десять тысяч ударов тетивы им нипочем!» — [tournament_bowyer.GetFirstName] чует возможного покупателя и быстро подходит ко мне.\n\nЯ пристально изучаю кожу, прикидывая ее вес в руке."
  ep2_locale_events.4050.a:0 "Возможно, мы сможем договориться?"
  ep2_locale_events.4050.a.success:0 "Вам удалось сбить цену"
  ep2_locale_events.4050.a.failure:0 "Договориться не удалось"
@@ -382,7 +382,7 @@
  ep2_locale_events.4501.d:0 "[spying_spouse.GetSheHe|U] просто смотрит. В этом нет ничего дурного."
 
  ep2_locale_events.4505.t:0 "$tournament_locale_weaponsmith$: Знаменитый клинок"
- ep2_locale_events.4505.desc:0 "Едва я переступаю порог кузницы, как [tournament_weaponsmith.GetFirstName] широко распахивает глаза от изумления. В руках [Select_CString(tournament_weaponsmith.IsFemale, 'она', 'он' )] почтительно сжимает какой-то предмет, прикрытый шелковой накидкой.\n\n«[Select_CString(ROOT.Char.IsFemale, 'Госпожа', 'Господин' )]... — голос [Select_CString(tournament_weaponsmith.IsFemale, 'ее', 'его' )] дрожит. — Нет на свете человека, который ловчее вас обращался бы с клинком. Я... я хочу сделать вам подарок».\n\n[Select_CString(tournament_weaponsmith.IsFemale, 'Она', 'Он' )] снимает накидку, обнажая великолепный меч. Взявшись за рукоять, я понимаю, что это оружие вышло из-под молота настоящего мастера. Движения ощущаются естественно, будто меч — продолжение руки.\n\n«Всё сделано исключительно по вашим меркам, [Select_CString(ROOT.Char.IsFemale, 'госпожа', 'господин' )]. Я буду чрезвычайно [Select_CString(tournament_weaponsmith.IsFemale, 'польщена', 'польщен' )], если вы изволите принять этот подарок»."
+ ep2_locale_events.4505.desc: "Едва я переступаю порог кузницы, как [tournament_weaponsmith.GetFirstName] широко распахивает глаза от изумления. В руках [Select_CString(tournament_weaponsmith.IsFemale, 'она', 'он' )] почтительно сжимает какой-то предмет, прикрытый шелковой накидкой.\n\n«[ROOT.Char.Custom('FormOfAddressForLiege')|U]... — голос [Select_CString(tournament_weaponsmith.IsFemale, 'ее', 'его' )] дрожит. — Нет на свете человека, который ловчее вас обращался бы с клинком. Я... я хочу сделать вам подарок».\n\n[Select_CString(tournament_weaponsmith.IsFemale, 'Она', 'Он' )] снимает накидку, обнажая великолепный меч. Взявшись за рукоять, я понимаю, что это оружие вышло из-под молота настоящего мастера. Движения ощущаются естественно, будто меч — продолжение руки.\n\n«Всё сделано исключительно по вашим меркам, [ROOT.Char.Custom('FormOfAddressForLiege')]. Я буду чрезвычайно [Select_CString(tournament_weaponsmith.IsFemale, 'польщена', 'польщен' )], если вы изволите принять этот подарок»."
  ep2_locale_events.4505.a:0 "С превеликим удовольствием, [tournament_weaponsmith.GetFirstNameNoTooltip]."
  ep2_locale_events.4505.a.tt:0 "Этот подарок лучше тысячи мечей! Не откажусь."
  ep2_locale_events.4505.b:0 "Такой труд заслуживает достойной оплаты."
@@ -470,7 +470,7 @@
  ep2_locale_events.1520.superstitious:0 "Вы стали суеверны"
  
  ep2_locale_events.3010.t:0 "Дурной воздух"
- ep2_locale_events.3010.desc:0 "Стоило мне войти в лагерь, как меня встречает отвратительный смрад. Пока я пытаюсь зажать нос, сохраняя изящество манер, ко мне подходит [alerted_physician.GetFirstName], прижимая к носу платок.\n\n«Лучше уходите, [Select_CString(ROOT.Char.IsFemale, 'госпожа', 'господин' )], участники заболели от дурного воздуха», — предупреждает меня [Select_CString(alerted_physician.IsFemale, 'она', 'он' )]."
+ ep2_locale_events.3010.desc: "Стоило мне войти в лагерь, как меня встречает отвратительный смрад. Пока я пытаюсь зажать нос, сохраняя изящество манер, ко мне подходит [alerted_physician.GetFirstName], прижимая к носу платок.\n\n«Лучше уходите, [ROOT.Char.Custom('FormOfAddressForLiege')], участники заболели от дурного воздуха», — предупреждает меня [Select_CString(alerted_physician.IsFemale, 'она', 'он' )]."
  ep2_locale_events.3010.a:0 "У этого должна быть причина. Найдите ее."
  ep2_locale_events.3010.a.success:0 "[alerted_physician.GetShortUIName] осматривает лагерь"
  ep2_locale_events.3010.b:0 "Должно быть, турнир проклят!"
@@ -484,8 +484,8 @@
  
  ep2_locale_events.3011.t:0 "$ep2_locale_events.3010.t$: миазмы"
  #AGOT Modified
- #ep2_locale_events.3011.desc:0 "[alerted_physician.GetFirstName] возвращается ко мне с довольной улыбкой на лице. «[Select_CString(ROOT.Char.IsFemale, 'Госпожа', 'Господин' )], мне удалось найти причину», — заявляет [Select_CString(alerted_physician.IsFemale, 'она', 'он' )], едва сдерживая смех.\n\n«Гости не нашли места, чтобы избавляться от своих... отходов, и в итоге сбрасывали все в реку. Дурной воздух переносит болезнь, как и говорил Гиппократ»."
- ep2_locale_events.3011.desc:0 "[alerted_physician.GetFirstName] возвращается ко мне с довольной улыбкой на лице. «[Select_CString(ROOT.Char.IsFemale, 'Госпожа', 'Господин' )], мне удалось найти причину», — заявляет [Select_CString(alerted_physician.IsFemale, 'она', 'он' )], едва сдерживая смех.\n\n«Гости не нашли места, чтобы избавляться от своих... отходов, и в итоге сбрасывали все в реку. Дурной воздух переносит болезнь, как и говорил учёный Хармон»."
+ #ep2_locale_events.3011.desc: "[alerted_physician.GetFirstName] возвращается ко мне с довольной улыбкой на лице. «[ROOT.Char.Custom('FormOfAddressForLiege')|U], мне удалось найти причину», — заявляет [Select_CString(alerted_physician.IsFemale, 'она', 'он' )], едва сдерживая смех.\n\n«Гости не нашли места, чтобы избавляться от своих... отходов, и в итоге сбрасывали все в реку. Дурной воздух переносит болезнь, как и говорил Гиппократ»."
+ ep2_locale_events.3011.desc:0 "[alerted_physician.GetFirstName] возвращается ко мне с довольной улыбкой на лице. «[ROOT.Char.Custom('FormOfAddressForLiege')], мне удалось найти причину», — заявляет [Select_CString(alerted_physician.IsFemale, 'она', 'он' )], едва сдерживая смех.\n\n«Гости не нашли места, чтобы избавляться от своих... отходов, и в итоге сбрасывали все в реку. Дурной воздух переносит болезнь, как и говорил учёный Хармон»."
  ep2_locale_events.3011.a:0 "Нужно предупредить их!"
  ep2_locale_events.3011.b.contestant:0 "Я сохраню это в тайне."
  ep2_locale_events.3011.b.champion:0 "Об этом узнает только мой воитель [contest_champion.GetFirstName]."
@@ -544,7 +544,7 @@
  ep2_locale_events.1060.a.failure:0 "Вы теряете золото"
  
  ep2_locale_events.4530.t:0 "$tournament_locale_weaponsmith$: мудрость молота"
- ep2_locale_events.4530.desc:0 "Я вижу приятное глазу мерцание огня через дорогу от себя. Его тепло приятно окутывает мое тело еще до того, как я открываю дверь. Внутри кузнец раскладывает гвозди.\n\n«Чем я могу вам помочь, [Select_CString(ROOT.Char.IsFemale, 'госпожа', 'господин' )]?» — спрашивает [Select_CString(tournament_weaponsmith.IsFemale, 'она', 'он' )], поднимая голову с пятнами от угля. Дышится здесь тяжелее."
+ ep2_locale_events.4530.desc: "Я вижу приятное глазу мерцание огня через дорогу от себя. Его тепло приятно окутывает мое тело еще до того, как я открываю дверь. Внутри кузнец раскладывает гвозди.\n\n«Чем я могу вам помочь, [ROOT.Char.Custom('FormOfAddressForLiege')]?» — спрашивает [Select_CString(tournament_weaponsmith.IsFemale, 'она', 'он' )], поднимая голову с пятнами от угля. Дышится здесь тяжелее."
  ep2_locale_events.4530.a:0 "«Говорят, кузнец может разбить чары. Пожалуйста, успокойте мою душу»."
  ep2_locale_events.4530.a.tt:0 "Вы стали суеверны"
  ep2_locale_events.4530.b:0 "«Можете преподать мне пару уроков?»"

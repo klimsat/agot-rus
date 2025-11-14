@@ -340,11 +340,8 @@
  culture_parameter_devoted_trait_bonuses: "[traits|E] «[GetTrait('devoted').GetName( GetNullCharacter )]» дают дополнительные бонусы"
  tradition_strong_kinship_name: "Узы родства"
  tradition_strong_kinship_desc: "У этой культуры сильны традиции родства между дальними родственниками или кланом. При необходимости правители всегда могут рассчитывать на своих родичей."
- #AGOT Modified (AMANES IS MEAN)
- #tradition_amharic_highlanders_name: "Амхарские горцы"
- #tradition_amharic_highlanders_desc: "Земли Амхары хорошо подходят для сельского хозяйства, если знать, как подойти к делу. На протяжении многих поколений этот народ трудился и жил на этих землях, создавая свои традиции и обычаи."
- tradition_amharic_highlanders_name: "Закалённые горцы"
- tradition_amharic_highlanders_desc: "Горная местность хорошо подходит для сельского хозяйства, если знать, как подойти к делу. На протяжении многих поколений этот народ трудился и жил на этих землях, создавая свои традиции и обычаи."
+ tradition_amharic_highlanders_name: "Амхарские горцы"
+ tradition_amharic_highlanders_desc: "Земли Амхары хорошо подходят для сельского хозяйства, если знать, как подойти к делу. На протяжении многих поколений этот народ трудился и жил на этих землях, создавая свои традиции и обычаи."
 
  culture_parameter_witenagemot_succession_enabled: "Доступен [Concept( 'succession_law', 'закон о наследовании' )|E] «[GetLaw('saxon_elective_succession_law').GetName]»"
  culture_parameter_scandinavian_elective_enabled: "Доступен [Concept( 'succession_law', 'закон о наследовании' )|E] «[GetLaw('scandinavian_elective_succession_law').GetName]»"
@@ -449,6 +446,7 @@
  culture_parameter_honest_trait_more_common: "[trait|E] «[GetTrait('honest').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_generous_trait_more_common: "[trait|E] «[GetTrait('generous').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_compassionate_trait_more_common: "[trait|E] «[GetTrait('compassionate').GetName( GetNullCharacter )]» встречается чаще"
+ culture_parameter_lustful_trait_less_common: "[Concept('trait', 'Свойство')|E] «[GetTrait('lustful').GetName( GetNullCharacter )]» встречается реже"
  culture_parameter_gives_more_gifts: "[rulers|E] этой [Concept( 'culture', 'культуры' )|E] будут чаще использовать [interaction|E] «[send_gift|E]»"
  culture_parameter_more_gift_opinion: "Увеличение [Concept( 'opinion', 'мнения' )|E] от действия [send_gift|E]: #P +20%#!"
  culture_parameter_temperate_trait_more_common: "[trait|E] «[GetTrait('temperate').GetName( GetNullCharacter )]» встречается чаще"
@@ -487,6 +485,7 @@
  culture_parameter_extra_language_cap: "Можно изучить #V 1#! дополнительный [Concept( 'language', 'язык' )|E] без штрафов"
  culture_parameter_extra_language_cap_2: "$culture_parameter_extra_language_cap$"
  culture_parameter_coastal_agriculture_building_bonuses: "Цепочки [Concept( 'buildings', 'зданий' )|E] #V $building_type_pastures_01$#!, #V $building_type_cereal_fields_01$#!, #V $building_type_peat_quarries_01$#!, #V $building_type_farm_estates_01$#! и #V $building_type_orchards_01$#! получают дополнительные бонусы в прибрежных [Concept( 'baronies', 'баронствах' )|E] [Concept( 'counties', 'графств' )|E] этой [Concept( 'culture', 'культуры' )|E]"
+ culture_parameter_coastal_tribe_bonuses: "Бонус для [Concept('men_at_arms', 'профессионалов')|E], [Concept('stationed', 'размещенных')|E] в прибрежных [Concept('tribal', 'племенных')|E] [Concept('holdings', 'владениях')|E]"
  culture_parameter_coastal_holding_bonuses: "[holdings|E] на побережье получают бонус к скорости строительства"
  culture_parameter_can_levy_longbowmen: "Открывает [levy_longbowmen_decision|El]"
  culture_parameter_archer_era_improvement: "[men_at_arms|E] [GetMaA('longbowmen').GetName] становятся лучше с каждой новой [Concept( 'era', 'эпохой' )|E]"
@@ -510,7 +509,7 @@
  culture_parameter_culture_can_raid_over_land_even_if_feudal: "[Concept( 'rulers', 'Правители' )|E] [Concept( 'duchy', 'герцогского' )|E] [Concept( 'title_tier', 'ранга' )|E] и ниже могут совершать [Concept( 'raids', 'налеты' )|E] на чужие земли независимо от [Concept( 'government', 'формы правления' )|E]"
  culture_parameter_culture_can_raid_at_sea_even_if_feudal_no_restrictions: "[Concept( 'rulers', 'Правители' )|E] могут совершать [Concept( 'raid', 'налеты' )|E] за моря независимо от [Concept( 'government', 'формы правления' )|E]"
  culture_parameter_culture_can_raid_over_land_even_if_feudal_no_restrictions: "[Concept( 'rulers', 'Правители' )|E] могут совершать [Concept( 'raids', 'налеты' )|E] на чужие земли независимо от [Concept( 'government', 'формы правления' )|E]"
- culture_parameter_not_tribal_raiding_malus: "При возвращении из [Concept( 'raid', 'набега' )|E] [Concept( 'tribal', 'неплеменные' )|E] персонажи #EMP теряют#! [EmptyScope.ScriptValue('not_tribal_raid_prestige_multiplier')|1] ед. [Concept( 'prestige', 'престижа' )|E] за 1 ед. доставленной [Concept( 'raid_loot', 'добычи' )|E]"
+ culture_parameter_not_tribal_raiding_malus: "При возвращении из [Concept( 'raid', 'набега' )|E] [Concept( 'tribal', 'неплеменные' )|E] персонажи #EMP теряют#! [EmptyScope.ScriptValue('not_tribal_raid_prestige_multiplier')|1] ед. [Concept( 'prestige', 'престижа' )|E] за 1 ед. доставленной [Concept( 'loot', 'добычи' )|E]"
  culture_parameter_refuses_vassalisation: "[Concept( 'independent', 'Независимые' )|E] [Concept( 'rulers', 'правители' )|E] никогда не примут [Concept( 'interaction', 'предложение' )|E] #high $offer_vassalization_interaction$#!"
  culture_parameter_independent_ruler_defense_bonus: "При защите своего [Concept( 'primary_title', 'первого титула' )|E] или независимости в [Concept( 'war', 'войне' )|E], [Concept( 'independent', 'независимые' )|E] [Concept( 'rulers', 'правители' )|E] в [Concept( 'rank', 'ранге' )|E] [Concept( 'duke', 'герцога' )|E] или ниже получают бонус в #P [EmptyScope.ScriptValue('determined_independence_defensive_advantage_value')|0]#! [Concept( 'advantage', 'преимущества' )|E] в [Concept( 'battle', 'битве' )|E]"
  culture_parameter_renown_gain_on_war_victory: "[Concept( 'independent', 'Независимые' )|E] [Concept( 'rulers', 'правители' )|E] получают [dynasty_prestige_i] [Concept( 'dynasty_prestige', 'признание' )|E] за победы в [Concept( 'wars', 'войнах' )|E] — например, войнах за независимость в качестве нападающего или войнах за вассалитет в качестве обороняющегося"
@@ -537,10 +536,13 @@
  culture_parameter_better_food_tasters_no_dlc: "" #Intentionally empty
  court_position_food_tasters_free: "Улучшение должности «#V [GetCourtPositionType('food_taster_court_position').GetName]#!»"
  culture_parameter_characters_are_better_court_poets: "[Concept('characters', 'Персонажи')|E] этой [Concept( 'culture', 'культуры' )|E] лучше проявляют себя в [Concept( 'court_position', 'должности' )|E] «#high [GetCourtPositionType('court_poet_court_position').GetName]#!»"
- culture_parameter_better_court_poets: "[SelectLocalization( HasDlcFeature( 'royal_court' ), 'culture_parameter_better_court_poets_has_dlc', 'culture_parameter_better_court_poets_no_dlc' )]"
+ culture_parameter_naked_culture_active: "[Concept('characters', 'Персонажи')|E] этой [Concept('culture', 'культуры')|E] не носят одежду"
+ culture_parameter_characters_are_better_court_gardeners: "[Concept('characters', 'Персонажи')|E] этой [Concept('culture', 'культуры')|E] лучше проявляют себя в [Concept('court_position', 'должности')|E] #high придворного садовника#!"
+ culture_parameter_better_court_poets: "[SelectLocalization(HasDlcFeature('royal_court'), 'culture_parameter_better_court_poets_has_dlc', 'culture_parameter_better_court_poets_no_dlc')]"
  culture_parameter_better_court_poets_has_dlc: "Открывает [Concept('court_position', 'должность')|E] «#V [GetCourtPositionType('court_poet_court_position').GetName]#!» на один [Concept('title_tier', 'уровень')|E] раньше\n$EFFECT_LIST_BULLET$[Concept('court_position', 'Придворная должность')|E] «#V [GetCourtPositionType('court_poet_court_position').GetName]#!» увеличивает ежемесячный прирост [prestige_i][Concept('prestige', 'престижа')|E]"
  culture_parameter_better_court_poets_no_dlc: "" #Intentionally empty
  court_position_poets_free: "Улучшение должности «#V [GetCourtPositionType('court_poet_court_position').GetName]#!»"
+ 
  culture_parameter_frugal_blacksmith_maa_size: "Цепочка [Concept('building', 'зданий')|E] #V $building_type_smiths_01$#! увеличивает #V количество [knight_i][Concept('knights', 'рыцарей')|E]#! и #V размер [Concept('men_at_arms', 'профессиональных')|E] [Concept('regiments', 'полков')|E]#!"
  culture_parameter_warrior_lodges_lift_restrictions: "Цепочку [Concept('buildings', 'зданий')|E] #V $building_type_warrior_lodges_01$#! всегда можно строить во [Concept('counties', 'графствах')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_strength_in_numbers_maa_limit_bonus: "Цепочки [Concept('building', 'зданий')|E] #V $building_type_barracks_01$#! и #V $building_type_war_camps_01$#! увеличивают #V максимум [Concept('men_at_arms', 'профессиональных')|E] полков#!"
@@ -564,6 +566,8 @@
  culture_parameter_vegetarian_next_level_cereal_fields: "Цепочку [Concept('buildings', 'зданий')|E] #V $building_type_cereal_fields_01$#! можно построить на одну [Concept('era', 'эпоху')|E] раньше"
  culture_parameter_vegetarian_fruit_orchard_allowed: "Цепочку [Concept('buildings', 'зданий')|E] #V $building_type_orchards_01$#! всегда можно строить в [Concept('counties', 'графствах')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_ancient_miners_quarries_building_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_quarries_01$#! предоставляет дополнительные бонусы"
+ culture_parameter_rice_cultivators_next_level_paddy_fields: "Все [Concept('buildings', 'здания')|E] линии #V $building_type_paddy_fields_01$#! можно построить на одну [Concept('era', 'эпоху')|E] раньше"
+ culture_parameter_rice_cultivators_can_construct_paddy_fields_in_hills_and_jungle: "Линию [Concept('buildings', 'зданий')|E] #V $building_type_paddy_fields_01$#! можно строить в регионах с типами местности «[GetTerrain( 'hills' ).GetName]» и «[GetTerrain( 'jungle' ).GetName]»"
 
  next_level_trade_ports_name: "#V $tradition_maritime_mercantilism_name$#!"
  next_level_military_camps_name: "#V $tradition_adaptive_skirmishing_name$#!"
@@ -577,6 +581,7 @@
  next_level_fortification_name: "#V $tradition_stalwart_defenders_name$#!"
  next_level_cities_name: "#V $tradition_republican_legacy_name$#!"
  vegetarian_next_level_cereal_fields_name: "#V $tradition_vegetarianism_name$#!"
+ rice_cultivators_next_level_paddy_fields_name: "#V $tradition_tgp_rice_cultivators_name$#!"
  vegetarian_building_ban_name: "#V $tradition_vegetarianism_name$#!"
  warrior_lodges_lift_restrictions_name: "#V $tradition_reverence_for_veterans_name$#!"
  farm_estates_pastures_unlock_name: "#V $tradition_pastoralists_name$#!"
@@ -661,6 +666,9 @@
  trait_culture_disinherited_desc: "Этот персонаж лишен наследства по обычаям своей культуры и не может наследовать титулы."
 
  culture_parameter_courtiers_and_guests_less_likely_to_join_schemes: "[courtiers|E] и [Concept( 'guests', 'гости' )|E] с меньшей вероятностью присоединятся к [Concept( 'hostile_schemes', 'враждебным проискам' )|E] против [Concept( 'ruler', 'правителя' )|E]"
+ culture_parameter_court_machinations_eunuch_trait_bonuses: "[Concept( 'traits', 'Свойства' )|E] «[GetTrait('eunuch_1').GetName( GetNullCharacter )]» и «[GetTrait('beardless_eunuch').GetName( GetNullCharacter )]» дают дополнительные [Concept( 'skills', 'навыки' )|E], [Concept( 'aptitude', 'пригодность' )|E], [Concept('merit', 'заслуги')|E] и [Concept( 'influence', 'влияние' )|E]."
+ culture_parameter_eunuch_powerful_scheme_agents: "Персонажи, обладающие свойством «[GetTrait('eunuch_1').GetName( GetNullCharacter )]» или «[GetTrait('beardless_eunuch').GetName( GetNullCharacter )]», — более успешные [Concept('agents', 'соучастники')|E] происков"
+ culture_parameter_courtiers_more_likely_to_join_hostile_schemes_in_court: "[Concept('courtiers', 'Придворные')|E] реже присоединяются к [Concept('hostile_schemes', 'враждебным проискам')|E] против других [Concept('courtiers', 'придворных')|E]"
  culture_parameter_cheaper_cbs: "Стоимость [casus_belli|El]: [prestige_i]#P -20%#!"
  culture_parameter_innovation_from_learning_traits: "[Concept( 'education_traits', 'Свойства образования' )|E], связанные с [Concept( 'learning', 'ученостью' )|E], и [Concept( 'trait', 'свойство' )|E] «[GetTrait('scholar').GetName( GetNullCharacter )]» увеличивают прогресс [Concept( 'cultural_fascination', 'культурного интереса' )|E]"
  culture_parameter_cannot_attack_allies: "Нельзя атаковать [Concept( 'allies', 'союзников' )|E]"
@@ -675,7 +683,8 @@
  culture_parameter_hunting_traits_more_valued: "[trait|EU] «[GetTrait('lifestyle_hunter').GetName( GetNullCharacter )]» считается [prestige_i][Concept( 'prestigious', 'престижным' )|E]"
  culture_parameter_hunting_traits_more_pious: "[trait|EU] «[GetTrait('lifestyle_hunter').GetName( GetNullCharacter )]» считается [piety_i][Concept( 'pious', 'благочестивым' )|E]"
  culture_parameter_reveler_traits_more_valued: "[trait|EU] «[GetTrait('lifestyle_reveler').GetName( GetNullCharacter )]» считается [prestige_i][Concept( 'prestigious', 'престижным' )|E]"
- culture_parameter_prestige_gain_on_building_complete_in_mountains: "Вы получаете [prestige_i][Concept( 'prestige', 'престиж' )|E], завершив возведение [Concept( 'building', 'здания' )|E] во [Concept('holdings', 'владении')|E], [Concept('terrain', 'расположенном')|E] в #V горах#! или в #V пустынных горах#!"
+ culture_parameter_prestige_gain_on_building_complete_in_mountains: "Вы получаете [prestige_i][Concept('prestige', 'престиж')|E], завершив возведение [Concept('buildings', 'здания')|E] во [Concept('holdings', 'владениях')|E] с #TOOLTIP:TERRAIN,mountains #L горной#!#! или #TOOLTIP:TERRAIN,desert_mountains #L пустынно-горной#!#! [Concept('terrain', 'местностью')|E]"
+ culture_parameter_prestige_gain_on_building_complete_in_mountains_forest: "Вы получаете [prestige_i][Concept('prestige', 'престиж')|E], завершив возведение [Concept('buildings', 'здания')|E] во [Concept('holdings', 'владениях')|E] с #TOOLTIP:TERRAIN,mountains #L горной#!#! или #TOOLTIP:TERRAIN,forest #L лесной#!#! [Concept('terrain', 'местностью')|E]"
  culture_parameter_more_frequent_feasts: "Задержка между такими [Concept('activities', 'занятиями')|E], как [GetActivityType('activity_feast').GetName|l] и [GetActivityType('activity_camp_party').GetName|l]: #P -50%#!"
  culture_parameter_refined_feasts: "Успешное [Concept( 'activity', 'проведение' )|E] #L [GetActivityType('activity_feast').GetName|l]а#! дает больше [prestige_i][Concept( 'prestige', 'престижа' )|E]"
  culture_parameter_more_expensive_feasts: "Стоимость [Concept( 'activity', 'проведения' )|E] занятия «[GetActivityType('activity_feast').GetName]»: [gold_i]#N +100%#!"
@@ -694,7 +703,7 @@
  culture_parameter_cheaper_court_positions: "Расходы на [Concept( 'court_position', 'должности при дворе' )|E]: [gold_i]#P -20%#!"
  culture_parameter_cheaper_to_change_laws: "Штраф к стоимости [Concept( 'law', 'законов' )|E] от [Concept( 'realm_size', 'размера державы' )|E]: #P -50%#!"
  culture_parameter_court_physicians_are_better: "[characters|E] этой [Concept( 'culture', 'культуры' )|E] лучше проявляют себя в должности #high $court_physician_court_position$#!"
- culture_parameter_poet_trait_romance_bonuses: "[traits|E] «[GetTrait('poet').GetName( GetNullCharacter )]» и «[GetTrait('gallant').GetName( GetNullCharacter )]» дают значительные бонусы к [Concept( 'scheme', 'проискам' )|E] «[GetScheme('courting').GetTypeName]»"
+ culture_parameter_poet_trait_romance_bonuses: "[traits|E] «[GetTrait('lifestyle_poet').GetName( GetNullCharacter )]» и «[GetTrait('gallant').GetName( GetNullCharacter )]» дают значительные бонусы к [Concept( 'scheme', 'проискам' )|E] «[GetScheme('courting').GetTypeName]»"
  culture_parameter_ai_romance_scheme_increase: "[rulers|E] охотнее начинают [Concept( 'scheme', 'происки' )|E] «[GetScheme('courting').GetTypeName]»"
  culture_parameter_romance_scheme_bonuses: "Успешное завершение [Concept( 'scheme', 'происков' )|E] «[GetScheme('courting').GetTypeName]» дает [dynasty_prestige_i][Concept( 'dynasty_prestige', 'признание' )|E]"
  culture_parameter_romance_scheme_penalty: "Неудачные [Concept( 'scheme', 'происки' )|E] «[GetScheme('courting').GetTypeName]» увеличивают [Concept( 'stress', 'стресс' )|E]"
@@ -718,8 +727,14 @@
  culture_parameter_number_of_spouses: "$doctrine_parameter_number_of_spouses$"
  culture_parameter_number_of_spouses_1: "$doctrine_parameter_number_of_spouses_1$"
  culture_parameter_number_of_consorts: "$doctrine_parameter_number_of_consorts$"
- culture_parameter_poet_trait_gives_bonuses: "[trait|E] «[GetTrait('poet').GetName( GetNullCharacter )]» дает дополнительные бонусы"
- culture_parameter_poet_trait_more_common: "[trait|E] «[GetTrait('poet').GetName( GetNullCharacter )]» встречается чаще"
+ culture_parameter_number_of_consorts_barony: "Правители уровня [Concept('barony', 'барона')|E], если позволяет [Concept('gender_law', 'примогенитура')|E], могут иметь до $VALUE|V0$ [Concept('concubines', 'наложниц')|E]"
+ culture_parameter_number_of_consorts_county: "Правители уровня [Concept('county', 'графа')|E], если позволяет [Concept('gender_law', 'примогенитура')|E], могут иметь до $VALUE|V0$ [Concept('concubines', 'наложниц')|E]"
+ culture_parameter_number_of_consorts_duchy: "Правители уровня [Concept('duchy', 'герцога')|E], если позволяет [Concept('gender_law', 'примогенитура')|E], могут иметь до $VALUE|V0$ [Concept('concubines', 'наложниц')|E]"
+ culture_parameter_number_of_consorts_kingdom: "Правители уровня [Concept('kingdom', 'короля')|E], если позволяет [Concept('gender_law', 'примогенитура')|E], могут иметь до $VALUE|V0$ [Concept('concubines', 'наложниц')|E]"
+ culture_parameter_number_of_consorts_empire: "Правители уровня [Concept('empire', 'императора')|E], если позволяет [Concept('gender_law', 'примогенитура')|E], могут иметь до $VALUE|V0$ [Concept('concubines', 'наложниц')|E]"
+ culture_parameter_number_of_consorts_hegemony: "Правители уровня [Concept('hegemony', 'гегемона')|E], если позволяет [Concept('gender_law', 'примогенитура')|E], могут иметь до $VALUE|V0$ [Concept('concubines', 'наложниц')|E]"
+ culture_parameter_poet_trait_gives_bonuses: "[Concept('trait', 'Свойство')|E] «[GetTrait('lifestyle_poet').GetName( GetNullCharacter )]» дает дополнительные бонусы"
+ culture_parameter_poet_trait_more_common: "[trait|E] «[GetTrait('lifestyle_poet').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_piety_gain_on_building_complete_in_forest_taiga: "Вы получаете [piety_i][Concept( 'piety', 'благочестие' )|E], завершив возведение [Concept( 'buildings', 'зданий' )|E] во [Concept( 'holdings', 'владениях' )|E], где [Concept( 'terrain', 'тип местности' )|E] — #V лес#!, #V джунгли#! или #V тайга#!"
  culture_parameter_piety_gain_on_building_complete_in_mountains: "Вы получаете [piety_i][Concept( 'prestige', 'престиж' )|E], завершив возведение [Concept( 'building', 'здания' )|E] во [Concept('holdings', 'владении')|E], [Concept('terrain', 'расположенном')|E] в #V горах#! или в #V пустынных горах#!"
  culture_parameter_can_duel_rivals: "$UNLOCKS_ABILITY_TO_DUEL_RIVALS$"
@@ -741,9 +756,9 @@
  culture_parameter_better_blacksmith_buildings: "Цепочка [Concept( 'buildings', 'зданий' )|E] #V $building_type_blacksmiths_01$#! предоставляет дополнительные бонусы [Concept( 'counties', 'графствам' )|E] этой [Concept( 'culture', 'культуры' )|E]"
  CHARACTER_INTERACTION_MYSTICAL_ANCESTORS_DISINHERIT: "[traditions|E] вашей [Concept( 'culture_possessive', 'культуры' )|E] запрещают вам [Concept( 'disinheriting', 'лишать наследства' )|E] [Concept( 'dynasty_members', 'членов вашей династии' )|E]"
  culture_parameter_cannot_disherit: "Нельзя [Concept( 'disinheriting', 'лишать наследства' )|E] [Concept( 'dynasty_members', 'членов своей династии' )|E]"
- culture_parameter_landing_house_members_gives_renown: "Вы получаете [dynasty_prestige_i] [Concept( 'dynasty_prestige', 'признание' )|E] при передаче титулов членам своего [Concept( 'house', 'дома' )|E]"
- culture_parameter_piety_penalty_for_revoking_titles_from_house_members: "Вы теряете [piety_i] , отнимая титулы у членов своего [Concept( 'house', 'дома' )|E]"
- culture_parameter_penalty_for_revoking_titles_from_close_family: "Вы теряете [prestige_i][Concept( 'prestige', 'престиж' )|E], отнимая титулы у [Concept( 'close_family', 'близких родственников' )|E]"
+ culture_parameter_landing_house_members_gives_renown: "Вы получаете [dynasty_prestige_i][Concept('dynasty_prestige', 'признание')|E] при передаче [Concept('titles', 'титулов')|E] членам своего [Concept('house', 'дома')|E]"
+ culture_parameter_piety_penalty_for_revoking_titles_from_house_members: "Вы теряете [piety_i] , отнимая [Concept('titles', 'титулы')|E] у членов своего [Concept('house', 'дома')|E]"
+ culture_parameter_penalty_for_revoking_titles_from_close_family: "Вы теряете [prestige_i][Concept('prestige', 'престиж')|E], отнимая [Concept('titles', 'титулы')|E] у [Concept('close_family', 'близких родственников')|E]"
 
  culture_parameter_wants_to_learn_liege_language: "[vassals|E] этой [Concept( 'culture', 'культуры' )|E] часто будут изучать [Concept( 'language', 'язык' )|E] своего [Concept( 'liege', 'сюзерена' )|E]"
  culture_parameter_doesnt_care_about_culture_faith_in_factions: "[vassals|E] данной [Concept( 'culture', 'культуры' )|E] не учитывают различия в [Concept( 'faith', 'конфессии' )|E] или [Concept( 'culture', 'культуре' )|E] при вступлении во [Concept( 'factions', 'фракции' )|E]"
@@ -827,6 +842,7 @@
  TRADITION_HARDER_TO_CONVERT_CONVERSION_MODIFIER: "[culture_tradition|E] «$tradition_zealous_people_name$»"
  TRADITION_BREAKDOWN_LAW_REALM_SIZE_COST: "$KEY$: $VALUE|=-0$ #Weak ([traditions|E]: от #P -50%#!)#!"
 
+ faith_conversion_cost_heritage: "Текущее [Concept('heritage', 'наследие')|E]"
  faith_conversion_cost_tradition: "Нынешние [traditions|E]"
  cheaper_tradition_from_faith: "Нынешняя [faith|E]"
 
@@ -864,7 +880,9 @@
  culture_in_wetlands_desc: "[culture|E] не распространена в [Concept( 'county', 'графстве' )|E] с болотистым типом [Concept( 'terrain', 'местности' )|E]"
  culture_in_wetlands_count_desc: "[culture|E] не распространена хотя бы в #V 3#! [Concept( 'counties', 'графствах' )|E] с болотистым типом [Concept( 'terrain', 'местности' )|E]"
  culture_in_farmlands_or_floodplains_terrain_desc: "[culture|E] не распространена в [Concept( 'county', 'графстве' )|E] с [Concept('terrain', 'пашнями или поймой')|E]"
+ culture_in_terraced_hills_terrain_desc: "[Concept('culture', 'Культура')|E] не распространена в [Concept('county', 'графстве')|E] с [Concept('terrain', 'холмами с террасами')|E]"
  culture_in_farmlands_or_floodplains_terrain_count_desc: "[culture|E] не распространена в #V 5#! [Concept( 'counties', 'графствах' )|E] с [Concept('terrain', 'пашнями или поймой')|E]"
+ culture_in_terraced_hills_terrain_count_desc: "[Concept('culture', 'Культура')|E] не распространена хотя бы в #V 3#! [Concept('counties', 'графствах')|E] с [Concept('terrain', 'холмами с террасами')|E]"
  culture_in_plains_or_steppe_terrain_percentage_desc: "Менее #V 60%#! [Concept( 'counties', 'графств' )|E] этой [Concept( 'culture', 'культуры' )|E] располагается на [Concept('terrain', 'равнинах')|E], в [Concept('terrain', 'степи')|E] или в [Concept( 'region', 'регионе' )|E] [GetGeographicalRegion('world_steppe').GetName]"
  culture_in_steppe_desc: "Хотя бы #V 40%#! [Concept( 'counties', 'графств' )|E] этой [Concept( 'culture', 'культуры' )|E] должны располагаться в [Concept( 'region', 'регионе' )|E] [GetGeographicalRegion('world_steppe').GetName]"
  culture_on_coast_desc: "[culture|E] не распространена в прибрежных [Concept( 'county', 'графствах' )|E]"
@@ -918,7 +936,10 @@
  not_bellicose_spiritual_or_stoic_desc: "[culture|E] не обладает [Concept( 'ethos', 'моральным принципом' )|E] $ethos_bellicose_name$, $ethos_spiritual_name$ или $ethos_stoic_name$"
  not_bellicose_bureaucratic_or_spiritual_desc: "[culture|E] не обладает [Concept( 'ethos', 'моральным принципом' )|E] $ethos_bellicose_name$, $ethos_bureaucratic_name$ или $ethos_spiritual_name$"
  not_bellicose_egalitarian_or_spiritual_desc: "[culture|E] не обладает [Concept( 'ethos', 'моральным принципом' )|E] $ethos_bellicose_name$, $ethos_egalitarian_name$ или $ethos_spiritual_name$"
+ 
+ 
  ## Stoic.
+ 
 
  ## Bureaucratic.
  not_bureaucratic_courtly_or_egalitarian_desc: "[culture|E] не обладает [Concept( 'ethos', 'моральным принципом' )|E] $ethos_bureaucratic_name$, $ethos_courtly_name$ или $ethos_egalitarian_name$"
@@ -927,11 +948,14 @@
  culture_parameter_can_adopt_administrative_government_as_kingdom_tier: "[SelectLocalization( HasDlcFeature( 'royal_court' ), 'can_adopt_administrative_government_as_kingdom_tier_text', '' )]"
  can_adopt_administrative_government_as_kingdom_tier_text: "Правители могут принять [Concept('administrative', 'бюрократический')|E] тип [Concept('government', 'правительства')|E] являясь как [Concept('emperors', 'императорами')|E], так и [Concept('king', 'королями')|E]"
 
+
  ## Spiritual.
+ not_spiritual_communal_or_stoic_desc: "[Concept('culture', 'Культура')|E] не обладает [Concept('ethos', 'моральным принципом')|E] духовности, общности или стойкости"
  culture_parameter_ethos_spiritual_better_consult_the_skies: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'ethos_spiritual_better_consult_the_skies_effects', '' )]"
  ethos_spiritual_better_consult_the_skies_effects: "[Concept('decision', 'Решение')|E] «$mpo_divination_decision$» вызывает дополнительные эффекты"
  culture_parameter_ethos_spiritual_better_court_astrologers: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'ethos_spiritual_better_court_astrologers_effects', '' )]"
  ethos_spiritual_better_court_astrologers_effects: "[Concept('aptitude', 'Пригодность')|E] [Concept('characters', 'персонажей')|E] этой [Concept('culture', 'культуры')|E] для должности «$court_astrologer_court_position$» увеличена"
+
 
  ## Courtly.
  not_courtly_communal_or_spiritual_desc: "[culture|E] не обладает [Concept( 'ethos', 'моральным принципом' )|E] $ethos_courtly_name$, $ethos_communal_name$ или $ethos_spiritual_name$"
@@ -941,6 +965,7 @@
  ## Egalitarian.
  not_egalitarian_stoic_or_bureaucratic_desc: "[culture|E] не обладает [Concept( 'ethos', 'моральным принципом' )|E] $ethos_egalitarian_name$, $ethos_stoic_name$ или $ethos_bureaucratic_name$"
  not_egalitarian_or_courtly_desc: "[culture|E] не обладает [Concept( 'ethos', 'моральным принципом' )|E] $ethos_egalitarian_name$ или $ethos_courtly_name$"
+
 
  ## Communal.
  #AGOT Modified
@@ -958,6 +983,7 @@
  not_communal_spiritual_or_stoic_desc: "[culture|E] не обладает [Concept( 'ethos', 'моральным принципом' )|E] «$ethos_communal_name$», «$ethos_spiritual_name$» или «$ethos_stoic_name$»"
  not_communal_egalitarian_or_courtly_desc: "[culture|E] не обладает [Concept( 'ethos', 'моральным принципом' )|E] $ethos_communal_name$, $ethos_egalitarian_name$ или $ethos_courtly_name$"
  not_communal_or_courtly_desc: "[culture|E] не обладает [Concept( 'ethos', 'моральным принципом' )|E] $ethos_communal_name$ или $ethos_courtly_name$"
+
 
 
 
@@ -1023,7 +1049,7 @@
  rulers_with_adulterer_desc: "Не меньше #V 5#! [Concept( 'rulers', 'правителей' )|E] этой [Concept( 'culture', 'культуры' )|E] обладают [Concept( 'trait', 'свойством' )|E] «[GetTrait('adulterer').GetName( GetNullCharacter )]»"
  march_building_desc: "[culture|E] не распространена в [Concept( 'county', 'графстве' )|E] с [Concept( 'duchy_building', 'герцогской постройкой' )|E] #V $building_march_01$#!"
  rulers_with_reaver_desc: "[culture|E] не обладает #V 3#! [Concept( 'rulers', 'правителями' )|E] со [Concept( 'trait', 'свойством' )|E] «[GetTrait('reaver').GetName( GetNullCharacter )]»"
- rulers_with_poet_desc: "[culture|E] не обладает #V 3#! [Concept( 'rulers', 'правителями' )|E] со [Concept( 'trait', 'свойством' )|E] «[GetTrait('poet').GetName( GetNullCharacter )]»"
+ rulers_with_poet_desc: "[culture|E] не обладает #V 3#! [Concept( 'rulers', 'правителями' )|E] со [Concept( 'trait', 'свойством' )|E] «[GetTrait('lifestyle_poet').GetName( GetNullCharacter )]»"
  rulers_with_mystic_desc: "[culture|E] не обладает #V 3#! [Concept( 'rulers', 'правителями' )|E] со [Concept( 'trait', 'свойством' )|E] «[GetTrait('lifestyle_mystic').GetName( GetNullCharacter )]»"
  rulers_with_lifestyle_herbalist_desc: "[culture|E] не обладает #V 3#! [Concept( 'rulers', 'правителями' )|E] со [Concept( 'trait', 'свойством' )|E] «[GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )]»"
  rulers_following_different_faiths_desc: "У вас должно быть не менее #V 5#! [Concept( 'vassals', 'вассалов' )|E]-[Concept( 'faith', 'иноверцев' )|E] вашей [Concept( 'culture', 'культуры' )|E]"
@@ -1048,8 +1074,8 @@
  lack_iberian_heritage_or_language_penalty_desc: "[culture|E] не обладает $heritage_iberian_name$им [Concept( 'heritage', 'наследием ' )|E] #EMP и#! [culture_head|El] не знает $language_iberian_name$ [Concept( 'language', 'язык' )|E]"
  lack_martial_learning_or_chess_board_penalty_desc: "Ваш [Concept( 'martial', 'навык военного дела' )|E] ниже [EmptyScope.ScriptValue('very_high_skill_rating')|0], ваш [Concept( 'learning', 'навык учености' )|E] ниже [EmptyScope.ScriptValue('very_high_skill_rating')|0], и у вас нет [Concept( 'artifact', 'артефакта' )|E], позволяющего играть в [Concept( 'board_games', 'настольные игры' )|E]"
 
- culture_head_lacks_storytelling_traits_desc: "У вас нет [Concept('traits', 'свойств')|E] «[GetTrait('poet').GetName( GetNullCharacter )]», «[GetTrait('arrogant').GetName( GetNullCharacter )]» или «[GetTrait('journaller').GetName( GetNullCharacter )]»"
- rulers_lacks_storytelling_traits_desc: "[culture|E] не имеет #V 5#! [Concept( 'rulers', 'правителей' )|E] со [Concept( 'traits', 'свойствами' )|E] «[GetTrait('poet').GetName( GetNullCharacter )]», «[GetTrait('arrogant').GetName( GetNullCharacter )]» или «[GetTrait('journaller').GetName( GetNullCharacter )]»"
+ culture_head_lacks_storytelling_traits_desc: "У вас нет [Concept('traits','свойств')|E] «[GetTrait('lifestyle_poet').GetName( GetNullCharacter )]», «[GetTrait('arrogant').GetName( GetNullCharacter )]» или «[GetTrait('journaller').GetName( GetNullCharacter )]»"
+ rulers_lacks_storytelling_traits_desc: "[culture|E] не имеет #V 5#! [Concept( 'rulers', 'правителей' )|E] со [Concept( 'traits', 'свойствами' )|E] «[GetTrait('lifestyle_poet').GetName( GetNullCharacter )]», «[GetTrait('arrogant').GetName( GetNullCharacter )]» или «[GetTrait('journaller').GetName( GetNullCharacter )]»"
  culture_head_lacks_archer_maa_desc: "[culture_head|E] не имеет в своем распоряжении хотя бы [EmptyScope.ScriptValue('longbow_competitions_minimum_archer_maa_value')|0] [Concept( 'men_at_arms', 'профессиональных полков' )|E] [Concept( 'archer', 'лучников' )|E]"
  no_imprisoned_claimant_desc: "У вас [Concept( 'imprisoned', 'в плену' )|E] нет [Concept( 'claimant', 'претендентов' )|E] на один из ваших [Concept( 'titles', 'титулов' )|E]"
  no_prisoner_with_harsh_reason_desc: "У вас нет [Concept( 'prisoner', 'узников' )|E], которых можно законно [Concept( 'banish', 'изгнать' )|E] или [Concept( 'execute', 'казнить' )|E]"
@@ -1067,6 +1093,7 @@
  culture_emergence_events.0001.a: "Раз они подражают мне, я буду подражать им. Вскоре мы станем единым целым."
  culture_emergence_events.0001.b: "Достаточно их восхищения!"
  cultural_acceptance_gain_event: "От событий"
+ cultural_acceptance_loss_event: "От событий"
  new_hybrid_culture_tt: "Появится [Concept( 'hybrid_culture', 'гибридная культура' )|E], вобравшая в себя [Concept( 'traditions', 'традиции' )|E] и [Concept( 'culture_pillars', 'столпы' )|E] #L [ROOT.Char.GetCulture.GetCollectiveNoun|l]ой#! и #L [hybdridization_offer_culture.GetCollectiveNoun|l]ой#! [Concept( 'culture', 'культур' )|E]."
  culture_emergence_events.0001.existing_hybrid: "Вы и ваши земли примете #L [existing_hybrid_culture.GetCollectiveNoun|l]ую#! [Concept( 'culture', 'культуру' )|E]"
  culture_emergence_events.0001.new_hybrid: "Вы и ваши земли примете новую [Concept( 'hybrid_culture', 'гибридную культуру' )|E]"
@@ -1081,15 +1108,24 @@
 
  culture_emergence_events.0003.desc: "[culture_check_2.GetName]\n[duchy_title.GetName]\n[diverge_dummy.GetFullName]"
 
- realm_culture_size_diff: "Разница в размере [Concept( 'realm', 'державы' )|E]" #TODO AO This string should ideally print the names, but it errors like crazy
+ culture_emergence_events.0005.t: "Романшская романтика"
+ culture_emergence_events.0005.desc: "Многие жители нашей державы радостно принимают #L [new_culture_scope.GetCollectiveNoun|l]ий#! язык, однако некоторые #italic простолюдины#! по-прежнему говорят на диалекте, который совсем не похож на [new_culture_scope.GetNameNoTooltip|l].\n\nПутешествуя по делам, я прохожу мимо [Select_CString(rustic_peasant.IsFemale,'крестьянина', 'крестьянки')], [Select_CString(rustic_peasant.IsFemale,'которая', 'который')] болтает с кем-то в поле. «Эй ты! — кричу я [Select_CString(rustic_peasant.IsFemale,'ей', 'ему')]. — Что это за странный язык?» [Select_CString(rustic_peasant.IsFemale,'Женщина', 'Мужчина')] сначала замолкает, а затем медленно отвечает на [ROOT.Char.GetCulture.GetLanguage.GetCollectiveNounNoTooltip|l]ом: «Ну, обычно мы называем его просто #italic романшским#!».\n\nРоманшский, значит… Неужели это и есть истинная культура нашего народа?"
+ culture_emergence_events.0005.a: "В наших жилах течет романшская кровь, и наш язык должен этому соответствовать."
+ culture_emergence_events.0005.a.tt: "В [new_culture_scope.GetCollectiveNounNoTooltip|l]ом языке будут использоваться #bold только#! романшские названия"
+ culture_emergence_events.0005.b: "Романшский язык должен стать частью #L [new_culture_scope.GetCollectiveNoun|l]ой#! культуры."
+ culture_emergence_events.0005.b.tt: "В [new_culture_scope.GetCollectiveNounNoTooltip|l]ом языке будут #bold в равной степени#! использоваться и романшские, и [new_culture_scope.GetCollectiveNounNoTooltip|l]ие названия"
+ culture_emergence_events.0005.c: "Кому какая разница, на каком языке болтают крестьяне?"
+ culture_emergence_events.0005.c.tt: "[new_culture_scope.GetCollectiveNounNoTooltip]ий язык останется без изменений"
+
+ realm_culture_size_diff: "Разница в размере [Concept( 'realm', 'державы' )|E]"
  hybrid_cost_from_acceptance: "От [Concept('cultural_acceptance', 'терпимости культур')|E]"
  culture_size_in_realm: "Количество контролируемых [Concept( 'counties', 'графств' )|E] этой [Concept( 'culture', 'культуры' )|E]"
  ai_cultural_hybridization_decision_tooltip: ""
  ai_cultural_hybridization_decision_desc: ""
  ai_cultural_hybridization_decision_confirm: ""
 
- culture_not_female_only_tt: "У вашей культуры есть [Concept( 'tradition', 'традиция' )|E], позволяющая установить правило [Concept( 'succession', 'наследования' )|E] «[GetLaw('female_only_law').GetName]», а ваша [faith|El] не обладает [Concept( 'doctrine', 'доктриной' )|E] «[GetFaithDoctrine('doctrine_gender_male_dominated').GetBaseName]»"
- culture_not_male_only_tt: "Вашей культуре свойственна [Concept( 'tradition', 'традиция' )|E], позволяющая принять закон о [Concept( 'succession', 'наследовании' )|E] «[GetLaw('male_only_law').GetName]», а ваша [Concept( 'faith', 'конфессия' )|E] не обладает [Concept( 'doctrine', 'доктриной' )|E] «[GetFaithDoctrine('doctrine_gender_female_dominated').GetBaseName]»"
+ culture_not_female_only_tt: "У вашей культуры должна быть [Concept('tradition', 'традиция')|E], позволяющая установить правило [Concept('succession', 'наследования')|E] «[GetLaw('female_only_law').GetName]», а ваша [faith|El] не должна обладать [Concept('doctrine', 'доктриной')|E] «[GetFaithDoctrine('doctrine_gender_male_dominated').GetBaseName]»"
+ culture_not_male_only_tt: "У вашей культуры должна быть [Concept('tradition', 'традиция')|E], позволяющая установить правило [Concept('succession', 'наследования')|E] «[GetLaw('male_only_law').GetName]», а ваша [faith|El] не должна обладать [Concept('doctrine', 'доктриной')|E] «[GetFaithDoctrine('doctrine_gender_female_dominated').GetBaseName]»"
 
  female_only_law_faith_or_culture_trigger: "Ваша [Concept( 'faith', 'конфессия' )|E] не обладает [Concept( 'doctrine', 'доктриной' )|E] «[GetFaithDoctrine('doctrine_gender_female_dominated').GetBaseName]», а у вашей [Concept( 'culture', 'культуры' )|E] нет [Concept( 'culture_tradition', 'традиции' )|E], позволяющей принять закон «[GetLaw('female_only_law').GetName]»"
  male_only_law_faith_or_culture_trigger: "Ваша [Concept( 'faith', 'конфессия' )|E] не обладает [Concept( 'doctrine', 'доктриной' )|E] «[GetFaithDoctrine('doctrine_gender_male_dominated').GetBaseName]», а у вашей [Concept( 'culture', 'культуры' )|E] нет [Concept( 'culture_tradition', 'традиции' )|E], позволяющей принять закон «[GetLaw('male_only_law').GetName]»"
@@ -1153,6 +1189,7 @@
  cannot_have_tradition_warrior_culture: "$cannot_combine_tradition_trigger_desc$ #high $tradition_warrior_culture_name$#!"
  cannot_have_tradition_seafaring: "$cannot_combine_tradition_trigger_desc$ #high $tradition_seafaring_name$#!"
  cannot_have_tradition_fp1_coastal_warriors: "$cannot_combine_tradition_trigger_desc$ #high $tradition_fp1_coastal_warriors_name$#!"
+ cannot_have_tradition_maritime_way_of_life: "$cannot_combine_tradition_trigger_desc$ #high $tradition_maritime_way_of_life_name$#!"
  cannot_have_tradition_fp1_trials_by_combat: "$cannot_combine_tradition_trigger_desc$ #high $tradition_fp1_trials_by_combat_name$#!"
  cannot_have_tradition_fp1_the_right_to_prove: "$cannot_combine_tradition_trigger_desc$ #high $tradition_fp1_the_right_to_prove_name$#!"
  cannot_have_tradition_runestones: "$cannot_combine_tradition_trigger_desc$ #high $tradition_runestones_name$#!"
@@ -1199,7 +1236,7 @@
  culture_tradition_events.0111.c: "Что это за бродяга в моем дома? Стража! НА ПОМОЩЬ!"
 
  culture_tradition_events.0121.t: "Услуги мистика"
- culture_tradition_events.0121.desc: "Такое нечасто встретишь среди мистиков, но [mendicant_mystic.GetFirstName] терпеливо [Select_CString(mendicant_mystic.IsFemale, 'ждала', 'ждал' )], пока я дам [mendicant_mystic.GetHerHim] аудиенцию.\n\n[mendicant_mystic.GetFaith.PriestNeuter|U] [Select_CString(mendicant_mystic.IsFemale, 'занервничала', 'занервничал' )] при виде меня, но все равно сходу [Select_CString(mendicant_mystic.IsFemale, 'обрушила', 'обрушил' )] на меня речь.\n\n«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], я уже долгое время странствую, и хотя такова воля [mendicant_mystic.GetFaith.HighGodNamePossessive], мои разум и тело устали, хоть душа и закалилась».\n\n«Примите меня в услужение, и я отложу свой посох и помогу вам всем чем смогу. В-вы возьмете меня к себе?»" #Миледи, Милорд - ру
+ culture_tradition_events.0121.desc: "Такое нечасто встретишь среди мистиков, но [mendicant_mystic.GetFirstName] терпеливо [Select_CString(mendicant_mystic.IsFemale, 'ждала', 'ждал' )], пока я дам [mendicant_mystic.GetHerHim] аудиенцию.\n\n[mendicant_mystic.GetFaith.PriestNeuter|U] [Select_CString(mendicant_mystic.IsFemale, 'занервничала', 'занервничал' )] при виде меня, но все равно сходу [Select_CString(mendicant_mystic.IsFemale, 'обрушила', 'обрушил' )] на меня речь.\n\n«[ROOT.Char.Custom('FormOfAddressForLiege')|U], я уже долгое время странствую, и хотя такова воля [mendicant_mystic.GetFaith.HighGodNamePossessive], мои разум и тело устали, хоть душа и закалилась».\n\n«Примите меня в услужение, и я отложу свой посох и помогу вам всем чем смогу. В-вы возьмете меня к себе?»"
  culture_tradition_events.0121.a: "Мне, несомненно, не помешает [mendicant_mystic.GetWomanMan] ваших талантов..."
  culture_tradition_events.0121.b: "Говорите, что [mendicant_mystic.GetFaith.PriestNeuter] будет мне служить..."
  culture_tradition_events.0121.c: "Вы хотите жить здесь с таким видом, с таким #EMP запахом#!?"
@@ -1216,7 +1253,7 @@
  culture_tradition_events.0131.c: "#EMP Барахтаюсь в нечистотах?#! Бросить бродягу в ближайшую отхожую яму!"
 
  culture_tradition_events.0141.t: "Предложение мистика"
- culture_tradition_events.0141.desc: "«Разве вы не видите, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )], что рискуете собственной душой, следуя этим... #L [ROOT.Char.GetFaith.GetName|l]им#! идеям? Позвольте мне привести вас к свету истинной #L [mendicant_mystic.GetFaith.GetName|l]ой#! веры и спасти от вечных мук!»\n\n[Select_CString(mendicant_mystic.IsFemale, 'Странствующая', 'Странствующий' )] [mendicant_mystic.GetFaith.PriestNeuter], [mendicant_mystic.GetFirstName], до этого [Select_CString(mendicant_mystic.IsFemale, 'проповедовала', 'проповедовал' )] #L [ROOT.Char.GetCulture.GetCollectiveNoun|l]ому#! народу, но что работает на крестьянах, не обязано работать и на людях благородного происхождения.\n\nВ наступившей тишине я всматриваюсь в глаза мистика, в которых мерцают свет надежды и голод."
+ culture_tradition_events.0141.desc: "«Разве вы не видите, [ROOT.Char.Custom('FormOfAddressForLiege')], что рискуете собственной душой, следуя этим... #L [ROOT.Char.GetFaith.GetName|l]им#! идеям? Позвольте мне привести вас к свету истинной [mendicant_mystic.GetFaith.GetName|l]ой веры и спасти от вечных мук!»\n\n[Select_CString(mendicant_mystic.IsFemale, 'Странствующая', 'Странствующий' )] [mendicant_mystic.GetFaith.PriestNeuter], [mendicant_mystic.GetFirstName], до этого [Select_CString(mendicant_mystic.IsFemale, 'проповедовала', 'проповедовал' )] #L [ROOT.Char.GetCulture.GetCollectiveNoun|l]ому#! народу, но что работает на крестьянах, не обязано работать и на людях благородного происхождения.\n\nВ наступившей тишине я всматриваюсь в глаза мистика, в которых мерцают свет надежды и голод."
  culture_tradition_events.0141.a: "Я нахожу ваши слова убедительными, [mendicant_mystic.GetFaith.PriestNeuter]."
  culture_tradition_events.0141.b: "Позвольте рассказать вам о преимуществах #L [ROOT.Char.GetFaith.GetName|l]ой#! веры..."
  culture_tradition_events.0141.b.tt.success: "[mendicant_mystic.GetFirstNameNoTooltip] прислушивается к вам"
@@ -1285,6 +1322,98 @@
  tradition_ep3_palace_politics_desc: "Государственную машину приводят в движение знатные евнухи и облаченные в шелка подхалимы, которые пускают пыль в глаза, льстят напропалую и плетут нескончаемые заговоры ради прогресса."
  culture_head_court_grandeur_desc: "[court_grandeur_level|E] [Concept( 'culture_head', 'культурного идеолога' )|E] ниже #high 8#!"
  culture_parameter_unlock_akolouthos: "Доступна [Concept( 'court_position', 'придворная должность' )|E] «[GetCourtPositionType('akolouthos_court_position').GetName()]», если была создана Варяжская гвардия."
+ 
+ tradition_tgp_bushido_name: "Бусидо"
+ tradition_tgp_bushido_desc: "Эта традиция зиждется на чести и строгой воинской дисциплине. Она превозносит идеи доблести и уважения, а также воспитывает в человеке упорство и чувство справедливости. Всё это порождает беззаветную преданность и укрепляет связь между господином и вассалом."
+ culture_parameter_must_pledge_loyalty_to_liege: "Необходимо #v присягнуть в верности#! после того, как [Concept('decision', 'решение')|E] станет доступно"
+ culture_parameter_better_petition_outcomes: "[Concept('decision', 'Решение')|E] #v Обращение#! приводит к лучшим результатам"
+ culture_parameter_opinion_from_prowess: "Бонусы к [Concept('opinion', 'мнению')|E] от [Concept('prowess', 'доблести')|E]"
+ culture_parameter_honorable_trait_bonuses: "Такие [Concept('personality_traits', 'свойства личности')|E], как усердие, смирение, отвага и справедливость становятся эффективнее."
+ culture_parameter_unlock_infantry_samurai_units: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('samurai').GetName|l]"
+ culture_parameter_stalwart_leader_non_admin_duels: "Достоинство «[GetPerk('stalwart_leader_perk').GetName(GetPlayer)]» позволяет вызывать на [Concept('single_combat_fight', 'поединок')|E] любого [Concept('character', 'персонажа')|E] (не [Concept('administrative', 'бюрократа')|E]), чей пол позволяет участвовать в [Concept('martial', 'сражениях')|E] и чей [Concept('rank', 'ранг')|E] не выше вашего"
+ culture_parameter_non_admin_close_family_non_martial_gender_knights_in_defensive_wars: "[Concept('spouses', 'Супруги')|E] и не состоящие в браке [Concept('close_family', 'близкие родственники')|E] [Concept('rulers', 'правителей')|E], не являющихся [Concept('administrative', 'бюрократами')|E], могут участвовать в оборонительных [Concept('wars', 'войнах')|E] в качестве рыцарей"
+
+ tradition_tgp_court_machinations_name: "Придворные интриги"
+ tradition_tgp_court_machinations_desc: "При дворе нередко творятся грязные дела: евнухи используют свое огромное влияние в личных целях, консорты борются за благосклонность правителя, а по роскошным залам то и дело разносятся слухи о предательстве."
+
+ tradition_tgp_art_of_war_name: "Искусство войны"
+ tradition_tgp_art_of_war_desc: "Эта культура изучает теорию ведения боевых действий уже тысячу лет. В распоряжении ее полководцев и маршалов — целая библиотека рукописей и наставлений, а также не менее развитое искусство создания прочных доспехов и надежного оружия."
+ duchies_with_examination_halls_desc: "Эта [Concept('culture', 'культура')|E] не владеет #high 5#! [Concept('duchies', 'герцогствами')|E] с постройкой «$building_type_examination_hall_01$» в одном из [Concept('holdings', 'владений')|E]"
+ culture_parameter_unlock_maa_tiefutu: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('tiefutu').GetName|l]"
+ culture_parameter_unlock_zhanmadao: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('zhanmadao_infantry').GetName|l]"
+ culture_parameter_unlock_burenjia: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('burenjia').GetName|l]"
+ culture_parameter_unlock_shenbigong_innovation: "[Concept('innovation', 'Инновация')|E] #high «$innovation_repeating_crossbow$»#! доступна начиная с [Concept('era', 'эпохи')|E] племени"
+ culture_parameter_military_governor_appointment_score: "[Concept('learning_skill', 'Навык «ученость»')|E] повышает [Concept('candidate_score', 'приоритет претензий')|E] в провинциях с обязательствами «[GetSubjectContractType( 'celestial_provinces' ).GetObligationNameShort( 'celestial_province_military' )]»"
+
+ tradition_tgp_ephemeral_grace_name: "Мимолетная благодать"
+ tradition_tgp_ephemeral_grace_desc: "Эстетический принцип #EMP моно-но аварэ#! воспевает преходящую красоту мира. Он учит человека созерцать и относиться к искусству и непостоянству жизни с признанием, помогая тем самым достичь гармонии с природой."
+ culture_parameter_stress_loss_bonus_from_harmonious_traits: "Дополнительное снижение [Concept('stress', 'стресса')|E] от [Concept('traits', 'свойств')|E] «[GetTrait('temperate').GetName( GetNullCharacter )]», «[GetTrait('calm').GetName( GetNullCharacter )]», «[GetTrait('patient').GetName( GetNullCharacter )]» и «[GetTrait('compassionate').GetName( GetNullCharacter )]»"
+
+ tradition_tgp_imperial_peace_name: "Хрупкий мир"
+ tradition_tgp_imperial_peace_desc: "Пусть нападения с моря не так опасны, но чтобы защититься от налетов с севера и уберечь мир Камму от самозванцев или особо ретивых губернаторов, нужны опытные бойцы и дисциплина."
+ culture_parameter_unlock_mounted_samurai_units: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('japanese_horse_archers').GetName]"
+
+ tradition_tgp_rice_cultivators_name: "Рисоводы"
+ tradition_tgp_rice_cultivators_desc: "Рис является неотъемлемой частью этой культуры. Ее представители собирают богатые урожаи благодаря своему усердному труду и познаниям в сельском хозяйстве. Контроль над пригодными для посева землями обеспечивает им не только процветание, но и большую военную мощь по сравнению с менее развитыми соседями."
+
+ tradition_tgp_inward_perfection_name: "Внутреннее совершенство"
+ tradition_tgp_inward_perfection_desc: "Эта культура отказывается от иностранного влияния в пользу самостоятельности и внутреннего развития. Это мешает строить дипломатические связи, но создает благодатную почву для размышления и накопления знаний."
+
+ tradition_tgp_fortified_strongholds_name: "Усиленные крепости"
+ tradition_tgp_fortified_strongholds_desc: "Этой культуре свойственны огромные укрепленные города, исполняющие религиозные, военные и правительственные функции. Защита этих культурных крепостей превыше всего, а основание новых городов приносит значительный престиж."
+ culture_parameter_founding_temple_citadels_gives_more_piety: "Основание [Concept('holdings', 'владений')|E]-[Concept('temple_citadel', 'монастырей')|E] дает #P +100%#! [Concept('piety', 'благочестия')|E]"
+ culture_parameter_warmonger_city_founders: "Основание [Concept('holdings', 'владений')|E]-[Concept('temple_citadel', 'монастырей')|E] устанавливает [control_i][Concept('control', 'контроль')|E] на #P 100%#!"
+ culture_parameter_temple_citadel_fort_level_bonus: "У [Concept('temple_citadel', 'монастырей')|E] увеличен [fort_level_i][fort_level|El]"
+ culture_parameter_temple_citadel_control_bonus: "[Concept('temple_citadel', 'Монастыри')|E] предоставляют небольшой бонус к [control_i][Concept('control', 'контролю')|E]"
+ not_a_defense_focused_culture: "Меньше #N 50%#! [Concept('counties', 'графств')|E] этой [Concept('culture', 'культуры')|E] находится на [Concept('coastal', 'побережье')|E]"
+
+ tradition_tgp_hydraulic_builders_name: "Водное строительство"
+ tradition_tgp_hydraulic_builders_desc: "Эта культура придает большое значение использованию водных сооружений в духовных целях. [GetBuilding('sacred_pool_06').GetName] играет в этом важнейшую роль и часто перерастает в обширные водоемы, обладающие почти религиозной значимостью."
+ culture_parameter_sacred_pool_additional_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] [GetBuilding('sacred_pool_01').GetTypeName|V] предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]#V $building_type_sacred_pool_01$#!"
+ culture_parameter_waterworks_additional_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] [GetBuilding('waterworks_01').GetTypeName|V] предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]#V $building_type_waterworks_01$#!"
+ culture_parameter_may_build_sacred_pools_ahead_of_time: "Все [Concept('buildings', 'здания')|E] «[GetBuilding('sacred_pool_01').GetTypeName|V]» можно построить на [Concept('era', 'эпоху')|E] раньше"
+
+ tradition_tgp_esoteric_power_name: "Эзотерическая власть"
+ tradition_tgp_esoteric_power_desc: "Божественная, мистическая — эти слова лучше всего описывают то, как эта культура воспринимает знать. Правители, желающие гарантировать свой мандат, обязаны участвовать в замысловатых ритуалах и проявлять свою силу через демонстрацию божественных артефактов."
+ culture_parameter_increases_effect_of_mandala_realm_contracts: "Дополнительный прирост [Concept('piety', 'благочестия')|E] и [Concept('legitimacy', 'легитимности')|E] от [Concept('mandala_rituals', 'ритуалов мандалы')|E]"
+ culture_parameter_may_commission_kris: "Можно использовать [Concept('decision', 'решение')|E] «[GetDecisionWithKey('commission_artifact_decision').GetName]», чтобы заказать [Concept('artifacts', 'артефакты')|E]-крисы."
+ culture_parameter_piety_level_affect_artifact_quality: "Чем выше [Concept('piety_level', 'уровень набожности')|E] заказчика, тем более качественные [Concept('artifacts', 'артефакты')|E] позволяет создавать [Concept('inspirations', 'вдохновение')|E]"
+ culture_parameter_kris_artifacts_are_more_powerful: "Созданные [Concept('artifacts', 'артефакты')|E]-крисы дают дополнительные преимущества"
+
+ tradition_tgp_barangay_confederations_name: "Конфедерации барангаев"
+ tradition_tgp_barangay_confederations_desc: "Правители этой культуры возглавляют многочисленные города-государства, разбросанные вдоль устьев рек и побережий. Размеры подобных государств могут разниться, но в большинстве случаев они образуют конфедерации, возглавляемые вождем, избранным из [Glossary( 'дату', 'DATU_GLOSS' )]."
+ DATU_GLOSS: "Титул вождей различных образований на территории Филиппин."
+ culture_parameter_religious_relations_is_empowered: "Прирост [Concept('piety', 'благочестия')|E] от [Concept('religious_relations', 'религиозных отношений')|E] увеличен на #P 20%#!"
+ culture_parameter_forming_confederations_is_easier: "Для создания [Concept('confederation', 'конфедерации')|E] больше не требуется могущественный сосед или [Concept('traits', 'свойства')|E] «[GetTrait('diplomat').GetName(GetNullCharacter)]» или «[GetTrait('family_first').GetName(GetNullCharacter)]»"
+ culture_parameter_forming_confederations_is_less_expensive: "Для создания [Concept('confederation', 'конфедерации')|E] требуется на #P 50%#! меньше [Concept('prestige', 'престижа')|E] и [Concept('piety', 'благочестия')|E]."
+ culture_parameter_invite_to_confederation_extra_reasons: "Принятие [Concept('character_interaction', 'взаимодействия')|E] «$offer_confederation_interaction$»: #P +20#!"
+ culture_parameter_mandala_tributaries: "[Concept('decision', 'Решение')|E] «[GetDecision('convert_to_mandala_government_decision').GetName]» превращает всех [Concept('confederates', 'конфедератов')|E] в [Concept('tributaries', 'данников')|E]"
+ culture_parameter_confederation_tribal_authority: "Может повышать [Concept('tribal_authority', 'авторитет вождя')|E], несмотря на членство в [Concept('confederation', 'конфедерации')|E]"
+ confederates_to_tributaries_tt: "Все [Concept('confederates', 'конфедераты')|E] становятся вашими [Concept('tributaries', 'данниками')|E]"
+ BARANGAY_TRADITION_REASON: "#L [actor.GetCulture.GetCollectiveNoun]ие#! [Concept('culture_traditions', 'культурные традиции')|E]: $VALUE|=+0$"
+ forming_confederations_is_less_expensive_desc: "У #L [actor.GetCulture.GetCollectiveNoun|l]ой#! культуры есть [Concept('culture_traditions', 'традиция')|E], снижающая стоимость: $VALUE|=-1$"
+
+ tradition_tgp_religious_hospitality_name: "Религиозное гостеприимство"
+ tradition_tgp_religious_hospitality_desc: "Эта культура прекрасно умеет смешивать чужие религии с собственными обычаями, что создает более пестрое общество, в котором разные конфессии мирно сосуществуют друг с другом. В основном это достигается с помощью торговли и контактов с другими державами."
+ not_a_coastal_culture: "Меньше #N 50,0%#! [Concept('counties', 'графств')|E] этой [Concept('culture', 'культуры')|E] находится на [Concept('coastal', 'побережье')|E]"
+ culture_parameter_development_gain_from_religious_exiles_is_doubled: "Удваивается прирост [Concept('development', 'развития')|E] от [Concept('decision', 'решения')|E] «[GetDecisionWithKey('invite_religious_exiles_decision').GetName]»"
+ culture_parameter_invite_courtiers_reasons: "Принятие [Concept('character_interaction', 'взаимодействия')|E] «Пригласить ко двору»: #P +15#!"
+ invite_courtiers_additional_reason: "#L [actor.GetCulture.GetCollectiveNoun]ие#! [Concept('culture_traditions', 'культурные традиции')|E]: $VALUE|=+0$"
+ culture_parameter_less_cost_to_invite_religious_exiles: "На [Concept('decision', 'решение')|E] «[GetDecisionWithKey('invite_religious_exiles_decision').GetName]» тратится на #P 50%#! меньше [Concept('piety', 'благочестия')|E]"
+ culture_parameter_ai_uses_religious_exiles: "Персонажи чаще используют [Concept('decision', 'решение')|E] «[GetDecisionWithKey('invite_religious_exiles_decision').GetName]»"
+
+ tradition_tgp_defiant_ambushers_name: "Непокорные мастера засад"
+ tradition_tgp_defiant_ambushers_desc: "Когда набеги случаются постоянно, мастерство верховой езды и стрельбы из лука позволяет даже малыми силами устраивать сокрушительные налеты и засады."
+ culture_parameter_unlock_emishi_horse_archers_units: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('emishi_horse_archers').GetName]"
+ culture_parameter_county_peasant_and_populist_factions_more_common: "$doctrine_parameter_peasant_and_populist_factions_more_common$"
+
+ tradition_tgp_mountain_island_name: "Ясима"
+ tradition_tgp_mountain_island_desc: "Горы и леса островов Японского архипелага вонзаются в горизонт неровными линиями. Но местные жители привыкли к изменчивой почве под ногами."
+
+ tradition_tgp_japanese_houses_name: "Династический прагматизм"
+ tradition_tgp_japanese_houses_desc: "Конечно, брачные уложения необходимы для соблюдения приличий и законов, но удовольствие — естественный дар богов, который к тому же полезен для здоровья. И продолжение рода — не единственная его цель."
+ culture_parameter_adultery_always_accepted: "Персонажи со [Concept('traits', 'свойствами')|E] «[GetTrait('adulterer').GetName( GetNullCharacter )]» и «[GetTrait('fornicator').GetName( GetNullCharacter )]» никак не порицаются"
+ culture_parameter_increased_house_relation_changes: "Все изменения в [Concept('house_relation', 'отношениях с домом')|E] усиливаются в четыре раза"
 
  capital_province_development_level_desc: "Уровень [Concept( 'county_development', 'развития' )|E] столицы [Concept( 'culture_head', 'культурного идеолога' )|E] ниже #high 30#!"
 
@@ -1319,7 +1448,7 @@
 
  EVENT_BONUS_INTERMARRYING_ADMIN: "Проверенные временем связи между [Concept( 'houses', 'домами' )|E]: $VALUE|+=0$"
 
- culture_parameter_allows_noble_family_adoption: "[Concept('house_heads', 'Главы')|E] [Concept('noble_family', 'благородных семейств')|E] [Concept('administrative', 'бюрократической державы')|E] могут использовать [Concept('interaction', 'взаимодействие')|E] #V $noble_family_adoption_interaction$#!"
+ culture_parameter_allows_noble_family_adoption: "[Concept('house_heads', 'Главы')|E] [Concept('noble_family', 'благородных семейств')|E] могут использовать [Concept('interaction', 'взаимодействие')|E] #V $noble_family_adoption_interaction$#!"
 
  culture_parameter_much_more_likely_to_be_laamps: "[SelectLocalization( HasDlcFeature( 'landless_playable' ), 'culture_parameter_much_more_likely_to_be_laamps_DLC', 'culture_parameter_much_more_likely_to_be_laamps_NO_DLC' )]"
  culture_parameter_much_more_likely_to_be_laamps_DLC: "[Concept('characters', 'Персонажи')|E] с намного большей вероятностью станут [Concept('adventurers', 'авантюристами')|E]"
@@ -1343,22 +1472,29 @@
  tradition_brewery_name: "Культура пивоваров"
  tradition_brewery_desc: "Приготовление и распитие алкоголя играют важную роль в праздниках и повседневной жизни представителей этой культуры."
  culture_in_farm_or_mansion_count_desc: "[culture|E] не распространена хотя бы в #V 5#! [Concept('counties', 'графствах')|E] со [Concept('building', 'зданиями')|E] #color_white $building_type_cereal_fields_01$#! или #color_white $building_type_farm_estates_01$#!"
- can_appoint_chief_eunuch_name_tt: "#L [root_scope.GetCulture.GetCollectiveNoun]ая#! [Concept('culture', 'культура')|E] имеет одну из следующих [Concept('traditions', 'традиций')|E]:\n\t$EFFECT_LIST_BULLET$[GetCultureTradition('tradition_court_eunuchs').GetName]\n\t$EFFECT_LIST_BULLET$[GetCultureTradition('tradition_byzantine_succession').GetName]\n\t$EFFECT_LIST_BULLET$[GetCultureTradition('tradition_ep3_palace_politics').GetName]"
+
+ can_appoint_chief_eunuch_name_tt: "#L [THIS.GetCharacter.GetCulture.GetCollectiveNoun]ая#! [Concept('culture', 'культура')|E] имеет одну из следующих [Concept('traditions', 'традиций')|E]:\n\t$EFFECT_LIST_BULLET$[GetCultureTradition('tradition_court_eunuchs').GetName]\n\t$EFFECT_LIST_BULLET$[GetCultureTradition('tradition_byzantine_succession').GetName]\n\t$EFFECT_LIST_BULLET$[GetCultureTradition('tradition_ep3_palace_politics').GetName]\n\t$EFFECT_LIST_BULLET$[GetCultureTradition('tradition_tgp_court_machinations').GetName]"
 
  #MPO
  tradition_mpo_iron_cavalry_name: "Железная конница"
  tradition_mpo_iron_cavalry_desc: "Даже коневодов можно победить с помощью конницы, полностью облаченной в ламеллярные доспехи. В этой культуре принято посылать в бой всадников, которые родились в седле и с луком, к тому же снаряжать их и лошадей дорогостоящей броней."
  culture_parameter_unlock_maa_cataphract_archers: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('cataphract_archers').GetName|l]"
+
  tradition_mpo_wolves_of_the_deep_steppe_name: "Волки в оленьей степи"
  tradition_mpo_wolves_of_the_deep_steppe_desc: "Вдали от благ цивилизации люди живут тем, что могут взять, и мечтают о смерти в седле. Слабые народы бегут от этих воинов."
  culture_parameter_unlock_maa_mangudai: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('mangudai').GetName|l]"
+
  tradition_mpo_northern_tribes_name: "Племена Севера"
  tradition_mpo_northern_tribes_desc: "Этот народ южане зовут «лесными людьми». Где-то этих северян считают уважаемыми охотниками, где-то хорошими речными рыболовами, где-то мастерами выплавки железа. Часто они занимаются выпасом стад."
  culture_parameter_unlock_maa_maturkan_warriors: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('maturkan_warriors').GetName|l]"
+
  tradition_devoted_horsemanship_name: "Ревностные всадники"
  tradition_devoted_horsemanship_desc: "Даже роскошные дворцы не в силах удержать представителей этой культуры вдали от седла. Где бы они ни были, рядом пасутся их стада, а их лошади всегда под надежным приглядом."
+
+
  inspired_by_culture_desc: "Вдохновлено [Concept('tradition', 'традицией')|E]"
  inspire_by_culture_tt: "[tradition_scope.GetName]:\n\t$BULLET$Стоимость [Concept('tradition', 'традиции')|E]: #P -50%#![prestige_i]"
+
  culture_parameter_metalworkers_internal_yurt_unlock: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_metalworkers_nomadic_desc', 'blank_line' )]"
  culture_parameter_sorcerous_metallurgy_internal_yurt_unlock: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_sorcerous_metallurgy_nomadic_desc', 'blank_line' )]"
  culture_parameter_nomadic_metal_artifact_unlock: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_nomadic_metal_nomadic_desc', 'blank_line' )]"
@@ -1377,6 +1513,7 @@
  culture_parameter_stand_fight_nomadic_cultrad_stationing_bonus: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_stand_fight_nomadic_desc', 'blank_line' )]"
  culture_parameter_hit_run_nomadic_cultrad_stationing_bonus: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_hit_run_nomadic_desc', 'blank_line' )]"
  culture_parameter_horse_breeder_internal_yurt_unlock: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'cultrad_horse_breeder_nomadic_desc', 'blank_line' )]"
+
  cultrad_metalworkers_nomadic_desc: "Открывает [Concept('domicile_building_upgrade', 'внутреннее улучшение')|E] «[GetDomicileBuilding('metalworkers_cultrad_yurt_01').GetName]» для #TOOLTIP:GOVERNMENT_TYPE,nomad_government #L кочевых#!#! [Concept('domiciles', 'имений')|E]"
  cultrad_sorcerous_metallurgy_nomadic_desc: "Открывает [Concept('domicile_building_upgrade', 'внутреннее улучшение')|E] «[GetDomicileBuilding('sorcerous_metallurgy_yurt_01').GetName]» для #TOOLTIP:GOVERNMENT_TYPE,nomad_government #L кочевых#!#! [Concept('domiciles', 'имений')|E]"
  cultrad_nomadic_metal_nomadic_desc: "Открывает [Concept('decision', 'решение')|E] «#V Заказать артефакт#!» для металлических [Concept('artifacts', 'артефактов')|E]"
@@ -1395,10 +1532,14 @@
  cultrad_stand_fight_nomadic_desc: "Увеличивает бонус [Concept('toughness', 'выносливости')|E] [Concept('stationed', 'размещенным')|E] [Concept('men_at_arms', 'профессиональным солдатам')|E] [Concept('nomads', 'кочевников')|E]"
  cultrad_hit_run_nomadic_desc: "Увеличивает бонус [Concept('damage', 'урона')|E] [Concept('stationed', 'размещенным')|E] [Concept('men_at_arms', 'профессиональным солдатам')|E] [Concept('nomads', 'кочевников')|E]"
  cultrad_horse_breeder_nomadic_desc: "Открывает [Concept('domicile_building_upgrade', 'внутреннее улучшение')|E] «[GetDomicileBuilding('horse_breeder_yurt_01').GetName]» для #TOOLTIP:GOVERNMENT_TYPE,nomad_government #L кочевых#!#! [Concept('domiciles', 'имений')|E]"
+
+
  culture_parameter_better_herders_pasturalists: "$culture_parameter_ethos_communal_herders_bonus$"
  culture_parameter_ethos_communal_herders_bonus: "[SelectLocalization( HasDlcFeature( 'khans_of_the_steppe' ), 'ethos_communal_herders_bonus_effects', '' )]"
  ethos_communal_herders_bonus_effects: "У [Concept('herders', 'пастухов')|E] повышенный прирост [Concept('county_fertility', 'тучности пастбищ в графстве')|E]"
+
  cultrad_not_nomadic_government_type: "Ваша [Concept('government', 'форма правления')|E] — [GetGovernment( 'nomad_government' ).GetName|l]"
+
  mpo_northern_tribes_percentage_desc: "Менее #V 50%#! [Concept('counties', 'графств')|E] этой [Concept('culture', 'культуры')|E] обладают [Concept('modifier', 'модификатором')|E] «#V $mpo_siberian_permafrost_modifier$#!»"
  permafrost_feudal_ban: "Ваша [Concept('culture', 'культура')|E] обладает [Concept('culture_tradition', 'традицией')|E] «#V $tradition_mpo_northern_tribes_name$#!»"
  culture_parameter_permafrost_unlock_tribal_building: "В [Concept('counties', 'графствах')|E] этой [Concept('culture', 'культуры')|E] с [Concept('modifier', 'модификатором')|E] «#V $mpo_siberian_permafrost_modifier$#!» для улучшения [Concept('tribal', 'племенных')|E] [Concept('building', 'зданий')|E] не требуются [Concept('innovations', 'инноваций')|E]"
@@ -1413,17 +1554,101 @@
 
  #AGOT Modified
  #mpo_siberian_permafrost_modifier: "Сибирская вечная мерзлота"
- #mpo_siberian_permafrost_modifier_desc: "Почва, промерзшая в течение тысячелетий, отсутствие доступа к грунтовым водам, редкая растительность. Местность меняется каждый год из-за циклов таяния и замерзания. Местным жителям пришлось адаптироваться к этой земле. Любому другому суждено погибнуть и присоединиться к древним телам, погребенным подо льдом.\n\n#weak Этот модификатор можно удалить с помощью [Concept('decision', 'решения')|E] «#V $expand_the_steppe_decision_generic$#!» для региона «#V $dlc_mpo_steppe_siberia_further_expansion_tooltip$#!»#!\n\n"
+ #mpo_siberian_permafrost_modifier_desc: "Почва, промерзшая за тысячелетия, отсутствие доступа к грунтовым водам, редкая растительность. Местность меняется каждый год из-за циклов таяния и замерзания. Местным жителям пришлось адаптироваться к этой земле. Любому другому суждено погибнуть и присоединиться к древним телам, погребенным подо льдом.\n\n#weak Этот модификатор можно удалить либо с помощью [Concept('interaction', 'взаимодействия')|E] «#V $feudalize_holding_interaction$#!», либо после завоевания всего севера с помощью [Concept('decision', 'решения')|E] «#V $expand_the_steppe_decision_generic$#!» для региона «#V $dlc_mpo_steppe_siberia_further_expansion_tooltip$#!»#!\n\n"
  mpo_siberian_permafrost_modifier: "Гиперборейская вечная мерзлота"
- mpo_siberian_permafrost_modifier_desc: "Почва, промерзшая в течение тысячелетий, отсутствие доступа к грунтовым водам, редкая растительность. Местность меняется каждый год из-за циклов таяния и замерзания. Местным жителям пришлось адаптироваться к этой земле. Любому другому суждено погибнуть и присоединиться к древним телам, погребенным подо льдом.\n\n#weak Этот модификатор можно удалить с помощью [Concept('interaction', 'взаимодействия')|E]#! «#V $feudalize_holding_interaction$#!»#!\n\n"
+ mpo_siberian_permafrost_modifier_desc: "Почва, промерзшая за тысячелетия, отсутствие доступа к грунтовым водам, редкая растительность. Местность меняется каждый год из-за циклов таяния и замерзания. Местным жителям пришлось адаптироваться к этой земле. Любому другому суждено погибнуть и присоединиться к древним телам, погребенным подо льдом.\n\n#weak Этот модификатор можно удалить с помощью [Concept('interaction', 'взаимодействия')|E]#! «#V $feudalize_holding_interaction$#!»#!\n\n"
 
  mpo_siberian_permafrost_modifier_bad: "$mpo_siberian_permafrost_modifier$"
  mpo_siberian_permafrost_modifier_bad_desc: "$mpo_siberian_permafrost_modifier$"
  cannot_hybridize_northern_tribes: "[Concept('hybrid_culture', 'Гибридной культуре')|E] недоступна [Concept('tradition', 'традиция')|E] «#high $tradition_mpo_northern_tribes_name$#!»"
 
+ # TGP
+ tradition_cultural_primacy_name: "Культурная самодостаточность"
+ tradition_cultural_primacy_desc: "Эта культура гордится своей богатой историей и жизненным укладом, и поэтому не считает необходимым снисходить до общения с соседями."
+ culture_parameter_reduced_marriage_acceptance_outside_culture: "[Concept('characters', 'Персонажи')|E] менее охотно вступают в брак с представителями других [Concept('cultures', 'культур')|E]"
+ culture_parameter_reduced_marriage_acceptance_distant_realms: "[Concept('characters', 'Персонажи')|E] менее охотно вступают в брак с представителями далеких [Concept('realms', 'держав')|E]"
+ REDUCED_MARRIAGE_ACCEPTANCE_OUTSIDE_CULTURE_REASON: "[secondary_recipient.GetCulture.GetName] не стремятся вступать в брак с представителями других [Concept('cultures', 'культур')|E]: $VALUE|=+0$"
+ REDUCED_MARRIAGE_ACCEPTANCE_DISTANT_REALMS_REASON: "[secondary_recipient.GetCulture.GetName] не стремятся вступать в брак с представителями далеких [Concept('realms', 'держав')|E]: $VALUE|=+0$"
+ REDUCED_MARRIAGE_ACCEPTANCE_DISTANT_REALMS_INVERTED_REASON: "[secondary_recipient.GetCulture.GetName] не стремятся вступать в брак с представителями далеких [Concept('realms', 'держав')|E], и это взаимно: $VALUE|=+0$"
+ REDUCED_MARRIAGE_ACCEPTANCE_HOUSE_RELATION_REASON: "[Concept('house_relation', 'Отношения с домом')|E]: $VALUE|=+0$"
+
+ tradition_maritime_way_of_life_name: "Морская традиция"
+ tradition_maritime_way_of_life_desc: "Эта культура начала осваивать моря с незапамятных времен. Ее представители не видят жизни без долгих морских путешествий.\nТот, кто может без труда находится на море, способен заселять даже самые удаленные земли, а также торговать и воевать без каких-либо препятствий."
+
+ tradition_nudists_name: "Нудисты"
+ tradition_nudists_desc: "Представители этой культуры не видят необходимости защищать свои тела от стихий, поэтому предпочитают ходить нагишом — так, как задумал творец."
+
+ tradition_stratified_society_name: "Расслоенное общество"
+ tradition_stratified_society_desc: "Одни рождаются, чтобы править, другие — чтобы служить. Как гласит традиция расслоения общества, наследственные привилегии зачастую превалируют над принципами меритократии, а близость к власти решает всё."
+ culture_parameter_family_shares_merit: "По достижении @merit_level_5_icon!#TOOLTIP:STATIC_MODIFIER,merit_level_5 #V #L 5-го ранга#!#!#! [Concept('merit', 'заслуг')|E] каждый [Concept('close_family_member', 'близкий родственник')|E] предпочитаемого пола ниже этого ранга получит существенный прирост [Concept('merit', 'заслуг')|E]"
+ culture_parameter_family_skips_exams: "Кроме того, будет считаться, что эти [Concept('close_family_members', 'близкие родственники')|E] сдали @provincial_exam_icon! [GetActivityType( 'activity_local_examination' ).GetName]"
+ culture_parameter_marrying_into_the_ruling_family_gives_influence: "Когда [Concept('independent_ruler', 'независимый правитель')|E] вступает в брак с [Concept('character', 'персонажем')|E] из той же [Concept('realm', 'державы')|E] [realm|E] и разделяет эту [Concept('tradition', 'традицию')|E], [Concept('house_head', 'глава дома')|E] [Concept('spouse_possessive', 'супруга')|E] получает огромное количество [Concept('influence', 'влияния')|E]"
+ culture_parameter_unlocks_gakgung_archers_maa: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('gakgung_archers').GetName|l]"
+
+ tradition_stratified_society_toast_title: "Восходящий дом [ROOT.Char.GetHouse.GetNameNoTooltip]"
+ tradition_stratified_society_toast_desc: "Благодаря привилегиям вашего высокого ранга, ваши близкие родственники получили [Concept('merit', 'заслуги')|E], и теперь им не придется сдавать @provincial_exam_icon! [GetActivityType( 'activity_local_examination' ).GetName]"
+ tradition_stratified_society_family_member_toast_title: "$tradition_stratified_society_toast_title$"
+ tradition_stratified_society_family_member_toast_desc: "Благодаря достижениям дома [family_success.GetName] вы получили [Concept('merit', 'заслуги')|E], и теперь вам не придется сдавать @provincial_exam_icon! [GetActivityType( 'activity_local_examination' ).GetName]"
+ tgp_nepotism_bypass_exams_modifier: "Льготы для экзаменуемых"
+ tgp_nepotism_bypass_exams_modifier_desc: "Этому персонажу удалось избежать необходимости сдавать стандартный экзамен на чиновника благодаря влиянию близкого родственника."
+
+ tenet_takamin_name: "Такамин"
+ tenet_takamin_desc: "Медведи считаются воплощением богов и почитаются как священные животные. Убийство медведя во время охоты должно совершаться с глубочайшим почтением."
+ doctrine_parameter_allows_bear_sacrifice: "Открывает [Concept('decision', 'решение')|E] «[GetDecisionWithKey('sacrifice_bear_decision').GetName]»"
+ doctrine_parameter_chance_to_gain_prowess_during_bear_hunts: "Убийство #V медведя#! во время #TOOLTIP:ACTIVITY_TYPE,activity_hunt #L охоты#!#! повышает [prowess_i][Concept('prowess', 'доблесть')|E] и навык [martial_i][Concept('martial', 'военного дела')|E]"
+ doctrine_parameter_frequent_bear_sightings: "Периодически будут [Concept('hunt_sightings', 'обнаруживаться')|E] #V медведи#!"
+ doctrine_parameter_efficient_hunt_cornering: "Увеличен шанс успешной попытки #V загнать добычу в угол#! во время #TOOLTIP:ACTIVITY_TYPE,activity_hunt #L охоты#!#!"
+ culture_tradition_events.3000.t: "Замечен медведь"
+ culture_tradition_events.3000.desc: "Охотники из владения [bear_sighting.GetName], где сплошь [bear_sighting.Custom('GetTerrainTypePlural')], сообщают, что в тех местах завелись [bear_sighting_county.Custom('GetAnimalPlural')]. Об этом явно говорят широкие следы в грязи, отметины когтей на деревьях и сломанные кусты.\n\nЕсли я устрою #TOOLTIP:ACTIVITY_TYPE,activity_hunt #L охоту#!#! и сражу или поймаю одного из них, духи явно отметят это."
+ culture_tradition_events.3000.a: "Пора готовить копье…"
+ bear_sacrifice_war_modifier: "Жертвоприношение медведя ради войны"
+ bear_sacrifice_war_modifier_desc: "Этот персонаж принес в жертву медведя и верит, что это дарует ему благословение и успех в военных делах."
+ bear_sacrifice_authority_modifier: "Жертвоприношение медведя ради власти"
+ bear_sacrifice_authority_modifier_desc: "Этот персонаж принес в жертву медведя и верит, что это дарует ему благословение и укрепит его власть."
+ sacrifice_bear_decision_effect: "Выбор между [piety_i][Concept('piety', 'благочестием')|E] и модификатором «[GetModifier('bear_sacrifice_war_modifier').GetNameWithTooltip]» или «[GetModifier('bear_sacrifice_authority_modifier').GetNameWithTooltip]»"
+ culture_tradition_events.3100.t: "Жертвоприношение медведя"
+ culture_tradition_events.3100.desc: "В тишине мы связываем великого медведя. Охотники поют низкими ровными голосами, поднимающийся дым пахнет елью.\n\nЯ преклоняю колено, прижимаюсь лбом к его морде и шепчу слова благодарности, а затем наношу удар клинком. Мы разделим его плоть, чтобы его сила жила во всех нас."
+ culture_tradition_events.3100.a: "Будем пировать!"
+ culture_tradition_events.3100.b: "Наши враги падут!"
+ culture_tradition_events.3100.c: "Подчинитесь, ибо со мной дух медведя."
+
+ tradition_ordo_riders_name: "Всадники орды"
+ tradition_ordo_riders_desc: "Потребность в стадах и необходимость сплотить племя вынудили многих кочевников этой культуры стать опытными воинами, способными отражать нападения и эффективно добывать припасы для народа."
+ culture_parameter_unlocks_ordo_riders_maa: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('ordo_riders_horse_archers').GetName]"
+ culture_parameter_reaver_gives_buffs_to_horse_archers: "[Concept('traits', 'Свойства')|E] «[GetTrait('reaver').GetName( GetNullCharacter )]» предоставляют бонусы [Concept('men_at_arms', 'профессиональным полкам')|E] [Concept('archer_cavalry', 'конных лучников')|E]"
+
+ tradition_chinese_arts_name: "Китайское искусство"
+ tradition_chinese_arts_desc: "Путь пера, путь кисти — важные элементы этой культуры. Китайцы опираются не только на военную мощь или сложную администрацию, но и на совершенство в любой форме искусства."
+ culture_parameter_commissions_cheaper: "[Concept('decision', 'Решение')|E] #bold $commission_artifact_decision$#! будет стоить на #P 50%#! меньше [gold_i] [Concept('gold', 'золота')|E]"
+ culture_parameter_scholars_and_poets_are_viewed_more_positively: "[traits|E] «[GetTrait('lifestyle_poet').GetName( GetNullCharacter )]» и «[GetTrait('scholar').GetName( GetNullCharacter )]» считаются положительными"
+
+ tradition_sinophilic_name: "Синофилия"
+ tradition_sinophilic_desc: "Влияние китайской гегемонии на эту державу привело к тому, что многие ее обитатели переняли китайские обычаи."
+ culture_parameter_can_adopt_chinese_culture: "Можно принять #L [GetCultureByKey('han').GetCollectiveNoun|l]ую#! [Concept('culture', 'культуру')|e]"
+ culture_parameter_more_successful_kowtows: "Увеличенные шансы на успех [Concept('tribute_missions', 'заданий с данью')|E]"
+ culture_parameter_may_adopt_silk_road_innovations: "Получает доступ к [Concept('silk_road_innovations', 'инновациям Шелкового пути')|E], доступным #L [GetCultureByKey('han').GetCollectiveNoun|l]ой#! [Concept('culture', 'культуре')|E]"
+
+ tradition_tgp_warrior_monks_name: "Воины-монахи"
+ tradition_tgp_warrior_monks_desc: "Приверженность принципам морали не противоречит применению силы, особенно когда религиозное сообщество нуждается в защите от конкурирующей секты и продажных чиновников или когда о помощи просят неимущие."
+ culture_parameter_unlock_warrior_monk_units: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('warrior_monks').GetName]"
+
+ tradition_scholar_officials_name: "Ученые чиновники"
+ tradition_scholar_officials_desc: "Перо и кисть могущественнее меча… Эта культура твердо верит в уклад, при котором наибольшим влиянием пользуются верные чиновники, постигшие благородные искусства."
+ culture_parameter_can_always_convert_to_confucianism: "Можно использовать [Concept('decision', 'решение')|E] «[GetDecisionWithKey('convert_to_confucianism').GetName]»"
+ culture_parameter_can_always_convert_to_taoism: "Можно использовать [Concept('decision', 'решение')|E] «[GetDecisionWithKey('convert_to_taoism').GetName]»"
+ culture_parameter_can_author_books: "Можно принять [Concept('decision', 'решение')|E] #V «$author_book_decision$»#!"
+ culture_parameter_scholar_official_trait_bonuses: "[Concept('traits', 'Свойства')|E] «[GetTrait('confucian_education').GetName( GetNullCharacter )]» и «[GetTrait('loyal').GetName( GetNullCharacter )]» дают дополнительные бонусы"
+ culture_parameter_wants_to_learn_chinese: "Персонажи — носители этой [Concept('culture', 'культуры')|E] часто будут изучать китайский [Concept('language', 'язык')|E]"
+ culture_parameter_learn_language_success_chance_for_others: "[Concept('success_chance', 'Шанс успеха')|E] происков «[GetScheme('learn_language').GetTypeName]»: #P +50%#! при изучении [Concept('language', 'языка')|E] этой культуры"
+ culture_parameter_mystic_trait_from_education: "Дети могут получить [Concept('trait', 'свойство')|E] «[GetTrait('lifestyle_mystic').GetName( GetNullCharacter )]», если их [Concept('guardian', 'опекун')|E] — носитель этой [Concept('culture', 'культуры')|E] с [learning_i][Concept('learning', 'ученостью')|E] #V 12+#!"
+
+ tradition_cultivation_name: "Возделывание"
+ tradition_cultivation_desc: "Тело, дыхание и разум должны быть чисты, чтобы вся скопившаяся в сердце грязь осела, а таящаяся внутри добродетель поднялась на поверхность, словно родниковая вода."
+
+ tradition_intensive_farming_name: "Интенсивное хозяйство"
+ tradition_intensive_farming_desc: "В этой культуре весьма ценится обширный класс земледельцев, поддерживающий всё остальное население. Благодаря накопленному за тысячелетия опыту они научились выращивать обильные урожаи пшеницы и риса в зависимости от того, какой посев лучше соответствует местным условиям."
 
  #ACH
-
  oath_mend_the_fracture_tradition_name: "Исполнение обета о примирении"
  oath_mend_the_fracture_tradition_desc: "Под руководством своего верного властителя представители этой культуры смогли преодолеть разногласия и примириться с другими народами державы. Теперь вражда и недоверие сменились миром и процветанием."
  culture_parameter_synergy_cultures_counties_development: "Каждые три года [Concept('counties', 'графства')|E] этой [Concept('culture', 'культуры')|E] могут получить [modifier|El] «[GetModifier('oath_mend_the_fracture_county').GetNameWithTooltip]»"
