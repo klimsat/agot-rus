@@ -34,11 +34,11 @@
 			margin_left = 15
 
 			background = {
-				using = Background_Window_Header
+				using = Background_Header
 			}
 
 			background = {
-				using = Background_Window_Header_Pattern
+				using = Background_Header_Pattern
 			}
 
 			coa_title_big_crown = {}
@@ -449,6 +449,18 @@ types TitleAppointment
 								text_single = {
 									text = "TITLE_APPOINTMENT_SCORE"
 									align = nobaseline
+
+									tooltipwidget = {
+										widget_value_breakdown_tooltip = {
+											datacontext = "[SuccessionAppointmentWindow.GetSuccessionScoreBreakdown( Character.Self )]"
+
+											blockoverride "header_text" {
+												text = "TITLE_APPOINTMENT_SCORE_TT_HEADING"
+											}
+										}
+									}
+
+									using = tooltip_se
 								}
 
 								### INTERACTIONS ###

@@ -8,7 +8,7 @@ window = {
     datacontext = "[DeclareWarInteractionWindow.GetCharacterInteractionConfirmationWindow]"
     parentanchor = top|right
     position = { -15 70 }
-    size = { 640 980 } #1020
+    size = { 640 965 } #1020
     allow_outside = yes
     movable = no
     layer = middle
@@ -317,7 +317,7 @@ window = {
                 name = "casus_belli_scroll_box"
                 layoutpolicy_horizontal = expanding
                 layoutpolicy_vertical = expanding
-                visible = "[Not(DeclareWarInteractionWindow.HasSelectedCasusBelli)]"
+                visible = "[Not(DeclareWarInteractionWindow.HasSelectedCasusBelli)]"  
 
                 ### Casus Belli Scrollarea
                 scrollbox = {
@@ -654,6 +654,7 @@ window = {
                 vbox = {
                     name = "additional_warning_box"
                     layoutpolicy_horizontal = expanding
+                    spacing = 10
 
                     hbox = {
                         spacing = 10
@@ -693,12 +694,14 @@ window = {
                         }
 
                         hbox = {
+                            layoutpolicy_horizontal = expanding
                             visible = "[DeclareWarInteractionWindow.ShouldShowAdditionalWarning]"
                             spacing = 8
                             margin_top = 2
                             margin_bottom = -5
 
-                            text_multi = {
+                            text_single = {
+                                layoutpolicy_horizontal = expanding
                                 text = "[DeclareWarInteractionWindow.WriteAdditionalWarningMessage]"
                                 max_width = 532
                                 autoresize = yes
@@ -707,6 +710,7 @@ window = {
                     }
 
                     text_multi = {
+                        layoutpolicy_horizontal = expanding
                         text = "DECLARE_WAR_DISABLED_BORDER_WARS"
                         datacontext = "[CharacterInteractionConfirmationWindow.GetRecipient]"
                         visible = "[Character.GetTopLiege.HasRealmLaw('top_liege_not_redirected_to_border_wars_law')]"

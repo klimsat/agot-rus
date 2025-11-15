@@ -562,6 +562,36 @@ window = {
 				hbox = {
 					layoutpolicy_horizontal = expanding
 					margin = { 7 0 }
+
+					expand = {}
+
+					hbox = {
+						background = {
+							using = Background_Area_Dark
+						}
+
+						margin = { 15 5 }
+
+						spacing = 5
+						tooltip = "[Province.GetFortLevelTooltip]"
+
+						icon = {
+							name = "icon_fort"
+							texture = "gfx/interface/window_siege/fort_icon.dds"
+							size = { 30 25 }
+						}
+
+						text_single = {
+							text = "[SiegeWindow.GetSiege.GetProvince.GetFortLevel]"
+							default_format = "#high"
+							align = nobaseline|right
+						}
+					}
+				}
+
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin = { 7 0 }
 					spacing = 10
 					using = Animation_ShowHide_Standard
 
@@ -775,42 +805,24 @@ window = {
 						margin = { 10 0 }
 
 						hbox = {
+							spacing = 3
 
-							hbox = {
-								spacing = 5
-								tooltip = "[Province.GetFortLevelTooltip]"
-
-								icon = {
-									name = "icon_fort"
-									texture = "gfx/interface/window_siege/fort_icon.dds"
-									size = { 30 25 }
-								}
-
-								text_single = {
-									text = "[SiegeWindow.GetSiege.GetProvince.GetFortLevel]"
-									default_format = "#high"
-									align = nobaseline
-									min_width = 20
-								}
+							icon = {
+								texture = "gfx/interface/icons/icon_garrison.dds"
+								size = { 40 40 }
 							}
 
-							hbox = {
-								spacing = 3
-
-								icon = {
-									texture = "gfx/interface/icons/icon_garrison.dds"
-									size = { 40 40 }
-								}
-
-								text_single = {
-									name = "defender_side"
-									text = "[Siege.GetDefenderMen]"
-									default_format = "#high"
-									align = nobaseline
-									min_width = 35
-								}
+							text_single = {
+								name = "defender_side"
+								text = "[Siege.GetDefenderMen]"
+								default_format = "#high"
+								align = nobaseline
+								min_width = 35
 							}
 						}
+
+						
+						
 
 						expand = {}
 					}

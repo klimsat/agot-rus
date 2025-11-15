@@ -462,54 +462,54 @@ types PortraitTypes
 							direction = vertical
 							datacontext = "[Character]"
 							datacontext = "[GetSituation('dynastic_cycle')]"
-		
+
 							icon = {
 								name = "advancement_movement"
 								visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('advancement_movement').Self)]"
 								size = { 14 14 }
-			
+
 								texture = "gfx/interface/icons/portraits/dynastic_cycle_group_advance_small.dds"
-			
+
 								tooltip = "FRAME_ADVANCEMENT_MOVEMENT"
 							}
-		
+
 							icon = {
 								name = "expansion_movement"
 								visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('expansion_movement').Self)]"
 								size = { 14 14 }
-			
+
 								texture = "gfx/interface/icons/portraits/dynastic_cycle_group_expand_small.dds"
-			
+
 								tooltip = "FRAME_EXPANSION_MOVEMENT"
 							}
-		
+
 							icon = {
 								name = "conservative_movement"
 								visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('conservative_movement').Self)]"
 								size = { 14 14 }
-			
+
 								texture = "gfx/interface/icons/portraits/dynastic_cycle_group_anti_small.dds"
-			
+
 								tooltip = "FRAME_CONSERVATIVE_MOVEMENT"
 							}
-		
+
 							icon = {
 								name = "pro_hegemon_movement"
 								visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('pro_hegemon_movement').Self)]"
 								size = { 14 14 }
-			
+
 								texture = "gfx/interface/icons/portraits/dynastic_cycle_group_pro_small.dds"
-			
+
 								tooltip = "FRAME_PRO_HEGEMON_MOVEMENT"
 							}
-		
+
 							icon = {
 								name = "undecided_movement"
 								visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('undecided_movement').Self)]"
 								size = { 14 14 }
-			
+
 								texture = "gfx/interface/icons/portraits/dynastic_cycle_group_unaligned_small.dds"
-			
+
 								tooltip = "FRAME_UNDECIDED_MOVEMENT"
 							}
 						}
@@ -1376,7 +1376,7 @@ types PortraitTypes
 		block "opinion_box"
 		{
 			portrait_opinion = {
-				position = { -20 -5 }
+				position = { -20 0 }
 				parentanchor = bottom|hcenter
 
 				block "portrait_opinion" {}
@@ -1385,7 +1385,7 @@ types PortraitTypes
 	}
 
 	type portrait_character_view_spouse = margin_widget {
-		size = { 300 300 }
+		size = { 320 300 }
 		margin = { 3 3 }
 
 		widget = {
@@ -1424,6 +1424,17 @@ types PortraitTypes
 			}
 
 			block "portrait_button" {}
+		}
+
+		portrait_status_icons = {
+			parentanchor = bottom|right
+			position = { -53 0 }
+		}
+
+		coa_realm_small = {
+			visible = "[Character.HasLandedTitles]"
+			parentanchor = bottom|right
+			position = { 0 5 }
 		}
 		#AGOT Added; WIP - NOT DONE YET
 		agot_dragons_portrait_character_view_spouse = {}
@@ -2445,9 +2456,9 @@ types PortraitTypes
 						name = "advancement_movement"
 						visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('advancement_movement').Self)]"
 						size = { 14 14 }
-	
+
 						texture = "gfx/interface/icons/portraits/dynastic_cycle_group_advance_small.dds"
-	
+
 						tooltip = "FRAME_ADVANCEMENT_MOVEMENT"
 					}
 
@@ -2455,9 +2466,9 @@ types PortraitTypes
 						name = "expansion_movement"
 						visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('expansion_movement').Self)]"
 						size = { 14 14 }
-	
+
 						texture = "gfx/interface/icons/portraits/dynastic_cycle_group_expand_small.dds"
-	
+
 						tooltip = "FRAME_EXPANSION_MOVEMENT"
 					}
 
@@ -2465,9 +2476,9 @@ types PortraitTypes
 						name = "conservative_movement"
 						visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('conservative_movement').Self)]"
 						size = { 14 14 }
-	
+
 						texture = "gfx/interface/icons/portraits/dynastic_cycle_group_anti_small.dds"
-	
+
 						tooltip = "FRAME_CONSERVATIVE_MOVEMENT"
 					}
 
@@ -2475,9 +2486,9 @@ types PortraitTypes
 						name = "pro_hegemon_movement"
 						visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('pro_hegemon_movement').Self)]"
 						size = { 14 14 }
-	
+
 						texture = "gfx/interface/icons/portraits/dynastic_cycle_group_pro_small.dds"
-	
+
 						tooltip = "FRAME_PRO_HEGEMON_MOVEMENT"
 					}
 
@@ -2485,9 +2496,9 @@ types PortraitTypes
 						name = "undecided_movement"
 						visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('undecided_movement').Self)]"
 						size = { 14 14 }
-	
+
 						texture = "gfx/interface/icons/portraits/dynastic_cycle_group_unaligned_small.dds"
-	
+
 						tooltip = "FRAME_UNDECIDED_MOVEMENT"
 					}
 				}
@@ -2601,6 +2612,14 @@ types PortraitTypes
 				size = { 20 20 }
 				texture = "gfx/interface/icons/portraits/travel.dds"
 				tooltip = "CHARACTER_TRAVELING_TOOLTIP"
+			}
+
+			icon = {
+				name = "not_at_home_icon"
+				visible = "[And( Not( Character.IsTraveling ), Character.IsAwayFromHome )]"
+				size = { 20 20 }
+				texture = "gfx/interface/icons/portraits/travel.dds"
+				tooltip = "CHARACTER_AWAY_TOOLTIP"
 			}
 
 			icon = {
@@ -3079,7 +3098,7 @@ types portrait_icons
 			using = Portrait_Relation_Icon_Normal_Size
 		}
 	}
-	
+
 	type elder_relation_icon = icon
 	{
 		name = "elder"
@@ -3093,7 +3112,7 @@ types portrait_icons
 			using = Portrait_Relation_Icon_Normal_Size
 		}
 	}
-	
+
 	type disciple_relation_icon = icon
 	{
 		name = "disciple"
@@ -3204,7 +3223,7 @@ types portrait_icons
 
 		using = Portrait_Relation_Icon_Small_Size
 	}
-	
+
 	type elder_relation_icon_small = icon
 	{
 		name = "elder"
@@ -3218,7 +3237,7 @@ types portrait_icons
 			using = Portrait_Relation_Icon_Small_Size
 		}
 	}
-	
+
 	type disciple_relation_icon_small = icon
 	{
 		name = "disciple"
@@ -3244,7 +3263,7 @@ types portrait_icons
 			name = "advancement_movement"
 			visible = "[ObjectsEqual( Situation.GetParticipantGroupByCharacter(Character.Self), Situation.GetTopParticipantGroupByKey('advancement_movement').Self)]"
 			size = { 20 20 }
-	
+
 			texture = "gfx/interface/icons/portraits/dynastic_cycle_group_advance.dds"
 
 			block "dynastic_cycle_group_icon_tooltip"

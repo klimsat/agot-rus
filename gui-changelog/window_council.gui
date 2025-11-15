@@ -1305,7 +1305,7 @@ types CouncilTaskTypes
 	type vbox_council_layout = vbox {
 		### COUNCIL
 		vbox = {
-			visible = "[Not( And( CouncilWindow.GetCharacter.GetGovernment.HasGovernmentFlag( 'government_is_celestial' ), GreaterThanOrEqualTo_int32( CouncilWindow.GetCharacter.GetPrimaryTitle.GetTierFrame, '(int32)7' ) ) )]"
+			visible = "[Not( And( CouncilWindow.GetCharacter.GetGovernment.HasGovernmentFlag( 'government_is_celestial' ), ObjectsEqual( CouncilWindow.GetCharacter.GetPrimaryTitle, GetTitleByKey('h_china').Self) ) )]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 			datacontext = "[CouncilWindow]"
@@ -1791,7 +1791,7 @@ types CouncilTaskTypes
 
 		### MINISTRY
 		vbox = {
-			visible = "[And( CouncilWindow.GetCharacter.GetGovernment.HasGovernmentFlag( 'government_is_celestial' ), GreaterThanOrEqualTo_int32( CouncilWindow.GetCharacter.GetPrimaryTitle.GetTierFrame, '(int32)7' ) )]"
+			visible = "[And( CouncilWindow.GetCharacter.GetGovernment.HasGovernmentFlag( 'government_is_celestial' ), ObjectsEqual( CouncilWindow.GetCharacter.GetPrimaryTitle, GetTitleByKey('h_china').Self) )]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 			datacontext = "[CouncilWindow]"

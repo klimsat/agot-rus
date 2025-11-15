@@ -26,7 +26,7 @@
 		on_start = "[SetMapMode( 'admin_vassal_types_map' )]"
 
 		on_start = "[PdxGuiTabs.RemoveTab( 'family' )]"
-		on_start = "[PdxGuiTabs.AddTabIf( 'family', Not( Character.GetGovernment.HasGovernmentFlag( 'government_is_japan_feudal' ) ) )]"  # Referenced in Code, don't rename`
+		on_start = "[PdxGuiTabs.AddTabIf( 'family', GetPlayer.GetGovernment.HasRule( 'administrative' ) )]"  # Referenced in Code, don't rename`
 
 		on_start = "[PdxGuiTabs.RemoveTab( 'families' )]"
 		on_start = "[PdxGuiTabs.AddTab( 'families' )]"
@@ -46,240 +46,247 @@
 		on_start = "[MeritPoolWindow.Close]"
 	}
 
-	vbox = {
-		margin_left = 40
-		margin_right = 53
-		margin_top = 44
-		margin_bottom = 20
+	margin_widget = {
+		size = { 100% 100% }
+		margin_top = 30
+		margin_bottom = 12
+		margin_right = 13
 
-		header_pattern = {
-			layoutpolicy_horizontal = expanding
+		widget = {
+			size = { 100% 100% }
+			
+			vbox = {
+				using = Window_Margins
 
-			blockoverride "header_text"
-			{
-				text = "ADMINISTRATIVE_GOVERNMENT_HEADER"
-			}
+				header_pattern = {
+					layoutpolicy_horizontal = expanding
 
-			blockoverride "button_close"
-			{
-				onclick = "[GovernmentAdministrationWindow.Close]"
-			}
-		}
-		#AGOT Added
-		agot_free_cities_election_progressbar = {}
-
-		hbox_tab_buttons = {
-			name = "administration_tabs"
-
-			blockoverride "tab_name"
-			{
-				text = "[PdxGuiTabItem.LocalizeTab( 'administraction_tab' )]"
-			}
-
-			blockoverride "on_click"
-			{
-				onclick = "[CloseGameView( 'admin_vassal_detail_view' )]"
-				onclick = "[GetVariableSystem.Clear( 'show_prominent_appointment' )]"
-			}
-		}
-
-		vbox = {
-			name = "your_family"
-			widgetid = "your_family"
-			datacontext = "[GovernmentAdministrationWindow.GetPlayerHouse]"
-			visible = "[PdxGuiTabs.IsTabSet( 'family' )]"
-			layoutpolicy_horizontal = expanding
-			layoutpolicy_vertical = expanding
-
-			margin_top = 10
-			margin_bottom = 15
-
-			vbox_your_family_tab = {
-				visible = "[Not( GetVariableSystem.Exists( 'show_prominent_appointment' ) )]"
-			}
-
-			widget_your_family_appointments = {
-				visible = "[GetVariableSystem.Exists( 'show_prominent_appointment' )]"
-			}
-		}
-
-		vbox = {
-			name = "themes"
-			visible = "[PdxGuiTabs.IsTabSet( 'themes' )]"
-			layoutpolicy_horizontal = expanding
-			layoutpolicy_vertical = expanding
-
-			margin_top = 10
-			margin_bottom = 20
-
-			state = {
-				name = _show
-				on_start = "[SetMapMode( 'admin_vassal_types_map' )]"
-			}
-
-			state = {
-				name = _hide
-				on_start = "[SetMapMode( 'realms' )]"
-			}
-
-			widget_header_state_faith = {}
-
-			hbox_theme_sort_options = {
-				blockoverride "dropdown_properties"
-				{
-					datamodel = "[GovernmentAdministrationWindow.GetOrderOptions]"
-					onselectionchanged = "[GovernmentAdministrationWindow.SortThemes]"
-					selectedindex = "[GovernmentAdministrationWindow.GetSortSelectedIndex]"
-				}
-
-				button_checkbox_label = {
-					onclick = "[GovernmentAdministrationWindow.ToggleGroupByHouse]"
-					blockoverride "checkbox"
+					blockoverride "header_text"
 					{
-						checked = "[GovernmentAdministrationWindow.ShouldGroupByHouse]"
+						text = "ADMINISTRATIVE_GOVERNMENT_HEADER"
 					}
 
-					blockoverride "text"
+					blockoverride "button_close"
 					{
-						text = "ADMIN_WINDOW_THEME_GROUP_BY_HOUSE"
-						max_width = 170
+						onclick = "[GovernmentAdministrationWindow.Close]"
 					}
 				}
-			}
+				#AGOT Added
+				agot_free_cities_election_progressbar = {}
 
-			scrollbox = {
-				name = "admin_panel_province_list" # tutorial uses this
-				widgetid = "admin_panel_province_list" # tutorial uses this
+				hbox_tab_buttons = {
+					name = "administration_tabs"
 
-				size = { 560 0 }
-				layoutpolicy_vertical = expanding
+					blockoverride "tab_name"
+					{
+						text = "[PdxGuiTabItem.LocalizeTab( 'administraction_tab' )]"
+					}
 
-				blockoverride "scrollbox_content"
-				{
-					vbox_themes_list = {
-						name = "themes_list"
-						layoutpolicy_horizontal = expanding
-						layoutpolicy_vertical = expanding
+					blockoverride "on_click"
+					{
+						onclick = "[CloseGameView( 'admin_vassal_detail_view' )]"
+						onclick = "[GetVariableSystem.Clear( 'show_prominent_appointment' )]"
 					}
 				}
-			}
-		}
 
-		vbox = {
-			name = "powerful_families"
-			widgetid = "powerful_families"
-			visible = "[PdxGuiTabs.IsTabSet( 'families' )]"
-			layoutpolicy_horizontal = expanding
-			layoutpolicy_vertical = expanding
-
-			margin_top = 5
-			margin_bottom = 20
-
-			### Top Liege
-			widget = {
-				size = { 560 140 }
-
-				hbox = {
-					datacontext = "[GetIllustration( 'character_view_bg' )]"
-					spacing = 4
-					margin = { 8 0 }
-
-					background = {
-						texture = "[Illustration.GetTexture( Character.MakeScope )]"
-						alpha = 0.3
-						fittype = centercrop
-						margin = { 10 0 }
-
-						using = Mask_Rough_Edges
-
-						modify_texture = {
-							texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
-							blend_mode = alphamultiply
-							mirror = vertical
-						}
-					}
-
-					vbox_featured_family_portrait_big = {
-						name = "government_panel_figurehead_family" #reactive_advice_welcome_to_japan_step_emperor_and_regent uses this
-						datacontext = "[GovernmentAdministrationWindow.GetFigureheadTitle]"
-						datacontext = "[GovernmentAdministrationWindow.GetFigureheadTitle.GetHolder]"
-						visible = "[Title.IsValid]"
-
-						background = {
-							using = Background_Area_Dark
-							alpha = 0.5
-
-							margin = { 4 4 }
-						}
-
-						blockoverride "interactions_on_click"
-						{
-							onclick = "[ToggleFilteredCharacterInteractionMenu(Character.Self, 'ceremonial_liege')]"
-
-							tooltip = "ADMIN_GOVERNMENT_CEREMONIAL_LIEGE_INTERACTIONS_BUTTON_TOOLTIP"
-							tooltip_visible = "[Not(IsInteractionMenuOpenForCharacterWithFilter(Character.Self, 'ceremonial_liege'))]"
-						}
-
-						blockoverride "interaction_number_text"
-						{
-							text = "[GetNumberOfValidInteractionsWithFilter(Character.Self, 'ceremonial_liege')]"
-						}
-
-						blockoverride "subtitle"
-						{
-							text = "[GetPlayer.Custom('GetCeremonialLiegeOrLiegeTitle')]"
-						}
-					}
-
-					vbox_featured_family_portrait_big = {
-						name = "government_panel_defacto_ruling_family" #reactive_advice_welcome_to_japan_step_emperor_and_regent uses this
-						datacontext = "[GovernmentAdministrationWindow.GetTitle]"
-						datacontext = "[Title.GetHolder]"
-
-						blockoverride "interactions_on_click"
-						{
-							onclick = "[ToggleFilteredCharacterInteractionMenu(Character.Self, 'admin_liege')]"
-
-							tooltip = "ADMIN_GOVERNMENT_LIEGE_INTERACTIONS_BUTTON_TOOLTIP"
-							tooltip_visible = "[Not(IsInteractionMenuOpenForCharacterWithFilter(Character.Self, 'admin_liege'))]"
-						}
-
-						blockoverride "interaction_number_text"
-						{
-							text = "[GetNumberOfValidInteractionsWithFilter(Character.Self, 'admin_liege')]"
-						}
-
-						blockoverride "subtitle"
-						{
-							text = "[GetPlayer.Custom('GetImperialFamilyType')]"
-						}
-					}
-
-					expand = {}
-				}
-			}
-
-
-			scrollbox = {
-				size = { 560 0 }
-				layoutpolicy_vertical = expanding
-
-				blockoverride "scrollbox_content"
-				{
+				vbox = {
+					name = "your_family"
+					widgetid = "your_family"
+					datacontext = "[GovernmentAdministrationWindow.GetPlayerHouse]"
+					visible = "[PdxGuiTabs.IsTabSet( 'family' )]"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
 
-					vbox = {
-						name = "family_groups_container"
+					margin_top = 10
+					margin_bottom = 15
 
-						margin = { 0 4 }
+					vbox_your_family_tab = {
+						visible = "[Not( GetVariableSystem.Exists( 'show_prominent_appointment' ) )]"
+					}
 
-						layoutpolicy_horizontal = expanding
+					widget_your_family_appointments = {
+						visible = "[GetVariableSystem.Exists( 'show_prominent_appointment' )]"
+					}
+				}
 
-						datamodel = "[GovernmentAdministrationWindow.GetFamilyGroups]"
+				vbox = {
+					name = "themes"
+					visible = "[PdxGuiTabs.IsTabSet( 'themes' )]"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
 
-						item = {
-							vbox_family_group_foldout = {}
+					margin_top = 10
+					margin_bottom = 15
+
+					state = {
+						name = _show
+						on_start = "[SetMapMode( 'admin_vassal_types_map' )]"
+					}
+
+					state = {
+						name = _hide
+						on_start = "[SetMapMode( 'realms' )]"
+					}
+
+					widget_header_state_faith = {}
+
+					hbox_theme_sort_options = {
+						blockoverride "dropdown_properties"
+						{
+							datamodel = "[GovernmentAdministrationWindow.GetOrderOptions]"
+							onselectionchanged = "[GovernmentAdministrationWindow.SortThemes]"
+							selectedindex = "[GovernmentAdministrationWindow.GetSortSelectedIndex]"
+						}
+
+						button_checkbox_label = {
+							onclick = "[GovernmentAdministrationWindow.ToggleGroupByHouse]"
+							blockoverride "checkbox"
+							{
+								checked = "[GovernmentAdministrationWindow.ShouldGroupByHouse]"
+							}
+
+							blockoverride "text"
+							{
+								text = "ADMIN_WINDOW_THEME_GROUP_BY_HOUSE"
+							}
+						}
+					}
+
+					scrollbox = {
+						name = "admin_panel_province_list" # tutorial uses this
+						widgetid = "admin_panel_province_list" # tutorial uses this
+
+						size = { 560 0 }
+						layoutpolicy_vertical = expanding
+
+						blockoverride "scrollbox_content"
+						{
+							vbox_themes_list = {
+								name = "themes_list"
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = expanding
+							}
+						}
+					}
+				}
+
+				vbox = {
+					name = "powerful_families"
+					widgetid = "powerful_families"
+					visible = "[PdxGuiTabs.IsTabSet( 'families' )]"
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
+
+					margin_top = 5
+					margin_bottom = 15
+
+					### Top Liege
+					widget = {
+						size = { 560 140 }
+
+						hbox = {
+							datacontext = "[GetIllustration( 'character_view_bg' )]"
+							spacing = 4
+							margin = { 8 0 }
+
+							background = {
+								texture = "[Illustration.GetTexture( Character.MakeScope )]"
+								alpha = 0.3
+								fittype = centercrop
+								margin = { 10 0 }
+
+								using = Mask_Rough_Edges
+
+								modify_texture = {
+									texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+									blend_mode = alphamultiply
+									mirror = vertical
+								}
+							}
+
+							vbox_featured_family_portrait_big = {
+								name = "government_panel_figurehead_family" #reactive_advice_welcome_to_japan_step_emperor_and_regent uses this
+								datacontext = "[GovernmentAdministrationWindow.GetFigureheadTitle]"
+								datacontext = "[GovernmentAdministrationWindow.GetFigureheadTitle.GetHolder]"
+								visible = "[Title.IsValid]"
+
+								background = {
+									using = Background_Area_Dark
+									alpha = 0.5
+
+									margin = { 4 4 }
+								}
+
+								blockoverride "interactions_on_click"
+								{
+									onclick = "[ToggleFilteredCharacterInteractionMenu(Character.Self, 'ceremonial_liege')]"
+
+									tooltip = "ADMIN_GOVERNMENT_CEREMONIAL_LIEGE_INTERACTIONS_BUTTON_TOOLTIP"
+									tooltip_visible = "[Not(IsInteractionMenuOpenForCharacterWithFilter(Character.Self, 'ceremonial_liege'))]"
+								}
+
+								blockoverride "interaction_number_text"
+								{
+									text = "[GetNumberOfValidInteractionsWithFilter(Character.Self, 'ceremonial_liege')]"
+								}
+
+								blockoverride "subtitle"
+								{
+									text = "[GetPlayer.Custom('GetCeremonialLiegeOrLiegeTitle')]"
+								}
+							}
+
+							vbox_featured_family_portrait_big = {
+								name = "government_panel_defacto_ruling_family" #reactive_advice_welcome_to_japan_step_emperor_and_regent uses this
+								datacontext = "[GovernmentAdministrationWindow.GetTitle]"
+								datacontext = "[Title.GetHolder]"
+
+								blockoverride "interactions_on_click"
+								{
+									onclick = "[ToggleFilteredCharacterInteractionMenu(Character.Self, 'admin_liege')]"
+
+									tooltip = "ADMIN_GOVERNMENT_LIEGE_INTERACTIONS_BUTTON_TOOLTIP"
+									tooltip_visible = "[Not(IsInteractionMenuOpenForCharacterWithFilter(Character.Self, 'admin_liege'))]"
+								}
+
+								blockoverride "interaction_number_text"
+								{
+									text = "[GetNumberOfValidInteractionsWithFilter(Character.Self, 'admin_liege')]"
+								}
+
+								blockoverride "subtitle"
+								{
+									text = "[GetPlayer.GetTopLiege.Custom('GetImperialFamilyType')]"
+								}
+							}
+
+							expand = {}
+						}
+					}
+
+
+					scrollbox = {
+						size = { 560 0 }
+						layoutpolicy_vertical = expanding
+
+						blockoverride "scrollbox_content"
+						{
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+
+							vbox = {
+								name = "family_groups_container"
+
+								margin = { 0 4 }
+
+								layoutpolicy_horizontal = expanding
+
+								datamodel = "[GovernmentAdministrationWindow.GetFamilyGroups]"
+
+								item = {
+									vbox_family_group_foldout = {}
+								}
+							}
 						}
 					}
 				}
@@ -1421,7 +1428,9 @@ types GovernmentAdministration
 
 			expand = {}
 
-			button_promote_candidate = {}
+			button_promote_candidate = { 
+				alwaystransparent = yes 
+			}
 
 			text_single = {
 				max_width = 320
@@ -1450,7 +1459,9 @@ types GovernmentAdministration
 
 			expand = {}
 
-			button_promote_candidate = {}
+			button_promote_candidate = { 
+				alwaystransparent = yes 
+			}
 
 			text_single = {
 				max_width = 320
@@ -1558,7 +1569,6 @@ types GovernmentAdministration
 					allow_outside = yes
 
 					clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_close"
-
 					onclick = "[CloseGameView('admin_vassal_detail_view')]"
 					onclick = "[GetVariableSystem.Clear( 'show_prominent_appointment' )]"
 
@@ -1735,10 +1745,17 @@ types GovernmentAdministration
 							expand = {}
 						}
 					}
+					
+					warning_icon = {
+						size = { 32 32 }
+						visible = "[And(GreaterThan_int32( GetDataModelSize( HouseAspiration.GetLevels ), '(int32)1' ), DynastyHouse.IsHouseAttributeInactive)]"
+						tooltip = "FAMILY_ATTRIBUTE_WINDOW_HOUSE_ASPIRATION_ALERT"
+						using = tooltip_se
+					}
 
 					warning_icon = {
 						size = { 32 32 }
-						visible = "[DynastyHouse.IsHouseAttributeInactive]"
+						visible = "[And(Not(GreaterThan_int32( GetDataModelSize( HouseAspiration.GetLevels ), '(int32)1' )), DynastyHouse.IsHouseAttributeInactive)]"
 						tooltip = "FAMILY_ATTRIBUTE_WINDOW_ALERT"
 						using = tooltip_se
 					}
@@ -2106,6 +2123,35 @@ types GovernmentAdministration
 						}
 					}
 				}
+			}
+		}
+		
+		vbox = {
+			visible = "[And( GetPlayer.GetTopLiege.GetGovernment.HasRule( 'administrative' ), Not( GetPlayer.GetTopLiege.GetGovernment.HasRule( 'merit' ) ) )]"
+			datacontext = "[GetPlayer]"
+			layoutpolicy_horizontal = expanding
+			margin_top = 7
+			margin_left = 5
+			
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				
+				text_label_left = {
+					margin_left = 10
+					max_width = 250
+					#using = Font_Size_Medium
+
+					layoutpolicy_horizontal = expanding
+
+					text = "ADMINISTRATIVE_GOVERNMENT_INVESTMENT_CAP"
+
+					tooltipwidget = {
+						widget_value_breakdown_tooltip = {
+							datacontext = "[GovernmentAdministrationWindow.GetInvestmentCapTooltip( Character.Self )]"
+						}
+					}
+				}
+				expand = {}
 			}
 		}
 
@@ -2667,7 +2713,8 @@ types GovernmentAdministration
 							layoutpolicy_horizontal = expanding
 
 							text = "ADMIN_WINDOW_BUTTON_FIND_APPOINTMENT"
-
+							enabled = "[Character.IsPlayerInteractionValid( 'start_promote_interaction' )]"
+							tooltip_when_disabled = "[Character.GetPlayerInteractionValidBlockers( 'start_promote_interaction' )]"
 							onclick = "[GovernmentAdministrationWindow.SelectProminentHouseMember( Character.Self )]"
 							onclick = "[GetVariableSystem.Set( 'show_prominent_appointment', 'true' )]"
 						}
@@ -2921,6 +2968,8 @@ types GovernmentAdministration
 
 				allow_outside = yes
 
+				datacontext = "[Character.GetHouse]"
+
 				coa_house_big = {
 					datacontext = "[Character.GetHouse]"
 					parentanchor = top|hcenter
@@ -2994,7 +3043,6 @@ types GovernmentAdministration
 
 					expand = {}
 				}
-
 				portrait_head_small = {}
 			}
 		}
@@ -3037,6 +3085,30 @@ types GovernmentAdministration
 					}
 
 					expand = {}
+				}
+
+				widget = {
+					parentanchor = vcenter|right
+					position = { 2 -15 }
+					size = { 20 20 }
+
+					icon_house_relation = {
+						size = { 20 20 }
+
+						datacontext = "[DynastyHouse.GetHouseRelationWith( GetPlayer.GetHouse )]"
+						tooltipwidget = {
+							house_relation_item_tooltip_no_progressbar = {
+								blockoverride "description_prefix" {
+									text_single = {
+										layoutpolicy_horizontal = expanding
+										text = "house_relation_your_relation_with"
+										default_format = "#weak"
+										align = left
+									}
+								}
+							}
+						}
+					}
 				}
 
 				widget_house_power_banner_medium = {}
@@ -3760,6 +3832,14 @@ types GovernmentAdministration
 			size = { 100% 100% }
 			texture = "gfx/interface/icons/character_interactions/provincial_examination.dds"
 			enabled = "[HasPassedProvincialExamination(Character)]"
+
+			glow = {
+				visible = "[And(And(Not(HasPassedProvincialExamination(Character)), Character.IsMeritCapped), Or(ObjectsEqual(GetPlayer, Character.GetWarden.Self), Character.IsLocalPlayer))]"
+				using = Color_Bright_Yellow
+				glow_radius = 5
+				using = Glow_Standard
+				alpha = 0.8
+			}
 		}
 
 		passed_examination_icon = {
@@ -3790,6 +3870,14 @@ types GovernmentAdministration
 			size = { 100% 100% }
 			texture = "gfx/interface/icons/character_interactions/imperial_examination.dds"
 			enabled = "[HasPassedMetropolitanExamination(Character)]"
+
+			glow = {
+				visible = "[And(And(Not(HasPassedMetropolitanExamination(Character)), Character.IsMeritCapped), Or(ObjectsEqual(GetPlayer, Character.GetWarden.Self), Character.IsLocalPlayer))]"
+				using = Color_Bright_Yellow
+				glow_radius = 5
+				using = Glow_Standard
+				alpha = 0.8
+			}
 		}
 
 		passed_examination_icon = {
@@ -3819,8 +3907,16 @@ types GovernmentAdministration
 			size = { 100% 100% }
 			texture = "gfx/interface/icons/character_interactions/palace_examination.dds"
 			enabled = "[HasPassedPalaceExamination(Character)]"
-		}
 
+			glow = {
+				visible = "[And(And(Not(HasPassedPalaceExamination(Character)), Character.IsMeritCapped), Or(ObjectsEqual(GetPlayer, Character.GetWarden.Self), Character.IsLocalPlayer))]"
+				using = Color_Bright_Yellow
+				glow_radius = 5
+				using = Glow_Standard
+				alpha = 0.8
+			}
+		}
+		
 		passed_examination_icon = {
 			visible = "[HasPassedPalaceExamination(Character)]"
 
