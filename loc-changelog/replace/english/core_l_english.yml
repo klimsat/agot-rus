@@ -123,7 +123,12 @@
  CHARACTER_DEAD_TOOLTIP_HIDE_KILLER:0 "[Character.GetDeathReasonHideKiller|U] on $CHARACTER_DEAD_TOOLTIP_DATE_INFO$"
  CHARACTER_HOSTAGE_TOOLTIP: "#T Hostage#!\n[Character.GetUINameNotMe] is currently held [hostage|E] by [TARGET_CHARACTER.GetShortUIName] as their [warden|E] with [TARGET_CHARACTER_2.GetShortUIName] as their [home_court|E]"
  CHARACTER_INCAPABLE_TOOLTIP:0 "#T Incapable#!\n[Character.GetUINameNotMe] is [GetTrait('incapable').GetName( Character.Self )] and cannot take actions independently"
- CHARACTER_TRAVELING_TOOLTIP:0 "#T Traveling#!\n[traveling|E] towards [Character.GetTravelPlan.GetData.GetNextDestination.GetProvince.GetName] [SelectLocalization(Character.GetTravelPlan.GetData.GetActivity.IsValid, 'CHARACTER_TRAVELING_ACTIVITY_TOOLTIP_ADDITION', '')]"
+ CHARACTER_TRAVELING_TOOLTIP: "#T Traveling#!\n[traveling|E] towards [Character.GetTravelPlan.GetData.GetNextDestination.GetProvince.GetName] [SelectLocalization(Character.GetTravelPlan.GetData.GetActivity.IsValid, 'CHARACTER_TRAVELING_ACTIVITY_TOOLTIP_ADDITION', '')]"
+ CHARACTER_AWAY_TOOLTIP: "#T Away from home#!\n[SelectLocalization( Or( Character.IsCommandingArmy, Character.IsKnightInArmy ), 'CHARACTER_AWAY_DETAIL_ARMY_TOOLTIP', 'CHARACTER_AWAY_DETAIL_GENERIC_TOOLTIP' )]"
+ CHARACTER_AWAY_DETAIL_ARMY_TOOLTIP: "[SelectLocalization( Character.IsCommandingArmy, 'CHARACTER_AWAY_DETAIL_COMMANDING_ARMY', 'CHARACTER_AWAY_DETAIL_KNIGHT_IN_ARMY' )] located in [SelectLocalization( Character.IsCommandingArmy, Character.GetCommandingArmy.GetLocation.GetName, Character.GetKnightArmy.GetLocation.GetName )]"
+ CHARACTER_AWAY_DETAIL_GENERIC_TOOLTIP: "Currently in [Character.GetCurrentLocation.GetName]"
+ CHARACTER_AWAY_DETAIL_COMMANDING_ARMY: "Commanding [Character.GetCommandingArmy.GetNameNoTooltip]"
+ CHARACTER_AWAY_DETAIL_KNIGHT_IN_ARMY: "Serving as [Character.Custom('KnightCultureNoTooltipLowercase')] in [Character.GetKnightArmy.GetNameNoTooltip]"
  CHARACTER_TRAVELING_ACTIVITY_TOOLTIP_ADDITION:0 "[SelectLocalization(ObjectsEqual(Character.GetTravelPlan.GetData.GetActivity.GetHost.Self, Character.Self),'CHARACTER_TRAVELING_ACTIVITY_TOOLTIP_ADDITION_HOSTING','CHARACTER_TRAVELING_ACTIVITY_TOOLTIP_ADDITION_ATTENDING')]"
  CHARACTER_TRAVELING_ACTIVITY_TOOLTIP_ADDITION_HOSTING:0 "because of [Character.GetTravelPlan.GetData.GetActivity.GetName]"
  CHARACTER_TRAVELING_ACTIVITY_TOOLTIP_ADDITION_ATTENDING:0 "because [Character.GetShortUIName] [Select_CString(Character.IsLocalPlayer, 'are', 'is' )] attending [Character.GetTravelPlan.GetData.GetActivity.GetName]"
@@ -1064,6 +1069,6 @@
  BREAKDOWN_ENTRY_TREASURY_MILITARY_BUDGET_VASSAL: "[CHARACTER.GetPrimaryTitle.GetName]"
 
 
- confucian_education_modifier: "[confucian_education|E]"
+ confucian_education_modifier: "[GetTrait('confucian_education').GetName( GetNullCharacter )]"
  tutor_modifier: "Employs [GetCourtPositionType('court_tutor_court_position').GetName()]"
  mourned_parent_modifier: "Filial Piety Experience #weak (lost a parent)#!"

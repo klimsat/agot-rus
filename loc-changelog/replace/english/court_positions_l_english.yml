@@ -3,8 +3,8 @@
  #APPOINT_COURT_POSITION_VIEW_replace_character_header:2 "Replace [AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee.GetShortUINameNoTooltip] as [AppointCourtPositionView.GetCourtPositionType.GetName]"
  APPOINT_COURT_POSITION_VIEW_replace_character_header:2 "Replace #high [AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee.Custom('AGOTCustomGetTitledFullNameDynasty')]#! as [AppointCourtPositionView.GetCourtPositionType.GetName]"
  APPOINT_COURT_POSITION_VIEW_select_character_header: "Appoint [AppointCourtPositionView.GetPositionName]"
- APPOINT_COURT_POSITION_VIEW_EMPLOYER_SALARY: "Monthly salary: [CourtPositionType.GetEmployerSalaryTextFor( Character.Self )]"
- APPOINT_COURT_POSITION_VIEW_EMPLOYEE_SALARY: "Monthly salary: [CourtPositionType.GetEmployeeSalaryTextFor( Character.Self )]"
+ APPOINT_COURT_POSITION_VIEW_EMPLOYER_SALARY: "Salary: [CourtPositionType.GetEmployerSalaryTextFor( Character.Self )|V]"
+ APPOINT_COURT_POSITION_VIEW_EMPLOYEE_SALARY: "Salary: [CourtPositionType.GetEmployeeSalaryTextFor( Character.Self )|V]"
  APPOINT_COURT_POSITION_VIEW_salary_per_travel:0 "Salary when a travel starts: [Character.GetTravelLeaderCost|U]"
  APPOINT_COURT_POSITION_VIEW_header:2 "Appoint Court Position"
  APPOINT_COURT_POSITION_VIEW_back_button:1 "Back"
@@ -40,7 +40,7 @@
  #AGOT Modified
  #COURT_POSITION_REVOKE:0 "#T Fire [Character.GetShortUINameNoTooltip]#!"
  COURT_POSITION_REVOKE:0 "#T Fire #high [Character.Custom('AGOTCustomGetTitledFullNameDynasty')]#!#!"
- COURT_POSITION_POWERFUL_AGENT:0 "@alert_icon! #alert_trial Powerful [agent|E] in [hostile_schemes|E] against you#!"
+ COURT_POSITION_POWERFUL_AGENT: "@alert_icon! #alert_trial Powerful [agent|E] in [hostile_schemes|E] against their $game_concept_liege$#!"
  COURT_POSITION_OPINION_BONUS:0 "[opinion|e] Bonus: [CourtPosition.GetOpinionBonus|=+]"
  COURT_POSITION_TOGGLE_AUTOMATION: "#T Toggle Automation #!\n$COURT_POSITION_AUTOMATION_CURRENT$\n#I Click to toggle automation options#!"
  COURT_POSITION_AUTOMATION_DISABLE_TOOLTIP: "#T Current Automation #!\n$COURT_POSITION_AUTOMATION_CURRENT$\n#I Click to disable automation#!"
@@ -112,13 +112,20 @@
  COURT_POSITIONS_years_of_service:1 "Years of service: $YEARS$"
 
  COURT_POSITION_TOOLTIP_EFFECT_ON_YOUR_LIEGE:0 "Effect on your [liege|e]:"
- COURT_POSITION_TOOLTIP_EFFECT_ON_LIEGE:0 "Effect on [liege|e]:"
+ COURT_POSITION_TOOLTIP_EFFECT_ON_LIEGE: "Effect on [liege|e]:"
+ COURT_POSITION_TOOLTIP_EFFECT_ON_LIEGE_WITH_HEADING: "#S $COURT_POSITION_TOOLTIP_EFFECT_ON_LIEGE$#!#indent_newline:2 \n[CourtPositionType.GetEmployerModifierDescription]#!" 
+
+
  COURT_POSITION_TOOLTIP_SCALED_EFFECT_ON_LIEGE:0 "Effect on [liege|e], based on employee's [aptitude|e]:"
  COURT_POSITION_TOOLTIP_LIEGE_REQUIREMENT:0 "[liege|e] requirements:"
+ COURT_POSITION_TOOLTIP_LIEGE_REQUIREMENT_NESTED: "#TOOLTIP:COURT_POSITION_TOOLTIP_LIEGE_REQUIREMENT_NESTED_TT #L Liege Requirements#!#!" 
+ COURT_POSITION_TOOLTIP_LIEGE_REQUIREMENT_NESTED_TT: "[CourtPositionType.GetLiegeRequirementDescriptionText]"
  COURT_POSITION_TOOLTIP_EFFECT_ON_YOU:0 "Effect on you:"
  COURT_POSITION_TOOLTIP_EFFECT_ON_EMPLOYEE:1 "Effect on [CourtPosition.GetNameNoTooltip]:"
  COURT_POSITION_TOOLTIP_EFFECT_ON_HOLDER: "Effect on holder:"
  COURT_POSITION_TOOLTIP_EMPLOYEE_REQUIREMENT:1 "[CourtPositionType.GetNameNoTooltip] requirements:"
+ COURT_POSITION_TOOLTIP_EMPLOYEE_REQUIREMENT_NESTED: "#TOOLTIP:COURT_POSITION_TOOLTIP_EMPLOYEE_REQUIREMENT_NESTED_TT #L [CourtPositionType.GetNameNoTooltip] Requirements#!#!" 
+ COURT_POSITION_TOOLTIP_EMPLOYEE_REQUIREMENT_NESTED_TT: "[CourtPositionType.GetEmployeeRequirementDescriptionText]"
  COURT_POSITION_TOOLTIP_SALARY: "Salary: [CourtPosition.GetSalaryText]"
  COURT_POSITION_TOOLTIP_SALARIES_GOLD_PAID: "[gold_i][gold|E] Salaries Paid"
  COURT_POSITION_TOOLTIP_SALARIES_GOLD_EARNED: "[gold_i][gold|E] Salaries Earned"
@@ -140,10 +147,12 @@
  COURT_POSITION_TOOLTIP_REVOKE_EFFECT_HEADER:0 "Revoking this [SelectLocalization( IsLandlessAdventurer( GetPlayer ), 'COURT_POSITION_TOOLTIP_REVOKE_EFFECT_HEADER.CAMP_OFFICER', 'COURT_POSITION_TOOLTIP_REVOKE_EFFECT_HEADER.COURT_POSITION')] will cause:"
  COURT_POSITION_TOOLTIP_REVOKE_EFFECT_HEADER.COURT_POSITION: "[court_position|E]"
  COURT_POSITION_TOOLTIP_REVOKE_EFFECT_HEADER.CAMP_OFFICER: "[officer|E]"
- COURT_POSITION_TYPE_TOOLTIP_EFFECT_ON_EMPLOYEE:0 "Effect on [CourtPositionType.GetNameNoTooltip]:"
- COURT_POSITION_TYPE_TOOLTIP_EMPLOYER_SALARY: "Salary: [CourtPositionType.GetEmployerSalaryTextFor( GetPlayer )]"
- COURT_POSITION_TYPE_TOOLTIP_EMPLOYEE_SALARY: "Salary: [CourtPositionType.GetEmployeeSalaryTextFor( GetPlayer )]"
- COURT_POSITION_TYPE_TOOLTIP_REVOKE_COST:0 "• Cost you: [CourtPositionType.GetRevokeCostText]"
+ COURT_POSITION_TYPE_TOOLTIP_EFFECT_ON_EMPLOYEE: "Effect on [CourtPositionType.GetNameNoTooltip]:"
+ COURT_POSITION_TYPE_TOOLTIP_EFFECT_ON_EMPLOYEE_WITH_HEADING: "#S $COURT_POSITION_TYPE_TOOLTIP_EFFECT_ON_EMPLOYEE$#!#indent_newline:2 \n[CourtPositionType.GetEmployeeModifierDescription]#!"
+
+ COURT_POSITION_TYPE_TOOLTIP_EMPLOYER_SALARY: "Salary: [CourtPositionType.GetEmployerSalaryTextFor( GetPlayer )|V]"
+ COURT_POSITION_TYPE_TOOLTIP_EMPLOYEE_SALARY: "Salary: [CourtPositionType.GetEmployeeSalaryTextFor( GetPlayer )|V]"
+ COURT_POSITION_TYPE_TOOLTIP_REVOKE_COST: "Revocation cost: [CourtPositionType.GetRevokeCostText|V]"
 
  COURT_POSITION_SALARY_BREAKDOWN_BASE:0 "Base Salary"
 
@@ -167,7 +176,7 @@
  COURT_POSITION_TASK_END_EFFECTS: "#S When stopped:#!#indent_newline:2 \n[CourtPositionTaskType.GetOnEndEffectDesc( CourtPosition.Self )]#!"
  COURT_POSITION_TASK_COST: "#S Cost (per month):#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerCostText( CourtPosition.GetEmployer.Self )]#!"
 
- COURT_POSITION_TASK_HINT: "#weak Potential [court_position_tasks_short|E]#!"
+ COURT_POSITION_TASK_HINT: "Potential [court_position_tasks_short|E]:"
  COURT_POSITION_TASK_GENERIC_TT: "My [CourtPositionType.GetNameNoTooltip] will actively perform the [CourtPositionTaskType.GetName|V] [court_position_task_short|e]."
  COURT_POSITION_TASK_EMPLOYER_GENERIC_EFFECTS: "#S Effect on [liege|E]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerModifierGenericDescription]#!"
  COURT_POSITION_TASK_EMPLOYER_COURT_GENERIC_EFFECTS: "#S Effect on [liege|E]'s [court|E]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerCourtModifierGenericDescription]#!"
@@ -185,8 +194,8 @@
  physician_guard_family_desc: "This character is tasked with assisting their [liege|E]'s learning."
  physician_improve_self: "Improve Skills"
  physician_improve_self_desc: "This character is focusing on improving their skills as a physician."
- physician_improve_self_tt: "Every month this character has a chance of gaining [GetTrait('lifestyle_physician').GetName( root_scope )|U1] [trait_level_track_xp|E] or [learning_i][learning_skill|E]"
- physician_improve_self_fallback_tt: "Every month this character has a chance of gaining [GetTrait('lifestyle_physician').GetName( GetNullCharacter )|U1] [trait_level_track_xp|E] or [learning_i][learning_skill|E]"
+ physician_improve_self_tt: "Every month this character has a chance of gaining [GetTrait('lifestyle_physician').GetName( root_scope )] [trait_level_track_xp|E] or [learning_i][learning_skill|E]"
+ physician_improve_self_fallback_tt: "Every month this character has a chance of gaining [GetTrait('lifestyle_physician').GetName( GetNullCharacter )] [trait_level_track_xp|E] or [learning_i][learning_skill|E]"
  high_almoner_attend_poor: "Divine Charity"
  high_almoner_attend_poor_desc: "This character is tasked with arranging charity in your name."
  chronicler_promote_legend_realm: "Extol Domestic Legend"
@@ -485,7 +494,7 @@
  champion_exercise_ruler_notification_desc: "[liege.GetShortUIName|U] [CharHaveHas( liege )] been taught by [ROOT.Char.GetShortUIName]"
  champion_improve_self: "Improve Skills"
  champion_improve_self_desc: "This character is focusing on improving their skills as a personal champion."
- champion_improve_self_fallback_tt: "Every month this character has a chance of gaining [GetTrait('tourney_participant').GetName( GetNullCharacter )|U1] [trait_level_track_xp|E] or [prowess_i][prowess_skill|E]"
+ champion_improve_self_fallback_tt: "Every month this character has a chance of gaining [GetTrait('tourney_participant').GetName( GetNullCharacter )] [trait_level_track_xp|E] or [prowess_i][prowess_skill|E]"
 
  #AGOT Modified
  # court_musician_court_position:0 "Court Musician"
@@ -568,8 +577,8 @@
  caravan_master_prepare_armies_desc: "This character is tasked with preparing the armies for their forays into foreign realms."
  caravan_master_improve_self: "Improve Skills"
  caravan_master_improve_self_desc: "This character is focusing on improving their skills as a caravan master."
- caravan_master_improve_self_tt: "Every month this character has a chance of gaining [GetTrait('lifestyle_traveler').GetName( root_scope )|U1] [trait_level_track_xp|E], [martial_i][martial_skill|E], or [stewardship_i][stewardship_skill|E]"
- caravan_master_improve_self_fallback_tt: "Every month this character has a chance of gaining [GetTrait('lifestyle_traveler').GetName( GetNullCharacter )|U1] [trait_level_track_xp|E], [martial_i][martial_skill|E], or [stewardship_i][stewardship_skill|E]"
+ caravan_master_improve_self_tt: "Every month this character has a chance of gaining [GetTrait('lifestyle_traveler').GetName( root_scope )] [trait_level_track_xp|E], [martial_i][martial_skill|E], or [stewardship_i][stewardship_skill|E]"
+ caravan_master_improve_self_fallback_tt: "Every month this character has a chance of gaining [GetTrait('lifestyle_traveler').GetName( GetNullCharacter )] [trait_level_track_xp|E], [martial_i][martial_skill|E], or [stewardship_i][stewardship_skill|E]"
 
  wet_nurse_court_position: "Wet Nurse"
  wet_nurse_court_position_desc: "A $wet_nurse_court_position$ is a caretaker of your [children|E] and child [hostages|E]."
@@ -1068,7 +1077,7 @@
 
  keeper_of_the_harem_court_position_task_maintain_decorum: "Maintain Harem Decorum"
  keeper_of_the_harem_court_position_task_maintain_decorum_desc: "The $keeper_of_the_harem_court_position$ will focus on suppressing the venomous intrigues of the harem and shielding it from the untoward attentions of the outside world."
- keeper_of_the_harem_maintaining_decorum.tt: "The $keeper_of_the_harem_court_position$ will significantly impede [schemes|U] targeting members of the harem."
+ keeper_of_the_harem_maintaining_decorum.tt: "The $keeper_of_the_harem_court_position$ will significantly impede [schemes|E] targeting members of the harem."
 
  keeper_of_the_harem_court_position_task_attend_to_wellness: "Attend to Concubines' Wellness"
  keeper_of_the_harem_court_position_task_attend_to_wellness_desc: "The $keeper_of_the_harem_court_position$ will pay special attention to the health and well-being of the harem, treating the ill and easing their burdens."

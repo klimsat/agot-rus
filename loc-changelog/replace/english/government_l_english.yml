@@ -90,7 +90,7 @@
  special_contract_palatinate:0 "Palatinate Contract"
  special_contract_palatinate_desc:2 "#flavor While subject to a $special_contract_palatinate$, the [vassal|E] enjoys many privileges within the realm, which increases their standing and gives them more political clout. $special_contract_palatinate_short$ [vassals|E] increase their [liege|E]'s [prestige|E] but provide #high [EmptyScope.ScriptValue('palatinate_contract_taxes_tooltip')|0]%#! less [tax|E] and [levies|E] than what their $feudal_government_taxes$ and $feudal_government_levies$ [obligations|E] dictate.#!"
  special_contract_castellan: "Castellan Contract"
- special_contract_castellan_desc: "#flavor While subject to a $special_contract_castellan$, the [vassal|E] will receive bonuses to their [levies] and defensive capabilities. They provide #high [EmptyScope.ScriptValue('march_contract_taxes_tooltip')|0]%#! less [tax|E], but #high [EmptyScope.ScriptValue('castellan_contract_levies_tooltip')0]%#! more [levy|E] than what their $feudal_government_taxes$ [obligation|E] dictates.#!"
+ special_contract_castellan_desc: "#flavor While subject to a $special_contract_castellan$, the [vassal|E] will receive bonuses to their [levies] and defensive capabilities. They provide #high [EmptyScope.ScriptValue('march_contract_taxes_tooltip')|0]%#! less [tax|E], but #high [EmptyScope.ScriptValue('castellan_contract_levies_tooltip')|0]%#! more [levy|E] than what their $feudal_government_taxes$ [obligation|E] dictates.#!"
  special_contract_none_short:0 "None"
  special_contract_scutage_short:0 "Scutage"
  special_contract_march_short:0 "March"
@@ -261,6 +261,7 @@
  government_has_powerful_families: "Enables [noble_families|E]"
  may_appoint_viziers: "May appoint [viziers|E]"
  government_ignores_rightful_liege_penalties: "Ignores penalties from not being rightful liege"
+ block_same_government_type_vassal_courts: "Vassals with this rule cannot have Royal Courts if their top liege also has the rule"
  
  government_is_bureaucratic: "Is [government_bureaucratic_type|E]"
  
@@ -761,7 +762,7 @@
  celestial_province_military: "@celestial_military_administration! Military Administration"
  celestial_province_military_short: "Military"
  celestial_province_military_text_icon: "@celestial_military_administration!"
- celestial_province_military_benefits: "#emphasis #bold [vassal|E] Benefits:#!#!\n$EFFECT_LIST_BULLET$ Can recruit [GetMaA('zhanmadao_infantry').GetName]\n$EFFECT_LIST_BULLET$ Uses [GetLaw('celestial_military_appointment_succession_law').GetName]\n\n#alert_trial @alert_icon! Limited to [EmptyScope.ScriptValue('celestial_province_military_max_value')|V0] at this tier.#!"
+ celestial_province_military_benefits: "#emphasis #bold [vassal|E] Benefits:#!#!\n$EFFECT_LIST_BULLET$ Can recruit [GetMaA('zhanmadao_infantry').GetName]\n$EFFECT_LIST_BULLET$ Uses [GetLaw('celestial_military_appointment_succession_law').GetName]\n\n#alert_trial @alert_icon! Limited to [EmptyScope.ScriptValue('celestial_province_military_max_value')|V0] at this tier#!"
  celestial_province_military_desc: "#low A military administration that enables the mustering of troops. Providing the realm with the means of protecting itself, or expanding its borders when necessary.#!"
  celestial_province_military_amount_desc: "$celestial_province_military_short$ limit reached"
  celestial_province_protectorate: "@celestial_protectorate_administration! Protectorate Administration"
@@ -781,6 +782,8 @@
  celestial_minister_civil_short: "Ministry"
  celestial_minister_military: "Grand Marshal Obligations"
  celestial_minister_military_short: "Grand Marshal"
+ liege_is_not_civilian_desc: "[liege.GetShortUIName|U] [CharAreIs( liege )] #bold not#! a [civilian_governor|E]"
+ liege_is_not_military_desc: "[liege.GetShortUIName|U] [CharAreIs( liege )] #bold not#! a [military_governor|E]"
 
  # Maritime Tribal
  wanua_government: "Wanua"
@@ -855,9 +858,12 @@
  celestial_ministry_budget_high: "High Budget"
  celestial_ministry_budget_high_short: "High"
 
- tributary_celestial: "Hegemonic Tributary"
- tributaries_celestial: "Hegemonic Tributaries"
- tributary_celestial_desc: "A Hegemonic [tributary|E] provides their [suzerain|E] with [gold|E] and [prestige|E] on a regular basis. In exchange, they will derive [legitimacy|E] from their [suzerain|E], who will also refrain from [raiding|E] or making war [war|E] upon them."
+ tributary_celestial: "Celestial Tributary"
+ tributaries_celestial: "Celestial Tributaries"
+ tributary_celestial_desc: "A Celestial [tributary|E] provides their [suzerain|E] with [gold|E] and [prestige|E] on a regular basis. In exchange, they will derive [legitimacy|E] from their [suzerain|E], who will also refrain from [raiding|E] or making war [war|E] upon them.\n\n$tributaries_celestial$ with high @imperial_grace_icon! [imperial_grace|E] may be granted a [seal_of_investiture|E] from their $game_concept_suzerain$, conferring additional benefits."
+ tributary_hegemonic: "Hegemonic Tributary"
+ tributaries_hegemonic: "Hegemonic Tributaries"
+ tributary_hegemonic_desc: "A Hegemonic [tributary|E] provides their [suzerain|E] with [gold|E] and [prestige|E] on a regular basis. In exchange, they will derive [legitimacy|E] from their [suzerain|E], who will also refrain from [raiding|E] or making war [war|E] upon them."
 
  celestial_tribute_gold: "[gold|U]"
  celestial_tributary_tax_none: "No [taxes|E]"
@@ -878,6 +884,26 @@
  celestial_prestige_transfer_normal_short: "Medium"
  celestial_prestige_transfer_high: "High $game_concept_prestige$ Transfer"
  celestial_prestige_transfer_high_short: "High"
+
+ hegemonic_tribute_gold: "[gold|U]"
+ hegemonic_tributary_tax_none: "No [taxes|E]"
+ hegemonic_tributary_tax_none_short: "None"
+ hegemonic_tributary_tax_low: "Low [taxes|E]"
+ hegemonic_tributary_tax_low_short: "Low"
+ hegemonic_tributary_tax_normal: "Medium [taxes|E]"
+ hegemonic_tributary_tax_normal_short: "Medium"
+ hegemonic_tributary_tax_high: "High [taxes|E]"
+ hegemonic_tributary_tax_high_short: "High"
+
+ hegemonic_tribute_prestige: "[prestige|U]"
+ hegemonic_prestige_transfer_none: "No $game_concept_prestige$ Transfer"
+ hegemonic_prestige_transfer_none_short: "None"
+ hegemonic_prestige_transfer_low: "Low $game_concept_prestige$ Transfer"
+ hegemonic_prestige_transfer_low_short: "Low"
+ hegemonic_prestige_transfer_normal: "Medium $game_concept_prestige$ Transfer"
+ hegemonic_prestige_transfer_normal_short: "Medium"
+ hegemonic_prestige_transfer_high: "High $game_concept_prestige$ Transfer"
+ hegemonic_prestige_transfer_high_short: "High"
 
  celestial_salary_rank: "Salary Rank"
  celestial_salary_rank_none: "None"

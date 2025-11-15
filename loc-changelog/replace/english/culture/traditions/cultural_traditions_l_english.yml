@@ -577,9 +577,10 @@
  next_level_w_mills_name: "#V $tradition_hard_working_name$#!"
  next_level_smiths_name: "#V $tradition_metal_craftsmanship_name$#!"
  temple_next_level_name: "#V $tradition_fervent_temple_builders_name$#!"
+ tribals_can_into_temples_name: "$temple_next_level_name$"
  next_level_monasteries_name: "#V $tradition_monastic_communities_name$#!"
  next_level_fortification_name: "#V $tradition_stalwart_defenders_name$#!"
- next_level_cities_name: "#V $tradition_republican_legacy_name$#!"
+ next_level_cities_name: "[GetCultureTradition('tradition_parochialism').GetName] or [GetCultureTradition('tradition_republican_legacy').GetName]"
  vegetarian_next_level_cereal_fields_name: "#V $tradition_vegetarianism_name$#!"
  rice_cultivators_next_level_paddy_fields_name: "#V $tradition_tgp_rice_cultivators_name$#!"
  vegetarian_building_ban_name: "#V $tradition_vegetarianism_name$#!"
@@ -765,11 +766,11 @@
  culture_parameter_extra_learn_language_success_chance_vs_liege:1 "[GetScheme('learn_language').GetTypeName] [success_chance|E] vs. [liege|E]: #P +50%#!"
  culture_parameter_learns_more_languages:1 "[rulers|E] of this [culture|E] use the [GetScheme('learn_language').GetTypeName] [scheme|E] more often"
  culture_parameter_trait_county_opinion_modifiers:1 "Certain [traits|E] such as [GetTrait('brave').GetName( GetNullCharacter )], [GetTrait('gregarious').GetName( GetNullCharacter )], [GetTrait('generous').GetName( GetNullCharacter )] or [GetTrait('lifestyle_blademaster').GetName( GetNullCharacter )] give [county_opinion|E]"
- culture_parameter_unlock_schiltron_innovation:0 "This tradition allows a [culture|E] to unlock the $innovation_rectilinear_schiltron$ [innovation|E] in the $culture_era_late_medieval$ [era]"
- culture_parameter_unlock_valets_innovation:0 "This tradition allows a [culture|E] to unlock the $innovation_valets$ [innovation|E] in the $culture_era_late_medieval$ [era]"
- culture_parameter_unlock_sarawit_innovation:0 "This tradition allows a [culture|E] to unlock the $innovation_sarawit$ [innovation|E] in the $culture_era_high_medieval$ [era]"
- culture_parameter_unlock_adaptive_militia_innovation:0 "This tradition allows a [culture|E] to unlock the $innovation_adaptive_militia$ [innovation|E] in the $culture_era_late_medieval$ [era]"
- culture_parameter_unlock_innovation_pike_columns:0 "This tradition allows a [culture|E] to unlock the $innovation_pike_columns$ [innovation|E] in the $culture_era_high_medieval$ [era]"
+ culture_parameter_unlock_schiltron_innovation:0 "The #high $innovation_rectilinear_schiltron$#! [innovation|E] becomes available in the $culture_era_late_medieval$ [era|E]"
+ culture_parameter_unlock_valets_innovation: "The #high $innovation_valets$#! [innovation|E] becomes available in the $culture_era_late_medieval$ [era|E]"
+ culture_parameter_unlock_sarawit_innovation: "The #high $innovation_sarawit$#! [innovation|E] becomes available in the $culture_era_high_medieval$ [era|E]"
+ culture_parameter_unlock_adaptive_militia_innovation: "The #high $innovation_adaptive_militia$#! [innovation|E] becomes available in the $culture_era_late_medieval$ [era|E]"
+ culture_parameter_unlock_innovation_pike_columns: "The #high $innovation_pike_columns$#! [innovation|E] becomes available in the $culture_era_high_medieval$ [era|E]"
  culture_parameter_bonuses_from_patriarch_matriarch_trait:1 "Characters with the [GetTrait('family_first').GetName( GetNullCharacter )] [trait|E] are seen as [prestige_i][prestigious|E] and will be able to raise more [levies|E]"
  culture_parameter_cultural_house_personal_scheme_success_chance:0 "[personal_scheme|E] [success_chance|E]: #P +[EmptyScope.ScriptValue('cultural_house_personal_scheme_success_chance')|0]%#! against [house|E] members"
  culture_parameter_landing_house_members_give_prestige:1 "Gain [prestige_i][prestige|E] when granting titles to [house|E] members"
@@ -854,7 +855,9 @@
  has_other_cultures_in_council_desc:0 "You must not have any [councillors|E] with a different [culture|E] from your own"
  20_percent_churches:0 "The [culture|E] does not have a [temple|E] in #V 20%#! of its [counties|E]"
  must_be_feudal_or_clan:0 "You must have the [feudal|E] or [clan|E] [government|E]"
- must_be_feudal_clan_or_admin: "You must have the [feudal|E], [clan|E] or [administrative|E] [government|E]"
+ must_be_feudal_clan_or_admin: "[SelectLocalization( HasDlcFeature( 'all_under_heaven' ), 'must_be_feudal_clan_or_admin_auh', 'must_be_feudal_clan_or_admin_base_game' )]"
+ must_be_feudal_clan_or_admin_base_game: "You must have the [feudal|E], [clan|E] or [administrative|E] [government|E]"
+ must_be_feudal_clan_or_admin_auh: "You must have the [feudal|E], [clan|E], [administrative|E] or [japan_feudal|E] [government|E]"
  only_one_marriage_tradition_allowed:0 "Only one [marriage|E] [tradition|E] is allowed and the following cannot be combined: $tradition_monogamous_name$, $tradition_polygamous_name$, and $tradition_concubines_name$"
  no_warrior_culture: "$tradition_fp3_beacon_of_learning_name$ is incompatible with $tradition_warrior_culture_name$"
  no_philosopher_culture: "$tradition_fp3_beacon_of_learning_name$ is incompatible with $tradition_philosopher_culture_name$"
@@ -1342,7 +1345,7 @@ tradition_tgp_court_machinations_desc: "Within the labyrinthine halls of the cou
  culture_parameter_unlock_maa_tiefutu: "Can recruit [GetMaA('tiefutu').GetName] as [men_at_arms|E]"
  culture_parameter_unlock_zhanmadao: "Can recruit [GetMaA('zhanmadao_infantry').GetName] as [men_at_arms|E]"
  culture_parameter_unlock_burenjia: "Can recruit [GetMaA('burenjia').GetName] as [men_at_arms|E]"
- culture_parameter_unlock_shenbigong_innovation: "This tradition allows a [culture|E] to unlock the $innovation_repeating_crossbow$ [innovation|E] in the $culture_era_tribal$ [era]"
+ culture_parameter_unlock_shenbigong_innovation: "The #high $innovation_repeating_crossbow$#! [innovation|E] is available from the $culture_era_tribal$ [era|E] onward"
  culture_parameter_military_governor_appointment_score: "[learning_skill|E] increases [candidate_score|E] for [GetSubjectContractType( 'celestial_provinces' ).GetObligationNameShort( 'celestial_province_military' )] Provinces"
 
  tradition_tgp_ephemeral_grace_name: "Ephemeral Grace"
@@ -1369,8 +1372,8 @@ not_a_defense_focused_culture: "Less than #N 50%#! of the [culture|e] [counties|
 
 tradition_tgp_hydraulic_builders_name: "Hydraulic Builders"
 tradition_tgp_hydraulic_builders_desc: "This culture places great importance in utilizing waterworks in spiritual ways. At the center of this fascination is the [GetBuilding('sacred_pool_06').GetName], which tend to be expanded into large reservoirs with utmost religious significance. "
-culture_parameter_sacred_pool_additional_bonuses: "The [GetBuilding('sacred_pool_01').GetTypeName|V] line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"#V $building_type_sacred_pool_01$#!
-culture_parameter_waterworks_additional_bonuses: "The [GetBuilding('waterworks_01').GetTypeName|V] line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"#V $building_type_waterworks_01$#!
+culture_parameter_sacred_pool_additional_bonuses: "The [GetBuilding('sacred_pool_01').GetTypeName|V] line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]#V $building_type_sacred_pool_01$#!"
+culture_parameter_waterworks_additional_bonuses: "The [GetBuilding('waterworks_01').GetTypeName|V] line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]#V $building_type_waterworks_01$#!"
 culture_parameter_may_build_sacred_pools_ahead_of_time: "All [GetBuilding('sacred_pool_01').GetTypeName|V] [buildings|E] can be built one [era|E] earlier"
 
 tradition_tgp_esoteric_power_name: "Esoteric Power"
@@ -1559,7 +1562,7 @@ culture_parameter_ai_uses_religious_exiles: "Characters use the [GetDecisionWith
  mpo_siberian_permafrost_modifier_desc: "Soil frozen for millennia, no groundwater access, sparse vegetation. Terrain shifts every year due to repeated melting and refreezing. To make these lands their own, those who live here need centuries to adapt. Everybody, everything else will perish and join the ancient dead beneath the ice.\n\n#weak This modifier can be removed by the #V $feudalize_holding_interaction$#! [interaction|E]#!\n\n"
 
  mpo_siberian_permafrost_modifier_bad: "$mpo_siberian_permafrost_modifier$"
- mpo_siberian_permafrost_modifier_bad_desc: "$mpo_siberian_permafrost_modifier$"
+ mpo_siberian_permafrost_modifier_bad_desc: "$mpo_siberian_permafrost_modifier_desc$"
  cannot_hybridize_northern_tribes: "The [tradition|E] #high $tradition_mpo_northern_tribes_name$#! cannot be picked for a [hybrid_culture|E]"
 
  # TGP
@@ -1604,7 +1607,7 @@ culture_parameter_ai_uses_religious_exiles: "Characters use the [GetDecisionWith
  bear_sacrifice_war_modifier: "Bear War Sacrifice"
  bear_sacrifice_war_modifier_desc: "This character has sacrificed a bear and believes that they are blessed with success in war."
  bear_sacrifice_authority_modifier: "Bear Authority Sacrifice"
- bear_sacrifice_authority_modifier_desc: "This character has sacrificed a bear and believes that they are blessed with an authorative presence."
+ bear_sacrifice_authority_modifier_desc: "This character has sacrificed a bear and believes that they are blessed with an authoritative presence."
  sacrifice_bear_decision_effect: "Get a choice between [piety_i][piety|E], [GetModifier('bear_sacrifice_war_modifier').GetNameWithTooltip], or [GetModifier('bear_sacrifice_authority_modifier').GetNameWithTooltip]"
  culture_tradition_events.3100.t: "Bear Sacrifice"
  culture_tradition_events.3100.desc: "We bind the great bear in silence. The hunters sing low, voices steady, smoke rising with the scent of spruce.\n\nI kneel, press my brow to its snout, and whisper my thanks before the blade falls. We will share its flesh, so that its strength might live among us."
@@ -1656,4 +1659,4 @@ tradition_cultivation_desc: "Tuning the body, the breath, and the mind until the
  culture_parameter_synergy_cultures_opinion_gain: "Every three years, the [culture_head|E] can gain a [opinion|E] with the [culture_head|E] of the concilliated [culture|E]"
  culture_parameter_synergy_cultures_positive_chance_desc: "The chance and strength of the effects above is influenced by the [cultural_acceptance|E] between the concilliated [cultures|E] and [opinion|E] with the other [culture_head|E]"
  ach_culture_synergy_troops: "Oathsworn Troops"
- 
+

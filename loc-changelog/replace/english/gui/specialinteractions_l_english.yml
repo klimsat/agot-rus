@@ -105,6 +105,16 @@
  normal_celestial_tribute_prestige: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'celestial_tribute_prestige' ).GetObligationName( 'celestial_prestige_transfer_normal' )]"
  high_celestial_tribute_prestige: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'celestial_tribute_prestige' ).GetObligationName( 'celestial_prestige_transfer_high' )]"
 
+ no_hegemonic_tribute_taxes: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'hegemonic_tribute_gold' ).GetObligationName( 'hegemonic_tributary_tax_none' )]"
+ low_hegemonic_tribute_taxes: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'hegemonic_tribute_gold' ).GetObligationName( 'hegemonic_tributary_tax_low' )]"
+ normal_hegemonic_tribute_taxes: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'hegemonic_tribute_gold' ).GetObligationName( 'hegemonic_tributary_tax_normal' )]"
+ high_hegemonic_tribute_taxes: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'hegemonic_tribute_gold' ).GetObligationName( 'hegemonic_tributary_tax_high' )]"
+
+ no_hegemonic_tribute_prestige: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'hegemonic_tribute_prestige' ).GetObligationName( 'hegemonic_prestige_transfer_none' )]"
+ low_hegemonic_tribute_prestige: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'hegemonic_tribute_prestige' ).GetObligationName( 'hegemonic_prestige_transfer_low' )]"
+ normal_hegemonic_tribute_prestige: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'hegemonic_tribute_prestige' ).GetObligationName( 'hegemonic_prestige_transfer_normal' )]"
+ high_hegemonic_tribute_prestige: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'hegemonic_tribute_prestige' ).GetObligationName( 'hegemonic_prestige_transfer_high' )]"
+
  expected_to_pay_tribute: "[SCOPE.sC('tributary_loc').GetShortUIName|U] will be expected to [travel|E] to [SCOPE.sC('suzerain_loc').GetCapitalLocation.GetName] to $tribute_mission_decision_generic$ on a regular basis"
 
  low_nomad_tribute_herd: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'nomad_government_herd' ).GetObligationName( 'herd_tax_low' )]"
@@ -273,7 +283,7 @@
  MARRYING_PERSON_PRESTIGE:0 "Marrying [CHARACTER.GetTitleTierName]: $PRESTIGE|0+$"
  MARRYING_RELATIVE_PRESTIGE:0 "Marrying close relative of [CHARACTER.GetShortUIName] ([CHARACTER.GetTitleTierName]): $PRESTIGE|0+$"
  MARRIAGE_DOCTRINE_PRESTIGE_EFFECT:0 "[CHARACTER.GetFaith.GetName] doctrines: $PRESTIGE_MULT|0+=%$"
- TRADE_PIETY_FOR_BETTER_AI_ACCEPTANCE: "Use [piety|E] to increase acceptance"
+ TRADE_PIETY_FOR_BETTER_AI_ACCEPTANCE: "Spend [piety|E]"
  MARRY_INCAPABLE_REASON: "[secondary_actor.GetShortUIName|U] [CharAreIs(secondary_actor)] [GetTrait('incapable').GetName( GetNullCharacter )]: $VALUE|+0$"
  EDUCATION_HOOK:1 "Use a [hook_i][hook|e]"
  MARRIAGE_HOOK:1 "Use a [hook_i][hook|e]"
@@ -399,6 +409,11 @@
  BANISH_NEGATIVE_REASON:0 "[recipient.GetSheHe|U] fears Banishment: $VALUE|=+0$"
  TAKE_VOWS_NEGATIVE_REASON:0 "[recipient.GetSheHe|U] is reluctant to become a [GetTrait('devoted').GetName( recipient.Self )]: $VALUE|=+0$"
  RECRUITMET_NEGATIVE_REASON:0 "[recipient.GetSheHe|U] is reluctant to be Recruited: $VALUE|=+0$"
+ CASTRATE_NEGATIVE_REASON: "[recipient.GetSheHe|U] doesn't want to be Castrated: $VALUE|=+0$"
+ CASTRATE_NO_CHILDREN_NEGATIVE_REASON: "[recipient.GetSheHe|U] has no [children|E] and doesn't want to be Castrated: $VALUE|=+0$"
+ DEMAND_ADMIN_NEGATIVE_REASON: "[recipient.GetSheHe|U] is reluctant to becoming [government_bureaucratic_type|E]: $VALUE|=+0$"
+ DISFIGURE_NEGATIVE_REASON: "[recipient.GetSheHe|U] doesn't want to become Difigured: $VALUE|=+0$"
+ BLIND_NEGATIVE_REASON: "[recipient.GetSheHe|U] doesn't want to become Blind: $VALUE|=+0$"
  DECLARE_WAR_HEADER:0 "Declare War"
  DECLARE_WAR_TOGGLE_TITLE:0 "[CasusBelliTitleItem.GetBlockers]#I Click to toggle the claim for [CasusBelliTitleItem.GetTitle.GetName]#! "
  DECLARE_WAR_CLICK_TITLE:0 "[CasusBelliTitleItem.GetBlockers]#I Click to select the claim for [CasusBelliTitleItem.GetTitle.GetName]#! "
@@ -712,7 +727,7 @@
 
  AI_OPINION_MERIT_LEVEL: "[merit_level|E]: $VALUE|=+0$"
 
- TRADE_INFLUENCE_FOR_BETTER_AI_ACCEPTANCE: "Spend [influence_i|E][influence|E] to increase acceptance"
+ TRADE_INFLUENCE_FOR_BETTER_AI_ACCEPTANCE: "Offer your [influence_i|E][influence|E]"
  INFLUENCE_INTERACTION_ACCEPTANCE_SEND_OPTION: "Spending [influence|E]: $VALUE|=+0$"
  not_same_realm_tt: "You and [recipient.GetShortUIName] are #BOLD not#! in the same realm"
  INFLUENCE_SEND_OPTION: "Spend @influence_icon![influence|E]"

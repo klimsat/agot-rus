@@ -1,10 +1,10 @@
 ﻿l_english:
  MY_REALM_WINDOW_TITLE:0 "My Realm"
 
- MY_REALM_WINDOW_BOOKMARK_DOMAIN_TT: "#T Domain#!\n#I Click to get an overview of your domain#!"
- MY_REALM_WINDOW_BOOKMARK_SUBJECTS_TT: "#T Subjects#!\n#I Click to view your subjects#!"
- MY_REALM_WINDOW_BOOKMARK_SUCCESSION_TT: "#T Succession#!\n#I Click to view your succession#!"
- MY_REALM_WINDOW_BOOKMARK_LAWS_TT: "#T Laws#!\n#I Click to view the laws#!"
+ MY_REALM_WINDOW_BOOKMARK_DOMAIN_TT: "#T Domain#!\nYour [holdings|E] and [domiciles|E]\n\n$CLICK_TO_VIEW$"
+ MY_REALM_WINDOW_BOOKMARK_SUBJECTS_TT: "#T Subjects#!\nYour [vassals|E] and [tributaries|E]\n\n$CLICK_TO_VIEW$"
+ MY_REALM_WINDOW_BOOKMARK_SUCCESSION_TT: "#T Succession#!\nWho will inherit your [titles|E]\n\n$CLICK_TO_VIEW$"
+ MY_REALM_WINDOW_BOOKMARK_LAWS_TT: "#T Laws#!\nThe [laws|E] of your [realm|E]\n\n$CLICK_TO_VIEW$"
 
  MY_REALM_WINDOW_LAWS_PROGRESS_BAR_DESC: "Changing Laws within your Realm requires approval from your powerful Vassals"
  MY_REALM_WINDOW_LAWS_PROGRESS_BAR_TITLE: "[powerful_vassal|E] Approval"
@@ -25,8 +25,8 @@
  MY_REALM_WINDOW_DISOBEDIENT: "@disobedience_icon! [disobedient|E]"
 
  MY_REALM_WINDOW_DOMICILE_LOCATION: "#low Current Location:#! [Character.GetDomicile.GetLocation.GetBaronyNameExplicitly]"
- MY_REALM_WINDOW_LAW_NAME_AND_LEVEL: "#E [Law.GetName]#! #low ([Add_int32( Law.GetIndexInLawGroup, '(int32)1' )])#!"
- MY_REALM_WINDOW_LAW_NAME: "#E [Law.GetName]#!"
+ MY_REALM_WINDOW_LAW_NAME_AND_LEVEL: "[Law.GetName] #low ([Add_int32( Law.GetIndexInLawGroup, '(int32)1' )])#!"
+ MY_REALM_WINDOW_LAW_NAME: "[Law.GetName]"
  MY_REALM_WINDOW_LAW_LEVEL: "[Add_int32( Law.GetIndexInLawGroup, '(int32)1' )]"
 
  MY_REALM_WINDOW_YOUR_INCOME: "Your Income:"
@@ -137,7 +137,7 @@
  MRW_HEIR_PREFERRED:1 "[Concept('vassal_stance','Preferred')|E] By: [MyRealmWindow.GetCharacter.GetVassalStancesThatPrefer( Character.Self )]"
  MRW_INHERITED_TITLES:0 "Inherited [titles|E]"
  MY_REALM_WINDOW_NO_HEIR_FLAVOR:1 "@warning_icon! #X You have no heir. The game will end after you die#!"
- MY_REALM_WINDOW_EXCEPTIONS: "Specific [title_succession|E]"
+ MY_REALM_WINDOW_EXCEPTIONS: "[titles|E] with their own [title_succession|E]"
  MY_REALM_WINDOW_REQUIRED_GOVERNMENT_TITLES: "[county|E] [titles|E] lost on succession because of [holding|E] type"
  MY_REALM_WINDOW_REQUIRED_GOVERNMENT_TITLES_WARNING: "@warning_icon! #X No successor is valid to hold these counties#!"
  MY_REALM_WINDOW_ELECTIONS:1 "Elections"
@@ -232,7 +232,7 @@
  PIETY_CONTRIBUTION_MIN_KNOWN_VALUE: "@piety_icon! [piety|E] Minimum: $VALUE|+=%1$"
  BARTER_GOODS_CONTRIBUTION_KNOWN_VALUE: "[barter_goods|E]: $VALUE|+=%1$"
  BARTER_GOODS_CONTRIBUTION_MIN_KNOWN_VALUE: "[barter_goods|E] Minimum: $VALUE|+=%1$"
- VASSAL_CONTRACT_VASSAL_TITLE:2 "Modifying the Contract of\n#high [SubjectContract.GetSubject.GetFirstNameNoTooltip] [SubjectContract.GetSubject.GetHouse.GetNameNoTooltip]\nRuler of [SubjectContract.GetSubject.GetPrimaryTitle.GetNameNoTierNoTooltip]#!"
+ VASSAL_CONTRACT_VASSAL_TITLE:2 "Modifying the Contract of\n#high [SubjectContract.GetSubject.GetFullNameNoTooltip]\nRuler of [SubjectContract.GetSubject.GetPrimaryTitle.GetNameNoTierNoTooltip]#!"
  CONTRACT_EFFECTS_HEADER:0 "Effects:"
  VASSAL_OPINION_DIPLOMACY:0 "Personal [diplomacy|E]"
  VASSAL_OPINION_TYRANNY:0 "[tyrant|E]"
@@ -276,7 +276,7 @@
  MY_REALM_WINDOW_TRIBUTARY_BREAK_FREE: "Break free from your [suzerain|E]"
  MY_REALM_WINDOW_CEASE_PAYING_TRIBUTE_CHANCE_TT: "Yearly chance of ceasing [tributary|E] payments: [SubjectContract.GetCeasePayingTributeChance|0%/]\n\n[SubjectContract.GetCeasePayingTributeChanceDesc]"
  MY_REALM_WINDOW_CEASE_PAYING_TRIBUTE_CHANCE: "Cease Tribute Chance: [SubjectContract.GetCeasePayingTributeChanceLabel]"
- MY_REALM_WINDOW_SUBJECT_STANDING: "Current [SubjectContract.GetSubject.Custom('SubjectStanding')]: [SubjectContract.GetSubjectStanding|V0]"
+ MY_REALM_WINDOW_SUBJECT_STANDING: "Current [SubjectContract.GetSubject.Custom('SubjectStanding')]: [ConcatIfNeitherEmpty(SubjectContract.GetSubject.Custom('SubjectStandingIcon'),' ')][SubjectContract.GetSubjectStanding|V0]"
  MY_REALM_WINDOW_SUBJECT_STANDING_TT: "[SubjectContract.GetSubject.Custom('SubjectStandingLoss')]"
 
  MY_REALM_WINDOW_KURULTAI_APPROVAL: "Kurultai Succession Approval"

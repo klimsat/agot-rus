@@ -391,15 +391,14 @@
  FACTION_REASON_CLAIMANT_HOUSE: "Same [house|E] as [claimant|E]: $VALUE|+0=$"
  FACTION_REASON_ADMIN_POWERFUL_FAMILY: "[claimant_possessive|E] [noble_family|E] is [powerful|E]: $VALUE|+0=$"
  FACTION_REASON_ADMIN_DOMINANT_FAMILY: "[claimant_possessive|E] [noble_family|E] is [dominant|E]: $VALUE|+0=$"
+ FACTION_REASON_ADMIN_BORN_IN_PURPLE: "[claimant|E] is [GetTrait('born_in_the_purple')]: $VALUE|+0=$"
  FACTION_REASON_ADMIN_CLAIMANT_CO_EMPEROR: "[claimant|E] is [co_emperor|E]: $FACTOR|0%+=$"
  FACTION_REASON_ADMIN_CLAIMANT_JUNIOR_EMPEROR: "[claimant|E] is [junior_emperor|E]: $FACTOR|0%+=$"
  FACTION_REASON_CLAIMANT_PRIMARY_HEIR: "[claimant|E] is my [heir|E]: $VALUE|+0=$"
  FACTION_REASON_ADMINISTRATIVE: "[administrative|E] [vassal|E]: $VALUE|+0=$"
  FACTION_REASON_NOMADIC: "[GetGovernment( 'nomad_government' ).GetName]: $VALUE|+0=$"
- #AGOT Modified
- # FACTION_REASON_DYNASTIC_CYCLE_INSTABILITY: "[dynastic_cycle|E] is in [GetSituationType('dynastic_cycle').GetPhaseType('situation_dynastic_cycle_phase_instability').GetName]: $VALUE|+0=$"
- FACTION_REASON_DYNASTIC_CYCLE_INSTABILITY: "[dynastic_cycle|E] is in Instability: $VALUE|+0=$"
- FACTION_REASON_ESCALATED_TO_LIEGE: "Escalated from lost [peasant_faction|E]: $VALUE|+0=$"
+ FACTION_REASON_DYNASTIC_CYCLE_INSTABILITY: "[dynastic_cycle|E] is in [GetSituationType('dynastic_cycle').GetPhaseType('situation_dynastic_cycle_phase_instability').GetName]: $VALUE|+0=$"
+ FACTION_REASON_ESCALATED_TO_LIEGE: "[holder|E] folded to a [peasant_faction|E]: $VALUE|+0=$"
  FACTION_DEMAND_CEREMONIAL_CLAIMANT: "Ceremonial Claimant Demand"
  FACTION_DEMAND_CEREMONIAL_CLAIMANT_DESC: "[faction_leader.Custom2('AppropriateGreetingNegative', ROOT.Char)]\n\nNone can deny that [faction_claimant.GetName], not [faction_targeted_title.GetHolder.GetFirstName], is the rightful sovereign of [faction_targeted_title.GetNameNoTier].\n\nAccept this fact peacefully or we will make you do so by force!"
  FACTION_DEMAND_CEREMONIAL_CLAIMANT_DESC_ME: "[faction_targeted_title.GetDefinitiveName|U] belongs to me by divine right, and I finally have the means to make it so. Accept this fact peacefully or I will make you do so by force!"
@@ -425,7 +424,7 @@
  FACTION_DEMAND_IMPERIAL_POLICY_REFUSED: "Imperial Policy Demands Refused"
  FACTION_DEMAND_IMPERIAL_POLICY_REFUSED_DESC: "Your arrogant and petulant disregard for the sound policies of my government only prove how ill-fit you are to make such decisions!\n\nYour treachery and dishonor will soon find divine judgement, foul traitor!"
  FACTION_DEMAND_IMPERIAL_POLICY_SEND_DEMAND_NOTIFICATION: "Turning the Ship"
- FACTION_DEMAND_IMPERIAL_POLICY_SEND_DEMAND_NOTIFICATION_DESC: "The moment has come! All who support aborting [faction_target.GetTitledFirstNamePossessive] misguided policies will now rise as one and make sure that the realm in a new direction. We shall see it done, by sword and fire if we must!"
+ FACTION_DEMAND_IMPERIAL_POLICY_SEND_DEMAND_NOTIFICATION_DESC: "The moment has come! All who support aborting [faction_target.GetTitledFirstNamePossessive] misguided policies will now rise as one and make sure that the realm is steered in a new direction. We shall see it done, by sword and fire if we must!"
  faction_demand.0222.tt: "[THIS.Char.GetShortUIName|U] will select a new [imperial_policy|E]"
  imperial_policy_faction_war: "Imperial Policy Faction"
  IMPERIAL_POLICY_WAR_NAME: "Imperial Policy War"
@@ -461,3 +460,5 @@
  FACTION_REASON_DETRACTOR: "[coronation_detractor|E]: $VALUE|+0=$"
 
  FACTION_REASON_POPULIST_PEASANT_MORE_LIKELY: "Empowered [faction|E] due to local [faith|E]: $VALUE|0+=$"
+ LEADER_CANNOT_LEAVE_FACTION_OF_THIS_TYPE: "@warning_icon! #X Leader of this faction type can't leave it#!"
+

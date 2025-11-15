@@ -40,6 +40,7 @@
  DYNASTY_HOUSE_TT_DYNASTY:0 "[dynasty|E]: [DynastyHouse.GetDynasty.GetBaseName]"
  DYNASTY_HOUSE_TT_DYNASTY_LEVEL:0 "[dynasty_prestige_level|E]: [DynastyHouse.GetDynasty.GetPrestigeLevelName]"
  DYNASTY_HOUSE_TT_LIVING_MEMBERS:1 "Living Members: [DynastyHouse.GetNumberOfMembers|V]"
+ DYNASTY_HOUSE_TT_HOUSE_RELATION: "[house_relation|E]: [DynastyHouse.GetHouseRelationWith( GetPlayer.GetHouse ).GetLevel.GetName]"
  HOUSE_VIEW_FOUNDING_HOUSE:0 "Founding house"
  HOUSE_HEAD_PRESTIGE_GAIN_CAP:0 "Prestige gain cap"
  DYNASTY_PRESTIGE_LEVEL_EFFECT:1 "• Children are born with [prestige_i]$BIRTH|V0$\n• Marrying into this dynasty gives [prestige_i]$MARRIAGE|0+=$\n• Rulers get a maximum of $LONG_REIGN|V0=$ [long_reign|E] Opinion"
@@ -118,11 +119,11 @@
 
  HOUSE_VIEW_POWERLESS_FAMILY: "#X @warning_icon! Not considered a [powerful_family|E]#!"
  HOUSE_VIEW_POWER_BONUS: "[SelectLocalization( HouseAspiration.IsValid, HouseAspiration.GetName )]"
- HOUSE_VIEW_HOUSE_POWER_LEVEL_TT: "#T [HouseAspiration.GetName]#!\n[HouseAspiration.GetLevelName( PdxGuiWidget.GetIndexInDataModel )]\n\n[HouseAspiration.GetLevelDesc( PdxGuiWidget.GetIndexInDataModel )]"
- HOUSE_VIEW_POWERFUL_FAMILY_LIEGE: "#bold [powerful_family|E]'s [top_liege|E]:#!"
- HOUSE_VIEW_POWERFUL_FAMILY_MEMBER: "#bold [powerful_family|E] Members:#!"
+ HOUSE_VIEW_HOUSE_POWER_LEVEL_TT: "#T [HouseAspiration.GetName]#!\n[HouseAspiration.GetLevelName( PdxGuiWidget.GetIndexInDataModel )]\n\n[HouseAspiration.GetLevelDesc( DynastyHouse.Self, PdxGuiWidget.GetIndexInDataModel )]"
+ HOUSE_VIEW_POWERFUL_FAMILY_LIEGE: "#bold [top_liege|E] (if [DynastyHouse.GetName] is [powerful|e])#!"
+ HOUSE_VIEW_POWERFUL_FAMILY_MEMBER: "#bold All [house|e] Members (if [DynastyHouse.GetName] is [powerful|e])#!"
  HOUSE_VIEW_POWER_LEVEL_PARAMETERS: "" #intentionally empty for now
- HOUSE_VIEW_ANY_HOUSE_MEMBER: "#bold [house|E] Members#!"
+ HOUSE_VIEW_ANY_HOUSE_MEMBER: "#bold All [house|e] Members#!"
  HOUSE_VIEW_HOUSE_HEAD: "#bold [house_head|E]#!"
  HOUSE_VIEW_CHANGE_HOUSE_POWER: "#T Change your [AddLocalizationIf( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_mandala' ), 'game_concept_house_possessive' )] [DynastyHouse.GetHouseAspirationFlavorName]#!"
  HOUSE_VIEW_CHANGE_HOUSE_POWER_DISABLED: "$HOUSE_VIEW_CHANGE_HOUSE_POWER$\n@warning_icon! #X You are not the [house_head|E] of House [DynastyHouse.GetBaseNameNoTooltip]#!"

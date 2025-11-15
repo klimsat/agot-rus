@@ -324,8 +324,8 @@
  cultural_acceptance_gain_minister_project: "[great_project|E] integration efforts"
 
  great_project_type_grand_campaign_project_contribution_tt: "Contributor gains access to the #V [GetCasusBelliType('grand_campaign_kingdom_invasion_cb').GetName]#! [casus_belli|E] until the [great_project|E] is completed #weak (10 years)#!"
- great_project_type_grand_campaign_project_contribution_win_named_tt: "[contributor.GetName] is expected to #P win#! the [war|E] on behalf of the [GetTitleByKey('h_china').GetHolder.GetName]"
- great_project_type_grand_campaign_project_contribution_win_tt: "Contributor is expected to #P win#! the [war|E] on behalf of the [GetTitleByKey('h_china').GetHolder.GetName]"
+ great_project_type_grand_campaign_project_contribution_win_tributaries_tt: "[GetTitleByKey('h_china').GetHolder.GetShortUIName|U] will become the new [suzerain|E] of the contested [titlepossessive|E] [holders|E]"
+ great_project_type_grand_campaign_project_contribution_win_tt: "[GetTitleByKey('h_china').GetHolder.GetShortUIName|U] will become the new [holder|E] of the contested [titles|E]"
  grand_campaign_attack: "Contributor joins the [war|E] for"
  #AGOT Disabled
  # grand_campaign_attack_1: "$grand_campaign_attack$ [great_project.MakeScope.Var('attack_1').Title.GetName]"
@@ -407,8 +407,9 @@
  movement_power_decreased_grand_campaign_name: "Lost a Grand Campaign"
  grand_campaign_movement_power_gain_tt: "Gains [movement_power|E]: [movement_power_i]#P +100#! "
  grand_campaign_movement_power_loss_tt: "Loses [movement_power|E]: [movement_power_i]#N -100#! "
- grand_campaign_won_tt: "If contributors or [owner.GetShortUIName] [completely_control|E] at least #V 50%#! of contested [titles|E]:\n$BULLET_WITH_TAB$Every contributor:\n$TAB$$BULLET_WITH_TAB$$grand_campaign_movement_power_gain_tt$\n$BULLET_WITH_TAB$[owner.GetShortUIName|U] will gain [legitimacy_i][EmptyScope.ScriptValue('major_legitimacy_gain')|+0]"
- grand_campaign_lost_tt: "Otherwise:\n$BULLET_WITH_TAB$Every contributor:\n$TAB$$BULLET_WITH_TAB$$grand_campaign_movement_power_loss_tt$\n$BULLET_WITH_TAB$[owner.GetShortUIName|U] will trigger $catalyst_hegemon_lost_war$"
+ grand_campaign_won_tt: "If contributors or [owner.GetShortUIName] [completely_control|E] at least #V 50%#! of contested [titles|E]:\n$BULLET_WITH_TAB$Every contributor:\n$TAB$$BULLET_WITH_TAB$$grand_campaign_movement_power_gain_tt$\n$BULLET_WITH_TAB$[owner.GetShortUIName|U] will gain [legitimacy_i][EmptyScope.ScriptValue('major_legitimacy_gain')|+0]\n$BULLET_WITH_TAB$[SelectLocalization( Or( ObjectsEqual( GetSituation('dynastic_cycle').GetTopCurrentPhase.GetType.GetName,  GetSituationType('dynastic_cycle').GetPhaseType('situation_dynastic_cycle_phase_stability_advancement').GetName),ObjectsEqual( GetSituation('dynastic_cycle').GetTopCurrentPhase.GetType.GetName, GetSituationType('dynastic_cycle').GetPhaseType('situation_dynastic_cycle_phase_instability').GetName) ), 'great_project_type_grand_campaign_project_contribution_win_tributaries_tt', 'great_project_type_grand_campaign_project_contribution_win_tt' )]\n$BULLET_WITH_TAB$[owner.GetShortUIName|U] will trigger '$catalyst_grand_campaign$'"
+ grand_campaign_lost_tt: "Otherwise:\n$BULLET_WITH_TAB$Every contributor:\n$TAB$$BULLET_WITH_TAB$$grand_campaign_movement_power_loss_tt$\n$BULLET_WITH_TAB$[owner.GetShortUIName|U] will trigger '$catalyst_grand_campaign_lost$'"
+ grand_campaign_start_tt: "[GetTitleByKey('e_minister_grand_marshal').GetName] [title|E] [holder|E] will start the [GetCasusBelliType('grand_campaign_kingdom_invasion_cb').GetName] [war|E]"
  
  great_project_type_minister_project_development: "Develop Communities"
  great_project_type_minister_project_development_desc: "An iron wrought chain is only as strong as its weakest link. Should a single link fail, the chain becomes useless. The regions of our great realm are no different. Every corner of [GetPlayer.GetPrimaryTitle.GetNameNoTier] must thrive for our prosperity to endure. The construction of canals and roads, improved water access, well planned cities — we shall build it all."
@@ -436,3 +437,7 @@
 
  great_project_logistics_generic: "Logistics"
  great_project_logistics_generic_desc: "Projects of this size requires a considerable amount of planning."
+ 
+ you_have_a_minister_of_works_desc: "You have a [minister_of_works|E]"
+ you_have_a_minister_of_rites_desc: "You have a [minister_of_rites|E]"
+ you_have_a_grand_marshal_desc: "You have a [minister_grand_marshal|E]"

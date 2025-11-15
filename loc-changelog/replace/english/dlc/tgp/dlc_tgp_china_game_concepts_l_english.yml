@@ -71,7 +71,7 @@
  game_concept_subject_standing_desc: "$game_concept_subject_standing$ represents the status bestowed onto a [tributary|E] or [vassal|E] by their [suzerain|E] or [liege|E]."
 
  game_concept_imperial_grace: "Imperial Grace"
- game_concept_imperial_grace_desc: "$game_concept_imperial_grace$ represents the status bestowed onto a [tributary|E] by [son_of_heaven|E].\n\nHigh $game_concept_imperial_grace$ may result in special privileges being granted to the $game_concept_tributary$ during [tribute_missions|E]. At low levels of $game_concept_favor$, the $game_concept_son_of_heaven$ may #EMP exact#! tribute from you, and if it reaches zero it could mean the end of the relationship."
+ game_concept_imperial_grace_desc: "$game_concept_imperial_grace$ represents the status bestowed onto a [tributary|E] by [son_of_heaven|E].\n\nHigh $game_concept_imperial_grace$ may result in special privileges being granted to the $game_concept_tributary$ during [tribute_missions|E]. At low levels of $game_concept_imperial_grace$, the $game_concept_son_of_heaven$ may #EMP exact#! tribute from you, and if it reaches zero it could mean the end of the relationship."
 
  game_concept_seal_of_investiture: "Seal of Investiture"
  game_concept_seal_of_investiture_desc: "Simultaneously a legal document and a revered symbol of the grace of the Son of Heaven, the $game_concept_seal_of_investiture$ signifies the holder's special status as a loyal and favored [tributary|E] of [SelectLocalization( GetPlayer.IsValid, 'game_concept_seal_of_investiture_desc_ingame', 'h_china' )].\n\nA $game_concept_seal_of_investiture$ may be granted to $game_concept_tributaries$ with high [imperial_grace|E] during the closing ceremonies of a successful #bold Tribute Mission#!."
@@ -81,13 +81,14 @@
 
  SUBJECT_STANDING_CONCEPT: "[subject_standing|E]"
  SUBJECT_STANDING_IMPERIAL_GRACE_CONCEPT: "[imperial_grace|E]"
+ IMPERIAL_GRACE_ICON: "@imperial_grace!"
 
- IMPERIAL_GRACE_LOSS_STABILITY: "Because the [dynastic_cycle|E] is currently in the $situation_dynastic_cycle_phase_stability$ phase, all #EMP $tributaries_celestial$#! lose [EmptyScope.ScriptValue('imperial_grace_loss_situation_dynastic_cycle_phase_stability')|V] [imperial_grace|E] each year."
- IMPERIAL_GRACE_LOSS_STABILITY_EXPANSION: "Because the [dynastic_cycle|E] is currently in the $situation_dynastic_cycle_phase_stability_expansion$ phase, all #EMP $tributaries_celestial$#! lose [EmptyScope.ScriptValue('imperial_grace_loss_situation_dynastic_cycle_phase_stability_expansion')|V] [imperial_grace|E] each year."
- IMPERIAL_GRACE_LOSS_STABILITY_ADVANCEMENT: "Because the [dynastic_cycle|E] is currently in the $situation_dynastic_cycle_phase_stability_advancement$ phase, all #EMP $tributaries_celestial$#! lose [EmptyScope.ScriptValue('imperial_grace_loss_situation_dynastic_cycle_phase_stability_advancement')|V] [imperial_grace|E] each year."
- IMPERIAL_GRACE_LOSS_INSTABILITY: "Because the [dynastic_cycle|E] is currently in the $situation_dynastic_cycle_phase_stability_advancement$ phase, all #EMP $tributaries_celestial$#! lose [EmptyScope.ScriptValue('imperial_grace_loss_situation_dynastic_cycle_phase_instability')|V] [imperial_grace|E] each year."
- IMPERIAL_GRACE_LOSS_INSTABILITY_CONQUEST: "Because the [dynastic_cycle|E] is currently in the $situation_dynastic_cycle_phase_instability_conquest$ phase, all #EMP $tributaries_celestial$#! lose [EmptyScope.ScriptValue('imperial_grace_loss_situation_dynastic_cycle_phase_instability_conquest')|V] [imperial_grace|E] each year."
- IMPERIAL_GRACE_LOSS_CHAOS: "Because the [dynastic_cycle|E] is currently in the $situation_dynastic_cycle_phase_chaos$ phase, all #EMP $tributaries_celestial$#! lose [EmptyScope.ScriptValue('imperial_grace_loss_situation_dynastic_cycle_phase_chaos')|V] [imperial_grace|E] each year."
+ IMPERIAL_GRACE_LOSS_STABILITY: "Because the [dynastic_cycle|E] is currently in the $situation_dynastic_cycle_phase_stability$ phase, all #EMP $tributaries_celestial$#! lose @imperial_grace! [EmptyScope.ScriptValue('imperial_grace_loss_situation_dynastic_cycle_phase_stability')|V1] [imperial_grace|E] each year."
+ IMPERIAL_GRACE_LOSS_STABILITY_EXPANSION: "Because the [dynastic_cycle|E] is currently in the $situation_dynastic_cycle_phase_stability_expansion$ phase, all #EMP $tributaries_celestial$#! lose @imperial_grace! [EmptyScope.ScriptValue('imperial_grace_loss_situation_dynastic_cycle_phase_stability_expansion')|V1] [imperial_grace|E] each year."
+ IMPERIAL_GRACE_LOSS_STABILITY_ADVANCEMENT: "Because the [dynastic_cycle|E] is currently in the $situation_dynastic_cycle_phase_stability_advancement$ phase, all #EMP $tributaries_celestial$#! lose @imperial_grace! [EmptyScope.ScriptValue('imperial_grace_loss_situation_dynastic_cycle_phase_stability_advancement')|V1] [imperial_grace|E] each year."
+ IMPERIAL_GRACE_LOSS_INSTABILITY: "Because the [dynastic_cycle|E] is currently in the $situation_dynastic_cycle_phase_stability_advancement$ phase, all #EMP $tributaries_celestial$#! lose @imperial_grace! [EmptyScope.ScriptValue('imperial_grace_loss_situation_dynastic_cycle_phase_instability')|V1] [imperial_grace|E] each year."
+ IMPERIAL_GRACE_LOSS_INSTABILITY_CONQUEST: "Because the [dynastic_cycle|E] is currently in the $situation_dynastic_cycle_phase_instability_conquest$ phase, all #EMP $tributaries_celestial$#! lose @imperial_grace! [EmptyScope.ScriptValue('imperial_grace_loss_situation_dynastic_cycle_phase_instability_conquest')|V1] [imperial_grace|E] each year."
+ IMPERIAL_GRACE_LOSS_CHAOS: "Because the [dynastic_cycle|E] is currently in the $situation_dynastic_cycle_phase_chaos$ phase, all #EMP $tributaries_celestial$#! lose @imperial_grace! [EmptyScope.ScriptValue('imperial_grace_loss_situation_dynastic_cycle_phase_chaos')|V1] [imperial_grace|E] each year."
 
  # Mandate
  game_concept_mandate_of_heaven: "Mandate of Heaven"
@@ -166,7 +167,7 @@
  game_concept_minister_grand_chancellor_desc: "The $game_concept_minister_grand_chancellor$ is the highest ranking [minister|E] and is in charge of diplomatic matters. They are typically assigned the position of [grand_secretariat_director|E]."
  game_concept_minister_grand_chancellor_possessive: "$councillor_chancellor_celestial_government_imperial_possessive$"
  game_concept_minister_censor: "$councillor_spymaster_celestial_government_imperial$"
- game_concept_minister_censor_desc: "The $game_concept_minister_censor$ is the [minister|E] in charge of matters of intrigue and intelligence.\n\nBeware of having a disployal Censor, for they can easily conceal and participate in [schemes|E] against you and your [close_family|E]!\n\n#indent_newline:4 #weak The minister can, for example:\n$BULLET$Search for [secrets|E] in [vassal|E] [courts|E]#!#!"
+ game_concept_minister_censor_desc: "The $game_concept_minister_censor$ is the [minister|E] in charge of matters of intrigue and intelligence.\n\nBeware of having a disloyal Censor, for they can easily conceal and participate in [schemes|E] against you and your [close_family|E]!\n\n#indent_newline:4 #weak The minister can, for example:\n$BULLET$Search for [secrets|E] in [vassal|E] [courts|E]#!#!"
  game_concept_minister_censor_possessive: "$councillor_spymaster_celestial_government_imperial_possessive$"
  game_concept_minister_grand_marshal: "$minister_grand_marshal$"
  game_concept_minister_grand_marshal_desc: "The $game_concept_minister_grand_marshal$ is the highest ranking commander in the [realm|E] and commands an [army|E] of [title_men_at_arms|E].\n\n#indent_newline:4 #weak The minister can, for example:\n$BULLET$Start the #V Grand Campaign#! [great_project|E]#!#!"
@@ -182,7 +183,9 @@
  game_concept_minister_of_revenue_desc: "The $game_concept_minister_of_revenue$ is the [minister|E] in charge of [taxation|E] and aids [son_of_heaven|E] with the [treasury|E]."
  game_concept_minister_of_revenue_possessive: "$councillor_steward_celestial_government_imperial_possessive$"
  game_concept_minister_of_rites: "$councillor_court_chaplain_celestial_government_imperial$"
- game_concept_minister_of_rites_desc: "The $game_concept_minister_of_rites$ is the [minister|E] in charge of religious and spiritual affairs, and can assist [governors|E] in hosting [examinations|E].\n\n#indent_newline:4 #weak The minister can, for example:\n$BULLET$Start the [GetGreatProjectType('minister_project_culture').GetName|V] [great_project|E]\n$BULLET$Start the [GetGreatProjectType('minister_project_establish_control').GetName|V] [great_project|E]\n$BULLET$Aid [vassals|E] in hosting [examinations|E]#!#!"
+ #AGOT Modified
+ # game_concept_minister_of_rites_desc: "The $game_concept_minister_of_rites$ is the [minister|E] in charge of religious and spiritual affairs, and can assist [governors|E] in hosting [examinations|E].\n\n#indent_newline:4 #weak The minister can, for example:\n$BULLET$Start the [GetGreatProjectType('minister_project_culture').GetName|V] [great_project|E]\n$BULLET$Start the [GetGreatProjectType('minister_project_establish_control').GetName|V] [great_project|E]\n$BULLET$Aid [vassals|E] in hosting [examinations|E]#!#!"
+ game_concept_minister_of_rites_desc: "The $game_concept_minister_of_rites$ is the [minister|E] in charge of religious and spiritual affairs, and can assist [governors|E] in hosting [examinations|E]."
  game_concept_minister_of_rites_possessive: "$councillor_court_chaplain_celestial_government_imperial_possessive$"
  game_concept_minister_of_war: "$minister_war$"
  game_concept_minister_of_war_desc: "The $game_concept_minister_of_war$ is the [minister|E] in charge of the administration and management of troops. When subject [governors|E] are in need of military aid, it is the $game_concept_minister_of_war$ who can send Military Governors to help.\n\nThe minister is not an active [commander|E] and does not lead troops. That is the purview of the [minister_grand_marshal|E].\n\n#indent_newline:4 #weak The minister can, for example:\n$BULLET$Send aid to [vassals|E] at [war|E] who can #V $celestial_request_military_aid_interaction$#!\n$BULLET$Order [military_governors|E] to join the [wars|E] of other [governors|E]#!#!"
@@ -191,7 +194,9 @@
  game_concept_minister_of_justice_desc: "The $game_concept_minister_of_justice$ is the [minister|E] in charge of legal affairs and assisting [son_of_heaven|E] to maintain a righteous rule.\n\n#indent_newline:4 #weak The minister can, for example:\n$BULLET$Imprison [vassals|E] and [courtiers|E], who cannot refuse\n$BULLET$Use #V $pardon_interaction$#! on [characters|E] who have committed [crimes|E]#!#!"
  game_concept_minister_of_justice_possessive: "$minister_justice_possessive$"
  game_concept_minister_of_works: "$minister_works$"
- game_concept_minister_of_works_desc: "The $game_concept_minister_of_works$ is the [minister|E] in charge of construction and development throughout the [realm|E], and may start [great_projects|E].\n\n#indent_newline:4 #weak The minister can, for example:\n$BULLET$Start the [GetGreatProjectType('minister_project_development').GetName|V] [great_project|E]#!#!"
+ #AGOT Modified
+ # game_concept_minister_of_works_desc: "The $game_concept_minister_of_works$ is the [minister|E] in charge of construction and development throughout the [realm|E], and may start [great_projects|E].\n\n#indent_newline:4 #weak The minister can, for example:\n$BULLET$Start the [GetGreatProjectType('minister_project_development').GetName|V] [great_project|E]\n$BULLET$Start the [GetGreatProjectType('grand_canals').GetName|V] [great_project|E]\n$BULLET$Start the [GetGreatProjectType('great_wall').GetName|V] [great_project|E]#!#!"
+ game_concept_minister_of_works_desc: "The $game_concept_minister_of_works$ is the [minister|E] in charge of construction and development throughout the [realm|E], and may start [great_projects|E]."
  game_concept_minister_of_works_possessive: "$minister_works_possessive$"
  game_concept_grand_secretariat_director: "Secretary Director"
  game_concept_grand_secretariat: "Grand Secretariat"
