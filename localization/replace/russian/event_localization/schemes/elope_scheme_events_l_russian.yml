@@ -33,7 +33,7 @@
  elope.1002.apologetic_family.desc: "«[target.Custom2('RelationToMeShort', ROOT.Char)|U], я покидаю вас, чтобы я и любовь всей моей жизни, [owner.Custom2('YourCharacterIntroductionNoComma', ROOT.Char)], могли пожениться. Я просто хочу жить счастливо. Надеюсь, вы найдете в себе силы простить меня»."
  elope.1002.unapologetic_family.desc: "«Если [Select_CString(target.IsFemale, 'ваша', 'ваш' )] [ROOT.Char.Custom2('RelationToMeShort' , target)] и вправду вам [Select_CString(target.IsFemale, 'дорога', 'дорог' )], вы бы хотели для меня счастливой жизни. Но поскольку вам нет до меня дела, я буду следовать зову своего сердца. Я и [owner.Custom2('YourCharacterIntroduction', ROOT.Char)] поженимся, и вы ничего не сможете сделать, чтобы помешать мне!»"
  elope.1002.a.fallback: "Как [Select_CString(target.IsFemale, 'она могла', 'он мог' )]?"
- elope.1002.a.vengeful: "[Select_CString(target.IsFemale, 'Эта подлая', 'Этот подлый' )] [target.Custom('InsultNounSexual')] получит по заслугам!"
+ elope.1002.a.vengeful: "[Select_CString(target.IsFemale, 'Эта подлая', 'Этот подлый' )] [target.Custom2('InsultNounSexual', ROOT.Char)] получит по заслугам!"
  elope.1002.a.compassionate: "Надеюсь, [target.GetSheHe] найдет свое счастье, что бы ни случилось."
 
  #Success event for relatives of target and owner
@@ -56,7 +56,7 @@
 
  elope.1012.t: "Неудавшийся побег"
  elope.1012.desc: "[target.Custom2('MyCharacterIntroductionNoComma', ROOT.Char)|U] [Select_CString(target.IsFemale, 'пыталась', 'пытался' )] бежать, но [target.GetHerHim] удалось помешать! Капитан стражи сообщает, что [owner.Custom2('YourCharacterIntroduction', ROOT.Char)] [Select_CString(owner.IsFemale, 'планировала', 'планировал' )] похитить [target.GetHerHis] и тайно пожениться.\n\nМало того, в покоях, что занимает [target.GetFirstNameNoTooltip], обнаружились письма, свидетельствующие о том, что [target.GetFirstNameNoTooltip] вовсе не [Select_CString(target.IsFemale, 'возражала', 'возражал' )]!"
- elope.1012.a: "[Select_CString(owner.IsFemale, 'Эта', 'Этот' )] [owner.Custom('InsultAdjective')] [owner.Custom('InsultNounSexual')]... [ROOT.GetCharacter.Custom2('RelationToMeShort' , SCOPE.sC('target'))] никогда [Select_CString(owner.IsFemale, 'ей', 'ему' )] не достанется!"
+ elope.1012.a: "[Select_CString(owner.IsFemale, 'Эта', 'Этот' )] [owner.Custom2('InsultAdjective', ROOT.Char)] [owner.Custom2('InsultNounSexual', ROOT.Char)]... [ROOT.GetCharacter.Custom2('RelationToMeShort' , SCOPE.sC('target'))] никогда [Select_CString(owner.IsFemale, 'ей', 'ему' )] не достанется!"
  elope.1012.b: "Измена! #EMP С этого момента#! [target.GetFirstNameNoTooltip] не покинет своей комнаты!"
  elope.1012.c: "Я заставлю их страдать, помяните мое слово!"
  elope.1012.d: "У меня голова от этого болит..."

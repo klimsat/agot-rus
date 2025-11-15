@@ -8,7 +8,7 @@
  TRAIT_LEVEL_TRACKS_HEADER: "[Concept( 'trait_level_track', 'Направление свойства' )|E] «[Trait.GetNameNoTooltipWithDefault( Character.Self )]»"
  TRAIT_LEVEL_TRACK_HEADER: "#V #bold [TraitLevelTrack.GetName]#!#!\n#flavor [TraitLevelTrack.GetDescription]#!\n"
 
-#Reasons
+ #Reasons
  ALREADY_CONTAINTS_TRAIT: "@warning_icon! #X $CHARACTER_NAME$ уже обладает свойством «[TRAIT.GetName( CHARACTER.Self )]»#!"
  CONTAINTS_OPPOSITE_TRAIT: "@warning_icon! #X Невозможно наделить свойством «[TRAIT.GetName( CHARACTER.Self )]», так как $CHARACTER_NAME$ уже обладает противоположным свойством «[TRAIT_2.GetName( CHARACTER.Self )]»#!"
  IS_POTENTIAL_TRAIT_FALSE: "@warning_icon! #X Невозможно наделить свойством «[TRAIT.GetName( CHARACTER.Self )]», так как оно недоступно персонажу $CHARACTER_NAME$#!"
@@ -19,7 +19,7 @@
  SEX_MALE: "Мужчина"
  SEX_FEMALE: "Женщина"
 
-#Education Traits
+ #Education Traits
  trait_education_intrigue_1: "Заговорщик-любитель"
  trait_education_intrigue_1_desc: "Заговорщик-любитель в общих чертах знает, что такое интриги, но возвести их в ранг искусства до сих пор не получилось."
  trait_education_intrigue_1_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] — заговорщик-любитель и в общих чертах знает, что такое интриги, но возвести их в ранг искусства до сих пор не получилось."
@@ -139,7 +139,9 @@
  trait_education_martial_prowess_5: "Живой клинок"
  trait_education_martial_prowess_5_desc: "Живой клинок достигает таких успехов в бою, что о них говорят приглушенным голосом, а одного имени достаточно, чтобы даже бывалый ветеран замешкался."
  trait_education_martial_prowess_5_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] достигает таких успехов в бою, что о них говорят приглушенным голосом, а одного имени достаточно, чтобы даже бывалый ветеран замешкался."
- trait_education_martial_prowess_5_desc: "Живой клинок достигает таких успехов в бою, что о них говорят приглушенным голосом, а одного имени достаточно, чтобы даже бывалый ветеран замешкался."
+ trait_education_martial_5: "Прославленный военачальник"
+ trait_education_martial_5_desc: "Прославленный военачальник с непревзойденной легкостью справляется с непреодолимыми трудностями, одним маневром меняя ход всей кампании."
+ trait_education_martial_5_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] с непревзойденной легкостью справляется с непреодолимыми трудностями, одним маневром меняя ход всей кампании."
  trait_education_learning_1: "Добросовестный писарь"
  trait_education_learning_1_desc: "Добросовестный писарь учится изо всех сил, но талантами не блещет. Ну хоть читать умеет..."
  trait_education_learning_1_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] учится изо всех сил, но талантами не блещет. Ну хоть читать умеет..."
@@ -152,9 +154,7 @@
  trait_education_learning_4: "Властитель дум"
  trait_education_learning_4_desc: "Властителю дум необъяснимым образом удается проникать в самые таинственные глубины науки."
  trait_education_learning_4_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] умеет необъяснимым образом проникать в самые таинственные глубины науки."
-
-
- #AGOT Modifed
+ #AGOT Modified
  #trait_education_learning_5: "Всезнающий оракул"
  #trait_education_learning_5_desc: "Всезнающий оракул обладает несравненным понимание божественных и мирских вопросов, и даже самые выдающиеся мудрецы не стесняются обращаться за советом."
  #trait_education_learning_5_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] обладает несравненным понимание божественных и мирских вопросов, и даже самые выдающиеся мудрецы не стесняются обращаться за советом."
@@ -162,7 +162,7 @@
  trait_education_learning_5_desc: "Всезнающий школяр обладает несравненным пониманием таинств и мирских вопросов, и даже самые выдающиеся мудрецы не стесняются обращаться за советом."
  trait_education_learning_5_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] обладает несравненным пониманием таинств и мирских вопросов, и даже самые выдающиеся мудрецы не стесняются обращаться за советом."
 
-#Lifestyle Traits
+ #Lifestyle Traits
  trait_diplomat: "Дипломат"
  trait_diplomat_desc: "Вооруженный харизмой и непробиваемыми аргументами дипломат уверенно и целеустремленно плывет по опасным водам общественных отношений и наводит мосты между величайшими правителями."
  trait_diplomat_character_desc: "Вооружившись харизмой и непробиваемыми аргументами, [ROOT.GetCharacter.GetFirstNameNoTooltip] уверенно и целеустремленно плывет по опасным водам общественных отношений и наводит мосты между величайшими правителями."
@@ -270,8 +270,10 @@
  lifestyle_gardener: "Садовод"
  lifestyle_gardener_desc: "Этот персонаж знает всё о садах, растениях и уходе за ними."
  lifestyle_gardener_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] знает всё о садах, растениях и уходе за ними."
+ trait_lifestyle_poet_desc: "Этому персонажу нравится проводить вечера за сложением рифм и стихов, вкладывая в них свои мысли, чувства и переживания."
+ trait_lifestyle_poet_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] любит проводить вечера за сложением рифм и стихов, вкладывая в них свои мысли, чувства и переживания."
 
-#Personality Traits
+ #Personality Traits
  trait_chaste: "Благонравие"
  trait_chaste_desc: "Персонаж сторонится любовных утех и избегает искушений плоти."
  trait_chaste_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] сторонится любовных утех и избегает искушений плоти."
@@ -408,7 +410,7 @@
  trait_disloyal_desc: "Там, где большинство видит отношения, этот человек видит возможности."
  trait_disloyal_character_desc: "Там, где большинство видит отношения, [ROOT.GetCharacter.GetFirstNameNoTooltip] видит возможности."
 
-#Stress traits
+ #Stress traits
  trait_drunkard: "Пьянство"
  trait_drunkard_desc: "Персонаж пристрастился к бутылке и постоянно созерцает ее дно."
  trait_drunkard_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] пристрастился к бутылке и постоянно созерцает ее дно."
@@ -456,8 +458,10 @@
  trait_athletic: "Хорошая форма"
  trait_athletic_desc: "Постоянные упражнения помогают персонажу сохранять хладнокровие и избавляться от стресса."
  trait_athletic_character_desc: "Постоянно упражняясь, [ROOT.GetCharacter.GetFirstNameNoTooltip] сохраняет хладнокровие и избавляется от стресса."
+ trait_burdened: "Переживания"
+ trait_burdened_desc: "Как бы этот персонаж ни старался, ему не удается добиться успеха на научном поприще. Стремясь прогнать мысли о своей неполноценности, этот персонаж часто позволяет своему разуму витать в облаках."
 
-#Health traits
+ #Health traits
  trait_pregnant: "Беременность"
  trait_pregnant_desc: "Персонаж ждет ребенка."
  #AGOT Modified to handle scripted pregnancies
@@ -535,17 +539,17 @@
  trait_cancer: "Рак"
  trait_cancer_desc: "Рак распространился по всему телу персонажа, медленно высасывая жизненную силу."
  trait_cancer_character_desc: "[ROOT.GetCharacter.GetFirstNamePossessiveNoTooltip] медленно теряет жизненную силу: рак распространился по всему телу."
- #AGOT Modifed
+ #AGOT Modified
  #trait_typhus: "Тиф"
  trait_typhus: "Зелёная лихорадка"
  trait_typhus_desc: "Персонаж покрыт сыпью, страдает от лихорадки и постоянно кашляет."
  trait_typhus_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] страдает от лихорадки и сыпи и постоянно кашляет."
- #AGOT Modifed
+ #AGOT Modified
  #trait_bubonic_plague: "Бубонная чума"
  trait_bubonic_plague: "Закатная чума"
  trait_bubonic_plague_desc: "На коже персонажа проступают черные пятна и гроздья бубонов. Пребывать на этом свете ему осталось недолго."
  trait_bubonic_plague_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] не долго задержится на этом свете: на коже уже проступили черные пятна и гроздья бубонов."
- #AGOT Modifed
+ #AGOT Modified
  #trait_smallpox: "Оспа"
  trait_smallpox: "Оспа"
  trait_smallpox_desc: "Если этот покрытый шрамами, сыпью и буграми персонаж выживет, облик его изменится навсегда."
@@ -571,7 +575,7 @@
  trait_blind_desc: "Персонаж ничего не видит с рождения или после #EMP несчастного случая#!."
  trait_blind_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] ничего не видит с рождения или после #EMP несчастного случая#!."
 
-#Physical Traits
+ #Physical Traits
  trait_beauty_bad_1: "Невзрачность"
  trait_beauty_bad_1_desc: "Облик этого персонажа не доставляет никакого удовольствия."
  trait_beauty_bad_1_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] не доставляет своим видом никакого удовольствия."
@@ -694,7 +698,7 @@
  trait_bleeder_desc: "Любая царапина может стать для этого персонажа смертельным ранением — гуморы крови постоянно стремятся покинуть тело."
  trait_bleeder_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] может умереть от любой царапины: гуморы крови постоянно стремятся покинуть тело."
 
-#Fame Traits
+ #Fame Traits
  trait_celibate: "Целибат"
  trait_celibate_desc: "Персонаж принял обет безбрачия."
  trait_celibate_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'приняла', 'принял' )] обет безбрачия."
@@ -705,7 +709,7 @@
  trait_pilgrim_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'совершила', 'совершил' )] паломничество к святым местам."
  trait_pilgrim_2_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'совершила', 'совершил' )] множество паломничеств и считается своего рода экспертом в этом деле."
  trait_pilgrim_3_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'известна', 'известен' )] в кругах священнослужителей как [ROOT.GetCharacter.GetWomanMan|l] мира. Другие паломники часто обращаются к н[ROOT.GetCharacter.GetHerHim|l] как с духовными делами, так и с вопросами навигации."
- 	#Christian version of Faith Warrior
+	#Christian version of Faith Warrior
  trait_crusader: "Крестоносец"
  trait_crusader_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'выполнила', 'выполнил' )] свой христианский долг и [Select_CString(ROOT.GetCharacter.IsFemale, 'приняла', 'принял' )] участие в Крестовом походе."
  trait_excommunicated: "В отлучении"
@@ -719,7 +723,7 @@
  trait_devoted_female: "Приверженка"
  trait_devoted_desc: "Персонаж посвятил свою жизнь служению высшей силе."
  trait_devoted_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] всю свою жизнь служит высшей силе."
- 	#Child version of Devoted
+	#Child version of Devoted
  #AGOT Modified, Trait Reloc
  # trait_devoted_child: "Promised to the Clergy"
  # trait_devoted_child_desc: "This child is promised to the clergy, and will eventually dedicate their life to the service of a higher power."
@@ -727,39 +731,41 @@
  trait_devoted_child: "Обещан богам"
  trait_devoted_child_desc: "Ребёнок обещан богам и, повзрослев, посвятит жизнь служению высшей силе."
  trait_devoted_child_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'обещана', 'обещан' )] богам и, повзрослев, посвятит жизнь служению высшей силе."
- 	#Indian versions of Devoted
+	#Indian versions of Devoted
  trait_devoted_buddhism_male: "Бхикшу"
  trait_devoted_buddhism_female: "Бхикшуни"
  trait_devoted_hinduism_male: "Санньяси"
  trait_devoted_hinduism_female: "Санньясини"
  trait_devoted_jainism_male: "Муни"
  trait_devoted_jainism_female: "Арика"
- 	#Muslim version of Faith Warrior
+ trait_devoted_buddhism_japanese_male: "Со"
+ trait_devoted_buddhism_japanese_female: "Ама"
+	#Muslim version of Faith Warrior
  trait_mujahid: "Моджахед"
  trait_mujahid_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'выполнила', 'выполнил' )] свой исламистский долг и [Select_CString(ROOT.GetCharacter.IsFemale, 'приняла', 'принял' )] участие в Джихаде."
- 	#Muslim version of Pilgrim
+	#Muslim version of Pilgrim
  trait_hajji: "Хаджи"
  trait_hajjah: "Хаджа"
  trait_hajjaj_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'совершила', 'совершил' )] хадж, паломничество к Дому Аллаха в Мекке."
  trait_hajjaj_neutral_desc: "Этот персонаж совершил хадж, паломничество к Дому Аллаха в Мекке."
- 	#Muslim male & female versions of Blood of the Prophet, respectively
+	#Muslim male & female versions of Blood of the Prophet, respectively
  trait_sayyid: "Сеид"
  trait_sayyida: "Сеида"
  trait_sayyid_desc: "В венах этого персонажа течет кровь пророка."
  trait_sayyid_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] — потомок пророка."
- 	#Zoroastrian version of Savior
+	#Zoroastrian version of Savior
  trait_saoshyant: "Саошьянт"
  trait_saoshyant_desc: "Персонажу предназначено спасти всех нас и, возможно, начать Фрашокерети — последнее обновление мира."
  trait_saoshyant_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] здесь, чтобы спасти всех нас и, возможно, начать Фрашокерети — последнее обновление мира."
- 	#Zoroastrian version of Divine Blood
+	#Zoroastrian version of Divine Blood
  trait_saoshyant_descendant: "Потомок Саошьянта"
  trait_saoshyant_descendant_desc: "Персонаж — прямой потомок Саошьянта."
  trait_saoshyant_descendant_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] — прямой потомок Саошьянта."
- 	#The Chakravarti
+	#The Chakravarti
  trait_chakravarti: "Чакраварти"
  trait_chakravarti_desc: "Персонаж объединил центр мира и стал его законным правителем."
  trait_chakravarti_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] объединяет центр мир, став его законным правителем."
- 	#Greatest of Khans
+	#Greatest of Khans
  trait_greatest_of_khans: "Величайший из ханов"
  trait_greatest_of_khans_desc: "По праву завоевателя персонаж провозглашен правителем самой вселенной."
  trait_greatest_of_khans_character_desc: "По праву завоевателя [ROOT.GetCharacter.GetFirstNameNoTooltip] провозглашается властителем самой вселенной."
@@ -791,10 +797,10 @@
  trait_legend: "Живая легенда"
  trait_legend_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] пользуется уважением за свою героическую жизнь и считается живой легендой."
  trait_legend_desc: "Этот персонаж пользуется уважением за свою героическую жизнь и считается живой легендой."
- #AGOT Modified Reloc
- #trait_historical_character: "Исторический персонаж"
- #trait_historical_character_character_desc: "[ROOT.GetCharacter.GetFullNameNicknamed] — динамически появившийся персонаж из реальной жизни, сыгравший заметную роль в истории."
- #trait_historical_character_desc: "Это динамически появившийся персонаж из реальной жизни, сыгравший заметную роль в истории."
+ #AGOT Modified Reloc 
+ #trait_historical_character: "Historical Character" 
+ #trait_historical_character_character_desc: "[ROOT.GetCharacter.GetFullNameNicknamed] has dynamically emerged and is of real life historical importance." 
+ #trait_historical_character_desc: "This character has dynamically emerged and is of real life historical importance." 
  trait_historical_character: "Каноничный персонаж"
  trait_historical_character_character_desc: "[ROOT.GetCharacter.GetFullNameNicknamed] — динамически появившийся персонаж, сыгравший заметную роль в каноне."
  trait_historical_character_desc: "Это динамически появившийся персонаж, сыгравший заметную роль в каноне."
@@ -804,16 +810,16 @@
  trait_bastard: "Бастард"
  trait_bastard_desc: "Мать этого персонажа не была ни женой, ни наложницей его отца, поэтому репутация персонажа запятнана навеки."
  trait_bastard_character_desc: "[ROOT.GetCharacter.GetHerHis|U] мать не была замужем за отцом и не была его наложницей, поэтому [ROOT.GetCharacter.GetFirstNameNoTooltip] будет вечно нести на себе клеймо незаконнорожденного ребенка."
- #AGOT Added - Bastard Surnames
- trait_bastard_flowers_desc:0 "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] в Просторе, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Флауэрс#!."
- trait_bastard_hill_desc:0 "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] на Западных землях, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Хилл#!."
- trait_bastard_pyke_desc:0 "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] на Железных островах, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Пайк#!."
- trait_bastard_rivers_desc:0 "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] в Речных землях, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Риверс#!."
- trait_bastard_sand_desc:0 "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] в Дорне, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Сэнд#!."
- trait_bastard_snow_desc:0 "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] на Севере, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Сноу#!."
- trait_bastard_stone_desc:0 "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] в Долине, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Стоун#!."
- trait_bastard_storm_desc:0 "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] в Штормовых землях, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Шторм#!."
- trait_bastard_waters_desc:0 "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] в Королевских землях, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Уотерс#!."
+ #AGOT Added - Bastard Surnames 
+ trait_bastard_flowers_desc: "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] в Просторе, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Флауэрс#!."
+ trait_bastard_hill_desc: "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] на Западных землях, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Хилл#!."
+ trait_bastard_pyke_desc: "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] на Железных островах, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Пайк#!."
+ trait_bastard_rivers_desc: "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] в Речных землях, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Риверс#!."
+ trait_bastard_sand_desc: "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] в Дорне, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Сэнд#!."
+ trait_bastard_snow_desc: "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] на Севере, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Сноу#!."
+ trait_bastard_stone_desc: "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] в Долине, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Стоун#!."
+ trait_bastard_storm_desc: "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] в Штормовых землях, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Шторм#!."
+ trait_bastard_waters_desc: "[Select_CString(ROOT.GetCharacter.IsFemale, 'Рождённая или выросшая', 'Рождённый или выросший' )] [Concept('bastard', 'бастардом')|E] в Королевских землях, [ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'вынуждена', 'вынужден' )] всю жизнь жить с пятном незаконнорожденности, нося [Concept('agot_surname', 'фамилию')|E] #high Уотерс#!."
  trait_twin: "Близнецы"
  trait_twin_desc: "У персонажа есть близнец."
  trait_twin_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] имеет близнеца."
@@ -888,9 +894,6 @@
  trait_shieldmaiden_desc: "Этот персонаж взял топор как любовник и сражается наравне с другими воинами."
  trait_shieldmaiden_female_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] взяла топор как любовница и сражается наравне с другими мужчинами."
  trait_shieldmaiden_male_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] взял топор как любовник и сражается наравне с другими женщинами."
- trait_poet: "Поэт"
- trait_poet_desc: "Этому персонажу нравится проводить вечера за сложением рифм и стихов, вкладывая в них свои мысли, чувства и переживания."
- trait_poet_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] любит проводить вечера за сложением рифм и стихов, вкладывая в них свои мысли, чувства и переживания."
  trait_varangian: "Варяг"
  trait_varangian_desc: "Персонаж служил в византийской армии в составе варяжской гвардии."
  trait_varangian_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'служила', 'служил' )] в византийской армии в составе варяжской гвардии."
@@ -912,7 +915,7 @@
  trait_adventurer_follower_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip|U] [Select_CString(ROOT.GetCharacter.IsFemale, 'провела','провел' )] какое-то время в лагере, который возглавлял [GetTrait('adventurer').GetName( GetNullCharacter )|l], и [Select_CString(ROOT.GetCharacter.IsFemale, 'была','был' )] частью свиты, когда тот получил земельный надел."
 
  trait_education_republican_knowledge: "Республиканские знания"
- #AGOT Modifed
+ #AGOT Modified
  #trait_education_republican_knowledge_1: "Горожанин"
  #trait_education_republican_knowledge_1_desc: "Этот персонаж посвящен в тайны управления городами."
  #trait_education_republican_knowledge_1_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] знает основы управления городами."
@@ -943,29 +946,32 @@
  trait_education_republican_knowledge_5_desc: "Правитель торговли не только преуспел, но и освоил сложный, запутанный мир финансов Вольных городов. Они почти неприкасаемы, их влияние распространяется на все королевства, на все страны, и все они приносят им богатство."
  trait_education_republican_knowledge_5_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] не только [Select_CString(ROOT.GetCharacter.IsFemale, 'преуспела, но и освоила', 'преуспел, но и освоил' )] сложный, запутанный мир финансов Вольных городов. Они почти неприкасаемы, их влияние распространяется на все королевства, на все страны, и все они приносят им богатство.."
 
- 	# Female version of Child of Concubine
+	# Female version of Child of Concubine
  trait_child_of_concubine: "Дитя наложницы"
  trait_child_of_concubine_desc: "Матерью персонажа была наложница."
  trait_child_of_concubine_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'рождена', 'рожден' )] от наложницы."
- 	# Male version of Child of Concubine
+	# Male version of Child of Concubine
  trait_child_of_male_concubine_desc: "Отцом персонажа был консорт."
  trait_child_of_male_concubine_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] происходит от консорта."
- 	#Witch
+	#Witch
  trait_witch: "Ведовство"
  trait_witch_desc: "По мнению многих, интересы этого персонажа лежат в сверхъестественных областях."
  trait_witch_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] интересуется тем, что многие назвали бы оккультизмом."
 
-#Revolting Leader Traits
+ #Revolting Leader Traits
  #Peasant Leaders
  trait_peasant_leader: "Крестьянский предводитель"
+ trait_peasant_leader_1: "Худородный храбрец"
+ trait_peasant_leader_2: "Народный защитник"
+ trait_peasant_leader_3: "Народный герой"
  trait_peasant_leader_desc: "Персонаж — крестьянин-выскочка, восставший против хозяев."
  trait_peasant_leader_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] — [Select_CString(ROOT.GetCharacter.IsFemale, 'крестьянка', 'крестьянин' )]-выскочка, [Select_CString(ROOT.GetCharacter.IsFemale, 'восставшая', 'восставший' )] против хозяев."
-  #Heretic Uprisings
+ #Heretic Uprisings
  trait_heresiarch: "Ересиарх"
  trait_heresiarch_desc: "Персонаж — местный лидер еретической секты."
  trait_heresiarch_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] — местный лидер еретической секты."
 
-#Commander Traits
+ #Commander Traits
  trait_logistician: "Логист"
  trait_logistician_1: "Опытный логист"
  trait_logistician_2: "Мастер-интендант"
@@ -1038,11 +1044,11 @@
  trait_track_jungle_stalker: "Специалист по джунглям"
  trait_track_jungle_stalker_desc: "#help Вы получаете опыт этого пути за сражения в джунглях.#!\n\nДля тех, кто познал глубины джунглей, их густые заросли служат укрытием и тенью, откуда никто не ждет удара."
 
- trait_reaver: "Налетчик"
+ trait_reaver: "Грабитель"
  trait_reaver_1: "Мародер"
  trait_reaver_2: "Разбойник"
  trait_reaver_3: "Кошмар"
- trait_reaver_desc: "Добыча налетчику едва ли не важнее победы: если где-то осталось что-то ценное, он непременно до него доберется."
+ trait_reaver_desc: "Добыча грабителю едва ли не важнее победы: если где-то осталось что-то ценное, он непременно до него доберется."
  trait_reaver_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] жаждет наживы столь же сильно, как и победы: где добыча, там и [ROOT.GetCharacter.GetSheHe]."
  trait_track_reaver: "Налетчик"
  trait_track_reaver_desc: "#help Вы получаете опыт этого пути за успешные налеты на поселения.#!\n\nНалетчик меняет мир, оставляя за собой пожарища и покоренные народы."
@@ -1261,7 +1267,7 @@
  trait_lunatic: "Помешательство"
  trait_possessed: "Одержимость"
 
-#Physical Groups
+ #Physical Groups
  trait_beauty_bad: "Невзрачные персонажи"
  trait_beauty_good: "Прелестные персонажи"
  trait_intellect_bad: "Тугодумы"
@@ -1270,7 +1276,7 @@
  trait_physique_good: "Развитые персонажи"
  trait_wounded: "Раненые"
 
-#Education Groups
+ #Education Groups
  trait_education_intrigue: "Основы интриг"
  trait_education_diplomacy: "Основы дипломатии"
  trait_education_stewardship: "Основы управления"
@@ -1280,7 +1286,7 @@
  # trait_education_martial_prowess: "Students of Knighthood"
  trait_education_martial_prowess: "Основы фехтования"
 
-#Tiered Traits
+ #Tiered Traits
  trait_lifestyle_reveler: "Гуляка"
  trait_lifestyle_blademaster: "Мастерство клинка"
  trait_lifestyle_hunter: "Охотник"
@@ -1288,12 +1294,13 @@
  trait_lifestyle_physician: "Врач"
  trait_lifestyle_herbalist: "Травник"
  trait_lifestyle_gardener: "Садовод"
+ trait_lifestyle_poet: "Поэт"
 
  # Fame Groups
  trait_kinslayer: "Братоубийцы"
  #trait_child_of_concubine: "trait_child_of_concubine"
 
-# Court Type Groups
+ # Court Type Groups
  trait_diplomatic_court: "Дипломатические придворные"
  trait_warlike_court: "Воинственные придворные"
  trait_administrative_court: "Административные придворные"
@@ -1330,6 +1337,8 @@
  trait_track_lifestyle_blademaster_desc: "Годы тренировок с оружием — путь к изящности, спасающей одни жизни и обрывающей другие."
  trait_track_lifestyle_physician: "Врач"
  trait_track_lifestyle_physician_desc: "Остановите кровоток там, вскройте вену здесь — добейтесь равновесия гуморов!"
+ trait_track_lifestyle_poet: "Стихосложение"
+ trait_track_lifestyle_poet_desc: "Словами можно заслужить вечную славу, ведь порой перо разит больнее самого острого клинка!"
 
  #EP3
  trait_governor: "Губернатор"
@@ -1415,7 +1424,6 @@
  trait_nomadic_philosophy_desc: "Этот персонаж с рождения закален суровыми условиями жизни в степи. Мягкотелым оседлым народам никогда не понять уклад кочевников — сильных и хитрых воспитанников степей.\n\n#weak $nomadic_philosophy_ender$#!"
  trait_nomadic_philosophy_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] с рождения [Select_CString(ROOT.GetCharacter.IsFemale, 'закалена', 'закален' )] суровыми условиями жизни в степи. Мягкотелым оседлым народам никогда не понять уклад кочевников — сильных и хитрых воспитанников степей.\n\n#weak $nomadic_philosophy_ender$#!"
  nomadic_philosophy_ender: "Я — против моего брата, я и мой брат — против нашего двоюродного брата, я, мой родной и двоюродный братья — против соседей, и все мы — против остального мира."
-
  trait_lifestyle_seasoned_pastor: "Опытный скотовод"
  trait_lifestyle_seasoned_pastor_desc: "Этот персонаж значительно поднаторел в деле животноводства и знает, как уберечь скот от голода на любом пастбище."
  trait_lifestyle_seasoned_pastor_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] значительно [Select_CString(ROOT.GetCharacter.IsFemale, 'поднаторела', 'поднаторел' )] в деле животноводства и знает, как уберечь скот от голода на любом пастбище."
@@ -1423,9 +1431,27 @@
  unlock_maa_steppe_raiders: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('steppe_raiders').GetName|l]"
  unlock_maa_heavy_horse_archers: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('heavy_horse_archers').GetName|l]"
  unlock_maa_nomad_lancers: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('nomad_lancers').GetName|l]"
+
  TRAIT_FLAG_DESC_gok_obedience_flag: "@obedience_icon![Concept('obedience', 'Покорность')|E] [Concept('subjects', 'субъектов')|E] серьезно увеличена"
 
  trait_golden_lineage: "Золотая династия"
  trait_golden_lineage_desc: "Человечество навсегда запомнит то, что сделал с нашим миром род этого персонажа. В венах его отпрысков течет огонь завоеваний."
  trait_golden_lineage_character_desc: "Человечество навсегда запомнит то, что сделал с нашим миром род, к которому принадлежит [ROOT.GetCharacter.GetFirstNameNoTooltip]. В венах его отпрысков течет огонь завоеваний."
  descendants_gain_golden_lineage: "Ваши потомки получат свойство «[GetTrait('golden_lineage').GetName( GetNullCharacter )]»"
+
+ #TGP
+ trait_track_confucian_education: "Конфуцианство"
+ trait_track_confucian_education_desc: "С помощью воздержанности и доброжелательности мы вместе строим лучшее общество.\n\n#weak Это [Concept('trait', 'свойство')|E] можно улучшать с помощью [Concept('character_interaction', 'взаимодействия')|E] «#V $request_mentoring_interaction$»#!, [Concept('court_position_tasks', 'поручений')|E] #V верховному наставнику#! или [Concept('court_positions', 'должностей')|E] #V придворного наставника#!"
+ trait_confucian_education_character_desc: "Этот персонаж только начал идти по пути к здравомыслию."
+ trait_confucian_education: "Конфуцианское образование"
+ trait_confucian_education_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] только [Select_CString(ROOT.GetCharacter.IsFemale, 'начала', 'начал')] идти по пути к здравомыслию."
+ trait_confucian_education_1: "Искренний конфуцианец"
+ trait_confucian_education_1_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.GetCharacter.IsFemale, 'узрела', 'узрел')] крупицу неисчислимой мудрости конфуцианского пути."
+ trait_confucian_education_2: "Прилежный классицист"
+ trait_confucian_education_2_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] в меру применяет учение Конфуция в своей повседневной жизни."
+ trait_confucian_education_3: "Добродетельный этик"
+ trait_confucian_education_3_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] многое понимает о том, что значит быть добродетельным конфуцианцем."
+ trait_confucian_education_4: "Нравственный идеал"
+ trait_confucian_education_4_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] может считаться настоящим воплощением пути."
+ trait_confucian_education_5: "Безупречный мудрец"
+ trait_confucian_education_5_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] считается практически [Select_CString(ROOT.GetCharacter.IsFemale, 'святой', 'святым' )] в конфуцианских кругах. Все прочие конфуцианцы слышали о [Select_CString(ROOT.GetCharacter.IsFemale, 'ее', 'его' )] нравственности и этичности."

@@ -5,6 +5,9 @@
  default_legitimacy_level_3: "[legitimacy|E] $LEVEL|V:roman$"
  default_legitimacy_level_4: "[legitimacy|E] $LEVEL|V:roman$"
  default_legitimacy_level_5: "[legitimacy|E] $LEVEL|V:roman$"
+ default_legitimacy_level_6: "[legitimacy|E] $LEVEL|V:roman$"
+ default_legitimacy_level_7: "[legitimacy|E] $LEVEL|V:roman$"
+ default_legitimacy_level_8: "[legitimacy|E] $LEVEL|V:roman$"
  default_legitimacy_level_0_flavor: "Нелегитимность"
  default_legitimacy_level_1_flavor: "Первые шаги"
  default_legitimacy_level_2_flavor: "Признание"
@@ -15,15 +18,24 @@
  default_legitimacy_level_4_flavor: "Законность"
  #default_legitimacy_level_5_flavor: "Истинность"
  default_legitimacy_level_5_flavor: "Истинность"
+ default_legitimacy_level_6_flavor: "Предназначение"
+ default_legitimacy_level_7_flavor: "Божественность"
+ default_legitimacy_level_8_flavor: "Вечность"
+ mandate_legitimacy_level_7_flavor: "Мандат"
 
  count_legitimacy_type_name: "[Concept( 'count', 'Графский' )|E] [Concept( 'rank', 'ранг' )|E]"
  duke_legitimacy_type_name: "[Concept( 'duke', 'Герцогский' )|E] [Concept( 'rank', 'ранг' )|E]"
  king_legitimacy_type_name: "[Concept( 'kingdom', 'Королевский' )|E] [Concept( 'rank', 'ранг' )|E]"
  emperor_legitimacy_type_name: "[Concept( 'emperor', 'Императорский' )|E] [Concept( 'rank', 'ранг' )|E]"
+ hegemon_legitimacy_type_name: "[Concept('hegemon', 'Гегемонского')|E] [Concept( 'rank', 'ранга' )|E]"
  nomadic_legitimacy_type_name: "#TOOLTIP:GOVERNMENT_TYPE,nomad_government #L Кочевой#!#!: [Concept('ruler', 'правитель')|E]"
+ mandate_legitimacy_type_name: "[Concept('mandate_of_heaven', 'Небесного мандата')|E]"
+ mandala_legitimacy_type_name: "[Concept('ruler', 'Правителя')|E] #TOOLTIP:GOVERNMENT_TYPE,mandala_government #L мандалы#!#!"
 
- LEGITIMACY_EFFECTS: "#S Эффекты:#!\n[LegitimacyLevel.GetModifierDesc]"
+ LEGITIMACY_CHANGED_EFFECTS: "\n[LegitimacyLevel.GetOnLevelEnteredDesc( Character.Self )]"
+ LEGITIMACY_EFFECTS: "$LEGITIMACY_CHANGED_EFFECTS$#S Эффекты:#!\n[LegitimacyLevel.GetModifierDesc]"
  LEGITIMACY_AVERAGE_EXPECTATIONS: "#S Средняя [Concept( 'expected_legitimacy', 'ожидаемая легитимность' )|E] [Select_CString(Character.IsLocalPlayer, '', 'персонажа ' )][Character.GetShortUINamePossessive][Select_CString(Character.IsLocalPlayer, 'его персонажа', '' )]:#!\n$BULLET$[powerful_vassals|E]: [LegitimacyType.GetFlavorName( Character.GetAveragePowerfulVassalLegitimacyExpectation )|V] #weak ([Character.GetAveragePowerfulVassalLegitimacyExpectation.GetIndex]/[Subtract_int32( GetDataModelSize( LegitimacyType.GetLevels ), '(int32)1' )])#!\n$BULLET$[vassals|E]: [LegitimacyType.GetFlavorName( Character.GetAverageVassalLegitimacyExpectation )|V] #weak ([Character.GetAverageVassalLegitimacyExpectation.GetIndex]/[Subtract_int32( GetDataModelSize( LegitimacyType.GetLevels ), '(int32)1' )])#!"
+ LEGITIMACY_AVERAGE_EXPECTATIONS_NO_POWERFUL_VASSALS: "#S Средний уровень [Concept( 'expected_legitimacy', 'ожидаемой легитимности' )|E] [Select_CString(Character.IsLocalPlayer, '', 'персонажа ' )][Character.GetShortUINamePossessive][Select_CString(Character.IsLocalPlayer, 'его персонажа', '' )]:#!\n$BULLET$Среди [Concept('vassals', 'вассалов')|E]: [LegitimacyType.GetFlavorName( Character.GetAverageVassalLegitimacyExpectation )|V] #weak ([Character.GetAverageVassalLegitimacyExpectation.GetIndex]/[Subtract_int32( GetDataModelSize( LegitimacyType.GetLevels ), '(int32)1' )])#!"
  LEGITIMACY_BELOW_AVERAGE_EXPECTATIONS: "@warning_icon! #X  Ниже ожидаемой легитимности для всех вассалов#!"
  VASSAL_BELOW_EXPECTED_LEGITIMACY_TT: "\n@warning_icon! #X [Concept( 'legitimacy_levels', 'Уровень легитимности' )|E] ниже ожидаемого: [Subtract_int32( Character.GetLegitimacyExpectationsOfLiege, GetPlayer.GetLegitimacyLevel.GetIndex )|V]#!"
  VASSAL_EXPECTED_LEGITIMACY_TT: "#T [Concept( 'expected_legitimacy', 'Ожидаемая легитимность' )|E]: [Character.GetLegitimacyExpectationsOfLiege]#![AddLocalizationIf( GreaterThan_int32( Character.GetLegitimacyExpectationsOfLiege, GetPlayer.GetLegitimacyLevel.GetIndex ), 'VASSAL_BELOW_EXPECTED_LEGITIMACY_TT' )]"
@@ -37,3 +49,7 @@
 
  legitimacy_high_modifier_tt: "Высокая [Concept( 'legitimacy', 'легитимность' )|E]"
  legitimacy_low_modifier_tt: "Низкая [Concept( 'legitimacy', 'легитимность' )|E]"
+
+ legitimacy_on_level_entered: "#S При изменении уровня:#!\n"
+ #AGOT Disabled
+ # legitimacy_on_entered_lost_mandate: "$legitimacy_on_level_entered$@warning_icon! #X Activates "$catalyst_hegemon_lost_mandate_of_heaven$", which will move the [dynastic_cycle|E] into [GetSituationType('dynastic_cycle').GetPhaseType('situation_dynastic_cycle_phase_chaos').GetName] [situation_dynastic_cycle_phase|E]#!"

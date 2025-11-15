@@ -120,6 +120,8 @@
  setting_full_gender_equality_desc: "Все доктрины и законы, касающиеся отношений полов, диктуют равноправие. Персонажи имеют одинаковые права и подчиняются одинаковым правилам — вне зависимости от пола."
  setting_inversed_gender_equality: "#high Все наоборот#!"
  setting_inversed_gender_equality_desc: "Все доктрины и законы, касающиеся отношений полов, действуют зеркально. Правила и права, которыми обладали мужчины в режиме «по умолчанию», переходят женщинам, и наоборот."
+ setting_lenient_gender_equality: "#high Снисходительность#!"
+ setting_lenient_gender_equality_desc: "Законы державы и титула, выставленные на «Только мужчина» изменятся на «Предпочтительно мужчина»."
 
  rule_sexuality_distribution: "Распределение сексуальной ориентации"
  setting_sexuality_distribution_default: "Гетеросексуальность"
@@ -392,8 +394,8 @@
  setting_default_name_of_byzantium_desc: "Название Византийской империи останется неизменным."
  setting_eastern_rome_name_of_byzantium: "#high $e_eastern_roman_empire$#!"
  setting_eastern_rome_name_of_byzantium_desc: "Название Византийской империи изменится. Теперь это будет $e_eastern_roman_empire$."
- setting_roman_empire_name_of_byzantium: "#high $e_roman_empire$#!"
- setting_roman_empire_name_of_byzantium_desc: "Название Византийской империи изменится. Теперь это будет $e_roman_empire$."
+ setting_roman_empire_name_of_byzantium: "#high $h_roman_empire$#!"
+ setting_roman_empire_name_of_byzantium_desc: "Название Византийской империи изменится. Теперь это будет $h_roman_empire$."
  setting_romania_name_of_byzantium: "#high $e_romania_empire$#!"
  setting_romania_name_of_byzantium_desc: "Название Византийской империи изменится. Теперь это будет $e_romania_empire$."
  setting_empire_of_the_greeks_name_of_byzantium: "#high $e_empire_of_the_greeks$#!"
@@ -833,7 +835,7 @@
  game_rule.1102.b: "#DIE1 Мне…#! #DIE2 конец…#!"
 
  game_rule.1103.desc.outro.present: "$game_rule.1101.desc.outro.present$"
- game_rule.1103.desc.outro.absent: "$game_rule.1101.desc.outro.dead$"
+ game_rule.1103.desc.outro.absent: "$game_rule.1101.desc.outro.absent$"
  game_rule.1103.a: "Проклятый бастард побежден!"
 
  game_rule.1104.desc.outro.alive: "$game_rule.1102.desc.outro.alive$"
@@ -851,7 +853,7 @@
  game_rule.1112.b: "#DIE1 Тостиг…#! Будь ты #DIE2 проклят…#!"
 
  game_rule.1113.desc.outro.present: "$game_rule.1101.desc.outro.present$"
- game_rule.1113.desc.outro.absent: "$game_rule.1101.desc.outro.dead$"
+ game_rule.1113.desc.outro.absent: "$game_rule.1101.desc.outro.absent$"
  game_rule.1113.a: "[Select_CString(loser.IsFemale, 'Она не была истинной дочерью', 'Он не был истинным сыном' )] Севера!"
 
  game_rule.1114.desc.outro.alive: "$game_rule.1102.desc.outro.alive$"
@@ -869,7 +871,7 @@
  game_rule.1122.b: "В нас летят стрелы! Поднять щиты! Поднять…"
 
  game_rule.1123.desc.outro.present: "$game_rule.1101.desc.outro.present$"
- game_rule.1123.desc.outro.absent: "$game_rule.1101.desc.outro.dead$"
+ game_rule.1123.desc.outro.absent: "$game_rule.1101.desc.outro.absent$"
  game_rule.1123.a: "Убирайтесь в свои снега, северные собаки!"
 
  game_rule.1124.desc.outro.alive: "$game_rule.1102.desc.outro.alive$"
@@ -976,6 +978,7 @@
  setting_situation_the_great_steppe_toggle_on_desc: "#TOOLTIP:GOVERNMENT_TYPE,nomad_government #L Кочевые#!#! правители Великой степи будут вовлечены в [Concept('situation', 'ситуацию')|E], на которую влияют [Concept('steppe_seasons', 'степные сезоны')|E], и станут бороться за титул [Concept('gurkhan', 'гурхана')|E]."
  setting_situation_the_great_steppe_toggle_off: "#high Выключено#!"
  setting_situation_the_great_steppe_toggle_off_desc: "На старте игры [Concept('situation', 'ситуация')|E] «[Concept('the_great_steppe', 'Великая степь')|E]» не будет действовать. Игра в Степи проходит по тем же правилам, что и на остальной карте."
+
  rule_sami_nomad_region: "Дополнительный кочевой регион: Сапми и Карелия"
  setting_sami_nomad_region_off: "По умолчанию"
  setting_sami_nomad_region_off_desc: "Регион Сапми остается без изменений."
@@ -1040,14 +1043,15 @@
  game_rule_extra_nomads_sami_situation_steppe_warm_nights_season_situation_phase: "$situation_steppe_warm_nights_season$"
  game_rule_extra_nomads_sami_situation_steppe_sky_blessing_season_situation_phase: "$situation_steppe_sky_blessing_season$"
  game_rule_extra_nomads_sami_situation_steppe_havsarsan_zud_season_situation_phase: "$situation_steppe_havsarsan_zud_season$"
+
  rule_arabia_nomad_region: "Дополнительный кочевой регион: Аравия"
  setting_arabia_nomad_region_off: "По умолчанию"
  setting_arabia_nomad_region_off_desc: "Регион Аравия остается без изменений."
  setting_arabia_nomad_region_on: "#high Кочевой#!"
  setting_arabia_nomad_region_on_desc: "В регионе Аравия действуют кочевые механики, разработанные для степных кочевников. Это правило распространяется только на владельцев расширения #V $DLC020_CE2$#!."
+
  situation_game_rule_extra_nomads_arabs: "Аль-Бадия"
  situation_game_rule_extra_nomads_arabs_desc: "[SITUATION.GetType.GetDesc]"
-
  situation_type_game_rule_extra_nomads_arabs: "Аль-Бадия"
  situation_type_game_rule_extra_nomads_arabs_desc: "Широкие просторы, где обычно странствуют бедуины."
  game_rule_extra_nomads_arabs_sub_region_arabia_nomads: "Аравийская пустыня"
@@ -1071,11 +1075,13 @@
  game_rule_extra_nomads_arabs_situation_steppe_warm_nights_season_situation_phase: "$situation_steppe_warm_nights_season$"
  game_rule_extra_nomads_arabs_situation_steppe_sky_blessing_season_situation_phase: "$situation_steppe_sky_blessing_season$"
  game_rule_extra_nomads_arabs_situation_steppe_havsarsan_zud_season_situation_phase: "$situation_steppe_havsarsan_zud_season$"
+ 
  rule_sahel_nomad_region: "Дополнительный кочевой регион: Сахель"
  setting_sahel_nomad_region_off: "По умолчанию"
  setting_sahel_nomad_region_off_desc: "Регион Сахель остается без изменений."
  setting_sahel_nomad_region_on: "#high Кочевой#!"
  setting_sahel_nomad_region_on_desc: "В регионе Сахель действуют кочевые механики, разработанные для степных кочевников. Это правило распространяется только на владельцев расширения #V $DLC020_CE2$#!."
+ 
  situation_game_rule_extra_nomads_sahel: "Тенере"
  situation_game_rule_extra_nomads_sahel_desc: "[SITUATION.GetType.GetDesc]"
  situation_type_game_rule_extra_nomads_sahel: "Тенере"
@@ -1102,11 +1108,13 @@
  game_rule_extra_nomads_sahel_situation_steppe_warm_nights_season_situation_phase: "$situation_steppe_warm_nights_season$"
  game_rule_extra_nomads_sahel_situation_steppe_sky_blessing_season_situation_phase: "$situation_steppe_sky_blessing_season$"
  game_rule_extra_nomads_sahel_situation_steppe_havsarsan_zud_season_situation_phase: "$situation_steppe_havsarsan_zud_season$"
+
  rule_horn_of_africa_nomad_region: "Дополнительный кочевой регион: Африканский Рог"
  setting_horn_of_africa_nomad_region_off: "По умолчанию"
  setting_horn_of_africa_nomad_region_off_desc: "Регион Африканский Рог остается без изменений."
  setting_horn_of_africa_nomad_region_on: "#high Кочевой#!"
  setting_horn_of_africa_nomad_region_on_desc: "В регионе Африканский Рог действуют кочевые механики, разработанные для степных кочевников. Это правило распространяется только на владельцев расширения #V $DLC020_CE2$#!."
+
  situation_game_rule_extra_nomads_horn: "Билад ас-Сумаль"
  situation_game_rule_extra_nomads_horn_desc: "[SITUATION.GetType.GetDesc]"
  situation_type_game_rule_extra_nomads_horn: "Билад ас-Сумаль"
@@ -1132,6 +1140,7 @@
  game_rule_extra_nomads_horn_situation_steppe_warm_nights_season_situation_phase: "$situation_steppe_warm_nights_season$"
  game_rule_extra_nomads_horn_situation_steppe_sky_blessing_season_situation_phase: "$situation_steppe_sky_blessing_season$"
  game_rule_extra_nomads_horn_situation_steppe_havsarsan_zud_season_situation_phase: "$situation_steppe_havsarsan_zud_season$"
+
  _sub_region_ERROR_FLAG_INDEX: "место вне [Concept('situation', 'ситуации')|E]"
 
  rule_coronation_laws: "Законы коронации"
@@ -1141,3 +1150,9 @@
  setting_coronation_laws_off: "#high Нет законов коронации#!"
  setting_coronation_laws_on_desc: "[Concept('law', 'Закон')|E] «[GetLaw('uncrowned').GetName]» подорвет [Concept('legitimacy', 'легитимность')|E] и [Concept('opinion', 'мнение')|E] для [Concept('kings', 'королей')|E] и [Concept('emperors', 'императоров')|E], пока они не проведут [Concept('coronation', 'коронацию')|E]."
  setting_coronation_laws_off_desc: "[Concept('title_tier', 'Высокоранговые')|E] [Concept('rulers', 'правители')|E] не имеют [Concept('law', 'закона')|E] «[GetLaw('uncrowned').GetName]» и не обязаны проводить [Concept('coronations', 'коронации')|E]. ИИ будет реже проводить [Concept('coronations', 'коронации')|E]. Это упрощает игру."
+
+ rule_silk_road_starting_innovations: "Стартовые [silk_road_innovations|El]"
+ setting_silk_road_starting_innovations_preset: "Шаблон"
+ setting_silk_road_starting_innovations_preset_desc: "Стартовые [silk_road_innovations|El] будут выбираться из одного шаблона во всех стартовых датах."
+ setting_silk_road_starting_innovations_random: "Случайно"
+ setting_silk_road_starting_innovations_random_desc: "Стартовые [silk_road_innovations|El] будут выбираться случайным образом из числа возможных для [Concept('era', 'эпохи')|E]."

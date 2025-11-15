@@ -1,7 +1,7 @@
 ﻿l_russian:
  FP2_BORDER_RAID_CB_NAME:0 "[border_raid|E] на землю [DEFENDER.GetPrimaryTitle.GetNameNoTier]"
  FP2_BORDER_RAID_CB_SPECIFIC_NAME:0 "[border_raid|E] державы [TITLE.GetBaseNameNoTier]"
- FP2_BORDER_RAID_WAR_NAME:0 "$ORDER$ #L [ATTACKER.GetPrimaryTitle.GetAdjective]ая#! [border_raid|El] на землю [TITLE.GetBaseNameNoTier]"
+ FP2_BORDER_RAID_WAR_NAME: "[ConcatIfNeitherEmpty('$ORDER|q$', ' ')] #L [ATTACKER.GetPrimaryTitle.GetAdjective]ая#! [border_raid|El] против державы [TITLE.GetBaseNameNoTier]"
  FP2_BORDER_RAID_WAR_NAME_BASE:0 "#L [ATTACKER.GetPrimaryTitle.GetAdjective]ий#! домен [DEFENDER.GetPrimaryTitle.GetName]"
  fp2_border_raid:0 "[border_raid|E]"
 
@@ -23,8 +23,8 @@
  #FP2_EXPEL_INTERLOPER_CB_SPECIFIC_NAME:0 "[iberian_reclamation|E] of [TITLE.GetBaseNameNoTier]"
  FP2_EXPEL_INTERLOPER_CB_SPECIFIC_NAME:0 "[btw_reclamation|E] державы [TITLE.GetBaseNameNoTier]"
  #AGOT Modified
- #FP2_EXPEL_INTERLOPER_WAR_NAME:0 "$ORDER$ [ATTACKER.GetPrimaryTitle.GetAdjectiveNoTooltip] [iberian_reclamation|E] of [TITLE.GetBaseNameNoTier]"
- FP2_EXPEL_INTERLOPER_WAR_NAME:0 "$ORDER$ [ATTACKER.GetPrimaryTitle.GetAdjectiveNoTooltip]ое [btw_reclamation|El] державы [TITLE.GetBaseNameNoTier]"
+ #FP2_EXPEL_INTERLOPER_WAR_NAME: "[ConcatIfNeitherEmpty('$ORDER|q$', ' ')] #L [ATTACKER.GetPrimaryTitle.GetAdjectiveNoTooltip]ая#! [iberian_reclamation|El] державы [TITLE.GetBaseNameNoTier]"
+ FP2_EXPEL_INTERLOPER_WAR_NAME:0 "[ConcatIfNeitherEmpty('$ORDER|q$', ' ')][ATTACKER.GetPrimaryTitle.GetAdjectiveNoTooltip]ое [btw_reclamation|El] державы [TITLE.GetBaseNameNoTier]"
  FP2_EXPEL_INTERLOPER_WAR_NAME_BASE:0 "#L [ATTACKER.GetPrimaryTitle.GetAdjective]ий#! домен [DEFENDER.GetPrimaryTitle.GetName]"
 
  iberian_reclamation_cb_victory_desc_attacker_vassalize:0 "Вы делаете вассалом персонажа [defender.GetShortUIName|U]"
@@ -42,6 +42,5 @@
  iberian_reclamation_cb_white_peace_desc_conquer:0 "[defender.GetShortUIName|U] сохранит оспариваемые [titles|El]"
  iberian_reclamation_cb_defeat_desc_vassalize:0 "$iberian_reclamation_cb_white_peace_desc_vassalize$"
  iberian_reclamation_cb_defeat_desc_conquer:0 "$iberian_reclamation_cb_white_peace_desc_conquer$"
- iberian_reclamation_cb_defeat_desc:0 "$iberian_reclamation_cb_white_peace_desc$"
 
  CB_COST_IBERIAN_RECLAMATION:0 "Стоит [SCOPE.ScriptValue('fp2_expel_interloper_county_cost_value')] [Concept( 'prestige', 'престижа' )|E] за [county|El]"

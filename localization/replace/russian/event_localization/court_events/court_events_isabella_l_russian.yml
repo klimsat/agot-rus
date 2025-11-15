@@ -16,31 +16,15 @@
 ##### All-male-choirs by Isabella Welch
 
  court.4100.t:0 "Оруженосец персонажа [GetPlayer.Custom( 'KnightCulturePluralNoTooltip' )]"
- court.4100.desc:0 "Ко мне приближается придворный музыкант, пританцовывая в ритм мелодии, которую слышит только [court_musician.GetSheHe].\n\n«Прошу лишь толику вашего внимания, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )]. Мне удалось собрать мужской хор, равных которому не было и нет! А заодно разработать новую методику исполнения: они не только поют, но одеваются в трико, носят изысканные гульфики на блестящих чреслах и синхронно танцуют! Конечно же, в процессе постоянно воспевается [ROOT.GetCharacter.GetFaith.HighGodName]. Без сомнения, если вы поддержите большой концерт финансово, придворные дамы будут очень признательны»."
+ court.4100.desc: "Ко мне приближается придворный музыкант, пританцовывая в ритм мелодии, которую слышит только [court_musician.GetSheHe].\n\n«Прошу лишь толику вашего внимания, [ROOT.Char.Custom('FormOfAddressForLiege')]. Мне удалось собрать мужской хор, равных которому не было и нет! А заодно разработать новую методику исполнения: они не только поют, но одеваются в трико, носят изысканные гульфики на блестящих чреслах и синхронно танцуют! Конечно же, в процессе постоянно воспевается [ROOT.GetCharacter.GetFaith.HighGodName]. Без сомнения, если вы поддержите большой концерт финансово, придворные дамы будут очень признательны»."
  court.4100.a:0 "Меня сейчас стошнит! Бросьте [Select_CString(court_musician.IsFemale, 'эту извращенку', 'этого извращенца' )] в темницу!"
  court.4100.b:0 "Пожалуй, дамы не вынесут их вид в трико."
  court.4100.c:0 "Можешь на меня рассчитывать, на такое зрелище денег не жалко!"
 
-##### Sneaky passages by Isabella Welch ######
-
- court.4200.t: "Тайные ходы для убийств"
- court.4200.desc: "[spymaster.Custom2('MyCharacterIntroduction', ROOT.Char)|U] недавно [Select_CString(spymaster.IsFemale, 'представила', 'представил' )] при дворе [Select_CString(secret_passagecrafter.IsFemale, 'подозрительную женщину, столь бледную', 'подозрительного мужчину, столь бледного' )], словно всю жизнь [Select_CString(secret_passagecrafter.IsFemale, 'провела', 'провел' )] в сомнительных и мрачных углах владения [capital.GetName]."
- court.4200.desc_middle:0 "\n\n«До меня дошли слухи, что вы подумываете о тайном ходе. Я построю любой нечестивый коридор, какой только может представить себе ваш извращенный разум."
- court.4200.desc_oubliette:0 "$court.4200.desc_middle$ Если хотите, я построю вам личную темницу прямо в спальне, чтобы возлюбленные могли заключать вас туда в приступах страсти!»"
- court.4200.desc_gluttony:0 "$court.4200.desc_middle$ Я даже могу смастерить небольшой лифт от ваших покоев до кухни для тайного поедания пирожных под покровом ночи!»"
- court.4200.desc_fallback:0 "$court.4200.desc_middle$»"
- court.4200.a:0 "Я вхожу и выхожу из комнат только через дверь, девка!"
- court.4200.b:0 "Проделай, пожалуйста, несколько дырок для подглядывания там, где собираются мои придворные!"
- court.4200.c:0 "Я — [ROOT.Char.GetWomanMan] [Select_CString(ROOT.Char.IsFemale, 'простая', 'простой' )], с меня хватит и обычного тайного хода, если вдруг потребуется сбежать."
- court.4200.d:0 "Подъемник для пирожных? Гениально, мадам!"
- court.4200.e:0 "Признаюсь, я #EMP не прочь#! оказаться голышом в каменном мешке."
- court.4200.f:0 "Тайная пыточная, где мне все сойдет с рук."
- court.4200.g:0 "Мне #EMP всегда#! хотелось иметь комнату, где можно спокойно предаваться панике!"
-
 ##### My Spire is Bigger than Yours! by Isabella Welch #####
 
  court.4250.t:0 "У меня выше!"
- court.4250.desc:1 "«Эй, [ROOT.Char.GetCapitalLocation.GetTitle.GetNameNoTierNoTooltip], не надоели тебе придворные нытики?!» — [tower_challenger_rival.GetTitledFirstName] врывается в мой тронный зал.\n\n«Пока [ROOT.Char.GetTitledFirstNameNoTooltip] возится на земле, как свинья в грязи, [tower_challenger_rival.GetCapitalLocation.GetTitle.GetNameNoTier] с гордостью демонстрирует башню, выше которой еще не было на этой грешной земле, и [Select_CString(tower_challenger_rival.IsFemale, 'возвела', 'возвел' )] ее я! [tower_challenger_rival.Custom('FortifiedBuilding')] уходит так высоко, что я могу спокойно доставать планеты с неба. А где твои звезды, [ROOT.Char.GetTitledFirstNameNoTooltip]?»\n\n[Select_CString(concerned_steward.IsFemale, 'Моя', 'Мой' )] [concerned_steward.GetCouncilTitle|l] [concerned_steward.GetTitledFirstName] предостерегающе кладет руку мне на плечо. «[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], башня, которую [Select_CString(tower_challenger_rival.IsFemale, 'построила', 'построил' )] [tower_challenger_rival.GetTitledFirstNameNoTooltip], — это четыре сотни футов непрочной мешанины из глины и замазки. Не обращайте внимания на [tower_challenger_rival.GetHerHis] бахвальство и подождите, пока она сама не развалится!»"
+ court.4250.desc: "«Эй, [ROOT.Char.GetCapitalLocation.GetTitle.GetNameNoTierNoTooltip], не надоели тебе придворные нытики?!» — [tower_challenger_rival.GetTitledFirstName] врывается в мой тронный зал.\n\n«Пока [ROOT.Char.GetTitledFirstNameNoTooltip] возится на земле, как свинья в грязи, [tower_challenger_rival.GetCapitalLocation.GetTitle.GetNameNoTier] с гордостью демонстрирует башню, выше которой еще не было на этой грешной земле, и [Select_CString(tower_challenger_rival.IsFemale, 'возвела', 'возвел' )] ее я! [tower_challenger_rival.Custom('FortifiedBuilding')] уходит так высоко, что я могу спокойно доставать планеты с неба. А где твои звезды, [ROOT.Char.GetTitledFirstNameNoTooltip]?»\n\n[Select_CString(concerned_steward.IsFemale, 'Моя', 'Мой' )] [concerned_steward.GetCouncilTitle|l] [concerned_steward.GetTitledFirstName] предостерегающе кладет руку мне на плечо. «[ROOT.Char.Custom('FormOfAddressForLiege')|U], башня, которую [Select_CString(tower_challenger_rival.IsFemale, 'построила', 'построил' )] [tower_challenger_rival.GetTitledFirstNameNoTooltip], — это четыре сотни футов непрочной мешанины из глины и замазки. Не обращайте внимания на [tower_challenger_rival.GetHerHis] бахвальство и подождите, пока она сама не развалится!»"
  court.4250.a:0 "Засунь свою небесную иголку в свою высокомерную задницу!"
  court.4250.b:0 "Мы построим свою башню, на фут выше твоей!"
  court.4250.c:0 "Я требую построить башню на #EMP сотню футов#! выше!"
@@ -90,7 +74,7 @@
 ## Our Nobles are attacking Islamic Caravans by Isabella Welch
 
  court.4355.t:0 "Кто смеет сражаться с сарацинами?"
- court.4355.desc:0 "«Мой сюзерен», — зовет [reporting_marshal.GetCouncilTitle], — «[caravan_attacker.GetTitledFirstName] хвастается, что [caravan_attacker.GetSheHe] и шайка дворян, как простые разбойники, нападают на караваны с сахаром, которым торгует [attacked_liege.GetCapitalLocation.GetTitle.GetNameNoTier]. Эти собаки мечтают о священной войне и надеются, что [attacked_liege.GetTitledFirstName] поведется на их провокацию. Я же считаю, что торговля нам важнее любой битвы...»\n\n«К чему нам еда, когда можно напиться крови неверных!» — кричит [caravan_attacker.GetTitledFirstNameNoTooltip] с противоположной стороны тронного зала."
+ court.4355.desc: "«[ROOT.Char.Custom('FormOfAddressForLiege')|U]», — зовет [reporting_marshal.GetCouncilTitle], — «[caravan_attacker.GetTitledFirstName] хвастается, что [caravan_attacker.GetSheHe] и шайка дворян, как простые разбойники, нападают на караваны с сахаром, которым торгует [attacked_liege.GetCapitalLocation.GetTitle.GetNameNoTier]. Эти собаки мечтают о священной войне и надеются, что [attacked_liege.GetTitledFirstName] поведется на их провокацию. Я же считаю, что торговля нам важнее любой битвы...»\n\n«К чему нам еда, когда можно напиться крови неверных!» — кричит [caravan_attacker.GetTitledFirstNameNoTooltip] с противоположной стороны тронного зала."
  court.4355.a:0 "Молодцы! Грабить неверных — дело святое!"
  court.4355.a.tt:0 "Вы поддерживаете продолжение налетов на торговцев"
  court.4355.b:0 "Стража! Бейте [caravan_attacker.GetHerHis] сахарницей, пока не раскается."

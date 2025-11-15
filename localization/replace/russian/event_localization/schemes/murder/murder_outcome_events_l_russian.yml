@@ -93,10 +93,10 @@
  murder_outcome.1401.b: "Нет, так нельзя."
 
  murder_outcome.2000.t: "Поворот судьбы"
- murder_outcome.2000.desc: "[target.GetTitledFirstNamePossessive] скоро отправится в мир иной, но внезапно паж отвлекает меня от подготовки этого трагического события не менее трагическим известием: [owner.Custom('InsultNoun')] возьми и умри без моей помощи!"
+ murder_outcome.2000.desc: "[target.GetTitledFirstNamePossessive] скоро отправится в мир иной, но внезапно паж отвлекает меня от подготовки этого трагического события не менее трагическим известием: [owner.Custom2('InsultNoun', ROOT.Char)] возьми и умри без моей помощи!"
  murder_outcome.2000.a: "[ROOT.Char.GetFaith.DevilName|U], должно быть, очень жаждет [target.GetHerHis] общества!"
  murder_outcome.2000.a.tt: "[target.GetTitledFirstName] [target.GetDeathReason]"
- murder_outcome.2500.desc: "Я продолжаю готовить всё для того, чтобы [target.GetTitledFirstName] и [ROOT.Char.GetFaith.DevilName|U] наконец встретились лично, когда меня прерывает слуга. Оказывается, [owner.Custom('InsultNoun')] [Select_CString(target.IsFemale, 'уехала', 'уехал' )] в дальние земли, и мне до [Select_CString(target.IsFemale, 'неё', 'него' )] уже не добраться! "
+ murder_outcome.2500.desc: "Я продолжаю готовить всё для того, чтобы [target.GetTitledFirstName] и [ROOT.Char.GetFaith.DevilName|U] наконец встретились лично, когда меня прерывает слуга. Оказывается, [owner.Custom2('InsultNoun', ROOT.Char)] [Select_CString(target.IsFemale, 'уехала', 'уехал' )] в дальние земли, и мне до [Select_CString(target.IsFemale, 'неё', 'него' )] уже не добраться! "
  murder_outcome.2500.a: "Вы сбежали от меня, но от смерти вам не уйти!"
 
  murder_outcome.2001.t: "Убийца!"
@@ -274,8 +274,8 @@
  murder_outcome.4005.a.discovered: "Доверься толпе — и все выйдет наперекосяк."
 
  murder_outcome.4006.desc: "[target.GetTitledFirstName] добровольно [Select_CString(target.IsFemale, 'пошла', 'пошел' )] за мной в подвал, [Select_CString(target.IsFemale, 'опьяненная', 'опьяненный' )] весельем и вином. После множества бокалов «хорошего» вина [target.GetSheHe] [Select_CString(target.IsFemale, 'отключилась', 'отключился' )] и даже не [Select_CString(target.IsFemale, 'шелохнулась', 'шелохнулся' )], но прежде, чем выход был заложен, меня обнаружили слуги.\n\n"
- murder_outcome.4006.scheme_owner_known: "«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )]! И [target.GetTitledFirstNameNoTooltip]? И незавершенная стена, отрезающая [target.GetHerHis] от... О нет»."
- murder_outcome.4006.scheme_unkown: "«Похоже, [target.GetTitledFirstNameNoTooltip] [Select_CString(target.IsFemale, 'уснула', 'уснул' )] во время строительства. Вы хотите, чтобы мы отвели [target.GetHerHis] в опочивальню, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )]?»"
+ murder_outcome.4006.scheme_owner_known: "«[ROOT.Char.Custom('FormOfAddressForLiege')|U]! И [target.GetTitledFirstNameNoTooltip]? И незавершенная стена, отрезающая [target.GetHerHis] от... О нет»."
+ murder_outcome.4006.scheme_unkown: "«Похоже, [target.GetTitledFirstNameNoTooltip] [Select_CString(target.IsFemale, 'уснула', 'уснул' )] во время строительства. Вы хотите, чтобы мы отвели [target.GetHerHis] в опочивальню, [ROOT.Char.Custom('FormOfAddressForLiege')]?»"
  murder_outcome.4006.a.discovered: "Я... тут... просто хочу кое-что обновить!"
  murder_outcome.4006.a: "... Да, спасибо за помощь."
 
@@ -292,7 +292,7 @@
  murder_outcome.4008.a: "В следующий раз [target.GetHerHis] слуги не станут ввязываться!"
 
  murder_outcome.4201.t: "Путь домой"
- murder_outcome.4201.opening: "\n\n[assassin.GetTitledFirstName] [Select_CString(assassin.IsFemale, 'оставила', 'оставил' )] [Select_CString(target.IsFemale, 'ее', 'его' )] в диких местах на волю судьбы.\n\nОднако вернувшись ко двору с печальной историей о потерявшемся ребенке, [Select_CString(assassin.IsFemale, 'обнаружила', 'обнаружил' )], что [target.GetFirstName] уже в главном зале и просит поиграть еще!"
+ murder_outcome.4201.opening: "\n\n[assassin.GetTitledFirstName] [Select_CString(assassin.IsFemale, 'оставила', 'оставил' )] [Select_CString(target.IsFemale, 'ее', 'его' )] в диких местах на волю судьбы.\n\nОднако вернувшись ко двору с печальной историей о потерявшемся ребенке, [Select_CString(assassin.IsFemale, 'обнаружила', 'обнаружил' )], что [target.GetFirstName] уже в зале и просит поиграть еще!"
  murder_outcome.4201.scheme_owner_known: "После допроса с пристрастием [assassin.GetFirstNameNoTooltip] [Select_CString(assassin.IsFemale, 'рассказала', 'рассказал' )] все о моих планах!"
  murder_outcome.4201.scheme_unknown: "Достаточно и того, что [assassin.GetFirstNameNoTooltip] теперь под постоянным присмотром."
  murder_outcome.4201.a.discovered: "Ну... Это было покушение на убийство или попытка проявить #EMP милосердие#!?"
@@ -397,7 +397,7 @@
  #AGOT Modified
  #murder_outcome.5002.sunken_boat: "I'm out on a boat in a harbor in [province.GetNameNoTier] when suddenly a flaming arrow soars across the sky towards us!\n\nIt misses the boat by a hair's breadth, and as I lean down to see it fizzle out in the cold ocean water I catch a distinct smell coming from the wood of the boat: Greek fire! This was an attempt on my life."
  murder_outcome.5002.sunken_boat: "Я сижу в лодке, в гавани. За бортом виднеется [province.GetNameNoTier]. Внезапно небо прорезает огненная стрела и устремляется прямо к нам!\n\nОна пролетает на волосок от лодки, я наклоняюсь вслед за ней и чувствую легкий, но ни с чем не сравнимый запах: #WF дикий огонь!#! Это было покушение на меня."
- murder_outcome.5002.poisoned_drink: "Во время ужина в зал врывается слуга и внезапно выбивает у меня из рук кубок, который из которого я #EMP как раз#! [Select_CString(ROOT.Char.IsFemale, 'собиралась', 'собирался' )] сделать глоток!\n\n«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], там яд! Наша посудомойка... Простите ее, она осмелилась отхлебнуть, и вот... умерла!»"
+ murder_outcome.5002.poisoned_drink: "Во время ужина в зал врывается слуга и внезапно выбивает у меня из рук кубок, который из которого я #EMP как раз#! [Select_CString(ROOT.Char.IsFemale, 'собиралась', 'собирался' )] сделать глоток!\n\n«[ROOT.Char.Custom('FormOfAddressForLiege')|U], там яд! Наша посудомойка... Простите ее, она осмелилась отхлебнуть, и вот... умерла!»"
  murder_outcome.5002.lured_into_forest: "[assassin.GetFirstName] [Select_CString(assassin.IsFemale, 'завлекла', 'завлек' )] меня в лес — якобы для игр, но потом [Select_CString(assassin.IsFemale, 'спряталась', 'спрятался' )] и [Select_CString(assassin.IsFemale, 'пропала', 'пропал' )]!\n\nРыдая и продираясь сквозь ветви, я внезапно выбираюсь из леса и нахожу дорогу домой."
  murder_outcome.5002.stab_infant: "Мелькает свет. Знакомые лица, незнакомые лица. Звуки, которые уже были, и звуки, которых еще не было. Острое, холодное, в ухе больно. Начинаю плакать.\n\nЖенщина. Большая, взрослая. Всхлипывает. Голоса, кричат, двигаются. Потом все уходят."
  murder_outcome.5002.infant_creepy_crawly: "Мягкая простынка и теплое одеялко. Я почти засыпаю, когда ощущаю что-то странное: что-то движется по моему телу. Внезапная боль вспыхивает в моей руке, и я начинаю плакать.\n\nЯ слышу, что рядом кто-то есть, а затем вдруг раздается целый хор голосов и звучит сигнал тревоги. Голоса утихают, как и боль в моей руке, и я вскоре проваливаюсь в сон."
@@ -409,7 +409,7 @@
  murder_outcome.5002.beat_to_death_in_dungeon: "Открывается дверь моей камеры, и на мгновение мне кажется, что долгожданная свобода близка. Но люди, закутанные в плащи, сразу же разбивают вдребезги все мои надежды, начав безжалостно меня избивать.\n\nКак ни горько это признавать, но лишь случайное — хотя и своевременное — появление стражи спасло мне жизнь."
  murder_outcome.5002.unwelcome_guest_house_arrest: "Мне казалось, что в покоях ждет старый друг, но, к моему удивлению, это оказалась совершенно незнакомая и крайне подозрительная фигура, с головы до ног закутанная в плащ с капюшоном.\n\nИз складок одеяния незнакомца появляется кинжал, и я немедленно бегу к двери, призывая стражников. Они прохаживаются прямо перед комнатой — похоже, мне повезло и чужеземец вызвал опасения и у них."
  murder_outcome.5002.strangle_incapable: "Мир снаружи еще существует? Я не чувствую времени. Что за боль в груди? Или... в горле? Да мое ли это тело? Тьма опускается на седые облака моего рассудка... Как трудно сосредоточиться...\n\nЯ ощущаю чье-то присутствие. Не слышу звуки, но такое #EMP чувство#!, будто кто-то кричит. Потом снова тихо. Только тишина."
- murder_outcome.5002.schemer_known: "\n\nЗа всем этим, несомненно, стоит [owner.Custom('InsultAdjective')] [owner.Custom('InsultNoun')] [owner_to_reveal.GetTitledFirstName]!"
+ murder_outcome.5002.schemer_known: "\n\nЗа всем этим, несомненно, стоит [owner.Custom2('InsultAdjective', ROOT.Char)] [owner.Custom2('InsultNoun', ROOT.Char)] [owner_to_reveal.GetTitledFirstName]!"
  murder_outcome.5002.will_find_out: "Я найду того, кто стоит за этим!"
  murder_outcome.5002.revenge_will_be_had: "[SCOPE.sCharacter('owner_to_reveal').GetSheHe|U] еще пожалеет!"
  murder_outcome.5002.child: "Какой взрослый человек пойдет на такую жестокость?"
@@ -473,7 +473,7 @@
 
  #Revealed (Scheme Target)
  murder_outcome_reworked.0000.revealed.scheme_target.success.1: "\n\nСмертная пелена оболакивает все плотнее, и я ни на миг не сомневаюсь, чьих рук это дело. [owner.GetTitledFirstName]!"
- murder_outcome_reworked.0000.revealed.scheme_target.success.2: "\n\nМой разум гаснет, и чахлой искрой еще проносится мысль, что за всем этим, несомненно, стоит [owner.Custom('InsultAdjective')][Select_CString(owner.IsFemale, 'ая', 'ый' )] [owner.Custom('InsultNoun')] [owner_to_reveal.GetTitledFirstName]!"
+ murder_outcome_reworked.0000.revealed.scheme_target.success.2: "\n\nМой разум гаснет, и чахлой искрой еще проносится мысль, что за всем этим, несомненно, стоит [owner.Custom2('InsultAdjective', ROOT.Char)][Select_CString(owner.IsFemale, 'ая', 'ый' )] [owner.Custom2('InsultNoun', ROOT.Char)] [owner_to_reveal.GetTitledFirstName]!"
  murder_outcome_reworked.0000.revealed.scheme_target.success.child: "\n\nНикогда я не увижу убитую горем родню и не услышу шепот слуг: «Это [Select_CString(owner_to_reveal.IsFemale, 'сделала', 'сделал' )] [owner_to_reveal.GetTitledFirstName]!»"
  murder_outcome_reworked.0000.revealed.scheme_target.success.baby: "\n\nМне ни за что не понять, почему слуги так всполошились, когда меня нашли. И шепот их показался бы мне совершенно неразборчивым: «Это [Select_CString(owner_to_reveal.IsFemale, 'сделала', 'сделал' )] [owner_to_reveal.GetTitledFirstName]!»"
  murder_outcome_reworked.0000.revealed.scheme_target.failure.baby: "\n\nЯ не понимаю, почему кричат слуги, когда находят меня, и что означает их шепот: «Это точно [Select_CString(owner_to_reveal.IsFemale, 'сделала', 'сделал' )] [owner_to_reveal.GetTitledFirstName]!»"
@@ -483,7 +483,7 @@
  murder_outcome_reworked.0000.revealed.scheme_target.success.1.incapable: "\n\nКогда мое тело найдут, прозвучит много речей, но мой слабый разум так и не сможет их понять: «Это [Select_CString(owner_to_reveal.IsFemale, 'сделала', 'сделал' )] [owner_to_reveal.GetTitledFirstName]!»"
  murder_outcome_reworked.0000.revealed.scheme_target.failure.1.incapable: "\n\nЕсли бы слова еще что-то значили, стало бы ясно, почему все вокруг меня злобно повторяют: «Это точно [Select_CString(owner_to_reveal.IsFemale, 'сделала', 'сделал' )] [owner_to_reveal.GetTitledFirstName]!»"
  murder_outcome_reworked.0000.revealed.scheme_target.success.no_linebreak.1: "Я ни на миг не сомневаюсь, кто все это устроил. [owner.GetTitledFirstName]!"
- murder_outcome_reworked.0000.revealed.scheme_target.success.no_linebreak.2: "За всем этим, несомненно, стоит [owner.Custom('InsultAdjective')][Select_CString(owner.IsFemale, 'ая', 'ый' )] [owner.Custom('InsultNoun')] [owner_to_reveal.GetTitledFirstName]!"
+ murder_outcome_reworked.0000.revealed.scheme_target.success.no_linebreak.2: "За всем этим, несомненно, стоит [owner.Custom2('InsultAdjective', ROOT.Char)][Select_CString(owner.IsFemale, 'ая', 'ый' )] [owner.Custom2('InsultNoun', ROOT.Char)] [owner_to_reveal.GetTitledFirstName]!"
  murder_outcome_reworked.0000.revealed.scheme_target.failure.1: "\n\nНесмотря на то что [owner_to_reveal.GetTitledFirstName] яростно все отрицает, все указывает на [Select_CString(owner_to_reveal.IsFemale, 'ее', 'его' )] непосредственное участие в происшествии."
  murder_outcome_reworked.0000.revealed.scheme_target.failure.2: "\n\nУбийство было обставлено настолько неуклюже, что оно не просто провалилось. Огромное количество улик не оставило сомнений, что за преступлением стоит [owner_to_reveal.GetTitledFirstName]!"
 
@@ -502,7 +502,7 @@
  #Outcomes — Standard
 
  #Hired an Assassin
- murder_outcome_reworked.0001.desc.assassin_present_at_location.consort: "Конечно, и [assassin.GetFirstName], и [Select_CString(target.IsFemale, 'ее', 'его' )] [assassin.Custom2('GetYourConsortType', target)] были на месте. Оставалось дождаться, когда [target.GetFirstNameNoTooltip] заснет, достать нож из-под подушки, перерезать горло и ждать, пока [target.Custom('InsultNoun')] истечет кровью. Веревка, свисающая из окна, пара порезов себе для убедительности и заранее подготовленные следы борьбы очень убедительно свидетельствовали о сбежавшем «истинном» убийце."
+ murder_outcome_reworked.0001.desc.assassin_present_at_location.consort: "Конечно, и [assassin.GetFirstName], и [Select_CString(target.IsFemale, 'ее', 'его' )] [assassin.Custom2('GetYourConsortType', target)] были на месте. Оставалось дождаться, когда [target.GetFirstNameNoTooltip] заснет, достать нож из-под подушки, перерезать горло и ждать, пока [target.Custom2('InsultNoun', ROOT.Char)] истечет кровью. Веревка, свисающая из окна, пара порезов себе для убедительности и заранее подготовленные следы борьбы очень убедительно свидетельствовали о сбежавшем «истинном» убийце."
  murder_outcome_reworked.0001.desc.hired_assassin.assassin_present_at_location: "[assassin.GetFirstName] [Select_CString(assassin.IsFemale, 'выполнила', 'выполнил' )] наш план безупречно. Посреди ночи [Select_CString(assassin.IsFemale, 'она пробралась', 'он пробрался' )] мимо патрулей, [Select_CString(assassin.IsFemale, 'проникла', 'проник' )] в покои цели (помог краденый ключ), и [target.GetFirstNameNoTooltip], харкая кровью, [Select_CString(target.IsFemale, 'отправилась', 'отправился' )] к заждавшимся праотцам."
  murder_outcome_reworked.0001.desc.hired_assassin.assassin_remote_working: "Наемник, которого [Select_CString(assassin.IsFemale, 'нашла', 'нашел' )] [assassin.GetFirstName], выполнил наш план безупречно. Посреди ночи [Select_CString(dummy_assassin_gender.IsFemale, 'она пробралась', 'он пробрался' )] мимо патрулей, [Select_CString(dummy_assassin_gender.IsFemale, 'проникла', 'проник' )] в покои цели (помог краденый ключ), и [target.GetFirstNameNoTooltip], харкая кровью, [Select_CString(target.IsFemale, 'отправилась', 'отправился' )] к заждавшимся праотцам."
  murder_outcome_reworked.0002.desc: "$murder_outcome.5001.hired_assassin$"
@@ -525,7 +525,7 @@
 
  #Creepy-Crawly
  murder_outcome_reworked.0031.desc: "План сработал как часы: вот [target.GetFirstNameNoTooltip] ложится спать, вот [SCOPE.Custom('VenomousCreature')] таится в постели, ждет малейшего движения... и вот жертва пошевелилась во сне."
- murder_outcome_reworked.0033.desc: "Казалось, что может пойти не так? [SCOPE.Custom('VenomousCreature')|U] в постели, [target.GetFirstNameNoTooltip] собирается спать. Ну ляг ты, пусть уже ядовитая тварюга сделает свое дело! Так нет же, [target.Custom('InsultNoun')] замечает подозрительное движение и убивает бедную тварь на месте!"
+ murder_outcome_reworked.0033.desc: "Казалось, что может пойти не так? [SCOPE.Custom('VenomousCreature')|U] в постели, [target.GetFirstNameNoTooltip] собирается спать. Ну ляг ты, пусть уже ядовитая тварюга сделает свое дело! Так нет же, [target.Custom2('InsultNoun', ROOT.Char)] замечает подозрительное движение и убивает бедную тварь на месте!"
  murder_outcome_reworked.0034.desc: "Я собираюсь отойти ко сну, как вдруг покрывало на кровати подозрительно шевелится. Осторожно стягиваю одеяла, чтобы не напугать незваного гостя... и вижу, что это [SCOPE.Custom('VenomousCreatureType')]!\n\n"
  murder_outcome_reworked.0034.desc_unknown: "Точное название маленького чудовища мне неведомо, но добра от него точно ждать не приходится."
  murder_outcome_reworked.0034.desc_end: "Без малейшего замешательства я хватаю кинжал и пригвождаю тварь к месту."
@@ -549,9 +549,9 @@
  murder_outcome_reworked.0064.desc: "Мой корабль мирно плывет в лучах заходящего солнца, когда внезапно раздаются истошные вопли матросов и жуткий треск. Через мгновение стражник буквально выдергивает меня из-под падающей мачты.\n\nКорабль серьезно поврежден, но капитан уверен, что до ближайшего порта мы доберемся без особых проблем. Самое главное, никто не пострадал."
 
  #Poisoned Drink
- murder_outcome_reworked.0071.desc: "Мои сообщники добились почти невозможного: они добрались до кубка, из которого [target.GetFirstNameNoTooltip] будет пить за своим последним ужином! Они незаметно уронили в него пару капель сильнейшего яда. Бедняга [target.Custom('InsultNoun')] [Select_CString(target.IsFemale, 'выдула', 'выдул' )] все вино одним глотком и [Select_CString(target.IsFemale, 'отошла', 'отошел' )] в мир иной, не успев опомниться!"
- murder_outcome_reworked.0073.desc: "Моим сообщникам удалось пронести на кухню, откуда [target.GetFirstNameNoTooltip] получает вино, отравленный бочонок. Бедняга [Select_CString(target.IsFemale, 'получила', 'получил' )] полный кубок отравы. Но идея с бочонком оказалась не лучшей.\n\nПрежде чем [target.Custom('InsultNoun')] [Select_CString(target.IsFemale, 'поднесла', 'поднес' )] кубок к губам, в залу ворвались слуги с криками, что кто-то еще отведал этого вина и сразу умер."
- murder_outcome_reworked.0074.desc: "Обычный вечер, обычный ужин, ничто не предвещает беды. Передо мной стоит кубок, до самых краев заполненный вином. Когда я наконец тянусь за ним, в залу врывается толпа вопящих слуг: «Нет, [Select_CString(ROOT.Char.IsFemale, 'моя', 'мой' )] [ROOT.Char.GetLadyLord]! Оно отравлено! Один из наших выпил из того же бочонка и сразу же помер!» Кубок замирает на полпути к моему рту."
+ murder_outcome_reworked.0071.desc: "Мои сообщники добились почти невозможного: они добрались до кубка, из которого [target.GetFirstNameNoTooltip] будет пить за своим последним ужином! Они незаметно уронили в него пару капель сильнейшего яда. Бедняга [target.Custom2('InsultNoun', ROOT.Char)] [Select_CString(target.IsFemale, 'выдула', 'выдул' )] все вино одним глотком и [Select_CString(target.IsFemale, 'отошла', 'отошел' )] в мир иной, не успев опомниться!"
+ murder_outcome_reworked.0073.desc: "Моим сообщникам удалось пронести на кухню, откуда [target.GetFirstNameNoTooltip] получает вино, отравленный бочонок. Бедняга [Select_CString(target.IsFemale, 'получила', 'получил' )] полный кубок отравы. Но идея с бочонком оказалась не лучшей.\n\nПрежде чем [target.Custom2('InsultNoun', ROOT.Char)] [Select_CString(target.IsFemale, 'поднесла', 'поднес' )] кубок к губам, в залу ворвались слуги с криками, что кто-то еще отведал этого вина и сразу умер."
+ murder_outcome_reworked.0074.desc: "Обычный вечер, обычный ужин, ничто не предвещает беды. Передо мной стоит кубок, до самых краев заполненный вином. Когда я наконец тянусь за ним, в залу врывается толпа вопящих слуг: «Нет, [ROOT.Char.Custom('FormOfAddressForLiege')]! Оно отравлено! Один из наших выпил из того же бочонка и сразу же помер!» Кубок замирает на полпути к моему рту."
 
  #################################################
  #Outcomes — Children
