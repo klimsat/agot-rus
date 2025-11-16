@@ -742,9 +742,18 @@
 
  artifact_seal_of_investiture: "$artifact_name_prefix$ $seal_of_investiture$"
  seal_of_investiture: "Печать введения в должность"
+ artifact_seal_of_investiture_court: "$seal_of_investiture$"
  seal_of_investiture.desc: "[SCOPE.Custom('ArtifactArticleWealth')]ая [Concept('seal_of_investiture', 'печать введения в должность')|E] [SCOPE.Custom('ArtifactQuality')] качества. Это [newly_created_artifact.GetFeatureText( 'decoration_material_slate' )] с текстом, для которого использовались [newly_created_artifact.GetFeatureText( 'decoration_material_ink' )].\n\n[tributary_scope.GetFullName] [Select_CString(tributary_scope.GetSuzerain.IsFemale, 'повелела', 'повелел')] изготовить ее в качестве документа, подтверждающего верность. [tributary_scope.GetFullName] [Select_CString(tributary_scope.IsFemale, 'получила', 'получил')] ее во время торжественной церемонии по завершению [Select_CString(tributary_scope.IsFemale, 'ее', 'его')] задания данника в городе [tributary_scope.GetSuzerain.GetCapitalLocation.GetName]."
  feature_regalia_seal_slate: "[Artifact.GetFeatureText( 'decoration_material_slate' )] с имперской печатью"
  feature_regalia_seal_ink: "с каллиграфическим текстом, для которого использовались [Artifact.GetFeatureText( 'decoration_material_ink' )]"
+
+ heirloom_seal.name: "Фамильная печать"
+ heirloom_seal.desc: "Древняя нефритовая печать, которую Цинь Шихуанди создал после объединения воюющих царств Китая более тысячи лет назад. Считается, что ее вырезали из нефритового диска Хэ Ши Би — одного из самых священных сокровищ империи.\n\nНа печати выгравированы слова: «По мандату небес, пусть император живет долго и счастливо»."
+ 
+ artifact_seal_dynastic: "Имперская печать"
+ dynastic_imperial_seal.name: "[owner.GetPrimaryTitle.GetAdjectiveNoTooltip]ая имперская печать"
+ dynastic_imperial_seal.desc: "Имперская печать [owner.GetPrimaryTitle.GetAdjectiveNoTooltip|l]ой державы и дома [owner.GetDynasty.GetBaseNameNoTooltip], которую [Select_CString(owner.IsFemale, 'велела', 'велел' )] создать [owner.GetTitledFirstNameNoTooltip]. Это [newly_created_artifact.GetFeatureText( 'decoration_material_slate' )] с надписью, для нанесения которой использовались [newly_created_artifact.GetFeatureText( 'decoration_material_ink' )]. Печать считается символом правящей династии и является одним из важнейших сокровищ державы."
+
 
  # Crowns
  artifact_crown_name:0 "Венец $artifact_name_prefix$"
@@ -1148,6 +1157,10 @@
  al_taj_crown_description:0 "«Благородный венец» или «Вуаль святости» — традиционная церемониальная корона халифов из династии Фатимидов. Украшена огромным драгоценным камнем аль-Ятима."
  qadib_al_mulk_name:0 "Кадиб аль-Мульк"
  qadib_al_mulk_description:0 "Церемониальный посох Фатимидского халифата, покрытый золотом и украшенный жемчугом и драгоценными камнями."
+ ryukyu_shaku_name: "Сяку Трех гор"
+ ryukyu_shaku_description: "Лакированный церемониальный жезл из древесины священного островного кедра. Он символизирует объединение кланов под единым божественным мандатом."
+ ryukyu_crown_name: "Корона дракона"
+ ryukyu_crown_description: "Эта инкрустированная кораллом корона увенчана золотым морским драконом, сжимающим жемчужину мудрости. Ее блеск отражается в волнах, словно свет маяка, обещая могущество и процветание."
  al_sayf_al_khass_name:0 "аль-Сайф аль-Кхасс"
  al_sayf_al_khass_description:0 "Украшенный самоцветами меч, по слухам — изготовленный из молнии. Он вложен в позолоченные ножны и редко покидает их в силу своей церемониальной значимости для халифата."
  al_dawat_name:0 "аль-Дават"

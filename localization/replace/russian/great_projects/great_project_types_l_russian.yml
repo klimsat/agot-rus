@@ -324,7 +324,7 @@
  cultural_acceptance_gain_minister_project: "[Concept('great_project', 'Грандиозный проект')|E] по интеграции"
   
  great_project_type_grand_campaign_project_contribution_tt: "Участник получает доступ к [Concept('casus_belli', 'казус белли')|E] #V «[GetCasusBelliType('grand_campaign_kingdom_invasion_cb').GetName]»#!, пока [Concept('great_project', 'грандиозный проект')|E] не будет завершен #weak (10 лет)#!"
- great_project_type_grand_campaign_project_contribution_win_named_tt: "Ожидается, что [contributor.GetName] #P одержит победу#! в [Concept('war', 'войне') от имени [GetTitleByKey('h_china').GetHolder.GetName]" 
+ great_project_type_grand_campaign_project_contribution_win_tributaries_tt: "[GetTitleByKey('h_china').GetHolder.GetShortUIName|U] [Select_CString( GetTitleByKey('h_china').GetHolder.IsLocalPlayer, 'станете', 'станет' )] новым [Concept('suzerain', 'повелителем')|E] [Concept('holders', 'владетелей')|E] оспариваемых [Concept('titlepossessive', 'титулов')|E]"
  great_project_type_grand_campaign_project_contribution_win_tt: "[GetTitleByKey('h_china').GetHolder.GetShortUIName|U] [Select_CString( GetTitleByKey('h_china').GetHolder.IsLocalPlayer, 'станете', 'станет' )] новым [Concept('holder', 'владетелем')|E] оспариваемых [Concept('titles', 'титулов')|E]"
  grand_campaign_attack: "Участник присоединяется к [Concept('war', 'войне')|E]"
  #AGOT Disabled 
@@ -409,6 +409,7 @@
  grand_campaign_movement_power_loss_tt: "Теряет [Concept('movement_power', 'силу')|E]: [movement_power_i]#N -100#!"
  grand_campaign_won_tt: "Если участники или [owner.GetShortUIName] [Concept('completely_control', Select_CString(owner.IsLocalPlayer, 'полностью контролируете', 'полностью контролируют'))|E] хотя бы #V 50%#! оспариваемых [Concept('titles', 'титулов')|E]:\n$BULLET_WITH_TAB$Каждый участник:\n$TAB$$BULLET_WITH_TAB$$grand_campaign_movement_power_gain_tt$\n$BULLET_WITH_TAB$[owner.GetShortUIName|U] [Select_CString(owner.IsLocalPlayer, 'получите', 'получит')] [EmptyScope.ScriptValue('major_legitimacy_gain')|+0][legitimacy_i]\n$BULLET_WITH_TAB$[SelectLocalization( Or( ObjectsEqual( GetSituation('dynastic_cycle').GetTopCurrentPhase.GetType.GetName,  GetSituationType('dynastic_cycle').GetPhaseType('situation_dynastic_cycle_phase_stability_advancement').GetName),ObjectsEqual( GetSituation('dynastic_cycle').GetTopCurrentPhase.GetType.GetName, GetSituationType('dynastic_cycle').GetPhaseType('situation_dynastic_cycle_phase_instability').GetName) ), 'great_project_type_grand_campaign_project_contribution_win_tributaries_tt', 'great_project_type_grand_campaign_project_contribution_win_tt' )]\n$BULLET_WITH_TAB$[owner.GetShortUIName|U] [Select_CString(owner.IsLocalPlayer, 'запустите', 'запустит')] [Concept('dynastic_cycle_catalyst','катализатор династического цикла')|E] «Успех [Concept('son_of_heaven', 'Сына Неба')|E] в [Concept('great_project', 'грандиозном проекте')|E] „[GetGreatProjectType('grand_campaign_project').GetName]“»"
  grand_campaign_lost_tt: "В противном случае:\n$BULLET_WITH_TAB$Каждый участник:\n$TAB$$BULLET_WITH_TAB$$grand_campaign_movement_power_loss_tt$\n$BULLET_WITH_TAB$[owner.GetShortUIName|U] [Select_CString(owner.IsLocalPlayer, 'запустите', 'запустит')] [Concept('dynastic_cycle_catalyst','катализатор династического цикла')|E] «Поражение в [Concept('war','войне')|E]»"
+ grand_campaign_start_tt: "[Concept('holder', 'Владетель')|E] [Concept('title', 'титула')|E] «[GetTitleByKey('e_minister_grand_marshal').GetName]» начнет [Concept('war', 'войну')|E] «[GetCasusBelliType('grand_campaign_kingdom_invasion_cb').GetName]»"
   
  great_project_type_minister_project_development: "Развитие общин"
  great_project_type_minister_project_development_desc: "Цепь не может быть крепче, чем ее самое слабое звено, и если оно вдруг сломается, то вся цепь станет негодной. То же самое касается и регионов нашей славной страны. Чтобы достичь долгосрочного благополучия, нужно сначала обеспечить процветание в каждом уголке #L [GetPlayer.GetPrimaryTitle.GetAdjective|l]ой#! державы, и лучший способ этого добиться — направить усилия на постройку дорог, городов и каналов для обеспечения населения водой."
@@ -436,3 +437,7 @@
   
  great_project_logistics_generic: "Доставка"
  great_project_logistics_generic_desc: "Для проектов подобных масштабов требуется значительное планирование."
+
+ you_have_a_minister_of_works_desc: "У вас есть [minister_of_works|El]"
+ you_have_a_minister_of_rites_desc: "У вас есть [minister_of_rites|El]"
+ you_have_a_grand_marshal_desc: "У вас есть [minister_grand_marshal|El]"

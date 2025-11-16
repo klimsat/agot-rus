@@ -1,10 +1,10 @@
 ﻿l_russian:
  MY_REALM_WINDOW_TITLE: "Моя держава"
 
- MY_REALM_WINDOW_BOOKMARK_DOMAIN_TT: "#T Домен#!\n#I Щелкните, чтобы посмотреть обзор своего домена#!"
- MY_REALM_WINDOW_BOOKMARK_SUBJECTS_TT: "#T Подданные#!\n#I Щелкните, чтобы просмотреть своих подданных#!"
- MY_REALM_WINDOW_BOOKMARK_SUCCESSION_TT: "#T Наследование#!\n#I Щелкните, чтобы увидеть свою линию наследования#!"
- MY_REALM_WINDOW_BOOKMARK_LAWS_TT: "#T Законы#!\n#I Щелкните, чтобы просмотреть законы#!"
+ MY_REALM_WINDOW_BOOKMARK_DOMAIN_TT: "#T Домен#!\nВаши [Concept('holdings', 'владения')|E] и [Concept('domiciles', 'имения')|E]\n\n$CLICK_TO_VIEW$"
+ MY_REALM_WINDOW_BOOKMARK_SUBJECTS_TT: "#T Подданные#!\nВаши [Concept('vassals', 'вассалы')|E] и [Concept('tributaries', 'данники')|E]\n\n$CLICK_TO_VIEW$"
+ MY_REALM_WINDOW_BOOKMARK_SUCCESSION_TT: "#T Наследование#!\nКто унаследует ваши [Concept('titles', 'титулы')|E]\n\n$CLICK_TO_VIEW$"
+ MY_REALM_WINDOW_BOOKMARK_LAWS_TT: "#T Законы#!\n[Concept('laws', 'Законы')|E] вашей [Concept('realm', 'державы')|E]\n\n$CLICK_TO_VIEW$"
 
  MY_REALM_WINDOW_LAWS_PROGRESS_BAR_DESC: "Изменение законов вашей державы требует одобрения могущественных вассалов"
  MY_REALM_WINDOW_LAWS_PROGRESS_BAR_TITLE: "Одобрение [Concept('powerful_vassal', 'могущественных вассалов')|E]"
@@ -25,8 +25,8 @@
  MY_REALM_WINDOW_DISOBEDIENT: "@disobedience_icon! [Concept('disobedient', 'непокорный')|E]"
 
  MY_REALM_WINDOW_DOMICILE_LOCATION: "#low Текущее расположение:#! [Character.GetDomicile.GetLocation.GetBaronyNameExplicitly]"
- MY_REALM_WINDOW_LAW_NAME_AND_LEVEL: "#E [Law.GetName]#! #low ([Add_int32( Law.GetIndexInLawGroup, '(int32)1' )])#!"
- MY_REALM_WINDOW_LAW_NAME: "#E [Law.GetName]#!"
+ MY_REALM_WINDOW_LAW_NAME_AND_LEVEL: "[Law.GetName] #low ([Add_int32( Law.GetIndexInLawGroup, '(int32)1' )])#!"
+ MY_REALM_WINDOW_LAW_NAME: "[Law.GetName]"
  MY_REALM_WINDOW_LAW_LEVEL: "[Add_int32( Law.GetIndexInLawGroup, '(int32)1' )]"
 
  MY_REALM_WINDOW_YOUR_INCOME: "Ваш доход:"
@@ -137,7 +137,7 @@
  MRW_HEIR_PREFERRED: "[Concept('vassal_stance', 'Предпочитают')|E] [MyRealmWindow.GetCharacter.GetVassalStancesThatPrefer( Character.Self )] вассалы"
  MRW_INHERITED_TITLES: "Унаследованные [Concept( 'titles', 'титулы' )|E]"
  MY_REALM_WINDOW_NO_HEIR_FLAVOR: "@warning_icon! #X У вас нет наследника. После вашей смерти игра закончится#!"
- MY_REALM_WINDOW_EXCEPTIONS: "Особое [Concept('title_succession', 'наследование титула')|E]"
+ MY_REALM_WINDOW_EXCEPTIONS: "[titles|E] с собственным [Concept( 'title_succession', 'законом наследования' )|El]"
  MY_REALM_WINDOW_REQUIRED_GOVERNMENT_TITLES: "[Concept('titles', 'Титулы')|E] [Concept('county', 'графства')|E], теряемые при наследовании из-за типа [Concept('holding', 'владения')|E]"
  MY_REALM_WINDOW_REQUIRED_GOVERNMENT_TITLES_WARNING: "@warning_icon! #X Ни один преемник не имеет оснований на владение этими графствами#!"
  MY_REALM_WINDOW_ELECTIONS: "Выборы"
@@ -232,7 +232,7 @@
  PIETY_CONTRIBUTION_MIN_KNOWN_VALUE: "@piety_icon! Минимальное [piety|El]: $VALUE|+=%1$"
  BARTER_GOODS_CONTRIBUTION_KNOWN_VALUE: "[barter_goods|E]: $VALUE|+=%1$"
  BARTER_GOODS_CONTRIBUTION_MIN_KNOWN_VALUE: "Минимальное количество [Concept('barter_goods', 'меновых товаров')|E]: $VALUE|+=%1$"
- VASSAL_CONTRACT_VASSAL_TITLE: "Изменить договор:\n#high [SubjectContract.GetSubject.GetFirstNameNoTooltip] [SubjectContract.GetSubject.GetHouse.GetNameNoTooltip]\nПравитель державы [SubjectContract.GetSubject.GetPrimaryTitle.GetNameNoTierNoTooltip]#!"
+ VASSAL_CONTRACT_VASSAL_TITLE_ADMIN: "Изменить администрацию:\n[SubjectContract.GetSubject.GetPrimaryTitle.GetNameNoTooltip]\n#high Правитель: [SubjectContract.GetSubject.GetTitledFirstNameNoTooltip]#!"
  CONTRACT_EFFECTS_HEADER: "Эффекты:"
  VASSAL_OPINION_DIPLOMACY: "Личная [diplomacy|El]"
  VASSAL_OPINION_TYRANNY: "[tyrant|E]"

@@ -297,6 +297,7 @@
  relation_liege_female: "сюзерен"
  relation_liege_male: "сюзерен"
  relation_suzerain: "повелитель"
+ relation_suzerain_possessive: "повелителя"
  relation_leader_female: "лидер"
  relation_leader_male: "лидер"
  relation_ward: "подопечный"
@@ -675,14 +676,14 @@
  #Dynastic Cycle 
  #AGOT Disabled 
  # FRAME_MOVEMENT_COMMON: "#T Member of [Character.Custom('GetMyMovement')]#!\n[personal_movement_power|E]: [movement_power_i][Character.MakeScope.Var('movement_power_individual').GetValue|V0] (+[Character.MakeScope.Var('movement_power_disciples').GetValue|0])\n[movement_power|E]: [movement_power_i][GetSituation('dynastic_cycle').GetParticipantGroupByCharacter(Character.Self).MakeScope.Var('movement_power').GetValue|V0]"
- # FRAME_MOVEMENT_COMMON_WITH_LEADER: "$FRAME_MOVEMENT_COMMON$\n[AddLocalizationIf( Not( StringIsEmpty( GetSituation('dynastic_cycle').GetParticipantGroupByCharacter(Character.Self).MakeScope.Var('movement_leader').Char.GetName ) ),'FRAME_MOVEMENT_LEADER')]" #NT!
- # FRAME_MOVEMENT_LEADER: "[movement_leader|E]: [GetSituation('dynastic_cycle').GetParticipantGroupByCharacter(Character.Self).MakeScope.Var('movement_leader').Char.GetShortUIName|U]" #NT!
+ # FRAME_MOVEMENT_COMMON_WITH_LEADER: "$FRAME_MOVEMENT_COMMON$\n[AddLocalizationIf( Not( StringIsEmpty( GetSituation('dynastic_cycle').GetParticipantGroupByCharacter(Character.Self).MakeScope.Var('movement_leader').Char.GetName ) ),'FRAME_MOVEMENT_LEADER')]" 
+ # FRAME_MOVEMENT_LEADER: "[movement_leader|E]: [GetSituation('dynastic_cycle').GetParticipantGroupByCharacter(Character.Self).MakeScope.Var('movement_leader').Char.GetShortUIName|U]" 
 
- # FRAME_ADVANCEMENT_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$" #NT!
- # FRAME_EXPANSION_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$" #NT!
- # FRAME_CONSERVATIVE_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$" #NT!
- # FRAME_PRO_HEGEMON_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$" #NT!
- # FRAME_UNDECIDED_MOVEMENT: "$FRAME_MOVEMENT_COMMON$" #NT!
+ # FRAME_ADVANCEMENT_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$" 
+ # FRAME_EXPANSION_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$" 
+ # FRAME_CONSERVATIVE_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$" 
+ # FRAME_PRO_HEGEMON_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$" 
+ # FRAME_UNDECIDED_MOVEMENT: "$FRAME_MOVEMENT_COMMON$" 
 
  #To address someone (RelationToMeAddress) 
  relation_my_love: "моя любовь"
@@ -774,3 +775,5 @@
  relation_elder: "старейшина"
  relation_disciple_possessive: "послушника"
  relation_elder_possessive: "старейшины"
+ relation_tributary: "данник"
+ relation_tributary_possessive: "данника"

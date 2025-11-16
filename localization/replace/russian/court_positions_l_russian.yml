@@ -40,7 +40,7 @@
  #AGOT Modified
  #COURT_POSITION_REVOKE: "#T [Character.GetShortUINameNoTooltip]: уволить#!"
  COURT_POSITION_REVOKE: "#T #high [Character.Custom('AGOTCustomGetTitledFullNameDynasty')]#!: уволить#!"
- COURT_POSITION_POWERFUL_AGENT: "@alert_icon! #alert_trial Полезный [Concept( 'agent', 'соучастник' )|E] во [Concept( 'hostile_schemes', 'агрессивных происках' )|E] против вас#!"
+ COURT_POSITION_POWERFUL_AGENT: "@alert_icon! #alert_trial Полезный [Concept('agent', 'соучастник')|E] в [Concept('hostile_schemes', 'агрессивных происках')|E] против своего сюзерена#!"
  COURT_POSITION_OPINION_BONUS: "Бонус к [Concept( 'opinion', 'мнению' )|E]: [CourtPosition.GetOpinionBonus|=+]"
  COURT_POSITION_TOGGLE_AUTOMATION: "#T Переключить авторежим #!\n$COURT_POSITION_AUTOMATION_CURRENT$\n#I Щелкните для смены параметров авторежима#!"
  COURT_POSITION_AUTOMATION_DISABLE_TOOLTIP: "#T Текущий авторежим #!\n$COURT_POSITION_AUTOMATION_CURRENT$\n#I Щелкните для отключения авторежима#!"
@@ -112,14 +112,20 @@
  COURT_POSITIONS_months_of_service: "Месяцев на службе: $MONTHS$"
  COURT_POSITIONS_years_of_service: "Лет на службе: $YEARS$"
 
- COURT_POSITION_TOOLTIP_EFFECT_ON_YOUR_LIEGE: "Влияние на вашего [Concept( 'liege', 'сюзерена' )|E]:"
  COURT_POSITION_TOOLTIP_EFFECT_ON_LIEGE: "Влияние на [Concept( 'liege', 'сюзерена' )|E]:"
+ COURT_POSITION_TOOLTIP_EFFECT_ON_LIEGE_WITH_HEADING: "#S $COURT_POSITION_TOOLTIP_EFFECT_ON_LIEGE$#!#indent_newline:2 \n[CourtPositionType.GetEmployerModifierDescription]#!"
+
+
  COURT_POSITION_TOOLTIP_SCALED_EFFECT_ON_LIEGE: "Влияние на [Concept( 'liege', 'сюзерена' )|E] от [Concept( 'aptitude', 'пригодности' )|E]:"
  COURT_POSITION_TOOLTIP_LIEGE_REQUIREMENT: "Требования к [Concept( 'liege', 'сюзерену' )|E]:"
+ COURT_POSITION_TOOLTIP_LIEGE_REQUIREMENT_NESTED: "#TOOLTIP:COURT_POSITION_TOOLTIP_LIEGE_REQUIREMENT_NESTED_TT #L Требования к сюзерену#!#!"
+ COURT_POSITION_TOOLTIP_LIEGE_REQUIREMENT_NESTED_TT: "[CourtPositionType.GetLiegeRequirementDescriptionText]"
  COURT_POSITION_TOOLTIP_EFFECT_ON_YOU: "Влияние на вас:"
  COURT_POSITION_TOOLTIP_EFFECT_ON_EMPLOYEE: "Влияние на $court_position_cp_ntt_rp_lower$:"
  COURT_POSITION_TOOLTIP_EFFECT_ON_HOLDER: "Влияние на владетеля:"
  COURT_POSITION_TOOLTIP_EMPLOYEE_REQUIREMENT: "Требования к $court_position_cpt_ntt_dp_lower$:"
+ COURT_POSITION_TOOLTIP_EMPLOYEE_REQUIREMENT_NESTED: "#TOOLTIP:COURT_POSITION_TOOLTIP_EMPLOYEE_REQUIREMENT_NESTED_TT #L Требования к должности «[CourtPositionType.GetNameNoTooltip]»#!#!"
+ COURT_POSITION_TOOLTIP_EMPLOYEE_REQUIREMENT_NESTED_TT: "[CourtPositionType.GetEmployeeRequirementDescriptionText]"
  COURT_POSITION_TOOLTIP_SALARY: "Жалованье: [CourtPosition.GetSalaryText]"
  COURT_POSITION_TOOLTIP_SALARIES_GOLD_PAID: "Затраты [gold_i][Concept('gold', 'золота')|E] на жалованье"
  COURT_POSITION_TOOLTIP_SALARIES_GOLD_EARNED: "Доход в виде [gold_i][Concept('gold', 'золота')|E] от жалованья"
@@ -130,6 +136,7 @@
  COURT_POSITION_TOOLTIP_SALARIES_DYNASTY_PRESTIGE_PAID: "Затраты [dynasty_prestige_i][Concept('dynasty_prestige', 'престижа династии')|E] на жалованье"
  COURT_POSITION_TOOLTIP_SALARIES_DYNASTY_PRESTIGE_EARNED: "Доход в виде [dynasty_prestige_i][Concept('dynasty_prestige', 'престижа династии')|E] от жалованья"
  COURT_POSITION_TOOLTIP_SALARIES_INFLUENCE_PAID: "Затраты [influence_i][Concept('influence', 'влияния')|E] на жалованье"
+ COURT_POSITION_TOOLTIP_SALARIES_INFLUENCE_EARNED: "Доход в виде [influence_i][Concept('influence', 'влияния')|E] от жалования"
  COURT_POSITION_TOOLTIP_SALARIES_HERD_PAID: "Затраты [herd_i][Concept('herd', 'стад')|E] на жалование"
  COURT_POSITION_TOOLTIP_SALARIES_HERD_EARNED: "Доход в виде [herd_i][Concept('herd', 'стад')|E]"
  COURT_POSITION_TOOLTIP_SALARIES_TREASURY_PAID: "Выплаты жалования из [treasury_i][Concept('treasury', 'государственной казны')|E]"
@@ -141,9 +148,11 @@
  COURT_POSITION_TOOLTIP_REVOKE_EFFECT_HEADER.COURT_POSITION: "[Concept( 'court_position', 'придворная должность' )|E]"
  COURT_POSITION_TOOLTIP_REVOKE_EFFECT_HEADER.CAMP_OFFICER: "[Concept( 'officer', 'подручный' )|E]"
  COURT_POSITION_TYPE_TOOLTIP_EFFECT_ON_EMPLOYEE: "Влияние на [Concept( 'liege', 'сюзерена' )|E]:"
+ COURT_POSITION_TYPE_TOOLTIP_EFFECT_ON_EMPLOYEE_WITH_HEADING: "#S $COURT_POSITION_TYPE_TOOLTIP_EFFECT_ON_EMPLOYEE$#!#indent_newline:2 \n[CourtPositionType.GetEmployeeModifierDescription]#!"
+
  COURT_POSITION_TYPE_TOOLTIP_EMPLOYER_SALARY: "Жалование: [CourtPositionType.GetEmployerSalaryTextFor( GetPlayer )|V]"
  COURT_POSITION_TYPE_TOOLTIP_EMPLOYEE_SALARY: "Жалование: [CourtPositionType.GetEmployeeSalaryTextFor( GetPlayer )|V]"
- COURT_POSITION_TYPE_TOOLTIP_REVOKE_COST: "• Будет стоить вам [CourtPositionType.GetRevokeCostText]."
+ COURT_POSITION_TYPE_TOOLTIP_REVOKE_COST: "Стоимость увольнения: [CourtPositionType.GetRevokeCostText|V]"
 
  COURT_POSITION_SALARY_BREAKDOWN_BASE: "Базовое жалование"
 
@@ -167,7 +176,7 @@
  COURT_POSITION_TASK_END_EFFECTS: "#S При завершении:#!#indent_newline:2 \n[CourtPositionTaskType.GetOnEndEffectDesc( CourtPosition.Self )]#!"
  COURT_POSITION_TASK_COST: "#S Стоимость (в месяц):#!#indent_newline:2 \n[CourtPositionTaskType.GetCostText( CourtPosition.GetEmployer.Self )]#!"
 
- COURT_POSITION_TASK_HINT: "#weak Возможные [court_position_tasks_short|El]#!"
+ COURT_POSITION_TASK_HINT: "Возможные [Concept('court_position_tasks_short', 'поручения')|E]:"
  COURT_POSITION_TASK_GENERIC_TT: "[CourtPositionType.GetNameNoTooltip] приступит к выполнению [Concept( 'court_position_task_short', 'поручения' )|E] «[CourtPositionTaskType.GetName|V]»."
  COURT_POSITION_TASK_EMPLOYER_GENERIC_EFFECTS: "#S Влияние на [Concept( 'liege', 'сюзерена' )|E]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerModifierGenericDescription]#!"
  COURT_POSITION_TASK_EMPLOYER_COURT_GENERIC_EFFECTS: "#S Влияние на [Concept( 'court', 'двор' )|E] [Concept( 'liege', 'сюзерена' )|E]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerCourtModifierGenericDescription]#!"
@@ -185,8 +194,8 @@
  physician_guard_family_desc: "Этот персонаж получил поручение помогать [Concept( 'liege', 'сюзерену' )|E] в вопросах учености."
  physician_improve_self: "Улучшение навыков"
  physician_improve_self_desc: "Этот персонаж посвящает себя улучшению своих врачебных навыков."
- physician_improve_self_tt: "Каждый месяц есть шанс, что этот персонаж получит [Concept('trait_level_track_xp', 'опыт свойства')|E] ([GetTrait('lifestyle_physician').GetName( root_scope )|U1]) или увеличит [learning_i][Concept( 'learning_skill', 'навык учености' )|E]"
- physician_improve_self_fallback_tt: "Каждый месяц есть шанс, что этот персонаж получит [Concept('trait_level_track_xp', 'опыт свойства')|E] ([GetTrait('lifestyle_physician').GetName( GetNullCharacter )|U1]) или увеличит [learning_i][Concept( 'learning_skill', 'навык учености' )|E]"
+ physician_improve_self_tt: "Каждый месяц есть шанс, что этот персонаж получит [Concept('trait_level_track_xp', 'опыт свойства')|E] ([GetTrait('lifestyle_physician').GetName( root_scope )]) или увеличит [learning_i][Concept('learning_skill', 'навык учености')|E]"
+ physician_improve_self_fallback_tt: "Каждый месяц есть шанс, что этот персонаж получит [Concept('trait_level_track_xp', 'опыт свойства')|E] ([GetTrait('lifestyle_physician').GetName( GetNullCharacter )]) или увеличит [learning_i][Concept('learning_skill', 'навык учености')|E]"
  high_almoner_attend_poor: "Божественная благотворительность"
  high_almoner_attend_poor_desc: "Этот персонаж получил поручение раздавать милостыню от вашего имени."
  chronicler_promote_legend_realm: "Прославление местной легенды"
@@ -485,7 +494,7 @@
  champion_exercise_ruler_notification_desc: "[liege.GetShortUIName|U] [Select_CString(liege.IsLocalPlayer, 'обучались', Select_CString(liege.IsFemale, 'обучалась', 'обучался' ))] у [Select_CString(ROOT.Char.IsLocalPlayer, '', 'персонажа ' )|l][ROOT.Char.GetShortUINamePossessive|l][Select_CString(ROOT.Char.IsLocalPlayer, 'его персонажа', '' )]"
  champion_improve_self: "Улучшение навыков"
  champion_improve_self_desc: "Этот персонаж посвящает себя улучшению своих навыков личного воителя."
- champion_improve_self_fallback_tt: "Каждый месяц есть шанс, что этот персонаж получит [Concept('trait_level_track_xp', 'опыт свойства')|E] ([GetTrait('tourney_participant').GetName( GetNullCharacter )|U1]) или увеличит [prowess_i][Concept( 'prowess_skill', 'доблесть' )|E]"
+ champion_improve_self_fallback_tt: "Каждый месяц есть шанс, что этот персонаж получит [Concept('trait_level_track_xp', 'опыт свойства')|E] ([GetTrait('tourney_participant').GetName( GetNullCharacter )]) или увеличит [prowess_i][Concept('prowess_skill', 'доблесть')|E]"
 
  #AGOT Modified
  # court_musician_court_position: "Court Musician"
@@ -568,8 +577,8 @@
  caravan_master_prepare_armies_desc: "Этому персонажу поручено подготовить войска к набегу на вражескую державу."
  caravan_master_improve_self: "Улучшение навыков"
  caravan_master_improve_self_desc: "Этот персонаж посвящает себя улучшению своих навыков управления караваном."
- caravan_master_improve_self_tt: "Каждый месяц есть шанс, что этот персонаж получит [Concept('trait_level_track_xp', 'опыт свойства')|E] ([GetTrait('lifestyle_traveler').GetName( root_scope )|U1]), увеличит [martial_i][Concept( 'martial_skill', 'навык военного дела' )|E] или [stewardship_i][Concept( 'stewardship', 'навык управления' )|E]"
- caravan_master_improve_self_fallback_tt: "Каждый месяц есть шанс, что этот персонаж получит [Concept('trait_level_track_xp', 'опыт свойства')|E] ([GetTrait('lifestyle_traveler').GetName( GetNullCharacter )|U1]), увеличит [martial_i][Concept( 'martial_skill', 'навык военного дела' )|E] или [stewardship_i][Concept( 'stewardship', 'навык управления' )|E]"
+ caravan_master_improve_self_tt: "Каждый месяц есть шанс, что этот персонаж получит [Concept('trait_level_track_xp', 'опыт свойства')|E] ([GetTrait('lifestyle_traveler').GetName( root_scope )]), увеличит [martial_i][Concept('martial_skill', 'навык военного дела')|E] или [stewardship_i][Concept('stewardship', 'навык управления')|E]"
+ caravan_master_improve_self_fallback_tt: "Каждый месяц есть шанс, что этот персонаж получит [Concept('trait_level_track_xp', 'опыт свойства')|E] ([GetTrait('lifestyle_traveler').GetName( GetNullCharacter )]), увеличит [martial_i][Concept('martial_skill', 'навык военного дела')|E] или [stewardship_i][Concept('stewardship', 'навык управления')|E]"
  
  wet_nurse_court_position: "Кормилица"
  wet_nurse_court_position_desc: "$wet_nurse_court_position$ заботится о ваших [Concept( 'children', 'детях' )|E] и детях, находящихся у вас в [Concept( 'hostages', 'заложниках' )|E]."

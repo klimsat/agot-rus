@@ -115,7 +115,7 @@
  msg_troops_disbanding_civil_war: "Дезертирство"
  msg_troops_disbanding_civil_war_desc: "Из-за гражданской войны ополчение, поставленное персонажем [LEFT_CHARACTER.GetShortUINameNoTooltip], распущено (-$AMOUNT$)"
  msg_war_declared_on_liege: "Сюзерену объявили войну!"
- msg_war_declared_on_liege_desc: "[LEFT_CHARACTER.GetShortUIName|U] под атакой персонажа [RIGHT_CHARACTER.GetShortUIName]"
+ msg_war_declared_on_liege_desc: "[RIGHT_CHARACTER.GetShortUIName|U] [Select_CString(RIGHT_CHARACTER.IsLocalPlayer, 'напали', Select_CString(RIGHT_CHARACTER.IsFemale, 'напала', 'напал' ))] на персонажа [LEFT_CHARACTER.GetShortUIName] — вашего [Concept('liege', 'сюзерена')|E]"
  msg_war_declared_by_liege: "Сюзерен начинает войну!"
  msg_war_declared_by_liege_desc: "[LEFT_CHARACTER.GetShortUIName|U] [Select_CString(LEFT_CHARACTER.IsLocalPlayer, 'объявляете', 'объявляет')] [Concept( 'war', 'войну' )|E] [Select_CString(RIGHT_CHARACTER.IsLocalPlayer, '', 'персонажу ' )][RIGHT_CHARACTER.GetUINamePossessive][Select_CString(RIGHT_CHARACTER.IsLocalPlayer, 'ему персонажу', '' )]"
  msg_war_declared_on_me: "Объявлена война!"
@@ -126,12 +126,12 @@
  msg_liege_war_ended_invalid: "Война сюзерена окончена"
  msg_liege_war_ended_invalid_desc: "[LEFT_CHARACTER.GetShortUIName|U] [Select_CString(LEFT_CHARACTER.IsLocalPlayer, 'завершаете', 'завершает')] [Concept( 'war', 'войну' )|E] с [Select_CString(RIGHT_CHARACTER.IsLocalPlayer, '', 'персонажем ' )][RIGHT_CHARACTER.GetNamePossessiveOrMy][Select_CString(RIGHT_CHARACTER.IsLocalPlayer, 'им персонажем', '' )]"
  msg_war_declared_on_tributary: "Даннику объявили войну!"
- msg_war_declared_on_tributary_desc: "[RIGHT_CHARACTER.GetShortUIName|U] [Select_CString(RIGHT_CHARACTER.IsLocalPlayer, 'атакуете', 'атакует')] [Select_CString(LEFT_CHARACTER.IsLocalPlayer, 'вас', Concatenate('персонажа ',LEFT_CHARACTER.GetShortUIName))]"
+ msg_war_declared_on_tributary_desc: "[RIGHT_CHARACTER.GetShortUIName|U] [Select_CString(RIGHT_CHARACTER.IsLocalPlayer, 'напали', Select_CString(RIGHT_CHARACTER.IsFemale, 'напала', 'напал' ))] на персонажа [LEFT_CHARACTER.GetShortUIName] — вашего [Concept('tributary', 'данника')|E]"
  msg_tributary_declared_war_on_tributary: "Данникам объявили войну!"
  msg_war_declared_on_vassal: "Вассалу объявили войну!"
  msg_war_declared_on_vassal_desc: "[RIGHT_CHARACTER.GetShortUIName|U] [Select_CString(RIGHT_CHARACTER.IsLocalPlayer, 'напали', Select_CString(RIGHT_CHARACTER.IsFemale, 'напала', 'напал' ))] на персонажа [LEFT_CHARACTER.GetShortUIName] — вашего [Concept('vassal', 'вассала')|E]"
  msg_war_declared_on_suzerain: "Повелителю объявили войну!"
- msg_war_declared_on_suzerain_desc: "[RIGHT_CHARACTER.GetShortUIName|U] [Select_CString(RIGHT_CHARACTER.IsLocalPlayer, 'атакуете', 'атакует')] [Select_CString(LEFT_CHARACTER.IsLocalPlayer, 'вас', Concatenate('персонажа ',LEFT_CHARACTER.GetShortUIName))]"
+ msg_war_declared_on_suzerain_desc: "[RIGHT_CHARACTER.GetShortUIName|U] [Select_CString(RIGHT_CHARACTER.IsLocalPlayer, 'напали', Select_CString(RIGHT_CHARACTER.IsFemale, 'напала', 'напал' ))] на персонажа [LEFT_CHARACTER.GetShortUIName] — вашего [Concept('suzerain', 'повелителя')|E]"
 
  msg_domicile_moved.title: "Лагерь перенесен во владение [CHARACTER.GetCurrentLocation.GetBaronyNameExplicitlyNoTooltip]"
  msg_domicile_moved.desc: "Ваш [Concept('camp', 'лагерь')|E] перенесен во владение [CHARACTER.GetCurrentLocation.GetBaronyNameExplicitly]"
@@ -558,7 +558,7 @@
  msg_raid_completed_title: "Совершен налет на владение [RIGHT_TITLE.GetNameNoTierNoTooltip]"
  msg_raid_completed_desc: "Вы совершили [Concept( 'raided', 'налет' )|E] на владение [RIGHT_TITLE.GetName] ([RIGHT_TITLE.GetHolder.GetShortUIName])"
  msg_raid_lost_title: "Совершен налет на владение [RIGHT_TITLE.GetNameNoTierNoTooltip]"
- msg_raid_lost_desc: "[LEFT_CHARACTER.GetUIName|U] [Select_CString(LEFT_CHARACTER.IsLocalPlayer, 'совершили', Select_CString(LEFT_CHARACTER.IsFemale, 'совершила', 'совершил' ))] [Concept( 'raided', 'налет' )|E] на владение [RIGHT_TITLE.GetName] ([RIGHT_TITLE.GetHolder.GetShortUIName])"
+ msg_raid_lost_desc: "[LEFT_CHARACTER.GetUIName|U] [Select_CString(LEFT_CHARACTER.IsLocalPlayer, 'совершили', Select_CString(LEFT_CHARACTER.IsFemale, 'совершила', 'совершил' ))] [Concept('raided', 'налет')|E] на владение [RIGHT_TITLE.GetName] #weak ([RIGHT_TITLE.GetHolder.GetTitledFirstName])#!"
  msg_raid_intent_invalidated_title: "[raiding_army.GetRaidIntent.GetName] больше не действует!"
  msg_raid_intent_invalidated_desc: "[raiding_army.GetRaidIntent.GetName] больше не действует, поскольку [LEFT_CHARACTER.GetName] теперь не может исполнить это намерение"
 
@@ -631,3 +631,6 @@
 
  msg_appointed_to_title: "Назначение на должность"
  msg_appointed_to_title_desc: "Будучи лучшим кандидатом, вы были назначены [Concept('governor', 'губернатором')|E] владения [RIGHT_TITLE.GetDefinitiveName]"
+
+ msg_tributary_invalidated_title: "Дань отменена"
+ msg_tributary_invalidated_desc: "Договор о дани, который заключили [LEFT_CHARACTER.GetName] и [RIGHT_CHARACTER.GetName], более не действителен."

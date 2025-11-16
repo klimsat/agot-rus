@@ -12,7 +12,12 @@
  MERIT_TOOLTIP_EXAMINATION_PASSED_PALACE_EXAM: "@palace_exam_icon! #T Дворцовый экзамен#!\n[SelectLocalization( HasPassedPalaceExamination(Character), 'EXAMINATION_PASSED', 'EXAMINATION_NOT_TAKEN' )]\n\n#S Если экзамен сдан:#!\n[GetModifier( 'tgp_passed_palace_exam_modifier' ).GetDescWithBulletPointEffects]\n\nПроводится под надзором [Concept('son_of_heaven', 'Сына Неба')|E] посредством [Concept('activity', 'занятия')|E] «[GetActivityType('activity_imperial_examination').GetName]»"
   
  EXAMINATION_PASSED: "@passed_examination!#P Сдан#!"
+ EXAMINATION_FAILED_NO_RETAKE: "@failed_examination!#N Провален#!"
+ EXAMINATION_FAILED: "$EXAMINATION_FAILED_NO_RETAKE$ #weak (можно повторить попытку)#![AddLocalizationIf(And(And(Character.IsMeritCapped, Character.IsAdult), Or(ObjectsEqual(GetPlayer, Character.GetWarden.Self), Character.IsLocalPlayer)), 'EXAMINATION_WOULD_TAKE')]"
  EXAMINATION_NOT_TAKEN: "#weak Не сдан#![AddLocalizationIf(And(And(Character.IsMeritCapped, Character.IsAdult), Or(ObjectsEqual(GetPlayer, Character.GetWarden.Self), Character.IsLocalPlayer)), 'EXAMINATION_WOULD_TAKE')]"
+ EXAMINATION_WOULD_TAKE: "\n\nБез сдачи этого [Concept('examination', 'экзамена')|E] максимальная [Concept('merit_level', 'степень заслуг')|E] [Select_CString(Character.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ', Character.GetShortUIName))] будет ограничена. [SelectLocalization(Character.IsLocalPlayer, 'EXAMINATION_WOULD_TAKE_ME', 'EXAMINATION_WOULD_TAKE_OTHER')]"
+ EXAMINATION_WOULD_TAKE_ME: "Вам определенно стоит попытаться сдать экзамен."
+ EXAMINATION_WOULD_TAKE_OTHER: "Если вы попробуете сдать экзамен, [Select_CString(Character.IsFemale, 'она', 'он' )] присоединится к вам, если не будет [Select_CString(Character.IsFemale, 'занята', 'занят' )] другими делами."
  MERIT_GOVERNOR_APPOINTMENT_SCORE_POSITIVE: "$BULLET$[candidate_score|E]: @appointment_score!#P +[Character.GetGovernorAppointmentScoreByMerit]#!"
  MERIT_GOVERNOR_APPOINTMENT_SCORE_NEGATIVE: "$BULLET$[candidate_score|E]: @appointment_score!#N [Character.GetGovernorAppointmentScoreByMerit]#!"
  MERIT_MOVEMENT_POWER: "$BULLET$[Concept('movement_power', 'Сила движения')|E]: [movement_power_i] [Character.GetMovementPowerByMerit|+=0]"

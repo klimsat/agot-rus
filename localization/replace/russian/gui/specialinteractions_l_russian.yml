@@ -105,6 +105,16 @@
  normal_celestial_tribute_prestige: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'celestial_tribute_prestige' ).GetObligationName( 'celestial_prestige_transfer_normal' )]»"
  high_celestial_tribute_prestige: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'celestial_tribute_prestige' ).GetObligationName( 'celestial_prestige_transfer_high' )]»"
 
+ no_hegemonic_tribute_taxes: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'hegemonic_tribute_gold' ).GetObligationName( 'hegemonic_tributary_tax_none' )]»"
+ low_hegemonic_tribute_taxes: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'hegemonic_tribute_gold' ).GetObligationName( 'hegemonic_tributary_tax_low' )]»"
+ normal_hegemonic_tribute_taxes: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'hegemonic_tribute_gold' ).GetObligationName( 'hegemonic_tributary_tax_normal' )]»"
+ high_hegemonic_tribute_taxes: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'hegemonic_tribute_gold' ).GetObligationName( 'hegemonic_tributary_tax_high' )]»"
+
+ no_hegemonic_tribute_prestige: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'hegemonic_tribute_prestige' ).GetObligationName( 'hegemonic_prestige_transfer_none' )]»"
+ low_hegemonic_tribute_prestige: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'hegemonic_tribute_prestige' ).GetObligationName( 'hegemonic_prestige_transfer_low' )]»"
+ normal_hegemonic_tribute_prestige: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'hegemonic_tribute_prestige' ).GetObligationName( 'hegemonic_prestige_transfer_normal' )]»"
+ high_hegemonic_tribute_prestige: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'hegemonic_tribute_prestige' ).GetObligationName( 'hegemonic_prestige_transfer_high' )]»"
+
  expected_to_pay_tribute: "[SCOPE.sC('tributary_loc').GetShortUIName|U] [Select_CString(SCOPE.sC('tributary_loc').IsLocalPlayer, 'будете обязаны', Select_CString(SCOPE.sC('tributary_loc').IsFemale, 'будет обязана', 'будет обязан' ))] регулярно [Concept('travel', 'путешествовать')|E] во владение [SCOPE.sC('suzerain_loc').GetCapitalLocation.GetName], чтобы платить дань"
 
  low_nomad_tribute_herd: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'nomad_government_herd' ).GetObligationName( 'herd_tax_low' )]»"
@@ -273,7 +283,7 @@
  MARRYING_PERSON_PRESTIGE: "Брак с персонажем, чей титул [CHARACTER.GetTitleTierName|l]: $PRESTIGE|0+$"
  MARRYING_RELATIVE_PRESTIGE: "Брак с близким родственником [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] ([CHARACTER.GetTitleTierName]): $PRESTIGE|0+$"
  MARRIAGE_DOCTRINE_PRESTIGE_EFFECT: "#L [CHARACTER.GetFaith.GetName]ие#! доктрины: $PRESTIGE_MULT|0+=%$"
- TRADE_PIETY_FOR_BETTER_AI_ACCEPTANCE: "Использовать [Concept( 'piety', 'благочестие' )|E] для повышения принятия"
+ TRADE_PIETY_FOR_BETTER_AI_ACCEPTANCE: "Потратить [Concept('piety', 'благочестие')|E]"
  MARRY_INCAPABLE_REASON: "[secondary_actor.GetShortUIName|U] [Select_CString(secondary_actor.IsLocalPlayer, 'обладаете', 'обладает' )] свойством «[GetTrait('incapable').GetName( GetNullCharacter )]»: $VALUE|+0$"
  EDUCATION_HOOK: "Использовать [hook_i][Concept( 'hook', 'влияние' )|E]"
  MARRIAGE_HOOK: "Использовать [hook_i][Concept( 'hook', 'влияние' )|E]"
@@ -399,6 +409,11 @@
  BANISH_NEGATIVE_REASON: "[recipient.GetSheHe|U] боится изгнания: $VALUE|=+0$"
  TAKE_VOWS_NEGATIVE_REASON: "[Select_CString(recipient.IsFemale, 'Она', 'Он' )] не хочет получать свойство «[GetTrait('devoted').GetName( recipient.Self )]»: $VALUE|=+0$"
  RECRUITMET_NEGATIVE_REASON: "[recipient.GetSheHe|U] не хочет идти в рекруты: $VALUE|=+0$"
+ CASTRATE_NEGATIVE_REASON: "[Select_CString(recipient.IsFemale, 'Она', 'Он' )] не хочет, чтобы [Select_CString(recipient.IsFemale, 'ее', 'его' )] кастрировали: $VALUE|=+0$"
+ CASTRATE_NO_CHILDREN_NEGATIVE_REASON: "У [Select_CString(recipient.IsFemale, 'нее', 'него' )] нет [Concept('children', 'детей')|E], и [Select_CString(recipient.IsFemale, 'она', 'он' )] не хочет, чтобы [Select_CString(recipient.IsFemale, 'ее', 'его' )] кастрировали: $VALUE|=+0$"
+ DEMAND_ADMIN_NEGATIVE_REASON: "[Select_CString(recipient.IsFemale, 'Она', 'Он' )] не хочет переходить к [Concept('government_bureaucratic_type', 'бюрократической')|E] форме правления: $VALUE|=+0$"
+ DISFIGURE_NEGATIVE_REASON: "[Select_CString(recipient.IsFemale, 'Она', 'Он' )] не хочет быть [Select_CString(recipient.IsFemale, 'обезображенной', 'обезображенным' )]: $VALUE|=+0$"
+ BLIND_NEGATIVE_REASON: "[Select_CString(recipient.IsFemale, 'Она', 'Он' )] не хочет ослепнуть: $VALUE|=+0$"
  DECLARE_WAR_HEADER: "Объявить войну"
  DECLARE_WAR_TOGGLE_TITLE: "[CasusBelliTitleItem.GetBlockers]#I Щелкните, чтобы добавить/убрать претензию на титул [CasusBelliTitleItem.GetTitle.GetName]#! "
  DECLARE_WAR_CLICK_TITLE: "[CasusBelliTitleItem.GetBlockers]#I Щелкните, чтобы добавить/убрать претензию на титул [CasusBelliTitleItem.GetTitle.GetName]#! "
@@ -712,7 +727,7 @@
 
  AI_OPINION_MERIT_LEVEL: "[merit_level|E]: $VALUE|=+0$"
  
- TRADE_INFLUENCE_FOR_BETTER_AI_ACCEPTANCE: "Потратить @influence_icon![Concept('influence', 'влияние')|E] для повышения принятия"
+ TRADE_INFLUENCE_FOR_BETTER_AI_ACCEPTANCE: "Предложить ваше [influence_i|E][Concept('influence', 'влияние')|E]"
  INFLUENCE_INTERACTION_ACCEPTANCE_SEND_OPTION: "Расход [Concept('influence', 'влияния')|E]: $VALUE|=+0$"
  not_same_realm_tt: "Вы и [recipient.GetShortUIName] #BOLD не#! являетесь частью одной и той же державы"
  INFLUENCE_SEND_OPTION: "Потратить @influence_icon![Concept('influence', 'влияние')|E]"

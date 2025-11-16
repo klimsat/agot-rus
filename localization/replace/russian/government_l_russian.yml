@@ -90,7 +90,7 @@
  special_contract_palatinate: "Пфальцграфский договор"
  special_contract_palatinate_desc: "#flavor Заключив договор «$special_contract_palatinate$», [Concept( 'vassal', 'вассал' )|E] получает множество привилегий, а его политический авторитет быстро растет. Вассалы, заключившие договор «$special_contract_palatinate_short$», повышают [Concept( 'prestige', 'престиж' )|E] [Concept( 'liege', 'сюзерена' )|E], но поступающие от них [Concept( 'tax', 'налоги' )|E] и [Concept( 'levies', 'ополчение' )|E] снижаются на #high [EmptyScope.ScriptValue('palatinate_contract_taxes_tooltip')|0]%#! по сравнению с [Concept( 'obligation', 'обязательствами' )|E].#!"
  special_contract_castellan: "Кастелянский договор"
- special_contract_castellan_desc: "#flavor Под действием договора «$special_contract_castellan$» [Concept('vassal', 'вассал')|E] получает бонусы к [Concept('levies', 'ополчению')|E] и защищенности. Он платит на #high [EmptyScope.ScriptValue('march_contract_taxes_tooltip')|0]%#! меньше [Concept('tax', 'налогов')|E], но предоставляет на #high [EmptyScope.ScriptValue('castellan_contract_levies_tooltip')0]%#! больше [Concept('levy', 'ополченцев')|E], чем предписывают его $feudal_government_taxes$ по [Concept('obligation', 'обязательствам')|E].#!"
+ special_contract_castellan_desc: "#flavor Под действием договора «$special_contract_castellan$» [Concept('vassal', 'вассал')|E] получает бонусы к [Concept('levies', 'ополчению')|E] и защищенности. Он платит на #high [EmptyScope.ScriptValue('march_contract_taxes_tooltip')|0]%#! меньше [Concept('tax', 'налогов')|E], но предоставляет на #high [EmptyScope.ScriptValue('castellan_contract_levies_tooltip')|0]%#! больше [Concept('levy', 'ополченцев')|E], чем предписывают его $feudal_government_taxes$ по [Concept('obligation', 'обязательствам')|E].#!"
  special_contract_none_short: "Нет"
  special_contract_scutage_short: "Щитовые деньги"
  special_contract_march_short: "Марка"
@@ -261,6 +261,7 @@
  government_has_powerful_families: "Активирует [Concept('noble_families', 'благородные семейства')|E]"
  may_appoint_viziers: "Можно назначать [Concept( 'viziers', 'визирей' )|E]"
  government_ignores_rightful_liege_penalties: "Игнорирует штрафы незаконного сюзерена"
+ block_same_government_type_vassal_courts: "Вассалы с этим правилом не могут иметь монаршего двора, если у их верховного сюзерена также есть это правило"
 
  block_same_government_type_vassal_courts: "Вассалы с этим правилом не могут иметь монаршего двора, если у их верховного сюзерена также есть это правило"
 
@@ -781,6 +782,8 @@
  celestial_minister_civil_short: "Министерство"
  celestial_minister_military: "Обязательства великого маршала"
  celestial_minister_military_short: "Великий маршал"
+ liege_is_not_civilian_desc: "[liege.GetShortUIName|U] — #bold не#! [Concept('civilian_governor', 'гражданский губернатор')|E]"
+ liege_is_not_military_desc: "[liege.GetShortUIName|U] — #bold не#! [Concept('military_governor', 'военный губернатор')|E]"
 
  # Maritime Tribal
  wanua_government: "Вануа"
@@ -858,6 +861,9 @@
  tributary_celestial: "Мандатный данник"
  tributaries_celestial: "Мандатные данники"
  tributary_celestial_desc: "Мандатный [Concept('tributary', 'данник')|E] регулярно передает [Concept('suzerain', 'повелителю')|E] [Concept('gold', 'золото')|E] и [Concept('prestige', 'престиж')|E]. При этом [Concept('suzerain', 'повелитель')|E] служит источником [Concept('legitimacy', 'легитимности')|E] для данника и не может [Concept('raiding', 'совершать налеты')|E] или [Concept('war', 'воевать')|E] против него.\n\nМандатный данник с высоким уровнем @imperial_grace_icon! [Concept('imperial_grace', 'императорской благосклонности')|E] может получить из рук повелителя [Concept('seal_of_investiture', 'печать введения в должность')|E], что дает дополнительные преимущества."
+ tributary_hegemonic: "Гегемонистский данник"
+ tributaries_hegemonic: "Гегемонистские данники"
+ tributary_hegemonic_desc: "Гегемонистский [Concept('tributary', 'данник')|E] регулярно передает [Concept('suzerain', 'повелителю')|E] [Concept('gold', 'золото')|E] и [Concept('prestige', 'престиж')|E]. При этом [Concept('suzerain', 'повелитель')|E] служит источником [Concept('legitimacy', 'легитимности')|E] для данника и не может [Concept('raiding', 'совершать налеты')|E] или [Concept('war', 'воевать')|E] против него."
 
  celestial_tribute_gold: "[Concept('gold', 'Золото')]"
  celestial_tributary_tax_none: "Нет [Concept('taxes', 'налогов')|E]"
@@ -878,6 +884,26 @@
  celestial_prestige_transfer_normal_short: "Среднее"
  celestial_prestige_transfer_high: "Передача большого количества престижа"
  celestial_prestige_transfer_high_short: "Большое"
+ 
+ hegemonic_tribute_gold: "[gold|U]"
+ hegemonic_tributary_tax_none: "Нет [Concept('taxes', 'налогов')|E]"
+ hegemonic_tributary_tax_none_short: "Нет"
+ hegemonic_tributary_tax_low: "Низкие [Concept('taxes', 'налоги')|E]"
+ hegemonic_tributary_tax_low_short: "Низкие"
+ hegemonic_tributary_tax_normal: "Средние [Concept('taxes', 'налоги')|E]"
+ hegemonic_tributary_tax_normal_short: "Средние"
+ hegemonic_tributary_tax_high: "Высокие [Concept('taxes', 'налоги')|E]"
+ hegemonic_tributary_tax_high_short: "Высокие"
+
+ hegemonic_tribute_prestige: "[prestige|U]"
+ hegemonic_prestige_transfer_none: "Нет передачи престижа"
+ hegemonic_prestige_transfer_none_short: "Нет"
+ hegemonic_prestige_transfer_low: "Передача малого количества престижа"
+ hegemonic_prestige_transfer_low_short: "Мало"
+ hegemonic_prestige_transfer_normal: "Передача среднего количества престижа"
+ hegemonic_prestige_transfer_normal_short: "Средне"
+ hegemonic_prestige_transfer_high: "Передача большого количества престижа"
+ hegemonic_prestige_transfer_high_short: "Много"
 
  celestial_salary_rank: "Уровень жалования"
  celestial_salary_rank_none: "Нет"

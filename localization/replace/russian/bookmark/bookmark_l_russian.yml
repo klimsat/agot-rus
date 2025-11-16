@@ -1,31 +1,23 @@
 ﻿l_russian:
- #AGOT Modified
- #BOOKMARK_CHARACTER_TITLE: "[BookmarkCharacter.GetTitleTierName] владения [BookmarkCharacter.GetTitleName]"
- BOOKMARK_CHARACTER_TITLE: "[BookmarkCharacter.GetTitleName]"
- ADMIN_BOOKMARK_CHARACTER_TITLE: "Губернатор владения [BookmarkCharacter.GetTitleName]"
- NOMAD_BOOKMARK_CHARACTER_TITLE_HIGH_CHIEFTAIN: "$duke_tribal_male$ владения [BookmarkCharacter.GetTitleName]"
- NOMAD_BOOKMARK_CHARACTER_TITLE_CHIEFTAIN_OR_KHAN: "[SelectLocalization(EqualTo_int32( BookmarkCharacter.GetTier, '(int32)3'), '$count_tribal_male|q$', '$king_feudal_male_altaic_group|q$' )] владения [BookmarkCharacter.GetTitleName]"
- #Temp fix for 1.18.0, removed the tier name
- BOOKMARK_CHARACTER_TITLE_TYPE: "[BookmarkCharacter.GetTitleName] #weak [BookmarkCharacter.GetGovernmentType.GetNameWithIcon]#!"
- CREATE_NOBLE_FAMILY_BOOKMARK_CHARACTER_TITLE: "Дворянская семья во владении [BookmarkCharacter.GetTargetTitleName]"
- CREATE_ADVENTURER_BOOKMARK_CHARACTER_TITLE: "Безземельный авантюрист во владении [BookmarkCharacter.GetTargetTitleName]"
- CREATE_REPLACE_EXISTING_BOOKMARK_CHARACTER_TITLE: "Новый правитель во владении [BookmarkCharacter.GetTargetTitleName]"
  BOOKMARK_SUBTITLE_NEW_NOBLE_FAMILY: "Создать новую династию"
  BOOKMARK_SUBTITLE_NEW_LANDLESS_ADVENTURER: "Создать авантюриста"
  BOOKMARK_CHARACTER_ANY_FAITH: "Любая конфессия"
  BOOKMARK_CHARACTER_ANY_CULTURE: "Любая культура"
- BOOKMARK_CHARACTER_TITLE_TYPE_CREATE_NOBLE_FAMILY: "Безземельный дворянин во владении [BookmarkCharacter.GetTargetTitleName] #weak [BookmarkCharacter.GetGovernmentType.GetNameWithIcon]#!"
- BOOKMARK_CHARACTER_TITLE_TYPE_CREATE_ADVENTURER: "Безземельный авантюрист во владении [BookmarkCharacter.GetTargetTitleName] #weak [BookmarkCharacter.GetGovernmentType.GetNameWithIcon]#!"
- BOOKMARK_CHARACTER_TITLE_TYPE_ADVENTURER: "[BookmarkCharacter.GetTitleName] #weak ([BookmarkCharacter.GetGovernmentType.GetNameWithIcon])#!"
- BOOKMARK_CHARACTER_TITLE_TYPE_NOMAD_HIGH_CHIEFTAIN: "$duke_tribal_male$ владения [BookmarkCharacter.GetTitleName] #weak [BookmarkCharacter.GetGovernmentType.GetNameWithIcon]#!"
- BOOKMARK_CHARACTER_TITLE_TYPE_NOMAD_CHIEFTAIN_OR_KHAN: "[SelectLocalization(EqualTo_int32( BookmarkCharacter.GetTier, '(int32)3'), '$count_tribal_male|q$', '$king_feudal_male_altaic_group|q$' )] владения [BookmarkCharacter.GetTitleName] #weak [BookmarkCharacter.GetGovernmentType.GetNameWithIcon]#!"
  BOOKMARK_CHARACTER_TITLE_DATA: "[primary_title|E]: #V [BOOKMARK_CHARACTER.GetTitleTierName|U] [BOOKMARK_CHARACTER.GetTitleName]#!"
  ADVENTURER_BOOKMARK_CHARACTER_TITLE: "[BookmarkCharacter.GetTitleName]"
+
  BOOKMARK_CHARACTER_CULTURE: "[culture|E]: #high [BookmarkCharacter.GetCultureName]#!"
  BOOKMARK_CHARACTER_CULTURE_DATA: "[culture|E]: [BOOKMARK_CHARACTER.GetCultureName]"
  BOOKMARK_CHARACTER_AGE: "Возраст: [BookmarkCharacter.GetAge|V]"
+
  BOOKMARK_CHARACTER_INFO: "#high;bold [BookmarkCharacter.GetName]#!, #medium [BookmarkCharacter.GetAge]#!"
+ BOOKMARK_CHARACTER_SUBHEADING_AND_GOVERNMENT: "[BookmarkCharacter.GetSubheading] #low [BookmarkCharacter.GetGovernmentType.GetNameWithIcon]#!"
+
  BOOKMARK_CHARACTER_INFO_CREATE: "#high;bold [BookmarkCharacter.GetName]#!"
+ BOOKMARK_CUSTOM_CHARACTER_SUBHEADING_AND_GOVERNMENT: "[SelectLocalization(BookmarkCharacter.StartDesignLandlessNobleFamily, 'BOOKMARK_CUSTOM_CHARACTER_SUBHEADING_NOBLE_FAMILY', 'BOOKMARK_CUSTOM_CHARACTER_SUBHEADING_ADVENTURER')] #low [BookmarkCharacter.GetGovernmentType.GetNameWithIcon]#!"
+ BOOKMARK_CUSTOM_CHARACTER_SUBHEADING_NOBLE_FAMILY: "Безземельный дворянин во владении [BookmarkCharacter.GetTargetTitleName]"
+ BOOKMARK_CUSTOM_CHARACTER_SUBHEADING_ADVENTURER: "Безземельный авантюрист во владении [BookmarkCharacter.GetTargetTitleName]"
+
  BOOKMARK_CHARACTER_AGE_DATA: "Возраст: [BOOKMARK_CHARACTER.GetAge]"
  BOOKMARK_CHARACTER_RELIGION: "[faith|E]: #high [BookmarkCharacter.GetReligionName]ая#!"
  BOOKMARK_CHARACTER_RELIGION_DATA: "[faith|E]: #L [BOOKMARK_CHARACTER.GetReligionName]ая#!"
@@ -83,3 +75,16 @@
  
  BOOKMARK_RELATION_HALF_BROTHER: "(Единокровный брат)"
  BOOKMARK_RELATION_FATHER_IN_LAW: "(Тесть или свекор)"
+
+#character subheading templates
+ BOOKMARK_SUBHEADING_DEFAULT: "[BookmarkCharacter.GetTitleTierName] владения [BookmarkCharacter.GetTitleName]"
+ BOOKMARK_SUBHEADING_DEFAULT_WITH_THE: "[BookmarkCharacter.GetTitleTierName] владения [BookmarkCharacter.GetTitleName]"
+ BOOKMARK_SUBHEADING_ADVENTURER: "[BookmarkCharacter.GetTitleName]"
+ BOOKMARK_SUBHEADING_KHAN: "$king_feudal_male_altaic_group$ владения [BookmarkCharacter.GetTitleName]"
+ BOOKMARK_SUBHEADING_KHAN_WITH_THE: "$king_feudal_male_altaic_group$ владения [BookmarkCharacter.GetTitleName]"
+ BOOKMARK_SUBHEADING_HIGH_CHIEFTAIN: "$duke_tribal_male$ владения [BookmarkCharacter.GetTitleName]"
+ BOOKMARK_SUBHEADING_GOVERNOR: "$game_concept_governor$ владения [BookmarkCharacter.GetTitleName]"
+ BOOKMARK_SUBHEADING_MILITARY_GOVERNOR: "Военный губернатор владения [BookmarkCharacter.GetTitleName]"
+ BOOKMARK_SUBHEADING_CHIEFTAIN: "$count_tribal_male$ владения [BookmarkCharacter.GetTitleName]"
+ BOOKMARK_SUBHEADING_LANDLESS_ADMIN: "Глава владения [BookmarkCharacter.GetTitleName]"
+ BOOKMARK_SUBHEADING_RULING_REGENT: "$game_concept_ceremonial_regent$ владения [BookmarkCharacter.GetTitleName]"
