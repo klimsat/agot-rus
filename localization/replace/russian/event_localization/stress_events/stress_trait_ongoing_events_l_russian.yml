@@ -10,8 +10,6 @@
  #AGOT Modified
  #stress_trait_ongoing.0501.desc: "The business of ruling the realm has been so stressful, recently. If it's not this, it's that, if it's not that, it's this. An endless parade of peasants, priests, and problems, all expecting #EMP me#! to solve their every petty concern.\n\nI deserve a day to myself, with no suiters or petitioners, no diplomats or judges. Just me and this large plate of hashish cakes..."
  stress_trait_ongoing.0501.desc: "В последнее время управление державой приносит мне столько переживаний! Не одно, так другое; не другое, так третье. Бесконечная череда крестьян, духовенства и проблем, и все ждут, что #EMP я#! помогу с их мелкими заботами.\n\nЯ заслуживаю день отдыха: чтобы никаких просителей, сватов, дипломатов, судей... Только я и этот кубок с маковым молоком..."
- stress_trait_ongoing.0501.adventurer: "В последнее время управление лагерем приносит мне столько переживаний! Не одно, так другое; не другое, так третье. Бесконечная череда мелких задач, вопросов и проблем, и все ждут, что их буду разрешать именно #EMP я#!.\n\nЯ заслуживаю день отдыха: без ободряющих разговоров, речей, тренировок и собраний. Только я и эта тарелка пирогов с гашишем..."
- stress_trait_ongoing.0501.administrative: "Дом [ROOT.Char.GetDynastyHouse.GetBaseNameNoTooltip] находится под моим управлением, и в последнее время служит для меня источником бесконечных переживаний! Не одно, так другое; не другое, так третье. Бесконечная череда мелких задач, вопросов и проблем, и все ждут, что их буду разрешать именно #EMP я#!.\n\nЯ заслуживаю день отдыха: без интриг, без прихорашиваний, подхалимства или подлога. Только я и эта тарелка пирогов с гашишем..."
  stress_trait_ongoing.0501.a: "Пора возвращаться к работе!"
  stress_trait_ongoing.0501.b: "Всего лишь один день отдыха..."
  overworking_diplomacy_modifier: "Переутомление дипломатией"
@@ -110,7 +108,7 @@
  stress_trait_ongoing.1501.b.flavor: "Непродолжительное одиночество принесет мне хотя бы временное облегчение."
  stress_trait_ongoing.1501.c: "Поход в бордель поможет выбросить [obsession.GetHerHis] из головы..."
  stress_trait_ongoing.1501.c.flavor: "#EMP Там#! мне помогут с этим справиться."
- stress_trait_ongoing.1501.d: "Вряд ли [obsession.GetFirstName] одобрит такое отношение, это #EMP неправильно#!!"
+ stress_trait_ongoing.1501.d: "Вряд ли [obsession.GetFirstNameNoTooltip] одобрит такое отношение, это #EMP неправильно#!!"
  stress_trait_ongoing.1501.d.flavor: "Эта одержимость несправедлива по отношению к н[obsession.GetHerHim] и причиняет боль мне."
 
  ###########
@@ -151,12 +149,12 @@
 
  stress_trait_ongoing.4502.t: "Голод"
  stress_trait_ongoing.4502.desc: "Последние несколько недель были особенно тяжелыми, и я хочу просто большой сочный кусок мяса. Хороший, нежный кусок, например филе или ребрышки?\n\nМой рот наполняется слюной от этих мыслей, и я знаю, что не смогу сдерживать свой голод. Не в этот раз."
- stress_trait_ongoing.4502.a: "Вряд ли кто заметит, если [prisoner.GetTitledFirstName] исчезнет."
- stress_trait_ongoing.4502.b: "[courtier.GetTitledFirstName] все равно этого заслуживает..."
+ stress_trait_ongoing.4502.a: "Вряд ли кто заметит, если [prisoner.GetTitledFirstNameNoTooltip] исчезнет."
+ stress_trait_ongoing.4502.b: "[courtier.GetTitledFirstNameNoTooltip|U] всё равно этого заслуживает..."
  stress_trait_ongoing.4502.c: "[hapless_village.GetNameNoTier], я иду!"
 
  stress_trait_ongoing.5001.t: "Пир с намерениями"
- stress_trait_ongoing.5001.desc: "«Пойдемте со мной, [ROOT.Char.GetTitledFirstName], у меня есть для вас сюрприз! — возбужденно говорит [giver.Custom2('MyCharacterIntroduction', ROOT.Char)]. — Я вижу, что вы скверно едите, поэтому [Select_CString(giver.IsFemale, 'потратила', 'потратил' )] многие дни на поиски редчайших деликатесов!»\n\nЯ следую за [Select_CString(giver.IsFemale, 'ней', 'ним' )] и вижу стол, ломящийся от изысканных яств. [ROOT.Char.Custom('GetExpensiveMeal')|U] и [ROOT.Char.Custom('GetExpensiveMealAlt')]... [ROOT.Char.Custom('GetExpensiveDessert')]... у меня начинает урчать в животе от одного только запаха.\n\n«Ну что? Налетайте, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )]!»"
+ stress_trait_ongoing.5001.desc: "«Пойдемте со мной, [ROOT.Char.GetTitledFirstName], у меня есть для вас сюрприз! — возбужденно говорит [giver.Custom2('MyCharacterIntroduction', ROOT.Char)]. — Я вижу, что вы скверно едите, поэтому [Select_CString(giver.IsFemale, 'потратила', 'потратил' )] многие дни на поиски редчайших деликатесов!»\n\nЯ следую за [Select_CString(giver.IsFemale, 'ней', 'ним' )] и вижу стол, ломящийся от изысканных яств. [ROOT.Char.Custom('GetExpensiveMeal')|U] и [ROOT.Char.Custom('GetExpensiveMealAlt')]... [ROOT.Char.Custom('GetExpensiveDessert')]... у меня начинает урчать в животе от одного только запаха.\n\n«Ну что? Налетайте, [ROOT.Char.Custom('FormOfAddressForLiege')]!»"
  stress_trait_ongoing.5001.a: "«Это... ух, вкусно. М-м-м, очень вкусно»."
  stress_trait_ongoing.5001.a.flavor: "Я съем, но только из вежливости."
  stress_trait_ongoing.5001.b: "«Не стоило... нет, правда. #EMP Слуги!#! Унесите это»."

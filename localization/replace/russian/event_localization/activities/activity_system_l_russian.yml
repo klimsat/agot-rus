@@ -1,7 +1,6 @@
 ﻿l_russian:
  ACTIVITY_LOG_ENTRY_EFFECT:1 "#S Эффекты#!\n$EFFECT$"
  activity_tournament_province_desc:2 "Вы устроили турнир в провинции [ROOT.Province.GetName]\nПровинции с подходящими зданиями позволяют сэкономить [gold_i] [Concept( 'gold', 'золота' )|E]"
- activity_tournament_conclusion_desc: "#D Дизайнер-сенпай, заполните меня и вставьте в нужный файл UwU#!"
  activity_feast_guest_desc: "$BULLET_WITH_TAB$[Concept( 'opinion', 'Мнение' )|E] гостей об участниках может улучшиться\n$BULLET_WITH_TAB$[stress_loss_i][Concept( 'stress', 'Стресс' )|E] участников может снизиться\n$BULLET_WITH_TAB$Участники могут получить [Concept( 'trait', 'свойство' )|E] «[GetTrait('lifestyle_reveler').GetName( GetNullCharacter )]»"
  activity_tournament_guest_desc:1 "#weak Приняв участие в турнире, вы сможете побороться за приз победителя, а еще — отдохнуть и приятно провести время. Помимо этого, вы получите возможность улучшить свое воинское мастерство.#!"
 
@@ -63,11 +62,11 @@
  activity_system.1011.desc: "К сожалению, [host.GetNameRegnal], [Select_CString(host.IsFemale, 'мой сюзерен, покинула', 'мой сюзерен, покинул' )] этот мир во время объезда своих владений. Причина смерти: [host.GetDeathReason].\n\nНа этом поездка завершена. [host.GetFirstNameNoTooltip] в сопровождении свиты отправится в последний путь."
 
 # Host has joined a war and has the opportunity to cancel the activity 
- activity_system.0300.t: "Война не ждёт"
+ activity_system.0300.t: "Война не ждет"
  activity_system.0300.desc.intro.traveling: "Звук рогов, зовущий на войну, долетел даже сюда, в место под названием [target_activity_location.GetName]. Здесь я нахожусь по пути на мероприятие [target_activity_type.GetNameNoTooltip], которое должно состояться в месте [target_activity_location.GetName]. "
  activity_system.0300.desc.intro.activity: "Звук рогов, зовущий на войну, долетел даже сюда, в место под названием [target_activity_location.GetName], где мной проводится [target_activity_type.GetNameNoTooltip]. "
  activity_system.0300.desc.attacker:1 "Я вступаю в войну против персонажа [war_opponent.GetNameRegnal|U]."
- activity_system.0300.desc.defender: "[Select_CString(attacker.IsFemale, 'Эта', 'Этот' )] [attacker.Custom('InsultNoun')] [attacker.GetNameRegnal|U] [Select_CString(attacker.IsFemale, 'объявила', 'объявил' )] мне войну!\n\n"
+ activity_system.0300.desc.defender: "[Select_CString(war_opponent.IsFemale, 'Эта', 'Этот' )] [war_opponent.Custom2('InsultNoun', ROOT.Char)] [war_opponent.GetNameRegnal|U] [Select_CString(war_opponent.IsFemale, 'объявила', 'объявил' )] мне войну!\n\n"
  activity_system.0300.desc.outro: "На подготовку к мероприятию [target_activity_type.GetNameNoTooltip] потрачено много сил и средств, и мне очень не хочется отправлять гостей по домам. Однако нельзя недооценивать важность этого противостояния.\n\nВозможно, мне следует сосредоточиться на войне..."
  activity_system.0300.a: "Дальше я разберусь самостоятельно."
  #AGOT Modified, fixing Paradox oops
@@ -80,17 +79,18 @@
  activity_system.0300.b.tt.cost: "Часть расходов, возможно, будет возмещена"
 
  activity_system.0301.t: "[target_activity_type.GetNameNoTooltip]: отмена"
- activity_system.0301.desc: "#EMP «На войну! На войну!»#! — кричат [knights|l] персонажа [target_activity_host.GetTitledFirstNamePossessive], с грохотом проезжая мимо. Их рога ревут, их знамена сверкают на фоне неба.\n\nПохоже, [Select_CString(war_opponent.IsFemale, 'эта', 'этот' )][war_opponent.Custom('InsultNoun')] [war_opponent.GetNameRegnal] совсем не думает о том, что сейчас проводится [target_activity_type.GetNameNoTooltip]! Мероприятие придётся отменить, ведь [target_activity_host.GetTitleAsNameNoTooltip] собирает ополчение и молится, надеясь, что [target_activity_host.GetFaith.WarGodName] дарует нам победу.\n\n[target_activity_type.GetNameNoTooltip] дело достойное и благородное, но призыв на битву слышен громче всего."
+ activity_system.0301.desc: "#EMP «На войну! На войну!»#! — кричат [knights|l] персонажа [target_activity_host.GetTitledFirstNamePossessive], с грохотом проезжая мимо. Их рога ревут, их знамена сверкают на фоне неба.\n\nПохоже, [Select_CString(war_opponent.IsFemale, 'эта', 'этот' )][war_opponent.Custom2('InsultNoun', ROOT.Char)] [war_opponent.GetNameRegnal] совсем не думает о том, что сейчас проводится [target_activity_type.GetNameNoTooltip]! Мероприятие придется отменить, ведь [target_activity_host.GetTitleAsNameNoTooltip|l] собирает ополчение и молится, надеясь, что [target_activity_host.GetFaith.WarGodName] дарует нам победу.\n\n[target_activity_type.GetNameNoTooltip] дело достойное и благородное, но призыв на битву слышен громче всего."
  activity_system.0301.a: "Какой фарс..."
 
- #AGOT Modified, fixing Paradox oops
- #activity_system.0310.desc.intro: "Звук рогов, зовущий на войну, долетел даже в место под названием [target_activity_location.GetName], где проводится [target_activity_type.GetNameNoTooltip], что устраивает [target_activity_host.GetPossessiveNameRegnal|U] и где участвую я. [attacker.GetTitledFirstName|U] и [defender.GetTitledFirstName|U] вступили в войну, и меня призывают принять в ней участие."
- activity_system.0310.desc.intro: "Звук рогов, зовущий на войну, долетел даже в место под названием [target_activity_location.GetName], где проводится [target_activity_type.GetNameNoTooltip], что устраивает [target_activity_host.GetNamePossessive|U] и где участвую я. [attacker.GetTitledFirstName|U] и [defender.GetTitledFirstName|U] вступили в войну, и меня призывают принять в ней участие."
+ activity_system.0310.desc.intro: "Звук рогов, зовущий на войну, долетел даже до местечка под названием [target_activity_location.GetName]. Причина моего появления здесь — [target_activity_type.GetNameNoTooltip|l], что устраивает [target_activity_host.GetName].\n\n"
+ activity_system.0310.desc.primary_defender: "Воспользовавшись моим отсутствием, [Select_CString(attacker.IsFemale, 'подлая', 'подлый' )] [attacker.GetTitledFirstName] [Select_CString(attacker.IsFemale, 'объявила', 'объявил' )] мне войну!"
+ activity_system.0310.desc.random_defender: "Как оказалось, [attacker.GetTitledFirstName] и [defender.GetTitledFirstName] вступили в войну, и теперь меня призывают принять в ней участие."
  activity_system.0310.a.tt: "Вы продолжаете участвовать в занятии [target_activity_type.GetNameNoTooltip]"
  activity_system.0310.b.tt: "Вы прекращаете участвовать в занятии [target_activity_type.GetNameNoTooltip] и отправляетесь домой"
  
  activity_system.0320.t: "Неожиданный исход"
  activity_system.0320.desc: "Наш устроитель [host.GetName] [Select_CString(host.IsFemale, 'утратила', 'утратил' )] контроль над землями, так что [activity_type.GetNameNoTooltip()] отменяется.\n\nКонечно, никто не ожидал такого развития событий — после таких-то помпезных обещаний и приготовлений… Что ж, придется мне со свитой возвращаться домой. Открывай ворота, [ROOT.Char.GetCapitalLocation.GetNameNoTooltip]…"
+ activity_system.0320.a: "Что сделано, то сделано"
 
  # If you have gained the incapable trait 
  activity_system.0330.t: "Недееспособность"
@@ -131,25 +131,18 @@
  hold_standard_activity_option_hunt_desc: "$activity_hunt$"
  hold_standard_activity_option_pilgrimage: "$activity_pilgrimage$"
  hold_standard_activity_option_pilgrimage_desc: "$activity_pilgrimage$"
- hold_standard_activity_option_play_date: "$activity_play_date$"
- hold_standard_activity_option_play_date_desc: "$activity_play_date$"
+ hold_standard_activity_option_play_date: "$activity_playdate$"
+ hold_standard_activity_option_play_date_desc: "$activity_playdate$"
  hold_standard_activity_option_witch_ritual: "$activity_witch_ritual$"
  hold_standard_activity_option_witch_ritual_desc: "$activity_witch_ritual$"
 
  activity_system.0500.t: "Печальный конец"
  activity_system.0500.desc: "До меня дошла весть: [host.GetNameNoTooltip] [Select_CString(host.IsFemale, 'скончалась', 'скончался')]. Из-за этого организованное [Select_CString(host.IsFemale, 'ею', 'им')] мероприятие отменяется."
  activity_system.0500.a: "Настоящая трагедия."
- activity_system.0550.t: "Испорченные планы"
- activity_system.0550.desc: "Из-за того, что меня внезапно заточили в темницу, мероприятие продолжаться не может. Всё отменяется.\n\nА ведь мы столько готовились…"
- activity_system.0550.a: "Это не входило в мои планы..."
 
- activity_system.0551.t: "Устроитель в тюрьме"
- activity_system.0551.desc: "Мероприятие, в котором я участвую, отменяется, так как его организатор, [host.GetNameNoTooltip], [Select_CString(host.IsFemale, 'угодила', 'угодил')] в темницу. Кто бы мог представить…"
- activity_system.0551.a: "Пора поворачивать домой."
-
- activity_system.0500.t: "Печальный конец"
- activity_system.0500.desc: "До меня дошла весть: [host.GetNameNoTooltip] [Select_CString(host.IsFemale, 'скончалась', 'скончался')]. Из-за этого организованное [Select_CString(host.IsFemale, 'ею', 'им')] мероприятие отменяется."
- activity_system.0500.a: "Настоящая трагедия."
+ activity_system.0501.t: "Внезапная кончина"
+ activity_system.0501.desc: "По залу для экзаменов разносится тревожный гомон, повсюду в смятении мечутся монахи и ученые мужи. собирается толпа, отовсюду доносятся звуки рыданий.\n\n[ROOT.Char.GetTopLiege.Custom('GetDaughterSon')] Небес [Select_CString(ROOT.Char.GetTopLiege.IsFemale, 'скончалась', 'скончался' )]."
+ activity_system.0501.a: "Поверить не могу..."
 
  activity_system.0550.t: "Испорченные планы"
  activity_system.0550.desc: "Из-за того, что меня внезапно заточили в темницу, мероприятие продолжаться не может. Всё отменяется.\n\nА ведь мы столько готовились…"
@@ -158,3 +151,11 @@
  activity_system.0551.t: "Устроитель в тюрьме"
  activity_system.0551.desc: "Мероприятие, в котором я участвую, отменяется, так как его организатор, [host.GetNameNoTooltip], [Select_CString(host.IsFemale, 'угодила', 'угодил')] в темницу. Кто бы мог представить…"
  activity_system.0551.a: "Пора поворачивать домой."
+
+ activity_system.0552.t: "Неотвеченное испытание"
+ activity_system.0552.desc: "Как это понимать? Похоже, ни одно другое движение не желает бросить вызов движению «[GetPlayer.Custom('GetMyMovementNoTooltip')]».\n\nДискутировать не с кем, и дебаты пришлось отменить."
+ activity_system.0552.a: "До следующего раза…"
+
+ activity_system.0554.opening: "[host.Custom2('AppropriateGreeting', ROOT.Char)]"
+ activity_system.0554.a: "Я не могу не принять этот вызов."
+ activity_system.0554.b: "Я поищу убедительное оправдание."

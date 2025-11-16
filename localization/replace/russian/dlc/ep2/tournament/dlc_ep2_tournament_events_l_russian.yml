@@ -156,7 +156,7 @@
  #AGOT Modified, Vanilla error
  #tournament_events.1140.wounded: "[Select_CString(pas_darmes_instigator.IsFemale, 'Потрепанная и побитая', 'Потрепанный и побитый' )], [pas_darmes_instigator.GetSheHe|l] выдавливает ужимку при моем приближении. «Всех не победишь», — со смешком замечает [pas_darmes_instigator.GetSheHe|l], поглядывая в мою сторону."
  tournament_events.1140.wounded: "[Select_CString(pas_darmes_instigator.IsFemale, 'Потрепанная и побитая', 'Потрепанный и побитый' )], [pas_darmes_instigator.GetSheHe|l] выдавливает ужимку при моем приближении. «Всех не победишь», — со смешком замечает [pas_darmes_instigator.GetSheHe|l], поглядывая в мою сторону."
- tournament_events.1140.fallback: "[pas_darmes_instigator.GetSheHe|U] подскакивает на месте, заметив меня, явно рассчитывая на очередной поединок, но быстро понимает, кто перед [Select_CString(pas_darmes_instigator.IsFemale, 'ней', 'ним' )]. С улыбкой поглядывая на меня, [pas_darmes_instigator.GetFirstNameNoTooltip] отвешивает поклон. «Какая встреча, [ROOT.Char.GetLadyLord|l] державы [ROOT.Char.GetPrimaryTitle.GetBaseNameNoTierNoTooltip]»."
+ tournament_events.1140.fallback: "[pas_darmes_instigator.GetSheHe|U] подскакивает на месте, заметив меня, явно рассчитывая на очередной поединок, но быстро понимает, кто перед [Select_CString(pas_darmes_instigator.IsFemale, 'ней', 'ним' )]. С улыбкой поглядывая на меня, [pas_darmes_instigator.GetFirstNameNoTooltip] отвешивает поклон. «Какая встреча, [ROOT.Char.Custom('FormOfAddressForLiege')] державы [ROOT.Char.GetPrimaryTitle.GetBaseNameNoTierNoTooltip]»."
  tournament_events.1140.a: "Позвольте я покажу вам, как #EMP [ROOT.Char.GetTitleAsNameNoTooltip|l]#! обращается с копьем."
  tournament_events.1140.a.wounded: "Вы и на этот раз не выиграете."
  tournament_events.1140.a.success: "[pas_darmes_instigator.GetNameNoTooltip] терпит поражение"
@@ -264,8 +264,8 @@
  tournament_events.1255.a.tt: "«Только время покажет...»"
  tournament_events.1260.t: "Сохранение мира"
  tournament_events.1260.desc: "Правители и [ROOT.Char.Custom('MountedWarriorTermPlural')|l] в большом количестве собрались в одном месте, поэтому неудивительно, что они постоянно ссорятся друг с другом, припоминая старые обиды.\n\n"
- tournament_events.1260.rival: "«Слушай ты, [duelist_2.Custom('InsultNoun')|l]!» — щерится [duelist_1.GetFirstName], пока [duelist_2.GetTitledFirstName] угрожающе держится за рукоять своего оружия (это [duelist_2.Custom('SignatureWeaponNameOrType')]). Никто точно не знает, из-за чего все началось.\n\nОбычно, даже в худшем случае, подобная показная бравада заканчивается подбитым глазом, но [duelist_1.GetTitledFirstName] и [duelist_2.GetTitledFirstName] явно сцепились не на шутку, и это грозит омрачить все мероприятие."
- tournament_events.1260.fallback: "«Слушай ты, [duelist_2.Custom('InsultNoun')|l]!» — щерится [duelist_1.GetFirstName], пока [duelist_2.GetFirstNameNoTooltip] угрожающе держится за рукоять меча.\n\nОбычно, даже в худшем случае, подобная показная бравада заканчивается подбитым глазом, но эта ссора грозит омрачить все мероприятие. Никто не знает, из-за чего все началось."
+ tournament_events.1260.rival: "«Слушай ты, [duelist_2.Custom2('InsultNoun', SCOPE.sC('duelist_1'))|l]!» — щерится [duelist_1.GetFirstName], пока [duelist_2.GetTitledFirstName] угрожающе держится за рукоять своего оружия (это [duelist_2.Custom('SignatureWeaponNameOrType')]). Никто точно не знает, из-за чего все началось.\n\nОбычно, даже в худшем случае, подобная показная бравада заканчивается подбитым глазом, но [duelist_1.GetTitledFirstName] и [duelist_2.GetTitledFirstName] явно сцепились не на шутку, и это грозит омрачить все мероприятие."
+ tournament_events.1260.fallback: "«Слушай ты, [duelist_2.Custom2('InsultNoun', SCOPE.sC('duelist_1'))|l]!» — щерится [duelist_1.GetFirstName], пока [duelist_2.GetFirstNameNoTooltip] угрожающе держится за рукоять меча.\n\nОбычно, даже в худшем случае, подобная показная бравада заканчивается подбитым глазом, но эта ссора грозит омрачить все мероприятие. Никто не знает, из-за чего все началось."
  tournament_events.1260.a: "Довольно! У нас тут не бандитский лагерь!"
  tournament_events.1260.b: "Ну же, не позорьте устроителя."
  tournament_events.1260.c: "Вот отсюда! Уберите этих смутьянов!"
@@ -332,7 +332,7 @@
  tournament_events.1320.b: "Меня это не касается!"
 
  tournament_events.1321.t: "Одолженная монета"
- tournament_events.1321.desc: "Я освежаюсь между соревнованиями, и вдруг, взглянув поверх кубка, вижу, что ко мне приближается странно знакомая фигура в плаще.\n\n«Кажется, у вас есть кое-что мое, — человек выходит на свет с опаской, словно делает это не часто. — Монета, [Select_CString(ROOT.Char.IsFemale, 'моя', 'мой' )] [ROOT.Char.GetLadyLord]. Она ведь все еще у вас?»\n\nЯ достаю ее из кармана, и металл блестит на солнце. В его цвете словно прибавилось красноты, теперь монета напоминает цветом драгоценный гранат. Человек улыбается в глубине капюшона.\n\n«Примите мою сердечную благодарность. Прошу, примите это в качестве компенсации за доставленные неудобства». Человек протягивает руку за монетой, а в другой держит увесистый кошель с золотом."
+ tournament_events.1321.desc: "Я освежаюсь между соревнованиями, и вдруг, взглянув поверх кубка, вижу, что ко мне приближается странно знакомая фигура в плаще.\n\n«Кажется, у вас есть кое-что мое, — человек выходит на свет с опаской, словно делает это не часто. — Монета, [ROOT.Char.Custom('FormOfAddressForLiege')]. Она ведь все еще у вас?»\n\nЯ достаю ее из кармана, и металл блестит на солнце. В его цвете словно прибавилось красноты, теперь монета напоминает цветом драгоценный гранат. Человек улыбается в глубине капюшона.\n\n«Примите мою сердечную благодарность. Прошу, примите это в качестве компенсации за доставленные неудобства». Человек протягивает руку за монетой, а в другой держит увесистый кошель с золотом."
  tournament_events.1321.a: "Присоединяйтесь к моему двору. Ваши таланты мне пригодятся..."
  tournament_events.1321.b: "Приятно иметь с вами дело, мой друг."
  tournament_events.1321.c: "Гм. Не думаю."
@@ -343,7 +343,7 @@
  tournament_events.1322.a: "Я... Думаю, все будет в порядке."
 
  tournament_events.1330.t: "Следующее поколение"
- tournament_events.1330.desc: "«Удачи, [Select_CString(ROOT.Char.IsFemale, 'моя', 'мой' )] [ROOT.Char.GetLadyLord]!» Я благодарно машу рукой, отвечая на крик из толпы. «И тебе удачи, [heir.GetFirstName]!»\n\n[heir.GetFirstNameNoTooltip] идет подле меня. «О чем речь? — удивленно спрашиваю я, — почему удачи желают тебе?» [heir.GetHerHis|U] нервный взгляд отвечает на вопрос лучше любых слов.\n\n«Я... Я хочу участвовать! — настаивает [heir.GetSheHe|U]. — Ты участвуешь, почему мне нельзя?» Я резко останавливаюсь, и [heir.GetFirstNameNoTooltip], спотыкаясь, останавливается рядом, и от моей реакции [heir.GetHerHis] напускная смелость начинает таять."
+ tournament_events.1330.desc: "«Удачи, [ROOT.Char.Custom('FormOfAddressForLiege')]!» Я благодарно машу рукой, отвечая на крик из толпы. «И тебе удачи, [heir.GetFirstName]!»\n\n[heir.GetFirstNameNoTooltip] идет подле меня. «О чем речь? — удивленно спрашиваю я, — почему удачи желают тебе?» [heir.GetHerHis|U] нервный взгляд отвечает на вопрос лучше любых слов.\n\n«Я... Я хочу участвовать! — настаивает [heir.GetSheHe|l]. — Ты участвуешь, почему мне нельзя?» Я резко останавливаюсь, и [heir.GetFirstNameNoTooltip], спотыкаясь, останавливается рядом, и от моей реакции [heir.GetHerHis] напускная смелость начинает таять."
  tournament_events.1330.a: "Пойми же. Твоя жизнь слишком ценна, чтобы рисковать ей попусту."
  tournament_events.1330.b: "Какое счастье, что у меня есть [Select_CString(heir.IsFemale, 'такая', 'такой' )] [heir.Custom('GetDaughterSon')]!"
  tournament_events.1330.c: "Запрещаю! Немедленно откажись от участия!"
@@ -358,7 +358,7 @@
  tournament_events.1331.e: "Что ж, если нужно, я откажусь."
 
  tournament_events.1332.t: "Ты — мне, я — тебе"
- tournament_events.1332.desc: "Я вижу, что ко мне пробирается [powerful_vassal.GetFirstName], и в отчаянии прикрываю глаза. Когда я открываю их вновь, [powerful_vassal.GetSheHe] стоит прямо передо мной с натянутой улыбкой и буравит сердитым взглядом.\n\n«[ROOT.Char.GetFirstName], [Select_CString(ROOT.Char.IsFemale, 'моя', 'мой' )] [ROOT.Char.GetLadyLord], какая #EMP чудесная#! встреча! Так вы еще и участвуете! — [powerful_vassal.GetSheHe|U] хватает меня под руку и с заговорщическим видом уводит подальше от толпы. — Послушайте, я прошу об одолжении». — Когда я закатываю глаза, [powerful_vassal.GetHerHis|U] притворное дружелюбие едва не лопается.\n\n«Я хочу хорошо себя показать на состязании, и, как один из ваших самых #EMP верных#! вассалов хочу спросить, могу ли я рассчитывать на вашу помощь»."
+ tournament_events.1332.desc: "Я вижу, что ко мне пробирается [powerful_vassal.GetFirstName], и в отчаянии прикрываю глаза. Когда я открываю их вновь, [Select_CString(powerful_vassal.IsFemale, 'она', 'он' )] стоит прямо передо мной с натянутой улыбкой и буравит сердитым взглядом.\n\n«[ROOT.Char.GetFirstName], [ROOT.Char.Custom('FormOfAddressForLiege')], какая #EMP чудесная#! встреча! Так вы еще и участвуете! — [Select_CString(powerful_vassal.IsFemale, 'она', 'он' )] хватает меня под руку и с заговорщическим видом уводит подальше от толпы. — Послушайте, я прошу об одолжении». — Когда я закатываю глаза, [Select_CString(powerful_vassal.IsFemale, 'ее', 'его' )] притворное дружелюбие едва не лопается.\n\n«Я хочу хорошо себя показать на состязании, и, как один из ваших самых #EMP верных#! вассалов хочу спросить, могу ли я рассчитывать на вашу помощь»."
  tournament_events.1332.a: "Ты ведь действительно верный вассал, правда?"
  tournament_events.1332.b: "Самый верный, значит?"
  tournament_events.1332.c: "Что-то у меня в карманах пустовато в последнее время..."
@@ -388,7 +388,7 @@
  tournament_events.1402.t: "[activity.GetNameNoTooltip]: бессмысленные уступки"
  tournament_events.1402.desc: "Напряжение достигает апогея, силы соперников равны. Я вцепляюсь в деревянное ограждение и, вместе с толпой, громко болею за свою сторону. Но мой вопль превращается в придушенный визг, когда я чувствую, как что-то течет у меня по спине. Какая-то жидкость, одновременно горячая #EMP и#! холодная?\n\nЯ резко оборачиваюсь и вижу, что передо мной стоит [drinking_spectator.GetFirstName], а в [drinking_spectator.GetHerHis] кубке плещутся остатки неизвестного напитка, изрядная порция которого сейчас стекает у меня по шее.\n\n«Эй, смотри, куда прешь! — бормочет [drinking_spectator.GetSheHe], обвиняюще тыча в меня кубком. — Осторожнее надо быть!»"
  tournament_events.1402.a: "Давай я куплю нам обоим еще порцию!"
- tournament_events.1402.b: "Стража! Пусть [Select_CString(drinking_spectator.IsFemale, 'эта', 'этот' )] [drinking_spectator.Custom('InsultAdjective')][Select_CString(drinking_spectator.IsFemale, 'ая', 'ый' )] [drinking_spectator.Custom('InsultNoun')] убирается с глаз моих!"
+ tournament_events.1402.b: "Стража! Пусть [Select_CString(drinking_spectator.IsFemale, 'эта', 'этот' )] [drinking_spectator.Custom2('InsultAdjective', ROOT.Char)][Select_CString(drinking_spectator.IsFemale, 'ая', 'ый' )] [drinking_spectator.Custom2('InsultNoun', ROOT.Char)] убирается с глаз моих!"
  tournament_events.1402.c: "Прости, моя вина!"
 
  tournament_events.1403.t: "[activity.GetNameNoTooltip]: устрашенная толпа"
@@ -403,7 +403,7 @@
  tournament_events.1404.b: "«Ха! Да ты всех их заткнешь за пояс на ложе любви!»"
  tournament_events.1404.c: "«#BOL Ого, этот превосходный экземпляр — [knight_1.GetFirstNameNoTooltip]?!#!»"
  tournament_events.1404.d: "«#BOL Ух ты, только #EMP взгляните#!, [Select_CString(knight_2.IsFemale, 'какова', 'каков' )] [knight_2.GetFirstNameNoTooltip]!#!»"
- tournament_events.1404.e: "«#EMP Тс-с, тс-с!#! #DIE1 #EMP Хватит#!, [gossip_friend.GetFirstName]!#!»"
+ tournament_events.1404.e: "«#EMP Тс-с, тс-с!#! #DIE1 #EMP Хватит#!, [gossip_friend.GetFirstNameNoTooltip]!#!»"
 
  tournament_events.1405.t: "$tournament_header$ [Select_CString(flirty_onlooker.IsFemale, 'удачливая девушка', 'удачливый парень' )]"
  tournament_events.1405.desc: "Мой взгляд скользит по толпе. Вокруг царит привычный гвалт, зрители болтают или подбадривают участников. Все, кроме одного, насколько я вижу.\n\n[flirty_onlooker.GetFirstName] смотрит прямо на меня. Наши глаза встречаются, но [flirty_onlooker.GetSheHe] немедленно отводит взгляд и начинает смотреть куда угодно, только не на меня. В иное время это вызвало бы у меня подозрение, но [Select_CString(flirty_onlooker.IsFemale, 'она', 'он' )] так многозначительно закусывает губу и бросает на меня быстрые взгляды, чтобы убедиться, что я все еще смотрю... Это многое проясняет."
@@ -441,11 +441,11 @@
  tournament_events.1409.t: "[activity.GetNameNoTooltip]: Достойный кандидат"
  tournament_events.1409.desc: "Я отхожу в сторону, чтобы пропустить спешащего человека. Тот, впрочем, и не думает идти дальше, а сразу заводит разговор со мной.\n\n«О, [ROOT.Char.GetTitledFirstName]! Надо же, какие люди!» — приветствует меня [friendly_fan.GetFirstName]. Едва я раскрываю рот, чтобы ответить, как [Select_CString(friendly_fan.IsFemale, 'она', 'он' )] продолжает: «Ну как, есть у тебя какие-нибудь фавориты? Как думаешь, кто победит? Мне вот кажется, что [fan_favourite.GetFirstName]!».\n\nЯ задумываюсь над вариантами. Может, лучше будет не спорить?"
  tournament_events.1409.a: "«Ну конечно! Кто же еще, если не [fan_favourite.GetFirstNameNoTooltip]?»"
- tournament_events.1409.b: "«Ну разумеется, победит [other_favourite.GetFirstNameNoTooltip]! Ты что, совсем [friendly_fan.Custom('InsultNoun')]?»"
+ tournament_events.1409.b: "«Ну разумеется, победит [other_favourite.GetFirstNameNoTooltip]! Ты что, совсем [friendly_fan.Custom2('InsultNoun', ROOT.Char)]?»"
  tournament_events.1409.c: "А если просто улыбнуться и кивнуть..."
 
  tournament_events.1410.t: "[activity.GetNameNoTooltip]: Недовольные поклонники"
- tournament_events.1410.desc: "Однообразный гул толпы вдруг разбавляется новыми звуками. Кажется, намечается драка. Я оборачиваюсь, вытягивая шею, и вижу двух человек, вцепившихся друг другу в одежду. Сложно сказать, что именно они не поделили, но вокруг уже кольцом встали любопытствующие.\n\n«Ах ты [fan_2.Custom('InsultAdjective')] [fan_2.Custom('InsultNoun')]!» — в сердцах выкрикивает [fan_1.GetFirstName], выпрямляясь в полный рост. [fan_2.GetFirstName] отвечает тем же:\n\n«А ты — деревенщина и [fan_1.Custom('InsultNoun')]! Я тебе сейчас все кишки повырываю!». Похоже, с минуты на минуту начнется рукоприкладство."
+ tournament_events.1410.desc: "Однообразный гул толпы вдруг разбавляется новыми звуками. Кажется, намечается драка. Я оборачиваюсь, вытягивая шею, и вижу двух человек, вцепившихся друг другу в одежду. Сложно сказать, что именно они не поделили, но вокруг уже кольцом встали любопытствующие.\n\n«Ах ты [fan_2.Custom2('InsultAdjective', SCOPE.sC('fan_1'))] [fan_2.Custom2('InsultNoun', SCOPE.sC('fan_1'))]!» — в сердцах выкрикивает [fan_1.GetFirstName], выпрямляясь в полный рост. [fan_2.GetFirstName] отвечает тем же:\n\n«А ты — деревенщина и [fan_1.Custom2('InsultNoun', SCOPE.sC('fan_2'))]! Я тебе сейчас все кишки повырываю!». Похоже, с минуты на минуту начнется рукоприкладство."
  tournament_events.1410.a: "«Довольно!»"
  tournament_events.1410.a.tt: "Влезать между ними опасно, но надо же #EMP хоть что-то#! сделать..."
  tournament_events.1410.a.success: "Вы успешно разнимаете драку"
@@ -459,7 +459,7 @@
 
  #INTENT EVENTS
  tournament_events.6000.t: "$tournament_header$ всенепременно"
- tournament_events.6000.desc: "Турнир идеально подходит для того, чтобы [murder_target.GetTitledFirstName], [Select_CString(murder_target.IsFemale, 'эта', 'этот' )] [murder_target.Custom('InsultNoun')|l], навсегда [Select_CString(murder_target.IsFemale, 'избавила', 'избавил' )] мир и меня от своего присутствия. Опасность угрожает со всех сторон, а частые несчастные случаи рассеют любые сомнения.\n\n"
+ tournament_events.6000.desc: "Турнир идеально подходит для того, чтобы [murder_target.GetTitledFirstName], [Select_CString(murder_target.IsFemale, 'эта', 'этот' )] [murder_target.Custom2('InsultNoun', ROOT.Char)|l], навсегда [Select_CString(murder_target.IsFemale, 'избавила', 'избавил' )] мир и меня от своего присутствия. Опасность угрожает со всех сторон, а частые несчастные случаи рассеют любые сомнения.\n\n"
  tournament_events.6000.again: "[murder_target.GetTitledFirstName] все еще живет...\n\n"
  tournament_events.6000.deferred: "Я проявляю чудеса терпения, выжидая подходящего момента, когда [murder_target.GetTitledFirstName] получит по заслугам..."
  tournament_events.6000.foot: "[activity.GetCurrentPhase.GetPhase.GetName|U] приближается, и отравленный клинок в нужных руках может мгновенно прикончить [murder_target.GetHerHis|l]...\n\n"
@@ -504,7 +504,7 @@
  tournament_events.6011.poison: "Я спешно возвращаюсь к торговцу зельями, который легко купился на мою историю о крысах на конюшне.\n\nПока занятой трактирщик наполняет кубки, я с пугающей легкостью подливаю яд в чашу, что получит [murder_target.GetFirstName].\n\n"
  tournament_events.6011.thug: "Головорез берет мои деньги, хриплым голосом соглашается на мои условия и подтверждает мой кивок в сторону, где стоит [murder_target.GetTitledFirstName].\n\n"
  tournament_events.6011.death: "Куда больше меня пугает то, с какой скоростью [murder_target.GetSheHe|l] падает замертво после одного глотка, извиваясь от боли и хрипя о помощи."
- tournament_events.6011.ill: "Я задерживаю дыхание, когда [murder_target.GetSheHe|l] подносит кубок к губам, и успеваю порадоваться, но не тут-то было. [murder_target.Custom('InsultNoun')|U] немного страдает от лихорадки, но жить, вероятно, будет."
+ tournament_events.6011.ill: "Я задерживаю дыхание, когда [murder_target.GetSheHe|l] подносит кубок к губам, и успеваю порадоваться, но не тут-то было. [murder_target.Custom2('InsultNoun', ROOT.Char)|U] немного страдает от лихорадки, но жить, вероятно, будет."
  tournament_events.6011.second_chance: "Увы, яд лишь опьяняет [murder_target.GetHerHis|l], но, проследовав наружу, я замечаю, что [murder_target.GetFirstName] стоит в одиночестве в укромном месте.\n\nВероятно, это последняя возможность достичь моей цели..."
  tournament_events.6011.ache: "Зелье действует быстро: я вижу, как другие участники веселья начинают беспокоиться, но вскоре становится ясно, что обещанного эффекта достичь не удалось.\n\nВ лучшем случае [murder_target.GetSheHe|l] проведет неприятную ночь в уборной... "
  tournament_events.6011.slain: "Я никак не могу заснуть в ожидании новостей, но сердцем чувствую, что мне удалось избавиться от [Select_CString(murder_target.IsFemale, 'соперницы', 'соперника' )].\n\nНаступает рассвет, и [activity.GetCurrentPhase.GetLocation.GetNameNoTooltip] только и обсуждает, что жуткое нападение, в результате которого [Select_CString(murder_target.IsFemale, 'погибла', 'погиб' )] [murder_target.GetFirstNameNoTooltip]. [murder_target.GetHerHis|U] растерзанное тело нашел караульный, а рядом лежал окровавленный кинжал."

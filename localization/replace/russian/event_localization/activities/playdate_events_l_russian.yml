@@ -21,7 +21,7 @@
  playdate.1001.a:0 "Разумеется, я там буду."
  playdate.1001.b:0 "Нет, я отказываюсь!"
 
- playdate.1002.opening_desc:0 "Мне будет приятно, если [child_scope.Custom2('YourCharacterIntroduction', ROOT.Char)|l] посетит мой двор во владении [barony.GetNameNoTier] и встретится со своими ровесниками!"
+ playdate.1002.opening_desc: "Мне будет приятно, если [child_scope.Custom2('YourCharacterIntroduction', ROOT.Char)|l] посетит мой двор во владении [barony.GetNameNoTier] и встретится со своими ровесниками!"
  playdate.1002.host_likes_child:0 "Надеюсь, [child_scope.GetSheHe] будет там, поскольку мне так хочется увидеть [child_scope.GetHerHis]!"
  playdate.1002.host_dislikes_child:0 "Я приглашаю знатных персон, одной из которых, к моему глубокому сожалению, является [child_scope.GetSheHe]."
  playdate.1002.host_gets_along_with_child:0 "Надеюсь скоро увидеть [child_scope.GetHerHis]. В противном случае мне будет [child_scope.GetHerHis] не хватать!"
@@ -43,8 +43,8 @@
  playdate.2003.a:0 "Почему никто не приехал?"
  
  playdate.2501.t:1 "Теплый прием"
- playdate.2501.likes_host:1 "Все собрались в пиршественном зале, и [host.GetTitledFirstNameNoTooltip] приветствует нас на встрече ровесников!"
- playdate.2501.dislikes_host:1 "Все собрались в пиршественном зале, и [host.Custom('InsultAdjective')|l] [host.GetTitledFirstNameNoTooltip] приветствует нас на встрече ровесников."
+ playdate.2501.likes_host: "Все собрались в зале, и [host.GetTitledFirstNameNoTooltip] приветствует нас на встрече ровесников!"
+ playdate.2501.dislikes_host: "Все собрались в зале, и [host.Custom2('InsultAdjective', ROOT.Char)] [host.GetTitledFirstNameNoTooltip] приветствует нас на встрече ровесников!"
  playdate.2501.a:0 "Жду не дождусь!"
  playdate.2501.a_dislike:0 "Давайте уже закончим это."
 
@@ -134,7 +134,7 @@
  playdate.3009.c.failure:0 "[participant.GetSheHe|U] понимает, что вы врете"
 
  playdate.3010.t:1 "Рыночный день"
- playdate.3010.desc:0 "[participant.Custom2('MyCharacterIntroduction', ROOT.Char)|U] и я сходимся во мнении, что дворянам важно учиться искусству торговли, поэтому мы решили посетить рынок во владении [ROOT.Char.GetCurrentLocation.GetName].\n\nУ нас нет денег, только камушки, но они #EMP такие#! блестящие!"
+ playdate.3010.desc: "[participant.Custom2('MyCharacterIntroduction', ROOT.Char)|U] и я сходимся во мнении, что дворянам важно учиться искусству торговли, поэтому мы решили посетить рынок во владении [ROOT.Char.GetCurrentLocation.GetName].\n\nУ нас нет денег, только камушки, но они #EMP такие#! блестящие!"
  playdate.3010.a:0 "Кхм, мне бы хотелось купить что-нибудь."
  playdate.3010.a.success:0 "Вы убеждаете купца торговать с вами"
  playdate.3010.a.failure:0 "Торговец прогоняет вас"
@@ -206,7 +206,7 @@
  playdate.5002.desc: "Мяч проносится мимо меня, отскакивает от стены... и улетает в соседний сад! Через долю секунды звук удара и негодующий крик предвещают последствия.\n\n[neighbour.GetFirstName] вылетает из дверей, в [neighbour.GetHerHis] руках лежит [broken_artifact.GetName] со следами повреждений. Осмотрев толпу, [neighbour.GetSheHe] определяет меня как виновника происшествия.\n\n«Тебе есть что сказать в свое оправдание, мелюзга сопливая?» — сердито ворчит [neighbour.GetSheHe]. Я оглядываюсь в поисках поддержки. И не нахожу ее."
  playdate.5002.a: "«[Select_CString(parent.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('parent'))] возместит вам ущерб!»"
  playdate.5002.a.tt: "Вернее, #EMP я#! возмещу, когда-нибудь я смогу распоряжаться своими средствами..."
- playdate.5002.b: "«Я приказываю тебе вернуть наш мяч, [neighbour.Custom('InsultNoun')]»."
+ playdate.5002.b: "«Я приказываю тебе вернуть наш мяч, [neighbour.Custom2('InsultNoun', ROOT.Char)]»."
  playdate.5002.b.tt: "Неужели [neighbour.GetSheHe] не помнит, что я [ROOT.Char.GetTitleAsNameNoTooltip|l]?"
  playdate.5002.b.success: "[neighbour.GetSheHe|U] покорно возвращает мяч"
  playdate.5002.b.failure: "[neighbour.GetSheHe|U] хмурится, возвращая мяч"
@@ -256,7 +256,7 @@
  playdate.5006.d: "«А мяч оставь, теперь он наш»."
 
  playdate.5007.t: "Нападки"
- playdate.5007.desc: "Раздается взрыв хохота. Через двор от меня [sad_kid.GetFirstName] дрожит от страха, а [bully_kid.GetFirstName] насмешливо тычет в н[sad_kid.GetHerHis] пальцем.\n\n«[sad_kid.GetSheHe|U] даже по мячу толком ударить не может! Кто вообще станет с тобой дружить, [sad_kid.Custom('InsultNoun')]»\n\n[sad_kid.GetFirstNameNoTooltip], всхлипывая, осматривается в поисках поддержки, но желающих вступиться не находиться."
+ playdate.5007.desc: "Раздается взрыв хохота. Через двор от меня [sad_kid.GetFirstName] дрожит от страха, а [bully_kid.GetFirstName] насмешливо тычет в н[sad_kid.GetHerHis] пальцем.\n\n«[sad_kid.GetSheHe|U] даже по мячу толком ударить не может! Кто вообще станет с тобой дружить, [sad_kid.Custom2('InsultNoun', SCOPE.sC('bully_kid'))]»\n\n[sad_kid.GetFirstNameNoTooltip], всхлипывая, осматривается в поисках поддержки, но желающих вступиться не находиться."
  playdate.5007.a: "«А ну оставь [sad_kid.GetHerHis] в покое!»"
  playdate.5007.a.tt: "Вы выступаете против забияки..."
  playdate.5007.a.success: "Вам удается запугать обидчика"

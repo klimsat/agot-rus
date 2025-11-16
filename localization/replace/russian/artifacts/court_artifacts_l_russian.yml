@@ -107,6 +107,11 @@
  artifact_wall_sword_attila_name: "Меч Господень"
  artifact_wall_sword_attila_description: "Легендарный меч гуннского вождя Аттилы, Бича Божьего. Также известен как Меч Марса."
 
+ artifact_sword_goujian_name: "Меч Гоуцзяня"
+ artifact_sword_goujian: "Некогда этот старинный меч принадлежал Гоуцзяню, правителю царства Юэ. Несмотря на старомодную конструкцию, над клинком явно потрудился настоящий мастер. Возле эфеса виден позолоченный текст, нанесенный иероглифами няочуншу."
+ artifact_sword_goujian_refulgence: "[gujian_sword.GetDesc]\n\nСчитается, что это меч по имени «Сияние», которым Гоуцзянь препоясался перед встречей с Конфуцием."
+ artifact_sword_goujian_purity: "[gujian_sword.GetDesc]\n\nСчитается, что это меч по имени «Чистота»."
+
  # Animals (used in ArtifactAnimalType)
  animal_type_cat: "кошка"
  animal_type_dog: "собака"
@@ -623,7 +628,7 @@
  feature_book_title_soulmate: "Книга «Набожность:» $artifact_name_prefix_artifact_scope$"
  feature_book_topic_soulmate: "[Artifact.GetOwner.Custom('ArtifactArticleWealth')|U]ый и красочно иллюстрированный манускрипт, [Artifact.GetOwner.Custom('ArtifactAdverbBookContentQuality')] описывающий любовь, что испытывали друг к другу [Artifact.GetOwner.GetTitledFirstName] и [Artifact.GetOwner.MakeScope.Var('book_topic_relationship').Char.GetTitledFirstName]."
  feature_book_title_nemesis: "[Artifact.GetOwner.GetTitledFirstName] и вечная ненависть"
- feature_book_topic_nemesis: "[Artifact.GetOwner.Custom('ArtifactArticleWealth')|U]ый манускрипт, [Artifact.GetOwner.Custom('ArtifactAdverbBookContentQuality')] передающий ненависть, что испытывает [Artifact.GetOwner.GetTitleAsName|l]. В нем [Artifact.GetOwner.MakeScope.Var('book_topic_relationship').Char.GetTitledFirstName] описывается как [Artifact.GetOwner.MakeScope.Var('book_topic_relationship').Char.Custom('InsultAdjectiveArticle')][Select_CString(nemesis.IsFemale, 'ая', 'ый' )] [Artifact.GetOwner.MakeScope.Var('book_topic_relationship').Char.Custom('InsultNoun')] и не только. Текст снабжен дотошными иллюстрациями, на которых [nemesis.GetTitledFirstName] изображается в как можно более неприглядном свете."
+ feature_book_topic_nemesis: "[Artifact.GetOwner.Custom('ArtifactArticleWealth')|U]ый манускрипт, [Artifact.GetOwner.Custom('ArtifactAdverbBookContentQuality')] передающий ненависть, что испытывает [Artifact.GetOwner.GetTitleAsName|l]. В нем [Artifact.GetOwner.MakeScope.Var('book_topic_relationship').Char.GetTitledFirstName] описывается как [Artifact.GetOwner.MakeScope.Var('book_topic_relationship').Char.Custom2('InsultAdjectiveArticle', ROOT.Char)][Select_CString(nemesis.IsFemale, 'ая', 'ый' )] [Artifact.GetOwner.MakeScope.Var('book_topic_relationship').Char.Custom2('InsultNoun', ROOT.Char)] и не только. Текст снабжен дотошными иллюстрациями, на которых [nemesis.GetTitledFirstName] изображается в как можно более неприглядном свете."
  
 # mystical animal
  feature_book_title_mystical_animal: "[Artifact.GetOwner.Custom('GetAnimalType')|U] с белой шкурой"
@@ -858,3 +863,28 @@
 
  artifact_wall_icon_court_large: "Большая икона"
  artifact_wall_icon_court_small: "Маленькая икона"
+
+ artifact_pedestal_sakanoue_sword_name: "Банкэ-но хокэн" #坂家宝剣
+ artifact_pedestal_sakanoue_sword_desc: "Считается, что этот меч, которым некогда владел знаменитый полководец $dynn_Sakanoue$ $Tamuramaro$, оберегает императорский двор от врагов. После смерти этого выдающегося военачальника тэнно $Saga_JP$ передал Банкэ-но хокэн в дворцовую сокровищницу."
+ artifact_higekiri_sword_name: "Хигэкири" #髭切
+ artifact_higekiri_sword_desc: "Хигэкири («Бородорез») вместе с другим мечом — Хидзамару — был выкован по заказу $dynn_Minamoto$-но Мицунаки. Со временем он превратился в реликвию, передающуюся из поколения в поколение в семействе $Seiwa$ $dynn_Minamoto$."
+ artifact_hizamaru_sword_name: "Хидзамару" #膝丸
+ artifact_hizamaru_sword_desc: "Это оружие вместе с другим мечом — Хигэкири — было выковано по заказу $dynn_Minamoto$-но Мицунаки. Со временем оно превратилось в реликвию, передающуюся из поколения в поколение в семействе $Seiwa$ $dynn_Minamoto$."
+ artifact_dojigiri_sword_name: "Додзигири" #童子切
+ artifact_dojigiri_sword_desc: "Этот меч выковал прославленный кузнец $Yasutsuna_4$, им владел $dynn_Fujiwara$ $Toshihito$. Со временем оружие превратилось в реликвию, передающуюся из поколения в поколение в семействе $dynn_Fujiwara$."
+ artifact_mikazuki_munechika_sword_name: "Микадзуки" #三日月
+ artifact_mikazuki_munechika_sword_desc: "Микадзуки («Полумесяц») был выкован знаменитым кузнецом $dynn_SanjO_$ Мунэтикой в годы правления тэнно $IchijO_$."
+ artifact_odenta_sword_name: "Отэнта" #大典太
+ artifact_odenta_sword_desc: "«Великий Тэнта» был выкован знаменитым кузнецом $Mitsuyo$, также известным как Тэнта, в годы правления тэнно Сиракавы."
+ artifact_pedestal_hamayumi_bow_name: "Хамаюми" #破魔弓
+ artifact_pedestal_hamayumi_bow_desc: "«Сокрушитель зла» — меч, которым владел $dynn_Minamoto$ $Yorimasa$, когда его призвали в императорский дворец, чтобы изгнать оттуда злых духов."
+ artifact_pedestal_seven_branched_sword_name: "Ситисито" #七支刀
+ artifact_pedestal_seven_branched_sword_desc: "Ситисито («Меч с семью ветвями») — железный меч с семью выступами на клинке, похожими на языки пламени. Считается, что тэнно получил его в дар от заморского царя Пэкче в знак дружбы между двумя державами."
+ artifact_pedestal_gyerimro_dagger_name: "Экзотический кинжал"
+ artifact_pedestal_gyerimro_dagger_desc: "Необычный кинжал великолепной работы, его ножны и рукоять инкрустированы золотом и драгоценными камнями. По преданию, он попал в сокровищницу Силла из далекой западной страны."
+ artifact_karakawa_armor_name: "Каракава" #唐皮
+ artifact_karakawa_armor_desc: "Этот искусно изготовленный доспех о-ёрой является реликвией клана Тайра. Говорят, семья получила его в дар от племянника самого тэнно $Kanmu$."
+ artifact_nukemaru_sword_name: "Нукэмару" #抜丸
+ artifact_nukemaru_sword_desc: "Считается, что изначально этот меч был подарен некому исэйскому охотнику самой богиней Аматэрасу. В конечном итоге его приобрел самурай по имени $dynn_Taira$ $Tadamori$. По легенде, меч сам выскочил из ножен и защитил своего владельца от змеи, которая попыталась напасть на него во сне."
+ artifact_kogarasumaru_sword_name: "Когарасумару" #小烏丸
+ artifact_kogarasumaru_sword_desc: "«Маленький ворон» был выкован кузнецом Амакуни для императорского двора. Позднее тэнно $Suzaku$ подарил этот меч $dynn_Taira$ $Sadamori$ за его службу во время восстания Дзёхэй и Тэнгё."

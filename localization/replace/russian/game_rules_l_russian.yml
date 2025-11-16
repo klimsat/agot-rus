@@ -120,6 +120,8 @@
  setting_full_gender_equality_desc: "Все доктрины и законы, касающиеся отношений полов, диктуют равноправие. Персонажи имеют одинаковые права и подчиняются одинаковым правилам — вне зависимости от пола."
  setting_inversed_gender_equality: "#high Все наоборот#!"
  setting_inversed_gender_equality_desc: "Все доктрины и законы, касающиеся отношений полов, действуют зеркально. Правила и права, которыми обладали мужчины в режиме «по умолчанию», переходят женщинам, и наоборот."
+ setting_lenient_gender_equality: "#high Снисходительность#!"
+ setting_lenient_gender_equality_desc: "Законы державы и титула, выставленные на «Только мужчина» изменятся на «Предпочтительно мужчина»."
 
  rule_sexuality_distribution: "Распределение сексуальной ориентации"
  setting_sexuality_distribution_default: "Гетеросексуальность"
@@ -392,8 +394,8 @@
  setting_default_name_of_byzantium_desc: "Название Византийской империи останется неизменным."
  setting_eastern_rome_name_of_byzantium: "#high $e_eastern_roman_empire$#!"
  setting_eastern_rome_name_of_byzantium_desc: "Название Византийской империи изменится. Теперь это будет $e_eastern_roman_empire$."
- setting_roman_empire_name_of_byzantium: "#high $e_roman_empire$#!"
- setting_roman_empire_name_of_byzantium_desc: "Название Византийской империи изменится. Теперь это будет $e_roman_empire$."
+ setting_roman_empire_name_of_byzantium: "#high $h_roman_empire$#!"
+ setting_roman_empire_name_of_byzantium_desc: "Название Византийской империи изменится. Теперь это будет $h_roman_empire$."
  setting_romania_name_of_byzantium: "#high $e_romania_empire$#!"
  setting_romania_name_of_byzantium_desc: "Название Византийской империи изменится. Теперь это будет $e_romania_empire$."
  setting_empire_of_the_greeks_name_of_byzantium: "#high $e_empire_of_the_greeks$#!"
@@ -754,7 +756,7 @@
  game_rule.1112.desc.opposing_army: "Мы идем навстречу войску викингов, которым командует [winner.GetTitledFirstName]."
  game_rule.1113.desc.opposing_army: "Навстречу нам выступает [loser.GetTitledFirstName] с норманнским войском."
  game_rule.1114.desc.opposing_army: "Мы идем навстречу войску викингов, которым командует [winner.GetTitledFirstName]."
- game_rule.1121.desc.opposing_army: "На нас движется [loser.GetTitledFirstName] [loser.GetHouseGetName] и [Select_CString(winner.IsFemale, 'ее', 'его' )] войско саксов."
+ game_rule.1121.desc.opposing_army: "На нас движется [loser.GetFullNameNoTooltip] и [Select_CString(loser.IsFemale, 'ее', 'его' )] войско саксов."
  game_rule.1122.desc.opposing_army: "Навстречу нам выступает [winner.GetTitledFirstName] с норманнским войском."
  game_rule.1123.desc.opposing_army: "Мы идем навстречу войску викингов, которым командует [loser.GetTitledFirstName]."
  game_rule.1124.desc.opposing_army: "Навстречу нам выступает [winner.GetTitledFirstName] с норманнским войском."
@@ -833,7 +835,7 @@
  game_rule.1102.b: "#DIE1 Мне…#! #DIE2 конец…#!"
 
  game_rule.1103.desc.outro.present: "$game_rule.1101.desc.outro.present$"
- game_rule.1103.desc.outro.absent: "$game_rule.1101.desc.outro.dead$"
+ game_rule.1103.desc.outro.absent: "$game_rule.1101.desc.outro.absent$"
  game_rule.1103.a: "Проклятый бастард побежден!"
 
  game_rule.1104.desc.outro.alive: "$game_rule.1102.desc.outro.alive$"
@@ -851,7 +853,7 @@
  game_rule.1112.b: "#DIE1 Тостиг…#! Будь ты #DIE2 проклят…#!"
 
  game_rule.1113.desc.outro.present: "$game_rule.1101.desc.outro.present$"
- game_rule.1113.desc.outro.absent: "$game_rule.1101.desc.outro.dead$"
+ game_rule.1113.desc.outro.absent: "$game_rule.1101.desc.outro.absent$"
  game_rule.1113.a: "[Select_CString(loser.IsFemale, 'Она не была истинной дочерью', 'Он не был истинным сыном' )] Севера!"
 
  game_rule.1114.desc.outro.alive: "$game_rule.1102.desc.outro.alive$"
@@ -869,7 +871,7 @@
  game_rule.1122.b: "В нас летят стрелы! Поднять щиты! Поднять…"
 
  game_rule.1123.desc.outro.present: "$game_rule.1101.desc.outro.present$"
- game_rule.1123.desc.outro.absent: "$game_rule.1101.desc.outro.dead$"
+ game_rule.1123.desc.outro.absent: "$game_rule.1101.desc.outro.absent$"
  game_rule.1123.a: "Убирайтесь в свои снега, северные собаки!"
 
  game_rule.1124.desc.outro.alive: "$game_rule.1102.desc.outro.alive$"
@@ -900,10 +902,10 @@
  game_rule.1141.t: "Выбор витенагемота: [elect.GetFirstNameNoTooltip] из дома [elect.GetHouse.GetNameNoTooltip]"
  game_rule.1141.intro.battlefield: "Узурпатор [loser.GetTitledFirstNameNicknamed] [Select_CString(loser.IsFemale, 'разгромлена', 'разгромлен' )], но и [winner.GetTitledFirstName] [Select_CString(winner.IsFemale, 'погибла', 'погиб' )] на поле битвы.\n\n"
  game_rule.1141.intro.home: "Узнав, что [loser.GetTitledFirstNameNicknamed] [Select_CString(loser.IsFemale, 'потерпела', 'потерпел' )] поражение, [winner.GetTitledFirstName] неожиданно для всех скоропостижно [Select_CString(winner.IsFemale, 'скончалась', 'скончался' )] от сердечного приступа.\n\n"
- game_rule.1141.choice.margaret: "По невероятному стечению обстоятельств витенагемот решил, что наилучшим кандидатом на трон #EMP буду я#!. [jiltee.GetFirstName] [jiltee.GetHouse.GetName], [Select_CString(jiltee.IsFemale, 'которая имела', 'который имел' )] все основания ожидать избрания, [Select_CString(jiltee.IsFemale, 'оказалась', 'оказался' )] не у дел. Само собой, вельможи рассчитывают, что смогут без труда меня контролировать. Для них я лишь пешка в осуществлении их собственных амбиций.\n\nДумаю, их ждет жестокое разочарование. Тем не менее, я вовсе не против этого внезапного восхождения — в конце концов, я [Select_CString(ROOT.Char.IsFemale, 'дочь', 'сын' )] своего отца."
- game_rule.1141.choice.edgar: "Проявив редкостное благоразумие, совсем не характерное для английской политики последних десятилетий, витенагемот счел возможным признать, что [GetScriptedCharacterByHistoryID( '114' ).GetTitledFirstNameNicknamed] [Select_CString(GetScriptedCharacterByHistoryID( '114' ).IsFemale, 'должна была', 'должен был' )] объявить #EMP меня#! [Select_CString(ROOT.Char.IsFemale, 'законной наследницей', 'законным наследником' )] королевства. [jiltee.GetFirstName] [jiltee.GetHouse.GetName], [Select_CString(jiltee.IsFemale, 'которая имела', 'который имел' )] все основания ожидать избрания, [Select_CString(jiltee.IsFemale, 'осталась', 'остался' )] не у дел.\n\nУж не знаю, чем я [Select_CString(ROOT.Char.IsFemale, 'заслужила', 'заслужил' )] милость [ROOT.Char.GetFaith.FateGodNamePossessive], но я невероятно [Select_CString(ROOT.Char.IsFemale, 'рада', 'рад' )], что всё закончилось именно так."
- game_rule.1141.choice.svend: "Устав от прочих претендентов, которые могли принести лишь смерть и разрушение, витенагемот проявил редкое благоразумие и выбрал #EMP меня#! — единственного кандидата, способного восстановить порядок в стране. [jiltee.GetFirstName] [jiltee.GetHouse.GetName], [Select_CString(jiltee.IsFemale, 'которая имела', 'который имел' )] все основания ожидать избрания, [Select_CString(jiltee.IsFemale, 'оказалась', 'оказался' )] не у дел.\n\nДания вновь будет править Англией — как и было заведено прежде."
- game_rule.1141.choice.aelfwine: "В приступе безумия — вызванного каким-то колдовством, не иначе, — витенагемот умолял #EMP меня#! вернуться домой и сесть на престол моих отца и деда. [jiltee.GetFirstName] [jiltee.GetHouse.GetName], [Select_CString(jiltee.IsFemale, 'которая имела', 'который имел' )] все основания ожидать избрания, [Select_CString(jiltee.IsFemale, 'оказалась', 'оказался' )] не у дел.\n\nЯ… вовсе не [Select_CString(ROOT.Char.IsFemale, 'желала', 'желал' )] избрания. Мне это и в голову не приходило. Я всю жизнь [Select_CString(ROOT.Char.IsFemale, 'старалась', 'старался' )] держаться как можно дальше от власти, но, видать, такова воля [elect.GetFaith.HighGodNamePossessive] — вернуть меня в страну, которую я без сожаления [Select_CString(ROOT.Char.IsFemale, 'покинула', 'покинул' )] навсегда."
+ game_rule.1141.choice.margaret: "Каким-то удивительным чудом витенагемот счел, что наилучшей кандидатурой на трон являюсь #EMP я#!, а не [jiltee.GetFullNameNoTooltip], [Select_CString(jiltee.IsFemale, 'которую', 'которого' )] считали наиболее [Select_CString(jiltee.IsFemale, 'вероятной преемницей', 'вероятным преемником' )]. Влиятельные вельможи наверняка убеждены, что смогут мною управлять, — для них я не более чем марионетка, с чьей помощью можно удовлетворить свои амбиции.\n\nСкоро они поймут, как сильно во мне ошибались. Тем не менее я [Select_CString(ROOT.Char.IsFemale, 'рада', 'рад' )] этой неожиданной возможности. В конце концов, я [Select_CString(ROOT.Char.IsFemale, 'старшая дочь', 'старший сын' )] своего отца."
+ game_rule.1141.choice.edgar: "Проявив удивительное благоразумие, столь нехарактерное для английской политики, витенагемот признал #EMP меня#! [Select_CString(ROOT.Char.IsFemale, 'законной наследницей', 'законным наследником' )] трона, на котором [Select_CString(GetScriptedCharacterByHistoryID( '114' ).IsFemale, 'восседала', 'восседал' )] [GetScriptedCharacterByHistoryID( '114' ).GetTitledFirstNameNicknamed]. Отныне править страной буду я, а вовсе не [jiltee.GetFullNameNoTooltip], [Select_CString(jiltee.IsFemale, 'которую', 'которого' )] считали наиболее [Select_CString(jiltee.IsFemale, 'вероятной преемницей', 'вероятным преемником' )].\n\nУж не знаю, чем я [Select_CString(ROOT.Char.IsFemale, 'заслужила', 'заслужил' )] подобную милость со стороны [ROOT.Char.GetFaith.FateGodNamePossessive], но я [Select_CString(ROOT.Char.IsFemale, 'рада', 'рад' )], что это произошло."
+ game_rule.1141.choice.svend: "Устав от смерти и разрушений, которые несли другие претенденты, витенагемот в кои-то веки проявил благоразумие и выбрал #EMP меня#! как самую подходящую кандидатуру на трон. [jiltee.GetFullNameNoTooltip], [Select_CString(jiltee.IsFemale, 'которую', 'которого' )] считали наиболее [Select_CString(jiltee.IsFemale, 'вероятной преемницей', 'вероятным преемником' )], ничего не получит.\n\nДания вновь будет править Англией — как ей и подобает."
+ game_rule.1141.choice.aelfwine: "Похоже, что витенагемот охвачен каким-то безумием — иначе почему он умоляет #EMP меня#! вернуться домой и принять власть над королевством отца и деда? В конце концов, наиболее [Select_CString(jiltee.IsFemale, 'вероятной преемницей считалась', 'вероятным преемником считался' )] [jiltee.GetFullNameNoTooltip]…\n\nМоя душа не лежит к власти. Я… я этого не [Select_CString(ROOT.Char.IsFemale, 'хотела', 'хотел' )]! Я [Select_CString(ROOT.Char.IsFemale, 'старалась', 'старался' )] держаться как можно дальше от политики и интриг, но, видать, такова воля [elect.GetFaith.HighGodNamePossessive], чтобы я [Select_CString(ROOT.Char.IsFemale, 'вернулась', 'вернулся' )] править страной, которую [Select_CString(ROOT.Char.IsFemale, 'хотела', 'хотел' )] позабыть навсегда."
  game_rule.1141.choice.cadoc: "Витенагемот, как обычно, рассорился в пух и прах, но в итоге принял необычное решение. Не доверяя друг другу и не желая видеть на троне очередного короля-чужеземца, они посадили на английский трон #EMP меня#!. Очевидно, они видят во мне марионетку, которая во всём будет послушна их воле.\n\nМожет, они и правы, а может, и нет. В любом случае, я [Select_CString(ROOT.Char.IsFemale, 'счастлива', 'счастлив' )], что мне выпал такой шанс проявить себя!"
  game_rule.1141.a.margaret: "Первая королева на английском троне!"
  game_rule.1141.a.edgar: "Мои права восстановлены!"
@@ -976,6 +978,7 @@
  setting_situation_the_great_steppe_toggle_on_desc: "#TOOLTIP:GOVERNMENT_TYPE,nomad_government #L Кочевые#!#! правители Великой степи будут вовлечены в [Concept('situation', 'ситуацию')|E], на которую влияют [Concept('steppe_seasons', 'степные сезоны')|E], и станут бороться за титул [Concept('gurkhan', 'гурхана')|E]."
  setting_situation_the_great_steppe_toggle_off: "#high Выключено#!"
  setting_situation_the_great_steppe_toggle_off_desc: "На старте игры [Concept('situation', 'ситуация')|E] «[Concept('the_great_steppe', 'Великая степь')|E]» не будет действовать. Игра в Степи проходит по тем же правилам, что и на остальной карте."
+
  rule_sami_nomad_region: "Дополнительный кочевой регион: Сапми и Карелия"
  setting_sami_nomad_region_off: "По умолчанию"
  setting_sami_nomad_region_off_desc: "Регион Сапми остается без изменений."
@@ -1040,14 +1043,15 @@
  game_rule_extra_nomads_sami_situation_steppe_warm_nights_season_situation_phase: "$situation_steppe_warm_nights_season$"
  game_rule_extra_nomads_sami_situation_steppe_sky_blessing_season_situation_phase: "$situation_steppe_sky_blessing_season$"
  game_rule_extra_nomads_sami_situation_steppe_havsarsan_zud_season_situation_phase: "$situation_steppe_havsarsan_zud_season$"
+
  rule_arabia_nomad_region: "Дополнительный кочевой регион: Аравия"
  setting_arabia_nomad_region_off: "По умолчанию"
  setting_arabia_nomad_region_off_desc: "Регион Аравия остается без изменений."
  setting_arabia_nomad_region_on: "#high Кочевой#!"
  setting_arabia_nomad_region_on_desc: "В регионе Аравия действуют кочевые механики, разработанные для степных кочевников. Это правило распространяется только на владельцев расширения #V $DLC020_CE2$#!."
+
  situation_game_rule_extra_nomads_arabs: "Аль-Бадия"
  situation_game_rule_extra_nomads_arabs_desc: "[SITUATION.GetType.GetDesc]"
-
  situation_type_game_rule_extra_nomads_arabs: "Аль-Бадия"
  situation_type_game_rule_extra_nomads_arabs_desc: "Широкие просторы, где обычно странствуют бедуины."
  game_rule_extra_nomads_arabs_sub_region_arabia_nomads: "Аравийская пустыня"
@@ -1071,11 +1075,13 @@
  game_rule_extra_nomads_arabs_situation_steppe_warm_nights_season_situation_phase: "$situation_steppe_warm_nights_season$"
  game_rule_extra_nomads_arabs_situation_steppe_sky_blessing_season_situation_phase: "$situation_steppe_sky_blessing_season$"
  game_rule_extra_nomads_arabs_situation_steppe_havsarsan_zud_season_situation_phase: "$situation_steppe_havsarsan_zud_season$"
+ 
  rule_sahel_nomad_region: "Дополнительный кочевой регион: Сахель"
  setting_sahel_nomad_region_off: "По умолчанию"
  setting_sahel_nomad_region_off_desc: "Регион Сахель остается без изменений."
  setting_sahel_nomad_region_on: "#high Кочевой#!"
  setting_sahel_nomad_region_on_desc: "В регионе Сахель действуют кочевые механики, разработанные для степных кочевников. Это правило распространяется только на владельцев расширения #V $DLC020_CE2$#!."
+ 
  situation_game_rule_extra_nomads_sahel: "Тенере"
  situation_game_rule_extra_nomads_sahel_desc: "[SITUATION.GetType.GetDesc]"
  situation_type_game_rule_extra_nomads_sahel: "Тенере"
@@ -1102,11 +1108,13 @@
  game_rule_extra_nomads_sahel_situation_steppe_warm_nights_season_situation_phase: "$situation_steppe_warm_nights_season$"
  game_rule_extra_nomads_sahel_situation_steppe_sky_blessing_season_situation_phase: "$situation_steppe_sky_blessing_season$"
  game_rule_extra_nomads_sahel_situation_steppe_havsarsan_zud_season_situation_phase: "$situation_steppe_havsarsan_zud_season$"
+
  rule_horn_of_africa_nomad_region: "Дополнительный кочевой регион: Африканский Рог"
  setting_horn_of_africa_nomad_region_off: "По умолчанию"
  setting_horn_of_africa_nomad_region_off_desc: "Регион Африканский Рог остается без изменений."
  setting_horn_of_africa_nomad_region_on: "#high Кочевой#!"
  setting_horn_of_africa_nomad_region_on_desc: "В регионе Африканский Рог действуют кочевые механики, разработанные для степных кочевников. Это правило распространяется только на владельцев расширения #V $DLC020_CE2$#!."
+
  situation_game_rule_extra_nomads_horn: "Билад ас-Сумаль"
  situation_game_rule_extra_nomads_horn_desc: "[SITUATION.GetType.GetDesc]"
  situation_type_game_rule_extra_nomads_horn: "Билад ас-Сумаль"
@@ -1132,6 +1140,7 @@
  game_rule_extra_nomads_horn_situation_steppe_warm_nights_season_situation_phase: "$situation_steppe_warm_nights_season$"
  game_rule_extra_nomads_horn_situation_steppe_sky_blessing_season_situation_phase: "$situation_steppe_sky_blessing_season$"
  game_rule_extra_nomads_horn_situation_steppe_havsarsan_zud_season_situation_phase: "$situation_steppe_havsarsan_zud_season$"
+
  _sub_region_ERROR_FLAG_INDEX: "место вне [Concept('situation', 'ситуации')|E]"
 
  rule_coronation_laws: "Законы коронации"
@@ -1141,3 +1150,9 @@
  setting_coronation_laws_off: "#high Нет законов коронации#!"
  setting_coronation_laws_on_desc: "[Concept('law', 'Закон')|E] «[GetLaw('uncrowned').GetName]» подорвет [Concept('legitimacy', 'легитимность')|E] и [Concept('opinion', 'мнение')|E] для [Concept('kings', 'королей')|E] и [Concept('emperors', 'императоров')|E], пока они не проведут [Concept('coronation', 'коронацию')|E]."
  setting_coronation_laws_off_desc: "[Concept('title_tier', 'Высокоранговые')|E] [Concept('rulers', 'правители')|E] не имеют [Concept('law', 'закона')|E] «[GetLaw('uncrowned').GetName]» и не обязаны проводить [Concept('coronations', 'коронации')|E]. ИИ будет реже проводить [Concept('coronations', 'коронации')|E]. Это упрощает игру."
+
+ rule_silk_road_starting_innovations: "Стартовые [silk_road_innovations|El]"
+ setting_silk_road_starting_innovations_preset: "Шаблон"
+ setting_silk_road_starting_innovations_preset_desc: "Стартовые [silk_road_innovations|El] будут выбираться из одного шаблона во всех стартовых датах."
+ setting_silk_road_starting_innovations_random: "Случайно"
+ setting_silk_road_starting_innovations_random_desc: "Стартовые [silk_road_innovations|El] будут выбираться случайным образом из числа возможных для [Concept('era', 'эпохи')|E]."

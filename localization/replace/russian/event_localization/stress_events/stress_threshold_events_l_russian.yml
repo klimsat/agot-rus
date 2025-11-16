@@ -63,7 +63,7 @@
  stress_threshold.1502.intro.desc: "Все нужно объяснять по тысяче раз! У меня что, дел мало? Половина [ROOT.Char.Custom('GetCourt_RU_Gen')] не может как следует выполнять приказы, а вторая половина их даже не понимает! Как [scoped_ruler.GetPrimaryTitle.GetNameNoTierNoTooltip] вообще еще существует?"
  stress_threshold.1502.courtier.desc: "\n\nВот, скажем, [scoped_courtier.GetFirstName] в последнее время [Select_CString(scoped_courtier.IsFemale, 'стала вообще невыносимой', 'стал вообще невыносимым' )]. Бесконечным нытьем [ROOT.Char.Custom2('RelationToMePossessive', SCOPE.sC('scoped_courtier'))] просто выводит меня из себя."
  stress_threshold.1502.nocourtier.desc: ""
- stress_threshold.1502.a: "Ты — просто [scoped_courtier.Custom('InsultNoun')]!"
+ stress_threshold.1502.a: "Ты — просто [scoped_courtier.Custom2('InsultAdjective', ROOT.Char)] [scoped_courtier.Custom2('InsultNoun', ROOT.Char)]!"
  stress_threshold.1502.b: "Тюремщик! Привести еще одного узника!"
  stress_threshold.1502.c: "«Почему вокруг меня сплошь безрукие #EMP идиоты#!?!»"
  stress_threshold.1502.d: "Схожу в [ROOT.Char.Custom('GetDungeon_RU_Acc')|l], развеюсь..."
@@ -91,9 +91,9 @@
  stress_threshold.1504.f: "Меня окружают глупцы!"
  stress_threshold.1504.g: "Я попробую собраться, записывая свои мысли."
  stress_threshold.1504.h: "Седлайте коня, я хочу прокатиться!"
+ stress_threshold.1504.i: "Мне нужно посидеть и подумать в тишине."
 #AGOT Added
  stress_threshold.1504.i: "Я не могу тратить силы на то, что думают обо мне другие!"
-#AGOT Added
  stress_threshold.1504.j: "Мне просто нужно освободиться... #EMP *пук*#!"
 
  stress_threshold.1601.t: "Нервный срыв: навязчивые мысли"
@@ -134,6 +134,8 @@
  stress_threshold.1601.hashishiyah.effect: "Ничто так не успокаивает, как тихий вечер и маковое молоко."
  stress_threshold.1601.journaller.gain: "Перенесение мыслей на бумагу должно внести ясность..."
  stress_threshold.1601.journaller.effect: "Перенося мысли на бумагу, я всегда немного успокаиваюсь!"
+ stress_threshold.1601.burdened.gain: "Можно помечтать об удивительных местах."
+ stress_threshold.1601.burdened.effect: "Надо просто подумать о хорошем, это всегда помогает!"
  stress_threshold.1601.endure_no_option: "Я... мне просто нужно держаться. Я ничего не могу с этим поделать..."
 
  stress_threshold.1602.t: "Нервный срыв: бурлящие эмоции"
@@ -174,6 +176,8 @@
  #AGOT Modified
  #stress_threshold.1602.hashishiyah.effect: "Hashish always centers me."
  stress_threshold.1602.hashishiyah.effect: "Маковое молоко всегда помогает сосредоточиться."
+ stress_threshold.1602.burdened.gain: "Как бы мне хотелось задуматься #EMP хоть о чём-то#! другом…"
+ stress_threshold.1602.burdened.effect: "Если расслабиться и ни о чём не думать, беспокойство пройдет."
 
  # Level 2 Stress Events
  stress_threshold.2001.t: "Нервный срыв: неблагодарность"
@@ -194,8 +198,8 @@
  stress_threshold.2101.endure: "Может, я все выдумываю..."
 
  stress_threshold.2201.t: "Нервный срыв: кипящая злость"
- stress_threshold.2201.desc.insult_adventurer: "«[character_to_yell_at.GetFirstName], пусть ты и [ROOT.Char.Custom('GetCourtier')], но ты всё равно [character_to_yell_at.Custom('InsultAdjectiveArticle')] [character_to_yell_at.Custom('InsultNoun')]!»\n\n"
- stress_threshold.2201.desc.insult: "«Пусть ты и [character_to_yell_at.GetTitleAsName|l], [character_to_yell_at.GetFirstName], но ты все равно [character_to_yell_at.Custom('InsultAdjectiveArticle')] [character_to_yell_at.Custom('InsultNoun')]!»\n\n"
+ stress_threshold.2201.desc.insult_adventurer: "«[character_to_yell_at.GetFirstName], пусть ты и [ROOT.Char.Custom('GetCourtier')], но ты всё равно [character_to_yell_at.Custom2('InsultAdjectiveArticle', ROOT.Char)] [character_to_yell_at.Custom2('InsultNoun', ROOT.Char)]!»\n\n"
+ stress_threshold.2201.desc.insult: "«Пусть ты и [character_to_yell_at.GetTitleAsName|l], [character_to_yell_at.GetFirstName], но ты все равно [character_to_yell_at.Custom2('InsultAdjectiveArticle', ROOT.Char)] [character_to_yell_at.Custom2('InsultNoun', ROOT.Char)]!»\n\n"
  stress_threshold.2201.desc: "Я испытываю замешательство, заметив, как на меня смотрит [ROOT.Char.Custom2('RelationToMePossessive', SCOPE.sC('character_to_yell_at'))], но... во мне постоянно пылает такая #EMP злоба#!, а все вокруг ее только распаляют...\n\n"
  stress_threshold.2201.desc_liege: "«Что на вас нашло, [ROOT.Char.GetTitledFirstNameNoTooltip]?! Подобное поведение неприемлемо."
  stress_threshold.2201.desc_vassal: "«Мой сюзерен, что означает подобное поведение?!"
@@ -214,7 +218,7 @@
  stress_threshold.2202.desc: "[stress_character.GetSheHe|U] в последнее время здорово [Select_CString(stress_character.IsFemale, 'нервничала', 'нервничал' )], но"
  stress_threshold.2202.desc.rival: "в ответ на просьбу объясниться на меня обрушились новые оскорбления."
  stress_threshold.2202.desc.other: "так себя вести..."
- stress_threshold.2202.a: "Я отвечу тем же: «[stress_character.Custom('InsultNoun')|U]!»"
+ stress_threshold.2202.a: "Я отвечу тем же: «[stress_character.Custom2('InsultNoun'), ROOT.Char|U]!»"
  stress_threshold.2202.b: "Значит, даже [stress_character.GetSheHe] страдает... Это успокаивает."
 
  # Level 3 Stress Events
@@ -237,8 +241,8 @@
  stress_threshold.3201.depressed.gain: "Какая разница? Я сдаюсь."
  stress_threshold.3201.depressed.effect: "Все равно это все бесполезно..."
  stress_threshold.3201.help: "«[vassal.GetFirstNameNoTooltip]... Пожалуйста, помоги мне»."
- stress_threshold.3201.wrathful.gain: "«Нет, [vassal.Custom('InsultAdjective')] ты [vassal.Custom('InsultNoun')], я #EMP не#! в порядке!»"
- stress_threshold.3201.wrathful.effect: "«Я покажу тебе, кто тут #EMP в порядке#!, [vassal.Custom('InsultAdjective')] ты [vassal.Custom('InsultNoun')]!»"
+ stress_threshold.3201.wrathful.gain: "«Нет, [vassal.Custom2('InsultAdjective', ROOT.Char)] ты [vassal.Custom2('InsultNoun', ROOT.Char)], я #EMP не#! в порядке!»"
+ stress_threshold.3201.wrathful.effect: "«Я покажу тебе, кто тут #EMP в порядке#!, [vassal.Custom2('InsultAdjective', ROOT.Char)] ты [vassal.Custom2('InsultNoun', ROOT.Char)]!»"
  stress_threshold.3201.wrathful.effect.success: "[vassal.GetTitledFirstName] [Select_CString(vassal.IsFemale, 'избита', 'избит' )] вами"
  stress_threshold.3201.wrathful.effect.failure: "[vassal.GetTitledFirstName] отбивается от вас"
 

@@ -40,11 +40,38 @@
  NOT_HAS_SPECIAL_BUILDING_SLOT_TRIGGER_GLOBAL: "#bold Отсутствует#! [special_building|El]"
  HAS_SPECIAL_BUILDING_SLOT_TRIGGER_THIRD: "В провинции [PROVINCE.GetName] есть ячейка для [Concept( 'special_building', 'особого здания' )|E]"
  NOT_HAS_SPECIAL_BUILDING_SLOT_TRIGGER_THIRD: "[PROVINCE.GetName]: нет ячейки [Concept( 'special_building', 'особого здания' )|E]"
- 
+
  HAS_SPECIAL_BUILDING_TRIGGER_GLOBAL: "Есть [special_building|El]"
  NOT_HAS_SPECIAL_BUILDING_TRIGGER_GLOBAL: "#bold Отсутствует#! [special_building|El]"
- HAS_SPECIAL_BUILDING_TRIGGER_THIRD: "[PROVINCE.GetName] имеет [Concept( 'pressed_claim', 'обоснованную претензию' )|E]"
+ HAS_SPECIAL_BUILDING_TRIGGER_THIRD: "[PROVINCE.GetName] имеет [Concept('special_building', 'особую постройку')|E]"
  NOT_HAS_SPECIAL_BUILDING_TRIGGER_THIRD: "В провинции [PROVINCE.GetName] отсутствует [special_building|El]"
+
+ has_great_building_slot_global: "Есть ячейка [Concept('great_building', 'грандиозной постройки')|E]"
+ not_has_great_building_slot_global: "#bold Нет#! ячейки [Concept('great_building', 'грандиозной постройки')|E]"
+ has_great_building_slot_third: "В провинции [PROVINCE.GetName] есть ячейка [Concept('great_building', 'грандиозной постройки')|E]"
+ not_has_great_building_slot_third: "В провинции [PROVINCE.GetName] нет ячейки [Concept('great_building', 'грандиозной постройки')|E]"
+
+ has_great_building_global: "Есть [Concept('great_building', 'грандиозная постройка')|E]"
+ not_has_great_building_global: "#bold Нет#! [Concept('great_building', 'грандиозной постройки')|E]"
+ has_great_building_third: "В провинции [PROVINCE.GetName] есть [Concept('great_building', 'грандиозная постройка')|E]"
+ not_has_great_building_third: "В провинции [PROVINCE.GetName] нет [Concept('great_building', 'грандиозной постройки')|E]"
 
  HAS_HOLDING_DESC: "[PROVINCE.GetName] уже имеет [holding|El]"
  NOT_HAS_HOLDING_DESC: "[PROVINCE.GetName] #bold не#! имеет [Concept( 'holding', 'владения' )|E]"
+
+ has_ruined_great_building_global: "[Concept('great_building', 'Грандиозная постройка')|E] [Concept('ruined', 'разрушена')|E]"
+ not_has_ruined_great_building_global: "[Concept('great_building', 'Грандиозная постройка')|E] не [Concept('ruined', 'разрушена')|E]"
+ has_ruined_great_building_third: "[Concept('great_building', 'Грандиозная постройка')|E] во владении [PROVINCE.GetName] [Concept('ruined', 'разрушена')|E]"
+ not_has_ruined_great_building_third: "[Concept('great_building', 'Грандиозная постройка')|E] во владении [PROVINCE.GetName] не [Concept('ruined', 'разрушена')|E]"
+
+ is_ruined_building_being_reconstructed_global: "Разрушенная [Concept('great_building', 'грандиозная постройка')|E] в провинции [Province.GetName] в данный момент [Concept('rebuilt', 'восстановливается')|E]"
+ is_ruined_building_being_reconstructed_third: "$is_ruined_building_being_reconstructed_global$"
+ not_is_ruined_building_being_reconstructed_global: "Никакие [Concept('great_building', 'грандиозные постройки')|E] в провинции [Province.GetName] в данный момент не [Concept('rebuilt', 'восстанавливаются')|E]"
+ not_is_ruined_building_being_reconstructed_third: "$not_is_ruined_building_being_reconstructed_global$"
+
+ rebuild_great_building_global: "Грандиозная постройка $GREAT_BUILDING$ [Concept('rebuilt', 'восстановлена')|E]"
+ rebuild_great_building_third: "Грандиозная постройка $GREAT_BUILDING$ во владении [PROVINCE.GetName] [Concept('rebuilt', 'восстановлена')|E]"
+
+ ruin_great_building_global: "Грандиозная постройка $GREAT_BUILDING$ [Concept('ruined', 'разрушена')|E]"
+ ruin_great_building_third: "Грандиозная постройка $GREAT_BUILDING$ во владении [PROVINCE.GetName] [Concept('ruined', 'разрушена')|E]"
+

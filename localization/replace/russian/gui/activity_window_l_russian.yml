@@ -45,7 +45,7 @@
  ACTIVITY_GUEST_LIST_INFO_REGULAR: "Пригласить [Concept( 'activity_guests', 'гостей' )|E] через гостевые категории"
  ACTIVITY_GUEST_LIST_INFO_SPECIAL: "Назначить приглашенному гостю такую роль, как [ActivityGuestListWindow.GetSelectingSpecialGuest.GetType.GetNameIfHost( ActivityGuestListWindow.GetHost )|l]"
  ACTIVITY_GUEST_LIST_INVITE_GROUP: "Гостевые категории"
- ACTIVITY_GUEST_LIST_INVITING_OVER_MAX: "@alert_icon! #alert_trial  Вы пригласили более [ActivityType.GetMaxNumGuests|V] гостей. Не все откликнутся на ваше приглашение#!"
+ ACTIVITY_GUEST_LIST_INVITING_OVER_MAX: "@alert_icon! #alert_trial  Вы пригласили более [ActivityGuestListWindow.GetMaxNumGuests|V] гостей. Не все откликнутся на ваше приглашение#!"
  ACTIVITY_GUEST_LIST_SPECIAL_GUEST_TT: "#T [ActivitySpecialGuest.GetType.GetNameIfHost( ActivityGuestListWindow.GetHost )]#!\n[ActivitySpecialGuest.GetType.GetDescriptionIfHost( ActivityGuestListWindow.GetHost )]\n[ConcatIfNeitherEmpty('При приглашении:\n', ActivityGuestListWindow.GetSpecialGuestOnInviteEffectDesc( ActivitySpecialGuest.Self ) )]"
  ACTIVITY_SPECIAL_GUESTS_DEFAULT: "Особые гости"
  ACTIVITY_SPECIAL_GUESTS: "[ActivityType.GetLocalizedTextWithFallback( 'special_guests', 'ACTIVITY_SPECIAL_GUESTS_DEFAULT' )]"
@@ -93,7 +93,7 @@
  ACTIVITY_INVOLVED_SPECIAL_GUEST_hud: "#T Участник занятия#!\n[Character.GetUIName|U] [Concept( 'activity_attending', 'участник' )|E] занятия «[Activity.GetNameNoTooltip]» в местности $ACTIVITY_CURRENT_LOCATION$ как [ACTIVITY_SPECIAL_GUEST.GetNameIfHost( Activity.GetHost )|l].\n[Character.GetActivityStateText( 'full' )]."
  ACTIVITY_INVITED_SPECIAL_GUEST_hud: "#T Гость на занятии#!\n[Character.GetUIName] в списке приглашенных на занятие «[Activity.GetNameNoTooltip]» в местности $ACTIVITY_CURRENT_LOCATION$ как [ACTIVITY_SPECIAL_GUEST.GetNameIfHost( Activity.GetHost )|l]."
  ACTIVITY_INVOLVED_GUEST_hud: "#T Участник занятия#!\n[Character.GetUIName|U] [Concept( 'activity_attending', 'участник' )|E] занятия «[Activity.GetNameNoTooltip]» в местности $ACTIVITY_CURRENT_LOCATION$.\n[Character.GetActivityStateText( 'full' )]."
- ACTIVITY_INVITED_GUEST_hud: "#T Гость на занятии#!\n[Character.GetUIName|U] в списке приглашенных на занятие «[Activity.GetNameNoTooltip]» в местности $ACTIVITY_CURRENT_LOCATION$."
+ ACTIVITY_INVITED_GUEST_hud: "#T Гость на занятии#!\n[Character.GetUIName|U] в списке приглашенных на занятие «[Activity.GetNameNoTooltip]» в местности $ACTIVITY_CURRENT_LOCATION$.\n\n#I Щелкните, чтобы посмотреть занятие#!"
  ACTIVITY_UNINVOLVED_hud: "#T Занятие#!\n[Activity.GetHost.GetUIName] устраивает занятие «[Activity.GetShortName]» в местности $ACTIVITY_CURRENT_LOCATION$."
 
  ACTIVITY_INVOLVED_HOST_tooltip: "[Character.GetUIName|U] организатор занятия «[Activity.GetShortNameNoTooltip]» в местности $ACTIVITY_CURRENT_LOCATION$.\n[Character.GetActivityStateText( 'full' )]."
@@ -127,3 +127,6 @@
  ACTIVITY_WINDOW_PHASE_IN_PROGRESS_TOOLTIP: "#T [ActivityPhase.GetName]#!\nПоследнее действие: [ActivityWindow.GetLastWeeklyPulseEffectData.GetTitle|V][AddLine( ActivityWindow.GetLastWeeklyPulseEffectData.GetEffectText )]\n\n[Subtract_int32( DaysPerWeek, GetTicksSinceLastProgress( Activity.GetID, DaysPerWeek ) )|V] дн. до следующего возможного [Concept( 'activity_phase_action', 'действия' )|E].\n\n[ActivityPhase.GetDescription]"
  ACTIVITY_PULSE_ACTION_NONE: "Нет"
  ACTIVITY_TIME_UNTIL_PROGRESS: " ([Activity.GetEstimatedProgressPhaseDate.GetTimeToDate] до [Select_CString(Activity.IsCurrentPhaseActive, 'окончания', 'начала')])"
+
+ OPEN_ACTIVITY_NEVER_SEEN: "Никогда не проводилось"
+ OPEN_ACTIVITY_LAST_SEEN: "Последний раз проводилось [GetTimeBetweenDates(DATE.Self, GetCurrentDate)] назад"

@@ -6,11 +6,14 @@
  scheme_odds_prediction_level_excellent: "#scheme_odds_excellent @aptitude:5:inherit_color!Очень низкая#!"
  offer_bribes.tt.window_jump_fix: "#WEAK Вы не предлагаете персонажу [recipient.GetFirstName] никаких особых поощрений#!"
  SCHEME_MODIFIERS: "Модификаторы происков"
+
  SCHEME_AGENT_GOLD: "[gold_i] Подкуп"
+ SCHEME_AGENT_TREASURY: "Передача [treasury_i] [Concept('treasury', 'государственной казны')|E]"
  SCHEME_HOOK: "Использовать [hook_i][Concept( 'hook', 'влияние' )|E]"
  SCHEME_HOOK_EXPLICIT: "[hook_i] Использовать [Concept( 'hook', 'рычаг влияния' )|E] на #EMP цель#!"
  SCHEME_AGENT_GOLD_SIGNIFICANT: "[gold_i] Предложить #EMP солидную#! сумму"
  offer_gold.tt.cannot_offer_both_bribes: "Можно предложить подкуп только одного размера"
+ not_two_overrides: "Нельзя использовать два варианта автоприема одновременно"
  SCHEME_AGENT_HOOK: "[hook_i] Предложить [Concept( 'hook', 'рычаг влияния' )|E] на себя"
  SCHEME_AGENT_HOOK_STRONG: "[strong_hook_i] Предложить [Concept( 'strong_hook', 'сильный рычаг влияния' )|E] на себя"
  offer_hook.tt.cannot_offer_both_hooks: "Вы не можете одновременно предлагать и [Concept( 'hook', 'рычаг влияния' )|E], и [Concept( 'strong_hook', 'рычаг сильного влияния' )|E]"
@@ -32,6 +35,7 @@
  claimed_title.tt.no_claims: "[recipient.GetShortUIName] не [Select_CString(recipient.IsLocalPlayer, 'имеете', 'имеет')] [Concept( 'claims', 'претензий' )|E]"
  SCHEME_AGENT_PIETY: "[piety_i] Использовать вашу [Concept( 'pious', 'благочестивую' )|E] репутацию"
  SCHEME_AGENT_HERD: "[herd_i] Предложить часть своего [Concept('herd', 'стада')|E]"
+ SCHEME_AGENT_MANDALA_TRICKSTER: "Использовать ваш [Concept('aspect_of_trickery', 'аспект обмана')|E]"
  scheme_change_herd_value: "Теряет [Concept('herd', 'стада')|E]: [herd_i][SCOPE.ScriptValue('herd_bribe_value')|0N] ед."
  SCHEME_TT_HEADER: "#T [SCHEME.GetFullActionName]#!"
  SCHEME_TT_BODY: "Цель: [SCHEME.GetTarget.GetName]\nТекущий [Concept( 'success_chance', 'шанс успеха' )|E]: $SUCCESS_CHANCE|%/0V$\n[Concept( 'scheme_potential', 'Потенциал происков' )|E]: [SCHEME.GetMaxSuccessChance|%/0V]\n[Concept( 'scheme_opportunity_opportunities', 'Очков преимущества' )|E] в данный момент: [SCHEME.GetAgentCharges|V]\nПродолжительность [Concept( 'scheme_phase', 'фазы происков' )|E]: [SCHEME.GetProgressGoal|V] #V д.#!"
@@ -64,18 +68,22 @@
  SCHEME_AGENT_LEARNING: "[learning|E] соучастника: $VALUE|+=0$"
  scheme_target_died: "[target.GetShortUIName|U] [Select_CString(target.IsFemale, 'умерла', 'умер' )]"
  scheme_target_not_in_diplomatic_range: "[target.GetShortUIName|U] теперь находится вне [Concept( 'diplomatic_range', 'дипломатического радиуса' )|E]"
+ scheme_cancelled: "[owner.GetShortUIName|U] [Select_CString(owner.IsLocalPlayer, 'отказались', Select_CString(owner.IsFemale, 'отказалась', 'отказался' ))] от происков"
  restart_scheme_tt: "Происки начнутся заново при нулевом прогрессе"
  fabricate_hook_failed_reset_message: "$fabricate_hook$ провалились"
  scheme_remain_secret_roll_tt: "Происки раскрыты"
  feed_message.t.scheme_breached: "Брешь в происках"
 
- SCHEME_AGENT_GOLD_VALID: "Заплатить [Select_CString(recipient.IsLocalPlayer, '', 'персонажу ' )][recipient.GetNamePossessiveOrMy][Select_CString(recipient.IsLocalPlayer, 'ему персонажу', '' )][recipient.GetShortUINameNoTooltip] [SCOPE.ScriptValue('bribe_value')|V0] [gold_i]"
- SCHEME_AGENT_GOLD_SIGNIFICANT_VALID: "Заплатить [Select_CString(recipient.IsLocalPlayer, '', 'персонажу ' )][recipient.GetNamePossessiveOrMy][Select_CString(recipient.IsLocalPlayer, 'ему персонажу', '' )][recipient.GetShortUINameNoTooltip] [recipient.GetShortUINameNoTooltip] [SCOPE.ScriptValue('greater_bribe_value')|V0] [gold_i]"
+
+ SCHEME_AGENT_GOLD_VALID: "Заплатить [SCOPE.ScriptValue('bribe_value')|V0][gold_i] персонажу [recipient.GetShortUINameNoTooltip]"
+ SCHEME_AGENT_TREASURY_VALID: "Передать [SCOPE.ScriptValue('treasury_bribe_value')|V0][treasury_i] персонажу [recipient.GetShortUINameNoTooltip]"
+ SCHEME_AGENT_GOLD_SIGNIFICANT_VALID: "Заплатить [SCOPE.ScriptValue('greater_bribe_value')|V0][gold_i] персонажу [recipient.GetShortUINameNoTooltip]"
  SCHEME_AGENT_OPPORTUNITIES_VALID: "Будет получено [EmptyScope.ScriptValue('agent_acceptance_per_burnt_opportunity_value')|=+P0] ед. к принятию предложений за каждое потраченное [Concept( 'scheme_opportunity_opportunity', 'очко преимущества' )|E]"
- SCHEME_AGENT_PRESTIGE_VALID: "[SCOPE.ScriptValue('prestige_bribe_value')|V0] ед. [prestige_i] будет передано [Select_CString(recipient.IsLocalPlayer, '', 'персонажу ' )][recipient.GetNamePossessiveOrMy][Select_CString(recipient.IsLocalPlayer, 'ему персонажу', '' )][recipient.GetShortUINameNoTooltip]"
- SCHEME_AGENT_INFLUENCE_VALID: "[SCOPE.ScriptValue('influence_bribe_value')|V0] ед. [influence_i] будет передано [Select_CString(recipient.IsLocalPlayer, '', 'персонажу ' )][recipient.GetNamePossessiveOrMy][Select_CString(recipient.IsLocalPlayer, 'ему персонажу', '' )][recipient.GetShortUINameNoTooltip]"
+ SCHEME_AGENT_PRESTIGE_VALID: "Передать [SCOPE.ScriptValue('prestige_bribe_value')|V0][prestige_i] персонажу [recipient.GetShortUINameNoTooltip]"
+ SCHEME_AGENT_INFLUENCE_VALID: "Передать [SCOPE.ScriptValue('influence_bribe_value')|V0][influence_i] персонажу [recipient.GetShortUINameNoTooltip]"
  SCHEME_AGENT_PIETY_VALID: "[SCOPE.ScriptValue('piety_bribe_value')|V0] ед. [piety_i] будет потрачено, чтобы убедить [Select_CString(recipient.IsLocalPlayer, '', 'персонажа ' )][recipient.GetNamePossessiveOrMy][Select_CString(recipient.IsLocalPlayer, 'его персонажа', '' )]"
- SCHEME_AGENT_HERD_VALID: "[SCOPE.ScriptValue('herd_bribe_value')|V0] ед. [herd_i] будет передано [Select_CString(recipient.IsLocalPlayer, '', 'персонажу ' )][recipient.GetShortUINamePossessive][Select_CString(recipient.IsLocalPlayer, 'ему персонажу', '' )][recipient.GetShortUINameNoTooltip]"
+ SCHEME_AGENT_HERD_VALID: "Передать [SCOPE.ScriptValue('herd_bribe_value')|V0][herd_i] персонажу [recipient.GetShortUINameNoTooltip]"
+ SCHEME_AGENT_MANDALA_TRICKSTER_VALID: "Потратить [SCOPE.ScriptValue('trickster_mandala_force_agent_bribe_value')|V0][piety_i], чтобы убедить персонажа [recipient.GetShortUINameNoTooltip]"
 
  SCHEME_LIEGE_DIPLOMACY: "[Concept( 'diplomacy', 'Дипломатия' )|E] вашего [Concept( 'liege', 'сюзерена' )|E]: $VALUE|+=0$"
 
@@ -110,7 +118,7 @@
  scheme_critical_moments.0001.option.max_slots: "Эти [Concept( 'scheme', 'происки' )|E] достигли максимума ячеек [Concept( 'agent', 'соучастников' )|E]"
  scheme_critical_moments.0001.option.opportunities_better_spent_on_agents: "#mixed_value @alert_icon! [Concept( 'scheme_opportunity_opportunities', 'Очки преимущества' )|E] стоит тратить главным образом на ячейки [Concept( 'agent', 'соучастников' )|E]#!"
 
- scheme_critical_moments.0002.t: "$scheme_critical_moments.0001.t$"
+ scheme_critical_moments.0002.t: "$scheme_critical_moments.0001.t.scheme$"
  scheme_critical_moments.0002.desc: "Потратить накопленные [Concept( 'scheme_opportunity_opportunities', 'очки преимущества' )|E] и попытаться привести в действие [Concept( 'scheme', 'происки' )|E] «[scheme.GetName]». Чем больше вы потратите, тем выше будут финальные бонусы."
  scheme_critical_moments.0002.a: "#BOL @scheme_opportunity_icon![scheme.MakeScope.ScriptValue('multi_ending_scheme_charge_to_advance_threshold_t1_value')]#!: Воспользоваться моментом"
  scheme_critical_moments.0002.a.tt.stymied.insufficient_opportunities: "Вам нужно не меньше [scheme_opportunity_i][scheme.MakeScope.ScriptValue('multi_ending_scheme_charge_to_advance_threshold_t1_value')] [Concept( 'scheme_opportunity_opportunities', 'очк. преимущества' )|E]"
@@ -233,7 +241,7 @@
  courting_desc_general: "[scheme|E] романа — [personal_scheme|El], в которых [scheme_owner|El] хочет повысить свой [prestige|El] и по возможности найти [Concept( 'soulmate', 'родственную душу' )|El]. Для этого персонаж выбирает пару и начинает ухаживания традиционным и благородным способом."
  #AGOT Modified
  #scheme_interaction_tt_courtship_approved: "Попытка завязать роман с персонажем [recipient.GetShortUINameNoTooltip], получить [prestige|El], улучшить [SCOPE.sC('recipient').GetHerHis] [opinion|El] о вас и получить шанс стать [Concept( 'soulmates', 'родственными душами' )|El]!"
- scheme_interaction_tt_courtship_approved:1 "Попытка завязать роман с персонажем [recipient.GetShortUINameNoTooltip] по правилам куртуазной любви. Если вы добьётесь успеха, это может повысить ваш [prestige|El] и улучшить [SCOPE.sC('recipient').GetHerHis] [opinion|El] о вас, но вы не станете [Concept('soulmates', 'родственными душами')|E], если вы уже не состоите в браке, не являетесь [Concept('lover', Select_CString(ROOT.Char.IsFemale, 'любовницей', 'любовником' ))|E] персонажа [recipient.GetShortUINamePossessiveNoTooltipNoFormat], или вы либо предлагаете [Concept('marriage', 'брак')|E], либо обещаете тайный побег (если возможно и то, и другое)."
+ scheme_interaction_tt_courtship_approved: "Попытка завязать роман с персонажем [recipient.GetShortUINameNoTooltip] по правилам куртуазной любви. Если вы добьётесь успеха, это может повысить ваш [prestige|El] и улучшить [SCOPE.sC('recipient').GetHerHis] [opinion|El] о вас, но вы не станете [Concept('soulmates', 'родственными душами')|E], если вы уже не состоите в браке, не являетесь [Concept('lover', Select_CString(ROOT.Char.IsFemale, 'любовницей', 'любовником' ))|E] персонажа [recipient.GetShortUINamePossessiveNoTooltipNoFormat], или вы либо предлагаете [Concept('marriage', 'брак')|E], либо обещаете тайный побег (если возможно и то, и другое)."
  courting_invalid: "Я и [target.GetShortUIName|U] уже не сможем стать [Concept( 'soulmates', 'родственными душами' )|E], и я больше не пытаюсь склонить [target.GetHerHis] к роману."
  court_scheme_invalidated_title: "@personal_scheme_icon! Романтические происки завершаются"
 
@@ -506,6 +514,10 @@
  seize_realm_interaction.tt.agent_focus_speed: "$schemes.tt.agent_packages.list_boilerplate$\n$EFFECT_LIST_BULLET$[scheme_speed_i] [GetAgentSlotType( 'agent_infiltrator' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i] [GetAgentSlotType( 'agent_footpad' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i] [GetAgentSlotType( 'agent_planner' ).GetName]\n$EFFECT_LIST_BULLET$[success_chance_max_i] [GetAgentSlotType( 'agent_muscle' ).GetName]\n$EFFECT_LIST_BULLET$[secrecy_i] [GetAgentSlotType( 'agent_lookout' ).GetName]"
  seize_realm_interaction.tt.agent_focus_secrecy: "$schemes.tt.agent_packages.list_boilerplate$\n$EFFECT_LIST_BULLET$[secrecy_i] [GetAgentSlotType( 'agent_lookout' ).GetName]\n$EFFECT_LIST_BULLET$[secrecy_i] [GetAgentSlotType( 'agent_decoy' ).GetName]\n$EFFECT_LIST_BULLET$[secrecy_i] [GetAgentSlotType( 'agent_decoy' ).GetName]\n$EFFECT_LIST_BULLET$[success_chance_max_i] [GetAgentSlotType( 'agent_muscle' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i] [GetAgentSlotType( 'agent_infiltrator' ).GetName]"
 
+ celestial_siphon_treasury_interaction.tt.agent_focus_balance: "$schemes.tt.agent_packages.list_boilerplate$\n$EFFECT_LIST_BULLET$[success_chance_max_i][GetAgentSlotType( 'agent_muscle' ).GetName]\n$EFFECT_LIST_BULLET$[success_chance_max_i][GetAgentSlotType( 'agent_muscle' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i][GetAgentSlotType( 'agent_infiltrator' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i][GetAgentSlotType( 'agent_planner' ).GetName]\n$EFFECT_LIST_BULLET$[secrecy_i][GetAgentSlotType( 'agent_lookout' ).GetName]"
+ celestial_siphon_treasury_interaction.tt.agent_focus_success: "$schemes.tt.agent_packages.list_boilerplate$\n$EFFECT_LIST_BULLET$[success_chance_max_i][GetAgentSlotType( 'agent_muscle' ).GetName]\n$EFFECT_LIST_BULLET$[success_chance_max_i][GetAgentSlotType( 'agent_muscle' ).GetName]\n$EFFECT_LIST_BULLET$[success_chance_max_i][GetAgentSlotType( 'agent_diplomat' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i][GetAgentSlotType( 'agent_infiltrator' ).GetName]\n$EFFECT_LIST_BULLET$[secrecy_i][GetAgentSlotType( 'agent_lookout' ).GetName]"
+ celestial_siphon_treasury_interaction.tt.agent_focus_speed: "$schemes.tt.agent_packages.list_boilerplate$\n$EFFECT_LIST_BULLET$[scheme_speed_i][GetAgentSlotType( 'agent_infiltrator' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i][GetAgentSlotType( 'agent_footpad' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i][GetAgentSlotType( 'agent_planner' ).GetName]\n$EFFECT_LIST_BULLET$[success_chance_max_i][GetAgentSlotType( 'agent_muscle' ).GetName]\n$EFFECT_LIST_BULLET$[secrecy_i][GetAgentSlotType( 'agent_lookout' ).GetName]"
+ celestial_siphon_treasury_interaction.tt.agent_focus_secrecy: "$schemes.tt.agent_packages.list_boilerplate$\n$EFFECT_LIST_BULLET$[secrecy_i][GetAgentSlotType( 'agent_lookout' ).GetName]\n$EFFECT_LIST_BULLET$[secrecy_i][GetAgentSlotType( 'agent_decoy' ).GetName]\n$EFFECT_LIST_BULLET$[secrecy_i][GetAgentSlotType( 'agent_decoy' ).GetName]\n$EFFECT_LIST_BULLET$[success_chance_max_i][GetAgentSlotType( 'agent_muscle' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i][GetAgentSlotType( 'agent_infiltrator' ).GetName]"
  #################################################
  #Scheme Preparations
 
@@ -1384,10 +1396,6 @@
  scheme_apa_negative_5751_modifier_desc: "Некоторые звери просто неисправимо строптивы, коварны и упрямы."
  scheme_apa_negative_5761_modifier: "$scheme_apa_negative.5761.t$"
  scheme_apa_negative_5761_modifier_desc: "Будьте осторожны: водя кого-то за нос, можно зайти слишком далеко."
- scheme_apa_negative_5771_modifier: "$scheme_apa_negative.5771.t$"
- scheme_apa_negative_5771_modifier_desc: "Пикантные, но обманчивые истории — бесполезная трата времени."
- scheme_apa_negative_5781_modifier: "$scheme_apa_negative.5781.t$"
- scheme_apa_negative_5781_modifier_desc: "Некоторые люди слишком честны или слишком хитры, чтобы оставлять скелеты в шкафу."
 
  #################################################
  #Negative Secrecy			(Modifiers)
@@ -1557,7 +1565,7 @@
 
  scheme_odds.owner.secrecy_base: "Базовая [Concept( 'secrecy', 'секретность' )|E]"
  scheme_odds.target.opinion_of_owner: "[opinion|E] персонажа [target.GetFirstName] о вас"
- scheme_odds.target.tier: "[Concept('title_tier', 'Уровень')|E] [Concept('title', 'титула')|E] персонажа [target.GetFirstName]"
+ scheme_odds.target.tier: "[Concept('title_tier', 'Уровень')|E] [Concept('title', 'титула')|E] персонажа [target.GetName]"
  scheme_odds.owner.is_target_spymaster: "Вы [Concept('spymaster', 'тайный советник')|E] персонажа [target.GetFirstName]"
  scheme_odds.owner.is_target_liege_spymaster: "Вы [Concept('spymaster', 'тайный советник')|E] [Concept('liege_possessive', 'сюзерена')|E] персонажа [target.GetFirstName]"
  scheme_odds.owner.is_target_host_spymaster: "Вы [Concept('spymaster', 'тайный советник')|E] хозяина, принимающего персонажа [target.GetFirstName]"
@@ -1588,6 +1596,10 @@
  scheme_odds.struggle.owner.agents_less_likely_to_join_due_to_struggle_phase: "Ваша [Concept('struggle_phase_phase', 'фаза')|E] [Concept('struggle', 'борьбы')|E]"
  scheme_odds.owner.spies_behind_every_corner_modifier: "У вас есть [Concept('modifier', 'модификатор')|E] «[GetModifier('spies_behind_every_corner_modifier').GetNameWithTooltip]»"
  scheme_odds.target.spies_behind_every_corner_modifier: "У персонажа [target.GetFirstName] есть [Concept('modifier', 'модификатор')|E] «[GetModifier('spies_behind_every_corner_modifier').GetNameWithTooltip]»"
+ scheme_odds.target.holder.spies_behind_every_corner_modifier: "У персонажа [target.GetHolder.GetFirstName] есть [Concept('modifier', 'модификатор')|E] «[GetModifier('spies_behind_every_corner_modifier').GetNameWithTooltip]»"
+ scheme.owner.spies_behind_every_corner_modifier.value_desc: "$scheme_odds.owner.spies_behind_every_corner_modifier$: $VALUE|+=0$"
+ scheme.target.spies_behind_every_corner_modifier.value_desc: "У персонажа [target.GetFirstName] есть [Concept('modifier', 'модификатор')|E] «[GetModifier('spies_behind_every_corner_modifier').GetNameWithTooltip]»: $VALUE|+=0$"
+ scheme.target.holder.spies_behind_every_corner_modifier.value_desc: "У персонажа [target.GetHolder.GetFirstName] есть [Concept('modifier', 'модификатор')|E] «[GetModifier('spies_behind_every_corner_modifier').GetNameWithTooltip]»: $VALUE|+=0$"
 
  scheme_odds.diplomacy.owner: "Ваша [Concept( 'diplomacy', 'дипломатия' )|E]"
  scheme_odds.diplomacy.target: "[Concept( 'diplomacy', 'Дипломатия' )|E] персонажа [target.GetFirstName]"
@@ -1598,9 +1610,66 @@
  scheme_odds.stewardship.target: "[Concept('stewardship', 'Управление')|E] персонажа [target.GetFirstName]"
  scheme_odds.intrigue.owner: "Ваши [Concept( 'intrigue', 'интриги' )|E]"
  scheme_odds.intrigue.target: "[Concept('intrigue', 'Интриги')|E] персонажа [target.GetFirstName]"
+ scheme_odds.intrigue.target_holder: "[Concept('intrigue', 'Интриги')|E] персонажа [target.GetHolder.GetFirstName]"
  scheme_odds.learning.owner: "Ваша [Concept( 'learning', 'ученость' )|E]"
  scheme_odds.learning.target: "[Concept('learning', 'Ученость')|E] персонажа [target.GetFirstName]"
  scheme_odds.prowess.owner: "Ваша [Concept( 'prowess', 'доблесть' )|E]"
  scheme_odds.prowess.target: "[Concept('prowess', 'Доблесть')|E] персонажа [target.GetFirstName]"
 
+ scheme_odds.creation_aspect: "Ваш [Concept('skill', 'навык')|E] [Concept('aspect', 'аспекта')|E] #weak ([Concept('stewardship', 'управление')|E])#!"
+ scheme_odds.serenity_aspect: "Ваш [Concept('skill', 'навык')|E] [Concept('aspect', 'аспекта')|E] #weak ([Concept('diplomacy', 'дипломатия')|E])#!"
+ scheme_odds.destruction_aspect: "Ваш [Concept('skill', 'навык')|E] [Concept('aspect', 'аспекта')|E] #weak ([Concept('martial', 'военное дело')|E])#!"
+ scheme_odds.trickery_aspect: "Ваш [Concept('skill', 'навык')|E] [Concept('aspect', 'аспекта')|E] #weak ([Concept('intrigue', 'интриги')|E])#!"
+
+ scheme_odds.target.creation_aspect: "[target.GetFirstName|U] и вы обладаете общим [Concept('aspect', 'аспектом')|E]"
+ scheme_odds.target.serenity_aspect: "[target.GetFirstName|U] и вы обладаете общим [Concept('aspect', 'аспектом')|E]"
+ scheme_odds.target.destruction_aspect: "[target.GetFirstName|U] и вы обладаете общим [Concept('aspect', 'аспектом')|E]"
+ scheme_odds.target.trickery_aspect: "[target.GetFirstName|U] и вы обладаете общим [Concept('aspect', 'аспектом')|E]"
+
+ scheme_odds.target.suzerain.creation_aspect: "[target.GetFirstName|U] обладает тем же [Concept('aspect', 'аспектом')|E], что и [Select_CString(target.IsFemale, 'ее', 'его')] [Concept('suzerain', 'повелитель')|E]"
+ scheme_odds.target.suzerain.serenity_aspect: "[target.GetFirstName|U] обладает тем же [Concept('aspect', 'аспектом')|E], что и [Select_CString(target.IsFemale, 'ее', 'его')] [Concept('suzerain', 'повелитель')|E]"
+ scheme_odds.target.suzerain.destruction_aspect: "[target.GetFirstName|U] обладает тем же [Concept('aspect', 'аспектом')|E], что и [Select_CString(target.IsFemale, 'ее', 'его')] [Concept('suzerain', 'повелитель')|E]"
+ scheme_odds.target.suzerain.trickery_aspect: "[target.GetFirstName|U] обладает тем же [Concept('aspect', 'аспектом')|E], что и [Select_CString(target.IsFemale, 'ее', 'его')] [Concept('suzerain', 'повелитель')|E]"
+
+ scheme_odds.dislikes_suzerain: "[target.GetFirstName|U] не любит своего [Concept('suzerain', 'повелителя')|E]"
+ scheme_odds.no_suzerain: "[target.GetFirstName|U] не имеет [Concept('suzerain', 'повелителя')|E]"
+ scheme_odds.disbelieved_mandala: "Вы [GetModifier( 'disbelieved_mandala_modifier' ).GetNameWithTooltip|L]"
+ scheme_odds.realm_size: "[realm_size|E] [Select_CString(target.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ', target.GetShortUIName))]"
+ scheme_odds.target_suzerain_has_greater_radiance: "[Concept('radiance', 'Великолепие')|E] [Concept('suzerain', 'повелителя')|E] ([target.GetSuzerain.GetShortUIName])"
+ scheme_odds.not_same_mandala_aspect: "У вас разные [Concept('aspects', 'аспекты')|E]"
+
  scheme_odds.misc_modifiers: "Модификаторы [Concept( 'scheme', 'происков' )|E]"
+
+ SCHEME_TARGET_MARTIAL: "[Concept('martial', 'Военное дело')|E] персонажа [target.GetShortUIName|U]: $VALUE|+=0$"
+ SCHEME_TARGET_IMPATIENT: "[target.GetShortUIName|U] #TOOLTIP:GAME_TRAIT,lazy,target #L [Select_CString(target.IsFemale, 'ленива', 'ленив')]#!#!: $VALUE|+0=$"
+ SCHEME_OWNER_STUBBORN: "Вы #TOOLTIP:GAME_TRAIT,stubborn,owner #L упорны#!#!: $VALUE|+0=$"
+ SCHEME_OWNER_AMBITIOUS: "Вы #TOOLTIP:GAME_TRAIT,ambitious,owner #L амбициозны#!#!: $VALUE|+0=$"
+ SCHEME_OWNER_IMPATIENT: "Вы #TOOLTIP:GAME_TRAIT,impatient,owner #L торопливы#!#!: $VALUE|+0=$"
+
+ SCHEME_YOUR_ASPECT_SKILL_CREATION: "Ваш [Concept('skill', 'навык')|E] [Concept('aspect', 'аспекта')|E] #weak ([Concept('stewardship', 'управление')|E])#!: $VALUE|+=0$"
+ SCHEME_YOUR_ASPECT_SKILL_SERENITY: "Ваш [Concept('skill', 'навык')|E] [Concept('aspect', 'аспекта')|E] #weak ([Concept('diplomacy', 'дипломатия')|E])#!: $VALUE|+=0$"
+ SCHEME_YOUR_ASPECT_SKILL_DESTRUCTION: "Ваш [Concept('skill', 'навык')|E] [Concept('aspect', 'аспекта')|E] #weak ([Concept('martial', 'военное дело')|E])#!: $VALUE|+=0$"
+ SCHEME_YOUR_ASPECT_SKILL_TRICKERY: "Ваш [Concept('skill', 'навык')|E] [Concept('aspect', 'аспекта')|E] #weak ([Concept('intrigue', 'интриги')|E])#!: $VALUE|+=0$"
+
+ SCHEME_TARGET_ASPECT_SKILL_CREATION: "[target.GetFirstName|U] и вы обладаете общим [Concept('aspect', 'аспектом')|E] #weak (исходя из вашего [Concept('stewardship', 'управления')|E])#!: $VALUE|+=0$"
+ SCHEME_TARGET_ASPECT_SKILL_SERENITY: "[target.GetFirstName|U] и вы обладаете общим [Concept('aspect', 'аспектом')|E] #weak (исходя из вашей [Concept('diplomacy', 'дипломатии')|E])#!: $VALUE|+=0$"
+ SCHEME_TARGET_ASPECT_SKILL_DESTRUCTION: "[target.GetFirstName|U] и вы обладаете общим [Concept('aspect', 'аспектом')|E] #weak (исходя из вашего [Concept('martial', 'военного дела')|E])#!: $VALUE|+=0$"
+ SCHEME_TARGET_ASPECT_SKILL_TRICKERY: "[target.GetFirstName|U] и вы обладаете общим [Concept('aspect', 'аспектом')|E] #weak (исходя из ваших [Concept('intrigue', 'интриг')|E])#!: $VALUE|+=0$"
+
+ SCHEME_TARGET_HAS_NO_SUZERAIN: "[target.GetFirstName|U] не имеет [Concept('suzerain', 'повелителя')|E]: $VALUE|+=0$"
+
+ SCHEME_TARGET_REALM_SIZE: "[realm_size|E] [Select_CString(target.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ', target.GetShortUIName))]: $VALUE|+=0$"
+
+ SCHEME_TARGET_NOT_SAME_ASPECT: "[target.GetFirstName|U] обладает иным [Concept('aspect', 'аспектом')|E], нежели вы: $VALUE|+=0$"
+
+ SCHEME_SUZERAIN_ASPECT_SKILL_CREATION: "[target.GetFirstName|U] обладает тем же [Concept('aspect', 'аспектом')|E], что и [Select_CString(target.IsFemale, 'ее', 'его')] [Concept('suzerain', 'повелитель')|E] #weak (исходя из [Concept('stewardship', 'управления')|E], которым обладает [target.GetSuzerain.GetShortUIName])#!: $VALUE|+=0$"
+ SCHEME_SUZERAIN_ASPECT_SKILL_SERENITY: "[target.GetFirstName|U] обладает тем же [Concept('aspect', 'аспектом')|E], что и [Select_CString(target.IsFemale, 'ее', 'его')] [Concept('suzerain', 'повелитель')|E] #weak (исходя из [Concept('diplomacy', 'дипломатии')|E], которой обладает [target.GetSuzerain.GetShortUIName])#!: $VALUE|+=0$"
+ SCHEME_SUZERAIN_ASPECT_SKILL_DESTRUCTION: "[target.GetFirstName|U] обладает тем же [Concept('aspect', 'аспектом')|E], что и [Select_CString(target.IsFemale, 'ее', 'его')] [Concept('suzerain', 'повелитель')|E] #weak (исходя из [Concept('martial', 'военным делом')|E], которым обладает [target.GetSuzerain.GetShortUIName])#!: $VALUE|+=0$"
+ SCHEME_SUZERAIN_ASPECT_SKILL_TRICKERY: "[target.GetFirstName|U] обладает тем же [Concept('aspect', 'аспектом')|E], что и [Select_CString(target.IsFemale, 'ее', 'его')] [Concept('suzerain', 'повелитель')|E] #weak (исходя из [Concept('intrigue', 'интриг')|E], которыми обладает [target.GetSuzerain.GetShortUIName])#!: $VALUE|+=0$"
+
+ SUZERAIN_HAS_GREATER_RADIANCE: "[suzerain|E] ([recipient.GetSuzerain.GetShortUIName]) обладает большим [Concept('radiance', 'великолепием')|E]: $VALUE|+=0$"
+
+ coup_ceremonial_liege_interaction.tt.agent_focus_balance: "$schemes.tt.agent_packages.list_boilerplate$\n$EFFECT_LIST_BULLET$[success_chance_max_i][GetAgentSlotType( 'agent_muscle' ).GetName]\n$EFFECT_LIST_BULLET$[success_chance_max_i][GetAgentSlotType( 'agent_muscle' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i][GetAgentSlotType( 'agent_infiltrator' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i][GetAgentSlotType( 'agent_planner' ).GetName]\n$EFFECT_LIST_BULLET$[secrecy_i][GetAgentSlotType( 'agent_lookout' ).GetName]"
+ coup_ceremonial_liege_interaction.tt.agent_focus_success: "$schemes.tt.agent_packages.list_boilerplate$\n$EFFECT_LIST_BULLET$[success_chance_max_i][GetAgentSlotType( 'agent_muscle' ).GetName]\n$EFFECT_LIST_BULLET$[success_chance_max_i][GetAgentSlotType( 'agent_muscle' ).GetName]\n$EFFECT_LIST_BULLET$[success_chance_max_i][GetAgentSlotType( 'agent_diplomat' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i][GetAgentSlotType( 'agent_infiltrator' ).GetName]\n$EFFECT_LIST_BULLET$[secrecy_i][GetAgentSlotType( 'agent_lookout' ).GetName]"
+ coup_ceremonial_liege_interaction.tt.agent_focus_speed: "$schemes.tt.agent_packages.list_boilerplate$\n$EFFECT_LIST_BULLET$[scheme_speed_i][GetAgentSlotType( 'agent_infiltrator' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i][GetAgentSlotType( 'agent_footpad' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i][GetAgentSlotType( 'agent_planner' ).GetName]\n$EFFECT_LIST_BULLET$[success_chance_max_i][GetAgentSlotType( 'agent_muscle' ).GetName]\n$EFFECT_LIST_BULLET$[secrecy_i][GetAgentSlotType( 'agent_lookout' ).GetName]"
+ coup_ceremonial_liege_interaction.tt.agent_focus_secrecy: "$schemes.tt.agent_packages.list_boilerplate$\n$EFFECT_LIST_BULLET$[secrecy_i][GetAgentSlotType( 'agent_lookout' ).GetName]\n$EFFECT_LIST_BULLET$[secrecy_i][GetAgentSlotType( 'agent_decoy' ).GetName]\n$EFFECT_LIST_BULLET$[secrecy_i][GetAgentSlotType( 'agent_decoy' ).GetName]\n$EFFECT_LIST_BULLET$[success_chance_max_i][GetAgentSlotType( 'agent_muscle' ).GetName]\n$EFFECT_LIST_BULLET$[scheme_speed_i][GetAgentSlotType( 'agent_infiltrator' ).GetName]"

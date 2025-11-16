@@ -28,7 +28,7 @@
  
  # Granary Infestation, by Sean Hughes
  stewardship_domain.1052.t: "Вредители в амбарах"
- stewardship_domain.1052.desc: "Нашествие вредителей обрушилось на несколько амбаров во владении [target_county.GetNameNoTier]. В результате запасы зерна в них оказались уничтожены. Лишившись зерна для посева, вольные арендаторы обратились ко мне за помощью.\n\nЭти фермеры — учитывая их бедственное положение — примут любые мои требования."
+ stewardship_domain.1052.desc: "Нашествие вредителей обрушилось на несколько амбаров во владении [target_county.GetNameNoTier]. В результате запасы зерна в них оказались уничтожены. Лишившись зерна для посева, фермеры обратились ко мне за помощью.\n\nУчитывая их бедственное положение, они наверняка примут любые мои требования."
  stewardship_domain.1052.a: "У меня много зерна... для моих крепостных..."
  stewardship_domain.1052.b: "Сжалиться над ними и открыть мои зернохранилища."
  stewardship_domain.1052.c: "Приказать, чтобы [ROOT.Char.Custom('DefaultPriestTitlePlural')] проявили щедрость."
@@ -69,7 +69,7 @@
  stewardship_domain.6001.t: "Осушение"
  stewardship_domain.6001.desc: "Несколько месяцев назад [baron.GetTitledFirstName] [Select_CString(baron.IsFemale, 'начала', 'начал' )] работы по осушению болот под поселение во владении [barony.GetNameNoTier]. Работая тяжелыми плугами и углубляя осушительные канавы, люди укрепляют почву, но работа идет медленно.\n\n[baron.GetFirstName] недавно [Select_CString(baron.IsFemale, 'написала', 'написал' )] письмо, в котором просит, чтобы [steward.GetCouncilTitle|l] [Select_CString(steward.IsFemale, 'снизила', 'снизил' )] требования к числу ополченцев. В своём страстном желании закончить осушение до следующего урожая [baron.GetSheHe] надеется использовать солдат на работах."
  stewardship_domain.6001.a: "Возьмите столько простолюдинов, сколько вам нужно, [baron.GetFirstNameNoTooltip]!"
- stewardship_domain.6001.b: "Пусть вам поможет все владение [county.GetNameNoTier]."
+ stewardship_domain.6001.b: "Пусть вам поможет всё владение [county.GetNameNoTierNoTooltip]."
  stewardship_domain.6001.c: "Нет, в этом году нам потребуется много сил на полях сражений!"
 
  # Forest Clearing, by Petter Vilberg
@@ -94,7 +94,7 @@
  stewardship_domain.6013.a: "«Значит, договорились»."
  stewardship_domain.6013.b: "Наверняка я могу найти более дешёвых каменщиков в другом месте."
 
- stewardship_domain.6014.desc: "«Вы оскорбляете меня и всю нашу профессию, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )]! — глава каменщиков недоволен моим предложением. — Цены-то только растут! Труд становится дороже. Наверняка [ROOT.Char.GetTitleTierName|l] понимает это»."
+ stewardship_domain.6014.desc: "«Вы оскорбляете меня и всю нашу профессию, [ROOT.Char.Custom('FormOfAddressForLiege')]! — глава каменщиков недоволен моим предложением. — Цены-то только растут! Труд становится дороже. Наверняка [ROOT.Char.GetTitleTierName|l] понимает это»."
  stewardship_domain.6014.a: "«Я прекрасно это понимаю»."
  stewardship_domain.6014.b:1 "[county.GetTierAsNameNoTooltip] служит мне, и гильдии тоже будут служить!"
 
@@ -156,7 +156,7 @@
  stewardship_domain_special.1101.b: "[local_baron.GetFaith.HouseOfWorship] получит эту привилегию."
  stewardship_domain_special.1101.c: "Используйте это поле для выпаса скота."
 
- stewardship_domain_special.1102.desc: "[second_local_baron.GetTitledFirstName] представляет мне товары со всех концов света: ткани, доставленные по Шелковому пути, местные продукты, технические чудеса Востока...\n\n«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], какие товары нам стоит продвигать на новой ярмарке?»"
+ stewardship_domain_special.1102.desc: "[second_local_baron.GetTitledFirstName] представляет мне товары со всех концов света: ткани, доставленные по Шелковому пути, местные продукты, технические чудеса Востока...\n\n«[ROOT.Char.Custom('FormOfAddressForLiege')|U], какие товары нам стоит продвигать на новой ярмарке?»"
  stewardship_domain_special.1102.a: "Мы завезем как можно больше шелка!"
  stewardship_domain_special.1102.a.tt: "Народ с большей вероятностью оценит это, если область стабильна и процветает"
  stewardship_domain_special.1102.b: "Мы сосредоточимся на местных продуктах!"
@@ -169,12 +169,12 @@
  stewardship_domain_special.1103.desc_technology: "Завораживающие чудеса техники и первоклассные товары заставили народ возвращаться снова и снова. Это была неделя празднеств и торговли!"
  stewardship_domain_special.1103.a: "У вас есть мое позволение проводить ярмарку каждый год."
 
- stewardship_domain_special.1104.desc_silk: "«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], что нам делать со всем этим шелком?»\n\nПо всей видимости, спрос на шелк в этой области оказался невелик, и [second_local_baron.GetTitledFirstName] теперь не знает, куда деть нераспроданную дорогую ткань."
- stewardship_domain_special.1104.desc_crops: "«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], зерно портится и плесневеет, что нам делать?»\n\nПо всей видимости, спрос на местные продукты в этой области оказался невелик, и [second_local_baron.GetTitledFirstName] теперь не знает, куда девать нераспроданный товар."
- stewardship_domain_special.1104.desc_technology: "«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], что нам делать со всеми этими безделушками?»\n\nПо всей видимости, спрос на технические диковинки в этой области оказался невелик, и [second_local_baron.GetTitledFirstName] теперь не знает, куда девать нераспроданный товар."
+ stewardship_domain_special.1104.desc_silk: "«[ROOT.Char.Custom('FormOfAddressForLiege')|U], что нам делать со всем этим шелком?»\n\nПо всей видимости, спрос на шелк в этой области оказался невелик, и [second_local_baron.GetTitledFirstName] теперь не знает, куда деть нераспроданную дорогую ткань."
+ stewardship_domain_special.1104.desc_crops: "«[ROOT.Char.Custom('FormOfAddressForLiege')|U], зерно портится и плесневеет, что нам делать?»\n\nПо всей видимости, спрос на местные продукты в этой области оказался невелик, и [second_local_baron.GetTitledFirstName] теперь не знает, куда девать нераспроданный товар."
+ stewardship_domain_special.1104.desc_technology: "«[ROOT.Char.Custom('FormOfAddressForLiege')|U], что нам делать со всеми этими безделушками?»\n\nПо всей видимости, спрос на технические диковинки в этой области оказался невелик, и [second_local_baron.GetTitledFirstName] теперь не знает, куда девать нераспроданный товар."
  stewardship_domain_special.1104.a: "Неудачное начало, но теперь местные наверняка поймут, что делать!"
 
- stewardship_domain_special.1105.desc: "[local_baron.GetTitledFirstName] представляет мне товары со всех концов света: реликвии из священных мест, продукты, которые вырастили местные [local_baron.GetFaith.DevoteeMalePlural] и [local_baron.GetFaith.DevoteeFemalePlural], а также чудесные вещицы, сделанные иноверцами...\n\n«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], какие товары нам стоит продвигать во время новой ярмарки?»"
+ stewardship_domain_special.1105.desc: "[local_baron.GetTitledFirstName] представляет мне товары со всех концов света: реликвии из священных мест, продукты, которые вырастили местные [local_baron.GetFaith.DevoteeMalePlural] и [local_baron.GetFaith.DevoteeFemalePlural], а также чудесные вещицы, сделанные иноверцами...\n\n«[ROOT.Char.Custom('FormOfAddressForLiege')|U], какие товары нам стоит продвигать во время новой ярмарки?»"
  stewardship_domain_special.1105.a: "Мы почтим местных святых, сосредоточившись на реликвиях!"
  stewardship_domain_special.1105.a.tt:1 "Народ с большей вероятностью оценит это, если у религии высокое рвение"
  stewardship_domain_special.1105.b: "Привозите на ярмарку как можно больше пищи!"
@@ -187,9 +187,9 @@
  stewardship_domain_special.1106.desc_religious_other: "Столкнувшись с чужеземными религиями, жители владения [county.GetNameNoTier] стали проводить больше времени в молитвах и больше ценить свое сообщество. Это была неделя благочестивых празднеств и торговли!"
  stewardship_domain_special.1106.a: "У вас есть мое позволение проводить ярмарку каждый год."
 
- stewardship_domain_special.1107.desc_religious_objects: "«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], что нам делать со всеми этими священными побрякушками?»\n\nПо всей видимости, реликвии не так сильно заинтересовали благочестивых последователей, и [local_baron.GetTitledFirstName] не знает, куда девать нераспроданный товар."
- stewardship_domain_special.1107.desc_religious_food: "«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], и что нам теперь делать со всей это едой?»\n\nПо всей видимости, продуктам, что приготовили местные [local_baron.GetFaith.DevoteeMalePlural] и [local_baron.GetFaith.DevoteeFemalePlural], не помешало бы немного божественного вмешательства: почти ничего не было распродано."
- stewardship_domain_special.1107.desc_religious_other: "«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )], и что нам теперь делать с этими богомерзкими побрякушками?»\n\nЧужеземные реликвии лишь отпугнули народ от рынка. [local_baron.GetTitledFirstName] вскоре [Select_CString(local_baron.IsFemale, 'получила', 'получил' )] совет их сжечь, но положения это уже не исправит."
+ stewardship_domain_special.1107.desc_religious_objects: "«[ROOT.Char.Custom('FormOfAddressForLiege')|U], что нам делать со всеми этими священными побрякушками?»\n\nПо всей видимости, реликвии не так сильно заинтересовали благочестивых последователей, и [local_baron.GetTitledFirstName] не знает, куда девать нераспроданный товар."
+ stewardship_domain_special.1107.desc_religious_food: "«[ROOT.Char.Custom('FormOfAddressForLiege')|U], и что нам теперь делать со всей это едой?»\n\nПо всей видимости, продуктам, что приготовили местные [local_baron.GetFaith.DevoteeMalePlural] и [local_baron.GetFaith.DevoteeFemalePlural], не помешало бы немного божественного вмешательства: почти ничего не было распродано."
+ stewardship_domain_special.1107.desc_religious_other: "«[ROOT.Char.Custom('FormOfAddressForLiege')|U], и что нам теперь делать с этими богомерзкими побрякушками?»\n\nЧужеземные реликвии лишь отпугнули народ от рынка. [local_baron.GetTitledFirstName] вскоре [Select_CString(local_baron.IsFemale, 'получила', 'получил' )] совет их сжечь, но положения это уже не исправит."
  stewardship_domain_special.1107.a: "Неудачное начало, но теперь местные наверняка поймут, что делать!"
 
 
@@ -201,7 +201,7 @@
  stewardship_domain_special.1301.decrease_road_quality_1: "#V Качество дороги#! уменьшается на #N 1#!"
 
  stewardship_domain_special.1301.t: "Дорога"
- stewardship_domain_special.1301.steward_opening: "Управляющий [steward.GetTitledFirstName] сообщает,"
+ stewardship_domain_special.1301.steward_opening: "[Select_CString(steward.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetCouncillorPosition( 'councillor_steward' ).GetPositionName|l], [steward.GetTitledFirstName], сообщает,"
  stewardship_domain_special.1301.no_steward_opening: "Мои градоначальники сообщают,"
  stewardship_domain_special.1301.desc: "что владению [project_county.GetNameNoTier] срочно требуется новая дорога. Многие старые дороги пришли в упадок и стали опасны!\n\nБлагодаря своим врожденным лидерским качествам на роль руководителя строительных работ был выдвинут простолюдин по имени [peasant_leader.GetTitledFirstName]."
  stewardship_domain_special.1301.a: "Проследите, чтобы все было сделано."
@@ -237,7 +237,7 @@
  stewardship_domain_special.1315.t: "Дорога: солдаты на марше"
  stewardship_domain_special.1315.end: "\n\nК счастью, активное пользование позволяет качественно утрамбовать землю на дороге. Если повезет, большая часть ополченцев пройдет не только туда, но и обратно!"
  stewardship_domain_special.1315.a: "Отправьте их поближе к битвам!"
- stewardship_domain_special.1315.b: "Они будут идти туда, куда велит [project_leader.GetTitledFirstName]."
+ stewardship_domain_special.1315.b: "Они будут идти туда, куда велит [project_leader.GetTitledFirstNameNoTooltip]."
 
  stewardship_domain_special.1316.t: "Дорога: средства на улучшение"
  stewardship_domain_special.1316.desc: "Законченные части тракта продемонстрировали все преимущества хороших дорог, и торговая гильдия владения [project_county.GetNameNoTier] пожертвовала деньги на дальнейшие дорожные работы."
@@ -250,7 +250,7 @@
  stewardship_domain_special.1317.b: "Верните их на дорогу!"
 
  stewardship_domain_special.1318.t: "Дорога: успехи"
- stewardship_domain_special.1318.desc: "Как сообщает [project_leader.GetTitledFirstName], работы над дорогой во владении [project_county.GetNameNoTier] продвигаются неплохо.\n\n«Земля плотнее, а холмы меньше, чем мы думали, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )]»."
+ stewardship_domain_special.1318.desc: "Как сообщает [project_leader.GetTitledFirstName], работы над дорогой во владении [project_county.GetNameNoTier] продвигаются неплохо.\n\n«Земля плотнее, а холмы меньше, чем мы думали, [ROOT.Char.Custom('FormOfAddressForLiege')]»."
  stewardship_domain_special.1318.a: "Продлите дорогу еще дальше!"
  stewardship_domain_special.1318.b: "Все идет по-моему."
  stewardship_domain_special.1318.c: "Отличная возможность уменьшить затраты!"
@@ -268,12 +268,12 @@
  stewardship_domain_special.1321.t: "Дорога: нехватка опыта"
  stewardship_domain_special.1321.desc: "«Я все твержу им, что надо идти через поле, но [peasant_leader.GetTitledFirstName] настаивает, что нужно строить через ближайший лес!» — [steward.GetTitledFirstName] явно [Select_CString(steward.IsFemale, 'недовольна', 'недоволен' )] ходом дорожных работ во владении [project_county.GetNameNoTier].\n\nНо [peasant_leader.GetTitledFirstName] по-прежнему стоит на своем: «Земля в поле неровная и недостаточно плотная, вашество! Куда лучше двинуться через лес»."
  stewardship_domain_special.1321.a: "Слушай свое начальство, крестьянин!"
- stewardship_domain_special.1321.b: "Похоже, [peasant_leader.GetTitledFirstName] знает, как лучше..."
+ stewardship_domain_special.1321.b: "Похоже, [peasant_leader.GetTitledFirstNameNoTooltip] знает, как лучше..."
 
  stewardship_domain_special.1391.t: "Дорога: отсутствие руководства"
  stewardship_domain_special.1391.desc: "[project_leader.GetTitledFirstName] [Select_CString(project_leader.IsFemale, 'умерла', 'умер' )], и дорожными работами во владении [project_county.GetNameNoTier] никто не руководит. Для их завершения нужно назначить нового руководителя."
- stewardship_domain_special.1391.a: "[peasant_leader.GetTitledFirstName], похоже, владеет необходимыми навыками."
- stewardship_domain_special.1391.b: "Самое время, чтобы за дело [Select_CString(steward.IsFemale, 'взялась', 'взялся' )] [steward.GetTitledFirstName]."
+ stewardship_domain_special.1391.a: "[peasant_leader.GetTitledFirstNameNoTooltip|U], похоже, владеет необходимыми навыками."
+ stewardship_domain_special.1391.b: "Самое время, чтобы за дело [Select_CString(steward.IsFemale, 'взялась', 'взялся' )] [steward.GetTitledFirstNameNoTooltip]."
 
  stewardship_domain_special.1392.t: "Дорога: ограничение убытков"
  stewardship_domain_special.1392.desc: "С потерей владения [project_county.GetNameNoTier] у меня не осталось причин завершать строительство тракта. Одно хорошо — налоги, собранные на проект, остались в моей казне, а не были потрачены впустую."
@@ -304,7 +304,7 @@
  stewardship_domain_special.1401.b.tt: "Я лично возглавлю расследование"
  stewardship_domain_special.1401.c: "Деревни все время исчезают, не обращайте внимания."
 
- stewardship_domain_special.1411.desc: "[collector.GetTitledFirstName], сборщик налогов в графстве [county.GetNameNoTier], долго убеждает меня лично взглянуть на «пропавшую» деревню.\n\nПосле нескольких дней пути я наконец добираюсь до нее. Выглядит она как любая другая грязная дыра. Но [collector.GetTitledFirstName] продолжает настаивать: «Позвольте показать вам это место, прошу. Это мой дом»."
+ stewardship_domain_special.1411.desc: "[collector.GetTitledFirstName], сборщик налогов в графстве [county.GetNameNoTier], долго убеждает меня лично взглянуть на «пропавшую» деревню.\n\nПосле нескольких дней пути я наконец добираюсь до нее. Выглядит она как любая другая грязная дыра. Но [collector.GetTitledFirstName] продолжает настаивать: «[ROOT.Char.Custom('FormOfAddressForLiege')|U], озвольте показать вам это место, прошу. Это мой дом»."
  stewardship_domain_special.1411.a: "Хорошо, проводите меня."
  stewardship_domain_special.1411.a.tt: "[collector.GetTitledFirstName] показывает мне свою деревню"
  stewardship_domain_special.1411.b: "Вы и так потратили слишком много моего времени!"
@@ -544,7 +544,7 @@
  stewardship_domain_special.8001.if_successful: "В случае успеха:"
 
  stewardship_domain_special.8011.t:1 "$stewardship_domain_special.8001.t$: превышение бюджета"
- stewardship_domain_special.8011.desc: "Назначенный мной архитектор пришел ко мне с просьбой вложить больше средств в строительство акведука во владении [county.GetNameNoTier].\n\n«Разумеется, вы понимаете, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )], что в таких условиях любой строительный проект будет дорог»."
+ stewardship_domain_special.8011.desc: "Назначенный мной архитектор пришел ко мне с просьбой вложить больше средств в строительство акведука во владении [county.GetNameNoTier].\n\n«Разумеется, вы понимаете, [ROOT.Char.Custom('FormOfAddressForLiege')], что в таких условиях любой строительный проект будет дорог»."
  stewardship_domain_special.8011.a:1 "[steward.GetFirstNameNoTooltip], найди мне замену!"
  stewardship_domain_special.8011.a.tt: "#F А ведь на него возлагались такие надежды...#!"
  stewardship_domain_special.8011.b: "Вы правы. Берите сколько нужно."
@@ -567,14 +567,14 @@
  stewardship_domain_special.8021.c: "Всегда можно срезать пару углов, чтобы уложиться в сроки!"
 
  stewardship_domain_special.8022.t:1 "$stewardship_domain_special.8001.t$: тяжелые условия"
- stewardship_domain_special.8022.desc: "«Оросительный проект во владении [county.GetNameNoTier] идет по плану, [Select_CString(ROOT.Char.IsFemale, 'миледи', 'милорд' )]», — сообщает управляющий. Но моя радость по этому поводу быстро сходит на нет: «К сожалению, рабочие умирают с пугающей скоростью»."
+ stewardship_domain_special.8022.desc: "«Оросительный проект во владении [county.GetNameNoTier] идет по плану, [ROOT.Char.Custom('FormOfAddressForLiege')]», — сообщает управляющий. Но моя радость по этому поводу быстро сходит на нет: «К сожалению, рабочие умирают с пугающей скоростью»."
  stewardship_domain_special.8022.a: "Пожалуй, мне стоит уделять проекту более пристальное внимание."
  stewardship_domain_special.8022.b: "Но ведь смысл их жизни в служении мне."
  stewardship_domain_special.8022.c: "Ерунда... Набирайте новых по мере надобности."
  stewardship_domain_special.8022.c.tt: "#F Не говорите им, зачем их набирают.#!"
 
  stewardship_domain_special.8023.t:1 "$stewardship_domain_special.8001.t$: отсутствие прогресса"
- stewardship_domain_special.8023.desc:1 "«Мой сюзерен, оросительный проект во владении [county.GetNameNoTier] задерживается, — сообщает [steward.Custom2('MyCharacterIntroduction', ROOT.Char)]. — Сильно задерживается. После давешней инспекции я уже сомневаюсь, закончат ли его при моей жизни».\n\nДаже не знаю, говорит [steward.GetSheHe] серьезно или нет."
+ stewardship_domain_special.8023.desc: "«[ROOT.Char.Custom('FormOfAddressForLiege')|U], оросительный проект во владении [county.GetNameNoTier] задерживается, — сообщает [steward.Custom2('MyCharacterIntroduction', ROOT.Char)]. — Сильно задерживается. После давешней инспекции я уже сомневаюсь, закончат ли его при моей жизни».\n\nДаже не знаю, говорит [steward.GetSheHe] серьезно или нет."
  stewardship_domain_special.8023.a: "Замените надзирателей. И дайте им новые хлысты."
  stewardship_domain_special.8023.b: "Наймите столько рабочих, сколько нужно!"
  stewardship_domain_special.8023.c: "Возможно, пора несколько умерить аппетиты..."

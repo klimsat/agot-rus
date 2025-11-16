@@ -8,14 +8,14 @@
  fabricate_claim_speed: "Скорость [Concept('councillor_task', 'задания' )|E] #V «$task_fabricate_claim$»#!: #P +50%#!"
  promote_culture_speed: "Скорость [Concept('councillor_task', 'задания' )|E] #V «$task_promote_culture$»#!: #P +15%#!"
  same_culture_group_reduced_factionalism: "[vassals|E], [Concept( 'culture', 'культура' )|E] которых имеет общее [Concept( 'heritage', 'наследие' )|E] с вашей, с меньшей вероятностью вступят во [Concept( 'independence_factions', 'фракцию сепаратистов' )|E]"
- reduce_develop_county_penalty_01: "Теперь графство получает штраф за максимальное [existing_development|El], когда [development|El] достигает 20"
- reduce_develop_county_penalty_02: "Теперь графство получает штраф за максимальное [existing_development|El], когда [development|El] достигает 35"
- reduce_develop_county_penalty_03: "Теперь графство получает штраф за максимальное [existing_development|El], когда [development|El] достигает 55"
- reduce_develop_county_penalty_04: "Теперь графство получает штраф за максимальное [existing_development|El], когда [development|El] достигает 90"
-
-
-
-
+ reduce_develop_county_penalty_01: "Теперь графство получает штраф за максимальное [Concept('existing_development', 'текущее развитие')|E], когда [Concept('development', 'развитие')|E] достигает #V 20#!"
+ reduce_develop_county_penalty_02: "Теперь графство получает штраф за максимальное [Concept('existing_development', 'текущее развитие')|E], когда [Concept('development', 'развитие')|E] достигает #V 35#!"
+ reduce_develop_county_penalty_03: "Теперь графство получает штраф за максимальное [Concept('existing_development', 'текущее развитие')|E], когда [Concept('development', 'развитие')|E] достигает #V 55#!"
+ reduce_develop_county_penalty_04: "Теперь графство получает штраф за максимальное [Concept('existing_development', 'текущее развитие')|E], когда [Concept('development', 'развитие')|E] достигает #V 90#!"
+ culture_parameter_cheaper_book_inspiration: "Стоимость [Concept('inspiration', 'вдохновения')|E] от книги-[Concept('artifact', 'артефакта')|E]: #P −50%#!"
+ culture_parameter_reduces_court_fashion_costs_parameter: "[SelectLocalization( HasDlcFeature( 'royal_court' ), 'reduces_court_fashion_costs_roco', 'blank_line' )]"
+ reduces_court_fashion_costs_roco: "Стоимость моды [Concept('court_amenities', 'при дворе')|E]: #P −50%#!"
+ 
  unlock_tribal_economic_buildings: "Открывает все [economic_buildings|El] племенной эпохи"
  unlock_tribal_military_buildings: "Открывает все [military_buildings|El] племенной эпохи"
  unlock_tribal_fortification_buildings: "Открывает все [fortification_buildings|El] племенной эпохи"
@@ -28,11 +28,16 @@
  unlock_late_medieval_economic_buildings: "Открывает все [economic_buildings|El] эпохи позднего Средневековья"
  unlock_late_medieval_military_buildings: "Открывает все [military_buildings|El] эпохи позднего Средневековья"
  unlock_late_medieval_fortification_buildings: "Открывает все [fortification_buildings|El] эпохи позднего Средневековья"
+ culture_parameter_unlock_late_medieval_gunpowder_units: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('handgunners').GetName|l]"
+ culture_parameter_unlock_fire_lancers_units: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('fire_lancers').GetName|l]"
+ culture_parameter_unlock_powder_magazines: "Открывает линейку [Concept('buildings', 'зданий')|E] [GetBuilding('powder_magazine_01').GetTypeName|V]"
  unlocks_naval_raiding: "Открывает возможность устраивать [Concept('raid', 'налеты' )|E] по морю, если вам уже доступны [Concept('raid', 'налеты' )|E]"
  unlocks_sailable_major_rivers: "Открывает возможность ходить по крупным рекам"
  unlocks_adventure_intent: "Открывает [Concept('raid_intent', 'цель налета')|E] #V Приключение#!"
  unlock_wind_furnaces: "Открывает линейку [Concept( 'buildings', 'зданий' )|E] «$building_type_wind_furnace_01$» в прибрежных [Concept( 'holdings', 'владениях' )|E] региона [GetGeographicalRegion('world_india').GetName]"
- nomad_motte_innovation_bonus: "[SelectLocalization( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_nomadic' ), 'nomad_motte_innovation_bonus_desc', 'blank_line' )]"
+ culture_parameter_unlock_dragon_kiln_buildings: "Открывает линейку [Concept('duchy_buildings', 'герцогских построек')|E] [GetBuilding('dragon_kiln_01').GetTypeName|V], которые можно возвести в регионах с [Concept('terrain', 'типом местности')|E] #V «Горы»#!, #V «Пустынные горы»#! или #V «Холмы»#!."
+ 
+ culture_parameter_nomad_motte_innovation_bonus: "При [Concept('nomadic', 'кочевом')|E] государстве ваши шансы получить #V другие эффекты#! от [Concept('raid_intents', 'целей налета')|E] будут выше"
  nomad_motte_innovation_bonus_desc: "Выше шансы получить #V другие эффекты#! от [Concept('raid_intents', 'целей налета')|E]"
  nomad_innovation_development_01_bonus: "[SelectLocalization( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_nomadic' ), 'nomad_innovation_development_01_bonus_desc', 'blank_line' )]"
  nomad_innovation_development_01_bonus_desc: "Затраты [Concept('gold', 'золота')|E] на возведение [Concept('nomad', 'кочевых')|E] [Concept('domicile_building', 'построек в имении')|E]: #P -20%#!"
@@ -51,11 +56,20 @@
 ##############
 
  #Military
- innovation_motte: "Мотт"
+ innovation_motte: "Земляные валы"
  innovation_motte_desc: "Просто, но эффективно. Строительство замков на земляных холмах — лучший способ в буквальном смысле возвыситься над врагами."
+
+ innovation_motte_chinese: "Хань Тю" #夯土
+ innovation_motte_chinese_desc: "Просто, но эффективно. Строительство укреплений из утрамбованной земли — лучший способ в буквальном смысле возвыситься над врагами."
+ 
+ innovation_motte_actual_motte: "Мотты"
+ innovation_motte_actual_motte_desc: "$innovation_motte_desc$"
 
  innovation_catapult: "Онагр"
  innovation_catapult_desc: "Несмотря на низкую скорость перезарядки и стрельбы, подобные торсионные катапульты позволяют нам атаковать вражеские укрепления, оставаясь вне досягаемости для их лучников."
+
+ innovation_catapult_chinese: "Осадный арбалет"
+ innovation_catapult_chinese_desc: "Крупные переносные арбалеты с несколькими закрепленными друг напротив друга луками, увеличивающими силу натяжения и выстрела. Часто устанавливаются на колесную раму."
 
  innovation_barracks: "Казармы"
  innovation_barracks_desc: "Строя специальные здания для размещения солдат, мы можем быть уверены, что нам хватит места для обустройства растущих армий."
@@ -146,16 +160,26 @@
 
  innovation_mangonel: "Мангонели"
  innovation_mangonel_desc: "Значительно улучшенные метательные машины, мангонели существенно мощнее и быстрее обычных рычажно-пращевых машин."
- unlock_maa_mangonel: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('mangonel').GetName|l]"
+ 
+ innovation_mangonel_chinese: "Лестницы в облака"
+ innovation_mangonel_chinese_desc: "Складные осадные лестницы, нередко оснащенные щитами, лебедками, крюками и подъемными устройствами в виде блоков. Позволяют не только штурмовать стены, но и наблюдать за осадой свысока."
  eligible_accolade_besieger_attribute_ACCOLADES_DLC: "[Concept('knights', 'Рыцари' )|E] этой [Concept('culture', 'культуры' )|E] могут получить [accolades|El] «[GetAccoladeType('besieger_attribute').GetName]»"
  eligible_accolade_besieger_attribute: "[AddLocalizationIf( HasDlcFeature( 'accolades' ), 'eligible_accolade_besieger_attribute_ACCOLADES_DLC')]"
 
- #AGOT Modified
- #innovation_burhs: "Бурхи"
- innovation_burhs: "Укрепленные поселения"
- #AGOT Modified
- #innovation_burhs_desc: "Бурхи — раскиданные по сельской местности укрепленные поселения, которые играют важнейшую стратегическую роль. Их можно использовать как места сбора войск и как административные центры."
- innovation_burhs_desc: "По мере расширения королевства возникает необходимость гарнизонов в поселениях и аванпостов для войск для поддержания порядка и защиты прилегающих территорий."
+ innovation_burhs: "Каменные фортификации"
+ innovation_burhs_desc: "Лучшие места сбора войск и административные центры в окрестностях защищены каменными стенами."
+
+ innovation_burhs_japan: "Суки" #柵
+ innovation_burhs_japan_desc: "Со времен строительства замка #italic Мизуки#! в правление императора Тэндзи о важности фортификаций заговорили вновь. Такая защита позволит нам защитить места сбора войск и административные центры."
+
+ innovation_burhs_chinese: "У би" #塢壁
+ innovation_burhs_chinese_desc: "У би — раскиданные по сельской местности укрепленные поселения, которые играют важнейшую стратегическую роль. Их можно использовать как места сбора войск и как административные центры."
+
+ innovation_burhs_anglo_saxon: "Бурхи"
+ innovation_burhs_anglo_saxon_desc: "Бурхи — раскиданные по сельской местности укрепленные поселения, которые играют важнейшую стратегическую роль. Их можно использовать как места сбора войск и как административные центры."
+
+ innovation_burhs_latin: "Кастра"
+ innovation_burhs_latin_desc: "Старые технологии строительства укреплений не устаревают, и мы можем защитить места сбора войск и административные центры."
 
  innovation_house_soldiers: "Дворцовые солдаты"
  innovation_house_soldiers_desc: "Наши благородные семейства становятся все сильнее, и чтобы навязывать остальным свою волю, им нужны солдаты. Создание особых дворцовых солдат гарантирует, что в нашем распоряжении будут войска, которые лучше обучены и оснащены, чем простое ополчение."
@@ -185,8 +209,14 @@
  innovation_armilary_sphere: "Армиллярная сфера"
  innovation_armilary_sphere_desc: "Эти устройства, состоящие из сферической рамы и движущихся колец, позволяют описывать и предсказывать движение небесных сфер. Это не просто поразительный астрономический прибор: полученные знания помогают нашим капитанам ориентироваться в открытом море."
 
- innovation_baliffs: "Бейлифы"
- innovation_baliffs_desc: "Король не может успевать всюду. Назначив бейлифов, которые будут проводниками королевской воли в землях державы, мы сможем более эффективно править нашими обширными землями."
+ innovation_baliffs: "Магистраты"
+ innovation_baliffs_desc: "Правитель не может успевать всюду. Назначив магистратов и других представителей, которые будут проводниками воли повелителя в землях державы, мы сможем более эффективно править нашими обширными землями."
+
+ innovation_baliffs_bailiffs: "Бейлифы"
+ innovation_baliffs_bailiffs_desc: "$innovation_baliffs_desc$"
+
+ innovation_baliffs_latin: "Потестас"
+ innovation_baliffs_latin_desc: "Термином #italic потестас#! древние римляне обозначали право власть имущих творить, внедрять и применять законы. Эта концепция наделяла магистратов полномочиями вершить закон по всей державе. Если мы наделим местную администрацию #italic потестас#!, область нашего контроля заметно возрастет без потери эффективности."
 
  innovation_development_02: "Общинное правительство"
  innovation_development_02_desc: "В крупных городах иногда возникают сложности, которые могут привести к настоящим бедам. Если дать местным советам определенную толику самостоятельности, они смогут решать проблемы на месте, не привлекая короля."
@@ -215,7 +245,9 @@
 
  innovation_trebuchet: "Требушет"
  innovation_trebuchet_desc: "Чудо инженерной мысли, требушет с противовесом может запускать тяжелые снаряды на расстояния, превышающие все, доступные более ранним осадным орудиям."
- unlock_maa_trebuchet: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('trebuchet').GetName|l]"
+ 
+ innovation_trebuchet_chinese: "Передвижные башни"
+ innovation_trebuchet_chinese_desc: "Высокие деревянные башни на колесах. Подвозятся вплотную к вражеским каменным твердыням, благодаря чему воины могут сходить на стены в относительной безопасности."
 
  innovation_castle_baileys: "Внутренний двор замка"
  innovation_castle_baileys_desc: "Донжон — сердце замка, но далеко не единственное важное здание. Построив конюшни и оружейную в защищенном внутреннем дворе, мы сможем размещать и оснащать ополчение в любых условиях."
@@ -285,9 +317,8 @@
  innovation_machicolations: "Машикули"
  innovation_machicolations_desc: "Каменные машикули — значительный шаг вперед по сравнению с ранними гурдициями. Они служат той же цели, но при этом гораздо прочнее и предоставляют защитникам стен большую защиту."
 
- innovation_bombard: "Бомбарды"
- innovation_bombard_desc: "Развитие порохового оружия позволило нам преодолеть ограничения рычагов и блоков. Новые осадные орудия могут разнести вражеские стены с силой, которая и не снилась нашим предкам."
- unlock_maa_bombard: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('bombard').GetName|l]"
+ innovation_gunpowder: "Порох"
+ innovation_gunpowder_desc: "Изобретение взрывчатых смесей привело к созданию новых видов оружия и войск. Конечно, внедрение этих технологий требует значительных вложений и развитой логистики, однако затраты стоят того, поскольку огневая мощь новых орудий незаменима на поле боя."
 
  innovation_royal_armory: "Королевская оружейная"
  innovation_royal_armory_desc: "С ростом численности войска мы должны быть уверены, что каждый солдат будет обеспечен оружием и броней. Строительство королевской оружейной, где будет производиться и складироваться все снаряжение для наших армий, поможет нам в этом."
@@ -317,8 +348,11 @@
  innovation_rightful_ownership: "Право собственности"
  innovation_rightful_ownership_desc: "Владение де-юре нашими землями является правом, данным свыше, и пора миру признать это. Нас больше не будут сдерживать устаревшие правила или соображения благопристойности."
 
- innovation_ermine_cloaks: "Горностаевые мантии"
- innovation_ermine_cloaks_desc: "Кто угодно может претендовать на титул, но истинный монарх должен внушать благоговейный трепет подданным и излучать величие. Наши новые горностаевые мантии, несомненно, помогут этому."
+ innovation_ermine_cloaks: "Экзотическая регалия"
+ innovation_ermine_cloaks_desc: "Кто угодно может претендовать на титул, но истинный монарх должен внушать благоговейный трепет подданным и излучать величие. Использование редчайших и диковинных материалов в царских одеяниях, несомненно, поможет этому."
+ 
+ innovation_ermine_cloaks_ermine: "Горностаевые мантии"
+ innovation_ermine_cloaks_ermine_desc: "Кто угодно может претендовать на титул, но истинный монарх должен внушать благоговейный трепет подданным и излучать величие. Наши новые горностаевые мантии, несомненно, помогут этому."
 
  innovation_court_officials: "Придворные чиновники"
  innovation_court_officials_desc: "Наша держава расширилась настолько, что даже мелкие землевладельцы не могут эффективно управляться со своими владениями. Назначение придворных чиновников и бюрократов, которые будут разбираться с повседневными делами, гарантирует, что шестерни государственной машины и впредь будут крутиться без затруднений. "
@@ -352,3 +386,102 @@
  fp3_innovation_fritware: "Фриттовый фарфор"
  fp3_innovation_fritware_desc: "Прекрасные изделия из глины по образцу восточного фарфора, создаваемые с добавлением кварца или стекла. Это и ценный товар, и впечатляющий подарок."
  fp3_innovation_fritware_tooltip: "Увеличение [Concept( 'opinion', 'мнения' )|E] от действия [send_gift|E]: #P +20%#!"
+ 
+ #################
+ # The Silk Road #
+ #################
+
+ #AGOT Disabled
+ # culture_parameter_silk_road_innovation_parameter: "May only be acquired as a potential [cultural_fascination|E] via [GetCulturePillar('heritage_chinese').GetName] [heritage|E], the [GetCultureTradition('tradition_sinophilic').GetName] [tradition|E], or the [silk_road|E]"
+
+ innovation_fire_medicine: "Огонь медицины" #'Huoyao,' 火藥
+ innovation_fire_medicine_desc: "Постигая тайны жизни, порой можно обнаружить вещи, которые несут лишь смерть... Сочетание серы и селитры с другими горючими материалами представляет собой легковоспламеняющуюся смесь, которая буквально взрывается при горении."
+
+ #AGOT Modified
+ # innovation_champa_rice: "Champa Rice"
+ innovation_champa_rice: "Золотистый рис"
+ #AGOT Modified AUH TODO
+ # innovation_champa_rice_desc: "Rice requires an abundance of time and water — except for the rice from Champa. This variety grows faster, survives droughts better, and gives a more bountiful yield than practically any other sort of rice known. In some cases, it can even be harvested twice in one year. Properly managed, this rice can boost farms and fuel a population boom."
+ innovation_champa_rice_desc: "Обычно рис требует много времени и воды — за исключением золотистого риса. Этот сорт растёт быстрее, лучше переносит засухи и даёт более обильный урожай, чем почти любой другой известный вид. В некоторых случаях его можно собирать дважды в год. При должном управлении такой рис способен повысить эффективность ферм и стимулировать рост населения."
+
+ culture_parameter_champa_rice_wet_land_paddies: "Линию [Concept('buildings', 'зданий')|E] «[GetBuilding('paddy_fields_01').GetTypeName|V]» можно строить в регионах с типом местности «[GetTerrain( 'wetlands' ).GetName]»"
+ culture_parameter_champa_rice_building_bonuses: "Линия [Concept('buildings', 'зданий')|E] «[GetBuilding('paddy_fields_01').GetTypeName|V]» приносит дополнительные бонусы"
+
+ innovation_sericulture: "Шелководство"
+ innovation_sericulture_desc: "Производство шелка — сложное, но весьма прибыльное дело. Те, кто владеет этим ремеслом, извлекают из этого большую выгоду, и потому ревностно хранят свои знания в тайне."
+ culture_parameter_unlocks_silk_buildings_parameter: "Открывает линию [Concept('domicile_buildings', 'построек в имении')|E] «[GetDomicileBuilding('silk_01').GetNameNoTooltip|V]»"
+
+ #AGOT Modified
+ # innovation_dragon_kiln: "Dragon Kilns"
+ innovation_dragon_kiln: "Форфоровая печь"
+ innovation_dragon_kiln_desc: "Качественный фарфор можно изготовить только в специальных печах, расположенных вблизи месторождений глины. Их строят на пологих склонах, чтобы горячий воздух мог подниматься по камерам и нагревать их до высоких температур, необходимых для создания наиболее твердых видов керамики. Несмотря на сложную конструкцию, эти печи позволяют производить первоклассные изделия, которые можно встретить при любом уважающем себя дворе."
+
+ innovation_rocket_cart: "Огненные повозки"
+ innovation_rocket_cart_chinese: "Хуо Че" #火車 (Huǒchē)
+ innovation_rocket_cart_koreanic: "Хвачха" #火車 (화차)
+ innovation_rocket_cart_desc: "Используя более простые взрывчатые смеси, чем те, которые применяются в дорогих бомбардах, можно соорудить установку, которая будет выпускать мощные залпы зажигательных стрел. Впрочем, такое оружие едва ли может нанести какой-либо ущерб #italic укреплениям#!, поэтому оно гораздо больше подходит для стрельбы #italic со стен#!."
+ innovation_rocket_cart_chinese_desc: "$innovation_rocket_cart_desc$"
+ innovation_rocket_cart_koreanic_desc: "$innovation_rocket_cart_desc$"
+
+ innovation_compass: "Компас"
+ innovation_compass_desc: "С помощью простого магнита можно легко определить, в каком направлении мы движемся. Возможно, в будущем технологии позволят нам ориентироваться на любой местности с высочайшей точностью, даже не спрашивая у других дорогу."
+ culture_parameter_cheaper_adventure_inspiration: "Стоимость [Concept('inspiration', 'вдохновения')|E] от приключения: #P −50%#!"
+
+ innovation_block_printing: "Ксилография"
+ innovation_block_printing_desc: "Из нескольких резных деревянных дощечек можно собрать штампы, которые можно многократно использовать для печати текста или изображений на любом подходящем материале. Это значительно упрощает процесс создания книг, а также делает их более дешевыми и доступными для населения."
+ culture_parameter_block_printing_scriptorium_bonuses: "[SelectLocalization( HasDlcFeature( 'legends' ), 'culture_parameter_block_printing_scriptorium', 'blank_line' )]"
+ culture_parameter_block_printing_scriptorium: "Линия [Concept('buildings', 'зданий')|E] «[GetBuilding('scriptorium_01').GetTypeName|V]» приносит дополнительные бонусы"
+ culture_parameter_block_printing_university_bonuses: "[SelectLocalization( HasDlcFeature( 'wards_and_wardens' ), 'culture_parameter_block_printing_university_bonuses_text', 'blank_line' )]"
+ culture_parameter_block_printing_university_bonuses_text: "Затраты на учебные материалы для занятия «[GetActivityType('activity_adult_education').GetName]»: #P −50%#!"
+
+ innovation_grenades: "Гранаты"
+ innovation_grenades_desc: "Сколько бы ни развивались вооружения, один древнейший инструмент никогда не утратит своей ценности: человеческая рука. Любой, кто умеет относительно метко бросать предметы, может метать небольшие сосуды с горючей или взрывающейся смесью. Если раздать солдатам такие гранаты перед боем, у них будет дополнительная возможность для атаки и ошеломления врага."
+
+ innovation_cupellation: "Купеляция"
+ innovation_cupellation_desc: "В особых высокотемпературных печах можно отделять драгоценные металлы от сырья при выплавке руды. Так мы получим чистые образцы, которые можно передать пробирерам. Купелирование руды из свинцового рудника — лучший способ определить, сколько там серебра, а купеляция золота поможет определить, достаточно ли оно чистое для монетного двора."
+ culture_parameter_cupellation_mine_building_bonuses: "[Concept('baronies', 'Баронства')|E], [Concept('holding', 'владения')|E] которых платят [Concept('taxes', 'налоги')|E] за [Concept('special_building', 'особую постройку')|E] #V Шахта#!: #P @gold_icon![EmptyScope.ScriptValue('innovation_cupellation_mine_tax_bonus_value')|%0+=]#! "
+
+ innovation_lacquered_armor: "Лакированный доспех"
+ innovation_lacquered_armor_desc: "Тщательная обработка доспехов определенными смолами позволяет усилить их крепость и защитить тяжелые железные пластины от капризов погоды. Мы применяли эту технологию и раньше, но в основном к ящикам, бутылкам и прочим промышленным товарам. А лакированная броня — это новый уровень защиты и самих солдат, и их снаряжения."
+ culture_parameter_higher_quality_armor_artifacts_parameter: "Качество доспехов-[Concept('artifacts', 'артефактов')|E] от [Concept('sponsored', 'проспонсированного')|E] [Concept('inspirations', 'вдохновения')|E] и решения «[GetDecision('commission_artifact_decision').GetName]» повышается"
+
+ innovation_double_entry_bookkeeping: "Двойная бухгалтерия"
+ innovation_double_entry_bookkeeping_desc: "Документы должны соответствовать растущей сложности финансовой системы и экономики. Записи всех поступающих и исходящих платежей в отдельных разделах помогут более надежно составлять сметы и защититься от случайных — или «случайных» — ошибок аудита."
+ culture_parameter_bookkeeping_collect_taxes_bonus: "[Concept('councillor_task', 'Задание совета')|E] «$task_collect_taxes$»: [gold_i|E]#P +10%#!"
+
+ innovation_waterworks: "Водопровод"
+ innovation_waterworks_desc: "Вода — олицетворение жизни, но она нужна не только для утоления жажды и полива. Если к ресурсу, который буквально падает с неба, отнестись с должным вниманием, он станет пищей для машин куда мощнее любых животных, наполнит рукотворные каналы, по которым поплывут корабли с путешественниками и торговцами. А улицы городов станут куда чище и опрятнее."
+ culture_parameter_unlocks_waterworks_buildings: "Открывает линейку [Concept('buildings', 'зданий')|E] «[GetBuilding('waterworks_01').GetTypeName|V]»"
+
+ innovation_bulkheads: "Переборки"
+ innovation_bulkheads_desc: "Конечно, лучший способ не пустить корабль ко дну — уберечь корпус от пробоин. Но если случается страшное, корабль всё равно можно спасти, если поделить его изнутри на отсеки водонепроницаемыми перегородками. Даже если корабль получит пробоину, переборка не даст воде заполнить корабль целиком и спасет людей, припасы и сам корабль."
+
+ innovation_coking: "Коксование"
+ innovation_coking_desc: "Без угля в кузнечном деле никуда, но чтобы превратить древесину в этот ценнейший ресурс, нужны леса. Если же нагревать уголь в углеобжигательной печи, можно получить кокс — не менее ценный ресурс для любой индустрии, требующей огня, зато для его производства не обязательно вырубать целый лес."
+ culture_parameter_coking_smith_bonuses: "Линии [Concept('buildings', 'зданий')|E] «[GetBuilding('smiths_01').GetTypeName|V]» и «[GetBuilding('blacksmiths_01').GetTypeName|V]» приносят дополнительные бонусы"
+
+ innovation_composite_crossbow: "Композитные арбалеты"
+ innovation_composite_crossbow_desc: "Как и у простых луков, упругость плеч определяет силу натяжения. Если укрепить плечи рогом или даже сталью, эта сила, а значит, и дальность стрельбы, и мощность арбалета вырастут в разы по сравнению с любым его деревянным родичем. Кроме того, такое оружие будет надежнее и долговечнее."
+
+ #AGOT Modified
+ # innovation_pharmacopoeia: "Pharmacopoeia"
+ innovation_pharmacopoeia: "Обученные целители"
+ innovation_pharmacopoeia_desc: "Всем хорошим врачам полагается знать, как приготовить правильное лекарство в правильное время из правильных ингредиентов, приготовленных в правильном количестве с соблюдением необходимых правил. Чаще всего эти технологии передаются непосредственно от мастера к подмастерью, но если #italic записать#! рецепты определенных лекарств, это поможет существенно упростить стандартизацию и распространение лекарственных препаратов."
+ culture_parameter_physician_pharmacopoeia_bonus: "Эффективность лечения персонажем с [Concept('court_position', 'положением при дворе')|E] «[GetCourtPositionType('court_physician_court_position').GetName()]»: #P +20%#!"
+
+  ##################
+  # TGP Siege Units Unlock
+  ################## 
+
+ unlock_siege_maa_first_level: "[SelectLocalization( Or( Or( ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('han').GetHeritage.GetName ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('goryeo').GetHeritage.GetName ) ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('japanese').GetHeritage.GetName ) ), 'unlock_maa_ballista','unlock_maa_onager')]"
+ unlock_siege_maa_second_level: "[SelectLocalization( Or( Or( ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('han').GetHeritage.GetName ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('goryeo').GetHeritage.GetName ) ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('japanese').GetHeritage.GetName ) ), 'unlock_maa_cloud_ladder','unlock_maa_mangonel')]"
+ unlock_siege_maa_third_level: "[SelectLocalization( Or( Or( ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('han').GetHeritage.GetName ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('goryeo').GetHeritage.GetName ) ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('japanese').GetHeritage.GetName ) ), 'unlock_maa_siege_tower','unlock_maa_trebuchet')]"
+ unlock_siege_maa_fourth_level: "[SelectLocalization( Or( Or( ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('han').GetHeritage.GetName ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('goryeo').GetHeritage.GetName ) ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('japanese').GetHeritage.GetName ) ), 'unlock_maa_cannon','unlock_maa_bombard')]"
+
+ unlock_maa_ballista: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('ballista').GetName|l]"
+ unlock_maa_cloud_ladder: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('cloud_ladder').GetName|l]"
+ unlock_maa_siege_tower: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('siege_tower').GetName|l]"
+ unlock_maa_cannon: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('cannon').GetName|l]"
+ unlock_maa_bombard: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('bombard').GetName|l]"
+ unlock_maa_trebuchet: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('trebuchet').GetName|l]"
+ unlock_maa_mangonel: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('mangonel').GetName|l]"
