@@ -1,4 +1,4 @@
-######################################################
+﻿######################################################
 ################### COUNTY VIEW ######################
 ######################################################
 
@@ -38,13 +38,14 @@ window = {
 	alwaystransparent = yes
 
 	vbox = {
-
+		layoutpolicy_horizontal = expanding
 		expand = {
 			ignoreinvisible = yes
 			layoutpolicy_vertical = expanding
 		}
 
 		vbox = {
+			layoutpolicy_horizontal = expanding
 			name = "window_content"
 			margin_right = 40
 			margin_top = 35
@@ -56,7 +57,7 @@ window = {
 			datacontext = "[Province.GetCounty]"
 
 			background = {
-				texture = "gfx/interface/component_tiles/tile_window_background_subwindow.dds"
+				texture = "gfx/interface/skinned/tile_window_background_subwindow.dds"
 				spriteType = Corneredtiled
 				spriteborder = { 18 18 }
 				margin = { -23 -17 }
@@ -240,7 +241,7 @@ window = {
 				expand = {}
 
 				widget = {
-					size = { 300 50 }
+					layoutpolicy_horizontal = expanding
 					scissor = yes
 
 					hbox = {
@@ -302,6 +303,7 @@ window = {
 
 							coa_realm_tiny = {
 								parentanchor = center
+								position = { 0 6 }
 
 								blockoverride "coa_button" {
 									onclick = "[DefaultOnRealmFlagClick(Character.GetID)]"
@@ -822,8 +824,6 @@ window = {
 								}
 
 								background = {
-									#AGOT Modified
-									# visible = "[EqualTo_CFixedPoint( Culture.GetAcceptance( GetPlayer.GetCulture ), '(CFixedPoint)0') ) ]"
 									visible = "[EqualTo_CFixedPoint( Culture.GetAcceptance( GetPlayer.GetCulture ), '(CFixedPoint)0')]"
 									margin = { 5 0 }
 									using = Status_Bad
@@ -1023,7 +1023,7 @@ window = {
 
 				background = {
 					#AGOT Modified
-					#visible = "[HoldingView.HasHolding]"
+					# visible = "[HoldingView.HasHolding]"
 					visible = "[And(HoldingView.HasHolding, ProvinceIsNotWilderness)]"
 					texture = "[HoldingView.GetHolding.GetIllustration]"
 					alpha = 0.8
@@ -1039,7 +1039,7 @@ window = {
 
 				background = {
 					#AGOT Modified
-					#visible = "[Not(HoldingView.HasHolding)]"
+					# visible = "[Not(HoldingView.HasHolding)]"
 					visible = "[Or(Not(HoldingView.HasHolding), Not(ProvinceIsNotWilderness))]"
 					texture = "[HoldingView.GetProvince.GetTerrain.GetIllustration]"
 					alpha = 0.7
@@ -1069,7 +1069,7 @@ window = {
 							coa_title_medium = {
 								datacontext = "[HoldingView.GetTitle]"
 								#AGOT Modified
-								#visible = "[HoldingView.GetTitle.HasHolder]"
+								# visible = "[HoldingView.GetTitle.HasHolder]"
 								visible = "[And(HoldingView.GetTitle.HasHolder, IsProvinceInfoShown)]"
 							}
 
@@ -1087,7 +1087,7 @@ window = {
 										default_format = "#high"
 										align = nobaseline
 										using = Font_Size_Big
-										max_width = 150
+										max_width = 129
 										fontsize_min = 14
 										margin_left = 5
 
@@ -1402,7 +1402,7 @@ window = {
 						### Tax Income
 						hbox = {
 							name = "tutorial_highlight_holding_view_taxes_box"
-							visible = "[HoldingView.HasHolding]"
+							visible = "[And( HoldingView.HasHolding, Not( Holding.GetHolder.HasBarterGoods ) )]"
 							layoutpolicy_horizontal = expanding
 							spacing = 3
 
@@ -1425,6 +1425,31 @@ window = {
 							}
 						}
 
+						### Barter Goods Income
+						hbox = {
+							visible = "[And( HoldingView.HasHolding, Holding.GetHolder.HasBarterGoods )]"
+							layoutpolicy_horizontal = expanding
+							spacing = 3
+
+							tooltip = "[Holding.GetBarterGoodsIncomeTooltip]"
+
+							background = {
+								visible = "[Holding.LevyAndTaxIsAffectedByFixableSituation]"
+								using = Status_Bad
+							}
+
+							text_single = {
+								layoutpolicy_horizontal = expanding
+								text = "HOLDING_BARTER_GOODS"
+								default_format = "#high"
+							}
+
+							text_single = {
+								text = "HOLDING_BARTER_GOODS_VALUE"
+								default_format = "#V"
+							}
+						}
+
 						### Raid loot
 						hbox = {
 							name = "tutorial_highlight_holding_view_loot_box"
@@ -1432,7 +1457,7 @@ window = {
 							layoutpolicy_horizontal = expanding
 							spacing = 3
 
-							tooltip = "[Holding.GetProvince.GetRaidLootTooltip]"
+							tooltip = "[Holding.GetProvince.GetLootTooltip]"
 
 							background = {
 								visible = "[Holding.GetProvince.IsRecentlyLooted]"
@@ -1614,7 +1639,8 @@ window = {
 						# visible = "[And(NotEqualTo_uint32( HoldingView.GetCountyTitle.GetHolder.GetID, HoldingView.GetTitle.GetLesseeOrHolder.GetID ), HoldingView.GetTitle.HasHolder)]"
 						visible = "[And(ProvinceIsNotHidden, And(NotEqualTo_uint32( HoldingView.GetCountyTitle.GetHolder.GetID, HoldingView.GetTitle.GetLesseeOrHolder.GetID ), HoldingView.GetTitle.HasHolder))]"
 
-						texture = "gfx/interface/component_masks/patterns/mask_pattern_02.dds"
+						texture = "gfx/interface/skinned/mask_pattern.dds"
+						texture_density = 3
 						spriteType = Corneredtiled
 						using = Color_Blue
 						alpha = 0.6
@@ -1774,6 +1800,8 @@ window = {
 											onclick = "[HoldingView.ToggleFindVassalListWindow]"
 
 											tooltip = "FIND_VASSAL_BUTTON_TOOLTIP"
+
+											shortcut = "find_vassal_for_holding"
 
 											button_grant_title_to_vassal = {
 												parentanchor = center
@@ -2034,7 +2062,11 @@ window = {
 							}
 
 							flowcontainer = {
-								name = "buildings_grid_special"
+
+								name = "holding_view_buildings_area"
+								widgetid = "holding_view_buildings_area"
+								# ra_merit_governor_holding_view uses this
+
 								visible = "[Not(HoldingView.GetHolding.GetType.HasParameter('no_buildings'))]"
 								ignoreinvisible = yes
 								parentanchor = right
@@ -2053,7 +2085,7 @@ window = {
 								}
 
 								flowcontainer = {
-									visible = "[Or(HoldingView.HasDuchyCapitalBuildingSlot, HoldingView.HasSpecialBuildingSlot )]"
+									visible = "[Or(HoldingView.HasDuchyCapitalBuildingSlot, Or( HoldingView.HasSpecialBuildingSlot, HoldingView.HasGreatBuildingSlot ) )]"
 									ignoreinvisible = yes
 									margin_left = 3
 
@@ -2064,12 +2096,19 @@ window = {
 										# visible = "[HoldingView.HasDuchyCapitalBuildingSlot]"
 										visible = "[And(HoldingView.HasDuchyCapitalBuildingSlot, ProvinceIsNotWilderness)]"
 
-										button_standard = {
-											size = { 100% 100% }
-											texture = "gfx/interface/buttons/button_duchy_capital.dds"
-											alwaystransparent = yes
-											spriteType = Corneredtiled
-											spriteborder = { 18 18 }
+										blockoverride "building_frame" {
+											icon = {
+												size = { 100% 100% }
+												texture = "gfx/interface/buttons/button_duchy_capital.dds"
+												alwaystransparent = yes
+												spriteType = Corneredtiled
+												spriteborder = { 18 18 }
+
+												modify_texture = {
+													texture = "gfx/interface/colors/gold.dds"
+													alpha = 0.2
+												}
+											}
 										}
 									}
 
@@ -2084,12 +2123,50 @@ window = {
 										# visible = "[HoldingView.HasSpecialBuildingSlot]"
 										visible = "[And(HoldingView.HasSpecialBuildingSlot, ProvinceIsNotWilderness)]"
 
-										button_standard = {
-											size = { 100% 100% }
-											texture = "gfx/interface/buttons/button_special_building.dds"
-											alwaystransparent = yes
-											spriteType = Corneredtiled
-											spriteborder = { 18 18 }
+										blockoverride "building_frame" {
+											icon = {
+												size = { 100% 100% }
+												texture = "gfx/interface/buttons/button_special_building.dds"
+												alwaystransparent = yes
+												spriteType = Corneredtiled
+												spriteborder = { 18 18 }
+
+												modify_texture = {
+													texture = "gfx/interface/colors/gold.dds"
+													alpha = 0.2
+												}
+											}
+										}
+									}
+
+									spacer = {
+										size = { 3 0 }
+									}
+
+									widget_building_item = {
+										name = "great_building"
+										datacontext = "[HoldingView.GetGUIGreatBuilding]"
+										visible = "[HoldingView.HasGreatBuildingSlot]"
+
+										blockoverride "building_frame" {
+											icon = {
+												size = { 100% 100% }
+												texture = "gfx/interface/buttons/button_great_building.dds"
+												alwaystransparent = yes
+												spriteType = Corneredtiled
+												spriteborder = { 18 18 }
+
+												modify_texture = {
+													texture = "gfx/interface/colors/gold.dds"
+													alpha = 0.2
+												}
+											}
+										}
+										warning_icon = {
+											name = "ruined_great_building"
+											visible = "[GUIBuildingItem.IsBuildingRuined]"
+											position = { 3 3 }
+											size = { 20 20 }
 										}
 									}
 
@@ -2296,8 +2373,8 @@ window = {
 															}
 
 															text_single = {
-																datacontext = "[GUIPotentialBuildingItem.GetGoldCost]"
-																visible = "[GUIPotentialBuildingItem.HasGoldCost]"
+																datacontext = "[GUIPotentialBuildingItem.GetCost]"
+																visible = "[GUIPotentialBuildingItem.HasCost]"
 																layoutpolicy_horizontal = expanding
 																text = "[ValueBreakdown.GetValue]"
 																tooltip_visible = "[ValueBreakdown.HasTooltip]"
@@ -2307,7 +2384,7 @@ window = {
 																}
 
 																background = {
-																	visible = "[LessThan_CFixedPoint(GetPlayer.GetGold, ValueBreakdown.GetFixedPointValue)]"
+																	visible = "[Not( GUIPotentialBuildingItem.CanAffordCost( GetPlayer.Self ) )]"
 																	using = Status_Bad
 																}
 															}
@@ -2473,8 +2550,7 @@ window = {
 											text = "[GUITrackItem.GetBuildingTypeText]"
 										}
 
-										building_in_vassal_warning_hbox = {
-										}
+
 									}
 
 									buttons_window_control = {
@@ -2873,8 +2949,8 @@ window = {
 															spacing = 10
 
 															text_single = {
-																datacontext = "[GUITrackItem.GetSelectedGoldCost]"
-																visible = "[GUITrackItem.HasSelectedGoldCost]"
+																datacontext = "[GUITrackItem.GetSelectedCost]"
+																visible = "[GUITrackItem.HasSelectedCost]"
 																text = "[ValueBreakdown.GetValue]"
 																align = nobaseline
 																tooltip_visible = "[ValueBreakdown.HasTooltip]"
@@ -2884,7 +2960,7 @@ window = {
 																}
 
 																background = {
-																	visible = "[LessThan_CFixedPoint(GetPlayer.GetGold, ValueBreakdown.GetFixedPointValue)]"
+																	visible = "[Not( GUITrackItem.CanAffordSelectedCost( GetPlayer.Self ) )]"
 																	using = Status_Bad
 																}
 															}
@@ -2976,13 +3052,19 @@ window = {
 										visible = "[GUITrackItem.IsConstructing]"
 										layoutpolicy_horizontal = expanding
 										margin = { 0 15 }
-										spacing = 10
+
+										building_in_vassal_warning_hbox = {
+										}
 
 										text_single = {
 											text = "HOLDING_VIEW_IN_PROGRESS"
 											margin = { 0 5 }
 										}
 
+										spacer = {
+											size = { 0 10 }
+										}
+										
 										hbox = {
 											spacing = 10
 
@@ -3060,7 +3142,7 @@ window = {
 											spacing = 10
 
 											hbox = {
-												visible = "[GUITrackItem.HasNextBuilding]"
+												visible = "[And( GUITrackItem.HasNextBuilding, Not( GUITrackItem.IsGreatBuildingRuined ) )]"
 												layoutpolicy_horizontal = expanding
 
 												hbox = {
@@ -3075,8 +3157,8 @@ window = {
 													}
 
 													text_single = {
-														datacontext = "[GUITrackItem.GetNextGoldCost]"
-														visible = "[GUITrackItem.HasNextGoldCost]"
+														datacontext = "[GUITrackItem.GetNextCost]"
+														visible = "[GUITrackItem.HasNextCost]"
 														text = "[ValueBreakdown.GetValue]"
 														tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
@@ -3085,7 +3167,7 @@ window = {
 														}
 
 														background = {
-															visible = "[LessThan_CFixedPoint(GetPlayer.GetGold, ValueBreakdown.GetFixedPointValue)]"
+															visible = "[Not( GUITrackItem.CanAffordNextCost( GetPlayer.Self ) )]"
 															using = Status_Bad
 														}
 													}
@@ -3132,6 +3214,7 @@ window = {
 													text_single = {
 														layoutpolicy_horizontal = expanding
 														datacontext = "[GUITrackItem.GetNextConstructionTime]"
+														visible = "[LessThan_CFixedPoint('(CFixedPoint)0', ValueBreakdown.GetFixedPointValue)]"
 														text = "[ValueBreakdown.GetValue]"
 														tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
@@ -3142,16 +3225,60 @@ window = {
 												}
 											}
 
+											hbox = {
+												visible = "[GUITrackItem.IsGreatBuildingRuined]"
+												layoutpolicy_horizontal = expanding
+
+												hbox = {
+													margin = { 10 5 }
+													margin_right = 15
+													spacing = 10
+
+													background = {
+														using = Background_Area
+														margin_bottom = 4
+														margin_left = 6
+													}
+
+													text_single = {
+														layoutpolicy_horizontal = expanding
+														text = "[GUITrackItem.GetCurrentBuilding.GetRebuildCostDescription( GetPlayer)]"
+													}
+
+													text_single = {
+														layoutpolicy_horizontal = expanding
+														text = "[GUITrackItem.GetRebuildConstructionTime]"
+													}
+												}
+											}
+
+
 											button_primary = {
 												onclick = "[GUITrackItem.OnClick]"
 												onclick = "[HoldingView.CloseSubwindows]"
 
 												tooltip = "[GUITrackItem.GetNextBuildingTooltip]"
 												enabled = "[GUITrackItem.CanConstructNextBuilding]"
-												visible = "[GUITrackItem.HasNextBuilding]"
-												text = "[SelectLocalization(EqualTo_int32(GUITrackItem.GetNextBuilding.GetLevel, '(int32)1'),'CONSTRUCT','UPGRADE')]"
+												visible = "[And( And( GUITrackItem.HasNextBuilding, Not( GUITrackItem.IsUpgradingWithGreatProject ) ), Not( GUITrackItem.IsGreatBuildingRuined ) )]"
+												text = "[SelectLocalization(EqualTo_int32(GUITrackItem.GetNextBuilding.GetLevel, '(int32)1'),'CONSTRUCT', Select_CString( GUITrackItem.UpgradesViaGreatProject, 'CONSTRUCT_BUILDING_PLAN_EXPANSION', 'UPGRADE' ) )]"
 											}
 
+											button_primary = {
+												onclick = "[GUITrackItem.ShowGreatProjectUpgrade]"
+												onclick = "[HoldingView.CloseSubwindows]"
+
+												visible = "[GUITrackItem.IsUpgradingWithGreatProject]"
+												text = "CONSTRUCT_BUILDING_SEE_UPGRADE_PROJECT"
+											}
+
+											button_primary = {
+												onclick = "[CreateCommandPopup( HoldingView.GetProvince.RebuildGreatBuilding( GetPlayer ) )]"
+												enabled = "[IsValidCommand( HoldingView.GetProvince.RebuildGreatBuilding( GetPlayer ) )]"
+												tooltip = "[GetCommandDesc( HoldingView.GetProvince.RebuildGreatBuilding( GetPlayer ) )]"
+
+												visible = "[GUITrackItem.IsGreatBuildingRuined]"
+												text = "REBUILD_GREAT_BUILDING_BUTTON"
+											}
 										}
 									}
 								}
@@ -3289,6 +3416,8 @@ types CountyViewTypes
 			onclick = "[GUIBuildingItem.OnClick]"
 			down = "[GUIBuildingItem.IsHighlighted]"
 
+			block "building_frame" {}
+
 			button_icon = {
 				name = "build_new_icon"
 				visible = "[And(And(GUIBuildingItem.IsBuildNewIconShown, GUIBuildingItem.IsBuildingButtonEnabled), Not(GUIBuildingItem.HasLevel))]"
@@ -3301,10 +3430,18 @@ types CountyViewTypes
 
 			icon_building = {
 				name = "building_icon"
-				visible = "[Not( GUIBuildingItem.CanUpgrade )]"
+				visible = "[And( Not( GUIBuildingItem.CanUpgrade ), Not( GUIBuildingItem.IsBuildingRuined ) )]"
 				parentanchor = center
 				size = { 45 40 }
 				texture = "[GUIBuildingItem.GetCurrentOrConstrucingBuilding.GetTypeIcon]"
+			}
+
+			icon_building = {
+				name = "ruined_building_icon"
+				visible = "[GUIBuildingItem.IsBuildingRuined]"
+				parentanchor = center
+				size = { 45 40 }
+				texture = "gfx/interface/icons/flat_icons/ruined_building.dds"
 			}
 
 			highlight_icon_building = {
@@ -3315,7 +3452,7 @@ types CountyViewTypes
 				texture = "[GUIBuildingItem.GetCurrentOrConstrucingBuilding.GetTypeIcon]"
 			}
 
-			text_single= {
+			text_single = {
 				visible = "[And( GUIBuildingItem.HasLevel, Not( GUIBuildingItem.IsConstructing ) ) ]"
 				text = "[GUIBuildingItem.GetCurrentOrConstrucingBuilding.GetLevel]"
 				parentanchor = bottom|right
@@ -3335,7 +3472,6 @@ types CountyViewTypes
 				visible = "[GUIBuildingItem.IsBuildingDisabled]"
 				position = { 3 3 }
 				size = { 20 20 }
-
 			}
 		}
 
@@ -3384,6 +3520,24 @@ types CountyViewTypes
 				direction = horizontal
 			}
 		}
+
+		flowcontainer = {
+			visible = "[And( Not( GUIBuildingItem.HasLevel ), GUIBuildingItem.IsConstructing ) ]"
+			parentanchor = bottom|hcenter
+			position = { 0 -3 }
+			direction = vertical
+			ignoreinvisible = yes
+
+			progressbar_standard = {
+				name = "construct_progressbar"
+				visible = "[GUIBuildingItem.IsConstructing]"
+				parentanchor = hcenter
+				alwaystransparent = yes
+				size = { 51 10 }
+				value = "[GUIBuildingItem.GetConstructingProgress]"
+				direction = horizontal
+			}
+		}
 	}
 
 	type building_in_vassal_warning_hbox = hbox
@@ -3393,9 +3547,17 @@ types CountyViewTypes
 
 		coa_title_tiny = {
 			datacontext = "[HoldingView.GetHolder.GetPrimaryTitle]"
+			blockoverride "position" {
+				position = { 0 0 }
+			}
+		}
+
+		spacer = {
+			size = { 5 0 }
 		}
 
 		text_multi = {
+			align = top
 			autoresize = yes
 			text = "HOLDING_VIEW_BUILDING_IN_VASSAL"
 		}
