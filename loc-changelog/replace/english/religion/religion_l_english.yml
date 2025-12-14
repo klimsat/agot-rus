@@ -1203,7 +1203,11 @@
 
  doctrine_theism_name: "Theism"
  doctrine_monotheist_name: "Monotheist"
- doctrine_monotheist_desc: "Only one god is worshipped. Other so-called 'gods' are at best empty idols, and at worst attempts by some malign deceiver to tempt the faithful away from proper worship of [ROOT.Faith.HighGodName]."
+ doctrine_monotheist_desc: "Only one god is worshiped. Other so-called 'gods' are at best empty idols, and at worst attempts by some malign deceiver to tempt the faithful away from proper worship of [ROOT.Faith.HighGodName].[AddLocalizationIf( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_mandala' ), 'mandala_monotheist_warning')]"
+ mandala_monotheist_warning: "\n\n$FAITH_MANDALA_MONOTHEIST_WARNING$"
+ mandala_monotheist_warning_tt_global: "[AddLocalizationIf( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_mandala' ), 'mandala_monotheist_warning')]"
+ mandala_monotheist_warning_tt_first: "$mandala_monotheist_warning_tt_global$"
+ mandala_monotheist_warning_tt_third: "$mandala_monotheist_warning_tt_global$"
  doctrine_polytheist_name: "Polytheist"
  doctrine_polytheist_desc: "The cosmos is full of powerful deities and spirits. There may be a set of gods established in a clear pantheon, but it may be that the spiritual world is uncountable, pervades everything around us, and does not even have named gods."
 
@@ -1378,13 +1382,14 @@
  doctrine_pilgrimage_mandatory_hajj_name:0 "Hajj"
  doctrine_pilgrimage_mandatory_hajj_desc:0 "It is expected that all able-bodied Muslims complete a Hajj to Mecca during their lifetime. While special exemptions are often made, any [ROOT.Faith.GetAdherentNameNoTooltip] who fails to complete a Hajj will be looked upon with skepticism."
  forbidden_from_pilgrimage_name:0 "$doctrine_pilgrimage_name$: $doctrine_pilgrimage_forbidden_name$"
- doctrine_parameter_forbidden_from_pilgrimage:0 "Does not have access to the [pilgrimage|E] [activity|E]"
+ doctrine_parameter_forbidden_from_pilgrimage:0 "Does not have access to the [pilgrimage|E] [activity|E][AddLocalizationIf( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_mandala' ), 'mandala_pilgrimage_warning')]"
  doctrine_parameter_can_go_on_pilgrimage:0 "Has access to the [pilgrimage|E] [activity|E]"
  mandatory_pilgrimage_name:0 "$doctrine_pilgrimage_name$: $doctrine_pilgrimage_mandatory_name$"
  doctrine_parameter_mandatory_pilgrimage:1 "The [GetTrait('pilgrim').GetName( GetNullCharacter )] [trait|E] grants additional bonuses and the [pilgrimage|E] [activity|E] grants extra [piety|E] upon completion"
  mandatory_hajj_name:0 "$doctrine_pilgrimage_name$: $doctrine_pilgrimage_mandatory_name$"
  doctrine_parameter_mandatory_hajj:1 "The [GetTrait('hajjaj').GetName( GetNullCharacter )] [trait|E] grants additional bonuses and the [hajj|E] [activity|E] grants extra [piety|E] upon completion"
  doctrine_parameter_basic_pilgrimage_rewards:0 ""
+ mandala_pilgrimage_warning: "\n@alert_icon! #alert_trial Converting to a $forbidden_from_pilgrimage_name$ [faith|E] will make it impossible to progress as a [mandala_government|E] [ruler|E]#!\n"
 
  special_doctrine_has_jizya_doctrine_name: "$tenet_tax_nonbelievers_jizya_name$"
  special_doctrine_jizya_name: "$tenet_tax_nonbelievers_jizya_name$"

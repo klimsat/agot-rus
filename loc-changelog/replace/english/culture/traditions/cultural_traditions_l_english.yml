@@ -567,7 +567,7 @@
  culture_parameter_vegetarian_fruit_orchard_allowed: "The #V $building_type_orchards_01$#! line of [buildings|E] can always be constructed in [counties|E] of this [culture|E]"
  culture_parameter_ancient_miners_quarries_building_bonuses: "The #V $building_type_quarries_01$#! line of [buildings|E] provide additional bonuses"
  culture_parameter_rice_cultivators_next_level_paddy_fields: "All #V $building_type_paddy_fields_01$#! line of [buildings|E] may be built an [era|E] early"
- culture_parameter_rice_cultivators_can_construct_paddy_fields_in_hills_and_jungle: "The #V $building_type_paddy_fields_01$#! line of [buildings|E] may be built in [GetTerrain( 'hills' ).GetName] and [GetTerrain( 'jungle' ).GetName]"
+ culture_parameter_rice_cultivators_can_construct_paddy_fields_in_hills_and_jungle: "The [GetBuilding('paddy_fields_01').GetTypeName|V] and [GetBuilding('farm_estates_01').GetTypeName|V] line of [buildings|E] may be built in [GetTerrain( 'hills' ).GetName] and [GetTerrain( 'jungle' ).GetName]"
 
  next_level_trade_ports_name: "#V $tradition_maritime_mercantilism_name$#!"
  next_level_military_camps_name: "#V $tradition_adaptive_skirmishing_name$#!"
@@ -595,6 +595,7 @@
  CHOOSE_TERRAIN_SPECIALIST_DECISION_NEXT_STEP_BUTTON: "Choose Terrain Specialist"
  recruit_terrain_specialist_decision_confirm: "Recruit"
  recruit_terrain_specialist_decision_tooltip: "You seek out a highly-skilled [commander|E] with the selected [commander_trait|E] to join your [court|E]\n\n#weak Your [culture_traditions|E] affect the types of commanders you may recruit#!"
+ recruit_terrain_specialist_decision_minister_tooltip: "You seek out a highly-skilled [commander|E] with the selected [commander_trait|E] to join your [court|E]\n\n#weak As a [minister|E], you may recruit any type of commander#!"
 
  recruit_winter_specialist_decision:0 "Recruit Winter Specialist"
  recruit_winter_specialist_decision_desc:0 "My hardy people, the [ROOT.Char.GetCulture.GetCollectiveNoun], are masters of the cold. Should I require an expert commander to guide my troops through the unforgiving winter, I need but to send word — there is no shortage of frost-bitten veterans willing to heed my call."
@@ -637,6 +638,8 @@
  recruit_open_specialist_decision.tt:0 "A high-[martial|E] [commander|E] with the [GetTrait('open_terrain_expert').GetName( GetNullCharacter )] [trait|E] joins your [court|E]"
  recruit_open_specialist_decision_tooltip:0 "$recruit_open_specialist_decision.tt$"
  recruit_open_specialist_decision_confirm:0 "$invite_knights_decision_confirm$"
+
+ recruit_terrain_specialist_decision_desc: "Our enemies are innumerable, and our armies cannot always choose the grounds on which we face them.\n\nTo ensure victory on every front, we require commanders who can skilfully turn even the land itself to our advantage."
  
  commander_recruited.t:0 "Commander Recruited"
  commander_recruited.desc:0 "[new_commander.GetUIName] joined your court!"
@@ -856,8 +859,8 @@
  20_percent_churches:0 "The [culture|E] does not have a [temple|E] in #V 20%#! of its [counties|E]"
  must_be_feudal_or_clan:0 "You must have the [feudal|E] or [clan|E] [government|E]"
  must_be_feudal_clan_or_admin: "[SelectLocalization( HasDlcFeature( 'all_under_heaven' ), 'must_be_feudal_clan_or_admin_auh', 'must_be_feudal_clan_or_admin_base_game' )]"
- must_be_feudal_clan_or_admin_base_game: "You must have the [feudal|E], [clan|E] or [administrative|E] [government|E]"
- must_be_feudal_clan_or_admin_auh: "You must have the [feudal|E], [clan|E], [administrative|E] or [japan_feudal|E] [government|E]"
+ must_be_feudal_clan_or_admin_base_game: "You must have the [feudal|E], [clan|E], or [administrative|E] [government|E]"
+ must_be_feudal_clan_or_admin_auh: "You must have the [feudal|E], [clan|E], [administrative|E], [celestial|E], [meritocratic|E], or [japan_feudal|E] [government|E]"
  only_one_marriage_tradition_allowed:0 "Only one [marriage|E] [tradition|E] is allowed and the following cannot be combined: $tradition_monogamous_name$, $tradition_polygamous_name$, and $tradition_concubines_name$"
  no_warrior_culture: "$tradition_fp3_beacon_of_learning_name$ is incompatible with $tradition_warrior_culture_name$"
  no_philosopher_culture: "$tradition_fp3_beacon_of_learning_name$ is incompatible with $tradition_philosopher_culture_name$"
@@ -1296,6 +1299,7 @@
  tradition_noble_adoption_desc: "Adopting orphaned children into noble houses is commonplace in this society. The blood of the covenant is thicker than the water of the womb."
  culture_parameter_allows_adoption: "[characters|E] of this [culture|E] are able to offer [adoption|E] to [children|E] who are not directly related to any [rulers|E]"
  culture_parameter_free_adoption: "[characters|E] of this [culture|E] can [adopt|E] without spending any [prestige|E] or [dynasty_prestige|E]"
+ culture_parameter_wider_adoption: "[characters|E] of this [culture|E] can [adopt|E] unrelated orphaned [children|E], and do not lose [opinion|E] for doing so"
 
  traditionalist_discount_desc: "The [culture|E] was led towards traditionalism by its [culture_head|E]"
  culture_parameter_more_hostage_acceptance: "[characters|E] of this [culture|E] are more willing to send away, take, and return [hostages|E]"
@@ -1343,6 +1347,7 @@ tradition_tgp_court_machinations_desc: "Within the labyrinthine halls of the cou
  tradition_tgp_art_of_war_desc: "This culture has studied military theory for a thousand years, and its generals and marshals have at their disposal a rich crop of military manuals and text books. This wealth of knowledge is only overshadowed by a great technical understanding of how to make strong armor and weapons."
  duchies_with_examination_halls_desc: "The [culture|E] does not hold #high 5#! [duchies|E] with $building_type_examination_hall_01$ built in one of their [holdings|E]"
  culture_parameter_unlock_maa_tiefutu: "Can recruit [GetMaA('tiefutu').GetName] as [men_at_arms|E]"
+ culture_parameter_unlock_maa_black_armor_cavalry: "Can recruit [GetMaA('black_armor_cavalry').GetName] as [men_at_arms|E]"
  culture_parameter_unlock_zhanmadao: "Can recruit [GetMaA('zhanmadao_infantry').GetName] as [men_at_arms|E]"
  culture_parameter_unlock_burenjia: "Can recruit [GetMaA('burenjia').GetName] as [men_at_arms|E]"
  culture_parameter_unlock_shenbigong_innovation: "The #high $innovation_repeating_crossbow$#! [innovation|E] is available from the $culture_era_tribal$ [era|E] onward"
@@ -1446,6 +1451,8 @@ culture_parameter_ai_uses_religious_exiles: "Characters use the [GetDecisionWith
  culture_parameter_watermills_forestries_unlock: "The construction of #V $building_logging_camps_04$#! [building|E] unlocks the first four tiers of #V $building_type_watermills_01$#! line of [buildings|E]"
  culture_parameter_windmills_hill_farms_unlock: "The construction of #V $building_hill_farms_04$#! [building|E] unlocks the first four tiers of #V $building_type_windmills_01$#! line of [buildings|E]"
  culture_parameter_second_caravanserai: "A second #V $building_type_caravanserai_01$#! can be constructed in [counties|E] of this [culture|E]"
+ has_two_caravanserai_in_county: "There are already 2 $building_type_caravanserai_01$ in the county"
+ not_allowed_second_caravanserai: "You need the [GetCultureTradition('tradition_caravaneers').GetName] [culture_tradition|E] to build another $building_type_caravanserai_01$ in the county"
 
  culture_parameter_family_castration: "Can use the $castrate_child_interaction$ [interaction|E]"
 
@@ -1486,6 +1493,7 @@ culture_parameter_ai_uses_religious_exiles: "Characters use the [GetDecisionWith
  tradition_mpo_wolves_of_the_deep_steppe_name: "Wolves of the Deep Steppe"
  tradition_mpo_wolves_of_the_deep_steppe_desc: "Far from the touch of 'civilized' comforts, men live by what they can take, and dream of death on their horse's back. Weaker peoples are driven before these warriors."
  culture_parameter_unlock_maa_mangudai: "Can recruit [GetMaA('mangudai').GetName] as [men_at_arms|E]"
+ unlock_maa_mangudai_name: "[GetCultureTradition('tradition_mpo_wolves_of_the_deep_steppe').GetName]"
  
  tradition_mpo_northern_tribes_name: "Tribes of the North"
  tradition_mpo_northern_tribes_desc: "This is one of the cultures known generally as the 'Forest People' to their southern neighbors. These northerners are in some places reputable hunters, in others fine river-fishers, sometimes iron-smelters, and often herders."

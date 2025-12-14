@@ -110,7 +110,7 @@
  MAP_COUNTY_REALM_EXPLORE_UNDO_CLICK:0 "#I Ctrl+right-click to collapse Realm#!"
  MAP_OCCUPANT_TEXT:0 "Occupant: [CHARACTER.GetUINameNoTooltip|UV]"
 
- HOUSES_MAP_MODE_TOOLTIP:0 "#T House of [ROOT.Province.GetTitle.GetDeFactoTopLiege.GetHolder.GetNameNoTooltip]#!:\n[ROOT.Province.GetTitle.GetDeFactoTopLiege.GetHolder.GetHouse.GetBaseNameNoTooltip]"
+ HOUSES_MAP_MODE_TOOLTIP:0 "#T House of [ROOT.Province.GetTitle.GetHouseMapModeTitleHolder.GetNameNoTooltip]#!:\n[ROOT.Province.GetTitle.GetHouseMapModeTitleHolder.GetHouse.GetBaseNameNoTooltip]"
  houses_MAP_MODE_TOOLTIP_CLICK_TO_SELECT:0 "\n#I Click to select#!\n#I Ctrl-click to show Subject Houses#!"
  GOVERNMENTS_MAP_MODE_TOOLTIP:1 "#T County Owner\nGovernment type#!: [ROOT.Province.GetCounty.GetTitle.GetHolder.GetGovernment.GetNameNoTooltip]\nTop Liege\nGovernment type: [ROOT.Province.GetCounty.GetTitle.GetDeFactoTopLiege.GetHolder.GetGovernment.GetNameNoTooltip]"
  governments_MAP_MODE_TOOLTIP_CLICK_TO_SELECT:0 "\n#I Click to open realm view#!"
@@ -233,8 +233,8 @@
  tributary_map_mode_unlikely_target: "#T [CHARACTER.GetShortUINameNoTooltip] is unlikely to accept a Tributarization offer ($VALUE|0+%$)#!\n$BREAKDOWN$"
  tributary_map_mode_beyond_your_sphere_of_influence: "[CHARACTER.GetShortUINameNoTooltip] is too far to become [TARGET_CHARACTER.GetShortUINameNoTooltip] Tributary"
 
- plan_great_project_map_mode_tooltip_header: "#T Plan project in [Province.GetName]#!"
- plan_great_project_map_mode_out_of_area: "[GreatProjectType.GetName] cannot be planned in [Province.GetName]"
+ plan_great_project_map_mode_tooltip_header: "#T Plan project in [Title.GetName]#!"
+ plan_great_project_map_mode_out_of_area: "[GreatProjectType.GetName] cannot be planned in [Title.GetName]"
  plan_great_project_map_mode_out_of_area_tooltip_header: "#T $plan_great_project_map_mode_out_of_area$#!"
 
  CONFEDERATIONS_MAP_MODE_TOOLTIP: "[ROOT.Province.GetTitle.GetDeFactoLiege.GetHolder.GetConfederationTooltip]"

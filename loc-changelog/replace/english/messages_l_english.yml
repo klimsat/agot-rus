@@ -283,6 +283,7 @@
  msg_claim_war_invalidated_message:1 "The [war.GetName] has ended: [defender.GetShortUIName] no longer [Select_CString( defender.IsLocalPlayer, 'control', 'controls' )] any of the claimed Counties."
  msg_claim_war_invalidated_claimant_unavailable_dead_message:1 "The [war.GetName] has ended: [claimant.GetShortUIName] died, and thus [claimant.GetHerHis] claim can no longer be used by [attacker.GetShortUIName]."
  msg_claim_war_invalidated_claimant_unavailable_not_vassal_message:1 "The [war.GetName] has ended: [claimant.GetShortUIName] is not a vassal or courtier of [attacker.GetShortUIName] and thus [claimant.GetHerHis] claim can no longer be used."
+ msg_claim_war_invalidated_claimant_is_now_a_minister_message: "The [war.GetName] has ended: having become a [minister|E], [claimant.GetShortUINamePossessive] [claim|E] is no longer relevant."
  msg_de_jure_duchy_war_invalidated_message:1 "The [war.GetName] has ended: [defender.GetShortUIName] no longer [Select_CString( defender.IsLocalPlayer, 'control', 'controls' )] any land in the targeted duchy."
  msg_de_jure_county_war_invalidated_message:1 "The [war.GetName] has ended: [defender.GetShortUIName] no longer [Select_CString( defender.IsLocalPlayer, 'control', 'controls' )] the County."
  msg_de_jure_duchy_war_invalidated_liege_war_message:1 "The [war.GetName] has ended: [Select_CString( attacker.IsLocalPlayer, 'You', attacker.GetShortUIName )] have joined [Select_CString( attacker.IsLocalPlayer, 'your', attacker.GetHerHis )] liege's war against [Select_CString( defender.IsLocalPlayer, 'you', defender.GetShortUIName )]."
@@ -322,6 +323,7 @@
  #AGOT Modified
  #councillor_death_notification_title:0 "Your Councillor #high [LEFT_CHARACTER.GetFirstNameNoTooltip]#! Died"
  councillor_death_notification_title:0 "Your Councillor Died"
+ elder_death_notification_title: "Your Elder #high [LEFT_CHARACTER.GetFirstNameNoTooltip]#! Died"
  prisoner_death_notification_title: "Your Prisoner #high [LEFT_CHARACTER.GetFirstNameNoTooltip]#! Died"
  notable_death_notification_title: "#high [LEFT_CHARACTER.GetFirstNameNoTooltip]#! Died"
 
@@ -497,7 +499,7 @@
  
  msg_start_diarchy_title:0 "[LEFT_CHARACTER.GetDiarchyTypeNameNoTooltip] Begins"
  msg_start_diarchy_effect:0 "I began [sharing_power|E] in [LEFT_CHARACTER.GetDiarchy.GetDiarch.Custom('GetDiarchyArticle')] [LEFT_CHARACTER.GetDiarchyTypeName] with my [LEFT_CHARACTER.Custom2('RelationToMeShort', RIGHT_CHARACTER.Self)], [RIGHT_CHARACTER.GetShortUIName]"
- msg_inherit_diarchy_title:0 "[LEFT_CHARACTER.GetDiarchy.GetDiarch.Custom('GetDiarchyArticle')] [LEFT_CHARACTER.GetDiarchyTypeNameNoTooltip] Inherited"
+ msg_inherit_diarchy_title:0 "[LEFT_CHARACTER.GetDiarchy.GetDiarch.Custom('GetDiarchyArticle')|U] [LEFT_CHARACTER.GetDiarchyTypeNameNoTooltip] Inherited"
  on_entered_diarchy.notification.vassal.t:0 "Liege Entered [ROOT.Char.GetDiarchyTypeNameNoTooltip]"
  on_entered_diarchy.notification.vassal.t.higher_liege:0 "Higher Liege Entered [ROOT.Char.GetDiarchyTypeNameNoTooltip]"
  on_entered_diarchy.notification.vassal.desc:1 "[ROOT.Char.GetShortUIName|U] is now [sharing_power|E] in [ROOT.Char.GetDiarchy.GetDiarch.Custom('GetDiarchyArticle')] [ROOT.Char.GetDiarchyTypeName] with [ROOT.Char.GetHerHisMy] [ROOT.Char.Custom2('RelationToMeShort', ROOT.Char.GetDiarchy.GetDiarch.Self)], [ROOT.Char.GetDiarchy.GetDiarch.GetShortUIName]"
@@ -562,8 +564,8 @@
  msg_raid_intent_invalidated_title: "[raiding_army.GetRaidIntent.GetName] invalidated!"
  msg_raid_intent_invalidated_desc: "[raiding_army.GetRaidIntent.GetName] was invalidated, as this intent is no longer available to [LEFT_CHARACTER.GetName]"
 
- msg_barter_completed_barterer_title: "Bartered with [county.GetHolder.GetShortUIName|U]"
- msg_barter_completed_holder_title: "[barterer.GetShortUIName] Bartered with You"
+ msg_barter_completed_barterer_title: "Bartered in [county.GetNameNoTierNoTooltip]"
+ msg_barter_completed_holder_title: "[barterer.GetPrimaryTitle.GetNameNoTierNoTooltip] Bartered with You"
  msg_barter_completed_barterer_desc: "You [bartered|E] with [county.GetHolder.GetShortUIName]"
  msg_barter_completed_holder_desc: "[barterer.GetShortUIName] [bartered|E] with you in [barony.GetName]"
  msg_barter_loot_delivered_title: "Loot Delivered"
@@ -579,7 +581,7 @@
  msg_great_project_planned_desc: "[GreatProject.GetName] is being planned in [GreatProject.GetLocation.GetName].\nIt needs [GreatProject.GetRequiredContributionCount|V] [great_project_contributions|E] to start."
  msg_great_project_started_title: "[GreatProject.GetNameNoTooltip] Started"
  msg_great_project_started_desc: "[GreatProject.GetName] got enough [great_project_contributions|E] to start progress.\nIt will be completed in [GreatProject.GetConstructionEndDate.GetTimeToDate|V]."
- msg_great_project_aborted_title: "[GreatProject.GetNameNoTooltip] was Aborted"
+ msg_great_project_aborted_title: "[GreatProject.GetNameNoTooltip] was Abandoned"
  msg_great_project_aborted_desc: "The [GreatProject.GetType.GetName] [great_project|E] based in [GreatProject.GetLocation.GetName] is no longer available for contributions."
  msg_great_project_completed_title: "[GreatProject.GetNameNoTooltip] Completed"
  msg_great_project_completed_desc: "[GreatProject.GetName] has been successfully completed in [GreatProject.GetOwner.GetCapitalLocation.GetName]"

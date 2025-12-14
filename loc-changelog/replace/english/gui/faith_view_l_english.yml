@@ -46,7 +46,7 @@
  CANNOT_CREATE_FAITH_IN_OBSERVE_MODE:0 "@warning_icon! #X Need to be playing as a character#!"
  FAITH_CREATION_BUTTON_TOOLTIP:1 "#T Create Faith#!\n[Select_CString( FaithCreationWindow.CanCreateFaith, '#I Click to Create Faith#!', FaithCreationWindow.GetCreationBlockers )]"
  FAITH_REFORM_BUTTON_TOOLTIP:0 "#T Reform Faith#!\n[FaithCreationWindow.GetCreationBlockers]\n#I Click to Reform Faith#!"
- FAITH_CONVERSION_BUTTON_TOOLTIP:0 "#T Convert Faith#!\n[FaithConversionWindow.GetConversionBlockers]#I Click to Convert Faith#!"
+ FAITH_CONVERSION_BUTTON_TOOLTIP:0 "#T Convert Faith#!\n[FaithConversionWindow.GetConversionBlockers]#I Click to Convert Faith#![AddLocalizationIf( And( Not( Faith.HasDoctrine( GetFaithDoctrine( 'doctrine_polytheist' ) ) ), GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_mandala' ) ), 'mandala_monotheist_warning')]"
  FAITH_CONVERSION_SAME_FAITH:0 "I am already following [FAITH.GetName]"
  CREATE_REFORM_FAITH_TEXT:0 "[SelectLocalization( GetPlayer.GetFaith.IsUnreformed, 'REFORM_FAITH_WINDOW_TITLE', 'CREATE_FAITH_WINDOW_TITLE' )]"
  CREATE_REFORM_FAITH_TOOLTIP:0 "[SelectLocalization( GetPlayer.GetFaith.IsUnreformed, 'REFORM_FAITH_WINDOW_TITLE_TOOLTIP', 'CREATE_FAITH_WINDOW_TITLE_TOOLTIP' )]"
@@ -86,7 +86,7 @@
  FAITH_CREATION_REFORM:1 "Reform Faith"
  FAITH_CONVERSION_CONVERT:1 "Convert to Faith"
  FAITH_MUST_BE_DIFFERENT_FROM_OLD:0 "@warning_icon! #X The new [faith|E] and your old [faith|E] cannot have identical [core_tenets|E] and [doctrines|E]#!"
-
+ FAITH_MANDALA_MONOTHEIST_WARNING: "@alert_icon! #alert_trial Converting to a $doctrine_monotheist_name$ [faith|E] will make you abandon the [mandala_government|E] form#!"
  FAITH_CREATION_TOTAL_COST:1 "Cost: [GetLocalPlayerPietyTextIcon][FaithCreationWindow.CalcPietyCost]"
  FAITH_CONVERSION_TOTAL_COST:1 "Total Cost: [GetLocalPlayerPietyTextIcon][FaithConversionWindow.CalcPietyCost]"
  FAITH_CONVERSION_COST_MISSING:1 "#X Missing: [GetLocalPlayerPietyTextIcon][FaithConversionWindow.CalcPietyMissing]#!"

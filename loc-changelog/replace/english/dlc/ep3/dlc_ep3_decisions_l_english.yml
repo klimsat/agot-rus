@@ -608,7 +608,7 @@
  change_election_candidacy_status_decision.tt.renounces_candidacy: "You let it be known that you #BOL do not#! want to be elected to a higher [title|E] #WEAK (owning too much of the realm may see you elected anyway)#!"
 
  convert_to_administrative_decision: "Adopt Centralized Administration"
- convert_to_administrative_decision_desc: "The [ROOT.Char.GetPrimaryTitle.GetNameNoTooltip|U] must be governed by laws, institutions and merit, not family, inheritance and personal allegiances!\n\nA realm as large as this one will never be efficiently governed without an administration of able bureaucrats, centered around our beautiful capital."
+ convert_to_administrative_decision_desc: "[ROOT.Char.GetPrimaryTitle.GetDefinitiveNameNoTooltip|U] must be governed by laws, institutions and merit, not family, inheritance and personal allegiances!\n\nA realm as large as this one will never be efficiently governed without an administration of able bureaucrats, centered around our beautiful capital."
  convert_to_administrative_decision_confirm: "Adopt Administrative Ways"
  convert_to_administrative_decision_tooltip: "Change [government|E] type by becoming [administrative|E]"
  king_tier_tt: "You are a [king|E]"
@@ -633,7 +633,7 @@
  
  convert_to_administrative_celestial_desc: "You do #bold not#! fulfill at least one of the following:\n$EFFECT_LIST_BULLET$You hold the [GetTitleByKey('h_china').GetName]\n$EFFECT_LIST_BULLET$You are a vassal of [GetTitleByKey('h_china').GetNameNoTier]\n$EFFECT_LIST_BULLET$Your [top_liege_possessive|E] [culture|E] is [GetCultureByKey('han').GetName]\n$EFFECT_LIST_BULLET$Your [top_liege_possessive|E] [culture|E] is descendent from [GetCultureByKey('han').GetName]"
  convert_to_administrative_meritocratic_desc: "You do #bold not#! fulfill at least one of the following:\n$EFFECT_LIST_BULLET$Your [realm|E] borders a [ruler|E] with a [government|E] using [merit|E]\n$EFFECT_LIST_BULLET$Your [capital|E] is located in [GetGeographicalRegion('world_asia').GetName], [GetGeographicalRegion('world_tibet').GetName], [GetGeographicalRegion('world_burma').GetName], or [GetGeographicalRegion('world_steppe_east').GetName]"
- convert_to_administrative_japanese_desc: "You do #bold not#! fulfill at least one of the following:\n$EFFECT_LIST_BULLET$Your [top_liege_possessive|E] [culture|E] is [GetCultureByKey('japanese').GetName]\n$EFFECT_LIST_BULLET$Your [top_liege_possessive|E] [culture|E] is descendent from [GetCultureByKey('japanese').GetName]\n$EFFECT_LIST_BULLET$You are [GetGovernment( 'japan_feudal_government' ).GetName]"
+ convert_to_administrative_japanese_desc: "You do #bold not#! fulfill at least one of the following:\n$EFFECT_LIST_BULLET$Your [top_liege_possessive|E] [government|E] is [GetGovernment('japan_administrative_government').GetName] or [GetGovernment('japan_feudal_government').GetName]\n$EFFECT_LIST_BULLET$Your [government|E] is [GetGovernment( 'japan_feudal_government' ).GetName]"
 
  dukes_become_governors: "Any [duchy|E] [title_tier|E] [vassal|E] will become a [governor|E]"
  vassals_can_become_administrative: "\nEvery [feudal|E] or [clan|E] [vassal|E] within your [de_jure|E] [realm|E] and of your [faith|E] may change their [government|E] to [administrative|E], if they fulfill one of the following:"
@@ -667,7 +667,7 @@
  convert_to_feudalism_from_administrative_decision_desc: "Less bureaucracy and more #EMP doing#! is what this realm needs. If [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip|l] is to blossom, we must cut our ties with those things that hamper us."
  convert_to_feudalism_from_administrative_decision_confirm: "Adopt [ROOT.Char.Custom('GetTribalReformGovernment')|U] ways"
  convert_to_feudalism_from_administrative_decision_tooltip: "Change [government|E] type"
- you_have_governorship_rights_tt: "You have been granted #high Provincial House Rights#! by your [liege|E] in your held [GetPlayer.Custom('GetProvinceConcept')]"
+ you_have_governorship_rights_tt: "You have been granted #high Provincial House Rights#! by your [liege|E] in your held [GetPlayer.Custom('GetProvinceConcept')] through [GetDecisionWithKey('petition_liege_decision').GetName] [decision|E]"
  governorship_is_on_the_border_tt: "Your [GetPlayer.Custom('GetProvinceConcept')] borders a different [realm|E]"
 
  ep3_decisions_event.4070.t: "$major_decisions.0200.t$"

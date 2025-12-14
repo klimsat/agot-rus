@@ -8,7 +8,7 @@
  MARRIAGE_INFO:0 "[MarriageInfo.GetMarriageOrBetrothal]"
  MARRIAGE_CHILDREN_CHANCE_INFO:1 "[MatchOffer.GetChanceOfChildrenDesc]"
  MARRIAGE_CHILDREN_HOUSE_INFO:1 "[MatchOffer.GetChildrensHouse]"
- MARRIAGE_IMPACT_ON_HOUSE_RELATION: "[MarriageInfo.GetSecondaryActorHouse.GetName]-[MarriageInfo.GetSecondaryRecipientHouse.GetName] [house_relation|E] will #P improve#! by [MarriageInfo.GetHouseRelationChange|=+%] ([MarriageInfo.GetNewHouseRelationLevel.GetName])."
+ MARRIAGE_IMPACT_ON_HOUSE_RELATION: "[MarriageInfo.GetSecondaryActorHouse.GetName]-[MarriageInfo.GetSecondaryRecipientHouse.GetName] [house_relation|E] will #P improve#! by [MarriageInfo.GetHouseRelationChange|=+^%] ([MarriageInfo.GetNewHouseRelationLevel.GetName])."
  CONVERT_BETROTHAL_TO_MARRIAGE:0 "Convert the [betrothal|E] into a marriage"
  CHARACTER_UI_NAME:0 "[CHARACTER.GetUIName]"
  CREATE_MARRIAGE:2 "Propose that [CHARACTER.GetUIName] and [TARGET_CHARACTER.GetUIName] get [married|E]"
@@ -115,7 +115,7 @@
  normal_hegemonic_tribute_prestige: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'hegemonic_tribute_prestige' ).GetObligationName( 'hegemonic_prestige_transfer_normal' )]"
  high_hegemonic_tribute_prestige: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'hegemonic_tribute_prestige' ).GetObligationName( 'hegemonic_prestige_transfer_high' )]"
 
- expected_to_pay_tribute: "[SCOPE.sC('tributary_loc').GetShortUIName|U] will be expected to [travel|E] to [SCOPE.sC('suzerain_loc').GetCapitalLocation.GetName] to $tribute_mission_decision_generic$ on a regular basis"
+ expected_to_pay_tribute: "[SCOPE.sC('tributary_loc').GetShortUIName|U] will be expected to [travel|E] to [SCOPE.sC('suzerain_loc').GetCapitalLocation.GetName] to $tribute_mission_decision_china$ on a regular basis"
 
  low_nomad_tribute_herd: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'nomad_government_herd' ).GetObligationName( 'herd_tax_low' )]"
  normal_nomad_tribute_herd: "$tributary_contract_starts_with_common$ [GetSubjectContractType( 'nomad_government_herd' ).GetObligationName( 'herd_tax_normal' )]"
@@ -368,6 +368,7 @@
  GRANT_TITLES_ITEM_CANT_HEAD_OF_FAITH_TO_INFIDEL:0 "You cannot grant Head of Faith titles to characters who do not share your Head of Faith"
  GRANT_TITLES_ITEM_CANT_GIVE_NOBLE_FAMILY: "You cannot give away your [noble_family|E] title"
  GRANT_TITLES_ITEM_CANT_GIVE_NOMAD_TITLE: "You cannot give away your [nomad|E] title"
+ GRANT_TITLES_ITEM_CANT_GIVE_CEREMONIAL_TITLE: "You cannot give away your [ceremonial_liege|E] title"
  GRANT_TITLES_ITEM_CANT_GIVE_NOMADIC_TITLES_TO_NON_NOMADS_TITLE: "Non-[GetGovernment( 'nomad_government' ).GetName] [rulers|E] can only grant [GetGovernment( 'nomad_government' ).GetName] [titles|E] to existing [vassals|E]\n@alert_icon! #alert_trial Upgrade the [holding|E] using [gold_i][gold|E] to remove this restriction#!"
  GRANT_TITLES_ITEM_CANT_GIVE_ADMIN_PRIMARY: "You cannot give away your primary [governorship|E]"
  GRANT_TITLES_ITEM_ADMIN_CANT_GIVE_MORE_THAN_ONE: "You can only grant one [governorship|E] at a time"
@@ -730,6 +731,7 @@
  TRADE_INFLUENCE_FOR_BETTER_AI_ACCEPTANCE: "Offer your [influence_i|E][influence|E]"
  INFLUENCE_INTERACTION_ACCEPTANCE_SEND_OPTION: "Spending [influence|E]: $VALUE|=+0$"
  not_same_realm_tt: "You and [recipient.GetShortUIName] are #BOLD not#! in the same realm"
+ same_realm_tt: "You and [recipient.GetShortUIName] are in the same realm"
  INFLUENCE_SEND_OPTION: "Spend @influence_icon![influence|E]"
  HISTORICAL_ADMIN_REASON: "Historical [recipient.GetCulture.GetName] ties to [administrative|E] [government|E]: $VALUE|=+0$"
  WILL_BE_VASSALIZED_REASON: "Will become your [vassal|E]: $VALUE|=+0$"
