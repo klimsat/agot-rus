@@ -1,4 +1,4 @@
-###############################################################
+﻿###############################################################
 ################# AGOT DRAGONS SIEGE WINDOW ###################
 ###############################################################
 
@@ -10,16 +10,16 @@ types SiegeWindow
 		position = { 0 5 }
 		size = { 150 40 }
 		datacontext = "[GetScriptedGui('siege_dragon')]"
-		visible = "[And(SiegeWindow.GetSiege.IsPlayerInAttackerSide, ScriptedGui.IsShown( GuiScope.SetRoot( SiegeWindow.GetSiege.GetCommander.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End))]"
-		tooltip = "[ScriptedGui.BuildTooltip( GuiScope.SetRoot( SiegeWindow.GetSiege.GetCommander.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End)]"
+		visible = "[And(SiegeWindow.GetSiege.IsPlayerInAttackerSide, ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'sieging_location', SiegeWindow.GetSiege.GetProvince.MakeScope ).End))]"
+		tooltip = "[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'sieging_location', SiegeWindow.GetSiege.GetProvince.MakeScope ).End)]"
 
-		enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( SiegeWindow.GetSiege.GetCommander.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End)]"
+		enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'sieging_location', SiegeWindow.GetSiege.GetProvince.MakeScope ).End)]"
 
 		background = {
 			using = Background_Area_Dark
 		}
 
-		onclick = "[GetScriptedGui('siege_dragon').Execute( GuiScope.SetRoot( SiegeWindow.GetSiege.GetCommander.MakeScope ).AddScope( 'player', GetPlayer.MakeScope ).End)]"
+		onclick = "[GetScriptedGui('siege_dragon').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'sieging_location', SiegeWindow.GetSiege.GetProvince.MakeScope ).End)]"
 		using = Animation_ShowHide_Standard
 
 		state = {

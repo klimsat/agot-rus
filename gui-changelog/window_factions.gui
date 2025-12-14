@@ -130,21 +130,29 @@ window = {
 										}
 									}
 
-									text_multi = {
-										name = "no_factions_against_me"
+									widget = {
 										visible = "[Not(FactionsWindow.HasTargetingFactions)]"
+										size = { 0 110 }
 										layoutpolicy_horizontal = expanding
-										minimumsize = { 0 110  }
-
-										text = "FACTIONS_WINDOW_NOT_FACTION_AGAINST"
-										default_format = "#low;italic"
-										align = center
 
 										background = {
 											using = Background_Area
 										}
+
+										text_multi = {
+											text = "FACTIONS_WINDOW_NOT_FACTION_AGAINST"
+											autoresize = yes
+											max_width = 400
+
+											default_format = "#low;italic"
+											align = center		
+											parentanchor = center							
+										}
+
+
 									}
 
+									
 									vbox = {
 										layoutpolicy_horizontal = expanding
 										margin = { 10 5 }
@@ -156,6 +164,9 @@ window = {
 
 										text_single = {
 											text = "FACTIONS_WINDOW_CASSALC_CANT_CREATE_JOIN"
+											layoutpolicy_horizontal = expanding
+											autoresize = no
+											align = hcenter|nobaseline
 										}
 
 										dynamicgridbox = {
@@ -417,7 +428,6 @@ types  FactionWindow
 			margin_top = 5
 
 			# Faction Leader / Claimant
-
 			vbox = {
 				layoutpolicy_vertical = expanding
 				allow_outside = yes
@@ -434,16 +444,16 @@ types  FactionWindow
 					allow_outside = yes
 
 					icon_flat_standard = {
-						visible = "[Not( Faction.HasSpecialCharacter )]"
+						visible = "[Not( Faction.HasSpecialCharacterOrLeader)]"
 						size = { 76 76 }
 						texture = "[Faction.GetIcon]"
 						parentanchor = center
 					}
 
 					portrait_head_small = {
-						datacontext = "[Faction.GetSpecialCharacter]"
-						visible = "[Faction.HasSpecialCharacter]"
-						parentanchor = center
+						datacontext = "[Faction.GetSpecialCharacterOrLeader]"
+						visible = "[Faction.HasSpecialCharacterOrLeader]"
+ 						parentanchor = center
 
 						blockoverride "opinion_box" {}
 						blockoverride "status_icons" {}
@@ -493,7 +503,7 @@ types  FactionWindow
 					}
 				}
 				text_multi = {
-					visible = "[Faction.HasSpecialCharacter]"
+					visible = "[Faction.HasSpecialCharacterOrLeader]"
 					max_width = 100
 					min_width = 100
 					align = center|nobaseline
@@ -632,18 +642,21 @@ types  FactionWindow
 									visible = "[FactionItem.IsDiscontentIncreasing]"
 									layoutpolicy_horizontal = expanding
 									text = "FACTIONS_WINDOW_DISCONTENT_INCREASING"
+									autoresize = no
 								}
 
 								text_single = {
 									visible = "[FactionItem.IsDiscontentAtMax]"
 									layoutpolicy_horizontal = expanding
 									text = "FACTIONS_WINDOW_DISCONTENT_CAN_SEND"
+									autoresize = no
 								}
 
 								text_single = {
 									visible = "[Not( Or( FactionItem.IsDiscontentAtMax, FactionItem.IsDiscontentIncreasing) )]"
 									layoutpolicy_horizontal = expanding
 									text = "FACTIONS_WINDOW_DISCONTENT_TO_WEAK"
+									autoresize = no
 								}
 
 							}
@@ -891,12 +904,12 @@ types  FactionWindow
 							position = { 20 2 }
 							size = { 35 26 }
 							parentanchor = bottom
-							tooltip = "FACTIONS_WINDOW_COUNTY_OPINION_TOOLTIP"
+							tooltip = "FACTION_WINDOW_COUNTY_MEMBER_TT"
 
 							text_single = {
 								position = { 10 -10 }
 								parentanchor = center
-								text = "FACTIONS_WINDOW_COUNTY_OPINION"
+								text = "[FactionCountyMember.CalcJoinScore|V0]"
 
 								background = {
 									using = Background_Area_Dark

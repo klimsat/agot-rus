@@ -216,6 +216,7 @@ types RoyalCourtTypes
 						
 						margin_top = 10
 						using = Font_Size_Small
+						max_width = 200
 					}
 
 					text_single = {
@@ -975,6 +976,7 @@ types RoyalCourtTypes
 						using = Font_Size_Small
 						default_format = "#underline"
 						tooltip = "[CourtGrandeurWindow.GetWorldRankTooltip]"
+						max_width = 300
 					}
 				}
 			}
@@ -1090,10 +1092,10 @@ types RoyalCourtTypes
 					widget = {
 						parentanchor = top|hcenter
 						position = { 5 10 }
-						size = { 180 75 }
+						size = { 220 75 }
 
 						background = {
-							margin = { 40 8 }
+							margin = { 20 8 }
 							using = Background_Area
 						}
 
@@ -1110,6 +1112,8 @@ types RoyalCourtTypes
 								align = center
 								using = Font_Size_Medium
 								margin_top = -3
+								layoutpolicy_horizontal = expanding
+								autoresize = no
 							}
 
 							text_single = {
@@ -1117,6 +1121,8 @@ types RoyalCourtTypes
 								align = center
 								margin_bottom = 6
 								tooltip = "[CourtAmenitiesWindow.GetMonthlyCostBreakdown]"
+								layoutpolicy_horizontal = expanding
+								autoresize = no
 							}
 
 							text_single = {
@@ -1126,6 +1132,8 @@ types RoyalCourtTypes
 								margin_top = -6
 								default_format = "#high"
 								visible = "[CourtAmenitiesWindow.HasChangedAnyAmenity]"
+								layoutpolicy_horizontal = expanding
+								autoresize = no
 							}
 
 							expand = {
@@ -1268,7 +1276,7 @@ types RoyalCourtTypes
 								name = "apply_warning"
 								text = "COURT_AMENITIES_APPLY_WARNING"
 								autoresize = yes
-								max_width = 260
+								maximumsize = { 260 39 }
 								align = center
 								default_format = "#weak"
 								margin_left = 5
@@ -1343,6 +1351,7 @@ types RoyalCourtTypes
 					align = left
 					margin_right = 5
 					margin_top = -2
+					max_width = 250
 				}
 
 			}
@@ -1472,6 +1481,7 @@ types RoyalCourtTypes
 					default_format = "#high"
 					align = nobaseline
 					margin = { 5 0 }
+					max_width = 250
 				}
 
 				spacer = {
@@ -1751,7 +1761,7 @@ types RoyalCourtTypes
 		flowcontainer = {
 			margin_left = 5
 
-			text_label_left = {
+			text_single = {
 				block "component_label"
 				{
 					raw_text = "#D REPLACE ME#!"
@@ -1776,23 +1786,6 @@ types RoyalCourtTypes
 					position = { -10 0 }
 					alwaystransparent = yes
 					size = { 25 25 }
-				}
-			}
-
-			text_single = {
-				size = { 300 45 }
-				autoresize = no
-				margin = { 10 0 }
-				align = nobaseline
-				alwaystransparent = yes
-
-				background = {
-					using = Background_Area_Dark
-				}
-
-				block "component_text"
-				{
-					visible = no
 				}
 			}
 		}

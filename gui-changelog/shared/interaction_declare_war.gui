@@ -12,25 +12,17 @@ window = {
     allow_outside = yes
     movable = no
     layer = middle
-	#AGOT Added; RV
-	datacontext = "[DeclareWarInteractionWindow.GetDefenderCharacter]"
-	datacontext = "[CharacterItem.GetCharacter]"
 
     state = {
         name = _show
         using = Animation_FadeIn_Quick
         using = Sound_WindowShow_Standard
-		#AGOT Added; RV
-		on_start = "[GetScriptedGui('rv_save_defender').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_defender', Character.MakeScope ).End )]"
     }
 
     state = {
         name = _hide
         using = Animation_FadeOut_Quick
         using = Sound_WindowHide_Standard
-		#AGOT Added; RV
-		on_start = "[GetScriptedGui('rv_clear_revenge_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-		on_start = "[GetScriptedGui('rv_clear_concubine_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
     }
 
     widget = {
@@ -171,16 +163,11 @@ window = {
 
                         text_multi = {
                             name = "comparison_text"
-							#AGOT Added; RV
-							datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
-							visible = "[Not(Or(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel),EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel)))]"
                             text = "[DeclareWarInteractionWindow.GetMilitaryStrength]"
                             autoresize = yes
                             max_width = 200
                             align = center
                         }
-						#AGOT Added
-						agot_rv_comparison_text = {}
                         expand = {}
                     }
                 }
@@ -389,10 +376,6 @@ window = {
                                         down = "[CasusBelliItem.IsSelected]"
                                         onclick = "[CasusBelliItem.OnClick]"
                                         onclick = "[PdxGuiTriggerAllAnimations('declare_war_goal_refresh')]"
-                                        #AGOT Added; RV
-										visible = "[Or(Not(EqualTo_string(Localize('rv_declare_private_war_interaction'),CharacterInteractionConfirmationWindow.GetSendName)),Or(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel),EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel)))]"
-										onclick = "[GetScriptedGui('rv_create_revenge_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_defender', Character.MakeScope ).End )]"
-										onclick = "[GetScriptedGui('rv_create_concubine_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'rv_defender', Character.MakeScope ).End )]"
 
                                         declare_war_casus_belli_item = {}
                                     }
@@ -411,17 +394,10 @@ window = {
                             vbox = {
                                 layoutpolicy_horizontal = expanding
                                 spacing = 8
-								#AGOT Added
-								agot_rv_rescue_war_items_vbox = {}
-								agot_rv_revenge_war_items_vbox = {}
 
                                 vbox = {
-									#AGOT Modified
-                                    # visible = "[DeclareWarInteractionWindow.CanShowWarGoalSubview]"
-									visible = "[And(DeclareWarInteractionWindow.CanShowWarGoalSubview, And(Not(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel)),Not(EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel))))]"
+                                    visible = "[DeclareWarInteractionWindow.CanShowWarGoalSubview]"
                                     layoutpolicy_horizontal = expanding
-									#AGOT Added
-									datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
 
                                     text_single = {
                                         visible = "[And(DeclareWarInteractionWindow.HasSelectedCasusBelli, DeclareWarInteractionWindow.CanShowWarGoalSubview)]"
@@ -589,25 +565,15 @@ window = {
                                         }
                                     }
 
-									#AGOT Added
-									agot_rv_rescue_item_box = {}
-
-									#AGOT Added, vbox wrap
-									vbox = {
                                     text_multi = {
                                         name = "other_end_war_effects"
-										#AGOT Modified
-                                        # visible = "[DeclareWarInteractionWindow.IsWarEffectsExpanded]"
-										visible = "[And(DeclareWarInteractionWindow.IsWarEffectsExpanded, DeclareWarInteractionWindow.IsEffectsTabVictory)]"
-										#AGOT Added
-										datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
+                                        visible = "[DeclareWarInteractionWindow.IsWarEffectsExpanded]"
                                         layoutpolicy_horizontal = expanding
                                         text = "[DeclareWarInteractionWindow.GetCurrentTabEffectsDescription]"
                                         autoresize = yes
                                         max_width = 500
                                         min_width = 500
                                     }
-									}#
 
                                     hbox = {
                                         datacontext = "[DeclareWarInteractionWindow.GetClaimant]"
@@ -768,9 +734,6 @@ window = {
                         name = "send_button"
                         enabled = "[DeclareWarInteractionWindow.CanSend]"
                         onclick = "[DeclareWarInteractionWindow.Send]"
-						#AGOT Added, datacontext/visible - RV
-						datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
-						visible = "[Not(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel))]"
 
                         text = "[CharacterInteractionConfirmationWindow.GetSendName]"
                         default_format = "#high"
@@ -796,8 +759,6 @@ window = {
                             }
                         }
                     }
-					#AGOT Added; RV
-					agot_rv_declare_war_send_button = {}
                 }
 
                 button_toggle_companion_ai = {
