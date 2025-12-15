@@ -1203,7 +1203,11 @@
 
  doctrine_theism_name: "Теизм"
  doctrine_monotheist_name: "Монотеизм"
- doctrine_monotheist_desc: "Поклоняются лишь единому богу. Прочие так называемые «боги» являются в лучшем случае пустыми идолами, а в худшем — происками некоего коварного обманщика, пытающегося отвратить верующих от [ROOT.Char.GetFaith.HighGodNamePossessive]."
+ doctrine_monotheist_desc: "Поклоняются лишь единому богу. Прочие так называемые «боги» являются в лучшем случае пустыми идолами, а в худшем — происками некоего коварного обманщика, пытающегося отвратить верующих от [ROOT.Char.GetFaith.HighGodNamePossessive].[AddLocalizationIf( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_mandala' ), 'mandala_monotheist_warning')]"
+ mandala_monotheist_warning: "\n\n$FAITH_MANDALA_MONOTHEIST_WARNING$"
+ mandala_monotheist_warning_tt_global: "[AddLocalizationIf( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_mandala' ), 'mandala_monotheist_warning')]"
+ mandala_monotheist_warning_tt_first: "$mandala_monotheist_warning_tt_global$"
+ mandala_monotheist_warning_tt_third: "$mandala_monotheist_warning_tt_global$"
  doctrine_polytheist_name: "Политеизм"
  doctrine_polytheist_desc: "Мироздание полнится могущественными божествами и духами. Это может быть определённый пантеон устоявшихся богов, или вера в то, что духов существует бесчисленное множество, что они пронизывают всё вокруг нас и порой даже не носят имён."
 
@@ -1377,13 +1381,14 @@
  doctrine_pilgrimage_mandatory_hajj_name: "Хадж"
  doctrine_pilgrimage_mandatory_hajj_desc: "Каждый здоровый мусульманин должен при жизни совершить хадж в Мекку. Хотя исключения по особым случаям не редки, любой [ROOT.Faith.GetAdherentNameNoTooltip|l], не сумевший совершить хадж, столкнется с недоверием окружающих."
  forbidden_from_pilgrimage_name: "$doctrine_pilgrimage_name$: $doctrine_pilgrimage_forbidden_name$"
- doctrine_parameter_forbidden_from_pilgrimage: "Нет доступа к таким [Concept('activity', 'занятиям')|E], как [Concept('pilgrimage', 'паломничества')|E]"
+ doctrine_parameter_forbidden_from_pilgrimage: "Нет доступа к таким [Concept('activity', 'занятиям')|E], как [Concept('pilgrimage', 'паломничества')|E][AddLocalizationIf( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_mandala' ), 'mandala_pilgrimage_warning')]"
  doctrine_parameter_can_go_on_pilgrimage: "Есть доступ к таким [Concept('activity', 'занятиям')|E], как [Concept('pilgrimage', 'паломничества')|E]"
  mandatory_pilgrimage_name: "$doctrine_pilgrimage_name$: $doctrine_pilgrimage_mandatory_name$"
  doctrine_parameter_mandatory_pilgrimage: "[trait|E] «[GetTrait('pilgrim').GetName( GetNullCharacter )]» дает дополнительные бонусы, а [Concept('activity', 'завершение')|E] [Concept( 'pilgrimage', 'паломничества' )|E] приносит больше [Concept('piety', 'благочестия')|E]."
  mandatory_hajj_name: "$doctrine_pilgrimage_name$: $doctrine_pilgrimage_mandatory_name$"
  doctrine_parameter_mandatory_hajj: "[trait|E] «[GetTrait('hajjaj').GetName( GetNullCharacter )]» дает дополнительные бонусы, а [Concept('activity', 'завершение')|E] [Concept( 'hajj', 'хаджа' )|E] приносит больше [Concept('piety', 'благочестия')|E]."
  doctrine_parameter_basic_pilgrimage_rewards: ""
+ mandala_pilgrimage_warning: "\n@alert_icon! #alert_trial Обращение в [Concept('faith', 'конфессию')|E], запрещающую паломничества, помешает вам расти как [Concept('ruler', 'правителю')|E] [Concept('mandala_government', 'мандалы')|E]#!\n"
 
  special_doctrine_has_jizya_doctrine_name: "$tenet_tax_nonbelievers_jizya_name$"
  special_doctrine_jizya_name: "$tenet_tax_nonbelievers_jizya_name$"

@@ -283,6 +283,7 @@
  msg_claim_war_invalidated_message: "Война «[war.GetName]» окончена: [defender.GetShortUIName] больше не владеет ни одним из графств, на которые заявлялись претензии."
  msg_claim_war_invalidated_claimant_unavailable_dead_message: "Война «[war.GetName]» окончена: [claimant.GetShortUIName] [Select_CString(claimant.IsFemale, 'умерла', 'умер' )], а потому [attacker.GetShortUIName] больше не может использовать [claimant.GetHerHis] претензию."
  msg_claim_war_invalidated_claimant_unavailable_not_vassal_message: "Война «[war.GetName]» окончена: [claimant.GetShortUIName] больше не является вассалом или придворным персонажа [attacker.GetShortUIName], а потому [Select_CString(attacker.IsFemale, 'она', 'он' )] больше не может использовать [claimant.GetHerHis] претензию."
+ msg_claim_war_invalidated_claimant_is_now_a_minister_message: "Война «[war.GetName]» окончена: [claimant.GetShortUIName] теперь [Select_CString(claimant.IsLocalPlayer, 'являетесь', 'является' )] [Concept('minister', 'министром')|E], а потому [Select_CString(claimant.IsLocalPlayer, 'ваша', Select_CString(claimant.IsFemale, 'ее', 'его' ))] [Concept('claim', 'претензия')|E] утратила значение."
  msg_de_jure_duchy_war_invalidated_message: "Война «[war.GetName]» окончена: [defender.GetShortUIName] больше не владеет никакими территориями в оспариваемом герцогстве."
  msg_de_jure_county_war_invalidated_message: "Война «[war.GetName]» окончена: [defender.GetShortUIName] больше не владеет графством."
  msg_de_jure_duchy_war_invalidated_liege_war_message: "[war.GetName] завершается: [Select_CString( attacker.IsLocalPlayer, 'вы', attacker.GetShortUIName )] [Select_CString( attacker.IsLocalPlayer, 'присоединяетесь', 'присоединяется' )] к своему сюзерену в войне против [Select_CString( defender.IsLocalPlayer, 'вас', 'персонажа' )] [Select_CString( defender.IsLocalPlayer, '', defender.GetShortUIName )]."
@@ -322,6 +323,7 @@
  #AGOT Modified
  #councillor_death_notification_title: "Ваш советник #high [LEFT_CHARACTER.GetFirstNameNoTooltip]#! [Select_CString(LEFT_CHARACTER.IsFemale, 'умерла', 'умер' )]"
  councillor_death_notification_title: "[Select_CString(LEFT_CHARACTER.IsFemale, 'Ваша советница умерла', 'Ваш советник умер' )]"
+ elder_death_notification_title: "[Select_CString(LEFT_CHARACTER.IsFemale, 'Ваша', 'Ваш' )] старейшина #high [LEFT_CHARACTER.GetFirstNameNoTooltip]#! [Select_CString(LEFT_CHARACTER.IsFemale, 'скончалась', 'скончался' )]"
  prisoner_death_notification_title: "Ваш узник #high [LEFT_CHARACTER.GetFirstNameNoTooltip]#! [Select_CString(LEFT_CHARACTER.IsFemale, 'скончалась', 'скончался' )]"
  notable_death_notification_title: "#high [Select_CString(LEFT_CHARACTER.IsLocalPlayer, '', 'Персонаж ' )][LEFT_CHARACTER.GetNamePossessiveOrMy|U][Select_CString(LEFT_CHARACTER.IsLocalPlayer, ' персонаж', '' )]#! скончался"
 
@@ -562,8 +564,8 @@
  msg_raid_intent_invalidated_title: "[raiding_army.GetRaidIntent.GetName] больше не действует!"
  msg_raid_intent_invalidated_desc: "[raiding_army.GetRaidIntent.GetName] больше не действует, поскольку [LEFT_CHARACTER.GetName] теперь не может исполнить это намерение"
 
- msg_barter_completed_barterer_title: "Проведен торг с [Select_CString(county.GetHolder.IsLocalPlayer, 'вами', Concatenate('персонажем ', county.GetHolder.GetShortUIName))]"
- msg_barter_completed_holder_title: "[barterer.GetShortUIName] [Select_CString(barterer.IsFemale, 'поторговала', 'поторговал' )] с вами"
+ msg_barter_completed_barterer_title: "Торг во владении [county.GetNameNoTierNoTooltip|U]"
+ msg_barter_completed_holder_title: "Держава [barterer.GetPrimaryTitle.GetNameNoTierNoTooltip] поторговала с вами"
  msg_barter_completed_barterer_desc: "Вы и [county.GetHolder.GetShortUIName] провели [Concept('bartered', 'торг')|E] "
  msg_barter_completed_holder_desc: "[barterer.GetShortUIName] [Concept('bartered', Select_CString(barterer.IsFemale, 'поторговала', 'поторговал' ))|E] с вами во владении [barony.GetName]"
  msg_barter_loot_delivered_title: "Добыча доставлена"

@@ -567,7 +567,7 @@
  culture_parameter_vegetarian_fruit_orchard_allowed: "Цепочку [Concept('buildings', 'зданий')|E] #V $building_type_orchards_01$#! всегда можно строить в [Concept('counties', 'графствах')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_ancient_miners_quarries_building_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_quarries_01$#! предоставляет дополнительные бонусы"
  culture_parameter_rice_cultivators_next_level_paddy_fields: "Все [Concept('buildings', 'здания')|E] линии #V $building_type_paddy_fields_01$#! можно построить на одну [Concept('era', 'эпоху')|E] раньше"
- culture_parameter_rice_cultivators_can_construct_paddy_fields_in_hills_and_jungle: "Линию [Concept('buildings', 'зданий')|E] #V $building_type_paddy_fields_01$#! можно строить в регионах с типами местности «[GetTerrain( 'hills' ).GetName]» и «[GetTerrain( 'jungle' ).GetName]»"
+ culture_parameter_rice_cultivators_can_construct_paddy_fields_in_hills_and_jungle: "Линии [Concept('buildings', 'зданий')|E] «[GetBuilding('paddy_fields_01').GetTypeName|V]» и «[GetBuilding('farm_estates_01').GetTypeName|V]» можно строить в регионах с типами местности «[GetTerrain( 'hills' ).GetName]» и «[GetTerrain( 'jungle' ).GetName]»"
 
  next_level_trade_ports_name: "#V $tradition_maritime_mercantilism_name$#!"
  next_level_military_camps_name: "#V $tradition_adaptive_skirmishing_name$#!"
@@ -595,6 +595,7 @@
  CHOOSE_TERRAIN_SPECIALIST_DECISION_NEXT_STEP_BUTTON: "Выбрать знатока определенного типа местности"
  recruit_terrain_specialist_decision_confirm: "Завербовать"
  recruit_terrain_specialist_decision_tooltip: "Вы приглашаете ко [Concept( 'court', 'двору' )|E] опытного [Concept( 'commander', 'командира' )|E] с необходимым [Concept( 'commander_trait', 'свойством' )|E]\n\n#weak От ваших [Concept( 'culture_traditions', 'культурных традиций' )|E] зависят доступные типы командиров#!"
+ recruit_terrain_specialist_decision_minister_tooltip: "Вы приглашаете ко [Concept('court', 'двору')|E] опытного [Concept('commander', 'командира')|E] с необходимым [Concept('commander_trait', 'свойством')|E]\n\n#weak Будучи [Concept('minister', 'министром')|E], вы можете нанять командира любого типа#!"
 
  recruit_winter_specialist_decision: "Нанять специалиста по зимней войне"
  recruit_winter_specialist_decision_desc: "Мой стойкий народ, [ROOT.Char.GetCulture.GetName|l], прекрасно приспособлен к морозам. Если мне потребуется опытный командир, способный командовать войсками в суровые зимние холода, достаточно будет лишь позвать и на мой зов откликнется множество закаленных морозами ветеранов."
@@ -637,6 +638,8 @@
  recruit_open_specialist_decision.tt: "[commander|E] с высоким значением [Concept( 'martial', 'военного дела' )|E] и [Concept( 'trait', 'свойством' )|E] «[GetTrait('open_terrain_expert').GetName( GetNullCharacter )]» присоединится к вашему [Concept( 'court', 'двору' )|E]"
  recruit_open_specialist_decision_tooltip: "$recruit_open_specialist_decision.tt$"
  recruit_open_specialist_decision_confirm: "$invite_knights_decision_confirm$"
+
+ recruit_terrain_specialist_decision_desc: "Нашим врагам несть числа, и у наших армий не всегда бывает возможность выбрать наиболее подходящее поле сражения.\n\nЧтобы обеспечить победу на всех фронтах, нам нужны умелые командиры, способные извлечь преимущество из самых разных типов местности."
 
  commander_recruited.t: "Командир нанят"
  commander_recruited.desc: "[new_commander.GetUIName] теперь состоит при вашем дворе!"
@@ -857,7 +860,7 @@
  must_be_feudal_or_clan: "Ваше [government|El] должно быть [Concept( 'feudal', 'феодальным' )|E] или [Concept( 'clan', 'клановым' )|E]"
  must_be_feudal_clan_or_admin: "[SelectLocalization( HasDlcFeature( 'all_under_heaven' ), 'must_be_feudal_clan_or_admin_auh', 'must_be_feudal_clan_or_admin_base_game' )]"
  must_be_feudal_clan_or_admin_base_game: "Ваше [Concept('government', 'правительство')|E] должно быть [Concept('feudal', 'феодальным')|E], [Concept('clan', 'клановым')|E] или [Concept('administrative', 'бюрократическим')|E]"
- must_be_feudal_clan_or_admin_auh: "Ваше [Concept('government', 'правительство')|E] должно быть [Concept('feudal', 'феодальным')|E], [Concept('clan', 'клановым')|E], [Concept('administrative', 'бюрократическим')|E] или [Concept('japan_feudal', 'сорё')|E]"
+ must_be_feudal_clan_or_admin_auh: "Ваше [Concept('government', 'правительство')|E] должно быть [Concept('feudal', 'феодальным')|E], [Concept('clan', 'клановым')|E], [Concept('administrative', 'бюрократическим')|E], [Concept('celestial', 'мандатным')|E], [Concept('meritocratic', 'меритократическим')|E] или [Concept('japan_feudal', 'сорё')|E]"
  only_one_marriage_tradition_allowed: "Допустим только один [Concept( 'marriage', 'брачный' )|E] [Concept( 'tradition', 'обычай' )|E]. Следующие варианты несовместимы: $tradition_monogamous_name$, $tradition_polygamous_name$ и $tradition_concubines_name$"
  no_warrior_culture: "«Маяк знаний» несовместим с традицией «$tradition_warrior_culture_name$»"
  no_philosopher_culture: "«Маяк знаний» несовместим с традицией «Культура философов»"
@@ -1296,6 +1299,7 @@
  tradition_noble_adoption_desc: "В этом обществе распространена практика принятия сирот в благородные дома. Кровь соглашения для них важнее кровного родства."
  culture_parameter_allows_adoption: "[characters|E] этой [Concept( 'culture', 'культуры' )|E] могут предложить [Concept( 'adoption', 'усыновление' )|E] [Concept( 'children', 'детям' )|E], не являющимся родственниками кого-либо из действующих [Concept( 'rulers', 'правителей' )|E]"
  culture_parameter_free_adoption: "[characters|E] этой [Concept( 'culture', 'культуры' )|E] [Concept( 'adopt', 'усыновлять' )|E], не тратя [prestige|El] или [dynasty_prestige|El]"
+ culture_parameter_wider_adoption: "[Concept('characters', 'Персонажи')|E], относящиеся к этой [Concept('culture', 'культуре')|E], могут [Concept('adopt', 'усыновлять')|E] чужих [Concept('children', 'детей')|E], ставших сиротами, и это не влияет на [Concept('opinion', 'мнение')|E] о них"
 
  traditionalist_discount_desc: "[culture_head|E] направил эту [Concept( 'culture', 'культуру' )|E] на путь традиционализма"
  culture_parameter_more_hostage_acceptance: "[characters|E] этой [Concept( 'culture', 'культуры' )|E] более охотно отсылают, принимают и возвращают [Concept( 'hostages', 'заложников' )|E]"
@@ -1343,6 +1347,7 @@
  tradition_tgp_art_of_war_desc: "Эта культура изучает теорию ведения боевых действий уже тысячу лет. В распоряжении ее полководцев и маршалов — целая библиотека рукописей и наставлений, а также не менее развитое искусство создания прочных доспехов и надежного оружия."
  duchies_with_examination_halls_desc: "Эта [Concept('culture', 'культура')|E] не владеет #high 5#! [Concept('duchies', 'герцогствами')|E] с постройкой «$building_type_examination_hall_01$» в одном из [Concept('holdings', 'владений')|E]"
  culture_parameter_unlock_maa_tiefutu: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('tiefutu').GetName|l]"
+ culture_parameter_unlock_maa_black_armor_cavalry: "Доступны [Concept('men_at_arms', 'профессиональные')|E] [GetMaA('black_armor_cavalry').GetName|l]"
  culture_parameter_unlock_zhanmadao: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('zhanmadao_infantry').GetName|l]"
  culture_parameter_unlock_burenjia: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('burenjia').GetName|l]"
  culture_parameter_unlock_shenbigong_innovation: "[Concept('innovation', 'Инновация')|E] #high «$innovation_repeating_crossbow$»#! доступна начиная с [Concept('era', 'эпохи')|E] племени"
@@ -1446,6 +1451,8 @@
  culture_parameter_watermills_forestries_unlock: "Строительство [Concept('building', 'здания')|E] #V $building_logging_camps_04$#! открывает первые четыре уровня цепочки [Concept('buildings', 'зданий')|E] #V $building_type_watermills_01$#!"
  culture_parameter_windmills_hill_farms_unlock: "Строительство [Concept('building', 'здания')|E] #V $building_hill_farms_04$#! открывает первые четыре уровня цепочки [Concept('buildings', 'зданий')|E] #V $building_type_windmills_01$#!"
  culture_parameter_second_caravanserai: "В [Concept('counties', 'графствах')|E] этой [Concept('culture', 'культуры')|E] можно построить второе здание #V $building_type_caravanserai_01$#!"
+ has_two_caravanserai_in_county: "В графстве уже есть 2 караван-сарая"
+ not_allowed_second_caravanserai: "Чтобы построить в графстве еще один караван-сарай, необходима [Concept('culture_tradition', 'культурная традиция')|E] «[GetCultureTradition('tradition_caravaneers').GetName]»"
 
  culture_parameter_family_castration: "Можно использовать [Concept( 'interaction', 'взаимодействие' )|E] «Кастрировать родича»"
 
@@ -1486,6 +1493,7 @@
  tradition_mpo_wolves_of_the_deep_steppe_name: "Волки в оленьей степи"
  tradition_mpo_wolves_of_the_deep_steppe_desc: "Вдали от благ цивилизации люди живут тем, что могут взять, и мечтают о смерти в седле. Слабые народы бегут от этих воинов."
  culture_parameter_unlock_maa_mangudai: "Доступны [Concept('men_at_arms', 'профессионалы')|E] — [GetMaA('mangudai').GetName|l]"
+ unlock_maa_mangudai_name: "[GetCultureTradition('tradition_mpo_wolves_of_the_deep_steppe').GetName]"
 
  tradition_mpo_northern_tribes_name: "Племена Севера"
  tradition_mpo_northern_tribes_desc: "Этот народ южане зовут «лесными людьми». Где-то этих северян считают уважаемыми охотниками, где-то хорошими речными рыболовами, где-то мастерами выплавки железа. Часто они занимаются выпасом стад."

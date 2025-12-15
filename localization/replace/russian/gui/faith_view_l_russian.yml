@@ -46,7 +46,7 @@
  CANNOT_CREATE_FAITH_IN_OBSERVE_MODE: "@warning_icon! #X Необходимо играть персонажем#!"
  FAITH_CREATION_BUTTON_TOOLTIP:1 "#T Создать конфессию#!\n[Select_CString( FaithCreationWindow.CanCreateFaith, '#I Нажмите, чтобы создать конфессию#!', FaithCreationWindow.GetCreationBlockers )]"
  FAITH_REFORM_BUTTON_TOOLTIP: "#T Реформировать конфессию#!\n[FaithCreationWindow.GetCreationBlockers]\n#I Щелкните, чтобы реформировать конфессию#!"
- FAITH_CONVERSION_BUTTON_TOOLTIP: "#T Принять конфессию#!\n[FaithConversionWindow.GetConversionBlockers]#I Щелкните, чтобы принять конфессию#!"
+ FAITH_CONVERSION_BUTTON_TOOLTIP: "#T Принять конфессию#!\n[FaithConversionWindow.GetConversionBlockers]#I Щелкните, чтобы принять конфессию#![AddLocalizationIf( And( Not( Faith.HasDoctrine( GetFaithDoctrine( 'doctrine_polytheist' ) ) ), GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_mandala' ) ), 'mandala_monotheist_warning')]"
  FAITH_CONVERSION_SAME_FAITH: "Я уже исповедую [FAITH.GetAdjective|l]"
  CREATE_REFORM_FAITH_TEXT: "[SelectLocalization( GetPlayer.GetFaith.IsUnreformed, 'REFORM_FAITH_WINDOW_TITLE', 'CREATE_FAITH_WINDOW_TITLE' )]"
  CREATE_REFORM_FAITH_TOOLTIP: "[SelectLocalization( GetPlayer.GetFaith.IsUnreformed, 'REFORM_FAITH_WINDOW_TITLE_TOOLTIP', 'CREATE_FAITH_WINDOW_TITLE_TOOLTIP' )]"
@@ -86,7 +86,7 @@
  FAITH_CREATION_REFORM:1 "Реформировать конфессию"
  FAITH_CONVERSION_CONVERT:1 "Обратиться в конфессию"
  FAITH_MUST_BE_DIFFERENT_FROM_OLD: "@warning_icon! #X Ваши новая и старая [Concept( 'faith', 'конфессии' )|El] не могут иметь одинаковые [core_tenets|El] и [doctrines|El]#!"
-
+ FAITH_MANDALA_MONOTHEIST_WARNING: "@alert_icon! #alert_trial При обращении в монотеистическую [Concept('faith', 'конфессию')|E] вы утратите [Concept('mandala_government', 'правительство мандалы')|E]#!"
  FAITH_CREATION_TOTAL_COST:1 "Цена: [GetLocalPlayerPietyTextIcon][FaithCreationWindow.CalcPietyCost]"
  FAITH_CONVERSION_TOTAL_COST:1 "Цена: [GetLocalPlayerPietyTextIcon][FaithConversionWindow.CalcPietyCost]"
  FAITH_CONVERSION_COST_MISSING:1 "#X Нужно [GetLocalPlayerPietyTextIcon][FaithConversionWindow.CalcPietyMissing]#!"

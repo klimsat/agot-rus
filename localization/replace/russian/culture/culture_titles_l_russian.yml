@@ -990,6 +990,23 @@
  emperor_feudal_male_austronesian_group: "Девараджа"
  emperor_feudal_female_austronesian_group: "Деварани"
 
+ ###Austronesian Muslim###
+ baron_feudal_male_austronesian_muslim_group: "$baron_feudal_male_arabic_group$"
+ baron_feudal_female_austronesian_muslim_group: "$baron_feudal_female_arabic_group$"
+ barony_feudal_austronesian_muslim_group: "$barony_feudal_arabic_group$"
+ count_feudal_male_austronesian_muslim_group: "$count_feudal_male_arabic_group$"
+ count_feudal_female_austronesian_muslim_group: "$count_feudal_female_arabic_group$"
+ county_feudal_austronesian_muslim_group: "$county_feudal_arabic_group$"
+ duke_feudal_male_austronesian_muslim_group: "$duke_feudal_male_arabic_group$"
+ duke_feudal_female_austronesian_muslim_group: "$duke_feudal_female_arabic_group$"
+ duchy_feudal_austronesian_muslim_group: "$duchy_feudal_arabic_group$"
+ king_feudal_male_austronesian_muslim_group: "$king_feudal_muslim_male_arabic_group$"
+ king_feudal_female_austronesian_muslim_group: "$king_feudal_muslim_female_arabic_group$"
+ kingdom_feudal_austronesian_muslim_group: "$kingdom_feudal_muslim_arabic_group$"
+ emperor_feudal_male_austronesian_muslim_group: "$emperor_feudal_male_arabic_group$"
+ emperor_feudal_female_austronesian_muslim_group: "$emperor_feudal_female_arabic_group$"
+ empire_feudal_austronesian_muslim_group: "$empire_feudal_arabic_group$"
+
  ### GUANCHE (Canary Islands) ###
  duchy_guanche: "Менсейо"
  kingdom_guanche: "Верховное менсейо"
@@ -1352,9 +1369,17 @@
  hegemon_administrative_female_roman: "Августа"
  empire_administrative_roman: "Империя"
 
+ emperor_administrative_vassal_byzantine_group: "Экзархат"
+ emperor_administrative_vassal_male_byzantine_group: "Экзарх"
+ emperor_administrative_vassal_female_byzantine_group: "Экзархесса"
+
+ emperor_administrative_vassal_roman: "Диоцез"
+ emperor_administrative_vassal_male_roman: "Викарий"
+ emperor_administrative_vassal_female_roman: "Викарисса"
+
  co_ruler_male: "[SelectLocalization( Character.GetLiege.IsFemale, 'co_ruler_male_gender_fallback', 'co_ruler_actual')]-соправитель"
  co_ruler_female: "[SelectLocalization( Character.GetLiege.IsFemale, 'co_ruler_actual', 'co_ruler_female_gender_fallback')]-соправительница"
- co_ruler_actual: "[Character.GetLiege.GetTitleAsNameNoTooltip]"
+ co_ruler_actual: "[Character.GetLiegeEvenWhenDead.GetTitleAsNameNoTooltip]"
  co_ruler_male_gender_fallback: "[Character.Custom('GetCoRulerDiffGenderBestTitle')]"
  co_ruler_female_gender_fallback: "[Character.Custom('GetCoRulerDiffGenderBestTitle')]"
  GetCoRulerDiffGenderBestTitle_Spouse: "[Character.GetLiege.GetPrimarySpouse.GetTitleAsNameNoTooltip]"
@@ -1424,8 +1449,10 @@
 
  emperor_celestial_male_chinese_civilian_governor: "Координатор"
  emperor_celestial_male_chinese_military_governor: "Верховный военачальник"
+ emperor_celestial_male_chinese_protectorate_governor: "Великий протектор"
  king_celestial_male_chinese_civilian_governor: "Интендант"
  king_celestial_male_chinese_military_governor: "Комендант"
+ king_celestial_male_chinese_protectorate_governor: "Протектор"
  duke_celestial_male_chinese_governor: "Губернатор"
  count_celestial_male_chinese_governor: "Префект"
  baron_celestial_male_chinese_governor: "Магистр"
@@ -1440,8 +1467,10 @@
 
  emperor_celestial_female_chinese_civilian_governess: "$emperor_celestial_male_chinese_civilian_governor$"
  emperor_celestial_female_chinese_military_governess: "$emperor_celestial_male_chinese_military_governor$"
+ emperor_celestial_female_chinese_protectorate_governess: "$emperor_celestial_male_chinese_protectorate_governor$"
  king_celestial_female_chinese_civilian_governess: "$king_celestial_male_chinese_civilian_governor$"
  king_celestial_female_chinese_military_governess: "$king_celestial_male_chinese_military_governor$"
+ king_celestial_female_chinese_protectorate_governess: "$king_celestial_male_chinese_protectorate_governor$"
  duke_celestial_female_chinese_governess: "$duke_celestial_male_chinese_governor$"
  count_celestial_female_chinese_governess: "$count_celestial_male_chinese_governor$"
  baron_celestial_female_chinese_governess: "$baron_celestial_male_chinese_governor$"
@@ -1456,7 +1485,9 @@
 
  hegemony_celestial_chinese: "Гегемония"
  empire_celestial_chinese_vassal: "Секретариат"
+ empire_celestial_chinese_protectorate_vassal: "Великий протекторат"
  kingdom_celestial_chinese_vassal: "Край"
+ kingdom_celestial_chinese_protectorate_vassal: "Протекторат"
  duchy_celestial_chinese_vassal: "Провинция"
  county_celestial_chinese_vassal: "Префектура"
  barony_celestial_chinese_vassal: "Округ"
@@ -1488,3 +1519,8 @@
  dudu: "Дуду" #Commander-in-Chief
  cishi: "Цыши" #Regional Prefect
  jinglueshi: "Цзинлюэши" #Pacification Commissioner
+
+ emperor_celestial_male_chinese_independent: "Хуанди" #皇帝
+ emperor_celestial_female_chinese_independent: "$hegemon_celestial_male_chinese$"
+ spouse_emperor_celestial_male_chinese_independent: "Хуанфу" #皇夫
+ spouse_emperor_celestial_female_chinese_independent: "Хуанхоу" #皇后
