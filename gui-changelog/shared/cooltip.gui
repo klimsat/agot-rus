@@ -4862,9 +4862,27 @@ types CultureTooltips
 					}
 				}
 
-
-				block "extra_info"
-				{}
+				#AGOT Modified
+				# block "extra_info"
+				# {}
+				block "extra_info" {
+					text_single = {
+						layoutpolicy_horizontal = growing
+						layoutpolicy_vertical = growing
+						text = "CLICK_TO_VIEW"
+						align = top
+						using = DefaultTooltipText
+						visible = "[Not(Culture.MakeScope.Var('agot_culture_tt_desc').IsSet)]"
+					}
+					text_multi = {
+						layoutpolicy_horizontal = growing
+						text = "AGOT_CULTURE_COOLTIP_CLICK"
+						margin = { 10 0 }
+						visible = "[Culture.MakeScope.Var('agot_culture_tt_desc').IsSet]"
+						autoresize = yes
+						max_width = 380
+					}					
+				}
 			}
 		}
 
@@ -4949,7 +4967,15 @@ types CultureTooltips
 				spacer = {
 					size = { 0 5 }
 				}
-
+				#AGOT Added
+				text_multi = {
+					layoutpolicy_horizontal = growing
+					text = "AGOT_CULTURE_COOLTIP_RD"
+					margin = { 10 0 }
+					visible = "[Culture.MakeScope.Var('agot_culture_tt_desc').IsSet]"
+					autoresize = yes
+					max_width = 380
+				}
 				text_single = {
 					layoutpolicy_horizontal = expanding
 					text = "CULTURE_RD_TOOLTIP_ETHOS"
@@ -5207,6 +5233,17 @@ types CultureTooltips
 				text = "CULTURE_COOLTIP_CLICK"
 				margin = { 10 0 }
 				fonttintcolor = "[TooltipInfo.GetTintColor]"
+				#AGOT Added
+				visible = "[Not(Culture.MakeScope.Var('agot_culture_tt_desc').IsSet)]"
+			}
+			#AGOT Added
+			text_multi = {
+				layoutpolicy_horizontal = growing
+				text = "AGOT_CULTURE_COOLTIP_CLICK"
+				margin = { 10 0 }
+				visible = "[Culture.MakeScope.Var('agot_culture_tt_desc').IsSet]"
+				autoresize = yes
+				max_width = 380
 			}
 
 		}
