@@ -1261,7 +1261,9 @@
 
  MODIFY_VASSAL_CONTRACT_SELECT_DIFFERENT_OBLIGATION_LEVEL: "Вы должны внести изменения в новый [Concept('vassal_contract', 'вассальный договор')|E]"
  VASSAL_MODIFY_VASSAL_CONTRACT_CANNOT_INCREASE_OBLIGATION_LEVEL: "Необходимо предложить равноценный обмен обязательств и [Concept( 'hooks', 'влияния' )|E]. В настоящий момент в выигрышном положении находится [SelectLocalization( GreaterThan_CFixedPoint( '(CFixedPoint)$VALUE|q$', '(CFixedPoint)0.0' ), CHARACTER.GetShortUIName, TARGET_CHARACTER.GetShortUIName )]: [Abs_CFixedPoint( '(CFixedPoint)$VALUE|q$' )|V0]"
- vassal_modify_vassal_contract_obligation_change_limit: "Вы не можете предложить более #V [EmptyScope.ScriptValue('max_contract_changes')|0]#! изменений одновременно"
+ #AGOT Modified
+ #vassal_modify_vassal_contract_obligation_change_limit:0 "You cannot propose more than #V [EmptyScope.ScriptValue('max_contract_changes')|0]#! changes at once"
+ vassal_modify_vassal_contract_obligation_change_limit: "Вы не можете предложить более #V [GetPlayer.MakeScope.ScriptValue('max_contract_changes')|0]#! изменений одновременно"
  vassal_modify_vassal_contract_unnecessary_hook_usage_vassal_favor: "Вы не можете использовать [Concept( 'hook', 'влияние' )|E] на договоре, который уже изменен в пользу [Concept( 'vassal', 'вассала' )|E]. [TARGET_CHARACTER.GetShortUIName] выигрывает от текущих изменений: $VALUE|V0$"
  vassal_modify_vassal_contract_unnecessary_hook_usage_equal: "Вы не можете использовать [Concept( 'hook', 'влияние' )|E] на договоре, который честен по отношению к [Concept( 'vassal', 'вассалу' )|E]"
  LIEGE_MODIFY_VASSAL_CONTRACT_CANNOT_EXCEED_TYRANNY_CAP: "Нельзя предложить более одной [Concept( 'tyrannical', 'тиранической' )|E] перемены"
