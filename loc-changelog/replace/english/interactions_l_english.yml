@@ -1261,7 +1261,9 @@
 
  MODIFY_VASSAL_CONTRACT_SELECT_DIFFERENT_OBLIGATION_LEVEL:2 "You must propose a change for a new [vassal_contract|E]"
  VASSAL_MODIFY_VASSAL_CONTRACT_CANNOT_INCREASE_OBLIGATION_LEVEL:2 "You must propose an equal exchange in obligations and [hooks|E], current changes in favor of [SelectLocalization( GreaterThan_CFixedPoint( '(CFixedPoint)$VALUE|q$', '(CFixedPoint)0.0' ), CHARACTER.GetShortUIName, TARGET_CHARACTER.GetShortUIName )]: [Abs_CFixedPoint( '(CFixedPoint)$VALUE|q$' )|V0]"
- vassal_modify_vassal_contract_obligation_change_limit:0 "You cannot propose more than #V [EmptyScope.ScriptValue('max_contract_changes')|0]#! changes at once"
+ #AGOT Modified
+ #vassal_modify_vassal_contract_obligation_change_limit:0 "You cannot propose more than #V [EmptyScope.ScriptValue('max_contract_changes')|0]#! changes at once"
+ vassal_modify_vassal_contract_obligation_change_limit:0 "You cannot propose more than #V [GetPlayer.MakeScope.ScriptValue('max_contract_changes')|0]#! changes at once"
  vassal_modify_vassal_contract_unnecessary_hook_usage_vassal_favor:0 "You cannot use a [hook|E] on contract already in favor of the [vassal|E], current changes in favor of [TARGET_CHARACTER.GetShortUIName]: $VALUE|V0$"
  vassal_modify_vassal_contract_unnecessary_hook_usage_equal:0 "You cannot use a [hook|E] on contract that is fair to the [vassal|E]"
  LIEGE_MODIFY_VASSAL_CONTRACT_CANNOT_EXCEED_TYRANNY_CAP:0 "You cannot demand more than one [tyrannical|E] change"
