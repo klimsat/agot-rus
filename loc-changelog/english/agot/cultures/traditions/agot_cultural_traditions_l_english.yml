@@ -25,7 +25,8 @@
  culture_parameter_the_mark_trait_gives_bonuses:0 "#italic Children of the Waves#!: The [GetTrait('the_mark').GetName( GetNullCharacter )] [traits|E] have additional bonuses"
  culture_parameter_stubborn_trait_gives_bonuses:0 "#italic Stubborn in War#!: The [GetTrait('stubborn').GetName( GetNullCharacter )] [traits|E] have additional bonuses"
  culture_parameter_herbalist_crannog_trait_gives_bonuses:0 "#italic Poisonous Knowledge#!: The [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [traits|E] have additional bonuses"
-
+ culture_parameter_cheaper_tour_activity:0 "The [GetActivityType( 'activity_tour' ).GetName] activity is #P 10%#! cheaper"
+ cheaper_tour_activity_discount:0 "[GetPlayer.GetCulture.GetName] [culture|E]" # multiplier desc
 
  #Child Traits
  culture_parameter_bossy_trait_more_common:0 "[children|E] are more likely to get the [GetTrait('bossy').GetName( GetNullCharacter )] [trait|E]"
@@ -36,6 +37,7 @@
  culture_parameter_arrogant_trait_more_common:0 "The [GetTrait('arrogant').GetName( GetNullCharacter )] [trait|E] is more common"
  culture_parameter_wrathful_trait_more_common:0 "The [GetTrait('wrathful').GetName( GetNullCharacter )] [trait|E] is more common"
  culture_parameter_brave_trait_more_common:0 "The [GetTrait('brave').GetName( GetNullCharacter )] [trait|E] is more common"
+ culture_parameter_dragon_dreams_more_common:0 "The [GetTrait('dragon_dreams').GetName( GetNullCharacter )] [trait|E] is more common"
 
  #Commander Traits
  culture_parameter_organizer_trait_more_common:0 "The [GetTrait('organizer').GetName( GetNullCharacter )] [commander_trait|E] is more common"
@@ -45,16 +47,18 @@
  culture_parameter_logistician_trait_more_common:0 "The [GetTrait('logistician').GetName( GetNullCharacter )] [commander_trait|E] is more common"
  culture_parameter_military_engineer_trait_more_common:0 "The [GetTrait('military_engineer').GetName( GetNullCharacter )] [commander_trait|E] is more common"
  culture_parameter_forder_trait_more_common:0 "The [GetTrait('forder').GetName( GetNullCharacter )] [commander_trait|E] is more common"
- culture_parameter_open_terrain_expert:0 "The [GetTrait('open_terrain_expert').GetName( GetNullCharacter )] [commander_trait|E] is more common"
+ culture_parameter_open_terrain_expert_trait_more_common:0 "The [GetTrait('open_terrain_expert').GetName( GetNullCharacter )] [commander_trait|E] is more common"
 
  #Terrain Bonuses
  culture_parameter_wetlands_trait_bonuses:0 "Some [commander_traits|E] and [personality_traits|E] have extra Wetlands bonuses"
  culture_parameter_plains_trait_bonuses:0 "Some [commander_traits|E] and [personality_traits|E] have extra Plains bonuses"
  culture_parameter_steppe_trait_bonuses:0 "Some [commander_traits|E] and [personality_traits|E] have extra Steppe bonuses"
+ culture_parameter_urban_trait_bonuses:0 "Some [commander_traits|E] and [personality_traits|E] have extra Urban bonuses"
 
  #Trait Valued
  culture_parameter_shrewd_trait_more_valued:0 "The [GetTrait('shrewd').GetName( GetNullCharacter )] [trait|E] is more valued"
  culture_parameter_knight_trait_more_valued:0 "The [GetTrait('knight').GetName( GetNullCharacter )] [trait|E] is more valued"
+ culture_parameter_just_trait_more_valued:0 "The [GetTrait('just').GetName( GetNullCharacter )] [trait|E] is more valued"
  culture_parameter_cul_more_likely_born_with_mark:0 "Characters of this culture are more likely to be born with [GetTrait('the_mark').GetName( GetNullCharacter )]"
 
  #Trait Looked Down Upon
@@ -68,6 +72,7 @@
  culture_parameter_craven_looked_down_upon:0 "The [GetTrait('craven').GetName( GetNullCharacter )] [trait|E] is looked down upon"
  culture_parameter_shy_trait_looked_down_upon:0 "The [GetTrait('shy').GetName( GetNullCharacter )] [trait|E] is looked down upon"
  culture_parameter_gluttonous_looked_down_upon:0 "The [GetTrait('gluttonous').GetName( GetNullCharacter )] [trait|E] is looked down upon"
+ culture_parameter_arbitrary_trait_looked_down_upon:0 "The [GetTrait('arbitrary').GetName( GetNullCharacter )] [trait|E] is looked down upon"
 
  #Wanderers Extra Skills
  culture_parameter_wanderers_gain_extra_learning_skills:0 "[wanderers|E] gain extra knowledge skills over time, such as [learning|E] or [lifestyle_traits|E]"
@@ -83,6 +88,9 @@
  culture_parameter_better_farm_estates_bonuses:0 "The #V $building_type_farm_estates_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_better_farm_bonuses:0 "The #V $building_type_cereal_fields_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_better_smith_buildings:0 "The #V $building_type_smiths_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
+ culture_parameter_better_bakeries_bonuses:0 "The #V $building_type_agot_urban_farms_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
+ culture_parameter_better_watermill_bonuses:0 "The #V $building_type_watermills_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
+ culture_parameter_watermills_without_innovations_unlock:0 "The #V $building_type_watermills_01$#! line of [buildings|E] do not require innovations to be built"
 
  #Misc
  culture_parameter_shortened_truce_period:0 "Shorter [truces|E]"
@@ -94,11 +102,11 @@
  culture_parameter_the_bog_hunt_success_chance:0 "Increased [hunt_success_chance|E] in [GetTerrain( 'the_bog' ).GetName]"
 
  #Traditions
+ tradition_agot_blackwater_bay_name:0 "Domain of the Crown"
+ tradition_agot_blackwater_bay_desc:0 "The Crownlands are the newest of the regions of Westeros, forged by the houses and peoples sworn directly to the Iron Throne. As a result, they have taken on its characteristics and ways of life. Dominated by the city of King's Landing, more and more people are beginning to live in cities and adopt more urban styles of living."
+
  tradition_agot_vale_andal_heritage_name:0 "Faith and Fury"
  tradition_agot_vale_andal_heritage_desc:0 "The Andals hail from Northern Essos, though none know precisely where. With the continued expansion of the land-hungry Valyrian Freehold, the Andals were forced to flee from their native homelands to Westeros, sweeping over everywhere south of the Neck and bringing their religious fervor and traditions of knighthood and chivalry along with them."
-
- tradition_agot_crownlander_name:0 "Born of the Blackwater"
- tradition_agot_crownlander_desc:0 "The Crownlanders are a people whose culture has been shaped by their proximity to the center of royal power and by the trade that flows into Blackwater Bay. The robust administration and relative prosperity of the Crownlands have shaped its people into merchants, artisans, and traders. They are a far less martial people than the Stormlanders to the south and far more prosperous than the Rivermen to the north."
 
  tradition_agot_valeman_finger_name:0 "Humble Service"
  tradition_agot_valeman_finger_desc:0 "The Fingers are a dreary, windswept place, so assailed by the winds from the frigid north that little vegetation grows near their tips. There is little living to be made for the smallfolk beyond herding grazing animals, as there's scant land to make usable cropland. Thus, the Fingermen live modest lives, and the goatherds and sharecroppers find some contentment in their unforgiving home."
@@ -118,8 +126,8 @@
  tradition_agot_reachman_name:0 "Greenhand's Glory"
  tradition_agot_reachman_desc:0 "The Reach is a prosperous and fertile land built on the backs of hardworking smallfolk. It is also a land of families with some of the oldest roots in Westeros, dating back to the mythical Garth Greenhand, from whom most prominent Reachmen families claim descent. With so many families striving for prominence in a wealthy land, the ties that bind them are stronger and more important than elsewhere in Westeros."
 
- tradition_agot_riverlander_name:0 "Turmoil on the Trident"
- tradition_agot_riverlander_desc:0 "The Trident is a land that has seen much warfare throughout its long history, its central position making it a battlefield for wars not even of its own making. It has changed hands many times, with both Stormlanders and Ironmen invading and subjugating the Riverlords. This continual adversity has taught the Rivermen to use their homeland to their advantage, both in war and peace."
+ tradition_agot_riverlands_name:0 "Rewards of the River"
+ tradition_agot_riverlands_desc:0 "The Rivermen are a people often caught between the powers around them, yet they tend to thrive when they have a strong king of their own. The Trident and its tributaries define their lives more than anything else, and from these waters they prosper."
 
  tradition_agot_shieldman_name:0 "Guarding the Mander"
  tradition_agot_shieldman_desc:0 "Named after their primary function as a shield against Ironborn attacks, the Shield Isles are a collective of four well-fortified islands of the Reach, overseen by four separate houses. A loyal (although arguably isolated) people, those of the Shield Isles are known for their hardy temperaments and sense of duty. The islands are famous for their beacons, which elders in watchtowers light island by island to spread warnings of incoming longships to inland settlements. Above all else, those from the Shield Isles value themselves as a first line of naval defense."
@@ -141,9 +149,6 @@
 
  tradition_agot_barrowman_name:0 "Rills and Hills"
  tradition_agot_barrowman_desc:0 "While the Barrowlands were once ruled by the dynasty of the Barrow Kings, its people assimilated with the rest of the Northmen following the dynasty's submission to Winterfell at the end of their thousand-year conflict. Barrowmen are eminent horsemen, with the area's vast rolling plains making the Barrowlands ripe for cavalry warfare, which, in turn, makes Barrowmen valuable allies for anyone wishing to conduct warfare in the North."
-
- tradition_agot_clawman_name:0 "Wild Men of the Claw"
- tradition_agot_clawman_desc:0 "The men of Crackclaw Point are some of the wildest south of the Neck. The blood of the First Men runs thick in their veins, and many customs of the First Men still survive with them. Aside from the Mountain Clansmen of the Vale, the Clawmen were the only First Men to resist the Andal invasion, only adopting the Faith of the Seven after intermarrying with the Andals."
 
  tradition_agot_crannogman_name:0 "Denizens of the Bog"
  tradition_agot_crannogman_desc:0 "The Crannogmen are a squat, secretive people, seen as primitive by some and feared and derided as mudmen and bog devils by others. Their homeland, the Neck, is a large, swampy fen, thick with foliage and canopy. Few know what happens in the depths of the Neck, though many in Westeros whisper that the Crannogmen learned all manner of magic and sorcery from the Children of the Forest. Some go even further and state the Crannogmen themselves are born of the union between the Children and the First Men."
@@ -169,9 +174,6 @@
  tradition_agot_greenborn_name:0 "From Sea and Field"
  tradition_agot_greenborn_desc:0 "Ironborn who have settled more inland. While still holding onto a fondness for the sea, they have become more adept at living away from it."
 
- tradition_agot_valyrian_name:0 "Blood of the Dragon"
- tradition_agot_valyrian_desc:0 "The Valyrians were once an innumerable people, with an empire stretching from Ghis to Pentos. The Freehold, despite its name, however, was anything but. While tolerant of the peoples they subjugated on Dragonback, this tolerance did not stop them from enslaving hundreds of thousands, sending them to despair in the mines of the Fourteen Flames. With the Doom, however, all but a few of the pure-blooded Valyrians were snuffed out, alongside the dragons they'd used to conquer and subdue."
-
  tradition_agot_dorne_rhoynish_heritage_name:0 "Children of the Mother Rhoyne"
  tradition_agot_dorne_rhoynish_heritage_desc:0 "Rhoynish civilization is ancient and illustrious. So deep is the history of the Rhoynar that some credit them with teaching the Andals how to smith and work with iron. Hailing from the city-states along the river Rhoyne, the Rhoynar worship numerous gods of the river and also have a special affinity for all manner of boats, from small fishing vessels to obscene pleasure barges. Rhoynish culture is notably different from that of the Andals, with equal inheritance being the norm for both women and men, and same-sex relations being accepted. The Rhoynar are known for embracing works of art and music, which may be partially why some Rhoynar cultural practices were so quick to catch on when the Rhoyne arrived in Dorne."
 
@@ -186,9 +188,6 @@
 
  tradition_agot_wildling_name:0 "Ferocious, Savage, and Wild"
  tradition_agot_wildling_desc:0 "Where the majority of peoples and societies progress and grow, there are groups that refuse to bow before progress, what can be seen by the many Wildlings in Westeros. The majority of them are found Beyond the Wall, but there are groups found in the Mountains of the Moon. These tribal groups are fierce, if undeveloped, and can become threats in large numbers."
-
- tradition_agot_westeros_valyrian_name:0 "Braving the Storm"
- tradition_agot_westeros_valyrian_desc:0 "The Valyrian folk of the Blackwater Isles are in many ways more similar to the Andals than their progenitors from the Freehold. Rather than their wealth being built upon the backs of slaves digging deep in the Fourteen Flames, the Western Valyrians have long sought their wealth from the sea. They make for industrious merchants and are some of the finest sailors in Westeros."
 
  tradition_agot_krakenman_name:0 "Iron and Ice"
  tradition_agot_krakenman_desc:0 "Although part of the North, many maesters believe that the blood of Cape Kraken's seafaring people is closer to the Ironborn than to the Northmen. The people of Cape Kraken find themselves at odds culturally, however. Although belonging to the North, their position below the Neck leaves them feeling socially and culturally distant from the seat of Winterfell — while their bloodied history of being raided by the Ironborn sets them in opposition to those who many would assume were their salt-watered kin."
@@ -412,3 +411,18 @@
 
  tradition_agot_sistermen_name:0 "Wave-Beached Treasures"
  tradition_agot_sistermen_desc:0 "#italic “The last isles to be wedded to the Vale were the Three Sisters. For thousands of years, these islands had boasted their own cruel kings, pirates and raiders whose longships sailed the Bite, the narrow sea, and even the Shivering Sea with impunity, plundering and reaving as they would and returning to the Sisters laden with gold and slaves.”#!"
+
+ tradition_agot_rivermen_main_name:0 "Upon the Trident's Forks"
+ tradition_agot_rivermen_main_desc:0 "#italic “Memories of ancient wrongs and bygone betrayals were not oft put aside by the lords of the Trident, whose enmities ran as deep as the rivers that watered their lands.”#!"
+
+ tradition_agot_crownlander_name:0 "Born of the Blackwater"
+ tradition_agot_crownlander_desc:0 "#italic “He called his loyal lords to King's Landing, but all that came were minor lords of the crownlands...”#!"
+
+ tradition_agot_clawmen_name:0 "Will of the Claw"
+ tradition_agot_clawmen_desc:0 "#italic “...regaling them with tales of Crackclaw Point. Every gloomy valley had its lord, he said, the lot of them united only by their mistrust of outsiders. In their veins the blood of the First Men ran dark and strong. "The Andals tried t' take Crackclaw, but we bled them in the valleys and drowned them in the bogs. Only what their sons couldn't win with swords, their pretty daughters won with kisses. They married into the houses they couldn't conquer, aye."”#!"
+
+ tradition_agot_high_valyrian_name:0 "Blood of the Dragon"
+ tradition_agot_high_valyrian_desc:0 "#italic “The dragonlords of old Valyria had controlled their mounts with binding spells and sorcerous horns.”#!"
+
+ tradition_agot_western_valyrian_name:0 "Gifts of the Tide"
+ tradition_agot_western_valyrian_desc:0 "#italic “...a family of old and storied Valyrian heritage who had come to Westeros before the Targaryens,”#!"
