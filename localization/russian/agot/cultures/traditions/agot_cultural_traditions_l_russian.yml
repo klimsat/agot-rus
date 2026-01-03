@@ -25,7 +25,8 @@
  culture_parameter_the_mark_trait_gives_bonuses:0 "#italic Дети волн#!: [traits|E] [GetTrait('the_mark').GetName( GetNullCharacter )] дают дополнительные бонусы"
  culture_parameter_stubborn_trait_gives_bonuses:0 "#italic Упорство в войне#!: [traits|E] [GetTrait('stubborn').GetName( GetNullCharacter )] дают дополнительные бонусы"
  culture_parameter_herbalist_crannog_trait_gives_bonuses:0 "#italic Ядовитые знания#!: [traits|E] [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] дают дополнительные бонусы"
-
+ culture_parameter_cheaper_tour_activity:0 "Занятие «[GetActivityType( 'activity_tour' ).GetName]» обходится на #P 10%#! дешевле"
+ cheaper_tour_activity_discount:0 "#L [GetPlayer.GetCulture.GetCollectiveNoun]ая#! [Concept('culture', 'культура')|E]" # multiplier desc
 
  #Child Traits
  culture_parameter_bossy_trait_more_common:0 "[children|E] с большей вероятностью получат [Concept('trait', 'свойство')|E] «[GetTrait('bossy').GetName( GetNullCharacter )]»"
@@ -36,6 +37,7 @@
  culture_parameter_arrogant_trait_more_common:0 "[trait|E] «[GetTrait('arrogant').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_wrathful_trait_more_common:0 "[trait|E] «[GetTrait('wrathful').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_brave_trait_more_common:0 "[trait|E] «[GetTrait('brave').GetName( GetNullCharacter )]» встречается чаще"
+ culture_parameter_dragon_dreams_more_common:0 "[trait|E] «[GetTrait('dragon_dreams').GetName( GetNullCharacter )]» встречается чаще"
 
  #Commander Traits
  culture_parameter_organizer_trait_more_common:0 "[commander_trait|E] «[GetTrait('organizer').GetName( GetNullCharacter )]» встречается чаще"
@@ -45,16 +47,18 @@
  culture_parameter_logistician_trait_more_common:0 "[commander_trait|E] «[GetTrait('logistician').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_military_engineer_trait_more_common:0 "[commander_trait|E] «[GetTrait('military_engineer').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_forder_trait_more_common:0 "[commander_trait|E] «[GetTrait('forder').GetName( GetNullCharacter )]» встречается чаще"
- culture_parameter_open_terrain_expert:0 "[commander_trait|E] «[GetTrait('open_terrain_expert').GetName( GetNullCharacter )]» встречается чаще"
+ culture_parameter_open_terrain_expert_trait_more_common:0 "[commander_trait|E] «[GetTrait('open_terrain_expert').GetName( GetNullCharacter )]» встречается чаще"
 
  #Terrain Bonuses
  culture_parameter_wetlands_trait_bonuses:0 "Некоторые из [Concept('commander_traits', 'свойств командира')|E] и [Concept('personality_traits', 'личностных свойств')|E] дают дополнительные бонусы на болотах"
  culture_parameter_plains_trait_bonuses:0 "Некоторые из [Concept('commander_traits', 'свойств командира')|E] и [Concept('personality_traits', 'личностных свойств')|E] дают дополнительные бонусы на равнинах"
  culture_parameter_steppe_trait_bonuses:0 "Некоторые из [Concept('commander_traits', 'свойств командира')|E] и [Concept('personality_traits', 'личностных свойств')|E] дают дополнительные бонусы на степях"
+ culture_parameter_urban_trait_bonuses:0 "Некоторые из [Concept('commander_traits', 'свойств командира')|E] и [Concept('personality_traits', 'личностных свойств')|E] дают дополнительные бонусы в городах"
 
  #Trait Valued
  culture_parameter_shrewd_trait_more_valued:0 "[trait|E] «[GetTrait('shrewd').GetName( GetNullCharacter )]» ценится выше"
  culture_parameter_knight_trait_more_valued:0 "[trait|E] «[GetTrait('knight').GetName( GetNullCharacter )]» ценится выше"
+ culture_parameter_just_trait_more_valued:0 "[trait|E] «[GetTrait('just').GetName( GetNullCharacter )]» ценится выше"
  culture_parameter_cul_more_likely_born_with_mark:0 "Персонажи этой культуры с большей вероятностью рождаются с #TOOLTIP:GAME_TRAIT,the_mark,[GetNullCharacter] #L отметинами#!#!"
 
  #Trait Looked Down Upon
@@ -68,6 +72,7 @@
  culture_parameter_craven_looked_down_upon:0 "[trait|E] «[GetTrait('craven').GetName( GetNullCharacter )]» презирается"
  culture_parameter_shy_trait_looked_down_upon:0 "[trait|E] «[GetTrait('shy').GetName( GetNullCharacter )]» презирается"
  culture_parameter_gluttonous_looked_down_upon:0 "[trait|E] «[GetTrait('gluttonous').GetName( GetNullCharacter )]» презирается"
+ culture_parameter_arbitrary_trait_looked_down_upon:0 "[trait|E] «[GetTrait('arbitrary').GetName( GetNullCharacter )]» презирается"
 
  #Wanderers Extra Skills
  culture_parameter_wanderers_gain_extra_learning_skills:0 "[wanderers|E] со временем получают дополнительные навыки, например [Concept('learning', 'учёность')|E] или [Concept('lifestyle_traits', 'приобретённые свойства')|E]"
@@ -83,6 +88,9 @@
  culture_parameter_better_farm_estates_bonuses:0 "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_farm_estates_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_better_farm_bonuses:0 "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_cereal_fields_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_better_smith_buildings:0 "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_smiths_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
+ culture_parameter_better_bakeries_bonuses:0 "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_agot_urban_farms_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
+ culture_parameter_better_watermill_bonuses:0 "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_watermills_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
+ culture_parameter_watermills_without_innovations_unlock:0 "Для строительства цепочки [Concept('buildings', 'зданий')|E] #V $building_type_watermills_01$#! не требуется инновация"
 
  #Misc
  culture_parameter_shortened_truce_period:0 "Снижение продолжительности [Concept('truces', 'перемирий')|E]"
@@ -94,11 +102,11 @@
  culture_parameter_the_bog_hunt_success_chance:0 "Повышенный [Concept( 'hunt_success_chance', 'шанс успеха охоты' )|E] на такой местности, как [GetTerrain( 'the_bog' ).GetName]"
 
  #Traditions
+ tradition_agot_blackwater_bay_name:0 "Владения короны"
+ tradition_agot_blackwater_bay_desc:0 "Королевские земли - новейший регион Вестероса, созданный домами и народами, присягнувшими непосредственно Железному трону. В результате они переняли его особенности и образ жизни. Благодаря доминированию Королевской Гавани, всё больше и больше людей начинают жить в городах и перенимать более урбанистический стиль жизни."
+
  tradition_agot_vale_andal_heritage_name:0 "Вера и ярость"
  tradition_agot_vale_andal_heritage_desc:1 "Андалы приходят с севера Эссоса, хотя никто точно не знает откуда. С продолжающимся расширением жадного к земле Валирийского фригольда, андалов вынудили бежать из своих родных земель на Вестерос, захватив все южнее Перешейка и принеся с собой своё религиозное рвение, традиции рыцарства и рыцарской чести."
-
- tradition_agot_crownlander_name:0 "Рождённые в Черноводной"
- tradition_agot_crownlander_desc:1 "Жители Королевских земель - это народ, чья культура была сформирована благодаря близости к центру королевской власти и торговле, которая течёт в Черноводный залив. Прочный административный аппарат и относительное процветание жителей Королевских земель сделали их народом торговцев, ремесленников и купцов. Они являются гораздо менее боевым народом, чем Штормовые земли на юге, и намного более процветающими, чем Речные земли на севере."
 
  tradition_agot_valeman_finger_name:0 "Скромная служба"
  tradition_agot_valeman_finger_desc:1 "Персты - мрачное и ветреное место, настолько сильно бушующее северными ветрами, что почти не растёт растительность неподалеку от их кончиков. Для простолюдинов здесь мало возможностей заработать на жизнь, кроме как выращивать скот на выпасе, ведь земли мало, чтобы сделать их пригодными для сельского хозяйства. Таким образом, жители Перстов живут скромной жизнью, а козоводы и арендаторы находят некоторое удовлетворение в своем непрощающем доме."
@@ -118,8 +126,8 @@
  tradition_agot_reachman_name:0 "Слава Зелёной Руки"
  tradition_agot_reachman_desc:1 "Простор - это процветающая и плодородная земля, созданная на трудах усердных мелких феодалов. Это также земля семей с некоторыми из самых древних корней во всем Вестеросе, которые восходят к мифическому Гарту Зелёной Руке, от которого происходят большинство выдающихся семей Простора, как они сами утверждают. С таким количеством семей, стремящихся к превосходству в богатой земле, связи, которые их объединяют, сильнее и важнее, чем где-либо ещё во всем Вестеросе."
 
- tradition_agot_riverlander_name:0 "Суматоха на Трезубце"
- tradition_agot_riverlander_desc:1 "Трезубец - это земля, которая за свою долгую историю видела много войн, а ее центральное положение делало ее полем боя для войн даже не собственного производства. Она много раз переходила из рук в руки: захватчики из Штормовых земель и железнорожденные вторгались и подчиняли себе речных лордов. Эти постоянные невзгоды научили речных жителей использовать свою родину в своих интересах, как в войне, так и в мире."
+ tradition_agot_riverlands_name:0 "Щедроты реки"
+ tradition_agot_riverlands_desc:0 "Жители Речных земель - народ, часто зависящий от окружающих их сил, но они, как правило, процветают, когда у них есть собственный сильный король. Трезубец и его притоки определяют их жизнь больше, чем что-либо другое, и благодаря этим водам они процветают."
 
  tradition_agot_shieldman_name:0 "Стражи Мандера"
  tradition_agot_shieldman_desc:1 "Щитовые острова, названные так в честь своей главной функции - служить щитом от нападений железнорожденных, - представляют собой совокупность четырех хорошо укреплённых островов Простора, находящихся под надзором четырёх отдельных домов. Верный (хотя и, возможно, изолированный) народ, жители Щитовых островов известны своим выносливым характером и чувством долга. Острова славятся своими маяками, которые старейшины на сторожевых башнях зажигают остров за островом, чтобы предупредить внутренние поселения о приближающихся кораблях. Прежде всего, жители Щитовых островов ценят себя как первую линию морской обороны."
@@ -141,9 +149,6 @@
 
  tradition_agot_barrowman_name:0 "Холмы и возвышенности"
  tradition_agot_barrowman_desc:1 "Хотя когда-то курганами правила династия Курганных королей, их народ ассимилировался с остальными северянами после того, как династия подчинилась Винтерфеллу в конце тысячелетнего конфликта. Жители Курганов - выдающиеся наездники, а обширные равнины местности делают Курганы пригодными для ведения кавалерийской войны, что, в свою очередь, делает Курганы ценными союзниками для тех, кто хочет вести военные действия на севере."
-
- tradition_agot_clawman_name:0 "Дикие люди Клешни"
- tradition_agot_clawman_desc:1 "Люди из Расколотой Клешни - одни из самых диких к югу от Перешейка. В их жилах течет кровь Первых людей, и многие обычаи Первых людей до сих пор сохранились у них. Кроме горных кланов Долины, люди Клешни были единственными Первыми людьми, устоявшими перед вторжением андалов, и приняли Веру в Семерых только после того, как вступили в брак с андалами."
 
  tradition_agot_crannogman_name:0 "Обитатели болота"
  tradition_agot_crannogman_desc:1 "Озёрные жители - приземистый, скрытный народ, который одни считают примитивным, а другие боятся и высмеивают как грязевиков и болотных дьяволов. Их родина, Перешеек, - это большое болотистое болото, густо поросшее листвой и пологом. Мало кто знает, что происходит в глубинах Перешейка, хотя многие в Вестеросе шепчутся, что Озёрные жители научились у Детей Леса всем видам магии и колдовства. Некоторые идут ещё дальше и утверждают, что сами Озёрные жители рождаются от союза Детей и Первых людей."
@@ -169,9 +174,6 @@
  tradition_agot_greenborn_name:0 "От моря и поля"
  tradition_agot_greenborn_desc:1 "Железнорожденные, поселившиеся в глубине страны. Хотя они по-прежнему любят море, они стали более приспособленными к жизни вдали от него."
 
- tradition_agot_valyrian_name:0 "Кровь дракона"
- tradition_agot_valyrian_desc:1 "Когда-то валирийцы были бесчисленным народом, их империя простиралась от Гиса до Пентоса. Однако Фригольд, несмотря на своё название, был совсем не таким. Терпимо относясь к народам, которые они покорили на хребтах драконов, эта терпимость не помешала им поработить сотни тысяч, отправив их в отчаяние в шахты Четырнадцати Огней. Однако, Рок уничтожил почти всех чистокровных валирийцев, кроме нескольких знатных родов, вместе с их драконами, которых они использовали для завоеваний и покорений."
-
  tradition_agot_dorne_rhoynish_heritage_name:0 "Дети Матери-Ройны"
  tradition_agot_dorne_rhoynish_heritage_desc:1 "Ройнарская цивилизация древняя и прославленная. История ройнаров настолько глубока, что некоторые приписывают им то, что они научили андалов кузнечному делу и работе с железом. Родом из городов-государств вдоль реки Ройна, ройнары поклоняются многочисленным богам реки, а также питают особую привязанность ко всем видам лодок, от небольших рыболовных судов до непристойных прогулочных барж. Культура ройнаров заметно отличается от культуры андалов: равное наследование является нормой как для женщин, так и для мужчин, а однополые отношения допускаются. Ройнары известны своим пристрастием к произведениям искусства и музыке, что отчасти может быть причиной того, что некоторые ройнарские культурные обычаи так быстро прижились, когда ройнары прибыли в Дорн."
 
@@ -186,9 +188,6 @@
 
  tradition_agot_wildling_name:0 "Свирепые, жестокие и одичалые"
  tradition_agot_wildling_desc:0 "Пока большинство народов и обществ развивается и растёт, существуют группы, отказывающиеся склониться перед прогрессом — как это видно по множеству одичалых в Вестеросе. Большинство из них живёт за Стеной, но отдельные племена встречаются и в Лунных горах. Эти племенные общины свирепы, пусть и не слишком развиты, и в больших количествах способны стать угрозой."
-
- tradition_agot_westeros_valyrian_name:0 "Преодолевая шторм"
- tradition_agot_westeros_valyrian_desc:1 "Валирийцы, заселившие острова Черноводного залива во многих отношениях более похожи на андалов, чем их предки из Фригольда. Вместо того чтобы строить свое богатство на спинах рабов, копающих в глубине четырнадцати огней, западные валирийцы уже давно ищут свое богатство в море. Из них получаются трудолюбивые купцы и одни из лучших моряков в Вестеросе."
 
  tradition_agot_krakenman_name:0 "Железо и лёд"
  tradition_agot_krakenman_desc:1 "Хотя мыс Кракена является частью Севера, многие мейстеры считают, что кровь мореплавателей мыса Кракена ближе к железнорожденным, чем к северянам. Однако в культурном плане жители мыса Кракена находятся в противоречии друг с другом. Несмотря на принадлежность к северу, их положение ниже перешейка заставляет их чувствовать себя социально и культурно отдалёнными от Винтерфелла, а их кровавая история набегов железнорожденных ставит их в оппозицию к тем, кого многие считают своими солёными родственниками."
@@ -412,3 +411,18 @@
 
  tradition_agot_sistermen_name:0 "Сокровища, выброшенные на берег"
  tradition_agot_sistermen_desc:0 "#italic «Последними островами, присоединёнными к Долине, стали Три Сестры, хотя ранее тысячелетиями их обитатели кичились собственными жестокими королями – пиратами и разбойниками. Их ладьи бороздили Пасть, Узкое и даже Студёное моря, безнаказанно разоряя и грабя все, до чего могли добраться, после чего возвращались домой с грузом золота и невольников».#!"
+
+ tradition_agot_rivermen_main_name:0 "На остриях Трезубца"
+ tradition_agot_rivermen_main_desc:0 "#italic «Воспоминания о древних обидах и былых предательствах нечасто покидали умы правителей Трезубца, чья вражда была столь же глубока, как и реки, орошавшие их земли».#!"
+
+ tradition_agot_crownlander_name:0 "Отпрыски Черноводной"
+ tradition_agot_crownlander_desc:0 "#italic «Он созвал лояльных лордов в Королевскую Гавань, но все прибывшие оказались мелкими лордами с Королевских земель...»#!"
+
+ tradition_agot_clawmen_name:0 "Воля Клешни"
+ tradition_agot_clawmen_desc:0 "#italic «...развлекая их байками о Расколотой Клешне. По его рассказам в каждой мрачной долине был собственный лорд, которых объединяло недоверие к чужакам. В их жилах текла темная и сильная кровь Первых людей. «Андалы попытались взять Расколотую Клешню, но мы пустили им кровь в долинах и утопили в трясине. Но то, что их сыновья не сумели добиться своими мечами, их смазливые дочки забрали с помощью поцелуев. Они пережинились с теми родами, которые не сумели победить, да».#!"
+
+ tradition_agot_high_valyrian_name:0 "Кровь дракона"
+ tradition_agot_high_valyrian_desc:0 "#italic «Драконьи владыки старой Валирии управляли своими драконами с помощью заклинаний и звуков колдовских рогов».#!"
+
+ tradition_agot_western_valyrian_name:0 "Дары приливов"
+ tradition_agot_western_valyrian_desc:0 "#italic «...семьи древнего и легендарного валирийского происхождения, что пришла в Вестерос прежде Таргариенов...»#!"
