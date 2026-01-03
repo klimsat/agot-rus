@@ -635,12 +635,15 @@ types MenAtArms
 
 
 
-		hbox = {
+		#AGOT Modified
+		# hbox = {
+		vbox = {
 			name = "terrain_grid"
 			visible = "[Not(IsDataModelEmpty(MenAtArmsType.GetTerrainModifiers))]"
 			layoutpolicy_horizontal = expanding
 
-			vbox = {
+			#AGOT Disabled
+			# hbox = {
 				spacing = 5
 
 				text_single = {
@@ -648,7 +651,8 @@ types MenAtArms
 					visible = "[Not(IsDataModelEmpty(MenAtArmsType.GetTerrainModifiers))]"
 					layoutpolicy_horizontal = expanding
 					text = "REGIMENT_TERRAIN_BONUS_HEADER"
-					max_width = 250
+					#AGOT Disabled
+					# max_width = 250
 				}
 				
 				fixedgridbox = {
@@ -697,20 +701,23 @@ types MenAtArms
 				}
 				#AGOT Added
 				agot_secondary_menatarms_terrain_grid = {}
-			}
+			#AGOT Disabled
+			# }
 
 			expand = {}
 
-			vbox = {
-				layoutpolicy_vertical = expanding
-				spacing = 5
+			#AGOT Disabled
+			# hbox = {
+				# layoutpolicy_vertical = expanding
+				# spacing = 5
 
 				text_single = {
 					name = "winter_label"
 					layoutpolicy_horizontal = expanding
 					text = "REGIMENT_WINTER_EFFECT_HEADER"
 					visible = "[MenAtArmsType.HasWinterHarshModifier]"
-					max_width = 150
+					#AGOT Disabled
+					# max_width = 150
 				}
 
 				hbox = {
@@ -766,7 +773,8 @@ types MenAtArms
 				}
 
 				expand = {}
-			}
+			#AGOT Disabled
+			# }
 		}
 
 		text_single = {
