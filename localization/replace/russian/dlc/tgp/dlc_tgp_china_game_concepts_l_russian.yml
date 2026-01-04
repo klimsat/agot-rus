@@ -1,7 +1,7 @@
 ﻿l_russian:
   
   
-  # Celestial 
+ # Celestial 
  game_concept_celestial_government: "Мандатное правление"
  game_concept_celestial: "Мандат"
  game_concept_celestials: "Мандаты"
@@ -9,10 +9,10 @@
  game_concept_celestial_government_desc: "$game_concept_celestial$ — это [Concept('government_bureaucratic_type', 'бюрократическая')|E] [Concept('government_form', 'форма правления')|E], при которой [Concept('liege', 'сюзерен')|E] назначает [Concept('civilian_governor_short','гражданских')|E] и [Concept('military_governor_short','военных')|E] [Concept('governors', 'губернаторов')|E].\n\nПолномочия таких персонажей распространяются на [Concept('influence', 'влияние')|E], [Concept('noble_families', 'благородные семейства')|E], [Concept('family_estates', 'родовые поместья')|E] и [Concept('treasury', 'казну')|E].\n\nНезависимые [Concept('rulers', 'правители')|E] обладают [Concept('legitimacy', 'легитимностью')|E], а [Concept('vassals', 'вассалы')|E] сосредоточены на получении [Concept('merit', 'заслуг')|E]."
   
   
-  # Merit 
+ # Merit 
  game_concept_merit: "Заслуги"
  game_concept_meritorious: "Заслуженный"
-  #AGOT Modified 
+ #AGOT Modified 
  # game_concept_merit_desc: "$game_concept_merit$ — это шкала прогресса [Concept('character_possessive', 'персонажа')|E] до следующей [Concept('merit_level', 'степени заслуг')|E]. [Concept('elder', 'Старейшины')|E] и [Concept('disciples', 'послушники')|E] набирают заслуги очень быстро.\n\n[Concept('governors', 'Губернаторы')|E] повышают этот показатель, когда строят [Concept('buildings', 'здания')|E] в своих [Concept('holdings', 'владениях')|E], [Concept('activity', 'занимаются')|E] [Concept('inspection', 'осмотрами')|E], проводят [GetActivityType('activity_debate').GetName|l] и сдают [Concept('examinations', 'экзамены')|E].\n\nГубернаторы с обязательствами «[GetSubjectContractType( 'celestial_provinces' ).GetObligationNameShort( 'celestial_province_standard' )]» ускоряют накопление заслуг за месяц, когда платят больше [Concept('taxes', 'налогов')|E] [Concept('liege', 'сюзерену')|E], а губернаторы с обязательствами «[GetSubjectContractType( 'celestial_provinces' ).GetObligationNameShort( 'celestial_province_military' )]» — пополняют армию [Concept('men_at_arms', 'профессионалами')|E].\n\nПерсонажи, не являющиеся губернаторами, увеличивают показатель заслуг, когда сдают [Concept('examinations', 'экзамены')|E]."
  game_concept_merit_desc: "$game_concept_merit$ — показатель прогресса [Concept('character_possessive', 'персонажа')|E] к следующему [Concept('merit_level', 'степени заслуг')|E]. Все персонажи, у которых есть [Concept('elder', 'Старейшины')|E] или [Concept('disciples', 'послушники')|E], получают пассивный прирост Степень заслуг.\n\n[Concept('governors', 'Губернаторы')|E] могут увеличивать свой Степень заслуг, возводя [Concept('buildings', 'здания')|E] в своих [Concept('holdings', 'владениях')|E], [Concept('activity', 'занимаются')|E] [Concept('inspection', 'осмотрами')|E] и сдают [Concept('examinations', 'экзамены')|E].\n\nГубернаторы с обязательствами «[GetSubjectContractType( 'celestial_provinces' ).GetObligationNameShort( 'celestial_province_standard' )]» повышают ежемесячный прирост заслуг, уплачивая больше [Concept('taxes', 'налогов')|E] своему [Concept('liege', 'сюзерену')|E], тогда как губернаторы с обязательствами «[GetSubjectContractType( 'celestial_provinces' ).GetObligationNameShort( 'celestial_province_military' )]» — создавая [men_at_arms|E].\n\nПерсонажи, не являющиеся $game_concept_governors$, могут попытаться увеличить этот показатель, сдавая [Concept('examinations', 'экзамены')|E]."
  game_concept_merit_i: "@merit_icon!"
@@ -74,8 +74,12 @@
  game_concept_imperial_grace_desc: "Императорская благосклонность отражает статус [Concept('tributary', 'данника')|E] в глазах [Concept('son_of_heaven', 'Сына Неба')|E].\n\nПри высоком уровне благосклонности данник в ходе выполнения [Concept('tribute_missions', 'заданий с данью')|E] может получить особые привилегии. При низком уровне благосклонности $game_concept_son_of_heaven$ может #EMP взять#! с вас дань, а если благосклонность достигнет нуля, отношения будут разорваны."
   
  game_concept_seal_of_investiture: "Печать введения в должность"
- game_concept_seal_of_investiture_desc: "Официальный документ и священный символ благосклонности Сына Неба одновременно. $game_concept_seal_of_investiture$ — знак того, что [SelectLocalization( GetPlayer.IsValid, 'game_concept_seal_of_investiture_desc_ingame', 'h_china' )] считает ее держателя своим верным [Concept('tributary', 'данником')|E] и дарует ему особые привилегии.\n\nПечатью введения в должность могут наградить данника с высоким уровнем [Concept('imperial_grace', 'императорской благосклонности')|E] на торжественной церемонии завершения #bold задания данника#!."
- game_concept_seal_of_investiture_desc_ingame: "[GetTitleByKey('h_china').GetDefinitiveName]"
+ #AGOT Modified
+#  game_concept_seal_of_investiture_desc: "Simultaneously a legal document and a revered symbol of the grace of the Son of Heaven, the $game_concept_seal_of_investiture$ signifies the holder's special status as a loyal and favored [tributary|E] of [SelectLocalization( GetPlayer.IsValid, 'game_concept_seal_of_investiture_desc_ingame', 'h_china' )].\n\nA $game_concept_seal_of_investiture$ may be granted to $game_concept_tributaries$ with high [imperial_grace|E] during the closing ceremonies of a successful #bold Tribute Mission#!."
+ game_concept_seal_of_investiture_desc: "Официальный документ и священный символ благосклонности Божественного императора одновременно. $game_concept_seal_of_investiture$ — знак того, что Золотая Империя И-Ти считает ее держателя своим верным [Concept('tributary', 'данником')|E] и дарует ему особые привилегии.\n\nПечатью введения в должность могут наградить данника с высоким уровнем [Concept('imperial_grace', 'императорской благосклонности')|E] на торжественной церемонии завершения #bold задания данника#!."
+ #AGOT Modied
+#  game_concept_seal_of_investiture_desc_ingame: "[GetTitleByKey('h_china').GetDefinitiveName]"
+ game_concept_seal_of_investiture_desc_ingame: "Золотая Империя И-Ти"
  HAS_SEAL_OF_INVESTITURE: "У вас есть [Concept('seal_of_investiture', 'печать введения в должность')|E]"
  NO_SEAL_OF_INVESTITURE: "У вас нет [Concept('seal_of_investiture', 'печати введения в должность')|E]"
   
