@@ -21,10 +21,7 @@
  culture_parameter_rough_terrain_trait_bonuses:0 "[traits|E] [GetTrait('rough_terrain_expert').GetName( GetNullCharacter )] дают дополнительные бонусы"
  culture_parameter_can_recruit_forder_specialist:0 "Получает [decision|El] для найма [Concept('commanders', 'командиров')|E] с [Concept('traits', 'свойством')|E] [GetTrait('forder').GetName( GetNullCharacter )]."
  culture_parameter_can_have_paramours:0 "Персонажи могут открыто иметь любовниц, выбранных по любви, а не ради политических союзов"
- culture_parameter_cannibal_skane_trait_gives_bonuses:0 "#italic Вкус Скейна#!: [traits|E] [GetTrait('cannibal').GetName( GetNullCharacter )] дают дополнительные бонусы"
  culture_parameter_the_mark_trait_gives_bonuses:0 "#italic Дети волн#!: [traits|E] [GetTrait('the_mark').GetName( GetNullCharacter )] дают дополнительные бонусы"
- culture_parameter_stubborn_trait_gives_bonuses:0 "#italic Упорство в войне#!: [traits|E] [GetTrait('stubborn').GetName( GetNullCharacter )] дают дополнительные бонусы"
- culture_parameter_herbalist_crannog_trait_gives_bonuses:0 "#italic Ядовитые знания#!: [traits|E] [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] дают дополнительные бонусы"
  culture_parameter_cheaper_tour_activity:0 "Занятие «[GetActivityType( 'activity_tour' ).GetName]» обходится на #P 10%#! дешевле"
  cheaper_tour_activity_discount:0 "#L [GetPlayer.GetCulture.GetCollectiveNoun]ая#! [Concept('culture', 'культура')|E]" # multiplier desc
 
@@ -38,6 +35,8 @@
  culture_parameter_wrathful_trait_more_common:0 "[trait|E] «[GetTrait('wrathful').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_brave_trait_more_common:0 "[trait|E] «[GetTrait('brave').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_dragon_dreams_more_common:0 "[trait|E] «[GetTrait('dragon_dreams').GetName( GetNullCharacter )]» встречается чаще"
+ culture_parameter_cannibal_trait_is_more_common:0 "[trait|E] «[GetTrait('cannibal').GetName( GetNullCharacter )]» встречается чаще"
+ culture_parameter_greensight_more_common:0 "[trait|E] «[GetTrait('greensight').GetName( GetNullCharacter )]» встречается чаще"
 
  #Commander Traits
  culture_parameter_organizer_trait_more_common:0 "[commander_trait|E] «[GetTrait('organizer').GetName( GetNullCharacter )]» встречается чаще"
@@ -48,18 +47,22 @@
  culture_parameter_military_engineer_trait_more_common:0 "[commander_trait|E] «[GetTrait('military_engineer').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_forder_trait_more_common:0 "[commander_trait|E] «[GetTrait('forder').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_open_terrain_expert_trait_more_common:0 "[commander_trait|E] «[GetTrait('open_terrain_expert').GetName( GetNullCharacter )]» встречается чаще"
+ culture_parameter_reaver_trait_more_common:0 "[commander_trait|E] «[GetTrait('reaver').GetName( GetNullCharacter )]» встречается чаще"
 
  #Terrain Bonuses
  culture_parameter_wetlands_trait_bonuses:0 "Некоторые из [Concept('commander_traits', 'свойств командира')|E] и [Concept('personality_traits', 'личностных свойств')|E] дают дополнительные бонусы на болотах"
  culture_parameter_plains_trait_bonuses:0 "Некоторые из [Concept('commander_traits', 'свойств командира')|E] и [Concept('personality_traits', 'личностных свойств')|E] дают дополнительные бонусы на равнинах"
  culture_parameter_steppe_trait_bonuses:0 "Некоторые из [Concept('commander_traits', 'свойств командира')|E] и [Concept('personality_traits', 'личностных свойств')|E] дают дополнительные бонусы на степях"
  culture_parameter_urban_trait_bonuses:0 "Некоторые из [Concept('commander_traits', 'свойств командира')|E] и [Concept('personality_traits', 'личностных свойств')|E] дают дополнительные бонусы в городах"
+ culture_parameter_bog_hunt_success_chance:0 "Повышенный [Concept('hunt_success_chance', 'шанс успеха охоты')|E] на такой местности, как [GetTerrain( 'the_bog' ).GetName]"
 
  #Trait Valued
  culture_parameter_shrewd_trait_more_valued:0 "[trait|E] «[GetTrait('shrewd').GetName( GetNullCharacter )]» ценится выше"
  culture_parameter_knight_trait_more_valued:0 "[trait|E] «[GetTrait('knight').GetName( GetNullCharacter )]» ценится выше"
  culture_parameter_just_trait_more_valued:0 "[trait|E] «[GetTrait('just').GetName( GetNullCharacter )]» ценится выше"
  culture_parameter_cul_more_likely_born_with_mark:0 "Персонажи этой культуры с большей вероятностью рождаются с #TOOLTIP:GAME_TRAIT,the_mark,[GetNullCharacter] #L отметинами#!#!"
+ culture_parameter_cannibal_trait_more_valued:0 "[trait|E] «[GetTrait('cannibal').GetName( GetNullCharacter )]» ценится выше"
+ culture_parameter_poet_trait_more_valued: "[trait|E] «[GetTrait('lifestyle_poet').GetName( GetNullCharacter )]» ценится выше"
 
  #Trait Looked Down Upon
  culture_parameter_slave_master_trait_looked_down_upon:0 "[trait|E] «[GetTrait('slave_master').GetName( GetNullCharacter )]» презирается"
@@ -73,6 +76,7 @@
  culture_parameter_shy_trait_looked_down_upon:0 "[trait|E] «[GetTrait('shy').GetName( GetNullCharacter )]» презирается"
  culture_parameter_gluttonous_looked_down_upon:0 "[trait|E] «[GetTrait('gluttonous').GetName( GetNullCharacter )]» презирается"
  culture_parameter_arbitrary_trait_looked_down_upon:0 "[trait|E] «[GetTrait('arbitrary').GetName( GetNullCharacter )]» презирается"
+ culture_parameter_disloyal_looked_down_upon:0 "[trait|E] «[GetTrait('disloyal').GetName( GetNullCharacter )]» презирается"
 
  #Wanderers Extra Skills
  culture_parameter_wanderers_gain_extra_learning_skills:0 "[wanderers|E] со временем получают дополнительные навыки, например [Concept('learning', 'учёность')|E] или [Concept('lifestyle_traits', 'приобретённые свойства')|E]"
@@ -90,16 +94,22 @@
  culture_parameter_better_smith_buildings:0 "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_smiths_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_better_bakeries_bonuses:0 "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_agot_urban_farms_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_better_watermill_bonuses:0 "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_watermills_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
+ culture_parameter_better_regimental_bonuses:0 "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_regimental_grounds_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
+ culture_parameter_better_barracks_bonuses:0 "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_barracks_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_watermills_without_innovations_unlock:0 "Для строительства цепочки [Concept('buildings', 'зданий')|E] #V $building_type_watermills_01$#! не требуется инновация"
+ culture_parameter_control_gain_on_building_complete:0 "Завершение строительства [Concept('building', 'здания')|E] предоставляет #P 15#! [Concept('control', 'контроля')|E] #weak (до одного раза в год)#!"
+ culture_parameter_piety_gain_on_building_complete:0 "Завершение строительства [Concept('building', 'здания')|E] предоставляет [Concept('piety', 'благочестие')|E]"
+
 
  #Misc
  culture_parameter_shortened_truce_period:0 "Снижение продолжительности [Concept('truces', 'перемирий')|E]"
  culture_parameter_more_slaves_from_raiding:0 "Повышение количества захваченных рабов при использовании [Concept('casus_bellis', 'казус белли')|E] #V Налёт за рабами#!"
  culture_parameter_gain_piety_from_aggro_war_victory:0 "Победа в войнах в качестве основного нападающего приносит [Concept('piety', 'благочестие')|E]"
  culture_parameter_guardians_add_more_prowess_to_wards:0 "Дети получат бонус к [Concept('prowess', 'доблести')|E], если их [Concept('guardian', 'наставники')|E] принадлежат к той же [Concept('culture', 'культуре')|E]"
+ culture_parameter_slightly_hard_to_convert_county_faith:0 "Сопротивление обращению графства: #P +10%#!"
 
- # Vanilla Tradition Effects Add-Ons
- culture_parameter_the_bog_hunt_success_chance:0 "Повышенный [Concept( 'hunt_success_chance', 'шанс успеха охоты' )|E] на такой местности, как [GetTerrain( 'the_bog' ).GetName]"
+ #Triggers and Tooltips
+ TRADITION_SLIGHTLY_HARD_TO_CONVERT_CONVERSION_MODIFIER:0 "[culture_tradition|E] «$tradition_agot_first_men_name$»: $VALUE|=+0$"
 
  #Traditions
  tradition_agot_blackwater_bay_name:0 "Владения короны"
@@ -111,14 +121,8 @@
  tradition_agot_valeman_finger_name:0 "Скромная служба"
  tradition_agot_valeman_finger_desc:1 "Персты - мрачное и ветреное место, настолько сильно бушующее северными ветрами, что почти не растёт растительность неподалеку от их кончиков. Для простолюдинов здесь мало возможностей заработать на жизнь, кроме как выращивать скот на выпасе, ведь земли мало, чтобы сделать их пригодными для сельского хозяйства. Таким образом, жители Перстов живут скромной жизнью, а козоводы и арендаторы находят некоторое удовлетворение в своем непрощающем доме."
 
- tradition_agot_harborman_name:0 "От Мандера до Белого ножа"
- tradition_agot_harborman_desc:1 "Жители Гавани - это люди, обосновавшиеся вокруг Белой Гавани, крупнейшего поселения на Севере. Они несут в себе сильнейшее андальское влияние из всех народов на Севере, дом Мандерли, после своего изгнания из Простора, принесший с собой Веру в Семерых и многие другие андальские обычаи."
-
  tradition_agot_honeywiner_name:0 "Мягкая и сладкая"
  tradition_agot_honeywiner_desc:1 "Люди, проживающие на берегах реки Медовички и ее окрестностей, являются одними из самых процветающих во всем Вестеросе. Благодаря плодородным землям и великому городу Староместу, много торговли проходит через эту реку, которая дала людям свое название. С Цитаделью и Звездной септой, эта область является оплотом образования в Вестеросе, и даже многие простые люди умеют читать и писать."
-
- tradition_agot_marcher_name:0 "Кровь и сталь"
- tradition_agot_marcher_desc:1 "Люди из Дорнийских марок являются одними из самых свирепых воинов во всем Вестеросе и породили многих его лучших воинов. Их культура основана на веках, а может быть, и тысячелетиях, граничных стычках с Каменными дорнийцами через горы. Люди из марок имеют долгую память, и большая часть из них используется для хранения обид поколений."
 
  tradition_agot_valeman_upper_name:0 "В вышине"
  tradition_agot_valeman_upper_desc:1 "Отделённые от своих сородичей, которые обосновались в плодородных землях Долины, люди, которые живут на высотах Лунных гор, являются куда более грубыми, стойкими людьми. Во время войны именно они становятся первой линией защиты от внешних вторжений, а также им приходится иметь дело с наибольшим числом нападений от горных клановцев, поскольку они живут на высотах."
@@ -132,11 +136,14 @@
  tradition_agot_shieldman_name:0 "Стражи Мандера"
  tradition_agot_shieldman_desc:1 "Щитовые острова, названные так в честь своей главной функции - служить щитом от нападений железнорожденных, - представляют собой совокупность четырех хорошо укреплённых островов Простора, находящихся под надзором четырёх отдельных домов. Верный (хотя и, возможно, изолированный) народ, жители Щитовых островов известны своим выносливым характером и чувством долга. Острова славятся своими маяками, которые старейшины на сторожевых башнях зажигают остров за островом, чтобы предупредить внутренние поселения о приближающихся кораблях. Прежде всего, жители Щитовых островов ценят себя как первую линию морской обороны."
 
+ tradition_agot_stormlands_name:0 "Like Unto Their Weather"
+ tradition_agot_stormlands_desc:0 "The Stormlanders are a hardy bunch, well known for their martial inclinations and their quickness to anger. The men and women of the Stormlands have weathered the wrath of men, nature, and even the gods themselves, and yet they not only remain, but prosper."
+
+ tradition_agot_marches_name:0 "Wars Beyond Count"
+ tradition_agot_marches_desc:0 "The Marches have long been the crossroads of the Stormlands, the Reach, and Dorne, witnessing countless battles since the Dawn Age. The people who call them home are known for their martial skill, fierce stubbornness, and constant alertness to all would-be threats."
+
  tradition_agot_stone_dornish_name:0 "Стражи перевалов"
  tradition_agot_stone_dornish_desc:1 "Каменные дорнийцы - этнически и культурно наименее подверженные влиянию ройнаров дорнийцы. Живущие на высотах и в долинах Красных гор, их культура сформировалась под влиянием поколений конфликтов с приграничными лордами Простора и Штормовых земель, они яростно защищают свои горные перевалы от внешних вторжений."
-
- tradition_agot_stormlander_name:0 "Раскаты грома"
- tradition_agot_stormlander_desc:1 "Жители Штормовых земель славятся тем, что они суровы и грозны, как и их погода. Они ведут суровую жизнь в холмистой местности своей родины, формируя из них одних из самых сильных и выносливых воинов Вестероса. Помимо войн, бурные моря залива Разбитых кораблей порождают выносливых и крепких моряков."
 
  tradition_agot_vale_name:0 "Горы и Долина"
  tradition_agot_vale_desc:0 "Старое королевство Арренов определяют Лунные горы и долины, тянущиеся между ними, прежде всего Долина Арренов. Эти две особенности изолировали народы к востоку от них от остального Вестероса и сплотили их."
@@ -147,32 +154,14 @@
  tradition_agot_westerman_name:0 "Из золота и серебра"
  tradition_agot_westerman_desc:1 "Западные земли, на первый взгляд, кажутся скудным местом; не самое большое и не самое густонаселенное из Семи Королевств, оно, тем не менее, самое богатое. То, чего ему не хватает в виде полей плодородных фермерских угодий, он с лихвой компенсирует щедростью своих холмов, богатых золотом и серебром. Именно на этом изобилии ценных минералов зиждется могущество Западных земель, и их дворяне ревностно охраняют свои шахты от тех, кто смотрит на них, завидуя их изобилию."
 
- tradition_agot_barrowman_name:0 "Холмы и возвышенности"
- tradition_agot_barrowman_desc:1 "Хотя когда-то курганами правила династия Курганных королей, их народ ассимилировался с остальными северянами после того, как династия подчинилась Винтерфеллу в конце тысячелетнего конфликта. Жители Курганов - выдающиеся наездники, а обширные равнины местности делают Курганы пригодными для ведения кавалерийской войны, что, в свою очередь, делает Курганы ценными союзниками для тех, кто хочет вести военные действия на севере."
-
- tradition_agot_crannogman_name:0 "Обитатели болота"
- tradition_agot_crannogman_desc:1 "Озёрные жители - приземистый, скрытный народ, который одни считают примитивным, а другие боятся и высмеивают как грязевиков и болотных дьяволов. Их родина, Перешеек, - это большое болотистое болото, густо поросшее листвой и пологом. Мало кто знает, что происходит в глубинах Перешейка, хотя многие в Вестеросе шепчутся, что Озёрные жители научились у Детей Леса всем видам магии и колдовства. Некоторые идут ещё дальше и утверждают, что сами Озёрные жители рождаются от союза Детей и Первых людей."
-
- tradition_agot_firstman_name:0 "Первые"
- tradition_agot_firstman_desc:1 "До Семи Королевств, Рока Валирии и даже андалов существовали Первые люди. Орудуя мечами и топорами из бронзы, Первые люди первыми из всех людей заселили Вестерос, вписав свою культуру и влияние глубоко в кровь континента и всех тех, кто пришёл после них. Хотя на старом языке до сих пор говорят вольный народ и великаны, их руническая письменность исчезла, как и многие старые предания, которые не удалось передать устно. Хотя отголоски культуры Первых людей можно найти по всему Вестеросу, она наиболее сильна на Севере, где северян всё ещё можно встретить молящимися чардревам в богорощах, как это делали Первые люди."
-
- tradition_agot_northern_clan_name:0 "Кланы Севера"
- tradition_agot_northern_clan_desc:1 "Жители холмов - одни из самых диких и наименее цивилизованных людей к югу от Стены. Среди больших и малых кланов распространены междоусобицы и соперничество; этот круговорот вражды и возмездия проливал неисчислимую кровь на протяжении веков. Из-за близости к Стене кланы крепко связаны с Ночным Дозором и взаимодействуют с одичалыми посредством набегов и торговли чаще других народов к югу от Стены."
-
- tradition_agot_northman_name:0 "Преданные и верные"
- tradition_agot_northman_desc:1 "Северяне - одни из последних Первых людей и, безусловно, самый многочисленный народ, который все еще существует. От вторжения андалов их защищала непроходимая местность Перешейка и крепость Ров Кейлин. Северяне остались при своих древних традициях, продолжая поклоняться старым богам. По сей день северяне являются изоляционистским народом и редко интересуются делами к югу от Перешейка."
+ tradition_agot_north_name:0 "Bound by Bronze and Iron"
+ tradition_agot_north_desc:0 "The Northrons, the men and women who call the North their home, are a grim and hardy people. United by the Hungry Wolf thousands of years ago, the peoples are as varied as the lands they call home, and yet all are bound by their ancient oaths."
 
  tradition_agot_sisterman_name:0 "Под морской водой"
  tradition_agot_sisterman_desc:1 "На протяжении большей части своей истории жители Сестёр имели больше общего с Железнорождёнными, чем с людьми Долины или Севера. Тысячелетиями жителями Сестёр правили их короли-пираты, грабившие берега, чтобы обеспечить себя тем, чего не могли дать их занесённые ветрами острова, и поклонявшиеся странным божествам, неизвестным ни андалам, ни Первым людям."
 
- tradition_agot_skagosi_name:0 "Дети камня"
- tradition_agot_skagosi_desc:1 "Скагосцы, известные многим чужакам под насмешливым названием «скагги», для большинства людей ближе к одичалым, чем к цивилизованным людям. Для самих себя они - Каменнорожденные, гордый народ, который делает всё возможное, чтобы лучше использовать суровые скалы, которые они называют своим домом. По слухам, они продолжают некоторые из темных и более диких традиций Первых людей, включая каннибализм и человеческие жертвоприношения."
-
- tradition_agot_ironborn_name:0 "Соль и камень"
- tradition_agot_ironborn_desc:1 "Железные острова - это, несомненно, суровое, бесплодное место. Этот факт в точности отражает его народ. Культура Железнорожденных построена на добыче, оплате железной цены. Не имея пахотных земель на своих скалистых выступах, Железнорожденные с незапамятных времен ушли в море, а те, у кого не было способности к военному делу, стали рыбаками. На скудных фермах Железных островов работают невольники, ибо земледелие считается ниже достоинства даже для простолюдинов."
-
- tradition_agot_greenborn_name:0 "От моря и поля"
- tradition_agot_greenborn_desc:1 "Железнорожденные, поселившиеся в глубине страны. Хотя они по-прежнему любят море, они стали более приспособленными к жизни вдали от него."
+ tradition_agot_ironmen_name:0 "Carved from Pale Wood"
+ tradition_agot_ironmen_desc:0 "The Ironmen are a scourge from the seas, yet their influence ebbs and flows like the tides that bring them. At times they are confined solely to their islands in the Sunset Sea; at others, they have spread to the Green Lands and ruled there. However, they always remain united by their ancient ties to the Grey King who dwells below."
 
  tradition_agot_dorne_rhoynish_heritage_name:0 "Дети Матери-Ройны"
  tradition_agot_dorne_rhoynish_heritage_desc:1 "Ройнарская цивилизация древняя и прославленная. История ройнаров настолько глубока, что некоторые приписывают им то, что они научили андалов кузнечному делу и работе с железом. Родом из городов-государств вдоль реки Ройна, ройнары поклоняются многочисленным богам реки, а также питают особую привязанность ко всем видам лодок, от небольших рыболовных судов до непристойных прогулочных барж. Культура ройнаров заметно отличается от культуры андалов: равное наследование является нормой как для женщин, так и для мужчин, а однополые отношения допускаются. Ройнары известны своим пристрастием к произведениям искусства и музыке, что отчасти может быть причиной того, что некоторые ройнарские культурные обычаи так быстро прижились, когда ройнары прибыли в Дорн."
@@ -189,17 +178,8 @@
  tradition_agot_wildling_name:0 "Свирепые, жестокие и одичалые"
  tradition_agot_wildling_desc:0 "Пока большинство народов и обществ развивается и растёт, существуют группы, отказывающиеся склониться перед прогрессом — как это видно по множеству одичалых в Вестеросе. Большинство из них живёт за Стеной, но отдельные племена встречаются и в Лунных горах. Эти племенные общины свирепы, пусть и не слишком развиты, и в больших количествах способны стать угрозой."
 
- tradition_agot_krakenman_name:0 "Железо и лёд"
- tradition_agot_krakenman_desc:1 "Хотя мыс Кракена является частью Севера, многие мейстеры считают, что кровь мореплавателей мыса Кракена ближе к железнорожденным, чем к северянам. Однако в культурном плане жители мыса Кракена находятся в противоречии друг с другом. Несмотря на принадлежность к северу, их положение ниже перешейка заставляет их чувствовать себя социально и культурно отдалёнными от Винтерфелла, а их кровавая история набегов железнорожденных ставит их в оппозицию к тем, кого многие считают своими солёными родственниками."
-
  tradition_agot_moon_clan_name:0 "Над заходящим солнцем"
  tradition_agot_moon_clan_desc:1 "В глубине Лунных гор обитают горные кланы, самые дикие и нецивилизованные люди к югу от Стены. Они - последние истинные остатки Первых людей в Долине, их горный дом защищает их от натиска андалов, оставляя им возможность продолжать свой примитивный образ жизни без особого вмешательства извне."
-
- tradition_agot_wolfswood_clansman_name:0 "В самой глубине"
- tradition_agot_wolfswood_clansman_desc:1 "Выносливые и трудолюбивые люди, представители кланов Волчьего леса известны не только своим суровым характером, но и своими талантами в подледном лове рыбы. Хотя они и не являются великими домами, кровь кланов Волчьего леса течет так же глубоко, как и у любой знатной семьи - происходя от Первых людей, некоторые из кланов пережили сам лес, а некоторые из них превратились в пепел во время набега Железнорожденных. Говорят, что некоторые кланы до сих пор практикуют первую ночь, а вожди кланов считаются «лордами» у своих сюзеренов - хотя это скорее вежливая учтивость со стороны сюзерена, поскольку вожди кланов не считают себя высокородными."
-
- tradition_agot_bearman_name:0 "Среди медведей и сосен"
- tradition_agot_bearman_desc:1 "Жители Медвежьего острова - выносливый народ, давно привыкший к набегам как железнорожденных, так и одичалых. Они удерживают остров со времён короля Родрика Старка, так будет и впредь. Такая жизнь в состоянии постоянной борьбы привела к тому, что местные женщины наравне со своими мужьями остаивают свой остров с оружием в руках и, по слухам, грозны, словно медведица, защищающая своих детёнышей."
 
  tradition_agot_rushlander_name:0 "Там, где реки встречаются с холмами"
  tradition_agot_rushlander_desc:1 "Культура, зародившаяся на границе Долины и Речных земель. Жители пограничья - выносливый народ, приспособленный к жизни как на холмах, так и на реках."
@@ -426,3 +406,45 @@
 
  tradition_agot_western_valyrian_name:0 "Дары приливов"
  tradition_agot_western_valyrian_desc:0 "#italic «...семьи древнего и легендарного валирийского происхождения, что пришла в Вестерос прежде Таргариенов...»#!"
+
+ tradition_agot_ironborn_name:0 "Paying the Iron Price"
+ tradition_agot_ironborn_desc:0 "#italic “War was an ironman's proper trade. The Drowned God had made them to reave and rape, to carve out kingdoms and write their names in fire and blood and song.”#!"
+
+ tradition_agot_greenborn_name:0 "Ruling the Green Lands"
+ tradition_agot_greenborn_desc:0 "#italic “You may dress an ironman in silks and velvets, teach him to read and write and give him books, instruct him in chivalry and courtesy and the mysteries of the Faith... but when you look into his eyes, the sea will still be there, cold and grey and cruel.”#!"
+
+ tradition_agot_first_men_name:0 "Conquer with Bronze and Steed"
+ tradition_agot_first_men_desc:0 "#italic “The First Men—who had brought with them strange gods, horses, cattle, and weapons of bronze—were also larger and stronger than the children, and so they were a significant threat.”#!"
+ 
+ tradition_agot_northmen_name:0 "Ruled by Wolves and Winter"
+ tradition_agot_northmen_desc:0 "#italic “Hearth and heart and harvest we yield to you, my lord. Our swords and spears and arrows are yours to command. Grant mercy to our weak, help to our helpless, and justice to all, and we shall never fail you... I swear it by earth and water... I swear it by bronze and iron... We swear it by ice and fire.”#!"
+
+ tradition_agot_bearmen_name:0 "Standing with Bear and Kin"
+ tradition_agot_bearmen_desc:0 "#italic “"She-bears, aye," said Lady Maege. "We have needed to be. In olden days the ironmen would come raiding in their longboats, or wildlings from the Frozen Shore. The men would be off fishing, like as not. The wives they left behind had to defend themselves and their children, or else be carried off."”#!"
+
+ tradition_agot_wolfswood_clansmen_name:0 "Hunt by Fang and Feather"
+ tradition_agot_wolfswood_clansmen_desc:0 "#italic “The wolfswood is full of danger; your last ride should have taught you that.”#!"
+
+ tradition_agot_northern_clans_name:0 "Armed with Mail and Ice"
+ tradition_agot_northern_clans_desc:0 "#italic “The map is not the land, my father often said. Men have lived in the high valleys and mountain meadows for thousands of years, ruled by their clan chiefs.”#!"
+
+ tradition_agot_barrowmen_name:0 "Charging over Rills and Hills"
+ tradition_agot_barrowmen_desc:0 "#italic “There are barrows everywhere in the north, Your Grace... This land is old... And cold.”#!"
+
+ tradition_agot_stoneborn_name:0 "Feast of Stone and Flesh"
+ tradition_agot_stoneborn_desc:0 "#italic “...well, only heart trees ever see half of what they do on Skagos.”#!"
+ 
+ tradition_agot_krakenmen_name:0 "Birthed from Salt and Snow"
+ tradition_agot_krakenmen_desc:0 "#italic “Indeed, Cape Kraken, closest to the Iron Islands, has changed hands so many times that many maesters believe its populace to be closer in blood to the ironmen than to Northmen.”#!"
+
+ tradition_agot_crannogmen_name:0 "Sworn by Earth and Water"
+ tradition_agot_crannogmen_desc:0 "#italic “Just as dangerous were its people, seldom seen but always lurking, the swamp-dwellers, the frog-eaters, the mud-men.”#!"
+
+ tradition_agot_harbormen_name:0 "Welcomed with Snow and Silver"
+ tradition_agot_harbormen_desc:0 "#italic “They'd been great lords on the Mander until they overreached themselves and the green hands slapped them down. The wolf king took their gold, but he gave them land and let them keep their gods.”#!"
+
+ tradition_agot_stormlander_main_name:0 "Warriors of Thunder"
+ tradition_agot_stormlander_main_desc:0 "#italic “Those who do choose to make their homes in the stormlands—whether along the stony shores of the narrow sea, amidst the dripping green forests of the rainwood, or on the windswept marches—are a special breed, however. The people of the stormlands are like unto their weather, it has oft been said: tumultuous, violent, implacable, unpredictable.”#!"
+
+ tradition_agot_marcher_name:0 "Song of Swords"
+ tradition_agot_marcher_desc:0 "#italic “There in the sight of the Red Mountains, the great castles of the Marcher lords stand, built to guard the borders of the stormlands against Dornish incursions from the south and the steel-clad minions of the Kings of the Reach from the west.”#!"
