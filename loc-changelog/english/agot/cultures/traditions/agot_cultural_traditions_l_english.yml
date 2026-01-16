@@ -21,10 +21,7 @@
  culture_parameter_rough_terrain_trait_bonuses:0 "The [GetTrait('rough_terrain_expert').GetName( GetNullCharacter )] [traits|E] have additional bonuses"
  culture_parameter_can_recruit_forder_specialist:0 "Gain a [decision|E] to recruit [commanders|E] with [GetTrait('forder').GetName( GetNullCharacter )] [traits|E]"
  culture_parameter_can_have_paramours:0 "Characters can openly have paramours chosen for love, rather than for the sake of political alliances"
- culture_parameter_cannibal_skane_trait_gives_bonuses:0 "#italic A Taste of Skane#!: The [GetTrait('cannibal').GetName( GetNullCharacter )] [traits|E] have additional bonuses"
  culture_parameter_the_mark_trait_gives_bonuses:0 "#italic Children of the Waves#!: The [GetTrait('the_mark').GetName( GetNullCharacter )] [traits|E] have additional bonuses"
- culture_parameter_stubborn_trait_gives_bonuses:0 "#italic Stubborn in War#!: The [GetTrait('stubborn').GetName( GetNullCharacter )] [traits|E] have additional bonuses"
- culture_parameter_herbalist_crannog_trait_gives_bonuses:0 "#italic Poisonous Knowledge#!: The [GetTrait('lifestyle_herbalist').GetName( GetNullCharacter )] [traits|E] have additional bonuses"
  culture_parameter_cheaper_tour_activity:0 "The [GetActivityType( 'activity_tour' ).GetName] activity is #P 10%#! cheaper"
  cheaper_tour_activity_discount:0 "[GetPlayer.GetCulture.GetName] [culture|E]" # multiplier desc
 
@@ -38,6 +35,8 @@
  culture_parameter_wrathful_trait_more_common:0 "The [GetTrait('wrathful').GetName( GetNullCharacter )] [trait|E] is more common"
  culture_parameter_brave_trait_more_common:0 "The [GetTrait('brave').GetName( GetNullCharacter )] [trait|E] is more common"
  culture_parameter_dragon_dreams_more_common:0 "The [GetTrait('dragon_dreams').GetName( GetNullCharacter )] [trait|E] is more common"
+ culture_parameter_cannibal_trait_is_more_common:0 "The [GetTrait('cannibal').GetName( GetNullCharacter )] [trait|E] is more common"
+ culture_parameter_greensight_more_common:0 "The [GetTrait('greensight').GetName( GetNullCharacter )] [trait|E] is more common"
 
  #Commander Traits
  culture_parameter_organizer_trait_more_common:0 "The [GetTrait('organizer').GetName( GetNullCharacter )] [commander_trait|E] is more common"
@@ -48,18 +47,22 @@
  culture_parameter_military_engineer_trait_more_common:0 "The [GetTrait('military_engineer').GetName( GetNullCharacter )] [commander_trait|E] is more common"
  culture_parameter_forder_trait_more_common:0 "The [GetTrait('forder').GetName( GetNullCharacter )] [commander_trait|E] is more common"
  culture_parameter_open_terrain_expert_trait_more_common:0 "The [GetTrait('open_terrain_expert').GetName( GetNullCharacter )] [commander_trait|E] is more common"
+ culture_parameter_reaver_trait_more_common:0 "The [GetTrait('reaver').GetName( GetNullCharacter )] [commander_trait|E] is more common"
 
  #Terrain Bonuses
  culture_parameter_wetlands_trait_bonuses:0 "Some [commander_traits|E] and [personality_traits|E] have extra Wetlands bonuses"
  culture_parameter_plains_trait_bonuses:0 "Some [commander_traits|E] and [personality_traits|E] have extra Plains bonuses"
  culture_parameter_steppe_trait_bonuses:0 "Some [commander_traits|E] and [personality_traits|E] have extra Steppe bonuses"
  culture_parameter_urban_trait_bonuses:0 "Some [commander_traits|E] and [personality_traits|E] have extra Urban bonuses"
+ culture_parameter_bog_hunt_success_chance:0 "Increased [hunt_success_chance|E] in [GetTerrain( 'the_bog' ).GetName]"
 
  #Trait Valued
  culture_parameter_shrewd_trait_more_valued:0 "The [GetTrait('shrewd').GetName( GetNullCharacter )] [trait|E] is more valued"
  culture_parameter_knight_trait_more_valued:0 "The [GetTrait('knight').GetName( GetNullCharacter )] [trait|E] is more valued"
  culture_parameter_just_trait_more_valued:0 "The [GetTrait('just').GetName( GetNullCharacter )] [trait|E] is more valued"
  culture_parameter_cul_more_likely_born_with_mark:0 "Characters of this culture are more likely to be born with [GetTrait('the_mark').GetName( GetNullCharacter )]"
+ culture_parameter_cannibal_trait_more_valued:0 "The [GetTrait('cannibal').GetName( GetNullCharacter )] [trait|E] is more valued"
+ culture_parameter_poet_trait_more_valued: "The [GetTrait('lifestyle_poet').GetName( GetNullCharacter )] [trait|E] is more valued"
 
  #Trait Looked Down Upon
  culture_parameter_slave_master_trait_looked_down_upon:0 "The [GetTrait('slave_master').GetName( GetNullCharacter )] [trait|E] is looked down upon"
@@ -73,6 +76,7 @@
  culture_parameter_shy_trait_looked_down_upon:0 "The [GetTrait('shy').GetName( GetNullCharacter )] [trait|E] is looked down upon"
  culture_parameter_gluttonous_looked_down_upon:0 "The [GetTrait('gluttonous').GetName( GetNullCharacter )] [trait|E] is looked down upon"
  culture_parameter_arbitrary_trait_looked_down_upon:0 "The [GetTrait('arbitrary').GetName( GetNullCharacter )] [trait|E] is looked down upon"
+ culture_parameter_disloyal_looked_down_upon:0 "The [GetTrait('disloyal').GetName( GetNullCharacter )] [trait|E] is looked down upon"
 
  #Wanderers Extra Skills
  culture_parameter_wanderers_gain_extra_learning_skills:0 "[wanderers|E] gain extra knowledge skills over time, such as [learning|E] or [lifestyle_traits|E]"
@@ -90,16 +94,22 @@
  culture_parameter_better_smith_buildings:0 "The #V $building_type_smiths_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_better_bakeries_bonuses:0 "The #V $building_type_agot_urban_farms_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_better_watermill_bonuses:0 "The #V $building_type_watermills_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
+ culture_parameter_better_regimental_bonuses:0 "The #V $building_type_regimental_grounds_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
+ culture_parameter_better_barracks_bonuses:0 "The #V $building_type_barracks_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_watermills_without_innovations_unlock:0 "The #V $building_type_watermills_01$#! line of [buildings|E] do not require innovations to be built"
+ culture_parameter_control_gain_on_building_complete:0 "Gain #P 15#! [control|E] when a [building|E] is constructed #weak (up to once a year)#!"
+ culture_parameter_piety_gain_on_building_complete:0 "Gain [piety|E] when a [building|E] is constructed"
+
 
  #Misc
  culture_parameter_shortened_truce_period:0 "Shorter [truces|E]"
  culture_parameter_more_slaves_from_raiding:0 "More slaves are captured when using a #V Raid for Slaves#! [casus_bellis|E]"
  culture_parameter_gain_piety_from_aggro_war_victory:0 "Winning wars as the primary attacker will grant [piety|E]"
  culture_parameter_guardians_add_more_prowess_to_wards:0 "Children will gain additional [prowess|E] if they have a [guardian|E] of this [culture|E]"
+ culture_parameter_slightly_hard_to_convert_county_faith:0 "County Conversion Resistance: #P +10%#!"
 
- # Vanilla Tradition Effects Add-Ons
- culture_parameter_the_bog_hunt_success_chance:0 "Increased [hunt_success_chance|E] in [GetTerrain( 'the_bog' ).GetName]"
+ #Triggers and Tooltips
+ TRADITION_SLIGHTLY_HARD_TO_CONVERT_CONVERSION_MODIFIER:0 "$tradition_agot_first_men_name$ [culture_tradition|E]: $VALUE|=+0$"
 
  #Traditions
  tradition_agot_blackwater_bay_name:0 "Domain of the Crown"
@@ -111,14 +121,8 @@
  tradition_agot_valeman_finger_name:0 "Humble Service"
  tradition_agot_valeman_finger_desc:0 "The Fingers are a dreary, windswept place, so assailed by the winds from the frigid north that little vegetation grows near their tips. There is little living to be made for the smallfolk beyond herding grazing animals, as there's scant land to make usable cropland. Thus, the Fingermen live modest lives, and the goatherds and sharecroppers find some contentment in their unforgiving home."
 
- tradition_agot_harborman_name:0 "From Mander to the Knife"
- tradition_agot_harborman_desc:0 "The Harbormen are a people settled around White Harbor, the largest settlement in the North. They carry with them the strongest Andal influence of any people in the North, with House Manderly having brought the Faith of the Seven and many other Andal customs with them after their expulsion from the Reach."
-
  tradition_agot_honeywiner_name:0 "Soft and Sweet"
  tradition_agot_honeywiner_desc:0 "The men of the Honeywine and its surrounding lands are some of the most prosperous in all Westeros. With fertile lands and the great city of Oldtown, much trade flows through the river that gives the people their name. With the Citadel and Starry Sept, the area is a bastion of learning in Westeros, with even many smallfolk being lettered."
-
- tradition_agot_marcher_name:0 "Blood and Steel"
- tradition_agot_marcher_desc:0 "The men of the Dornish Marches are some of the fiercest fighters in Westeros and have produced many of its finest warriors. Their culture is built upon centuries, if not millennia, of back-and-forth border skirmishes with the Stony Dornishmen across the mountains. The men of the Marches have a long memory, and most of that is used to remember generational grudges."
 
  tradition_agot_valeman_upper_name:0 "High Above"
  tradition_agot_valeman_upper_desc:0 "Set apart from their kin who make their homes in the Vale's fertile valleys, the men who dwell in the heights of the Mountains of the Moon are a far more rugged, stalwart folk. In times of war, it is they who man the first lines of defense against outside incursions, and with their lives at high altitude, it is also they who must deal most with incursions from the Mountain Clansmen."
@@ -132,11 +136,14 @@
  tradition_agot_shieldman_name:0 "Guarding the Mander"
  tradition_agot_shieldman_desc:0 "Named after their primary function as a shield against Ironborn attacks, the Shield Isles are a collective of four well-fortified islands of the Reach, overseen by four separate houses. A loyal (although arguably isolated) people, those of the Shield Isles are known for their hardy temperaments and sense of duty. The islands are famous for their beacons, which elders in watchtowers light island by island to spread warnings of incoming longships to inland settlements. Above all else, those from the Shield Isles value themselves as a first line of naval defense."
 
+ tradition_agot_stormlands_name:0 "Like Unto Their Weather"
+ tradition_agot_stormlands_desc:0 "The Stormlanders are a hardy bunch, well known for their martial inclinations and their quickness to anger. The men and women of the Stormlands have weathered the wrath of men, nature, and even the gods themselves, and yet they not only remain, but prosper."
+
+ tradition_agot_marches_name:0 "Wars Beyond Count"
+ tradition_agot_marches_desc:0 "The Marches have long been the crossroads of the Stormlands, the Reach, and Dorne, witnessing countless battles since the Dawn Age. The people who call them home are known for their martial skill, fierce stubbornness, and constant alertness to all would-be threats."
+
  tradition_agot_stone_dornish_name:0 "Guarding the Passes"
  tradition_agot_stone_dornish_desc:0 "The Stone Dornish are ethnically and culturally the least Rhoynar-influenced of the Dornish. Living in the heights and valleys of the Red Mountains, their culture has been shaped by their generations of conflict with the Marcher lords of the Reach and Stormlands, ardently defending their mountain passes from outside incursions."
-
- tradition_agot_stormlander_name:0 "Rolling Thunder"
- tradition_agot_stormlander_desc:0 "The men of the Stormlands are renowned for being as harsh and thunderous as its weather. The Stormlanders live rugged lives in the hilly terrain of their homeland, shaping them into some of the strongest and hardiest warriors in Westeros. Beyond warfare, the stormy seas of Shipbreaker Bay produce weathered, hardy seamen."
 
  tradition_agot_vale_name:0 "Mountain and Vale"
  tradition_agot_vale_desc:0 "The old kingdom of the Arryns is dominated by the Mountains of the Moon and the vales that run between them, chiefly the Vale of Arryn. These two features have isolated the peoples east of them from the rest of Westeros and united them."
@@ -147,32 +154,14 @@
  tradition_agot_westerman_name:0 "Of Gold and Silver"
  tradition_agot_westerman_desc:0 "The Westerlands, at first glance, seem like a paltry place; not the largest or most populous of the Seven Kingdoms, it is nevertheless the wealthiest. What it lacks in rolling fields of fertile farmland, it more than makes up for with the bounty of its hills, rich with gold and silver. It is this abundance of valuable minerals that the power of the Westerlands is built upon, and its nobles jealously guard their mines against those who look on, envious of their wealth."
 
- tradition_agot_barrowman_name:0 "Rills and Hills"
- tradition_agot_barrowman_desc:0 "While the Barrowlands were once ruled by the dynasty of the Barrow Kings, its people assimilated with the rest of the Northmen following the dynasty's submission to Winterfell at the end of their thousand-year conflict. Barrowmen are eminent horsemen, with the area's vast rolling plains making the Barrowlands ripe for cavalry warfare, which, in turn, makes Barrowmen valuable allies for anyone wishing to conduct warfare in the North."
-
- tradition_agot_crannogman_name:0 "Denizens of the Bog"
- tradition_agot_crannogman_desc:0 "The Crannogmen are a squat, secretive people, seen as primitive by some and feared and derided as mudmen and bog devils by others. Their homeland, the Neck, is a large, swampy fen, thick with foliage and canopy. Few know what happens in the depths of the Neck, though many in Westeros whisper that the Crannogmen learned all manner of magic and sorcery from the Children of the Forest. Some go even further and state the Crannogmen themselves are born of the union between the Children and the First Men."
-
- tradition_agot_firstman_name:0 "The First"
- tradition_agot_firstman_desc:0 "Before the Seven Kingdoms, the Doom of Valyria, and even the Andals, there were the First Men. Wielding swords and axes of bronze, the First Men were the first of all men to settle Westeros, carving their culture and influence deep into the blood of the continent and all those who came after them. While the Old Tongue is still spoken by the free folk and giants, their runic system of writing has gone extinct, along with many old tales that failed to be passed down orally. While echoes of the culture of the First Men can be found all around Westeros, it's strongest in the North, where Northmen can still be found praying to heart trees in a godswood, just as the First Men did."
-
- tradition_agot_northern_clan_name:0 "Clans of the North"
- tradition_agot_northern_clan_desc:0 "The Hill Clansmen are some of the wildest and least civilized people south of the Wall. Infighting and clan rivalries are common amongst the clans, both large and small; this cycle of feuds and retribution has spilled untold blood throughout the centuries. Due to their proximity to the Wall, the Clansmen have strong ties with the Night's Watch and interact with the Wildlings through raiding and trading more than any other peoples south of the Wall."
-
- tradition_agot_northman_name:0 "Loyal and True"
- tradition_agot_northman_desc:0 "The Northmen are some of the last of the First Men and by far the largest populace still in existence. Protected from the Andal invasions by the impassable terrain of the Neck and the fortress of Moat Cailin, the Northmen were left to their ancient traditions, still worshipping the Old Gods. To this day, the Northmen are an isolationist people, rarely concerning themselves with affairs south of the Neck."
+ tradition_agot_north_name:0 "Bound by Bronze and Iron"
+ tradition_agot_north_desc:0 "The Northrons, the men and women who call the North their home, are a grim and hardy people. United by the Hungry Wolf thousands of years ago, the peoples are as varied as the lands they call home, and yet all are bound by their ancient oaths."
 
  tradition_agot_sisterman_name:0 "Beneath the Brine"
  tradition_agot_sisterman_desc:0 "For much of their history, the Sistermen had more in common with the Ironborn than the men of the Vale or North. For millennia, the Sistermen were ruled by their pirate-kings, pillaging along the shores of the Bite to provide for themselves what their windswept isles could not, worshipping strange deities unknown to both the Andals and First Men."
 
- tradition_agot_skagosi_name:0 "Children of Stone"
- tradition_agot_skagosi_desc:0 "The Skagosi, known derisively as “Skaggs” to many outsiders, are closer to Wildlings than civilized folk to most people. To themselves, they are the Stoneborn, a proud people making the best of the rugged rocks they call home. They are rumored by many to carry on some of the darker and more savage traditions of the First Men, including cannibalism and human sacrifice."
-
- tradition_agot_ironborn_name:0 "Salt and Rock"
- tradition_agot_ironborn_desc:0 "The Iron Isles are undoubtedly a rugged, barren place. This fact is mirrored succinctly by its people. The culture of the Ironborn is built upon reaving, paying the iron price. Lacking arable land on their rocky outcroppings, the Ironmen have taken to the sea since time immemorial, those without the constitution for warfare becoming fisherfolk. Attending to the scant farms of the Iron Isles are its thralls, for farming is seen to be beneath even the smallfolk."
-
- tradition_agot_greenborn_name:0 "From Sea and Field"
- tradition_agot_greenborn_desc:0 "Ironborn who have settled more inland. While still holding onto a fondness for the sea, they have become more adept at living away from it."
+ tradition_agot_ironmen_name:0 "Carved from Pale Wood"
+ tradition_agot_ironmen_desc:0 "The Ironmen are a scourge from the seas, yet their influence ebbs and flows like the tides that bring them. At times they are confined solely to their islands in the Sunset Sea; at others, they have spread to the Green Lands and ruled there. However, they always remain united by their ancient ties to the Grey King who dwells below."
 
  tradition_agot_dorne_rhoynish_heritage_name:0 "Children of the Mother Rhoyne"
  tradition_agot_dorne_rhoynish_heritage_desc:0 "Rhoynish civilization is ancient and illustrious. So deep is the history of the Rhoynar that some credit them with teaching the Andals how to smith and work with iron. Hailing from the city-states along the river Rhoyne, the Rhoynar worship numerous gods of the river and also have a special affinity for all manner of boats, from small fishing vessels to obscene pleasure barges. Rhoynish culture is notably different from that of the Andals, with equal inheritance being the norm for both women and men, and same-sex relations being accepted. The Rhoynar are known for embracing works of art and music, which may be partially why some Rhoynar cultural practices were so quick to catch on when the Rhoyne arrived in Dorne."
@@ -189,17 +178,8 @@
  tradition_agot_wildling_name:0 "Ferocious, Savage, and Wild"
  tradition_agot_wildling_desc:0 "Where the majority of peoples and societies progress and grow, there are groups that refuse to bow before progress, what can be seen by the many Wildlings in Westeros. The majority of them are found Beyond the Wall, but there are groups found in the Mountains of the Moon. These tribal groups are fierce, if undeveloped, and can become threats in large numbers."
 
- tradition_agot_krakenman_name:0 "Iron and Ice"
- tradition_agot_krakenman_desc:0 "Although part of the North, many maesters believe that the blood of Cape Kraken's seafaring people is closer to the Ironborn than to the Northmen. The people of Cape Kraken find themselves at odds culturally, however. Although belonging to the North, their position below the Neck leaves them feeling socially and culturally distant from the seat of Winterfell — while their bloodied history of being raided by the Ironborn sets them in opposition to those who many would assume were their salt-watered kin."
-
  tradition_agot_moon_clan_name:0 "Above the Setting Sun"
  tradition_agot_moon_clan_desc:0 "In the depths of the Mountains of the Moon dwell its clansmen, the most savage and uncivilized men anywhere south of the Wall. They are the last true remnants of the First Men in the Vale, their mountainous home protecting them from the onslaught of the Andals, leaving them to continue their primitive ways without much outside intervention."
-
- tradition_agot_wolfswood_clansman_name:0 "In Deepest Depths"
- tradition_agot_wolfswood_clansman_desc:0 "A hardy and hard-working people, the people of the clans within the Wolfswood are known not only for their rugged nature but are also somewhat famed for their talents when it comes to ice-fishing. While they may not be grand houses, the clansmen of the Wolfswood's blood runs as deep as any noble family. Descended from the First Men, some of the clans have outlasted the woods themselves, with some areas being reduced to ashes during an Ironborn raid. It's said that some of the clans still practice the First Night, with clan chiefs being considered 'lords' by their lieges — although this is more of a polite courtesy on the part of the liege, as clan chiefs do not consider themselves high-born."
-
- tradition_agot_bearman_name:0 "Among Bear and Pine"
- tradition_agot_bearman_desc:0 "The people of Bear Island are a hardy folk, long used to raids from both the Ironmen and the Wildlings. They have held the island since King Rodrik Stark and will hold it longer. Such a life of constant struggle has led the women of the island to take up arms alongside their men, and they are said to be as fearsome as a she-bear protecting her cubs."
 
  tradition_agot_rushlander_name:0 "Where Rivers Meet Hills"
  tradition_agot_rushlander_desc:0 "A culture born on the border of the Vale and the Riverlands, Rushlanders are a hardy people adapted to life in the hills as well as the rivers."
@@ -426,3 +406,45 @@
 
  tradition_agot_western_valyrian_name:0 "Gifts of the Tide"
  tradition_agot_western_valyrian_desc:0 "#italic “...a family of old and storied Valyrian heritage who had come to Westeros before the Targaryens,”#!"
+
+ tradition_agot_ironborn_name:0 "Paying the Iron Price"
+ tradition_agot_ironborn_desc:0 "#italic “War was an ironman's proper trade. The Drowned God had made them to reave and rape, to carve out kingdoms and write their names in fire and blood and song.”#!"
+
+ tradition_agot_greenborn_name:0 "Ruling the Green Lands"
+ tradition_agot_greenborn_desc:0 "#italic “You may dress an ironman in silks and velvets, teach him to read and write and give him books, instruct him in chivalry and courtesy and the mysteries of the Faith... but when you look into his eyes, the sea will still be there, cold and grey and cruel.”#!"
+
+ tradition_agot_first_men_name:0 "Conquer with Bronze and Steed"
+ tradition_agot_first_men_desc:0 "#italic “The First Men—who had brought with them strange gods, horses, cattle, and weapons of bronze—were also larger and stronger than the children, and so they were a significant threat.”#!"
+ 
+ tradition_agot_northmen_name:0 "Ruled by Wolves and Winter"
+ tradition_agot_northmen_desc:0 "#italic “Hearth and heart and harvest we yield to you, my lord. Our swords and spears and arrows are yours to command. Grant mercy to our weak, help to our helpless, and justice to all, and we shall never fail you... I swear it by earth and water... I swear it by bronze and iron... We swear it by ice and fire.”#!"
+
+ tradition_agot_bearmen_name:0 "Standing with Bear and Kin"
+ tradition_agot_bearmen_desc:0 "#italic “"She-bears, aye," said Lady Maege. "We have needed to be. In olden days the ironmen would come raiding in their longboats, or wildlings from the Frozen Shore. The men would be off fishing, like as not. The wives they left behind had to defend themselves and their children, or else be carried off."”#!"
+
+ tradition_agot_wolfswood_clansmen_name:0 "Hunt by Fang and Feather"
+ tradition_agot_wolfswood_clansmen_desc:0 "#italic “The wolfswood is full of danger; your last ride should have taught you that.”#!"
+
+ tradition_agot_northern_clans_name:0 "Armed with Mail and Ice"
+ tradition_agot_northern_clans_desc:0 "#italic “The map is not the land, my father often said. Men have lived in the high valleys and mountain meadows for thousands of years, ruled by their clan chiefs.”#!"
+
+ tradition_agot_barrowmen_name:0 "Charging over Rills and Hills"
+ tradition_agot_barrowmen_desc:0 "#italic “There are barrows everywhere in the north, Your Grace... This land is old... And cold.”#!"
+
+ tradition_agot_stoneborn_name:0 "Feast of Stone and Flesh"
+ tradition_agot_stoneborn_desc:0 "#italic “...well, only heart trees ever see half of what they do on Skagos.”#!"
+ 
+ tradition_agot_krakenmen_name:0 "Birthed from Salt and Snow"
+ tradition_agot_krakenmen_desc:0 "#italic “Indeed, Cape Kraken, closest to the Iron Islands, has changed hands so many times that many maesters believe its populace to be closer in blood to the ironmen than to Northmen.”#!"
+
+ tradition_agot_crannogmen_name:0 "Sworn by Earth and Water"
+ tradition_agot_crannogmen_desc:0 "#italic “Just as dangerous were its people, seldom seen but always lurking, the swamp-dwellers, the frog-eaters, the mud-men.”#!"
+
+ tradition_agot_harbormen_name:0 "Welcomed with Snow and Silver"
+ tradition_agot_harbormen_desc:0 "#italic “They'd been great lords on the Mander until they overreached themselves and the green hands slapped them down. The wolf king took their gold, but he gave them land and let them keep their gods.”#!"
+
+ tradition_agot_stormlander_main_name:0 "Warriors of Thunder"
+ tradition_agot_stormlander_main_desc:0 "#italic “Those who do choose to make their homes in the stormlands—whether along the stony shores of the narrow sea, amidst the dripping green forests of the rainwood, or on the windswept marches—are a special breed, however. The people of the stormlands are like unto their weather, it has oft been said: tumultuous, violent, implacable, unpredictable.”#!"
+
+ tradition_agot_marcher_name:0 "Song of Swords"
+ tradition_agot_marcher_desc:0 "#italic “There in the sight of the Red Mountains, the great castles of the Marcher lords stand, built to guard the borders of the stormlands against Dornish incursions from the south and the steel-clad minions of the Kings of the Reach from the west.”#!"
