@@ -405,6 +405,31 @@ types CharacterWindow
 					}
 				}
 
+				# Move or remove from dragonpit button
+				button_normal = {
+					name = "MOVE_OR_REMOVE_FROM_DRAGONPIT"
+
+					datacontext = "[GetScriptedGui('move_or_remove_from_dragonpit')]"
+					visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
+					tooltip = "MOVE_OR_REMOVE_FROM_DRAGONPIT_TT"
+					using = tooltip_ne
+					position = { 5 5 }
+					size = { 35 35 }
+
+					icon_round_button_base = {}
+
+					button_remove_from_dragonpit = {
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( CharacterWindow.GetCharacter.MakeScope ).AddScope('owner', GetPlayer.MakeScope ).End)]"
+						size = { 35 35 }
+						parentanchor = center
+
+						modify_texture = {
+							texture = "gfx/interface/icons/focuses/hud_icon_mask.dds"
+							blend_mode = alphamultiply
+						}
+					}
+				}
+
 				# Remove from dragonpit button
 				button_normal = {
 					name = "REMOVE_FROM_DRAGONPIT"
