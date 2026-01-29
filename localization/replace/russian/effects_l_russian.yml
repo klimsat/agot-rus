@@ -385,7 +385,7 @@
  THEY_GAINED_GOLD_EFFECT: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsFemale, 'получила', 'получил' )] [gold_i]$VALUE|V0$"
  THEY_LOST_GOLD_EFFECT: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsFemale, 'потеряла', 'потерял' )] [gold_i]$VALUE|V0$"
  
- # basic currencies
+ #basic currencies
  add_treasury_first: "Вы получите $VALUE|+0$[treasury_i]"
  add_treasury_first_past: "Вы получили $VALUE|+0$[treasury_i]"
  add_treasury_third: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'получите', 'получит' )] $VALUE|V0$[treasury_i]"
@@ -713,7 +713,7 @@
  ADD_COURTIER_TO_COURT: "#high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#! [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'прибудете', Select_CString(TARGET_CHARACTER.IsFemale, 'прибыла', 'прибыл' ))] [CHARACTER.Custom('GetCourt_RU_6')] [Select_CString(CHARACTER.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ',CHARACTER.GetShortUIName))]"
  #AGOT Modified
  # ADD_COURTIER_TO_MY_COURT: "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'прибудете', 'прибудет')] [CHARACTER.Custom('GetCourt_RU_6')] вашего персонажа"
- ADD_COURTIER_TO_MY_COURT: ""#high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#! [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'прибудете', 'прибудет')] [CHARACTER.Custom('GetCourt_RU_6')] вашего персонажа"
+ ADD_COURTIER_TO_MY_COURT: "#high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#! [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'прибудете', 'прибудет')] [CHARACTER.Custom('GetCourt_RU_6')] вашего персонажа"
  #AGOT Modified
  ADD_COURTIER_TO_THEIR_COURT: "[TARGET_CHARACTER.GetShortUIName|U] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'прибудете', Select_CString(TARGET_CHARACTER.IsFemale, 'прибыла', 'прибыл' ))] [CHARACTER.Custom('GetCourt_RU_6')] [Select_CString(CHARACTER.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ',CHARACTER.GetShortUIName))]"
  ADD_COURTIER_TO_THEIR_COURT: "#high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#! [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'прибудете', Select_CString(TARGET_CHARACTER.IsFemale, 'прибыла', 'прибыл' ))] [CHARACTER.Custom('GetCourt_RU_6')] [Select_CString(CHARACTER.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ',CHARACTER.GetShortUIName))]"
@@ -829,7 +829,7 @@
  I_GAINED_POTENTIAL_FRIEND: "Вы теперь ближе к тому, чтобы завязать [Concept('friendship', 'дружбу')|E] с персонажем [TARGET_CHARACTER.GetShortUIName]"
  THEY_GAIN_POTENTIAL_FRIEND: "[CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] движется к [Concept('friendship', 'дружбе')|E] с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажем ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'им персонажем', '' )]"
  THEY_GAINED_POTENTIAL_FRIEND: "[CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] теперь ближе к тому, чтобы завязать [Concept('friendship', 'дружбу')|E] с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажем ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'им персонажем', '' )]"
- GAINS_POTENTIAL_FRIEND: "Становится ближе к тому, чтобы завязать [Concept('friendship', 'дружбу')|E] с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажем ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'им персонажем', '' )]" 
+ GAINS_POTENTIAL_FRIEND: "Становится ближе к тому, чтобы завязать [Concept('friendship', 'дружбу')|E] с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажем ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'им персонажем', '' )]"
  GAINED_POTENTIAL_FRIEND: "Ближе к тому, чтобы завязать [Concept('friendship', 'дружбу')|E] с персонажем [TARGET_CHARACTER.GetShortUIName]"
 
  LOSE_POTENTIAL_FRIEND: "[TARGET_CHARACTER.GetShortUIName] более не близкий человек"
@@ -1114,19 +1114,19 @@
  SET_CULTURE_FIRST_PAST: "Вы приняли [TARGET_CULTURE.GetCollectiveNoun|Vl]#V #L ую#!#! культуру"
  SET_CULTURE_THIRD_PAST: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsFemale, 'приняла', 'принял' )] [TARGET_CULTURE.GetCollectiveNoun|Vl]#V #L ую#!#! культуру"
 
- CREATE_HYBRID_CULTURE_GLOBAL: "Создан [Concept('hybrid_culture', 'гибрид')|E] с #L [TARGET_CULTURE.GetCollectiveNoun|Vl]ой#! культурой"
- CREATE_HYBRID_CULTURE_FIRST: "Вы создаете [Concept('hybrid_culture', 'гибрид')|E] с #L [TARGET_CULTURE.GetCollectiveNoun|Vl]ой#! культурой"
- CREATE_HYBRID_CULTURE_THIRD: "[CHARACTER.GetShortUIName|U] создает [Concept('hybrid_culture', 'гибрид')|E] с #L [TARGET_CULTURE.GetCollectiveNoun|Vl]ой#! культурой"
- CREATE_HYBRID_CULTURE_GLOBAL_PAST: "Создается [Concept('hybrid_culture', 'гибрид')|E] с #L [TARGET_CULTURE.GetCollectiveNoun|Vl]ой#! культурой"
- CREATE_HYBRID_CULTURE_FIRST_PAST: "Вы создаете [Concept('hybrid_culture', 'гибрид')|E] с #L [TARGET_CULTURE.GetCollectiveNoun|Vl]ой#! культурой"
- CREATE_HYBRID_CULTURE_THIRD_PAST: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsFemale, 'создала', 'создал' )] [Concept('hybrid_culture', 'гибрид')|E] с #L [TARGET_CULTURE.GetCollectiveNoun|Vl]ой#! культурой"
+ CREATE_HYBRID_CULTURE_GLOBAL: "Создан [Concept('hybrid_culture', 'гибрид')|E] с #L #V [TARGET_CULTURE.GetCollectiveNoun|Vl]ой#!#! культурой"
+ CREATE_HYBRID_CULTURE_FIRST: "Вы создаете [Concept('hybrid_culture', 'гибрид')|E] с #L #V [TARGET_CULTURE.GetCollectiveNoun|Vl]ой#!#! культурой"
+ CREATE_HYBRID_CULTURE_THIRD: "[CHARACTER.GetShortUIName|U] создает [Concept('hybrid_culture', 'гибрид')|E] с #L #V [TARGET_CULTURE.GetCollectiveNoun|Vl]ой#!#! культурой"
+ CREATE_HYBRID_CULTURE_GLOBAL_PAST: "Создается [Concept('hybrid_culture', 'гибрид')|E] с #L #V [TARGET_CULTURE.GetCollectiveNoun|Vl]ой#!#! культурой"
+ CREATE_HYBRID_CULTURE_FIRST_PAST: "Вы создаете [Concept('hybrid_culture', 'гибрид')|E] с #L #V [TARGET_CULTURE.GetCollectiveNoun|Vl]ой#!#! культурой"
+ CREATE_HYBRID_CULTURE_THIRD_PAST: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsFemale, 'создала', 'создал' )] [Concept('hybrid_culture', 'гибрид')|E] с #L #V [TARGET_CULTURE.GetCollectiveNoun|Vl]ой#!#! культурой"
 
  SET_CULTURE_OF_CHARACTER_SAME_AS: "[Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] меняет свою культуру на культуру [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )] ([TARGET_CHARACTER.GetCulture.GetCollectiveNoun|V]#V #L ая#!#!)"
  SAT_CUTLURE_OF_CHARACTER_SAME_AS: "[CHARACTER.GetShortUINamePossessive] [Select_CString(CHARACTER.IsFemale, 'изменила', 'изменил' )] свою культуру на культуру [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )] (#V #L [TARGET_CHARACTER.GetCulture.GetCollectiveNoun]ая#!#!)"
 
- SKILL_CHALLENGE_LIST_ITEM: "@$SKILL_ICON$!$SKILL$"
- SKILL_CHALLENGE_SINGLE: "Состязание в навыке $SKILL_LIST$"
- SKILL_CHALLENGE_MULTI: "Состязание в навыках $SKILL_LIST$"
+ SKILL_CHALLENGE_LIST_ITEM: "@$SKILL_ICON$!$SKILL_RU_PP$"
+ SKILL_CHALLENGE_SINGLE: "Состязание в $SKILL_LIST$"
+ SKILL_CHALLENGE_MULTI: "Состязание в $SKILL_LIST$"
  VARIABLE_CHALLENGE_LIST_ITEM: "@$VARIABLE_ICON$!$VARIABLE$"
  VARIABLE_CHALLENGE_SINGLE: "Проверка ($VARIABLE_LIST$)"
  VARIABLE_CHALLENGE_MULTI: "Суммарная проверка ($VARIABLE_LIST$)"
@@ -1139,11 +1139,11 @@
  THEY_ENTER_CHALLENGE_EFFECT: "[CHARACTER.GetShortUIName|U]:\n $SKILL_CHALLENGE$"
  ENTERS_CHALLENGE_EFFECT: "$SKILL_CHALLENGE$"
  I_ENTERED_DUEL_AGAINST_EFFECT: "$SKILL_CHALLENGE$ с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', GetShortUIName))]"
- THEY_ENTERED_DUEL_AGAINST_EFFECT: "[CHARACTER.GetShortUIName|U]:\n$SKILL_CHALLENGE$  с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', GetShortUIName))]"
- ENTERED_DUEL_AGAINST_EFFECT: "$SKILL_CHALLENGE$  с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', GetShortUIName))]"
- I_ENTER_DUEL_AGAINST_EFFECT: "$SKILL_CHALLENGE$  с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', GetShortUIName))]"
- THEY_ENTER_DUEL_AGAINST_EFFECT: "[CHARACTER.GetShortUIName|U]:\n$SKILL_CHALLENGE$  с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', GetShortUIName))]"
- ENTERS_DUEL_AGAINST_EFFECT: "$SKILL_CHALLENGE$ с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', GetShortUIName))]"
+ THEY_ENTERED_DUEL_AGAINST_EFFECT: "[CHARACTER.GetShortUIName|U]:\n$SKILL_CHALLENGE$ с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', TARGET_CHARACTER.GetShortUIName))]\""
+ ENTERED_DUEL_AGAINST_EFFECT: "$SKILL_CHALLENGE$ с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', TARGET_CHARACTER.GetShortUIName))]"
+ I_ENTER_DUEL_AGAINST_EFFECT: "$SKILL_CHALLENGE$ с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', TARGET_CHARACTER.GetShortUIName))]"
+ THEY_ENTER_DUEL_AGAINST_EFFECT: "[CHARACTER.GetShortUIName|U]:\n$SKILL_CHALLENGE$ с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', TARGET_CHARACTER.GetShortUIName))]"
+ ENTERS_DUEL_AGAINST_EFFECT: "$SKILL_CHALLENGE$ с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ', TARGET_CHARACTER.GetShortUIName))]"
 
  I_RECEIVED_MODIFIER_EFFECT: "Вы получили модификатор «$MODIFIER|V$»"
  THEY_RECEIVED_MODIFIER_EFFECT: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsFemale, 'получила', 'получил' )] модификатор «$MODIFIER|V$»"
@@ -1245,7 +1245,7 @@
  THEY_ADDED_LEARNING_SKILL_EFFECT: "Навык [Concept('learning', 'учености')|E] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] увеличен на [learning_i]$VALUE|+0$"
  THEY_REMOVED_LEARNING_SKILL_EFFECT: "Навык [Concept('learning', 'учености')|E] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] уменьшен на [learning_i]$VALUE|-0$"
 
- IMPRISON_EFFECT: "Заключает в тюрьму [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ IMPRISON_EFFECT: "[TARGET_CHARACTER.GetShortUIName] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'попадете', 'попадет')] в тюрьму "
  I_IMPRISON_EFFECT: "Вы [Concept( 'imprison', 'заключаете в темницу' )|E] персонажа [TARGET_CHARACTER.GetShortUIName]"
  THEY_IMPRISON_EFFECT: "[CHARACTER.GetShortUIName|U] [Concept( 'imprisons', 'заключает в тюрьму' )|E] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetNamePossessiveOrMy][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  IMPRISONED_EFFECT: "[TARGET_CHARACTER.GetShortUIName] в заключении"
@@ -1513,12 +1513,12 @@
  ASSIGN_COUNCIL_TASK_PAST: "[CHARACTER.GetUIName] [Select_CString(CHARACTER.IsFemale, 'приступила', 'приступил' )] к заданию $NAME$"
 
  ASSIGN_COUNCILLOR: "Становится советником"
- BECOME_MY_COUNCILLOR: "[TARGET_CHARACTER.GetUIName] теперь [Select_CString(target_character.IsFemale, 'ваша', 'ваш' )] $TYPE|V$"
+ BECOME_MY_COUNCILLOR: "[TARGET_CHARACTER.GetUIName] теперь [Select_CString(TARGET_CHARACTER.IsFemale, 'ваша', 'ваш' )] $TYPE|V$"
 
  ASSIGN_COUNCILLOR_TYPE: "[TARGET_CHARACTER.GetUIName] теперь [TARGET_CHARACTER.GetLiege.GetHerHis] $TYPE|V$"
 
  FIRE_COUNCILLOR: "Исключает персонажа [TARGET_CHARACTER.GetUIName] из своего [Concept( 'council', 'совета' )|E]"
- FIRED_FROM_MY_COUNCIL: "[TARGET_CHARACTER.GetUIName] [Select_CString(target_character.IsFemale, 'изгнана', 'изгнан' )] из вашего [Concept( 'council', 'совета' )|E]"
+ FIRED_FROM_MY_COUNCIL: "[TARGET_CHARACTER.GetUIName] [Select_CString(TARGET_CHARACTER.IsFemale, 'изгнана', 'изгнан' )] из вашего [Concept( 'council', 'совета' )|E]"
  FIRE_COUNCILLOR_TT: "#T [ACTIVE_COUNCIL_TASK.GetCouncillor.GetUIName] [Select_CString(ACTIVE_COUNCIL_TASK.GetCouncillor.IsFemale, 'будет уволена', 'будет уволен' )] из [Concept( 'council', 'совета' )|E]#!"
  SET_COUNCIL_TASK_EFFECT: "Начинает задание $TYPE|Vl$"
  SET_COURT_COUNCIL_TASK_EFFECT: "Начинает задание $TYPE|Vl$ при [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вашем дворе', 'дворе персонажа ' )][Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', TARGET_CHARACTER.GetUINamePossessive )]"
@@ -1569,10 +1569,10 @@
  SET_CULTURE_EFFECT: "Культура меняется на #V [TARGET_CULTURE.GetCollectiveNoun|l]#L ую#!#!"
  SET_CULTURE_PAST_EFFECT: "Культура сменилась на #V [TARGET_CULTURE.GetCollectiveNoun|l]#L ую#!#!"
 
- COUNTY_FAITH_EFFECT: "[Concept( 'faith', 'Конфессия' )|E] сменится на [FAITH.GetAdjective|Vl]"
- COUNTY_FAITH_PAST_EFFECT: "[Concept( 'faith', 'Конфессия' )|E] сменилась на [FAITH.GetAdjective|Vl]"
- THIRD_COUNTY_FAITH_EFFECT: "[Concept('faith', 'Конфессия')|E] титула «[TITLE.GetBaseName]» меняется на #L #V [FAITH.GetName|Vl]ую#!#!"
- THIRD_COUNTY_FAITH_PAST_EFFECT: "[Concept('faith', 'Конфессия')|E] титула «[TITLE.GetBaseName]» сменилась на #L #V [FAITH.GetName|Vl]ую#!#!"
+ COUNTY_FAITH_EFFECT: "[Concept('faith', 'Конфессия')|E] сменится на [FAITH.GetTextIcon]#L #V [FAITH.GetName|l]ую#!#!"
+ COUNTY_FAITH_PAST_EFFECT: "[Concept('faith', 'Конфессия')|E] сменилась на [FAITH.GetTextIcon]#L #V [FAITH.GetName|l]ую#!#!"
+ THIRD_COUNTY_FAITH_EFFECT: "[Concept('faith', 'Конфессия')|E] титула «[TITLE.GetBaseName]» меняется на [FAITH.GetTextIcon]#L #V [FAITH.GetName|l]ую#!#!"
+ THIRD_COUNTY_FAITH_PAST_EFFECT: "[Concept('faith', 'Конфессия')|E] титула «[TITLE.GetBaseName]» сменилась на [FAITH.GetTextIcon]#L #V [FAITH.GetName|l]ую#!#!"
 
  ADD_ATTACKER_EFFECT: "Присоединяется к [Concept('war', 'войне')|E] «[WAR.GetName|V]» в качестве атакующего на [Select_CString(WAR.GetActiveCB.GetAttacker.IsLocalPlayer, 'вашей стороне', 'стороне персонажа ')][Select_CString(WAR.GetActiveCB.GetAttacker.IsLocalPlayer, '', WAR.GetActiveCB.GetAttacker.GetShortUIName)]"
  ADD_ATTACKER_EFFECT_FIRST: "Вы присоединяетесь к [Concept('war', 'войне')|E] «[WAR.GetName|V]» в качестве атакующего на стороне персонажа [WAR.GetActiveCB.GetAttacker.GetShortUIName]"
@@ -1847,10 +1847,10 @@
  GET_RANDOM_INNOVATION_FROM_EFFECT: "#L [CULTURE.GetCollectiveNoun]ая#! [Concept('culture', 'культура')|E] получит случайную [Concept('innovation', 'инновацию')|E] [TARGET_CULTURE.GetCollectiveNoun|l]ой [Concept('culture', 'культуры')|E]"
  GOT_RANDOM_INNOVATION_FROM_EFFECT: "#L [CULTURE.GetCollectiveNoun]ая#! [Concept('culture', 'культура')|E] получила случайную [Concept('innovation', 'инновацию')|E] [TARGET_CULTURE.GetCollectiveNoun|l]ой [Concept('culture', 'культуры')|E]"
 
- ACTIVATE_HOLY_SITE_DESC: "[TITLE.GetNameNoTier] будет считаться #L [FAITH.GetName|l]им#! [Concept('holy_site', 'священным местом')|E]"
- ACTIVATE_HOLY_SITE_PAST_DESC: "[TITLE.GetNameNoTier] теперь считается #L [FAITH.GetName|l]им#! [Concept('holy_site', 'священным местом')|E]"
- DEACTIVATE_HOLY_SITE_DESC: "[TITLE.GetNameNoTier] больше не будет считаться #L [FAITH.GetName|l]им#! [Concept('holy_site', 'священным местом')|E]"
- DEACTIVATE_HOLY_SITE_PAST_DESC: "[TITLE.GetNameNoTier] больше не считается #L [FAITH.GetName|l]им#! [Concept('holy_site', 'священным местом')|E]"
+ ACTIVATE_HOLY_SITE_DESC: "[TITLE.GetNameNoTier] будет считаться #L [FAITH.GetName|l]им#! [Concept('holy_site', 'святым местом')|E]"
+ ACTIVATE_HOLY_SITE_PAST_DESC: "[TITLE.GetNameNoTier] теперь считается #L [FAITH.GetName|l]им#! [Concept('holy_site', 'святым местом')|E]"
+ DEACTIVATE_HOLY_SITE_DESC: "[TITLE.GetNameNoTier] больше не будет считаться #L [FAITH.GetName|l]им#! [Concept('holy_site', 'святым местом')|E]"
+ DEACTIVATE_HOLY_SITE_PAST_DESC: "[TITLE.GetNameNoTier] больше не считается #L [FAITH.GetName|l]им#! [Concept('holy_site', 'святым местом')|E]"
 
  ADD_RANDOM_INNOVATION_EFFECT: "[CULTURE.GetName] развивают случайную [Concept( 'innovation', 'инновацию' )|E] группы $GROUP$"
  GOT_RANDOM_INNOVATION_EFFECT: "[CULTURE.GetName] развили случайную [Concept( 'innovation', 'инновацию' )|E] группы $GROUP$"
@@ -1936,7 +1936,7 @@
  LEARN_LANGUAGE_OF_CULTURE_GLOBAL: "Изучает [TARGET_CULTURE.GetLanguage.GetName|l] [Concept( 'language', 'язык' )|E]"
  LEARN_LANGUAGE_OF_CULTURE_GLOBAL_PAST: "Изучен [TARGET_CULTURE.GetLanguage.GetName|l] [Concept( 'language', 'язык' )|E]"
  LEARN_LANGUAGE_OF_CULTURE_FIRST_PAST: "Вы изучили [TARGET_CULTURE.GetLanguage.GetName|l] [Concept( 'language', 'язык' )|E]"
- LEARN_LANGUAGE_OF_CULTURE_THIRD_PAST: "[CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] изучил [TARGET_CULTURE.GetLanguage.GetName|l] [Concept( 'language', 'язык' )|E]"
+ LEARN_LANGUAGE_OF_CULTURE_THIRD_PAST: "[CHARACTER.GetShortUIName] [Select_CString(CHARACTER.IsLocalPlayer, 'изучили', 'изучил')] [TARGET_CULTURE.GetLanguage.GetName|l] [Concept( 'language', 'язык' )|E]"
  UNLEARN_LANGUAGE_OF_CULTURE_FIRST: "Вы забываете [TARGET_CULTURE.GetLanguage.GetName|l] [Concept( 'language', 'язык' )|E]"
  UNLEARN_LANGUAGE_OF_CULTURE_THIRD: "[CHARACTER.GetNamePossessiveOrMy|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] забывает [TARGET_CULTURE.GetLanguage.GetName|l] [Concept( 'language', 'язык' )|E]"
  UNLEARN_LANGUAGE_OF_CULTURE_GLOBAL: "Забывает [TARGET_CULTURE.GetLanguage.GetName|l] [Concept( 'language', 'язык' )|E]"
@@ -2090,9 +2090,9 @@
  END_TRIBUTARY_THIRD_PAST: "[CHARACTER.GetShortUIName] больше не $CONTRACT_GROUP$ по договору с [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вами', Concatenate('персонажем ',TARGET_CHARACTER.GetShortUIName))]"
  END_TRIBUTARY_FIRST_PAST: "Вы больше не $CONTRACT_GROUP$ по договору с персонажем [TARGET_CHARACTER.GetShortUIName]"
 
- SET_PRIMARY_SPOUSE_FIRST: "[TARGET_CHARACTER.GetShortUIName] становится [Select_CString(target_character.IsFemale, 'вашей главной женой', 'вашим главным мужем' )]"
+ SET_PRIMARY_SPOUSE_FIRST: "[TARGET_CHARACTER.GetShortUIName] становится [Select_CString(TARGET_CHARACTER.IsFemale, 'вашей главной женой', 'вашим главным мужем' )]"
  SET_PRIMARY_SPOUSE_THIRD: "[TARGET_CHARACTER.GetShortUIName] станет [Select_CString(TARGET_CHARACTER.IsFemale, 'главной женой', 'главным мужем' )] персонажа [CHARACTER.GetShortUINamePossessive]"
- SET_PRIMARY_SPOUSE_FIRST_PAST: "[TARGET_CHARACTER.GetShortUIName] [Select_CString(target_character.IsFemale, 'стала вашей главной женой', 'стал вашим главным мужем' )]"
+ SET_PRIMARY_SPOUSE_FIRST_PAST: "[TARGET_CHARACTER.GetShortUIName] [Select_CString(TARGET_CHARACTER.IsFemale, 'стала вашей главной женой', 'стал вашим главным мужем' )]"
  SET_PRIMARY_SPOUSE_THIRD_PAST: "[TARGET_CHARACTER.GetShortUIName] [Select_CString(TARGET_CHARACTER.IsFemale, 'стала главной женой', 'стал главным мужем' )] персонажа [CHARACTER.GetShortUIName]"
 
  GAINS_DIPLOMACY_LIFESTYLE_XP: "[Concept('diplomacy_lifestyle', 'Дипломатический опыт')|E] увеличивается на $VALUE|V0$"
@@ -2199,7 +2199,7 @@
 
  mandala_dread_gives_radiance_perk_effect_global: "Часть вашего [Concept('dread', 'ужаса')|E] увеличивает ваше [Concept('radiance', 'великолепие')|E] #weak (макс. +3)#!"
  mandala_dread_gives_radiance_perk_effect_first: "$mandala_dread_gives_radiance_perk_effect_global$"
- mandala_dread_gives_radiance_perk_effect_third: "$mandala_dread_gives_radiance_perk_effect_global$" 
+ mandala_dread_gives_radiance_perk_effect_third: "$mandala_dread_gives_radiance_perk_effect_global$"
 
  RED_WEDDING_UNLOCKED: "Открывается Кровавая [GetActivityType('activity_wedding').GetName]"
  MY_RED_WEDDING_UNLOCKED: "Открывается Кровавая [GetActivityType('activity_wedding').GetName]"
@@ -2339,7 +2339,7 @@
  MENTAL_BREAK_SPACING: "Перерывы между [Concept('mental_breaks', 'нервными срывами')|E]: #P +3#! года"
 
  UNLOCKS_CELIBACY_DECISIONS: "Разблокированы [decisions|El] [embrace_celibacy|El] и [abandon_celibacy|El]"
- I_CAN_USE_CELIBACY_DECISIONS: "Вы можете принять [decisions|El] [embrace_celibacy|El] и [abandon_celibacy|El]"
+ I_CAN_USE_CELIBACY_DECISIONS: "Вы можете [Concept('decisions', 'решить')|E] [embrace_celibacy|El] или [abandon_celibacy|El]"
  THEY_CAN_USE_CELIBACY_DECISIONS: "[CHARACTER.GetShortUIName|U] может принять [decisions|El] [embrace_celibacy|El] и [abandon_celibacy|El]"
 
  CAREFREE_PERK_EFFECT: "Вы можете принять [Concept( 'decision', 'решение' )|E] «[GetDecisionWithKey('reject_inheritance_decision').GetName]»"
@@ -2724,7 +2724,7 @@
  custom.every_vassal_who_dislikes_you.fp3: "Каждый [Concept( 'vassal', 'вассал' )|E], которому не нравитесь #high вы#!."
  custom.every_landed_activity_guest: "Каждый гость [Concept( 'activity', 'занятия' )|E]-[Concept( 'landed', 'землевладелец' )|E]"
  custom.every_parochial_or_courtly_vassal: "Каждый #TOOLTIP:VASSAL_STANCE,parochial #L [GetVassalStance( 'parochial' ).GetTextIcon]местечковый#!#! или #TOOLTIP:VASSAL_STANCE,courtly #L [GetVassalStance( 'courtly' ).GetTextIcon]куртуазный#!#! [vassal|El]"
- custom.every_zealot_vassal: "Каждый #TOOLTIP:VASSAL_STANCE,zealot #L [GetVassalStance( 'zealot' ).GetTextIcon]фанатичныйх#!#! [vassal|El]"
+ custom.every_zealot_vassal: "Каждый #TOOLTIP:VASSAL_STANCE,zealot #L [GetVassalStance( 'zealot' ).GetTextIcon]фанатичный#!#! [vassal|El]"
  custom.every_zealot_or_parochial_vassal: "Каждый #TOOLTIP:VASSAL_STANCE,zealot #L [GetVassalStance( 'zealot' ).GetTextIcon]фанатичный#!#! или #TOOLTIP:VASSAL_STANCE,parochial #L [GetVassalStance( 'parochial' ).GetTextIcon]местечковый#!#! [vassal|El]"
  custom.every_courtly_vassal: "Каждый #TOOLTIP:VASSAL_STANCE,courtly #L [GetVassalStance( 'courtly' ).GetTextIcon]куртуазный#!#! [vassal|El]"
  custom.every_minority_or_parochial_vassal: "Каждый #TOOLTIP:VASSAL_STANCE,minority #L [GetVassalStance( 'minority' ).GetTextIcon]миноритарный#!#! или #TOOLTIP:VASSAL_STANCE,parochial #L [GetVassalStance( 'parochial' ).GetTextIcon]местечковый#!#! [vassal|El]"
@@ -3049,7 +3049,7 @@
 
  I_CHANGE_POWER_LEVEL: "Мое [Concept('scales_of_power', 'равновесие сил')|E] в диархии [CHARACTER.GetDiarchyTypeName|l] изменяется на $VALUE|0+=$ ед."
  THEY_CHANGE_POWER_LEVEL: "[Concept('scales_of_power', 'Равновесие сил')|E] персонажа [CHARACTER.GetName] в диархии [CHARACTER.GetDiarchyTypeName|l] изменяется на $VALUE|0+=$ ед."
- GLOBAL_CHANGE_POWER_LEVEL: "[Select_CString(CHARACTER.IsLocalPlayer, 'Ваше ', '')][Concept('scales_of_power', Select_CString(CHARACTER.IsLocalPlayer, 'равновесие сил', 'Равновесие сил')|E][Select_CString(CHARACTER.IsLocalPlayer, '', Concatenate(' персонажа ',CHARACTER.GetShortUIName))] в диархии [CHARACTER.GetDiarchyTypeName|l] изменяется на $VALUE|0+=$ ед."
+ GLOBAL_CHANGE_POWER_LEVEL: "[Select_CString(CHARACTER.IsLocalPlayer, 'Ваше ', '')][Concept('scales_of_power', Select_CString(CHARACTER.IsLocalPlayer, 'равновесие сил', 'Равновесие сил'))|E][Select_CString(CHARACTER.IsLocalPlayer, '', Concatenate(' персонажа ',CHARACTER.GetShortUIName))] в диархии [CHARACTER.GetDiarchyTypeName|l] изменяется на $VALUE|0+=$ ед."
  GLOBAL_CHANGED_POWER_LEVEL: "$GLOBAL_CHANGE_POWER_LEVEL$"
 
  #Neg duplicates here for error suppression.
@@ -3168,14 +3168,14 @@
  SKIP_ACTIVITY_PHASE_GLOBAL_PAST: "[Concept( 'activity_phase', 'Фаза занятия' )|E] пропущена"
 
  SET_HOUSE_HEAD_GLOBAL_PAST: "[Character.GetShortUIName|U] теперь [Concept( 'house_head', 'глава дома' )|E] [DynastyHouse.GetBaseName|V]"
- SET_HOUSE_HEAD_GLOBAL: "[Select_CString(Character.IsLocalPlayer, '', 'Персонаж ' )][Character.GetNamePossessiveOrMy|U][Select_CString(Character.IsLocalPlayer, ' персонаж', '' )] станет [Concept( 'house_head', 'главой дома' )|E] [DynastyHouse.GetBaseName|V]"
+ SET_HOUSE_HEAD_GLOBAL: "[Select_CString(Character.IsLocalPlayer, '', 'Персонаж ' )][Character.GetShortUINamePossessive|U][Select_CString(Character.IsLocalPlayer, ' персонаж', '' )] станет [Concept( 'house_head', 'главой дома' )|E] [DynastyHouse.GetBaseName|V]"
 
- FIRE_TAX_COLLECTOR_FIRST_PAST: "[Select_CString( CHARACTER.IsLocalPlayer, 'Вы', Character.GetShortUIName)|U] больше не [Concept( 'tax_collector', 'сборщик налогов' )|E], которому платит [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонаж ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )]"
- FIRE_TAX_COLLECTOR_THIRD_PAST: "[Select_CString( CHARACTER.IsLocalPlayer, 'Вы', Character.GetShortUIName)|U] больше не [Concept( 'tax_collector', 'сборщик налогов' )|E], которому платит [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонаж ' )][CHARACTER.GetNamePossessiveOrMy][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )]"
+ FIRE_TAX_COLLECTOR_FIRST_PAST: "[TARGET_CHARACTER.GetShortUIName|U] больше не [Concept( 'tax_collector', 'сборщик налогов' )|E], которому платит [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонаж ' )][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )]"
+ FIRE_TAX_COLLECTOR_THIRD_PAST: "[TARGET_CHARACTER.GetShortUIName|U] больше не [Concept( 'tax_collector', 'сборщик налогов' )|E], которому платит [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонаж ' )][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )]"
  FIRE_TAX_COLLECTOR_PAST: "[TARGET_CHARACTER.GetShortUIName|U] больше не [Concept( 'tax_collector', 'сборщик налогов' )|E]"
- FIRE_TAX_COLLECTOR_FIRST: "Вы увольняете [Concept( 'tax_collector', 'сборщика налогов' )|E] по имени [TARGET_CHARACTER.GetShortUIName]"
- FIRE_TAX_COLLECTOR_THIRD: "[CHARACTER.GetShortUIName|U] увольняет [Concept( 'tax_collector', 'сборщика налогов' )|E] по имени [TARGET_CHARACTER.GetShortUIName]"
- FIRE_TAX_COLLECTOR: "[TARGET_CHARACTER.GetShortUIName|U] теперь не [Concept( 'tax_collector', 'сборщик налогов' )|E]"
+ FIRE_TAX_COLLECTOR_FIRST: "[Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж ' )][CHARACTER.GetShortUINamePossessive|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] увольняет [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )] с поста [Concept( 'tax_collector', 'сборщика налогов' )|E]"
+ FIRE_TAX_COLLECTOR_THIRD: "[Select_CString(CHARACTER.IsLocalPlayer, '', 'Персонаж ' )][CHARACTER.GetShortUINamePossessive|U][Select_CString(CHARACTER.IsLocalPlayer, ' персонаж', '' )] увольняет [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )] с поста [Concept( 'tax_collector', 'сборщика налогов' )|E]"
+ FIRE_TAX_COLLECTOR: "[TARGET_CHARACTER.GetShortUIName|U] больше не [Concept( 'tax_collector', 'сборщик налогов' )|E]"
 
  I_GAIN_LEGITIMACY_EFFECT: "Вы получите [legitimacy_i]$VALUE|+0$"
  I_LOSE_LEGITIMACY_EFFECT: "Вы потеряете [legitimacy_i]$VALUE|-0$"
@@ -3326,7 +3326,7 @@
  ARMY_REFILLED_SUPPLY: "[ARMY.GetName] восполнила все [Concept('supplies', 'припасы')|E]"
 
  #EP3 - Rebalancing Old Perks
- praetorian_guard_perk_effect: "[Concept('aptitude', 'Пригодность' )] для придворной должности «[GetCourtPositionType('bodyguard_court_position').GetName()]» повысилась"
+ praetorian_guard_perk_effect: "[Concept('aptitude', 'Пригодность' )|E] для придворной должности «[GetCourtPositionType('bodyguard_court_position').GetName()]» повысилась"
  INFLUENCE_CHILDREN_GROOMED_TO_RULE: "Принятие предложения [Concept('influence_ward_personality', 'повлиять на личность подопечного')|E]: #P +[EmptyScope.ScriptValue('groomed_to_rule_value')|0]#!"
 
  set_state_faith_third: "[Concept('state_faith', 'Государственная религия')|E] державы [TITLE.GetName] становится #L [FAITH.GetName|l]ой#!"
@@ -3342,7 +3342,7 @@
  force_step_down_landed_titles_global_past: "[Select_CString(CHARACTER.IsFemale, 'Ушла', 'Ушел' )] в отставку и [Select_CString(CHARACTER.IsFemale, 'потеряла', 'потерял' )] все [Concept('landed', 'земельные')|E] [Concept('titles', 'титулы')|E]"
 
  #BP3 - New Perks
- well_prepared_perk_effect: "Уменьшение расходов на [Concept('travel_option', 'параметры путешествия')E]: [gold_i|E]#P -25%#!"
+ well_prepared_perk_effect: "Уменьшение расходов на [Concept('travel_option', 'параметры путешествия')|E]: [gold_i|E]#P -25%#!"
  far_and_wide_perk_effect: "Увеличение [prestige_experience_i|E][Concept('prestige_experience', 'репутации')|E] на #P 10#! за каждое посещенное [Concept('holding', 'владение')|E]"
  first_far_and_wide_perk_effect: "Ваша [prestige_experience_i|E][Concept('prestige_experience', 'репутация')|E] увеличивается на #P 10#! за каждое посещенное [Concept('holding', 'владение')|E]"
  just_one_more_hill_perk_effect: "Дети могут увеличить свою $game_concept_prowess_i$[Concept('prowess', 'доблесть')|E] и свойство «[GetTrait('lifestyle_traveler').GetName]»"
@@ -3357,7 +3357,7 @@
  first_the_home_away_from_home_perk_effect: "Открывает [Concept('activity_option', 'параметр')|E] «[roaming_longer_length_travel|E]» для занятия @activity_hike!«[GetActivityType('activity_roaming').GetName]»\n[stress_loss_i|E] [Concept('stress_loss', 'Снижение стресса')|E] увеличивается на #P 50%#! во время [Concept('traveling', 'путешествия')|E]"
  local_arbitration_perk_effect: "Открывает [Concept('decision', 'решение')|E] «[Concept('local_arbitration', 'Разрешение местных споров')|E]»"
  local_arbitration_perk_2_effect: "[Concept('aptitude', 'Пригодность')|E] к должности «[GetCourtPositionType('second_camp_officer').GetName()]»: #P +15#!"
- local_arbitration_purpose_short: "Увеличение количества очков [Concept('skill', 'навыков')|E] в зависимости от [Concept('camp_purpose', 'цели лагеря')|E]"
+ local_arbitration_purpose_short: "Увеличение количества очков [Concept('skill', 'навыков')|E] в зависимости от [Concept('camp_purpose', 'архетипа лагеря')|E]"
  local_arbitration_bullet: "\n\t\t$BULLET_WITH_TAB$"
  local_arbitration_wanderers_purpose: "$local_arbitration_purpose_short$ #weak (Скитальцы)#!:$local_arbitration_bullet$Ваше мастерство [Concept('diplomacy', 'дипломатии')|E] увеличивается на #P [diplomacy_i]1#!$local_arbitration_bullet$Ваше знание [Concept('martial', 'военного дела')|E] увеличивается на #P [martial_i]1#!$local_arbitration_bullet$Ваш навык [Concept('stewardship', 'управления')|E] увеличивается на #P [stewardship_i]1#!$local_arbitration_bullet$Ваше мастерство [Concept('intrigue', 'интриг')|E] увеличивается на #P [intrigue_i]1#!$local_arbitration_bullet$Ваша [Concept('learning', 'ученость')|E] увеличивается на #P [learning_i]1#!"
  local_arbitration_mercenaries_purpose: "$local_arbitration_purpose_short$ #weak (Наемники)#!:$local_arbitration_bullet$Ваше знание [Concept('martial', 'военного дела')|E] увеличивается на #P [martial_i]2#!$local_arbitration_bullet$Ваша [Concept('prowess', 'доблесть')|E] увеличивается на #P [prowess_i]2#!"
@@ -3371,7 +3371,7 @@
  finally_there_perk_effect: "Прирост [prestige_i] [Concept('prestige', 'престижа')|E] и потеря [stress_loss_i] [Concept('stress', 'стресса')|E] по прибытии в [Concept('destination', 'цель')|E] [Concept('travel', 'путешествия')|E]"
  first_finally_there_perk_effect: "Вы получаете [prestige_i] [Concept('prestige', 'престиж')|E] и теряете [stress_loss_i] [Concept('stress', 'стресс')|E] по прибытии в [Concept('destination', 'цель')|E] [Concept('travel', 'путешествия')|E]"
  finally_there_perk_2_effect: "[Concept('stress_loss', 'Потеря стресса')|E] в [Concept('point_of_interest', 'точке интереса')|E]: [stress_loss_i]-#p 5#!\n[Concept('prestige', 'Престиж')|E] в [Concept('point_of_interest', 'точке интереса')|E]: [prestige_i]#P +10#!"
- mercenary_contacts_perk_effect: "Открывает [Concept('travel_option', 'особенность путешествия')E] «[GetTravelOption('hire_allied_mercenaries_option').GetName]»"
+ mercenary_contacts_perk_effect: "Открывает [Concept('travel_option', 'особенность путешествия')|E] «[GetTravelOption('hire_allied_mercenaries_option').GetName]»"
  been_there_done_that_perk_effect: "Награды [Concept('point_of_interest', 'точки интереса')|E]: #P +30%#!\nМожно изучить #V 1#! дополнительный [Concept('language', 'язык')|E] без штрафов"
  souvenirs_aplenty_perk_effect: "[Concept('capital', 'Столица')|E] продвинется в своем [Concept('development', 'развитии')|E], если ее владелец [Concept('travel', 'побывал')|E] в более развитой [Concept('destination', 'местности')|E]"
  first_souvenirs_aplenty_perk_effect: "[Concept('capital', 'Столица')|E] продвинется в своем [Concept('development', 'развитии')|E], если вы [Concept('travel', 'побываете')|E] в более развитой [Concept('destination', 'местности')|E]"
@@ -3390,13 +3390,13 @@
  local_inspection_perk_2_effect: "Расход [Concept('provisions', 'припасов лагеря')|E] на [Concept('designated_terrain', 'предпочтительной местности')|E]: [provisions_i]#P -25%#!\nОткрывает [Concept('officer', 'подручного')|E] «[GetCourtPositionType('quartermaster_camp_officer').GetName]»\n[Concept('aptitude', 'Пригодность')|E] подручного «[GetCourtPositionType('quartermaster_camp_officer').GetName]»: #P +10#!\nОткрывает [Concept('officer', 'подручного')|E] «[GetCourtPositionType('head_porter_camp_officer').GetName]»\n[Concept('aptitude', 'Пригодность')|E] подручного «[GetCourtPositionType('head_porter_camp_officer').GetName]»: #P +10#!"
  local_inspection_perk_3_effect: "Прирост [Concept('county_fertility', 'тучности пастбищ')|E] на [Concept('designated_terrain', 'выбранном типе местности')|E]: [county_fertility_i]#P 30%#!"
 
- local_hero_perk_effect: "Открывает [Concept('travel_option', 'особенность путешествия')E] «[GetTravelOption('leisurely_option').GetName ( GetPlayer )]»\nОткрывает [Concept('travel_option', 'особенность путешествия')E] «[GetTravelOption('appeasement_option').GetName ( GetPlayer )]»"
+ local_hero_perk_effect: "Открывает [Concept('travel_option', 'особенность путешествия')|E] «[GetTravelOption('leisurely_option').GetName ( GetPlayer )]»\nОткрывает [Concept('travel_option', 'особенность путешествия')|E] «[GetTravelOption('appeasement_option').GetName ( GetPlayer )]»"
 
 
  travel_logs_effect: "Прирост [Concept('trait_level_track_xp', 'опыта свойства')|E] «[GetTrait('lifestyle_traveler').GetName( GetNullCharacter )] — $trait_track_danger$» по прибытии в [Concept('destination', 'пункт назначения')|E]"
  travel_logs_2_effect: "Вы получите [Concept( 'trait', 'свойство' )|E] «[GetTrait('lifestyle_traveler').GetName( GetNullCharacter )]»"
  know_your_land_know_your_people_perk_effect: "Склонность к принятию [Concept('marriage', 'брака')|E] с вами в пределах державы: #P +[EmptyScope.ScriptValue('promising_prospects_self_value')|0]#!\nСклонность к принятию [Concept('marriage', 'брака')|E] с [Concept('close_family', 'близкими')|E] и [Concept('extended_family', 'дальними родственниками')|E]: #P +[EmptyScope.ScriptValue('promising_prospects_other_value')|0]#!"
- know_your_land_know_your_people_perk_2_effect: "Открывает [Concept('travel_option', 'особенность путешествия')E] «[GetTravelOption('tutor_child_option').GetName ( GetPlayer )]»"
+ know_your_land_know_your_people_perk_2_effect: "Открывает [Concept('travel_option', 'особенность путешествия')|E] «[GetTravelOption('tutor_child_option').GetName ( GetPlayer )]»"
  know_your_land_know_your_people_perk_3_effect: "Решение «[GetDecisionWithKey('gather_provisions_decision').GetName]» на [Concept('designated_terrain', 'предпочтительной местности')|E]: [provisions_i]#P +50%#!"
  mustering_the_troops_perk_effect: "[Concept('traveling', 'Путешествие')|E] по [Concept('holdings', 'владениям')|E] [Concept('domain', 'домена')|E] повышает эффективность [Concept('stationed', 'размещенных')|E] [Concept('men_at_arms', 'профессионалов')|E]"
  mustering_the_troops_perk_2_effect: "Открывает [Concept('decision', 'решение')|E] «[designated_terrain|E]»\n[Concept('travel_danger', 'Опасность')|E] на [Concept('designated_terrain', 'предпочтительной местности')|E]: [travel_danger_i]#p -20#!"
