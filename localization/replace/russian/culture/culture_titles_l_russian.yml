@@ -22,12 +22,8 @@
  duke_female: "Леди"
  king: "Король"
  king_female: "Королева"
- #AGOT Modified
- #emperor: "Emperor"
- emperor: "Король"
- #AGOT Modified
- #emperor_female: "Empress"
- emperor_female: "Королева"
+ emperor: "Император"
+ emperor_female: "Императрица"
  hegemon: "Гегемон"
  hegemon_female: "Гегемонесса"
 
@@ -97,22 +93,22 @@
  duchy_feudal_independent: "Верховное лордство"
  #AGOT Modified
  #king_feudal_male: "Король"
- king_feudal_male: "Лорд"
+ king_feudal_male: "[CHARACTER.Custom('FEUDAL_KINGDOM_MALE')]"
  #AGOT Modified
  #king_feudal_female: "Королева"
- king_feudal_female: "Леди"
+ king_feudal_female: "[CHARACTER.Custom('FEUDAL_KINGDOM_FEMALE')]"
  #AGOT Modified
  #kingdom_feudal: "Королевство"
- kingdom_feudal: "Королевство"
+ kingdom_feudal: "[CHARACTER.Custom('FEUDAL_KINGDOM')]"
  #AGOT Modified
  #emperor_feudal_male: "Emperor"
- emperor_feudal_male: "Король"
+ emperor_feudal_male: "[CHARACTER.Custom('FEUDAL_EMPIRE_MALE')]"
  #AGOT Modified
  #emperor_feudal_female: "Empress"
- emperor_feudal_female: "Королева"
+ emperor_feudal_female: "[CHARACTER.Custom('FEUDAL_EMPIRE_FEMALE')]"
  #AGOT Modified
  #empire_feudal: "Empire"
- empire_feudal: "Королевство"
+ empire_feudal: "[CHARACTER.Custom('FEUDAL_EMPIRE')]"
 
  #Default Republic tiers
  #AGOT Modified
@@ -1116,8 +1112,12 @@
  prince_muslim_female_dravidian_group_empire: "$prince_female_iranian_group_empire$"
 
  ## Imperial Prince ##
- prince_empire: "Принц"
- princess_empire: "Принцесса"
+ #AGOT Modified
+ # prince_empire:0 "Prince"
+ prince_empire:0 "[CHARACTER.Custom('PRINCE_MALE')]"
+ #AGOT Modified
+ # princess_empire:0 "Princess"
+ princess_empire:0 "[CHARACTER.Custom('PRINCE_FEMALE')]"
 
 ####################################################
  #Special titles
