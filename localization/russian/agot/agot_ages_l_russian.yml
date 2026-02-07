@@ -3,8 +3,8 @@
  ### Constants
 
  ## Era Dates - Not in Use
- #ERA_DAWN_END:0 "'(int32)2500'"
- #ERA_HEROES_END:0 "'(int32)6400'"
+ #ERA_DAWN_END:0 "'(int32)2000'"
+ #ERA_HEROES_END:0 "'(int32)5800'"
  #ERA_ANDAL_END:0 "'(int32)7898'"
  #ERA_DOOM_END:0 "'(int32)8000'"
 
@@ -12,13 +12,13 @@
 
  ## DATE Replacements
  # ERA
- ERA_SEL_IG:0 "[Select_CString( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)8000'), 'З.Э.', Select_CString( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)7898' ), 'П.Р.', Select_CString( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)6400' ), 'З.А.', Select_CString( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)2500' ), 'В.Г.', 'Р.Э.' ))))]"
+ ERA_SEL_IG:0 "[Select_CString( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)8000'), 'З.Э.', Select_CString( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)7898' ), 'П.Р.', Select_CString( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)5800' ), 'З.А.', Select_CString( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)2000' ), 'В.Г.', 'Р.Э.' ))))]"
  #ERA_3E_IG:0 "Select_CString( GreaterThan_int32( '(int32)$YEAR$', $ERA_DOOM_END$), 'З.Э.', $ERA_2E_IG$ )"
  #ERA_2E_IG:0 "Select_CString( GreaterThan_int32( '(int32)$YEAR$', $ERA_ANDAL_END$), 'З.А.', $ERA_1E_IG$ )"
  #ERA_1E_IG:0 "Select_CString( GreaterThan_int32( '(int32)$YEAR$', $ERA_HEROES_END$ ), 'В.Г.', $ERA_YT_IG$ )"
  #ERA_YT_IG:0 "Select_CString( GreaterThan_int32( '(int32)$YEAR$', $ERA_DAWN_END$ ), 'Р.Э.', 'П.Г.' )"
  # YEAR
- YEAR_SEL_IG:0 "[Select_int32( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)8000'), Subtract_int32( '(int32)$YEAR|q$', '(int32)8000' ) , Select_int32( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)7898' ), Subtract_int32( '(int32)$YEAR|q$', '(int32)7898' ) , Select_int32( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)6400' ), Subtract_int32( '(int32)$YEAR|q$', '(int32)6400' ) , Max_int32( Select_int32( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)2500' ), Subtract_int32( '(int32)$YEAR|q$', '(int32)2500' ) , '(int32)$YEAR|q$' ) , '(int32)1' ))))]"
+ YEAR_SEL_IG:0 "[Select_int32( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)8000'), Subtract_int32( '(int32)$YEAR|q$', '(int32)8000' ) , Select_int32( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)7898' ), Subtract_int32( '(int32)$YEAR|q$', '(int32)7898' ) , Select_int32( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)5800' ), Subtract_int32( '(int32)$YEAR|q$', '(int32)5800' ) , Max_int32( Select_int32( GreaterThan_int32( '(int32)$YEAR|q$', '(int32)2000' ), Subtract_int32( '(int32)$YEAR|q$', '(int32)2000' ) , '(int32)$YEAR|q$' ) , '(int32)1' ))))]"
  #YEAR_3E_IG:0 "Select_int32( GreaterThan_int32( '(int32)$YEAR$', $ERA_DOOM_END$), Subtract_int32( '(int32)$YEAR$', $ERA_DOOM_END$ ) , $YEAR_2E_IG$ )"
  #YEAR_2E_IG:0 "Select_int32( GreaterThan_int32( '(int32)$YEAR$', $ERA_ANDAL_END$), Subtract_int32( '(int32)$YEAR$', $ERA_ANDAL_END$ ) , $YEAR_1E_IG$ )"
  #YEAR_1E_IG:0 "Select_int32( GreaterThan_int32( '(int32)$YEAR$', $ERA_HEROES_END$), Subtract_int32( '(int32)$YEAR$', $ERA_HEROES_END$ ) , $YEAR_YT_IG$ )"
@@ -28,42 +28,42 @@
 
  ## DATE Replacements
  # ERA
- ERA_SEL_DYNFOUND:0 "[Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)8000' ), 'З.Э.', Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)7898' ), 'П.Р.', Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)6400' ), 'З.А.', Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)2500' ), 'В.Г.', 'Р.Э.' ))))]"
+ ERA_SEL_DYNFOUND:0 "[Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)8000' ), 'З.Э.', Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)7898' ), 'П.Р.', Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)5800' ), 'З.А.', Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)2000' ), 'В.Г.', 'Р.Э.' ))))]"
  #ERA_2E_DYNFOUND:0 "Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)7898' ), 'З.А.', $ERA_1E_DYNFOUND$ )"
- #ERA_1E_DYNFOUND:0 "Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)6400' ), 'В.Г.', $ERA_YT_DYNFOUND$ )"
- #ERA_YT_DYNFOUND:0 "Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)2500' ), 'Р.Э.', 'Р.Э.' )"
+ #ERA_1E_DYNFOUND:0 "Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)5800' ), 'В.Г.', $ERA_YT_DYNFOUND$ )"
+ #ERA_YT_DYNFOUND:0 "Select_CString( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)2000' ), 'Р.Э.', 'Р.Э.' )"
  # YEAR
- YEAR_SEL_DYNFOUND:0 "[Select_int32( GreaterThanOrEqualTo_int32( DynastyHouse.GetFoundYear, '(int32)8000' ), Subtract_int32( DynastyHouse.GetFoundYear, '(int32)8000' ), Select_int32( GreaterThanOrEqualTo_int32( DynastyHouse.GetFoundYear, '(int32)7898' ), Subtract_int32( DynastyHouse.GetFoundYear, '(int32)7898' ), Select_int32( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)6400' ), Subtract_int32( DynastyHouse.GetFoundYear, '(int32)6400' ), Select_int32( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)2500' ), Subtract_int32( DynastyHouse.GetFoundYear, '(int32)2500' ), DynastyHouse.GetFoundYear ))))]"
+ YEAR_SEL_DYNFOUND:0 "[Select_int32( GreaterThanOrEqualTo_int32( DynastyHouse.GetFoundYear, '(int32)8000' ), Subtract_int32( DynastyHouse.GetFoundYear, '(int32)8000' ), Select_int32( GreaterThanOrEqualTo_int32( DynastyHouse.GetFoundYear, '(int32)7898' ), Subtract_int32( DynastyHouse.GetFoundYear, '(int32)7898' ), Select_int32( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)5800' ), Subtract_int32( DynastyHouse.GetFoundYear, '(int32)5800' ), Select_int32( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)2000' ), Subtract_int32( DynastyHouse.GetFoundYear, '(int32)2000' ), DynastyHouse.GetFoundYear ))))]"
  #YEAR_2E_DYNFOUND:0 "Select_int32( GreaterThanOrEqualTo_int32( DynastyHouse.GetFoundYear, '(int32)7898' ), Subtract_int32( DynastyHouse.GetFoundYear, '(int32)7898' ) , $YEAR_1E_DYNFOUND$ )"
- #YEAR_1E_DYNFOUND:0 "Select_int32( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)6400' ), Subtract_int32( DynastyHouse.GetFoundYear, '(int32)6400' ) , $YEAR_YT_DYNFOUND$ )"
- #YEAR_YT_DYNFOUND:0 "Select_int32( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)2500' ), Subtract_int32( DynastyHouse.GetFoundYear, '(int32)2500' ) , DynastyHouse.GetFoundYear )"
+ #YEAR_1E_DYNFOUND:0 "Select_int32( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)5800' ), Subtract_int32( DynastyHouse.GetFoundYear, '(int32)5800' ) , $YEAR_YT_DYNFOUND$ )"
+ #YEAR_YT_DYNFOUND:0 "Select_int32( GreaterThan_int32( DynastyHouse.GetFoundYear, '(int32)2000' ), Subtract_int32( DynastyHouse.GetFoundYear, '(int32)2000' ) , DynastyHouse.GetFoundYear )"
 
  ### Ruler Designer Birth Date
 
  ## DATE Replacements
  # ERA
- ERA_SEL_RULDESBIRTH:0 "[Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)8000' ), 'З.Э.', Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)7898' ), 'П.Р.', Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)6400' ), 'З.А.', Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)2500' ), 'В.Г.', 'Р.Э.' ))))]"
+ ERA_SEL_RULDESBIRTH:0 "[Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)8000' ), 'З.Э.', Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)7898' ), 'П.Р.', Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)5800' ), 'З.А.', Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)2000' ), 'В.Г.', 'Р.Э.' ))))]"
  #ERA_2E_RULDESBIRTH:0 "Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)7898' ), 'A.D.', $ERA_1E_RULDESBIRTH$ )"
- #ERA_1E_RULDESBIRTH:0 "Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)6400' ), 'A.I.', $ERA_YT_RULDESBIRTH$ )"
- #ERA_YT_RULDESBIRTH:0 "Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)2500' ), 'A.H.', 'D.A.' )"
+ #ERA_1E_RULDESBIRTH:0 "Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)5800' ), 'A.I.', $ERA_YT_RULDESBIRTH$ )"
+ #ERA_YT_RULDESBIRTH:0 "Select_CString( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)2000' ), 'A.H.', 'D.A.' )"
  # YEAR
- YEAR_SEL_RULDESBIRTH:0 "[Select_int32( GreaterThanOrEqualTo_int32( RulerDesignerWindow.GetBirthYear, '(int32)8000' ), Subtract_int32( RulerDesignerWindow.GetBirthYear, '(int32)8000' ), Select_int32( GreaterThanOrEqualTo_int32( RulerDesignerWindow.GetBirthYear, '(int32)7898' ), Subtract_int32( RulerDesignerWindow.GetBirthYear, '(int32)7898' ), Select_int32( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)6400' ), Subtract_int32( RulerDesignerWindow.GetBirthYear, '(int32)6400' ) , Select_int32( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)2500' ), Subtract_int32( RulerDesignerWindow.GetBirthYear, '(int32)2500' ), RulerDesignerWindow.GetBirthYear ))))]"
+ YEAR_SEL_RULDESBIRTH:0 "[Select_int32( GreaterThanOrEqualTo_int32( RulerDesignerWindow.GetBirthYear, '(int32)8000' ), Subtract_int32( RulerDesignerWindow.GetBirthYear, '(int32)8000' ), Select_int32( GreaterThanOrEqualTo_int32( RulerDesignerWindow.GetBirthYear, '(int32)7898' ), Subtract_int32( RulerDesignerWindow.GetBirthYear, '(int32)7898' ), Select_int32( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)5800' ), Subtract_int32( RulerDesignerWindow.GetBirthYear, '(int32)5800' ) , Select_int32( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)2000' ), Subtract_int32( RulerDesignerWindow.GetBirthYear, '(int32)2000' ), RulerDesignerWindow.GetBirthYear ))))]"
  #YEAR_2E_RULDESBIRTH:0 "Select_int32( GreaterThanOrEqualTo_int32( RulerDesignerWindow.GetBirthYear, '(int32)7898' ), Subtract_int32( RulerDesignerWindow.GetBirthYear, '(int32)7898' ) , $YEAR_1E_RULDESBIRTH$ )"
- #YEAR_1E_RULDESBIRTH:0 "Select_int32( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)6400' ), Subtract_int32( RulerDesignerWindow.GetBirthYear, '(int32)6400' ) , $YEAR_YT_RULDESBIRTH$ )"
- #YEAR_YT_RULDESBIRTH:0 "Select_int32( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)2500' ), Subtract_int32( RulerDesignerWindow.GetBirthYear, '(int32)2500' ) , RulerDesignerWindow.GetBirthYear )"
+ #YEAR_1E_RULDESBIRTH:0 "Select_int32( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)5800' ), Subtract_int32( RulerDesignerWindow.GetBirthYear, '(int32)5800' ) , $YEAR_YT_RULDESBIRTH$ )"
+ #YEAR_YT_RULDESBIRTH:0 "Select_int32( GreaterThan_int32( RulerDesignerWindow.GetBirthYear, '(int32)2000' ), Subtract_int32( RulerDesignerWindow.GetBirthYear, '(int32)2000' ) , RulerDesignerWindow.GetBirthYear )"
 
  ###Culture Window
 
  # ERA
- ERA_SEL_CULTURE:0 "[Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)8000' ), 'З.Э.', Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)7898' ), 'П.Р.', Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)6400' ), 'З.А.', Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)6400' ), 'З.А.', Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)2500' ), 'В.Г.', 'Р.Э.' )))))]"
+ ERA_SEL_CULTURE:0 "[Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)8000' ), 'З.Э.', Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)7898' ), 'П.Р.', Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)5800' ), 'З.А.', Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)5800' ), 'З.А.', Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)2000' ), 'В.Г.', 'Р.Э.' )))))]"
  #ERA_2E_CULTURE:0 "Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)7898' ), 'A.D.', $ERA_1E_CULTURE$ )"
- #ERA_1E_CULTURE:0 "Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)6400' ), 'A.I.', $ERA_YT_CULTURE$ )"
- #ERA_YT_CULTURE:0 "Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)2500' ), 'A.H.', 'D.A.' )"
+ #ERA_1E_CULTURE:0 "Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)5800' ), 'A.I.', $ERA_YT_CULTURE$ )"
+ #ERA_YT_CULTURE:0 "Select_CString( GreaterThan_int32( DATE.GetYear, '(int32)2000' ), 'A.H.', 'D.A.' )"
  # YEAR
- YEAR_SEL_CULTURE:0 "[Select_int32( GreaterThanOrEqualTo_int32( DATE.GetYear, '(int32)8000' ), Subtract_int32( DATE.GetYear, '(int32)8000' ), Select_int32( GreaterThanOrEqualTo_int32( DATE.GetYear, '(int32)7898' ), Subtract_int32( DATE.GetYear, '(int32)7898' ), Select_int32( GreaterThan_int32( DATE.GetYear, '(int32)6400' ), Subtract_int32( DATE.GetYear, '(int32)6400' ), Select_int32( GreaterThan_int32( DATE.GetYear, '(int32)2500' ), Subtract_int32( DATE.GetYear, '(int32)2500' ), DATE.GetYear ))))]"
+ YEAR_SEL_CULTURE:0 "[Select_int32( GreaterThanOrEqualTo_int32( DATE.GetYear, '(int32)8000' ), Subtract_int32( DATE.GetYear, '(int32)8000' ), Select_int32( GreaterThanOrEqualTo_int32( DATE.GetYear, '(int32)7898' ), Subtract_int32( DATE.GetYear, '(int32)7898' ), Select_int32( GreaterThan_int32( DATE.GetYear, '(int32)5800' ), Subtract_int32( DATE.GetYear, '(int32)5800' ), Select_int32( GreaterThan_int32( DATE.GetYear, '(int32)2000' ), Subtract_int32( DATE.GetYear, '(int32)2000' ), DATE.GetYear ))))]"
  #YEAR_2E_CULTURE:0 "Select_int32( GreaterThanOrEqualTo_int32( DATE.GetYear, '(int32)7898' ), Subtract_int32( DATE.GetYear, '(int32)7898' ) , $YEAR_1E_CULTURE$ )"
- #YEAR_1E_CULTURE:0 "Select_int32( GreaterThan_int32( DATE.GetYear, '(int32)6400' ), Subtract_int32( DATE.GetYear, '(int32)6400' ) , $YEAR_YT_CULTURE$ )"
- #YEAR_YT_CULTURE:0 "Select_int32( GreaterThan_int32( DATE.GetYear, '(int32)2500' ), Subtract_int32( DATE.GetYear, '(int32)2500' ) , DATE.GetYear )"
+ #YEAR_1E_CULTURE:0 "Select_int32( GreaterThan_int32( DATE.GetYear, '(int32)5800' ), Subtract_int32( DATE.GetYear, '(int32)5800' ) , $YEAR_YT_CULTURE$ )"
+ #YEAR_YT_CULTURE:0 "Select_int32( GreaterThan_int32( DATE.GetYear, '(int32)2000' ), Subtract_int32( DATE.GetYear, '(int32)2000' ) , DATE.GetYear )"
 
  ### Main Menu
 
