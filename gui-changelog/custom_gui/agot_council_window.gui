@@ -55,7 +55,7 @@ types CouncilWindow
 
 			flowcontainer = { # Used to be a dynamicgridbox until it overflowed
 				name = "council_position_tasks"
-				visible = "[Not(CouncilWindow.IsLiegeCouncilShown)]"
+				visible = "[Not(Or(CouncilWindow.IsLiegeCouncilShown, CouncilWindow.IsTopLiegeCouncilShown))]"
 				datamodel = "[GuiCouncilPosition.GetPotentialCouncilTasks]"
 
 				datamodel_wrap = 10
@@ -92,14 +92,14 @@ types CouncilWindow
 							}
 
 							button_round = {
-								visible = "[Or(And(GuiPotentialCouncilTask.CanSelect, Not(CouncilWindow.IsLiegeCouncilShown)), GuiPotentialCouncilTask.IsActive)]"
+								visible = "[Or(GuiPotentialCouncilTask.CanSelect, GuiPotentialCouncilTask.IsActive)]"
 								parentanchor = center
 								size = { 46 46 }
 								gfxtype = togglepushbuttongfx
 								effectname = "NoHighlight"
 
 								onclick = "[GuiPotentialCouncilTask.SelectTaskType]"
-								enabled = "[Not(CouncilWindow.IsLiegeCouncilShown)]"
+								enabled = "[Not(Or(CouncilWindow.IsLiegeCouncilShown, CouncilWindow.IsTopLiegeCouncilShown))]"
 								down = "[GuiPotentialCouncilTask.IsActive]"
 
 								using = tooltip_ws
@@ -134,7 +134,7 @@ types CouncilWindow
 
 						widget = {
 							size = { 40 40 }
-							visible = "[And(Not(GuiPotentialCouncilTask.CanSelect), Not(CouncilWindow.IsLiegeCouncilShown))]"
+							visible = "[Not(GuiPotentialCouncilTask.CanSelect)]"
 
 							icon = {
 								datacontext = "[GuiPotentialCouncilTask.GetCouncilTaskType]"
@@ -161,9 +161,11 @@ types CouncilWindow
 		#Castellan Reassign Button
 		hbox = {
 			position = { 100 36 }
-			visible = "[GuiPotentialCouncilTask.IsVisible]"
+			visible = "[And(GuiCouncilPosition.ArePotentialTasksVisible, GuiPotentialCouncilTask.IsVisible)]"
 			widget = {
 				size = { 50 50 }
+				visible = "[Not(Or(CouncilWindow.IsLiegeCouncilShown, CouncilWindow.IsTopLiegeCouncilShown))]"
+
 				icon = {
 					visible = "[GuiPotentialCouncilTask.IsActive]"
 					texture = "gfx/particles/halo.dds"
@@ -173,14 +175,14 @@ types CouncilWindow
 
 				button_round = {
 					shaderfile = "gfx/FX/pdxgui_pushbutton.shader"
-					visible = "[Or(And(GuiPotentialCouncilTask.CanSelect, Not(CouncilWindow.IsLiegeCouncilShown)), GuiPotentialCouncilTask.IsActive)]"
+					visible = "[Or(GuiPotentialCouncilTask.CanSelect, GuiPotentialCouncilTask.IsActive)]"
 					size = { 50 50 }
 					gfxtype = togglepushbuttongfx
 					effectname = "NoHighlight"
 
 					datacontext = "[GetScriptedGui('castellan_reassign')]"
 					onclick = "[GetScriptedGui('castellan_reassign').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-					enabled = "[Not(CouncilWindow.IsLiegeCouncilShown)]"
+					enabled = "[Not(Or(CouncilWindow.IsLiegeCouncilShown, CouncilWindow.IsTopLiegeCouncilShown))]"
 					tooltip = "COUNCIL_TASK_CASTELLAN_REVERT"
 					down = "[GuiPotentialCouncilTask.IsActive]"
 
