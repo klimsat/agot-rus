@@ -674,6 +674,8 @@
 
 									button_standard_back = {
 										onclick = "[RulerDesignerWindow.Close]"
+										#AGOT Added
+										onclick = "[GetVariableSystem.Clear( 'pirate_designer' )]"									
 										shortcut = "close_window"
 
 										blockoverride "text"
@@ -1744,6 +1746,8 @@
 
 						button_primary_big = {
 							text = "RULER_DESIGNER_FINALIZE"
+							#AGOT Added
+							visible = "[Not(GetVariableSystem.Exists('pirate_designer'))]"
 
 							enabled = "[RulerDesignerWindow.CanFinalize]"
 							tooltip = "[RulerDesignerWindow.GetFinalizeTooltip]"
@@ -1751,6 +1755,8 @@
 							onclick = "[RulerDesignerWindow.FinalizeOverwrite]"
 						}
 					}
+					#AGOT Added
+					agot_pirate_finalze_big_button = {}
 				}
 			}
 		}

@@ -218,6 +218,24 @@ types CountyViewTypes
 					alwaystransparent = yes
 				}
 			}
+
+			button_round  = { ## PIRATIZE A CASTLE ###
+				datacontext = "[HoldingView.GetGUIHoldingBuilding]"
+				datacontext = "[HoldingView.GetTitle]"
+				datacontext = "[HoldingView.GetHolder]"
+				visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('pirate_takeover_of_holding_interaction', Title.Self) )]"
+				enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('pirate_takeover_of_holding_interaction', Title.Self)]"
+				tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('pirate_takeover_of_holding_interaction', Title.Self)]"
+				oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
+				clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
+				onclick = "[Character.OpenPlayerInteractionWithTargetTitle('pirate_takeover_of_holding_interaction', Title.Self)]"
+
+				button_feudalize_holding = {
+					size = { 25 25 }
+					parentanchor = center
+					alwaystransparent = yes
+				}
+			}
 		}
 	}
 

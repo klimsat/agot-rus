@@ -161,6 +161,8 @@ window = {
 			button_tab_vertical_bookmark = {
 				name = "tutorial_highlight_laws_tab"
 				down = "[GetVariableSystem.Exists( 'bookmark_laws' )]"
+				#AGOT Added
+				visible = "[Not(GetPlayer.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet)]"
 
 				blockoverride "tab_button"
 				{
@@ -347,7 +349,10 @@ window = {
 								name = "realm_type_adv"
 								text = "you_are_an_adventurer_tt"
 								align = nobaseline
+								visible = "[And(IsLandlessAdventurer( Character ),Not(IsPirate(Character)))]"
 							}
+							#AGOT Added
+							agot_pirate_you_are_a_pirate_text = {}
 
 							text_single = {
 								text = "MY_REALM_WINDOW_DOMICILE_LOCATION"
@@ -474,12 +479,16 @@ types MyRealmWindow
 
 		icon = {
 			name = "is_nomad"
-			visible = "[TitleItem.GetTitle.IsNomad]"
+			#AGOT Modified
+			# visible = "[TitleItem.GetTitle.IsNomad]"
+			visible = "[And(TitleItem.GetTitle.IsNomad, Not(TitleItem.GetTitle.MakeScope.Var('is_pirate_domicile').IsSet))]"
 			parentanchor = bottom|right
 			position = { 5 0 }
 			size = { 25 25 }
 			texture = "gfx/interface/icons/title_status/icon_title_nomad.dds"
 		}
+		#AGOT Added
+		agot_pirate_title_icon = {}
 	}
 
 	type widget_my_realm_header = widget_header_with_picture {
@@ -1413,8 +1422,15 @@ types MyRealmWindow
 				spacing = 10
 
 				text_label_center = {
-					visible = "[IsLandlessAdventurer( Character )]"
+					#AGOT Modified
+					#visible = "[IsLandlessAdventurer( Character )]"
+					visible = "[And(IsLandlessAdventurer( Character ),Not(IsPirate( Character )))]"
 					text = "[camp_purpose|E]"
+				}
+				#AGOT Added
+				text_label_center = {
+					visible = "[IsPirate( Character )]"
+					text = "pirate_tax_rate_law"
 				}
 
 				text_label_center = {
@@ -1746,7 +1762,9 @@ types MyRealmWindow
 				}
 
 				text_single = {
-					visible = "[GuiLaw.IsEnacted]"
+					#AGOT MODIFIED
+					#visible = "[GuiLaw.IsEnacted]"
+					visible = "[And(Not(IsPirate(Character)),GuiLaw.IsEnacted)]"
 					parentanchor = center
 					position = { 3 -2 }
 
@@ -1756,6 +1774,8 @@ types MyRealmWindow
 
 					margin = { 5 0 }
 				}
+				#AGOT Added
+				agot_pirate_law_selected = {}
 			}
 
 			selection_glow = {
@@ -2675,7 +2695,9 @@ types MyRealmWindow
 			
 			vbox = {
 				name = "their_partition_share"
-				visible = "[And( MyRealmWindow.HasPartition, DataModelHasItems( MyRealmWindow.GetMyPartitionShare ) )]"
+				#AGOT Modified
+				#visible = "[And( MyRealmWindow.HasPartition, DataModelHasItems( MyRealmWindow.GetMyPartitionShare ) )]"
+				visible = "[And(Not(MyRealmWindow.GetCharacter.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet),And( MyRealmWindow.HasPartition, DataModelHasItems( MyRealmWindow.GetMyPartitionShare ) ))]"
 				layoutpolicy_horizontal = expanding
 
 				margin_left = 5
@@ -3738,12 +3760,16 @@ types MyRealmWindow
 
 		text_single = {
 			name = "no_heir_warning"
-			visible = "[Not( MyRealmWindow.HasHeir )]"
+			#AGOT Modified
+			#visible = "[Not( MyRealmWindow.HasHeir )]"
+			visible = "[And(Not(MyRealmWindow.GetCharacter.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet),Not( MyRealmWindow.HasHeir ))]"
 			margin = { 0 4 }
 
 			text = "MY_REALM_WINDOW_NO_HEIR_FLAVOR"
 			align = nobaseline
 		}
+		#AGOT Added
+		agot_no_designated_pirate_ship_heir_warning = {}
 
 		hbox = {
 			layoutpolicy_horizontal = expanding
@@ -3764,7 +3790,11 @@ types MyRealmWindow
 					using = Font_Size_Medium
 
 					margin = { 0 2 }
+					#AGOT Added
+					visible = "[Not(MyRealmWindow.GetCharacter.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet)]"
 				}
+				#AGOT Added
+				agot_game_concept_pirate_ship_designated_heir_text_label = {}
 
 				text_single = {
 					visible = "[MyRealmWindow.HasHeir]"
@@ -3777,6 +3807,8 @@ types MyRealmWindow
 					max_width = 415
 					using = Font_Size_Medium
 				}
+				#AGOT Added
+				agot_my_realm_window_designated_pirate_heir_name = {}
 
 				text_single = {
 					name = "vassal_stances_that_prefer"
@@ -3817,9 +3849,13 @@ types MyRealmWindow
 
 						enabled = "[MyRealmWindow.CanDesignateHeir]"
 						onclick = "[OpenDesignateHeirWindow]"
+						#AGOT Added
+						visible = "[Not(MyRealmWindow.GetCharacter.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet)]"
 
 						tooltip = "MRW_DESIGNATE_HEIR_TT"
 					}
+					#AGOT Added
+					agot_remove_pirate_ship_heir_from_my_realm_window_button = {}
 
 					expand = {}
 				}
@@ -3837,6 +3873,8 @@ types MyRealmWindow
 					visible = no
 				}
 			}
+			#AGOT Added
+			agot_designated_pirate_ship_from_my_realm_window_portrait = {}
 		}
 	}
 

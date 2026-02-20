@@ -4686,12 +4686,16 @@ types CharacterWindow
 
 							icon = {
 								name = "is_nomad"
-								visible = "[TitleItem.GetTitle.IsNomad]"
+								#AGOT Modified
+								# visible = "[TitleItem.GetTitle.IsNomad]"
+								visible = "[And(TitleItem.GetTitle.IsNomad, Not(TitleItem.GetTitle.MakeScope.Var('is_pirate_domicile').IsSet))]"
 								parentanchor = bottom|right
 								size = { 25 25 }
 								position = { 5 0 }
 								texture = "gfx/interface/icons/title_status/icon_title_nomad.dds"
 							}
+							#AGOT Added
+							agot_pirate_title_icon = {}
 						}
 					}
 				}

@@ -287,7 +287,9 @@ window = {
 								vbox = {
 									name = "my_political_schemes"
 									datacontext = "[IntrigueWindow.GetPoliticalSchemes]"
-									visible = "[Or(GetPlayer.GetGovernment.HasRule( 'administrative' ), Or(GetPlayer.GetGovernment.IsType( 'japan_feudal_government' ), Or( GetPlayer.GetTopLiege.GetGovernment.HasRule( 'administrative' ), GetPlayer.GetGovernment.IsType( 'mandala_government' ) ) ) )]"
+									#AGOT Modified
+									# visible = "[Or(GetPlayer.GetGovernment.HasRule( 'administrative' ), Or(GetPlayer.GetGovernment.IsType( 'japan_feudal_government' ), Or( GetPlayer.GetTopLiege.GetGovernment.HasRule( 'administrative' ), GetPlayer.GetGovernment.IsType( 'mandala_government' ) ) ) )]"
+									visible = "[Or(Or(GetPlayer.GetGovernment.HasRule( 'administrative' ), Or(GetPlayer.GetGovernment.IsType( 'japan_feudal_government' ), Or( GetPlayer.GetTopLiege.GetGovernment.HasRule( 'administrative' ), GetPlayer.GetGovernment.IsType( 'mandala_government' ) ) ) ), GetPlayer.GetGovernment.IsType('pirate_government'))]"
 									layoutpolicy_horizontal = expanding
 
 									text_label_center = {

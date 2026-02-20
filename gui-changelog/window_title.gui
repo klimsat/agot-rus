@@ -761,7 +761,9 @@ window = {
 
 				vbox = {
 					name = "create_title"
-					visible = "[And( And( Not( Title.IsBarony ), And( Not( TitleViewWindow.GetTitle.HasHolder ), Not( Title.IsNobleFamilyTitle ) ) ), Or( Not( IsNomad( GetPlayer ) ), GreaterThanOrEqualTo_int32( GetPlayer.GetPrimaryTitle.GetTierFrame, Title.GetTierFrame ) ) )]"
+					#AGOT Modified
+					# visible = "[And( And( Not( Title.IsBarony ), And( Not( TitleViewWindow.GetTitle.HasHolder ), Not( Title.IsNobleFamilyTitle ) ) ), Or( Not( IsNomad( GetPlayer ) ), GreaterThanOrEqualTo_int32( GetPlayer.GetPrimaryTitle.GetTierFrame, Title.GetTierFrame ) ) )]"
+					visible = "[And( And( Not( Title.IsBarony ), And( Not( TitleViewWindow.GetTitle.HasHolder ), Not( Title.IsNobleFamilyTitle ) ) ), Or( Not( Or(IsNomad(GetPlayer), IsPirate(GetPlayer)) ), GreaterThanOrEqualTo_int32( GetPlayer.GetPrimaryTitle.GetTierFrame, Title.GetTierFrame ) ) )]"
 					margin = { 0 25 }
 					spacing = 15
 
@@ -959,6 +961,8 @@ window = {
 						}
 					}
 				}
+				#AGOT Added
+				agot_pirate_title_higher_tier_button = {}
 
 				vbox_strength_info = {
 					visible = "[Title.IsMercenaryCompany]"
@@ -1053,12 +1057,16 @@ window = {
 								}
 
 								text_multi = {
-									visible = "[Not(And( InDebugMode, TitleViewWindow.GetTitle.HasLaws))]"
+									#AGOT Modified
+									# visible = "[Not(And( InDebugMode, TitleViewWindow.GetTitle.HasLaws))]"
+									visible = "[And(Not(And( InDebugMode, TitleViewWindow.GetTitle.HasLaws)),Not(TitleViewWindow.GetTitle.MakeScope.Var('is_pirate_domicile').IsSet))]"
 									text = "[TitleViewWindow.GetSuccessionDescription]"
 									layoutpolicy_horizontal = expanding
 									margin = { 20 5 }
 									size = { 0 80 }
 								}
+								#AGOT Added
+								agot_pirate_succession_text = {}
 
 								vbox = {
 									layoutpolicy_vertical = expanding
@@ -1090,6 +1098,10 @@ window = {
 									portrait_head_small = {}
 								}
 							}
+							#AGOT Added
+							agot_show_pirate_designated_heir_for_landless = {}
+							#AGOT Added
+							agot_show_pirate_designated_heir_for_landed = {}
 
 							hbox_admin_title_successor_candidates_list = {
 								visible = "[TitleViewWindow.ShowAppointment]"

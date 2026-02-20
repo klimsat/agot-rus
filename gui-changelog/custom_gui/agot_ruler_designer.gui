@@ -374,4 +374,19 @@
 			using = SettingsValueIncButton
 		}
 	}
+	# Other Buttons #
+	type agot_pirate_finalze_big_button = button_primary_big
+	{
+		text = "RULER_DESIGNER_FINALIZE"
+		visible = "[GetVariableSystem.Exists('pirate_designer')]"
+
+		enabled = "[RulerDesignerWindow.CanFinalize]"
+		tooltip = "[RulerDesignerWindow.GetFinalizeTooltip]"
+
+		onclick = "[RulerDesignerWindow.FinalizeOverwrite]"
+		onclick = "[GetScriptedGui( 'agot_create_pirate_rd' ).Execute( GuiScope.SetRoot( RulerDesignerWindow.GetCharacterToOverwrite.MakeScope ).End) ]"
+		onclick = "[GetVariableSystem.Clear('pirate_designer')]"		
+	}
+
+
 }

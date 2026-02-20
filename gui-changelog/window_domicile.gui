@@ -75,7 +75,9 @@
 
 			### DOMICILE BOOKMARK PATRONS
 			button_tab_vertical_bookmark = {
-				visible = "[IsLandlessAdventurer( DomicileWindow.GetCharacter )]"
+				#AGOT Modified
+				#visible = "[IsLandlessAdventurer( DomicileWindow.GetCharacter )]"
+				visible = "[And(IsLandlessAdventurer( DomicileWindow.GetCharacter ),Not(IsPirate( DomicileWindow.GetCharacter)))]"
 				down = "[GetVariableSystem.Exists( 'bookmark_patrons' )]"
 
 				blockoverride "tab_button"
@@ -119,7 +121,9 @@
 
 			### DOMICILE BOOKMARK FOLLOWERS
 			button_tab_vertical_bookmark = {
-				visible = "[IsLandlessAdventurer( DomicileWindow.GetCharacter )]"
+				#AGOT Modified
+				#visible = "[IsLandlessAdventurer( DomicileWindow.GetCharacter )]"
+				visible = "[And(IsLandlessAdventurer( DomicileWindow.GetCharacter ),Not(IsPirate( DomicileWindow.GetCharacter)))]"
 				down = "[GetVariableSystem.Exists( 'bookmark_followers' )]"
 
 				blockoverride "tab_button"

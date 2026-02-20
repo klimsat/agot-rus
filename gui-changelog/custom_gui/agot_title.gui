@@ -1,0 +1,100 @@
+######################################################
+################# AGOT TITLE WINDOW ##################
+######################################################
+
+types Title
+{
+	type agot_pirate_title_higher_tier_button = vbox
+	{
+		name = "create_title_pirate"
+		visible = "[And(And(Not(Title.IsBarony), Not(TitleViewWindow.GetTitle.HasHolder)), And(IsPirate(GetPlayer), GreaterThan_int32(Title.GetTierFrame, GetPlayer.GetPrimaryTitle.GetTierFrame)))]"
+		margin = { 0 25 }
+		spacing = 15
+
+		text_single = {
+			text = "TITLE_VIEW_NOT_CREATED"
+			using = Font_Size_Big
+		}
+
+		button_primary = {
+			tooltip = "agot_pirate_higher_tier_title_decision_tooltip"
+			datacontext = "[GetDecisionWithKey('agot_pirate_higher_tier_title_decision')]"
+			onclick = "[OpenGameViewData( 'decision_detail', Decision.Self)]"
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				margin = { 10 0 }
+
+				expand = {}
+
+				text_single = {
+					text = "TITLE_VIEW_CREATE_TITLE_NOMAD"
+					align = nobaseline
+					default_format = "#high"
+				}
+
+				spacer = {
+					size = { 5 0 }
+				}
+
+				icon = {
+					texture = "gfx/interface/icons/title_actions/create_title.dds"
+					size = { 25 25 }
+					alwaystransparent = yes
+
+					modify_texture = {
+						texture = "gfx/interface/colors/gold.dds"
+						alpha = 1
+					}
+				}
+
+				expand = {}
+			}
+		}
+	}
+
+	type agot_pirate_title_icon = icon
+	{
+		name = "is_pirate"
+		visible = "[TitleItem.GetTitle.MakeScope.Var('is_pirate_domicile').IsSet]"
+		parentanchor = bottom|right
+		size = { 25 25 }
+		position = { 5 0 }
+		texture = "gfx/interface/icons/government_types/pirate_government.dds"
+	}
+
+	type agot_pirate_succession_text = text_multi
+	{
+		visible = "[TitleViewWindow.GetTitle.MakeScope.Var('is_pirate_domicile').IsSet]"
+		text = agot_pirate_ship_succession_gui_tt
+		layoutpolicy_horizontal = expanding
+		margin = { 20 5 }
+		size = { 0 80 }
+	}
+
+	type agot_show_pirate_designated_heir_for_landless = hbox
+	{
+		visible = "[And(TitleViewWindow.GetTitle.GetHolder.MakeScope.Var('appointed_pirate_jank_heir').IsSet,TitleViewWindow.GetTitle.MakeScope.Var('is_pirate_domicile').IsSet)]"
+		portrait_head_small = {
+			datacontext = "[TitleViewWindow.GetTitle.GetHolder.GetRelationOfType( GetRelation('pirate_ship_designated_heir'))]"
+		}
+	}
+	type agot_show_pirate_designated_heir_for_landed = hbox
+	{
+		visible = "[And(TitleViewWindow.GetTitle.MakeScope.Var('is_pirate_domicile').IsSet,Not(TitleViewWindow.GetTitle.GetHolder.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet))]"
+		portrait_head_small = {
+			datacontext = "[TitleViewWindow.GetTitle.GetHolder.GetPlayerHeir]"
+			visible = "[TitleViewWindow.GetTitle.GetHolder.GetPlayerHeir.IsValid]"
+		}
+		portrait_head_small = {
+			datacontext = "[TitleViewWindow.GetTitle.GetHolder.GetPrimaryTitle.GetHeir]"
+			visible = "[Not(TitleViewWindow.GetTitle.GetHolder.GetPlayerHeir.IsValid)]"
+		}
+		text_single = {
+			visible = "[And(Not(TitleViewWindow.GetTitle.GetHolder.GetPlayerHeir.IsValid),GetScriptedGui('agot_pirate_succession_display').IsShown(GuiScope.SetRoot(TitleViewWindow.GetTitle.GetHolder.GetPrimaryTitle.GetHeir.MakeScope).End))]"
+			text = "agot_pirate_succession_invalid"
+			size = { 0 80 }
+			autoresize = yes
+		}
+	}
+}

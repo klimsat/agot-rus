@@ -1,0 +1,33 @@
+###########################################################
+################# AGOT MULTIPLAYER TYPES ##################
+###########################################################
+
+types JominiMultiplayerLobby
+{
+
+	type agot_create_landless_pirate_button = button_standard
+	{
+		name = "create_landless_pirate"
+		datacontext = "[GetLobbyHelper]"
+		datacontext = "[LobbyView.GetSelectedPlayable.GetCharacter]"
+		visible = "[And(HasDlcFeature('landless_playable'),HasDlcFeature('khans_of_the_steppe'))]"
+		size = { 380 45 }
+
+		button_icon = {
+			size = { 30 30 }
+			parentanchor = left|vcenter
+			position = { 5 0 }
+			alwaystransparent = yes
+			texture = "gfx/interface/icons/travel_options/experienced_captains_option.dds"
+		}
+
+		enabled = "[And(LobbyView.GetSelectedPlayable.GetCharacter.GetGovernment.IsType('pirate_government'),LobbyView.HasSelectedPlayable)]"
+
+		tooltip = "[SelectLocalization(LobbyView.GetSelectedPlayable.GetCharacter.GetGovernment.IsType('pirate_government'),'create_pirate_ruler_designer_tt','create_pirate_ruler_designer_must_be_pirate_start_tt')]"
+		text = "create_pirate_ruler_designer"
+
+		onclick = "[GetVariableSystem.Set('pirate_designer', 'true')]"
+		onclick = "[TryStartRulerDesigning( Character.Self, 'landless_adventurer' )]"
+		onclick = "[LobbyView.UnReady]"
+	}
+}

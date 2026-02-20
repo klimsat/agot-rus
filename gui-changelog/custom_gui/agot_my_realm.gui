@@ -1,0 +1,75 @@
+######################################################
+################# AGOT TITLE WINDOW ##################
+######################################################
+
+types MyRealmWindow
+{
+	type agot_pirate_you_are_a_pirate_text = text_single
+	{
+		name = "realm_type_landless_pirate"
+		text = "you_are_an_landless_pirate_tt"
+		align = nobaseline
+		visible = "[IsPirate(Character)]"
+	}
+	type agot_pirate_law_selected = text_single
+	{
+		visible = "[And(IsPirate(Character),GuiLaw.IsEnacted)]"
+		parentanchor = center
+		position = { 3 -2 }
+
+		text = "PIRATE_TAX_RATE_LAW_SELECTED"
+		default_format = "#high;EMP"
+		max_width = 150
+
+		margin = { 5 0 }
+	}
+	type agot_no_designated_pirate_ship_heir_warning = text_single
+	{
+		name = "no_designated_pirate_ship_heir_warning"
+		visible = "[And(MyRealmWindow.GetCharacter.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet,Not(MyRealmWindow.GetCharacter.MakeScope.Var('appointed_pirate_jank_heir').IsSet))]"
+		margin = { 0 4 }
+
+		text = "MY_REALM_WINDOW_NO_LANDLESS_PIRATESHIP_HEIR_FLAVOR"
+		align = nobaseline
+	}
+	type agot_game_concept_pirate_ship_designated_heir_text_label = text_label_left
+	{
+		layoutpolicy_horizontal = expanding
+		text = "game_concept_pirate_ship_designated_heir"
+		align = nobaseline
+		using = Font_Size_Medium
+		margin = { 0 2 }
+		visible = "[MyRealmWindow.GetCharacter.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet]"
+	}
+	type agot_my_realm_window_designated_pirate_heir_name = text_single
+	{
+		visible = "[MyRealmWindow.GetCharacter.MakeScope.Var('appointed_pirate_jank_heir').IsSet]"
+		layoutpolicy_horizontal = expanding
+
+		text = "[MyRealmWindow.GetCharacter.MakeScope.Var('appointed_pirate_jank_heir').Char.GetUINameNoTooltip]"
+		default_format = "#low"
+		max_width = 415
+		using = Font_Size_Medium
+	}
+	type agot_remove_pirate_ship_heir_from_my_realm_window_button = button_standard
+	{
+		size = { 150 32 }
+
+		text = "agot_remove_landless_pirate_designate_heir"
+
+		enabled = "[MyRealmWindow.GetCharacter.MakeScope.Var('appointed_pirate_jank_heir').IsSet]"
+		onclick = "[OpenCharacterInteraction( 'agot_remove_landless_pirate_designate_heir', MyRealmWindow.GetCharacter.MakeScope.Var('appointed_pirate_jank_heir').Char )]"
+		visible = "[And(MyRealmWindow.GetCharacter.MakeScope.Var('appointed_pirate_jank_heir').IsSet,MyRealmWindow.GetCharacter.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet)]"
+	}
+	type agot_designated_pirate_ship_from_my_realm_window_portrait = portrait_shoulders
+	{
+		visible = "[And(MyRealmWindow.GetCharacter.MakeScope.Var('appointed_pirate_jank_heir').IsSet,MyRealmWindow.GetCharacter.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet)]"
+		datacontext = "[MyRealmWindow.GetCharacter.GetRelationOfType( GetRelation('pirate_ship_designated_heir'))]"
+		allow_outside = yes
+
+		blockoverride "glow_visible"
+		{
+			visible = no
+		}
+	}
+}

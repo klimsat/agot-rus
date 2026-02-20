@@ -381,7 +381,7 @@ widget = {
 					name = "tab_council"
 					#AGOT Modified
 					# visible = "[Not( IsLandlessAdventurer( GetPlayer ) )]"
-					visible = "[Or(Not(IsLandlessAdventurer(GetPlayer)), IsNWAdventurer(GetPlayer))]"
+					visible = "[Or(IsPirate(GetPlayer), Or(Not(IsLandlessAdventurer(GetPlayer)), IsNWAdventurer(GetPlayer)))]"
 
 					blockoverride "maintab_button"
 					{

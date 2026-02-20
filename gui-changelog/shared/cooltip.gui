@@ -3722,8 +3722,9 @@ types LawTooltipTypes
 			tintcolor = "[TooltipInfo.GetTintColor]"
 
 			modify_texture = {
-				visible = "[Not( Or( EqualTo_string( LawGroup.GetKey, 'camp_purpose'), EqualTo_string( LawGroup.GetKey, 'nomadic_authority') ) )]"
-
+				#AGOT Modified
+				#visible = "[Not( Or( EqualTo_string( LawGroup.GetKey, 'camp_purpose'), EqualTo_string( LawGroup.GetKey, 'nomadic_authority') ) )]"
+				visible = "[Not( Or(EqualTo_string( LawGroup.GetKey, 'pirate_haven_port_laws'),Or( EqualTo_string( LawGroup.GetKey, 'camp_purpose'), EqualTo_string( LawGroup.GetKey, 'nomadic_authority') ) ))]"
 				texture = "gfx/interface/colors/colors_textured.dds"
 				blend_mode = add
 				framesize = { 96 96 }
