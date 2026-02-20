@@ -37,6 +37,7 @@
  culture_parameter_dragon_dreams_more_common:0 "The [GetTrait('dragon_dreams').GetName( GetNullCharacter )] [trait|E] is more common"
  culture_parameter_cannibal_trait_is_more_common:0 "The [GetTrait('cannibal').GetName( GetNullCharacter )] [trait|E] is more common"
  culture_parameter_greensight_more_common:0 "The [GetTrait('greensight').GetName( GetNullCharacter )] [trait|E] is more common"
+ culture_parameter_fashionable_trait_more_common:0 "The [GetTrait('fashionable').GetName( GetNullCharacter )] [trait|E] is more common"
 
  #Commander Traits
  culture_parameter_organizer_trait_more_common:0 "The [GetTrait('organizer').GetName( GetNullCharacter )] [commander_trait|E] is more common"
@@ -62,7 +63,7 @@
  culture_parameter_just_trait_more_valued:0 "The [GetTrait('just').GetName( GetNullCharacter )] [trait|E] is more valued"
  culture_parameter_cul_more_likely_born_with_mark:0 "Characters of this culture are more likely to be born with [GetTrait('the_mark').GetName( GetNullCharacter )]"
  culture_parameter_cannibal_trait_more_valued:0 "The [GetTrait('cannibal').GetName( GetNullCharacter )] [trait|E] is more valued"
- culture_parameter_poet_trait_more_valued: "The [GetTrait('lifestyle_poet').GetName( GetNullCharacter )] [trait|E] is more valued"
+ culture_parameter_poet_trait_more_valued:0 "The [GetTrait('lifestyle_poet').GetName( GetNullCharacter )] [trait|E] is more valued"
 
  #Trait Looked Down Upon
  culture_parameter_slave_master_trait_looked_down_upon:0 "The [GetTrait('slave_master').GetName( GetNullCharacter )] [trait|E] is looked down upon"
@@ -107,9 +108,22 @@
  culture_parameter_gain_piety_from_aggro_war_victory:0 "Winning wars as the primary attacker will grant [piety|E]"
  culture_parameter_guardians_add_more_prowess_to_wards:0 "Children will gain additional [prowess|E] if they have a [guardian|E] of this [culture|E]"
  culture_parameter_slightly_hard_to_convert_county_faith:0 "County Conversion Resistance: #P +10%#!"
+ culture_parameter_fashionistas_marriage_acceptance_bonus:0 "[marriage|E] Acceptance: #P +10#!"
 
  #Triggers and Tooltips
  TRADITION_SLIGHTLY_HARD_TO_CONVERT_CONVERSION_MODIFIER:0 "$tradition_agot_first_men_name$ [culture_tradition|E]: $VALUE|=+0$"
+ TRADITION_BONUS_WEDDING_CEREMONIES_FASHIONISTAS:0 "$tradition_agot_fashionistas_name$ [culture_tradition|E]: $VALUE|+=0$"
+
+ #Realm Traditions
+ tradition_agot_insular_marriage_name:0 "Insular Marriage"
+ tradition_agot_insular_marriage_desc:0 "While not isolationist, this culture still prefers to marry within their own people."
+
+ tradition_agot_debug_name:0 "Debug"
+ tradition_agot_debug_desc:0 "How did you get here?"
+
+ #Societal Traditions
+ tradition_agot_fashionistas_name:0 "Caress the Fabric"
+ tradition_agot_fashionistas_desc:0 "I see that the fashion wears out more apparel than the man."
 
  #Traditions
  tradition_agot_blackwater_bay_name:0 "Domain of the Crown"
@@ -289,13 +303,6 @@
 
  tradition_agot_sarar_name:0 "Alive with Song of Fountains"
  tradition_agot_sarar_desc:0 "#italic “Ny Sar, the city of fountains, alive with song;”#!"
-
- #Realm
- tradition_agot_insular_marriage_name:0 "Insular Marriage"
- tradition_agot_insular_marriage_desc:0 "While not isolationist, this culture still prefers to marry within their own people."
-
- tradition_agot_debug_name:0 "Debug"
- tradition_agot_debug_desc:0 "How did you get here?"
 
  #Triggers
  ibbenese_heritage_trigger:0 "The [culture|E] must be of Ibbenese [heritage|E]"

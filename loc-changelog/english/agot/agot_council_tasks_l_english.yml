@@ -116,7 +116,7 @@
  task_admiral_raid_modifier:0 "Council $councillor_admiral$"
 
 
- task_admiral_raid_effect_desc:0 "[raid|E] Speed: #P +[SCOPE.ScriptValue('task_admiral_raid_modifier_value')]%#!\n$TAB$Base: #P +[SCOPE.ScriptValue('task_admiral_raid_base')]%#!\n$TAB$Councillor's [martial_skill|E]: #P +[SCOPE.ScriptValue('task_admiral_raid_skill_base')]%#! \n [raid|E] [loot|E] Capacity: #P +[SCOPE.ScriptValue('task_admiral_raid_modifier_value')]%#!\n$TAB$Base: #P +[SCOPE.ScriptValue('task_admiral_raid_base')]%#!\n$TAB$Councillor's [martial_skill|E]: #P +[SCOPE.ScriptValue('task_admiral_fleet_skill_base')]%#! \n Movement Speed: #P +[SCOPE.ScriptValue('task_admiral_raid_modifier_value')]%#!\n$TAB$Base: #P +[SCOPE.ScriptValue('task_admiral_raid_base')]%#!\n$TAB$Councillor's [martial_skill|E]: #P +[SCOPE.ScriptValue('task_admiral_raid_skill_base')]%#!"
+ task_admiral_raid_effect_desc:0 "[raid|E] Speed: #P +[SCOPE.ScriptValue('task_admiral_raid_modifier_value')]%#!\n$TAB$Base: #P +[SCOPE.ScriptValue('task_admiral_raid_base')]%#!\n$TAB$[GetPerk('hard_rule_perk').GetName(GetNullCharacter)] Perk: #P +[SCOPE.ScriptValue('task_admiral_hard_rule_perk_bonus')]%#!\n$TAB$Councillor's [martial_skill|E]: #P +[SCOPE.ScriptValue('task_admiral_raid_skill_base')]%#! \n [raid|E] [loot|E] Capacity: #P +[SCOPE.ScriptValue('task_admiral_raid_modifier_value')]%#!\n$TAB$Base: #P +[SCOPE.ScriptValue('task_admiral_raid_base')]%#!\n$TAB$Councillor's [martial_skill|E]: #P +[SCOPE.ScriptValue('task_admiral_fleet_skill_base')]%#! \n Movement Speed: #P +[SCOPE.ScriptValue('task_admiral_raid_modifier_value')]%#!\n$TAB$Base: #P +[SCOPE.ScriptValue('task_admiral_raid_base')]%#!\n$TAB$Councillor's [martial_skill|E]: #P +[SCOPE.ScriptValue('task_admiral_raid_skill_base')]%#!"
 
  task_admiral_raid_erudition_bonus:0 "\n$TAB$[GetDynastyPerk('erudition_legacy_5').GetName]: #P +[SCOPE.ScriptValue('task_admiral_fleet_erudition_bonus')]%#!\n"
 
@@ -141,3 +141,10 @@
  # Spymaster
  agot_task_disrupt_schemes_discover_spies:0 "Might discover foreign spies at your court \n"
  agot_task_disrupt_schemes_recruit_spies:0 "Might recruit spies at the targets court \n"
+
+ # Pirates
+ task_collect_pirate_domicile_taxes:0 "Collect Dues"
+ task_collect_pirate_domicile_taxes_modifier:0 "Assistance from $councillor_steward$"
+ task_collect_pirate_domicile_taxes_effect_desc:0 "[councillor.GetShortUINameNoTooltip] focuses on the domicile's ledgers, trying to extract every possible scrap of gold.\n\n[councillor.GetHerHis|U] support gives you:\n[councillor.GetModifierDescForTask('task_collect_pirate_domicile_taxes')]"
+ task_domicile_generic_build_speed_inc_modifier:0 "Domicile Management"
+ you_have_one_of_the_following_domiciles:0 "You must have one of the following [domiciles|E]:\n$EFFECT_LIST_BULLET$[agot_landless_pirate_domicile]"

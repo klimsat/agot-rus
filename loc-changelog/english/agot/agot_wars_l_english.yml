@@ -91,7 +91,7 @@
  agot_blackfyre_claim_fifth:0 "The Fifth Blackfyre Rebellion"
  agot_blackfyre_claim_sixth:0 "The Sixth Blackfyre Rebellion"
  agot_blackfyre_claim_seventh:0 "The Seventh Blackfyre Rebellion"
- agot_blackfyre_claim_eight:0 "The Eigth Blackfyre Rebellion"
+ agot_blackfyre_claim_eight:0 "The Eighth Blackfyre Rebellion"
  agot_blackfyre_claim_ninth:0 "The Ninth Blackfyre Rebellion"
  agot_blackfyre_claim_tenth:0 "The Tenth Blackfyre Rebellion"
  agot_blackfyre_claim_more:0 "Another Fucking Blackfyre Rebellion"
@@ -120,24 +120,33 @@
 
  #AGOT Bastard Events
  agot_bastard_claimant_war:0 "Royal Bastard Claimant War"
- agot_bastard_claimant_war_no_nickname:0 "$agot_bastard_claimant_war$"
- agot_bastard_claimant_war_name_nicked:0 "The War of [CLAIMANT.GetNicknameNoTooltip]"
- agot_bastard_claimant_war_name_no_nick:0 "The War of [CLAIMANT.GetFather.GetFirstNamePossessiveNoTooltip] Bastard"
+ agot_bastard_claimant_war_name:0 ""[CLAIMANT.Custom('BastardClaimantWarName')]""
+ agot_bastard_claimant_war_name_nicked:0 "The War of [ROOT.Char.Custom('SurnameSwitch')]"
+ agot_bastard_claimant_war_name_no_nick:0 "The War of [ROOT.Char.GetFather.GetFirstNamePossessiveNoTooltip] Bastard"
  agot_bastard_claimant_war_invalid:0 "[claimant.GetName] has died. [claimant.GetHerHis] claim can no longer be pressed."
  agot_bastard_claimant_war_victory:0 "[claimant.GetName] will be installed as ruler of [defender.GetPrimaryTitle.GetName]!"
  agot_bastard_claimant_war_white_peace:0 "[attacker.GetName] and [defender.GetName] agree to cease the bloodshed. [claimant.GetName] will return home and this matter put to rest."
  agot_bastard_claimant_war_defeat:0 "[defender.GetName] will win and the rebels will be subject to [defender.GetHerHis] judgment."
 
- #Disrupt Piracy
+ #Pirates
  DISRUPT_PIRACY_WAR_NAME:0 "Disrupt Piracy"
  DISRUPT_PIRACY_WAR_NAME_BASE:0 "[ATTACKER.GetPrimaryTitle.GetAdjective][DEFENDER.GetPrimaryTitle.GetName]"
  DISRUPT_PIRACY_CB:0 "Disrupt Piracy"
+ destroy_pirates_cb:0 "$DISRUPT_PIRACY_CB$"
+ DISRUPT_PIRACY_CB_SHATTER:0 "The [titles|e] of every war defender and their vassals will shatter, returning to a sparsley inhabited state."
  disrupt_piracy_defeat_desc:0 "Pirates in this region will be emboldened, increasing the threat to trade and security."
  disrupt_piracy_victory_desc:0 "The Pirate realm is destroyed and piracy in the region will be disrupted."
  disrupt_piracy_white_peace_desc:0 "White peace shouldn't happen, if it does, report it to gaytriarch."
  disrupt_piracy_invalidated_desc:0 "The war to disrupt piracy has been invalidated due to the death of [ATTACKER.GetFullNameRegnalPossessive|U]."
  DISRUPT_PIRACY_COASTAL_GOOD:0 "With the pirates of [defender.GetPrimaryTitle.GetNameNoTier|U] smashed, your coastal [counties|E] are safer from piracy, increasing [county_control|E] for #V 2 years."
  DISRUPT_PIRACY_COASTAL_BAD:0 "With their [attacker.GetLadyLord|U] unable to control the pirate meance, the once bustling docks in your coastal [counties|E] sit empty, lowering [county_control|E], [county_opinion|E], and [development|E] for #V 2 years."
+ INVADE_PIRATE_HAVEN_WAR_NAME:0 "Invade Pirate Haven"
+ INVADE_PIRATE_HAVEN_CB:0 "$INVADE_PIRATE_HAVEN_WAR_NAME$"
+ ESTABLISH_PIRATE_HAVEN_WAR_NAME:0 "Establish Pirate Haven"
+ ESTABLISH_PIRATE_HAVEN_CB:0 "$ESTABLISH_PIRATE_HAVEN_WAR_NAME$"
+
+ PIRATE_CB_TARGET_IS_KINGDOM:0 "Defender's primary title is kingdom-tier or higher"
+ PIRATE_CB_TARGET_IS_DUCHY:0 "Defender's primary title is duchy-tier"
 
  #Shattered World Conquest
  SHATTERED_CONQUEST_DUCHY_CB_NAME:1 "Conquer [duchy|E]"

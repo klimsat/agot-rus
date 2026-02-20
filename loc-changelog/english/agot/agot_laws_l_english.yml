@@ -22,6 +22,7 @@
  SLAVERY_LAW_IS_ON_COOLDOWN:0 "You recently changed Slavery Laws. Can be changed again after [GetCurrentDateWithDiff( GetVarTimeRemaining( CHARACTER.MakeScope, 'slavery_law_cooldown') )]"
  SLAVERY_CRIMINAL_UNDER_FAITH:0 "Your faith considers slavery criminal"
  DRAGONPIT_LAW_IS_ON_COOLDOWN:0 "You recently changed Dragonpit Laws. Can be changed again after [GetCurrentDateWithDiff( GetVarTimeRemaining( CHARACTER.MakeScope, 'dragonpit_law_cooldown') )]"
+ PIRATE_PORT_TAX_RATE_IS_ON_COOLDOWN:0 "You recently changed Pirate Port Tax Rates. Can be changed again after [GetCurrentDateWithDiff( GetVarTimeRemaining( CHARACTER.MakeScope, 'pirate_port_law_cooldown') )]"
 
  dragonpit_laws:0 "Dragonpit Access Laws"
  dragonpit_laws_singular:0 "Dragonpit Access Policy"
@@ -34,6 +35,18 @@
  dragonpit_everyone_law:0 "Everyone"
  dragonpit_everyone_law_effects:0 "[dragons_plural|E] in your [dragonpit|e] can be accessed by #warning everyone#!"
  YOU_ARE_BANNED_FROM_THIS_DRAGONS_PIT:0 "You are banned from the [dragonpit|e] this dragon is located in"
+
+ #Pirates
+ pirate_tax_rate_law: "[pirate_port_rates|e]"
+ pirate_tax_rate_01: "Friendly"
+ pirate_tax_rate_01_effects: "$EFFECT_LIST_BULLET$[GetCouncilTaskType('task_find_secrets').GetName|V] [councillor_task|E]: #P +10%#! additional chance of learning a [secret|E]\n#underline #underline [agot_landless_pirate_domiciles|e] will pay#!:#!\n$EFFECT_LIST_BULLET$ [GetDomicileBuilding('agot_pirate_ship_main_01').GetName] & [GetDomicileBuilding('agot_pirate_ship_main_02').GetName]: 5 @gold_icon! docking fee, and a 20 @gold_icon! yearly fee.\n$EFFECT_LIST_BULLET$[GetDomicileBuilding('agot_pirate_ship_main_03').GetName] & [GetDomicileBuilding('agot_pirate_ship_main_04').GetName]: 10 @gold_icon! docking fee, and a 40 @gold_icon! yearly fee.\n$EFFECT_LIST_BULLET$[GetDomicileBuilding('agot_pirate_ship_main_05').GetName] & [GetDomicileBuilding('agot_pirate_ship_main_06').GetName]: 15 @gold_icon! docking fee, and a 60 @gold_icon! yearly fee."
+ pirate_tax_rate_02: "Standard"
+ pirate_tax_rate_02_effects: "#underline [agot_landless_pirate_domiciles|e] will pay#!:\n$EFFECT_LIST_BULLET$ [GetDomicileBuilding('agot_pirate_ship_main_01').GetName] & [GetDomicileBuilding('agot_pirate_ship_main_02').GetName]: 7.5 @gold_icon! docking fee, and a 30 @gold_icon! yearly fee.\n$EFFECT_LIST_BULLET$[GetDomicileBuilding('agot_pirate_ship_main_03').GetName] & [GetDomicileBuilding('agot_pirate_ship_main_04').GetName]: 12.5 @gold_icon! docking fee, and a 50 @gold_icon! yearly fee.\n$EFFECT_LIST_BULLET$[GetDomicileBuilding('agot_pirate_ship_main_05').GetName] & [GetDomicileBuilding('agot_pirate_ship_main_06').GetName]: 17.5 @gold_icon! docking fee, and a 70 @gold_icon! yearly fee."
+ pirate_tax_rate_03: "High"
+ pirate_tax_rate_03_effects: "$EFFECT_LIST_BULLET$[agot_landless_pirate_domiciles|e] will receive increased protection from [GetScheme('agot_raid_pirate_domicile').GetTypeName] [schemes|E]\n#underline [agot_landless_pirate_domiciles|e] will pay#!:\n$EFFECT_LIST_BULLET$ [GetDomicileBuilding('agot_pirate_ship_main_01').GetName] & [GetDomicileBuilding('agot_pirate_ship_main_02').GetName]: 10 @gold_icon! docking fee, and a 40 @gold_icon! yearly fee.\n$EFFECT_LIST_BULLET$[GetDomicileBuilding('agot_pirate_ship_main_03').GetName] & [GetDomicileBuilding('agot_pirate_ship_main_04').GetName]: 15 @gold_icon! docking fee, and a 60 @gold_icon! yearly fee.\n$EFFECT_LIST_BULLET$[GetDomicileBuilding('agot_pirate_ship_main_05').GetName] & [GetDomicileBuilding('agot_pirate_ship_main_06').GetName]: 20 @gold_icon! docking fee, and an 80 @gold_icon! yearly fee."
+ pirate_tax_rate_04: "Extortionate"
+ pirate_tax_rate_04_effects: "$EFFECT_LIST_BULLET$[agot_landless_pirate_domiciles|e] are less likely to start [GetScheme('agot_raid_pirate_domicile').GetTypeName] [schemes|E]\n#underline [agot_landless_pirate_domiciles|e] will pay#!:\n$EFFECT_LIST_BULLET$ [GetDomicileBuilding('agot_pirate_ship_main_01').GetName] & [GetDomicileBuilding('agot_pirate_ship_main_02').GetName]: 12.5 @gold_icon! docking fee, and a 50 @gold_icon! yearly fee.\n$EFFECT_LIST_BULLET$[GetDomicileBuilding('agot_pirate_ship_main_03').GetName] & [GetDomicileBuilding('agot_pirate_ship_main_04').GetName]: 17.5 @gold_icon! docking fee, and a 70 @gold_icon! yearly fee.\n$EFFECT_LIST_BULLET$[GetDomicileBuilding('agot_pirate_ship_main_05').GetName] & [GetDomicileBuilding('agot_pirate_ship_main_06').GetName]: 22.5 @gold_icon! docking fee, and a 90 @gold_icon! yearly fee."
+ PIRATE_TAX_RATE_LAW_SELECTED: "[Law.GetNameNoTooltip]"
 
  # Free Cities
  franchise_laws: "Franchise"
