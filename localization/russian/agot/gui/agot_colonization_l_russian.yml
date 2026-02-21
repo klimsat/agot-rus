@@ -5,9 +5,11 @@
  colonize_land:0 "Колонизировать"
  colonize_land_cost_desc:0 "Вы потратите [gold_i]#high [GetPlayer.MakeScope.ScriptValue('colonize_cost_val')]#!\n[GetPlayer.MakeScope.GetScriptValueDesc('colonize_cost_val')]"
  colonize_land_holding_desc:0 "Вы получите [Concept('settlement_holding', 'поселение')|E] во владении [wilderness.GetCounty.GetName]"
+ colonize_land_holding_pirates_desc:0 "You gain a [pirate_den_holding|E] in [wilderness.GetCounty.GetName]"
 
  colonize_border_county_trigger_tooltip:0 "Вы должны граничить с [Concept('county', 'графством')|E] [Concept('wilderness', 'дебрей')|E] по суше или воде."
  colonize_btw:0 "Вы должны граничить с [Concept('county', 'графством')|E] [Concept('wilderness', 'дебрей')|E] по суше или воде."
+ pirates_must_use_decision_to_colonize:0 "Landless Pirates must use the [GetDecisionWithKey('settle_wilderness_county_or_duchy_decision').GetName] [decision|E] to colonize."
 
  no_settlement_or_wilderness_counties:0 "В регионе [region_title.GetNameNoTier] нет [Concept('wilderness_holding', 'дебрей')|E] или [Concept('settlement_holding', 'поселений')|E]"
 
@@ -53,6 +55,11 @@
 
  support_colonize_pirate_den_interaction:0 "Помочь колонизации"
  support_colonize_pirate_den_interaction_desc:0 "Помочь персонажу [recipient.GetShortUIName] развить [recipient.GetHerHis] земли и превратить одно из [recipient.GetHerHis] [Concept('pirate_den', 'пиратских')|E] [Concept('holdings', 'владений')|E] во [settlement_holding|El]."
+
+ pirate_takeover_of_holding_interaction:0 "Establish Pirate Den"
+ pirate_takeover_of_holding_interaction_desc:0 "Destroy all [buildings|E] in this [holding|E] and convert it into a [pirate_den_holding|E]."
+ county_dev_must_be_below_or_equal_to_15:0 "The county of this holding must have a [development|E] level less than or equal to 15"
+ county_must_be_coastal:0 "The county of this holding must be coastal"
 
  ##Destroy Holding
  destroy_holding_interaction: "Уничтожить владение"
