@@ -116,7 +116,7 @@
  task_admiral_raid_modifier:0 "Придворный $councillor_admiral$"
 
 
- task_admiral_raid_effect_desc:0 "Скорость [Concept('raid', 'налётов')|E]: #P +[SCOPE.ScriptValue('task_admiral_raid_modifier_value')]%#!\n$TAB$Базовое значение: #P +[SCOPE.ScriptValue('task_admiral_raid_base')]%#!\n$TAB$[martial_skill|E] советника: #P +[SCOPE.ScriptValue('task_admiral_raid_skill_base')]%#! \n Объём [Concept('loot', 'добычи')|E] за [Concept('raid', 'набег')|E]: #P +[SCOPE.ScriptValue('task_admiral_raid_modifier_value')]%#!\n$TAB$Базовое значение: #P +[SCOPE.ScriptValue('task_admiral_raid_base')]%#!\n$TAB$[martial_skill|E] советника: #P +[SCOPE.ScriptValue('task_admiral_fleet_skill_base')]%#! \n Скорость передвижения: #P +[SCOPE.ScriptValue('task_admiral_raid_modifier_value')]%#!\n$TAB$Базовое значение: #P +[SCOPE.ScriptValue('task_admiral_raid_base')]%#!\n$TAB$[martial_skill|E] советника: #P +[SCOPE.ScriptValue('task_admiral_raid_skill_base')]%#!"
+ task_admiral_raid_effect_desc:0 "Скорость [Concept('raid', 'налётов')|E]: #P +[SCOPE.ScriptValue('task_admiral_raid_modifier_value')]%#!\n$TAB$Базовое значение: #P +[SCOPE.ScriptValue('task_admiral_raid_base')]%#!\n$TAB$Достоинство «[GetPerk('hard_rule_perk').GetName(GetNullCharacter)]»: #P +[SCOPE.ScriptValue('task_admiral_hard_rule_perk_bonus')]%#!\n$TAB$[martial_skill|E] советника: #P +[SCOPE.ScriptValue('task_admiral_raid_skill_base')]%#! \n Объём [Concept('loot', 'добычи')|E] за [Concept('raid', 'набег')|E]: #P +[SCOPE.ScriptValue('task_admiral_raid_modifier_value')]%#!\n$TAB$Базовое значение: #P +[SCOPE.ScriptValue('task_admiral_raid_base')]%#!\n$TAB$[martial_skill|E] советника: #P +[SCOPE.ScriptValue('task_admiral_fleet_skill_base')]%#! \n Скорость передвижения: #P +[SCOPE.ScriptValue('task_admiral_raid_modifier_value')]%#!\n$TAB$Базовое значение: #P +[SCOPE.ScriptValue('task_admiral_raid_base')]%#!\n$TAB$[martial_skill|E] советника: #P +[SCOPE.ScriptValue('task_admiral_raid_skill_base')]%#!"
 
  task_admiral_raid_erudition_bonus:0 "\n$TAB$[GetDynastyPerk('erudition_legacy_5').GetName]: #P +[SCOPE.ScriptValue('task_admiral_fleet_erudition_bonus')]%#!\n"
 
@@ -141,3 +141,10 @@
  # Spymaster
  agot_task_disrupt_schemes_discover_spies:0 "Может обнаружить иноземных шпионов при вашем дворе \n"
  agot_task_disrupt_schemes_recruit_spies:0 "Может вербовать шпионов при дворе цели \n"
+
+ # Pirates
+ task_collect_pirate_domicile_taxes:0 "Собрать пошлины"
+ task_collect_pirate_domicile_taxes_modifier:0 "Помощь управляющего"
+ task_collect_pirate_domicile_taxes_effect_desc:0 "[councillor.GetShortUINameNoTooltip] уделяет особое внимание бухгалтерским книгам имения, пытаясь извлечь все возможные крупицы золота.\n\n[Select_CString(councillor.IsFemale, 'Её', 'Его' )] старания дают эффект:\n[councillor.GetModifierDescForTask('task_collect_pirate_domicile_taxes')]"
+ task_domicile_generic_build_speed_inc_modifier:0 "Управление имением"
+ you_have_one_of_the_following_domiciles:0 "У вас должен быть один из следующих типов [Concept('domiciles', 'имений')|E]:\n$EFFECT_LIST_BULLET$[agot_landless_pirate_domicile|E]"
