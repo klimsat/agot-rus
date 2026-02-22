@@ -120,24 +120,33 @@
 
  #AGOT Bastard Events
  agot_bastard_claimant_war:0 "Война королевского бастарда"
- agot_bastard_claimant_war_no_nickname:0 "$agot_bastard_claimant_war$"
- agot_bastard_claimant_war_name_nicked:0 "Война [CLAIMANT.GetNicknameNoTooltip]"
- agot_bastard_claimant_war_name_no_nick:0 "Война бастарда персонажа [CLAIMANT.GetFather.GetFirstNamePossessiveNoTooltip]"
+ agot_bastard_claimant_war_name:0 "«[CLAIMANT.Custom('BastardClaimantWarName')]»"
+ agot_bastard_claimant_war_name_nicked:0 "Война [ROOT.Char.Custom('SurnameSwitch')]"
+ agot_bastard_claimant_war_name_no_nick:0 "Война бастарда персонажа [ROOT.Char.GetFather.GetFirstNamePossessiveNoTooltip]"
  agot_bastard_claimant_war_invalid:0 "[claimant.GetName] [Select_CString(claimant.IsFemale, 'умерла', 'умер' )]. [claimant.GetHerHis] претензия более не может быть продавлена."
  agot_bastard_claimant_war_victory:0 "[claimant.GetName] будет [Select_CString(claimant.IsFemale, 'возведена на трон как правительница', 'возведён на трон как правитель' )] державы [defender.GetPrimaryTitle.GetName]!"
  agot_bastard_claimant_war_white_peace:0 "[attacker.GetName] и [defender.GetName] согласились прекратить кровопролитие. [claimant.GetName] вернётся домой, и на этом дело закончится."
  agot_bastard_claimant_war_defeat:0 "[defender.GetName] побеждает, а мятежники предстанут перед [defender.GetHerHis] правосудием." 
 
- #Disrupt Piracy
+ #Pirates
  DISRUPT_PIRACY_WAR_NAME:0 "Пресечение пиратства"
  DISRUPT_PIRACY_WAR_NAME_BASE:0 "Война державы [ATTACKER.GetPrimaryTitle.GetAdjective] за пресечение пиратства в регионе [DEFENDER.GetPrimaryTitle.GetName]"
  DISRUPT_PIRACY_CB:0 "Пресечь пиратство"
+ destroy_pirates_cb:0 "$DISRUPT_PIRACY_CB$"
+ DISRUPT_PIRACY_CB_SHATTER:0 "The [titles|e] of every war defender and their vassals will shatter, returning to a sparsley inhabited state."
  disrupt_piracy_defeat_desc:0 "Пираты в этом регионе осмелеют, что увеличит угрозу торговле и безопасности."
  disrupt_piracy_victory_desc:0 "Держава пиратов уничтожена, и пиратству в регионе будет положен конец."
  disrupt_piracy_white_peace_desc:0 "White peace shouldn't happen, if it does, report it to gaytriarch."
  disrupt_piracy_invalidated_desc:0 "[ATTACKER.GetFullNameRegnalPossessive|U] умирает, война за пресечение пиратства прекращена."
  DISRUPT_PIRACY_COASTAL_GOOD:0 "С уничтожение пиратов из державы [defender.GetPrimaryTitle.GetNameNoTier|U] ваши прибрежные [counties|El] стали более защищёнными от пиратов, увеличив [Concept( 'county_control', 'контроль над графством' )|E] на #V 2 года."
  DISRUPT_PIRACY_COASTAL_BAD:0 "Из-за того, что их [Select_CString(attacker.IsFemale, 'леди', 'лорд' )] не в состоянии контролировать угрозу пиратов, некогда оживлённые верфи в ваших прибрежных [counties|E]графствах пустуют, что приводит к снижению [Concept( 'county_control', 'контроля над графством' )|E], [Concept( 'county_opinion', 'народного мнения' )|E] и [Concept( 'development', 'развития' )|E] на #V 2 года."
+ INVADE_PIRATE_HAVEN_WAR_NAME:0 "Invade Pirate Haven"
+ INVADE_PIRATE_HAVEN_CB:0 "$INVADE_PIRATE_HAVEN_WAR_NAME$"
+ ESTABLISH_PIRATE_HAVEN_WAR_NAME:0 "Establish Pirate Haven"
+ ESTABLISH_PIRATE_HAVEN_CB:0 "$ESTABLISH_PIRATE_HAVEN_WAR_NAME$"
+
+ PIRATE_CB_TARGET_IS_KINGDOM:0 "Defender's primary title is kingdom-tier or higher"
+ PIRATE_CB_TARGET_IS_DUCHY:0 "Defender's primary title is duchy-tier"
 
  #Shattered World Conquest
  SHATTERED_CONQUEST_DUCHY_CB_NAME:1 "Завоевать [duchy|El]"
