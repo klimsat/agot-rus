@@ -7,7 +7,7 @@
 
  game_concept_agot_landless_pirate_domicile: "Пиратский корабль"
  game_concept_agot_landless_pirate_domiciles: "Пиратские корабли"
-game_concept_agot_landless_pirate_domicile_desc:0 "$game_concept_agot_landless_pirate_domiciles$ are a [domicile|E] exclusive to the [pirate_govt|E] [government_form|E].\n\n$game_concept_agot_landless_pirate_domiciles$ are utilized by both landed and landless [characters|e]. Landed pirates cannot move their $game_concept_agot_landless_pirate_domicile$ outside of their capital, and landless pirates may move their $game_concept_agot_landless_pirate_domicile$ between [pirate_den_holdings|E], [settlement_holdings|E], and [wilderness_holdings|E] only.\n\nWhen landless pirates move their $game_concept_agot_landless_pirate_domiciles$ to a new $game_concept_pirate_den$, they must pay a one-time docking fee, a yearly fee, and will be bound to join the [county|e] holder in any defensive wars. Landed pirates can set the intensity of these port fees through [laws|E]."
+ game_concept_agot_landless_pirate_domicile_desc: "Пиратские корабли являются уникальным [Concept('domicile', 'имением')|E], доступным исключительно [Concept('pirate_govt', 'пиратской')|E] [Concept('government_form', 'форме правления')|E].\n\nПиратские корабли используются как землевладельцами, так и безземельными [Concept('characters', 'персонажами')|E]. Пираты-землевладельцы не могут перемещать свой корабль за пределы своей столицы, а безземельные пираты могут перемещать свои корабли только между [Concept('pirate_den_holdings', 'пиратскими логовами')|E], [Concept('settlement_holdings', 'поселениями')|E] и [Concept('wilderness_holdings', 'дебрями')|E].\n\nКогда безземельные пираты перемещают свои корабли в новое логово, они должны заплатить единовременную пошлину за стыковку, ежегодный сбор и обязаны присоединиться к оборонительным войнам владельца [Concept('county', 'графства')|E]. Пираты-землевладельцы могут устанавливать размер этих портовых сборов с помощью [Concept('laws', 'законов')|E]."
 
  agot_cannot_become_adventurer_as_pirate_with_valid_relocation_target: "У безземельного владельца [Concept('agot_landless_pirate_domicile', 'пиратского корабля')|E] не должно быть действительной цели путешествия"
 
@@ -47,24 +47,24 @@ game_concept_agot_landless_pirate_domicile_desc:0 "$game_concept_agot_landless_p
 
  game_concept_pirate_port_rates: "Тарифы пиратского порта"
  game_concept_pirate_port_rate: "Тариф пиратского порта"
-game_concept_pirate_port_rates_desc:0 "$game_concept_pirate_port_rates$ consist of two types of @gold_icon! fees that [agot_landless_pirate_domiciles|E] must pay upon arriving at a location held by [pirate_govt|E] rulers.\n\nThe first fee is the #bold one-time docking fee#!, which a Landless Pirate must pay immediately upon entering a new [pirate_den_holding|E]. The second fee is the #bold yearly docking fee#! which must be paid annually so long as the pirate remains in that location.\n\nThe Landed Pirates ruling the county may change these fees through [laws|E]."
+ game_concept_pirate_port_rates_desc: "Тарифы пиратских портов состоит из двух типов @gold_icon! пошлин, которые капитаны [Concept('agot_landless_pirate_domiciles', 'кораблей')|E] должны оплатить по прибытии в место, контролируемое [Concept('pirate_govt', 'пиратскими')|E] правителями.\n\nПервая пошлина - это #bold единовременный сбор за стоянку#!, который безземельный пират должен заплатить сразу же при прибытии в новое [Concept('pirate_den_holding', 'пиратское логово')|E]. Вторая пошлина - это #bold ежегодный сбор за стоянку#!, который должен выплачиваться ежегодно, пока пират остаётся в этой локации.\n\nПираты-землевладельцы, правящие графством, могут изменить размер этих сборов с помощью [Concept('laws', 'законов')|E]."
 
  game_concept_pirate_ship_designated_heir: "Предопределённый наследник корабля"
  game_concept_pirate_ship_designated_heirs: "Предопределённый наследник [Concept('agot_landless_pirate_domicile', 'корабля')|E]"
-game_concept_pirate_ship_designated_heir_desc:0 "A $game_concept_pirate_ship_designated_heir$ is a [character|E] that has been designated to inherit a [agot_landless_pirate_domicile|E].\n\nThey do not have to be related to the current $game_concept_agot_landless_pirate_domicile$ Captain, but they do have to be a courtier of that character. Only a landless [pirate_govt|E] [ruler|E] may designate a $game_concept_pirate_ship_designated_heir$."
+ game_concept_pirate_ship_designated_heir_desc: "Предопределённый наследник корабля - это [Concept('character', 'персонаж')|E], который был выбран в качестве наследника [Concept('agot_landless_pirate_domicile', 'пиратского корабля')|E].\n\nОни не обязательно должны быть связаны узами родства с текущим капитаном пиратского корабля, но они должны быть придворными этого персонажа. Только безземельный [Concept('pirate_govt', 'пиратский')|E] [Concept('ruler', 'правитель')|E] может назначить предопределённого наследника пиратского корабля."
 
  agot_pirate_events.8032.desc: "Наконец-то на рассвете до меня дошли известия с пиратского корабля, которым командует [target.GetFirstName], что стоит на якоре в провинции [target_domicile.GetLocation.GetBaronyNameExplicitlyNoTooltip], которые подтвердили наш успех!\n\n[target.Custom('InsultNounPlural')] были застигнуты врасплох"
  agot_pirate_events.8032.kill: "и несколько членов [Select_CString(target.IsFemale, 'её', 'его' )] команды были убиты - выжившим придётся смириться с этой неудачей..."
  agot_pirate_events.8032.fallback: "и перебиты на глазах у всех остальных!"
  agot_pirate_events.8034.t: "На пиратский корабль совершён налёт"
 
-agot_pirate_events.8034.desc:0 "At dawn, panicked rumors of a raid on the pirate ship in [target_domicile.GetLocation.GetBaronyNameExplicitlyNoTooltip] reach me quickly,"
-agot_pirate_events.8034.kill:0 "\n\nThey tell me that several of my courtiers were slain in the attack, slaughtered like animals by my enemies..."
-agot_pirate_events.8034.discovered:0 "\n\nIn the aftermath, all are agreed that this was clearly the work of [owner.GetName]..."
+ agot_pirate_events.8034.desc: "На рассвете до меня быстро доходят панические слухи о налёте на пиратский корабль во владении [target_domicile.GetLocation.GetBaronyNameExplicitlyNoTooltip]."
+ agot_pirate_events.8034.kill: "\n\nВ них говорится о том, что несколько моих придворных были убиты во время нападения, заколоты моими врагами, как животные..."
+ agot_pirate_events.8034.discovered: "\n\nВпоследствии все пришли к единому мнению, что это явно [Select_CString(owner.IsFemale, 'устроила', 'устроил' )] [owner.GetName]..."
 
-agot_pirate_events.8033.desc:0 "Dawn at last brings word from [target.GetFirstNamePossessive] pirate ship in [target_domicile.GetLocation.GetBaronyNameExplicitlyNoTooltip], though it is not what we would have liked to hear...\n\nThe [target.Custom('InsultNounPlural')] were somehow ready for the attack, and foiled our attackers before they had a chance to do any damage."
-agot_pirate_events.8033.captured:0 "\n\nTo make matters worse, it seems my [owner.Custom2('RelationToMeShort', SCOPE.sC('captured'))], [captured.GetTitledFirstName], was captured in the raid..."
-agot_pirate_events.8033.fallback:0 "\n\nAt least we can rest easy, for the only thing lost was my precious time..."
+ agot_pirate_events.8033.desc: "Наконец-то на рассвете пришла весточка о пиратском корабле во владении [target_domicile.GetLocation.GetBaronyNameExplicitlyNoTooltip], которым командует [target.GetFirstName], хотя это не то, что мы хотели бы услышать...\n\n[target.Custom('InsultNounPlural')] каким-то образом были готовы к атаке и остановили нападавших прежде, чем у них появился шанс нанести какой-либо ущерб."
+ agot_pirate_events.8033.captured: "\n\nЧто ещё хуже, похоже, что [Select_CString(captured.IsFemale, 'моя', 'мой' )] [owner.Custom2('RelationToMeShort', SCOPE.sC('captured'))], [captured.GetTitledFirstName], [Select_CString(captured.IsFemale, 'была захвачена', 'был захвачен' )] во время налёта..."
+ agot_pirate_events.8033.fallback: "\n\nПо крайней мере, мы можем быть спокойны, потому что единственное, что было потеряно, - это моё драгоценное время..."
 
  create_pirate_ruler_designer: "Создать своего пирата-авантюриста"
  create_pirate_ruler_designer_tt: "Создать безземельного пирата в столичной провинции выбранного персонажа."
@@ -73,10 +73,10 @@ agot_pirate_events.8033.fallback:0 "\n\nAt least we can rest easy, for the only 
 
  trait_viking_is_corsair: "Пират"
 
-domicile_building_parameter_raids_less_likely_to_make_prisoners_pirate_1:0 "Hostile [raids|E] and [sieges|E] are slightly less likely to take characters located in the [agot_landless_pirate_domicile|E] as [prisoners|E]"
-domicile_building_parameter_raids_less_likely_to_make_prisoners_pirate_2:0 "Hostile [raids|E] and [sieges|E] are less likely to take characters located in the [agot_landless_pirate_domicile|E] as [prisoners|E]"
-domicile_building_parameter_raids_less_likely_to_make_prisoners_pirate_3:0 "Hostile [raids|E] and [sieges|E] are much less likely to take characters located in the [agot_landless_pirate_domicile|E] as [prisoners|E]"
+ domicile_building_parameter_raids_less_likely_to_make_prisoners_pirate_1: "Персонажи на [Concept('agot_landless_pirate_domicile', 'пиратском корабле')|E] с несколько меньшей вероятностью попадут в [Concept('prisoners', 'плен')|E] в ходе вражеских [Concept('raids', 'налётов')|E] и [Concept('sieges', 'осад')|E]"
+ domicile_building_parameter_raids_less_likely_to_make_prisoners_pirate_2: "Персонажи на [Concept('agot_landless_pirate_domicile', 'пиратском корабле')|E] с меньшей вероятностью попадут в [Concept('prisoners', 'плен')|E] в ходе вражеских [Concept('raids', 'налётов')|E] и [Concept('sieges', 'осад')|E]"
+ domicile_building_parameter_raids_less_likely_to_make_prisoners_pirate_3: "Персонажи на [Concept('agot_landless_pirate_domicile', 'пиратском корабле')|E] с гораздо меньшей вероятностью попадут в [Concept('prisoners', 'плен')|E] в ходе вражеских [Concept('raids', 'налётов')|E] и [Concept('sieges', 'осад')|E]"
 
-domicile_building_parameter_raids_less_likely_to_make_prisoners_sl_1:0 "Hostile [raids|E] and [sieges|E] are slightly less likely to take characters located in the [estate|E] as [prisoners|E]"
-domicile_building_parameter_raids_less_likely_to_make_prisoners_sl_2:0 "Hostile [raids|E] and [sieges|E] are less likely to take characters located in the [estate|E] as [prisoners|E]"
-domicile_building_parameter_raids_less_likely_to_make_prisoners_sl_3:0 "Hostile [raids|E] and [sieges|E] are much less likely to take characters located in the [estate|E] as [prisoners|E]"
+ domicile_building_parameter_raids_less_likely_to_make_prisoners_sl_1: "Персонажи в [Concept('estate', 'поместье')|E] с несколько меньшей вероятностью попадут в [Concept('prisoners', 'плен')|E] в ходе вражеских [Concept('raids', 'налётов')|E] и [Concept('sieges', 'осад')|E]"
+ domicile_building_parameter_raids_less_likely_to_make_prisoners_sl_2: "Персонажи в [Concept('estate', 'поместье')|E] с меньшей вероятностью попадут в [Concept('prisoners', 'плен')|E] в ходе вражеских [Concept('raids', 'налётов')|E] и [Concept('sieges', 'осад')|E]"
+ domicile_building_parameter_raids_less_likely_to_make_prisoners_sl_3:0 "Персонажи в [Concept('estate', 'поместье')|E] с гораздо меньшей вероятностью попадут в [Concept('prisoners', 'плен')|E] в ходе вражеских [Concept('raids', 'налётов')|E] и [Concept('sieges', 'осад')|E]"
