@@ -1349,6 +1349,9 @@ types CouncilTaskTypes
 						fittype = centercrop
 						using = Mask_Rough_Edges
 						alpha = 0.8
+						#AGOT Added
+						margin_bottom = 20
+						margin_right = 5
 					}
 
 					background = {
@@ -1430,7 +1433,7 @@ types CouncilTaskTypes
 					datacontext = "[ActiveCouncilTask.GetCouncillor]"
 					#AGOT Modified
 					# visible = "[Not( CouncilOwnerHasVizier )]"
-					visible = "[Or(And(CouncilWindow.IsLiegeCouncilShown, GetScriptedGui('agot_spouse_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.GetLiege.MakeScope).End)), GetScriptedGui('agot_spouse_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
+					visible = "[And(Not(CouncilOwnerHasVizier), Or(And(CouncilWindow.IsLiegeCouncilShown, GetScriptedGui('agot_spouse_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.GetLiege.MakeScope).End)), GetScriptedGui('agot_spouse_position_valid').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
 
 					blockoverride "skill_visible" {
 						visible = no

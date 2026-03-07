@@ -417,7 +417,9 @@
 				}
 
 				button_edit_text = {
-					visible = "[And( DomicileWindow.HasRenameWindow, GetVariableSystem.Exists( 'open_edit_domicile_name_contextual_button' ) )]"
+					#AGOT Modified
+					#visible = "[And( DomicileWindow.HasRenameWindow, GetVariableSystem.Exists( 'open_edit_domicile_name_contextual_button' ) )]"
+					visible = "[And(Not(GetPlayer.GetGovernment.IsType( 'pirate_government')),And( DomicileWindow.HasRenameWindow, GetVariableSystem.Exists( 'open_edit_domicile_name_contextual_button' ) ))]"
 					parentanchor = right|vcenter
 					position = { -40 -2 }
 
@@ -509,7 +511,9 @@
 				}
 
 				button_edit_text = {
-					visible = "[And( DomicileWindow.HasRenameWindow, GetVariableSystem.Exists( 'open_edit_domicile_name_contextual_button' ) )]"
+					#AGOT Modified
+					#visible = "[And( DomicileWindow.HasRenameWindow, GetVariableSystem.Exists( 'open_edit_domicile_name_contextual_button' ) )]"
+					visible = "[And(Not(GetPlayer.GetGovernment.IsType( 'pirate_government')),And( DomicileWindow.HasRenameWindow, GetVariableSystem.Exists( 'open_edit_domicile_name_contextual_button' ) ))]"
 					parentanchor = right|vcenter
 					position = { -25 0 }
 					size = { 25 25 }

@@ -536,7 +536,9 @@ widget = {
 					datacontext = "[LocalPlayerCachedData.AccessNewArtifacts]"
 					datacontext = "[LocalPlayerCachedData.AccessCourtEvents]"
 					datacontext = "[Character.GetCourtGrandeurData]"
-					visible = "[And(Character.HasRoyalCourt ,And(And( And( Not( IsPauseMenuShown ), And(Or(Not(IsObserver), GetPlayer.IsValid), IsDefaultGUIMode)), HasDlcFeature( 'court_room_view' )), Not( IsLandlessAdventurer( GetPlayer ) )))]"
+					#AGOT Modified
+					#visible = "[And(Character.HasRoyalCourt ,And(And( And( Not( IsPauseMenuShown ), And(Or(Not(IsObserver), GetPlayer.IsValid), IsDefaultGUIMode)), HasDlcFeature( 'court_room_view' )), Not( IsLandlessAdventurer( GetPlayer ) )))]"
+					visible = "[And(Character.HasRoyalCourt ,And(And( And( Not( IsPauseMenuShown ), And(Or(Not(IsObserver), GetPlayer.IsValid), IsDefaultGUIMode)), HasDlcFeature( 'court_room_view' )), Or(Not( IsLandlessAdventurer( GetPlayer ) ),IsPirate(GetPlayer))))]"
 					allow_outside = yes
 					name = "royal_court_button_tutorial_uses_this"
 

@@ -1999,7 +1999,7 @@ window = {
 								blockoverride "portrait_datamodel" {
 									datamodel = "[CharacterWindow.GetSecondarySpouses]"
 									#AGOT Added
-									maxhorizontalslots = 4
+									maxhorizontalslots = 3
 								}
 
 								blockoverride "header_text"
@@ -2012,15 +2012,15 @@ window = {
 								#AGOT Modified
 								# blockoverride "expand_button" {}
 								blockoverride "expand_button_inside" {
-									visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)4' )]"
+									visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)3' )]"
 									onclick = "[CharacterWindow.ToggleExpandedRelation( 'spouses' )]"
 								}
 
 								#AGOT Added
 								blockoverride "remaining_items"
 								{
-									visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)4' )]"
-									text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)4' )|=]"
+									visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)3' )]"
+									text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)3' )|=]"
 								}
 
 								blockoverride "find_partner"
