@@ -558,12 +558,18 @@
  cave_hermit_court_position_tt:0 "You've found a #V [GetCourtPositionType( 'cave_hermit_court_position' ).GetName()]#! during your [travels|E]"
 
  travel_leader_court_position:0 "Caravan Master"
- travel_leader_court_position_desc:0 "The $travel_leader_court_position$ assists you when traveling and takes charge of all itineraries. They aim to ensure you arrive at your destination safely and on-time."
+ #AGOT Modified
+ #travel_leader_court_position_desc:0 "The $travel_leader_court_position$ assists you when traveling and takes charge of all itineraries. They aim to ensure you arrive at your destination safely and on-time."
+ travel_leader_court_position_desc:0 "The [SelectLocalization( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_pirate_trigger_check' ), 'travel_leader_pirate', 'travel_leader_court_position' )] assists you when traveling and takes charge of all itineraries. They aim to ensure you arrive at your destination safely and on-time."
 
- hire_travel_leader_decision:0 "Search for $travel_leader_court_position$"
+ #AGOT Modified
+ #hire_travel_leader_decision:0 "Search for $travel_leader_court_position$"
+ hire_travel_leader_decision:0 "Search for [SelectLocalization( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_pirate_trigger_check' ), 'travel_leader_pirate', 'travel_leader_court_position' )]"
  hire_travel_leader_decision_tooltip:0 "Your servants will suggest a number of suitable candidates for the position of [GetCourtPositionType('travel_leader_court_position').GetName()]"
  travel_leader_court_position_custom_desc: "$EFFECT_LIST_BULLET$Provides @travel_safety_icon![travel_safety|E] and @travel_speed_icon![travel_speed|E] during [travels|E]"
- hire_travel_leader_decision_desc:0 "A good $travel_leader_court_position$ is the key to a successful journey. I will request for a number of suitable candidates to be suggested."
+ #AGOT Modified
+ #hire_travel_leader_decision_desc:0 "A good $travel_leader_court_position$ is the key to a successful journey. I will request for a number of suitable candidates to be suggested."
+ hire_travel_leader_decision_desc:0 "A good [SelectLocalization( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_pirate_trigger_check' ), 'travel_leader_pirate', 'travel_leader_court_position' )] is the key to a successful journey. I will request for a number of suitable candidates to be suggested."
  hire_travel_leader_decision_confirm:0 "Start the search"
  caravan_master_prepare_travels: "Stock Up for Travels"
  caravan_master_prepare_travels_desc: "This character is tasked with preparing for their liege's next journey."

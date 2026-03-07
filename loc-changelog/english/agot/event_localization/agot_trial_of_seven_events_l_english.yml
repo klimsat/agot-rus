@@ -1,0 +1,277 @@
+﻿l_english:
+ ##############################################################
+ ####### ####### ####### TRIAL OF SEVEN ####### ####### #######
+ ##############################################################
+
+ #############################################
+ ### TOS: Succession Crisis INITIAL EVENTS ###
+ #############################################
+
+ # ToS - Succession Crisis: ToS Demanded
+ agot_trial_of_seven.0100.t:0 "A Demand Before the Realm"
+ agot_trial_of_seven.0100.desc:0 "The crown has barely settled upon my head when the charge is spoken aloud. [accuser_leader.GetTitledFirstName] names my rule a usurpation and demands judgment for it, claiming the kingdom was taken by me.\n\nThe demand is clear enough. A Trial of Seven. Seven champions against seven, my cause set against [accuser_leader.GetHersHis], with the fate of my rule bound to the outcome. To deny it would be taken as confession in many eyes. To accept is to place the realm itself upon the field."
+ agot_trial_of_seven.0100.desc.helper:0 "The crown has barely settled upon my head when the charge is spoken aloud. [accuser_leader.GetTitledFirstName] steps forward to name my rule a usurpation, and demands a Trial of Seven in the name of [true_heir.GetTitledFirstName], whose claim they declare stolen.\n\nThe demand is clear enough. Seven champions against seven, my cause set against the cause they have taken up, with the fate of my rule bound to the outcome. To deny it would be taken as fear in many eyes. To accept is to place the realm itself upon the field."
+ agot_trial_of_seven.0100.desc.accuser:0 "The crown rests uneasy upon [defender_leader.GetTitledFirstNamePossessive] brow, and I will not let the realm pretend otherwise. Before lords and smallfolk alike, I name this rule what it is, a usurpation, and call for judgment beneath the eyes of gods and men.\n\nA Trial of Seven. Seven champions to stand for me and the claim I defend, seven for the one who sits the throne. Let steel and faith decide what words alone cannot. If [defender_leader.GetSheHe] refuses, the realm will know what that silence means."
+ agot_trial_of_seven.0100.a:0 "Let the gods decide if [accuser_leader.GetSheHe] is right or wrong."
+ agot_trial_of_seven.0100.a.accuser:0 "Let the Seven bear witness."
+
+ # ToS - Succession Crisis: Interaction now available
+ agot_trial_of_seven.0101.t:0 "A Path to Judgment"
+ agot_trial_of_seven.0101.desc:0 "There is a path to call [crown_thief.GetTitledFirstName] to account for usurpation. I may demand a Trial of Seven and force the charge into the open, fighting before gods and realm alike for [crown_theft_king_legit_heir.GetTitledFirstNamePossessive] rightful claim to the throne."
+ agot_trial_of_seven.0101.desc.legit_heir:0 "Perhaps I was too hasty in accepting what was done. [crown_thief.GetTitledFirstName] sits the throne that should be mine, and the realm has been left to pretend the matter settled. Yet there is another path. A Trial of Seven could force the charge into the open, letting steel and the gods decide whether my claim was truly stolen."
+ agot_trial_of_seven.0101.a:0 "I will consider it."
+ agot_trial_of_seven.0101.a.tt:0 "You may now Demand a Trial of Seven against the ruler."
+
+ # ToS Denied
+ agot_trial_of_seven.9999.t:0 "The Challenge Refused"
+ agot_trial_of_seven.9999.desc:0 "My demand is refused. [recipient.GetTitledFirstName] will not answer me in the field, nor set its cause against mine before the realm. The refusal is wrapped in courtesy, but I hear the truth beneath it. They will not risk steel, not when steel might speak too loudly."
+ agot_trial_of_seven.9999.a:0 "I will not keep silent about this."
+
+ #######################################
+ ### TOS: Succession Crisis OUTCOMES ###
+ #######################################
+
+ # ToS - Succession Crisis: Usurpation Scenario Outcome - POV: usurper or final_usurper (the heir of the usurper)
+ agot_trial_of_seven.0103.t:0 "Judgment Before the Realm"
+ #Legit Heir won - Usurper POV
+ agot_trial_of_seven.0103.desc.legit_won:0 "The trial has spoken, and the verdict is plain. I was defeated alongside those who stood for me, my cause broken before all who bore witness.\n\nThe field is choked with bodies, the cost of the crown written in blood and steel. The crown passes now to [legit_heir.GetTitledFirstName], whose claim has been proven not by words, but by victory wrested from death itself. What was taken has been reclaimed in full view of the realm, and no lord can now pretend this judgment was uncertain."
+ #Legit Heir won - Usurper's Heir POV
+ agot_trial_of_seven.0103.desc.legit_won.usurper_died:0 "The trial has spoken, and the verdict is plain. [usurper.GetTitledFirstName] lies dead alongside those who stood for [usurper.GetHerHim], [usurper.GetHerHis] cause broken before all who bore witness.\n\nThe field is choked with bodies, the cost of the crown written in blood and steel. The crown passes now to [legit_heir.GetTitledFirstName], whose claim has been proven not by words, but by victory wrested from death itself. What was taken has been reclaimed in full view of the realm, and no lord can now pretend this judgment was uncertain."
+ #Legit Heir Helper won - Usurper POV
+ agot_trial_of_seven.0103.desc.legit_helper_won:0 "The trial has spoken, and the verdict is plain. [legit_combatant.GetTitledFirstName] and [legit_combatant.GetHerHis] companion defeated me alongside those who stood for me, my cause broken before all who bore witness.\n\nThe field is choked with bodies, the cost of the crown written in blood and steel. The crown passes now to [legit_heir.GetTitledFirstNameNoTooltip], whose claim has been proven not by words, but by victory wrested from death itself. What was taken has been reclaimed in full view of the realm, and no lord can now pretend this judgment was uncertain."
+ #Legit Heir Helper won - Usurper's Heir POV
+ agot_trial_of_seven.0103.desc.legit_helper_won.usurper_died:0 "The trial has spoken, and the verdict is plain. [legit_combatant.GetTitledFirstName] and [legit_combatant.GetHerHis] companion defeated [usurper.GetTitledFirstName] and those who stood for [usurper.GetHerHim], [usurper.GetHerHis] cause broken before all who bore witness.\n\nThe field is choked with bodies, the cost of the crown written in blood and steel. The crown passes now to [legit_heir.GetTitledFirstName], whose claim has been proven not by words, but by victory wrested from death itself. What was taken has been reclaimed in full view of the realm, and no lord can now pretend this judgment was uncertain."
+ #Legit Heir Helper won but Legit Heir died - Usurper POV
+ agot_trial_of_seven.0103.desc.legit_helper_won.legit_heir_died:0 "Defeat has found me, and my champions with me, yet even victory offers no clarity. [legit_heir.GetTitledFirstName] is dead, struck down before the judgment could be claimed by the one who sought it.\n\nThe field lies silent, giving no comfort to the living. Though [legit_heir.GetTitledFirstNameNoTooltip] did not live to see the crown returned to the head it was meant to rest upon, the verdict stands all the same, sealed in blood and loss. The crown passes now to [final_heir.GetTitledFirstName], who inherits not only a throne, but the weight of a justice paid for in lives."
+ #Legit Heir Helper won but Legit Heir died - Usurper's Heir POV
+ agot_trial_of_seven.0103.desc.legit_helper_won.legit_heir_died.usurper_died:0 "The field has claimed all it could. [usurper.GetTitledFirstName] lies dead alongside those who stood for [usurper.GetHerHim], yet so too does [legit_heir.GetTitledFirstName], struck down before the judgment could be claimed.\n\nThe silence that follows offers no answers. Though [legit_heir.GetTitledFirstNameNoTooltip] did not live to see the crown restored to the head it was meant to bear, the verdict stands all the same, sealed in blood and loss. The crown passes to [final_heir.GetTitledFirstName], who inherits not only a throne, but the burden of a justice paid for in lives."
+ #Usurper won
+ agot_trial_of_seven.0103.desc.usurper_won:0 "The accusers are broken. [legit_combatant.GetTitledFirstName] lies defeated upon the field, [legit_combatant.GetHerHis] cause ended.\n\nThe ground itself bears witness to the price of defiance. The crown remains where it stands, unshaken by the trial meant to unseat it. The accusation has been answered in steel, and the realm is left with little choice but to accept the rule that endured when others did not."
+ #Legit Heir Helper won but no heir exists
+ agot_trial_of_seven.0103.desc.legit_helper_won.no_heir:0 "The trial grants victory for [legit_combatant.GetTitledFirstName], but [legit_heir.GetTitledFirstName] has died, leaving no heir to rise from the carnage and claim what was won.\n\nThe field offers no answers, only bodies and silence. With no blood left to answer the judgment, the crown passes to me by necessity rather than triumph. The realm keeps its ruler, but the justice once demanded has been buried alongside the dead."
+ #Legit Heir is somehow already the king
+ agot_trial_of_seven.0103.desc.legit_heir_won_after_all:0 "Steel was drawn and lives were spent, yet the struggle ended without the clarity many had hoped for. [usurper.GetTitledFirstName] lies dead upon the field, and with that fall the shape of the conflict changed more than any verdict could have done.\n\nThe Trial of Seven closes not with triumph, but with silence, and in the aftermath [final_heir.GetTitledFirstName] now sits the throne. Whether the gods truly judged the matter, or merely watched it pass into another's hands, is left for the realm to decide."
+ #Legit Heir is somehow already the king
+ agot_trial_of_seven.0103.desc.legit_heir_won_after_all.legit_heir:0 "Steel was drawn and lives were spent, yet the struggle ended without the clarity many had hoped for. [usurper.GetTitledFirstName] lies dead upon the field, and with that fall the shape of the conflict changed more than any verdict could have done.\n\nThe Trial of Seven closes not with triumph, but with silence, and in the aftermath I sit on the throne. Whether the gods truly judged the matter, or merely watched it pass into another's hands, is left for the realm to decide."
+ #Legit Heir is somehow already the king
+ agot_trial_of_seven.0103.desc.legit_heir_won_after_all.usurper:0 "Steel was drawn and lives were spent, yet the struggle ended without the clarity many had hoped for. [legit_heir.GetTitledFirstName] lies dead upon the field, and with that fall the shape of the conflict changed more than any verdict could have done.\n\nThe Trial of Seven closes not with triumph, but with silence, and in the aftermath I sit on the throne. Whether the gods truly judged the matter, or merely watched it pass into another's hands, is left for the realm to decide."
+ #Options
+ agot_trial_of_seven.0103.a:0 "I hope [final_heir.GetTitledFirstName] will rule wisely."
+ agot_trial_of_seven.0103.b:0 "Shame."
+ agot_trial_of_seven.0103.c:0 "Let the realm remember who still stands."
+ agot_trial_of_seven.0103.d:0 "So much blood, all for nothing."
+
+
+ # ToS - Succession Crisis: Usurpation Scenario Outcome - POV: legit_heir or heir_of_the_legit_heir
+ agot_trial_of_seven.0104.t:0 "The Verdict of Seven"
+ # Legit Heir won - Legit Heir POV
+ agot_trial_of_seven.0104.desc.legit_won:0 "The trial has spoken, and the verdict is carried on broken shields and blood-soaked ground. [usurper.GetTitledFirstName] is defeated alongside those who stood for [usurper.GetHerHim], the claim that stole the crown laid bare before the realm.\n\nThe field is choked with bodies, the price of justice written plainly in steel and death. I take back what was taken from me, not by decree or favor, but by surviving where another could not. The crown returns to its rightful place in full sight of lords and witnesses, and none can now claim the judgment was uncertain."
+ # Legit Helper won - Legit Heir POV
+ agot_trial_of_seven.0104.desc.legit_helper_won:0 "I did not stand upon the field, yet the field was fought in my name. [legit_heir_helper.GetTitledFirstName] and [legit_heir_helper.GetHerHis] companions broke the usurper's cause in open combat, ending the lie that placed a false crown upon another's head.\n\nThe field bears the cost of that truth in blood and silence. What was taken from me is returned all the same, proven not by my own hand, but by champions who carried my cause when I could not. The realm has its judgment, and the crown comes back to me as the law and blood intended.\n\nI do not forget who stood where I could not. [legit_heir_helper.GetTitledFirstNameNoTooltip] risked life and name so that my claim might live, and the weight of that debt will follow me upon the throne. The realm may see only the crown restored, but I know whose blood bought it."
+ # Legit Helper won, but Legit Heir died before claiming the crown - Legit Heir's Heir POV
+ agot_trial_of_seven.0104.desc.legit_helper_won.legit_heir_died:0 "Victory was won upon the field, but it did not come in time. [legit_heir_helper.GetTitledFirstName] shattered the usurper's cause before all who watched, yet [legit_heir.GetTitledFirstName] did not live to see the judgment fulfilled.\n\nThe field offers no comfort in its silence. Though the one wronged is gone, the verdict still stands, sealed by blood and sacrifice. The crown passes now to me, carried not in triumph, but in the shadow of a justice claimed too late to save the one it was meant to restore.\n\nI inherit more than a throne. [legit_heir_helper.GetTitledFirstNameNoTooltip] carried my family's cause when its rightful bearer could not, and that debt does not die with the fallen. Whatever rule follows from this day forward will remember whose courage preserved the claim when blood and chance threatened to end it."
+ # Usurper won - Legit Heir POV
+ agot_trial_of_seven.0104.desc.usurper_won:0 "The trial has ended, and the field gives its answer without mercy. Those who rose to press my claim lie broken, and with them falls the accusation brought in my name.\n\nSteel has spoken where words failed. [usurper.GetTitledFirstName] remains upon the throne, and my challenge is stripped of all standing before the realm. The crown does not change hands, and the charge that drew blood upon this field is buried alongside the dead."
+ agot_trial_of_seven.0104.a:0 "The matter is settled."
+
+
+ # ToS - Succession Crisis: Usurpation Scenario Outcome - Observer POV
+ agot_trial_of_seven.0105.t:0 "$agot_trial_of_seven.0104.t$"
+ # final_heir won after all (somehow they ended up on the throne) - Observer POV
+ agot_trial_of_seven.0105.desc.legit_heir_won_after_all:0 "News reaches the realm of a Trial of Seven called in the wake of usurpation, a desperate appeal to arms meant to undo the taking of [main_title.GetNameNoTier]. Champions were named, steel was drawn, and blood was spilled before a watching crowd.\n\nYet before judgment could truly settle, death intervened. [usurper.GetTitledFirstName] was slain in the struggle, cutting the trial short of meaning. With the usurper dead, [main_title.GetNameNoTierNoTooltip] passes to [final_heir.GetTitledFirstName] by the ordinary course of succession rather than by verdict.\n\nThe field is left heavy with bodies, and the realm is left with the bitter understanding that the trial changed nothing that death had not already decided."
+ # Legit Heir won - Observer POV
+ agot_trial_of_seven.0105.desc.legit_won:0 "After [main_title.GetNameNoTier] was seized by [usurper.GetTitledFirstName], a Trial of Seven was called to answer the crime before gods and men alike. Accusation was met with steel, and the fate of the crown was placed upon a blood-soaked field.\n\nThe trial has now delivered its judgment. [legit_heir.GetTitledFirstName] stood among the accusers and emerged victorious, breaking the [usurper.GetTitledFirstNamePossessiveNoTooltip] cause in open combat. [main_title.GetNameNoTierNoTooltip] is restored to its rightful holder, not by decree or compromise, but by triumph witnessed by the realm.\n\nFrom court to countryside, the verdict is spoken of as settled, the price of the crown measured in lives rather than words."
+ # Legit Helper won - Observer POV
+ agot_trial_of_seven.0105.desc.legit_helper_won:0 "In the aftermath of usurpation, the rightful claim to [main_title.GetNameNoTier] was carried to the field rather than the council chamber. A Trial of Seven was convened, calling champions to answer theft with blood.\n\nThe field has now given its answer. [legit_combatant.GetTitledFirstName] prevailed against the [usurper.GetTitledFirstNamePossessive] champions, shattering the cause that held the crown unlawfully. Though [final_heir.GetTitledFirstName] did not stand among the combatants, the judgment favors [final_heir.GetTitledFirstName].\n\n[main_title.GetNameNoTierNoTooltip] changes hands by the trial's decree, and the accusation that once divided the realm is answered in full view of all who came to watch."
+ # Usurper won - Observer POV
+ agot_trial_of_seven.0105.desc.usurper_won:0 "Following the seizure of [main_title.GetNameNoTier], a Trial of Seven was called to challenge the [usurper.GetTitledFirstNamePossessive] right to rule. [legit_combatant.GetTitledFirstNamePossessive] and the accusers named their champions, and the realm gathered to see whether steel would undo what ambition had taken.\n\nThe trial has ended in failure for those who sought judgment. The champions raised against the crown lie defeated, and the accusation brought in the name of [legit_heir.GetTitledFirstName] is cast down upon the field.\n\n[main_title.GetNameNoTierNoTooltip] remains in the hands of [usurper.GetTitledFirstNameNoTooltip]. The charge is stripped of standing, and the realm is left to accept the rule that endured when tested by blood."
+ # Legit Helper won, but no heir exists so victory changes nothing - Observer POV
+ agot_trial_of_seven.0105.desc.legit_helper_won.no_heir:0 "After [main_title.GetNameNoTier] was taken by [usurper.GetTitledFirstName], a Trial of Seven was called to restore what had been lost. Champions answered the accusation, and the fate of the crown was placed upon the field.\n\nVictory was claimed in combat. [legit_combatant.GetTitledFirstName] broke the [usurper.GetTitledFirstNamePossessiveNoTooltip] cause before witnesses drawn from across the realm. Yet the judgment finds no hand to receive it. [legit_heir.GetTitledFirstName] did not live to see the verdict, and no heir remains to answer the trial's decree.\n\nWith no claimant left to benefit from the victory, [main_title.GetNameNoTierNoTooltip] remains in the hands of [final_usurper.GetTitledFirstName]. The trial is remembered not for what it restored, but for the lives it consumed without changing the crown."
+ agot_trial_of_seven.0105.a:0 "So the matter is settled."
+
+
+ #####################################################
+ ### TOS: Dishonorable Imprisonment INITIAL EVENTS ###
+ #####################################################
+
+ agot_trial_of_seven.0200.t:0 "The Trial Before the Realm"
+ agot_trial_of_seven.0200.desc.defender.against_accuser:0 "Chains or no, I claim the right of trial by combat, trusting that steel and honor might yet win my freedom. Instead, [accuser_ruler.GetTitledFirstName] denies me that path. Before court and crown alike, [accuser_ruler.GetSheHe] calls for something far greater, a Trial of Seven.\n\nSeven champions to stand for [accuser_ruler.GetHerHis] judgment, seven to rise for me. What might have been settled between two blades will now be weighed beneath the eyes of gods and realm. Whether this is justice or cruelty, the field will soon decide."
+ agot_trial_of_seven.0200.desc.defender.against_accuser_kin:0 "I asked for a single blade and a fair chance to answer the charge against me. Instead, [accuser_ruler.GetTitledFirstNamePossessive] kin, [accuser_candidate_kin.GetTitledFirstName], steps forward and demands a Trial of Seven in the crown's name. What should have been a knight's duel has become a spectacle the whole realm will watch.\n\nSeven champions must now be found to stand beside me, or my cause will fall before the first blow is struck. Steel will judge what pride and rank have twisted beyond words."
+ agot_trial_of_seven.0200.desc.accuser:0 "[defender_leader.GetTitledFirstName], held within my custody, demands trial by combat to answer the charges laid against [defender_leader.GetHerHim]. A single duel would end the matter swiftly, but not always cleanly.\n\nSome at court whisper that a quarrel touching the crown deserves greater weight than one blade alone can give. I may grant the combat [defender_leader.GetSheHe] asks for... or refuse it, and call for a Trial of Seven instead."
+ agot_trial_of_seven.0200.desc.accuser_kin.start:0 "[defender_leader.GetTitledFirstName], my prisoner, calls for trial by combat, seeking to settle the matter with a single blade. I had half a mind to allow it, until [accuser_candidate_kin.GetTitledFirstName] steps forward before the court, declaring that such a quarrel demands more than a simple duel."
+ agot_trial_of_seven.0200.desc.accuser_kin.end:0 "In a voice meant for all to hear, [accuser_candidate_kin.GetSheHe] calls for a Trial of Seven instead, urging that seven champions stand for the crown and seven against it. The court watches now, waiting to see whether I will allow my kin to press the matter... or take command of it myself."
+ agot_trial_of_seven.0200.desc.accuser_kin.end.from_tbc:0 "In a voice meant for all to hear, [accuser_candidate_kin.GetSheHe] calls for a Trial of Seven, urging that seven champions stand for the crown and seven against it. The court watches now, waiting to see whether I will allow my kin to press the matter... or take command of it myself."
+
+ agot_trial_of_seven.0200.desc.accuser.from_tbc:0 "[defender_leader.GetTitledFirstName], held within my custody, demands trial by combat to answer the charges laid against [defender_leader.GetHerHim]. A single duel would end the matter swiftly, but not always cleanly.\n\nSome at court whisper that a quarrel touching the crown deserves greater weight than one blade alone can give. Their counsel has been heeded. Instead of a single duel, the matter will be settled by a Trial of Seven before gods and realm alike."
+ agot_trial_of_seven.0200.desc.accuser_kin.start.from_tbc:0 "[defender_leader.GetTitledFirstName], my prisoner, calls for trial by combat, seeking to settle the matter with a single blade. I am just about to declare that the matter will be settled by a Trial of Seven, when [accuser_candidate_kin.GetTitledFirstName] steps forward before the court, speaking before I can."
+
+ agot_trial_of_seven.0200.a:0 "Very well, let [accuser_candidate_kin.GetFirstNameNoTooltip] press the Trial of Seven."
+ agot_trial_of_seven.0200.b:0 "This matter is mine to decide. I call for a Trial of Seven."
+ agot_trial_of_seven.0200.c:0 "I grant [defender_leader.GetTitledFirstNameNoTooltip] the Trial by Combat."
+ agot_trial_of_seven.0200.d:0 "Then I will stand with seven."
+ agot_trial_of_seven.0200.a.tt:0 "This choice begins a Trial of Seven instead of a Trial by Combat."
+ agot_trial_of_seven.0200.a.tt.from_tbc:0 "The Trial of Seven begins.."
+ agot_trial_by_combat.1000.f:0 "I call for a Trial of Seven."
+ agot_trial_of_seven.0200.b.from_tbc:0 "Then let the champions be called"
+ agot_trial_of_seven.0200.b.generic:0 "$agot_trial_by_combat.1000.f$"
+
+ #Accuser CusLocs
+ #plotting_against_me_opinion, schemed_against_me, scheming_against_me, fabricate_hook_threatened_me
+ accuser_kin_plotting:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] works in shadows against me. I will have judgment in the open."\n\n"
+ #abducted_me_opinion, abducted_me_crime, attempted_abduct_me_crime
+ accuser_kin_abduction:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] would drag me off like a thief in the night. Let the realm see this answered."\n\n"
+ #attempted_murder_me_crime, tried_to_poison_me_opinion
+ accuser_kin_murder:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] tried to end me in secret. If death is to be risked, let it be under the gods."\n\n"
+ #tortured_me, wounded_me, tutored_me_opinion
+ accuser_kin_torture:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] has made me suffer for sport. I will not let this end with a single blade."\n\n"
+ #maimed_me, disfigured_me, blinded_me, castrated_me
+ accuser_kin_maimed:0 "\n\n"Look at what [defender_leader.GetTitledFirstNameNoTooltip] has done to me. Let seven blades speak for what words cannot."\n\n"
+ #stole_artifact_from_me, fp3_stole_from_me
+ accuser_kin_stole:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] stole what was mine by right. I will not be bought off with excuses."\n\n"
+ #fp3_sabotaged_me, betrayed_me_opinion
+ accuser_kin_sabotage:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] turned on me when it mattered most. Let the gods measure that treachery."\n\n"
+ #fp3_denounced_me, slandered_me_opinion, shamed_me_opinion, ruined_me_opinion, blamed_me_unjustly, rival_insult_opinion
+ accuser_kin_slander:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] has dragged my name through filth. I will have a verdict the realm cannot ignore."\n\n"
+ #imprisoned_me, imprisoned_me_dungeon, imprisoned_me_past
+ accuser_kin_imprison:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] has put me in chains. If judgment is to be passed, it will be passed properly."\n\n"
+ #banished_me
+ accuser_kin_banished:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] drove me from my place as if I were nothing. Let this be answered before all."\n\n"
+ #challenged_authority_opinion, usurped_title, deposed_me_opinion
+ accuser_kin_deposed:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] would tear down rightful order. Let seven champions defend it."\n\n"
+ #killed_my_child
+ accuser_kin_child_kill:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] took my child from me. I will not let this be settled quietly."\n\n"
+ #mw_wanted_to_execute_me, mw_evaded_execution
+ accuser_kin_execute:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] has made a mockery of justice. Let the gods decide what law could not."\n\n"
+ #muted_me
+ accuser_kin_mute:0 "\n\n[accuser_candidate_kin.GetTitledFirstName] slams a fist upon the table and hastily writes a demand for a Trial of Seven upon a scrap of parchment.\n\n"
+ #tried_to_eat_me_opinion
+ accuser_kin_tried_to_aith_me:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] tried to eat me once. I would prefer the gods decide whether that was proper."\n\n"
+ #agot_tried_to_sacrifice_me
+ accuser_kin_sacrifice:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] would spill my blood for dark rites. Let the Seven answer that."\n\n"
+ #tournament_savagely_beaten_opinion
+ accuser_kin_beaten:0 "\n\n"[defender_leader.GetTitledFirstNameNoTooltip] beat me without mercy once. I will not give [defender_leader.GetHerHim] an easy answer today."\n\n"
+ #insane
+ accuser_kin_insane:0 "\n\n"One blade is not enough! Seven! Seven will please the gods!"\n\n"
+
+ ###############################################
+ ### TOS: Dishonorable Imprisonment OUTCOMES ###
+ ###############################################
+
+ agot_trial_of_seven.0201.t:0 "Where Seven Fell"
+ #CROWN POV
+ agot_trial_of_seven.0201.desc.defender_won_default.accuser_pov:0 "It is done. The Trial of Seven has spoken against me, and the field has answered what I sought to deny. My champions lie broken or beaten, and [tos_final_accused.GetTitledFirstName] stands vindicated before gods and realm alike.\n\nA victory like this cannot be hidden behind closed doors. Lords will remember who prevailed, and smallfolk will repeat the tale until it becomes truth. Whatever judgment I meant to lay upon [tos_final_accused.GetHerHim], it has returned to rest upon me."
+ agot_trial_of_seven.0201.desc.defender_won_accuser_died.accuser_pov:0 "The Trial of Seven has ended in blood and ruin, and I am left to stare upon the cost. [tos_final_accuser.GetTitledFirstNamePossessive] cause has fallen on the field, and [tos_final_accuser.GetSheHe] did not rise again. [tos_final_accused.GetTitledFirstName] stands the victor, and the realm has witnessed it.\n\nNow the court turns its eyes from the field to what comes after. By steel and by the Seven's will, [tos_final_accused.GetTitledFirstName] stands vindicated. Whatever accusations were cast at [tos_final_accused.GetHerHim] have been answered, and the realm has seen the gods' judgment made plain."
+ agot_trial_of_seven.0201.desc.accuser_won_defeault.accuser_pov:0 "The Trial of Seven is finished, and the gods have favored my cause. My champions held the field, and [tos_final_accused.GetTitledFirstName] is left with defeat instead of the freedom [tos_final_accused.GetSheHe] demanded.\n\nYet even victory has its price. Seven blades were gathered, and many will not return as they came. Still, the realm has seen judgment done in open sight, and that sight is a weapon as sharp as any sword."
+ agot_trial_of_seven.0201.desc.accuser_won_defender_died.accuser_pov:0 "The Trial of Seven has ended, and [tos_final_accused.GetTitledFirstName] will never speak another word in defiance. The field took [tos_final_accused.GetHerHim] as its due, and my champions stood when the last blows fell.\n\nSome will call it justice, others simple power wearing a lawful mask. Let them whisper. The realm has watched the gods decide, and the dead do not argue verdicts."
+ #DEFENDER POV
+ agot_trial_of_seven.0201.desc.defender_won_default.defender_pov:0 "The Trial of Seven is done, and I still draw breath. Against the weight of crown and judgment, my champions stood, and the field gave its answer. Before gods and realm alike, my cause has been proven stronger than the chains meant to hold me.\n\nBut victory is never clean. The ground is stained with the cost of it, and the screams of the dying linger longer than any cheer. Still... I am free of their verdict, and the realm has seen it."
+ agot_trial_of_seven.0201.desc.defender_won_accuser_died.defender_pov:0 "The Trial of Seven has ended, and the gods have answered in a voice none can mistake. My champions held the field, and [tos_final_accuser.GetTitledFirstName] fell amid the press of steel. The crown's judgment died with [tos_final_accuser.GetHerHim].\n\nThe field lies quiet now, its judgment already passing into law and memory. By the gods' will and by the strength of my champions, I stand cleared of every charge. Whatever was spoken against me has been answered in steel, and none may deny the verdict that was won."
+ agot_trial_of_seven.0201.desc.accuser_won_defeault.defender_pov:0 "It is finished. The Trial of Seven has turned against me, and my champions could not hold the field. The gods did not grant me the answer I demanded, or else they granted it to the other side.\n\nWhatever chance I had to break these chains by right has been spent in blood. Now I must face what comes after a lost trial: a realm that believes the verdict, and a victor who will not forget I forced the question."
+ agot_trial_of_seven.0201.desc.defender_won_accuser_died.inherited_crown_pov:0 "The Trial of Seven has ended, and with it the life that once stood between me and the crown. [tos_final_accuser.GetTitledFirstName] fell upon the field, and the weight of rule passes to me not by quiet succession, but through blood and judgment.\n\nI did not come to the field seeking a throne, only justice, yet steel has made both mine to bear. The gods have spoken in the sight of all, and I rise from the trial not only vindicated, but crowned by the very verdict meant to break me."
+ #OBSERVER POV
+ agot_trial_of_seven.0201.desc.defender_won_default.observer_pov:0 "The Trial of Seven has ended, and the victor stands plain for all to see. [tos_final_accused.GetTitledFirstName] has prevailed, with champions still standing where [tos_final_accuser.GetTitledFirstNamePossessive] blades faltered.\n\nThe realm will speak of this for years. Such trials are rare, and rarer still when their outcome touches power and punishment alike. What was a prisoner's demand has become a judgment everyone witnessed, and no one will soon forget."
+ agot_trial_of_seven.0201.desc.defender_won_accuser_died.observer_pov:0 "The Trial of Seven has ended in a verdict written in corpses. [tos_final_accused.GetTitledFirstName] has won, and [tos_final_accuser.GetTitledFirstName] lies dead upon the field besides fallen champions.\n\nWith [tos_final_accuser.GetTitledFirstNameNoTooltip] fallen, the trial leaves little room for doubt. Before gods and men alike, [tos_final_accused.GetTitledFirstNameNoTooltip] stands vindicated, the accusations against [tos_final_accused.GetHerHim] answered in open sight. What was once argued in words has now been settled in steel."
+ agot_trial_of_seven.0201.desc.accuser_won_defeault.observer_pov:0 "The Trial of Seven is done, and [tos_final_accuser.GetTitledFirstNamePossessive] side has taken the field. [tos_final_accused.GetTitledFirstName] is defeated, and the verdict is already spreading from campfire to court as if it were gospel.\n\nSome call it justice, others call it inevitability. Either way, the realm has watched seven blades decide what words could not. The verdict was won in steel, and the realm has seen it."
+ agot_trial_of_seven.0201.desc.accuser_won_defender_died.observer_pov:0 "The Trial of Seven ended with [tos_final_accused.GetTitledFirstName] dead upon the field. [tos_final_accuser.GetTitledFirstNamePossessive] champions stood, and the prisoner's cause died with [tos_final_accused.GetHerHim].\n\nThere will be those who claim the gods have spoken clearly, and those who insist the gods were merely forced to watch. Either way, a life has been paid for the right to ask the question, and the realm will remember the cost."
+ agot_trial_of_seven.0201.desc.defender_won_accuser_died.inherited_crown_observer_pov:0 "The Trial of Seven has ended in a victory no bard could have penned without sounding cruel. [tos_final_accuser.GetTitledFirstName] lies dead upon the field, and the one once named prisoner now rises as rightful ruler before gods and men.\n\nWhat began as a demand for judgment has become a passing of the crown itself. Steel has answered accusation and succession alike, and all who watched know that this throne was not taken in silence, but won beneath the gaze of the Seven."
+ agot_trial_of_seven.0201.a:0 "So the gods have judged."
+
+
+ #################################################
+ ### TOS: Dishonorable Imprisonment PRE-EVENTS ###
+ #################################################
+
+ # ToS: Imprisoned.. Potential ToS?
+ agot_trial_of_seven.0202.t:0 "A Visitor in the Dark"
+ agot_trial_of_seven.0202.desc:0 "The hours pass slowly within these walls, broken only by distant footsteps and the drip of unseen water. When the door finally opens, I expect another guard... not a familiar face.\n\n[tos_friend.GetTitledFirstName] steps into the dim light, and for a moment I am unsure whether to smile or curse the sight. [tos_friend.GetSheHe|U] bears the name of the same house that holds me here, yet [tos_friend.GetHerHis] eyes carry none of its iron. We speak in low voices, careful of listening ears, until at last [tos_friend.GetSheHe] promises to speak with [tos_imprisoner.GetTitledFirstName] on my behalf.\n\nIt is a small thing, perhaps, words carried from one hall to another, yet even a small promise feels different when you have none."
+ agot_trial_of_seven.0202.a:0 "I will hold to that hope."
+ agot_trial_of_seven.0202.b:0 "I need no favors from your house."
+
+ # ToS: Imprisoned.. ToS can happen?
+ agot_trial_of_seven.0203.t:0 "Before the Crown"
+ agot_trial_of_seven.0203.desc:0 "A guard comes for me, I expect another questioning, instead, I am led to a small chamber where my [SCOPE.sC('tos_prisoner').Custom2('RelationToMeShort', SCOPE.sC('tos_friend'))], [tos_friend.GetTitledFirstName] waits. [tos_friend.GetSheHe|U] wastes little time on pleasantries. If I mean to leave these walls with my honor intact, [tos_friend.GetSheHe] tells me, I must be ready to fight for it.\n\nA trial by combat may be my only path forward. Steel, not words, may be the only language [tos_imprisoner.GetTitledFirstName] will respect. Soon enough, the guard leads us onward into a larger hall where [tos_imprisoner.GetTitledFirstNameNoTooltip] and gathered courtiers await my answer. All eyes turn toward me, waiting to hear what I will demand... if anything at all."
+ agot_trial_of_seven.0203.a:0 "I demand trial by combat."
+ agot_trial_of_seven.0203.b:0 "I will not turn this into a spectacle."
+ agot_trial_of_seven.0203.b.tt:0 "You are escorted back to the dungeon."
+
+
+ ##########################
+ ### TOS TEAM SELECTION ###
+ ##########################
+
+ # ToS: Selecting Champions
+ agot_trial_of_seven.1000.t:0 "Champions of the Seven"
+ agot_trial_of_seven.1000.desc:0 "The Trial of Seven is at hand. I must name those who will stand for my cause when the swords are drawn.\n\nIf I cannot gather six to stand with me, judgment will come without a blow, and guilt will be laid upon my name.\n\nSeveral knights have already offered their swords. I must decide who among them will take the field at my side."
+ agot_trial_of_seven.1000.desc.lost_before_started:0 "The silence stretches on, unbroken. No further champions come forward to stand with me, and without seven to answer the charge, the trial cannot be fought.\n\nBy law and custom, the charge stands unanswered, and I am judged guilty."
+ # desc variations
+ agot_trial_of_seven.1000.desc.sellsword:0 "The silence stretches longer than I would like. At last, a hard-eyed warrior steps forward from the crowd, pausing only when my offer of coin is made plain.\n\nSteel has many loyalties, and today gold proves enough to bind one blade to my cause."
+ agot_trial_of_seven.1000.desc.helper_knight.a:0 "The silence lingers, heavy and unbroken. At last, [helper_knight.GetTitledFirstName] steps forward, setting themselves apart from the crowd and offering their sword to my cause."
+ agot_trial_of_seven.1000.desc.helper_knight.b:0 "No one moves at first. Then [helper_knight.GetTitledFirstName] leaves the crowd behind, stepping into the open and declaring their willingness to stand for me."
+ agot_trial_of_seven.1000.desc.helper_knight.c:0 "The moment stretches on in silence before [helper_knight.GetTitledFirstName] breaks it, coming forward to place their sword at my side."
+ agot_trial_of_seven.1000.desc.helper_knight.d:0 "All eyes remain fixed on the crowd until [helper_knight.GetTitledFirstName] steps forward alone, ending the silence and committing their blade to my cause."
+ agot_trial_of_seven.1000.desc.helper_knight.e:0 "For a long moment, no one moves. Then a single figure, [helper_knight.GetTitledFirstName] steps forward from the crowd, breaking the silence and offering their sword to my cause."
+ agot_trial_of_seven.1000.desc.helper_squire:0 "The silence threatens to swallow the moment whole until a young squire, [helper_knight.GetTitledFirstName], steps forward from the edge of the crowd. There is hesitation in [helper_knight.GetHerHis] voice, but not fear.\n\nDropping to one knee before me, [helper_knight.GetSheHe] lowers [helper_knight.GetHerHis] head and speaks clearly for all to hear.\n\n#EMP "[the_other_leader.GetTitledFirstNameNoTooltip], knight me... and I will stand with you."#S"
+ # situational option texts
+ agot_trial_of_seven.1000.a:0 "A fine choice."
+ agot_trial_of_seven.1000.a.buy:0 "Coin speaks louder than silence."
+ agot_trial_of_seven.1000.a.tt:0 "Your chosen champion will fight on your side.\n"
+ agot_trial_of_seven.1000.a.lost_before_started:0 "My fate is sealed."
+ agot_trial_of_seven.1000.a.need_new_char:0 "Who will stand and fight with me?"
+ agot_trial_of_seven.1000.a.squire_approved:0 "Rise, Ser [helper_knight.GetFirstNameNoTooltip]. Stand with me."
+ agot_trial_of_seven.1000.a.squire_approved.tt:0 "#EMP In the name of the Warrior I charge you to be brave. In the name of the Father I charge you to be just. In the name of the Mother I charge you to defend the young and innocent. In the name of the Maid I charge you to protect all women.\n#S"
+ agot_trial_of_seven.1000.b.squire_denied:0 "I shouldn't."
+ agot_trial_of_seven.1000.b.squire_denied.tt:0 "Without enough champions, the Trial of Seven cannot begin and you will be judged guilty."
+
+
+ # ToS: Trial of Seven Starts
+ agot_trial_of_seven.1001.t:0 "Seven Against Seven"
+ agot_trial_of_seven.1001.t.accusers:0 "$agot_trial_of_seven.1002.t$: [accuser_leader.GetTitledFirstNameNoTooltip] and the Accusers"
+ agot_trial_of_seven.1001.t.defenders:0 "$agot_trial_of_seven.1002.t$: [defender_leader.GetTitledFirstNameNoTooltip] and [defender_leader.GetHerHis] Champions"
+ agot_trial_of_seven.1001.desc:0 "Before the eyes of the realm, the ancient Trial of Seven is called at last. No lord's word nor king's decree may end this quarrel now, only seven blades raised for each cause, and the judgment the gods grant through steel and blood. Accuser and accused stand opposed, their fates bound together as surely as the champions who fight in their names. Let the field bear witness, and when the last sword falls silent, the gods shall decide who stood in truth and who stood in sin.\n\n#EMP [oth_1.GetTitledFirstName] stands with [oth_5.GetTitledFirstName], [oth_4.GetTitledFirstName], [oth_2.GetTitledFirstName], [oth_3.GetTitledFirstName], [oth_6.GetTitledFirstName] and [oth_7.GetTitledFirstName].\n\nFacing them stands [roy_1.GetTitledFirstName], joined by [roy_5.GetTitledFirstName], [roy_4.GetFirstName], [roy_2.GetTitledFirstName], [roy_3.GetTitledFirstName], [roy_6.GetTitledFirstName] and [roy_7.GetTitledFirstName].#S"
+ agot_trial_of_seven.1001.a:0 "So the gods will judge."
+ agot_trial_of_seven.1001.a.second:0 "Let the Trial of Seven begin."
+
+
+ # ToS - Succession Crisis: Event about Tos - Player can observe
+ agot_trial_of_seven.1002.t:0 "A Trial of Seven"
+ agot_trial_of_seven.1002.desc.usurpation:0 "Word spreads quickly through courts and camps alike. A Trial of Seven has been called, as [the_other_leader.GetTitledFirstName] openly names [the_royal_leader.GetTitledFirstNamePossessive] rise a usurpation and demands judgment before gods and men.\n\nSuch trials are rare, and rarer still when crown and claim stand opposed. Lords whisper of champions already gathering, each blade sworn to prove which ruler stands in truth, and which in sin. Soon, steel will decide what no council could settle."
+ agot_trial_of_seven.1002.desc.imprisonment:0 "News travels swiftly: what began as a demand for trial by combat has grown into something far greater. After [the_other_leader.GetTitledFirstName] called for single combat to answer [the_royal_leader.GetTitledFirstNamePossessive] judgment, the crown refused, and instead proclaimed a Trial of Seven.\n\nMany call it a bold stroke, others a cruel one, for such trials reshape quarrels into spectacles the whole realm cannot ignore. Champions now gather from near and far, and before long, seven blades against seven will decide a fate that words alone could not."
+ agot_trial_of_seven.1002.a:0 "I will follow the trial closely."
+ agot_trial_of_seven.1002.a.tt:0 "You will observe the Trial of Seven as it unfolds."
+ agot_trial_of_seven.1002.b:0 "This is no concern of mine."
+
+
+ # ToS: No one volunteered
+ agot_trial_of_seven.1003.t:0 "$agot_trial_of_seven.1000.t$"
+ agot_trial_of_seven.1003.desc.need_more_knights.a:0 "The count is short. I do not yet have the seven required to answer the charge, and the trial cannot proceed as it stands.\n\nThe weight of the moment presses in from all sides as the numbers are counted again and found wanting. More champions must be found if this cause is to be carried forward, or else the judgment will be given without steel."
+ agot_trial_of_seven.1003.desc.need_more_knights.b:0 "The eyes upon me offer no answers. Too few have stepped forward, and the number required remains unmet.\n\nMurmurs stir at the edges of the crowd, some curious, some unkind, as the silence stretches on. Until more are named, the Trial of Seven stands unfinished, hanging in the balance before all who watch."
+ agot_trial_of_seven.1003.desc.need_more_knights.c:0 "The law is clear, and the number is not yet met. Without seven to stand together, the charge cannot be answered.\n\nThe words of custom ring loudly in my thoughts, learned long ago and never meant to be tested this way. If this trial is to go forward, more champions must be secured, or the law will judge me without mercy."
+ agot_trial_of_seven.1003.desc.need_more_knights.d:0 "Those before me are not enough. The seven are not yet whole, and the moment stretches on unfinished.\n\nEvery heartbeat draws the eyes of the crowd closer, waiting to see whether anyone else will step forward. Unless more come to stand with me, this trial will not be fought, and the outcome will be decided here and now."
+ agot_trial_of_seven.1003.desc.need_more_knights.e:0 "Silence answers my call. Those willing to stand have already stepped forward, and no others come to join them.\n\nFor an instant, doubt cuts deeper than any blade, and I wonder if this is where my cause ends. If more champions are to be named, they will have to be sought out, or else the silence itself will serve as my answer."
+ #honorable calls
+ agot_trial_of_seven.1003.a.honorable.a:0 "Who will stand where right still stands?"
+ agot_trial_of_seven.1003.a.honorable.b:0 "Does no one here still believe in justice?"
+ agot_trial_of_seven.1003.a.honorable.c:0 "Is there no one left who would stand for what is right?"
+ agot_trial_of_seven.1003.a.honorable.d:0 "Is there no knight left who remembers the oath?"
+ agot_trial_of_seven.1003.a.honorable.e:0 "Are there no true knights among you?!"
+ #royal calls (available only for the royal side, they have the money)
+ agot_trial_of_seven.1003.a.greedy.a:0 "What price would earn your sword?"
+ agot_trial_of_seven.1003.a.greedy.b:0 "Who here would fight for good coin?"
+ agot_trial_of_seven.1003.a.greedy.c:0 "Is there no one willing to be paid for their courage?"
+ agot_trial_of_seven.1003.a.greedy.d:0 "Who would sell their blade for gold?"
+ agot_trial_of_seven.1003.a.greedy.e:0 "Who among you would fight for a fair price?"
+ #dishonorable/arrogant calls
+ agot_trial_of_seven.1003.a.dishonorable.a:0 "Do you all fear the field that much?"
+ agot_trial_of_seven.1003.a.dishonorable.b:0 "Will no one answer when I call?"
+ agot_trial_of_seven.1003.a.dishonorable.c:0 "Is there truly no one fit to stand for me?"
+ agot_trial_of_seven.1003.a.dishonorable.d:0 "Do I truly stand among cowards?"
+ agot_trial_of_seven.1003.a.dishonorable.e:0 "Who among you will step forward for me?"
+
+
+ #Leader couldn't gather 6 other knights
+ agot_trial_of_seven.1004.t:0 "Judged Without Steel"
+ agot_trial_of_seven.1004.desc:0 "The challenge falters before it can be answered. [leader_lost_before_started.GetTitledFirstName] fails to gather the six champions required to stand beside [leader_lost_before_started.GetHerHim], and the Trial of Seven cannot be fought.\n\nBy law and custom, the charge stands unanswered. Guilt is laid upon [leader_lost_before_started.GetHerHim], and the matter is settled without a single sword drawn."
+ agot_trial_of_seven.1004.a:0 "Remove [leader_lost_before_started.GetHerHim] from my sight."
+
+ #Yield! Yield!
+ agot_single_combat.0031.b:0 "This is not the end."
