@@ -19,6 +19,11 @@
  agot_dragon_desc:0 "Это [dragon|El], связанный узами с [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажем ' )][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'им персонажем', '' )]"
  agot_pirate_ship_designated_heir:0 "Это предопредёленный наследник [Concept('agot_landless_pirate_domicile', 'пиратского корабля')|E] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
 
+ # AGOT birthplace introduction
+ CharacterIntroductionSupportNoComma_firstnamedynastyname_a_noblewoman_from_birthplace_location:0 "[ROOT.Char.GetFirstName], дворянка из владения [ROOT.Char.MakeScope.Var('agot_birthplace').GetProvince.GetName]"
+ CharacterIntroductionSupportNoComma_firstnamedynastyname_a_nobleman_from_birthplace_location:0 "[ROOT.Char.GetFirstName], дворянин из владения [ROOT.Char.MakeScope.Var('agot_birthplace').GetProvince.GetName]"
+ CharacterIntroductionSupportNoComma_firstname_a_commoner_from_birthplace_location:0 "[ROOT.Char.GetFirstName], [Select_CString(ROOT.Char.IsFemale, 'простолюдинка', 'простолюдин' )] из владения [ROOT.Char.MakeScope.Var('agot_birthplace').GetProvince.GetName]"
+
  relation_maester_female:0 "мейстер"
  relation_maester_male:0 "мейстер"
  relation_maester_female_possessive:0 "мейстера"
