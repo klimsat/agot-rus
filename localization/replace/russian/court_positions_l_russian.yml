@@ -558,12 +558,18 @@
  cave_hermit_court_position_tt: "В [Concept('travels', 'путешествии')|E] вам повстречался #V [GetCourtPositionType( 'cave_hermit_court_position' ).GetName()|l]#!"
 
  travel_leader_court_position: "Караванщик"
- travel_leader_court_position_desc: "Караванщик помогает вам во время путешествия и прокладывает маршрут. Он отвечает за то, чтобы вы добрались до цели во время и без происшествий."
+ #AGOT Modified
+ #travel_leader_court_position_desc: "Караванщик помогает вам во время путешествия и прокладывает маршрут. Он отвечает за то, чтобы вы добрались до цели во время и без происшествий."
+ travel_leader_court_position_desc: "[SelectLocalization( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_pirate_trigger_check' ), 'travel_leader_pirate', 'travel_leader_court_position' )] помогает вам во время путешествия и прокладывает маршрут. Он отвечает за то, чтобы вы добрались до цели во время и без происшествий."
 
- hire_travel_leader_decision: "Найти караванщика"
+ #AGOT Modified
+ #hire_travel_leader_decision: "Найти караванщика"
+ hire_travel_leader_decision: "Найти караванщика" #[SelectLocalization( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_pirate_trigger_check' ), 'travel_leader_pirate', 'travel_leader_court_position' )]
  hire_travel_leader_decision_tooltip: "Ваши слуги предложат несколько кандидатур, подходящих на должность #TOOLTIP:COURT_POSITION_TYPE,travel_leader_court_position #L караванщика#!#!"
  travel_leader_court_position_custom_desc: "$EFFECT_LIST_BULLET$Обеспечивает @travel_safety_icon![Concept('travel_safety', 'безопасность в пути')|E] и @travel_speed_icon![Concept('travel_speed', 'скорость')|E] во время [Concept('travels', 'путешествий')|E]"
- hire_travel_leader_decision_desc: "Хороший караванщик необходим для успешного путешествия. Я попрошу представить мне несколько кандидатур."
+ #AGOT Modified
+ #hire_travel_leader_decision_desc: "Хороший караванщик необходим для успешного путешествия. Я попрошу представить мне несколько кандидатур."
+ hire_travel_leader_decision_desc: "Хороший [SelectLocalization( GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_pirate_trigger_check' ), 'travel_leader_pirate', 'travel_leader_court_position' )] необходим для успешного путешествия. Я попрошу представить мне несколько кандидатур."
  hire_travel_leader_decision_confirm: "Начать поиски"
  caravan_master_prepare_travels: "Запасы для путешествий"
  caravan_master_prepare_travels_desc: "Этому персонажу поручено подготовить все для следующего путешествия сюзерена."
