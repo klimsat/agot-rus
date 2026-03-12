@@ -38,7 +38,7 @@
  #Legit Heir won - Usurper's Heir POV
  agot_trial_of_seven.0103.desc.legit_won.usurper_died:0 "The trial has spoken, and the verdict is plain. [usurper.GetTitledFirstName] lies dead alongside those who stood for [usurper.GetHerHim], [usurper.GetHerHis] cause broken before all who bore witness.\n\nThe field is choked with bodies, the cost of the crown written in blood and steel. The crown passes now to [legit_heir.GetTitledFirstName], whose claim has been proven not by words, but by victory wrested from death itself. What was taken has been reclaimed in full view of the realm, and no lord can now pretend this judgment was uncertain."
  #Legit Heir Helper won - Usurper POV
- agot_trial_of_seven.0103.desc.legit_helper_won:0 "The trial has spoken, and the verdict is plain. [legit_combatant.GetTitledFirstName] and [legit_combatant.GetHerHis] companion defeated me alongside those who stood for me, my cause broken before all who bore witness.\n\nThe field is choked with bodies, the cost of the crown written in blood and steel. The crown passes now to [legit_heir.GetTitledFirstNameNoTooltip], whose claim has been proven not by words, but by victory wrested from death itself. What was taken has been reclaimed in full view of the realm, and no lord can now pretend this judgment was uncertain."
+ agot_trial_of_seven.0103.desc.legit_helper_won:0 "The trial has spoken, and the verdict is plain. [legit_combatant.GetTitledFirstName] and [legit_combatant.GetHerHis] companion defeated me alongside those who stood for me, my cause broken before all who bore witness.\n\nThe field is choked with bodies, the cost of the crown written in blood and steel. The crown passes now to [legit_heir.GetTitledFirstName], whose claim has been proven not by words, but by victory wrested from death itself. What was taken has been reclaimed in full view of the realm, and no lord can now pretend this judgment was uncertain."
  #Legit Heir Helper won - Usurper's Heir POV
  agot_trial_of_seven.0103.desc.legit_helper_won.usurper_died:0 "The trial has spoken, and the verdict is plain. [legit_combatant.GetTitledFirstName] and [legit_combatant.GetHerHis] companion defeated [usurper.GetTitledFirstName] and those who stood for [usurper.GetHerHim], [usurper.GetHerHis] cause broken before all who bore witness.\n\nThe field is choked with bodies, the cost of the crown written in blood and steel. The crown passes now to [legit_heir.GetTitledFirstName], whose claim has been proven not by words, but by victory wrested from death itself. What was taken has been reclaimed in full view of the realm, and no lord can now pretend this judgment was uncertain."
  #Legit Heir Helper won but Legit Heir died - Usurper POV
@@ -56,7 +56,7 @@
  #Legit Heir is somehow already the king
  agot_trial_of_seven.0103.desc.legit_heir_won_after_all.usurper:0 "Steel was drawn and lives were spent, yet the struggle ended without the clarity many had hoped for. [legit_heir.GetTitledFirstName] lies dead upon the field, and with that fall the shape of the conflict changed more than any verdict could have done.\n\nThe Trial of Seven closes not with triumph, but with silence, and in the aftermath I sit on the throne. Whether the gods truly judged the matter, or merely watched it pass into another's hands, is left for the realm to decide."
  #Options
- agot_trial_of_seven.0103.a:0 "I hope [final_heir.GetTitledFirstName] will rule wisely."
+ agot_trial_of_seven.0103.a:0 "I hope [final_heir.GetTitledFirstNameNoTooltip] will rule wisely."
  agot_trial_of_seven.0103.b:0 "Shame."
  agot_trial_of_seven.0103.c:0 "Let the realm remember who still stands."
  agot_trial_of_seven.0103.d:0 "So much blood, all for nothing."
@@ -181,19 +181,37 @@
  ### TOS: Dishonorable Imprisonment PRE-EVENTS ###
  #################################################
 
- # ToS: Imprisoned.. Potential ToS?
+ # ToS: Imprisoned.. Friend Visits
  agot_trial_of_seven.0202.t:0 "A Visitor in the Dark"
- agot_trial_of_seven.0202.desc:0 "The hours pass slowly within these walls, broken only by distant footsteps and the drip of unseen water. When the door finally opens, I expect another guard... not a familiar face.\n\n[tos_friend.GetTitledFirstName] steps into the dim light, and for a moment I am unsure whether to smile or curse the sight. [tos_friend.GetSheHe|U] bears the name of the same house that holds me here, yet [tos_friend.GetHerHis] eyes carry none of its iron. We speak in low voices, careful of listening ears, until at last [tos_friend.GetSheHe] promises to speak with [tos_imprisoner.GetTitledFirstName] on my behalf.\n\nIt is a small thing, perhaps, words carried from one hall to another, yet even a small promise feels different when you have none."
+ agot_trial_of_seven.0202.desc:0 "The hours pass slowly within these walls, broken only by distant footsteps and the drip of unseen water. When the door finally opens, I expect another guard... not a familiar face.\n\n[tos_friend.GetTitledFirstName] steps into the dim light, and for a moment I am unsure whether to smile or curse the sight. [tos_friend.GetSheHe|U] bears the name of the same house that holds me here, yet [tos_friend.GetHerHis] eyes carry none of its iron. We speak in low voices, careful of listening ears, until at last [tos_friend.GetSheHe] promises to speak with [tos_imprisoner.GetTitledFirstName] on my behalf.\n\nIt is a small thing, perhaps — words carried from one hall to another — yet even a small promise feels different when you have none."
  agot_trial_of_seven.0202.a:0 "I will hold to that hope."
  agot_trial_of_seven.0202.b:0 "I need no favors from your house."
 
- # ToS: Imprisoned.. ToS can happen?
+ # ToS: Imprisoned.. I can demand TbC
  agot_trial_of_seven.0203.t:0 "Before the Crown"
- agot_trial_of_seven.0203.desc:0 "A guard comes for me, I expect another questioning, instead, I am led to a small chamber where my [SCOPE.sC('tos_prisoner').Custom2('RelationToMeShort', SCOPE.sC('tos_friend'))], [tos_friend.GetTitledFirstName] waits. [tos_friend.GetSheHe|U] wastes little time on pleasantries. If I mean to leave these walls with my honor intact, [tos_friend.GetSheHe] tells me, I must be ready to fight for it.\n\nA trial by combat may be my only path forward. Steel, not words, may be the only language [tos_imprisoner.GetTitledFirstName] will respect. Soon enough, the guard leads us onward into a larger hall where [tos_imprisoner.GetTitledFirstNameNoTooltip] and gathered courtiers await my answer. All eyes turn toward me, waiting to hear what I will demand... if anything at all."
+ agot_trial_of_seven.0203.desc:0 "A guard comes for me. I expect another questioning. Instead, I am led to a small chamber where my [SCOPE.sC('tos_prisoner').Custom2('RelationToMeShort', SCOPE.sC('tos_friend'))], [tos_friend.GetTitledFirstName], waits. [tos_friend.GetSheHe|U] wastes little time on pleasantries. If I mean to leave these walls with my honor intact, [tos_friend.GetSheHe] tells me, I must be ready to fight for it.\n\nA trial by combat may be my only path forward. Steel, not words, may be the only language [tos_imprisoner.GetTitledFirstName] will respect. Soon enough, the guard leads us onward into a larger hall where [tos_imprisoner.GetTitledFirstNameNoTooltip] and gathered courtiers await my answer. All eyes turn toward me, waiting to hear what I will demand... if anything at all."
  agot_trial_of_seven.0203.a:0 "I demand trial by combat."
  agot_trial_of_seven.0203.b:0 "I will not turn this into a spectacle."
  agot_trial_of_seven.0203.b.tt:0 "You are escorted back to the dungeon."
 
+ # ToS: Imprisoned.. King considers the release of the prisoner
+ agot_trial_of_seven.0204.t:0 "A Matter of Mercy"
+ agot_trial_of_seven.0204.desc:0 "[tos_friend.GetTitledFirstName] comes before me with a request that is as bold as it is inconvenient. Speaking with careful words and a measured tone, [tos_friend.GetSheHe] asks that I release [tos_prisoner.GetTitledFirstName] from my custody.\n\n[tos_friend.GetSheHe|U] claims the matter has already taken its toll and that mercy now would spare further trouble. Yet a prisoner's chains are rarely struck off without reason, and the court watches closely to see how I will answer."
+ agot_trial_of_seven.0204.a:0 "Very well. Let [tos_prisoner.GetHerHim] go."
+ agot_trial_of_seven.0204.b:0 "Freedom has its price. Pay it."
+ agot_trial_of_seven.0204.c:0 "No. [tos_prisoner.GetSheHe|U] stays where [tos_prisoner.GetSheHe] belongs."
+ agot_trial_of_seven.0204.d:0 "Release [tos_prisoner.GetTitledFirstNameNoTooltip]... and send [tos_prisoner.GetHerHim] to the Wall."
+
+ # ToS: Imprisoned.. Prisoner informed
+ agot_trial_of_seven.0205.t:0 "A Word from the [tos_imprisoner.Custom('GetQueenKing')|U]"
+ agot_trial_of_seven.0205.desc.ok:0 "The door opens once more and [tos_friend.GetTitledFirstName] returns. This time, [tos_friend.GetHerHis] expression carries a quiet relief.\n\n[tos_friend.GetSheHe|U] tells me that [tos_imprisoner.GetTitledFirstName] has agreed to release me. The chains that held me here will soon be struck off, and the road beyond these walls will be mine again."
+ agot_trial_of_seven.0205.desc.gold:0 "When the door opens, [tos_friend.GetTitledFirstName] stands waiting beyond it, though the look on [tos_friend.GetHerHis] face is not quite the one I had hoped for.\n\n[tos_imprisoner.GetTitledFirstName] will grant my freedom, but only for a price. Gold must change hands before these chains are removed."
+ agot_trial_of_seven.0205.desc.no:0 "[tos_friend.GetTitledFirstName] returns to my cell, but the news [tos_friend.GetSheHe] carries is not what I had hoped to hear.\n\n[tos_imprisoner.GetTitledFirstName] has refused the request. My chains remain, and whatever hope I held of leaving these walls has been denied."
+ agot_trial_of_seven.0205.desc.nw:0 "When the door opens again, [tos_friend.GetTitledFirstName] stands waiting, though the weight in [tos_friend.GetHerHis] eyes tells me this is no simple visit.\n\n[tos_imprisoner.GetTitledFirstName] has agreed to release me... but not into freedom. I am to be sent to the Wall, there to take the black and spend the rest of my days in service to the Night's Watch."
+ agot_trial_of_seven.0205.a:0 "Very well. I accept."
+ agot_trial_of_seven.0205.b:0 "This is not justice."
+ agot_trial_of_seven.0205.b.nw:0 "This is not justice. I demand trial by combat."
+ agot_trial_of_seven.0205.c:0 "So be it."
 
  ##########################
  ### TOS TEAM SELECTION ###
@@ -275,3 +293,7 @@
 
  #Yield! Yield!
  agot_single_combat.0031.b:0 "This is not the end."
+
+ #TRIGGER LOC
+ they_agot_unavailable_due_to_grand_wedding:0 "They are unavailable due to attending a Grand Wedding"
+ i_agot_unavailable_due_to_grand_wedding:0 "I am unavailable due to attending a Grand Wedding"
