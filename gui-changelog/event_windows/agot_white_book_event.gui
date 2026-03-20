@@ -1,0 +1,858 @@
+window = {
+	name = "agot_white_book_event"
+	parentanchor = center
+	layer = events
+	allow_outside = yes
+	size = { 650 840 }           ############ SIZES NEED TO MATCH
+
+	using = Window_Movable
+
+	datacontext = "[EventWindow.AccessEventWindowData]"
+
+	state = {
+		name = _show
+		trigger_on_create = yes
+
+		on_start = "[GetVariableSystem.Clear( 'event_window_mouse_leave')]"
+
+		on_start = "[PdxGuiWidget.AccessChild('white_book_paper').TriggerAnimation('show')]"
+		on_start = "[PdxGuiWidget.AccessChild('white_book_content').TriggerAnimation('show')]"
+
+		start_sound = {
+			soundeffect = "event:/SFX/Events/Panels/sfx_event_panel_letter"
+		}
+	}
+
+	state = {
+		name = _hide
+		duration = 1
+		on_start = "[PdxGuiWidget.AccessChild('white_book_paper').TriggerAnimation('hide')]"
+		on_start = "[PdxGuiWidget.AccessChild('white_book_content').TriggerAnimation('hide')]"
+	}
+
+	state = {
+		name = _mouse_hierarchy_leave
+		on_start = "[GetVariableSystem.Set( 'event_window_mouse_leave', 'true' )]"
+	}
+
+	### PAPER ###
+	widget = {
+		name = "white_book_paper"
+		size = { 675 45 }
+		widgetanchor = center
+		parentanchor = center
+		alpha = 0
+
+		using = Background_Letter_No_Frame
+
+		state = {
+			name = show
+			next = a
+			delay = 0.3
+
+			using = Animation_FadeIn_Standard
+
+			animation = {
+				alpha = 1
+				bezier = { 0.7 0 0.7 1 }
+			}
+		}
+
+		state = {
+			name = a
+			duration = 0.25
+			bezier = { 0.3 0 0.7 1 }
+
+			animation = {
+				size = { 650 840 }           ############ SIZES NEED TO MATCH
+				bezier = { 0.8 0.3 0 1 }
+			}
+
+			animation = {
+				alpha = 1
+				bezier = { 0.7 0 0.7 1 }
+			}
+		}
+
+		state = {
+			name = hide
+			using = Animation_FadeOut_Quick
+			size = { 585 -1 }
+		}
+	}
+
+	### CONTENT ###
+	widget = {
+		name = "white_book_content"
+		widgetanchor = center
+		parentanchor = center
+		size = { 650 840 }           ############ SIZES NEED TO MATCH
+		alpha = 0
+
+		state = {
+			name = show
+			delay = 0.8
+
+			using = Animation_FadeIn_Standard
+
+			animation = {
+				size = { 650 840 }           ############ SIZES NEED TO MATCH
+
+				bezier = { 0.8 0.3 0 1 }
+			}
+
+			animation = {
+				alpha = 1
+				bezier = { 0.7 0 0.7 1 }
+			}
+		}
+
+		state = {
+			name = hide
+			using = Animation_FadeOut_Quick
+			duration = 0.08
+		}
+
+		flowcontainer = {
+			name = "debug_stuff"
+			visible = "[InDebugMode]"
+			parentanchor = top|hcenter
+			position = { 25 20 }
+			ignoreinvisible = yes
+
+			using = Event_Window_Debug_Info
+		}
+
+		### PAGE TITLE & COAT-OF-ARMS ###
+		widget = {
+			visible = "[EventWindowData.HasPortraitCharacter('right_portrait')]"
+			position = { 35 50 }
+			size = { 500 300 }
+			allow_outside = yes
+			hbox = {
+				layoutpolicy_vertical = expanding
+				minimumsize = { 580 0 }
+				allow_outside = yes
+
+				widget = {
+					size = { 180 300 }
+					allow_outside = yes
+					coa_house_painterly = {
+						visible = "[GetScriptedGui('agot_kingsguard_white_book_visibility').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope.Var('selected_white_book_page').Title.MakeScope).AddScope('house',MakeScopeBool('(bool)yes' )).AddScope('personal',MakeScopeBool('(bool)no' )).AddScope('fallback',MakeScopeBool('(bool)no' )).End)]"
+						datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait').GetHouse]"
+					}
+					coa_personal_house_painterly = {
+						visible = "[GetScriptedGui('agot_kingsguard_white_book_visibility').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope.Var('selected_white_book_page').Title.MakeScope).AddScope('house',MakeScopeBool('(bool)yes' )).AddScope('personal',MakeScopeBool('(bool)yes' )).AddScope('fallback',MakeScopeBool('(bool)no' )).End)]"
+						datacontext = "[GetPlayer.MakeScope.Var('selected_white_book_page').Title]"
+					}
+					coa_personal_painterly = {
+						visible = "[GetScriptedGui('agot_kingsguard_white_book_visibility').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope.Var('selected_white_book_page').Title.MakeScope).AddScope('house',MakeScopeBool('(bool)no' )).AddScope('personal',MakeScopeBool('(bool)yes' )).AddScope('fallback',MakeScopeBool('(bool)no' )).End)]"
+						datacontext = "[GetPlayer.MakeScope.Var('selected_white_book_page').Title]"
+					}
+					coa_fallback_painterly = {
+						visible = "[GetScriptedGui('agot_kingsguard_white_book_visibility').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope.Var('selected_white_book_page').Title.MakeScope).AddScope('house',MakeScopeBool('(bool)no' )).AddScope('personal',MakeScopeBool('(bool)no' )).AddScope('fallback',MakeScopeBool('(bool)yes' )).End)]"
+					}
+				}
+				text_single = {
+					name = "page_title"
+					align = nobaseline
+					margin_top = -175
+					margin_left = 0
+					fontsize = 29
+					fontsize_min = 16
+					text = "[EventWindowData.GetTitle]"
+					default_format = "#light_background"
+					using = Font_Type_Flavor
+					using = Font_Size_Big
+					format_override = { high light_background }
+					max_width = 400
+					allow_outside = yes
+
+					state = {
+						name = start
+						trigger_on_create = yes
+						delay = 0.2
+						using = Animation_Curve_Default
+						alpha = 1
+						duration = 0.5
+					}
+				}
+				datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
+				tooltipwidget = {
+					container_character_tooltip = {}
+				}
+				expand = {}
+			}
+		}
+
+		### TABLE OF CONTENTS TITLE ###
+		widget = {
+			visible = "[Not( EventWindowData.HasPortraitCharacter('right_portrait') )]"
+			#position = { 35 50 }
+			size = { 650 75 }
+			allow_outside = yes
+			text_single = {
+				name = "page_title"
+				margin_top = 25
+				fontsize = 29
+				fontsize_min = 16
+				parentanchor = center
+				text = "[EventWindowData.GetTitle]"
+				default_format = "#light_background"
+				using = Font_Type_Flavor
+				using = Font_Size_Big
+				format_override = { high light_background }
+				max_width = 400
+
+				state = {
+					name = start
+					trigger_on_create = yes
+					delay = 0.2
+					using = Animation_Curve_Default
+					alpha = 1
+					duration = 0.5
+				}
+			}
+			expand = {}
+		}
+
+		### BORDERS ###
+		widget = {
+			visible = "[Not( EventWindowData.HasPortraitCharacter('right_portrait') )]"
+			size = { 650 840 }           ############ SIZES NEED TO MATCH
+			background = {
+				texture = "gfx/interface/skinned/window_letter/white_book_border_contents.dds"
+			}
+		}
+		widget = {
+			visible = "[EventWindowData.HasPortraitCharacter('right_portrait')]"
+			size = { 650 840 }           ############ SIZES NEED TO MATCH
+			background = {
+				texture = "gfx/interface/skinned/window_letter/white_book_border.dds"
+			}
+		}
+
+		vbox = {
+			margin = { 10 25 }
+			margin_right = 0
+			margin_bottom = 40
+
+			expand = {}
+
+			vbox = {
+				name = "content"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				allow_outside = yes
+				margin_top = 75
+				spacer = {
+					visible = "[EventWindowData.HasPortraitCharacter('right_portrait')]"
+					size = { 0 75 }
+				}
+
+				### text
+				vbox = {
+					name = "text"
+					layoutpolicy_vertical = expanding
+					allow_outside = yes
+
+					scrollarea = {
+						visible = "[Not( EventWindowData.HasPortraitCharacter('right_portrait') )]"
+						maximumsize = { 575 620 }
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						autoresizescrollarea = yes
+						scrollbarpolicy_horizontal = always_off
+						allow_outside = yes
+
+						scrollbar_vertical = {
+							using = Scrollbar_Vertical
+						}
+
+						scrollwidget = {
+							fixedgridbox = {
+								datamodel_wrap = 2
+								addcolumn = 285
+								addrow = 62
+								datamodel = "[GetGlobalList('kingsguard_white_book_pages')]"
+								flipdirection = yes
+
+								item = {
+									button_event_white_book = {
+										name = "event_option_button"
+										size = { 285 60 }
+										datacontext = "[Scope.Title]"
+
+										tooltipwidget = {
+											cooltip_type = {
+												datacontext = "[Title.MakeScope.Var('kingsguard_member').GetCharacter]"
+												blockoverride "interaction_info" {
+													text = "CHARACTER_TOOLTIP_INSTRUCTION"
+												}
+											}
+										}
+										tooltip_offset = { 0 0 }
+										tooltip_verticalbehavior = slide
+										tooltip_horizontalbehavior = mirror
+
+										onclick = "[GetScriptedGui('agot_kingsguard_white_book').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_white_book_page', Title.MakeScope).End)]"
+										down = "[GetScriptedGui('agot_kingsguard_white_book').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_white_book_page', Title.MakeScope).End)]"
+										using = tooltip_es
+
+										widget = {
+											size = { 200 60 }
+											position = { 10 -4 }
+											parentanchor = left
+											
+											coa_house_painterly = {
+												visible = "[GetScriptedGui('agot_kingsguard_white_book_visibility').IsShown(GuiScope.SetRoot(Title.MakeScope).AddScope('house',MakeScopeBool('(bool)yes' )).AddScope('personal',MakeScopeBool('(bool)no' )).AddScope('fallback',MakeScopeBool('(bool)no' )).End)]"
+												datacontext = "[Title.MakeScope.Var('kingsguard_member').Char.GetHouse]"
+												blockoverride "widget_size"
+												{
+													size = { 60 60 }
+												}
+												blockoverride "coa_size"
+												{
+													size = { 43 43 }
+												}
+												blockoverride "icon_size"
+												{
+													size = { 43 43 }
+												}
+											}
+											coa_personal_house_painterly = {
+												visible = "[GetScriptedGui('agot_kingsguard_white_book_visibility').IsShown(GuiScope.SetRoot(Title.MakeScope).AddScope('house',MakeScopeBool('(bool)yes' )).AddScope('personal',MakeScopeBool('(bool)yes' )).AddScope('fallback',MakeScopeBool('(bool)no' )).End)]"
+												blockoverride "widget_size"
+												{
+													size = { 60 60 }
+												}
+												blockoverride "coa_size"
+												{
+													size = { 43 43 }
+												}
+												blockoverride "icon_size"
+												{
+													size = { 43 43 }
+												}
+											}
+											coa_personal_painterly = {
+												visible = "[GetScriptedGui('agot_kingsguard_white_book_visibility').IsShown(GuiScope.SetRoot(Title.MakeScope).AddScope('house',MakeScopeBool('(bool)no' )).AddScope('personal',MakeScopeBool('(bool)yes' )).AddScope('fallback',MakeScopeBool('(bool)no' )).End)]"
+												blockoverride "widget_size"
+												{
+													size = { 60 60 }
+												}
+												blockoverride "coa_size"
+												{
+													size = { 43 43 }
+												}
+												blockoverride "icon_size"
+												{
+													size = { 43 43 }
+												}
+											}
+											coa_fallback_painterly = {
+												visible = "[GetScriptedGui('agot_kingsguard_white_book_visibility').IsShown(GuiScope.SetRoot(Title.MakeScope).AddScope('house',MakeScopeBool('(bool)no' )).AddScope('personal',MakeScopeBool('(bool)no' )).AddScope('fallback',MakeScopeBool('(bool)yes' )).End)]"
+												blockoverride "widget_size"
+												{
+													size = { 60 60 }
+												}
+												blockoverride "coa_size"
+												{
+													size = { 43 43 }
+												}
+												blockoverride "icon_size"
+												{
+													size = { 43 43 }
+												}
+											}
+										}
+										text_single = {
+											raw_text = "[Title.MakeScope.Var('kingsguard_member').Char.Custom('GetWhiteBookContentsTitle')]"
+											allow_outside = yes
+
+											margin_left = 65
+											margin_top = 15
+											default_format = "#light_background"
+											using = Font_Type_Flavor
+											using = Font_Size_Medium
+											fontsize = 16
+											max_width = 265
+											autoresize = yes
+											using = Text_Light_Background_Overrides
+										}
+									}
+								}
+							}
+						}
+					}
+
+					#### PAGE CONTENTS ####
+					scrollarea = {
+						visible = "[EventWindowData.HasPortraitCharacter('right_portrait')]"
+						maximumsize = { 530 550 }
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						autoresizescrollarea = yes
+						scrollbarpolicy_horizontal = always_off
+						allow_outside = yes
+
+						scrollbar_vertical = {
+							using = Scrollbar_Vertical
+						}
+
+						scrollwidget = {
+							text_multi = {
+								name = "description"
+								minimumsize = { 530 -1 }
+								maximumsize = { 530 -1 }
+								autoresize = yes
+								margin = { 0 10 }
+								margin_right = 10
+								margin_left = 5
+								alwaystransparent = yes
+								text = "[EventWindowData.GetDescription]"
+								default_format = "#light_background"
+								using = Font_Size_Medium
+								format_override = { high light_background }
+							}
+						}
+					}
+				}
+			}
+
+			expand = {}
+
+			### Options
+			fixedgridbox = {
+				name = "option_grid"
+				datamodel_wrap = 2
+				addcolumn = 290
+				addrow = 46
+				datamodel = "[EventWindowData.GetOptions]"
+				flipdirection = yes
+
+				item = {
+					button_event_letter = {
+						name = "event_option_button"
+						size = { 280 42 }
+
+						tooltip = "[EventOption.GetTooltip]"
+						tooltip_visible = "[Not( StringIsEmpty( EventOption.GetTooltip ) )]"
+
+						onclick = "[EventOption.Select]"
+						onmousehierarchyenter = "[EventOption.OnEnter]"
+						onmousehierarchyleave = "[EventOption.OnLeave]"
+						enabled = "[EventOption.IsValid]"
+
+						tooltipwidget = {
+							using = DefaultTooltipWidget
+						}
+						using = tooltip_es
+
+						hbox = {
+
+							text_single = {
+								text = "[EventOption.GetText]"
+
+								default_format = "#light_background"
+								using = Font_Size_Medium
+								align = center
+								layoutpolicy_horizontal = expanding
+								max_width = 420
+								fontsize_min = 12
+								using = Text_Light_Background_Overrides
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+types WhiteBookTypes
+{
+	type coa_house_painterly = widget
+	{
+		block "widget_size"
+		{
+			size = { 140 140 }
+		}
+
+		hbox = {
+			margin = { 3 5 }
+			margin_top = 12
+			margin_right = 12
+
+			block "culture_template_data_datacontext"
+			{
+				datacontext = "[DynastyHouse.GetCulture.GetTemplateData]"
+			}
+
+			coa_house_widget = {
+				block "coa_size"
+				{
+					size = { 120 120 }
+				}
+				using = CoA_House_Defaults
+
+				coat_of_arms_icon = {
+					parentanchor = center
+					block "icon_size"
+					{
+						size = { 120 120 }
+					}
+					coat_of_arms = "[DynastyHouse.GetHouseCoA.GetTexture('(int32)230','(int32)230')]"
+					coat_of_arms_slot = "[DynastyHouse.GetHouseCoA.GetSlot('(int32)230','(int32)230')]"
+					coat_of_arms_mask = "gfx/interface/coat_of_arms/title_mask.dds"
+					coat_of_arms_offset = "[DefaultCoATitleMaskOffset]"
+					coat_of_arms_scale = "[DefaultCoATitleMaskScale]"
+
+
+					modify_texture = {
+						texture = "gfx/interface/coat_of_arms/coa_overlay.dds"
+						blend_mode = overlay
+					}
+				}
+
+				block "house_relation_icon"
+				{}
+			}
+		}
+	}
+	type coa_personal_house_painterly = widget
+	{
+		block "widget_size"
+		{
+			size = { 140 140 }
+		}
+
+		hbox = {
+			margin = { 3 5 }
+			margin_top = 12
+			margin_right = 12
+
+			button_group = {
+				datacontext = "[Scope.Title]"
+				block "coa_size"
+				{
+					size = { 120 120 }
+				}
+				block "coa_button"
+				{
+					block "coa_tooltip"
+					{
+						tooltipwidget = {
+							object_tooltip_pop_out = {
+								datacontext = "[Title.MakeScope.Var('kingsguard_member').Char.GetHouse]"
+
+								blockoverride "header_additions" {
+									margin_right = 10
+									margin_top = 5
+									margin_left = -5
+
+									coa_house_small = {
+										blockoverride "coa_tooltip" {}
+									}
+								}
+
+								blockoverride "title_text"
+								{
+									text = "HOUSE_TT_NAME"
+								}
+
+								blockoverride "fontsize_min" {
+									fontsize_min = 13
+								}
+
+								blockoverride "subtitle_text"
+								{
+									text = "HOUSE_VIEW_MOTTO"
+									default_format = "#weak"
+								}
+
+								blockoverride "multiline" {
+									multiline = yes
+								}
+
+								blockoverride "max_width"
+								{
+									max_width = 280
+								}
+
+								blockoverride "concept_link"
+								{
+									text = [house|E]
+								}
+
+								blockoverride "extra_data"
+								{
+
+									cooltip_paragraph = {
+										name = "my_house"
+										visible = "[DynastyHouse.IsPlayerMember]"
+										text = "HOUSE_VIEW_PLAYER_IS_MEMBER"
+									}
+
+									cooltip_paragraph = {
+										name = "house_head"
+										text = "DYNASTY_HOUSE_TT_HEAD_OF_HOUSE"
+									}
+
+									cooltip_paragraph = {
+										name = "living_members"
+										text = "DYNASTY_HOUSE_TT_LIVING_MEMBERS"
+									}
+
+									cooltip_paragraph = {
+										name = "house_relation"
+										visible = "[DynastyHouse.HasHouseRelationWith( GetPlayer.GetHouse )]"
+										text = "DYNASTY_HOUSE_TT_HOUSE_RELATION"
+									}
+
+									cooltip_paragraph = {
+										name = "dynasty"
+										text = "DYNASTY_HOUSE_TT_DYNASTY"
+									}
+									cooltip_paragraph = {
+										name = "dynasty_level"
+										text = "DYNASTY_HOUSE_TT_DYNASTY_LEVEL"
+									}
+
+									hbox = {
+										layoutpolicy_horizontal = expanding
+
+										datacontext = "[DynastyHouse.GetCurrentHouseUnityStage]"
+
+										visible = "[DynastyHouse.HasHouseUnity]"
+
+										spacing = 5
+
+										text_single = {
+											text = "HOUSE_UNITY_VALUE_TT_TITLE"
+											fonttintcolor = "[TooltipInfo.GetTintColor]"
+										}
+
+										icon = {
+											size = { 30 30 }
+											texture = "[HouseUnityStage.GetIcon]"
+
+											tooltipwidget = {
+												house_unity_stage_tooltip = {
+													blockoverride "decisions_visibility" {
+														visible = "[DynastyHouse.IsPlayerMember]"
+													}
+
+													blockoverride "decisions_datamodel" {
+														datamodel = "[GetDecisionsForCharacter(GetPlayer)]"
+													}
+												}
+											}
+										}
+
+										text_single = {
+											text = "[DynastyHouse.GetHouseUnityValue|0]"
+											fonttintcolor = "[TooltipInfo.GetTintColor]"
+										}
+
+										expand = {}
+									}
+
+									cooltip_paragraph = {
+										name = "click"
+										text = "VIEW_CLICK"
+										default_format = "#I"
+									}
+								}
+							}
+						}
+					}
+					block "coa_onclick"
+					{
+						onclick = "[DefaultOnHouseCoatOfArmsClick(Title.MakeScope.Var('kingsguard_member').Char.GetHouse.GetID)]"
+						button_ignore = none
+					}
+				}
+
+				coat_of_arms_icon = {
+					parentanchor = center
+					block "icon_size"
+					{
+						size = { 120 120 }
+					}
+					coat_of_arms = "[Title.GetTitleCoA.GetTexture('(int32)230','(int32)230')]"
+					coat_of_arms_slot = "[Title.GetTitleCoA.GetSlot('(int32)230','(int32)230')]"
+					coat_of_arms_mask = "gfx/interface/coat_of_arms/title_mask.dds"
+					coat_of_arms_offset = "[DefaultCoATitleMaskOffset]"
+					coat_of_arms_scale = "[DefaultCoATitleMaskScale]"
+
+					modify_texture = {
+						texture = "gfx/interface/coat_of_arms/coa_overlay.dds"
+						blend_mode = overlay
+					}
+				}
+			}
+		}
+	}
+	type coa_personal_painterly = widget
+	{
+		block "widget_size"
+		{
+			size = { 140 140 }
+		}
+
+		hbox = {
+			margin = { 3 5 }
+			margin_top = 12
+			margin_right = 12
+
+			button_group = {
+				datacontext = "[Scope.Title]"
+				block "coa_size"
+				{
+					size = { 120 120 }
+				}
+				block "coa_button"
+				{
+					block "coa_tooltip"
+					{
+						tooltipwidget = {
+							LandedTitleTooltipBase = {
+								datacontext = "[GetTitleByKey('d_kingsguard')]"
+								blockoverride "input_info_text" {
+									text = "[Title.GetClickInfo]"
+								}
+							}
+						}
+					}
+					block "coa_onclick"
+					{
+						onclick = "[DefaultOnCoatOfArmsClick(GetTitleByKey('d_kingsguard').GetID)]"
+						onrightclick = "[DefaultOnCoatOfArmsRightClick(GetTitleByKey('d_kingsguard').GetID)]"
+						button_ignore = none
+					}
+				}
+
+				coat_of_arms_icon = {
+					parentanchor = center
+					block "icon_size"
+					{
+						size = { 120 120 }
+					}
+					coat_of_arms = "[Title.GetTitleCoA.GetTexture('(int32)230','(int32)230')]"
+					coat_of_arms_slot = "[Title.GetTitleCoA.GetSlot('(int32)230','(int32)230')]"
+					coat_of_arms_mask = "gfx/interface/coat_of_arms/title_mask.dds"
+					coat_of_arms_offset = "[DefaultCoATitleMaskOffset]"
+					coat_of_arms_scale = "[DefaultCoATitleMaskScale]"
+
+					modify_texture = {
+						texture = "gfx/interface/coat_of_arms/coa_overlay.dds"
+						blend_mode = overlay
+					}
+				}
+			}
+		}
+	}
+	type coa_fallback_painterly = widget
+	{
+		block "widget_size"
+		{
+			size = { 140 140 }
+		}
+
+		hbox = {
+			margin = { 3 5 }
+			margin_top = 12
+			margin_right = 12
+
+			button_group = {
+				block "coa_size"
+				{
+					size = { 120 120 }
+				}
+				using = CoA_Title_Defaults
+				datacontext = "[GetTitleByKey('d_kingsguard')]"
+
+				coat_of_arms_icon = {
+					parentanchor = center
+					block "icon_size"
+					{
+						size = { 120 120 }
+					}
+					coat_of_arms = "[GetTitleByKey('d_kingsguard').GetTitleCoA.GetTexture('(int32)230','(int32)230')]"
+					coat_of_arms_slot = "[GetTitleByKey('d_kingsguard').GetTitleCoA.GetSlot('(int32)230','(int32)230')]"
+					coat_of_arms_mask = "gfx/interface/coat_of_arms/title_mask.dds"
+					coat_of_arms_offset = "[DefaultCoATitleMaskOffset]"
+					coat_of_arms_scale = "[DefaultCoATitleMaskScale]"
+
+					modify_texture = {
+						texture = "gfx/interface/coat_of_arms/coa_overlay.dds"
+						blend_mode = overlay
+					}
+				}
+			}
+		}
+	}
+	type button_event_white_book = button_tertiary
+    {
+        size = { 260 34 }
+
+        gfxtype = framedbuttongfx
+        effectname = "NoHighlight"
+        upframe = 1
+        overframe = 1
+        downframe = 1
+        disableframe = 4
+        texture = "gfx/interface/buttons/button_event_letter.dds"
+        framesize = { 175 37 }
+        spriteType = Corneredtiled
+        spriteborder = { 7 7 }
+
+        default_format = "#light_background"
+        using = Font_Size_Medium
+        using = tooltip_es
+
+        modify_texture = {
+            name = "paper_texture_overlay"
+            texture = "gfx/interface/window_event/paper_texture_overlay.dds"
+            spriteType = Corneredtiled
+            spriteborder = { 0 0 }
+            blend_mode = overlay
+        }
+
+        modify_texture = {
+            name = "shading_overlay"
+            texture = "gfx/interface/buttons/button_event_letter_overlay.dds"
+            spriteType = Corneredstretched
+            spriteborder = { 0 0 }
+            blend_mode = overlay
+        }
+
+        modify_texture = {
+            name = "mask"
+            texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_thick.dds"
+            spriteType = Corneredtiled
+            spriteborder_left = 60
+            spriteborder_right = 60
+            blend_mode = alphamultiply
+        }
+
+        modify_texture = {
+            name = "mask_2"
+			visible = "[Not( GetScriptedGui('agot_kingsguard_white_book').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_white_book_page', Title.MakeScope).End))]"
+            texture = "gfx/interface/component_masks/mask_fade_vertical_up.dds"
+            spriteType = Corneredtiled
+            spriteborder_top = 60
+            blend_mode = alphamultiply
+        }
+
+        modify_texture = {
+            name = "mask_3"
+            visible = "[Not( GetScriptedGui('agot_kingsguard_white_book').IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_white_book_page', Title.MakeScope).End))]"
+            texture = "gfx/interface/component_masks/mask_fade_vertical.dds"
+            spriteType = Corneredtiled
+            spriteborder_bottom = 60
+            blend_mode = alphamultiply
+        }
+    }
+}
