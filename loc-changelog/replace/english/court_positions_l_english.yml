@@ -1,7 +1,7 @@
 ﻿l_english: 
  #AGOT Modified
  #APPOINT_COURT_POSITION_VIEW_replace_character_header:2 "Replace [AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee.GetShortUINameNoTooltip] as [AppointCourtPositionView.GetCourtPositionType.GetName]"
- APPOINT_COURT_POSITION_VIEW_replace_character_header:2 "Replace #high [AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee.Custom('AGOTCustomGetTitledFullNameDynasty')]#! as [AppointCourtPositionView.GetCourtPositionType.GetName]"
+ APPOINT_COURT_POSITION_VIEW_replace_character_header:2 "Replace [AGOTGetUINameNoTooltip(AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee)|V] as [AppointCourtPositionView.GetCourtPositionType.GetName]"
  APPOINT_COURT_POSITION_VIEW_select_character_header: "Appoint [AppointCourtPositionView.GetPositionName]"
  APPOINT_COURT_POSITION_VIEW_EMPLOYER_SALARY: "Salary: [CourtPositionType.GetEmployerSalaryTextFor( Character.Self )|V]"
  APPOINT_COURT_POSITION_VIEW_EMPLOYEE_SALARY: "Salary: [CourtPositionType.GetEmployeeSalaryTextFor( Character.Self )|V]"
@@ -36,10 +36,10 @@
  COURT_WINDOW_COURT_POSITIONS:0 "[CourtWindow.GetCourtOwner.Custom('GetCourtPositionPlural')|U]"
  #AGOT Modified
  #COURT_POSITION_REPLACE:0 "#T Replace [Character.GetShortUINameNoTooltip]#!"
- COURT_POSITION_REPLACE:0 "#T Replace #high [Character.Custom('AGOTCustomGetTitledFullNameDynasty')]#!#!"
+ COURT_POSITION_REPLACE:0 "#T Replace [AGOTGetUINameNoTooltip(Character)|V]#!"
  #AGOT Modified
  #COURT_POSITION_REVOKE:0 "#T Fire [Character.GetShortUINameNoTooltip]#!"
- COURT_POSITION_REVOKE:0 "#T Fire #high [Character.Custom('AGOTCustomGetTitledFullNameDynasty')]#!#!"
+ COURT_POSITION_REVOKE:0 "#T Fire [AGOTGetUINameNoTooltip(Character)|V]#!"
  COURT_POSITION_POWERFUL_AGENT: "@alert_icon! #alert_trial Powerful [agent|E] in [hostile_schemes|E] against their $game_concept_liege$#!"
  COURT_POSITION_OPINION_BONUS:0 "[opinion|e] Bonus: [CourtPosition.GetOpinionBonus|=+]"
  COURT_POSITION_TOGGLE_AUTOMATION: "#T Toggle Automation #!\n$COURT_POSITION_AUTOMATION_CURRENT$\n#I Click to toggle automation options#!"

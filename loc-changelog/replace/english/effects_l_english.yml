@@ -2,33 +2,33 @@
  CHARACTER_DEATH_EFFECT:1 "@death_icon! Dies"
  #AGOT Modified
  #CHARACTER_DEATH_EFFECT_THIRD:1 "@death_icon! [CHARACTER.GetShortUIName|U] dies"
- CHARACTER_DEATH_EFFECT_THIRD:1 "@death_icon! #high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! dies"
+ CHARACTER_DEATH_EFFECT_THIRD:1 "@death_icon! [AGOTGetUINameNoTooltip(CHARACTER)|V] dies"
  CHARACTER_DEATH_EFFECT_FIRST:1 "@death_icon! You die"
  #AGOT Modified
  #CHARACTER_DIED_EFFECT:1 "@death_icon! [CHARACTER.GetShortUIName|U] died"
- CHARACTER_DIED_EFFECT:1 "@death_icon! #high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! died"
+ CHARACTER_DIED_EFFECT:1 "@death_icon! [AGOTGetUINameNoTooltip(CHARACTER)|V] died"
  #AGOT Modified
  #CHARACTER_DIED_EFFECT_THIRD:1 "@death_icon! [CHARACTER.GetShortUIName|U] died"
- CHARACTER_DIED_EFFECT_THIRD:1 "@death_icon! #high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! died"
+ CHARACTER_DIED_EFFECT_THIRD:1 "@death_icon! [AGOTGetUINameNoTooltip(CHARACTER)|V] died"
  CHARACTER_DIED_EFFECT_FIRST:2 "@death_icon! You died"
  #AGOT Modified
  #CHARACTER_DEATH_EFFECT_KILLER:1 "@death_icon! Is killed by [TARGET_CHARACTER.GetShortUIName]"
- CHARACTER_DEATH_EFFECT_KILLER:1 "@death_icon! Is killed by #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
+ CHARACTER_DEATH_EFFECT_KILLER:1 "@death_icon! Is killed by [AGOTGetUINameNoTooltip(TARGET_CHARACTER)|V]"
  #AGOT Modified
  #CHARACTER_DEATH_EFFECT_KILLER_THIRD:1 "@death_icon! [CHARACTER.GetShortUIName|U] is killed by [TARGET_CHARACTER.GetShortUIName]"
- CHARACTER_DEATH_EFFECT_KILLER_THIRD:1 "@death_icon! #high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! is killed by #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
+ CHARACTER_DEATH_EFFECT_KILLER_THIRD:1 "@death_icon! [AGOTGetUINameNoTooltip(CHARACTER)|V] is killed by [AGOTGetUINameNoTooltip(TARGET_CHARACTER)|V]"
  #AGOT Modified
  #CHARACTER_DEATH_EFFECT_KILLER_FIRST:2 "@death_icon! You are killed by [TARGET_CHARACTER.GetShortUIName]"
- CHARACTER_DEATH_EFFECT_KILLER_FIRST:2 "@death_icon! You are killed by #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
+ CHARACTER_DEATH_EFFECT_KILLER_FIRST:2 "@death_icon! You are killed by [AGOTGetUINameNoTooltip(TARGET_CHARACTER)|V]"
  #AGOT Modified
  #CHARACTER_DIED_EFFECT_KILLER:0 "[CHARACTER.GetShortUIName|U] was killed by [TARGET_CHARACTER.GetShortUIName]"
- CHARACTER_DIED_EFFECT_KILLER:0 "#high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! was killed by #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
+ CHARACTER_DIED_EFFECT_KILLER:0 "[AGOTGetUINameNoTooltip(CHARACTER)|V] was killed by [AGOTGetUINameNoTooltip(TARGET_CHARACTER)|V]"
  #AGOT Modified
  #CHARACTER_DIED_EFFECT_KILLER_THIRD:1 "@death_icon! [CHARACTER.GetShortUIName|U] was killed by [TARGET_CHARACTER.GetShortUIName]"
- CHARACTER_DIED_EFFECT_KILLER_THIRD:1 "@death_icon! #high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#! was killed by #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
+ CHARACTER_DIED_EFFECT_KILLER_THIRD:1 "@death_icon! [AGOTGetUINameNoTooltip(CHARACTER)|V] was killed by [AGOTGetUINameNoTooltip(TARGET_CHARACTER)|V]"
  #AGOT Modified
  #CHARACTER_DIED_EFFECT_KILLER_FIRST:2 "@death_icon! You were killed by [TARGET_CHARACTER.GetShortUIName]"
- CHARACTER_DIED_EFFECT_KILLER_FIRST:2 "@death_icon! You were killed by #high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#!"
+ CHARACTER_DIED_EFFECT_KILLER_FIRST:2 "@death_icon! You were killed by [AGOTGetUINameNoTooltip(TARGET_CHARACTER)|V]"
  RANDOM_LIST_EFFECT:0 "1 of $SIZE$ things will happen: \n"
  RANDOM_EFFECT:0 "$CHANCE$% chance of: "
  NO_EFFECT:0 "#weak Nothing happens#!"
@@ -543,7 +543,7 @@
  THEIR_SET_SECRET_OWNER_EFFECT:1 "[CHARACTER.GetUIName] will be the owner of the secret [SECRET.GetName]"
  #AGOT Modified
  #EFFECT_CHARACTER_HEADER:0 "[CHARACTER.GetShortUINameNoTooltip]:\n"
- EFFECT_CHARACTER_HEADER:0 "#high [CHARACTER.Custom('AGOTCustomGetShortUIName')]#!:\n"
+ EFFECT_CHARACTER_HEADER:0 "[AGOTGetUINameNoTooltip(CHARACTER)|V]:\n"
  MAKE_CONCUBINE_EFFECT:4 "Takes [TARGET_CHARACTER.GetShortUIName] as a [concubine|E]"
  MADE_CONCUBINE_EFFECT:0 "Took [TARGET_CHARACTER.GetShortUIName] as a [concubine|E]"
  I_MAKE_CONCUBINE_EFFECT: "You take [TARGET_CHARACTER.GetShortUIName] as your [TARGET_CHARACTER.Custom('ConcubineWomanManGameConcept')]"
@@ -710,16 +710,16 @@
 
  #AGOT Modified
  # ADD_COURTIER_TO_COURT:1 "[TARGET_CHARACTER.GetShortUIName|U] will join [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourtConcept')]"
- ADD_COURTIER_TO_COURT:1 "#high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#! will join [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourtConcept')]"
+ ADD_COURTIER_TO_COURT:1 "[AGOTGetUINameNoTooltip(TARGET_CHARACTER)|V] will join [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourtConcept')]"
  #AGOT Modified
  # ADD_COURTIER_TO_MY_COURT:2 "[TARGET_CHARACTER.GetShortUIName|U] will join your [CHARACTER.Custom('GetCourtConcept')]"
- ADD_COURTIER_TO_MY_COURT:2 "#high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#! will join your [CHARACTER.Custom('GetCourtConcept')]"
+ ADD_COURTIER_TO_MY_COURT:2 "[AGOTGetUINameNoTooltip(TARGET_CHARACTER)|V] will join your [CHARACTER.Custom('GetCourtConcept')]"
  #AGOT Modified
  # ADD_COURTIER_TO_THEIR_COURT:1 "[TARGET_CHARACTER.GetShortUIName|U] will join [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourtConcept')]"
- ADD_COURTIER_TO_THEIR_COURT:1 "#high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#! will join [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourtConcept')]"
- ADDED_COURTIER_TO_COURT:1 "#high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#! joined [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourtConcept')]"
- ADDED_COURTIER_TO_MY_COURT:2 "#high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#! joined your [CHARACTER.Custom('GetCourtConcept')]"
- ADDED_COURTIER_TO_THEIR_COURT:1 "#high [TARGET_CHARACTER.Custom('AGOTCustomGetShortUIName')]#! joined [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourtConcept')]"
+ ADD_COURTIER_TO_THEIR_COURT:1 "[AGOTGetUINameNoTooltip(TARGET_CHARACTER)|V] will join [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourtConcept')]"
+ ADDED_COURTIER_TO_COURT:1 "[AGOTGetUINameNoTooltip(TARGET_CHARACTER)|V] joined [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourtConcept')]"
+ ADDED_COURTIER_TO_MY_COURT:2 "[AGOTGetUINameNoTooltip(TARGET_CHARACTER)|V] joined your [CHARACTER.Custom('GetCourtConcept')]"
+ ADDED_COURTIER_TO_THEIR_COURT:1 "[AGOTGetUINameNoTooltip(TARGET_CHARACTER)|V] joined [CHARACTER.GetShortUINamePossessive] [CHARACTER.Custom('GetCourtConcept')]"
 
  SET_KNIGHT_STATUS:0 "[CHARACTER.GetShortUIName|U] becomes $STATUS$"
  SET_MY_KNIGHT_STATUS:0 "I become $STATUS$"

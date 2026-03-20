@@ -541,10 +541,10 @@
  BANNER:0 "Rally Point"
  #AGOT Modified
  #SCOPE_CHARACTER:0 "[ROOT.GetCharacter.GetUIName]:"
- SCOPE_CHARACTER:0 "#high [ROOT.GetCharacter.Custom('AGOTCustomGetShortUIName')]#![ROOT.GetCharacter.Custom('TitleSuffix')]:"
+ SCOPE_CHARACTER:0 "[AGOTGetLongUIName(ROOT.GetCharacter)|V]:"
  #AGOT Modified
  #SCOPE_CHARACTER_ME:0 "I, [ROOT.GetCharacter.GetUIName]:"
- SCOPE_CHARACTER_ME:0 "I, #high [ROOT.GetCharacter.Custom('AGOTCustomGetShortUIName')]#![ROOT.GetCharacter.Custom('TitleSuffix')]:"
+ SCOPE_CHARACTER_ME:0 "I, [AGOTGetLongUIName(ROOT.GetCharacter)|V]:"
  SCOPE_LANDED_TITLE:0 "[ROOT.GetLandedTitle.GetName|U]:"
  SCOPE_PROVINCE:0 "[ROOT.GetProvince.GetName]:"
  SCOPE_ACTIVITY:1 "[ROOT.Activity.GetName]:"
@@ -606,7 +606,9 @@
  flag_desc:0 "Flags are simple markers that you can use to trace that something has happened in the game. They have a specific type depending on what kind of scope it was set in (character flag, scheme flag, sC.). The particular scope (for example a particular character) will have the flag set until it is removed by an effect, or until its timer runs out, if a timer was defined for it."
  TODO:0 "TODO: $WHAT$"
  EVENT_SIGNED:0 "Signed,"
- EVENT_SIGNATURE:1 "[CHARACTER.GetNameNoTooltip]"
+ #AGOT Modified
+ #EVENT_SIGNATURE:1 "[CHARACTER.GetNameNoTooltip]"
+ EVENT_SIGNATURE:1 "[AGOTGetFullNameNoTooltip(CHARACTER)]"
  EVENT_REASON_SEPARATOR:0 ", "
  EVENT_REASON_SKILL:0 "$SKILL$ Skill"
  EVENT_REASON_TRAIT:0 "[TRAIT.GetName( CHARACTER.Self )|L] Trait"

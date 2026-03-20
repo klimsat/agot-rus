@@ -54,6 +54,19 @@
  AGOT_COUNCIL_TITLE_CUSLOC:0 "[GetPlayer.Custom('AGOTCouncilWindowTitle')]"
  NW_COUNCILWINDOW_TITLE:0 "Officers"
 
+# Desert the Night's Watch Decision for First Ranger
+ game_concept_agot_desert_nw:0 "Desert the Night's Watch"
+ game_concept_agot_desert_nw_desc:0 "A [decision|E] that allows the $first_ranger_landless_male$ to desert the [nw_govt|E] and become an [adventurer|E]."
+ first_ranger_has_to_be_beyond_the_wall:0 "Your [agot_ranger_camp|E] has to be beyond the Wall"
+ # Desert the Night's Watch Perk for First Ranger
+ desert_the_nw:0 "$game_concept_agot_desert_nw$"
+ desert_the_nw_desc:0 "The Wall has taken much and given little. To desert the Night's Watch is to forsake my vows, my brothers, and the safety of duty, but freedom lies beyond the Wall, if I dare claim it."
+ desert_the_nw_tooltip:0 "You will desert the [nw_govt|E]"
+ desert_the_nw_confirm:0 "Desert the Watch"
+ twice_schemed_perk_ranger_name:0 "Turncloak"
+
+ agot_wall_reclamation_post_nw_cb:0 "Night's Watch Reclamation"
+
  #Government
  game_concept_nwfr_govt:0 "Ranger"
  game_concept_nwfr_govt_desc:0 "Under the $game_concept_nwfr_govt$ [government_form|E], the $first_ranger_landless_male$ may venture beyond the Wall with a small group of Rangers. Only sworn brothers of the [GetGovernment( 'nights_watch_government' ).GetName] may become Rangers, and only the $first_ranger_landless_male$ can lead a [agot_ranger_camp|E]."
@@ -221,7 +234,8 @@
  agot_nw_ranger_events.0001.desc:0 "The fires burn low in the hall, casting long shadows over Castle Black. Word has just reached me, First Ranger [dead_first_ranger.GetFirstName], a man I trusted to lead beyond the Wall, is dead. His loss is a heavy one, but the Night's Watch cannot falter.\n\nThe cold winds of the North do not pause for grief. Another must rise to take his place, someone strong, capable, and ready to face the dangers that lie beyond our walls."
  agot_nw_ranger_events.0001.desc.fr_to_lc:0 "The fires burn low in the hall, casting long shadows over Castle Black. Word has just reached me, Lord Commander [dead_first_ranger.GetFirstName] is dead.\n\nThe brothers have spoken, and now I must bear the mantle of Lord Commander.\n\nThe cold winds of the North do not pause for grief or doubt. Someone has to take my place as First Ranger, a man who can carry the burden of watching beyond the Wall, as I once did."
  agot_nw_ranger_events.0001.desc.incapable:0 "Word has reached me, First Ranger [dead_first_ranger.GetFirstName], a man who has served with honor and bravery, can no longer carry out his duties. The dangers beyond the Wall, and the passage of time have finally caught up to him.\n\nThe Watch cannot afford to be without its First Ranger.\n\nThe cold winds of the North do not relent, and now I have to me to name his successor, someone capable of leading men beyond the Wall, just as [dead_first_ranger.GetFirstNameNoTooltip] once did."
- agot_nw_ranger_events.0001.desc.fr_deserted:0 "First Ranger [deserted_first_ranger.GetFirstName], a man I once trusted, has deserted. His betrayal weighs heavily upon the Watch, leaving a void that must be filled quickly.\n\nThe North will not wait, and the dangers beyond the Wall grow each day. We cannot afford hesitation in our ranks.\n\nNow, I must name a new First Ranger, someone capable, strong, and ready to face what lies beyond. The Watch depends on it, and we will not falter."
+ agot_nw_ranger_events.0001.desc.fr_deserted:0 "First Ranger [dead_first_ranger.GetFirstName], a man I once trusted, has deserted. His betrayal weighs heavily upon the Watch, leaving a void that must be filled quickly.\n\nThe North will not wait, and the dangers beyond the Wall grow with each passing day. We cannot afford hesitation in our ranks.\n\nNow I must name a new First Ranger — someone capable, strong, and ready to face what lies beyond. The Watch depends on it, and we will not falter."
+ agot_nw_ranger_events.0001.desc.fr_to_lc_reclaim:0 "The Wall stands in our hands once more. What was lost has been reclaimed, not through vows alone, but through blood, resolve, and sacrifice. I stood among those who brought the Watch back from ruin, and now the brothers have named me Lord Commander.\n\nYet restoration does not end with a title. The Night's Watch must be rebuilt as it was meant to be, with clear command and trusted men in their places.\n\nI can no longer range as I once did. A new First Ranger must be chosen — someone to lead beyond the Wall and ensure that this hard-won return is not squandered."
  agot_nw_ranger_events.0001.a:0 "A new ranger must rise."
  agot_nw_ranger_events.0001.a.tt:0 "[fr_candidate.GetTitledFirstName] becomes your First Ranger"
 
@@ -332,8 +346,16 @@
  agot_nw_ranger_events.0019.desc.republic:0 "The Wall still stands, but the Watch I once knew is gone. The oaths, the traditions, the purpose we swore to uphold—it has all been cast aside. A new order rules here now, one that no longer follows the old ways. The Night's Watch has become something else, something I no longer recognize.\n\nI am no longer First Ranger, not in any way that matters. My place here is lost, and the choice before me is clear."
  agot_nw_ranger_events.0019.a:0 "And now my watch has ended..."
  agot_nw_ranger_events.0019.a.tt:0 "...but a new journey begins."
+ agot_nw_ranger_events.0019.c:0 "This is not how it ends."
+ agot_nw_ranger_events.0019.c.tt:0 "You dedicate your remaining years to restoring the Night's Watch."
  agot_nw_ranger_events.0019.b:0 "There is nothing left for me."
- agot_nw_ranger_events.0019.b.tt:0 "Game Over."
+ agot_nw_ranger_events.0019.b.tt:0 "Game over."
+
+ #New First Ranger's House member informed
+ agot_nw_ranger_events.0020.t:0 "A Name Carried North"
+ agot_nw_ranger_events.0020.desc:0 "It takes a moment to grasp the weight of what I am being told. My [SCOPE.sC('family_member').Custom2('RelationToMeShort', SCOPE.sC('first_ranger'))], [first_ranger.GetTitledFirstName], has been named First Ranger, entrusted with the hard road beyond the Wall and the lives of those who walk it. It is a calling of frost and shadow, of long nights and longer memories.\n\nPride stirs in me, though it walks close beside worry, for no honor north of the Wall is ever paid without cost."
+ agot_nw_ranger_events.0020.a:0 "The Lord Commander has chosen well."
+ agot_nw_ranger_events.0020.b:0 "I wonder what it would be like to stand in his place."
 
  ### First Ranger Council Events
 
@@ -544,6 +566,69 @@
  agot_nw_ranger_events.0028.desc.fail_e:0 "\n\nThough [my_ranger.GetTitledFirstNameNoTooltip] tried to stop [wildling_intruder.GetHerHim], the wildling defeated him and vanished with stolen goods, leaving the camp unsettled."
  agot_nw_ranger_events.0028.a.success:0 "The camp is safe once again."
  agot_nw_ranger_events.0028.a.failure:0 "We must recover from this."
+
+ ######################
+ ### RECLAIM THE NW ###
+ ######################
+
+ #ex-FR: Reclaiming the NW
+ agot_nw_ranger_events.0100.t:0 "When the Watch Fell Silent"
+ agot_nw_ranger_events.0100.t.after:0 "What Was Left Behind"
+ agot_nw_ranger_events.0100.desc:0 "The Watch has gone quiet. The wildlings broke our order, scattering the brothers and tearing apart what little command remained. The black cloaks are gone from the towers, and the vows that once bound us now live only in memory.\n\nWhatever rank I once held no longer carries weight. I am no longer truly First Ranger, only a man who remembers what the Watch was meant to be.\n\nIf the Night's Watch is to exist again, it will not be through ceremony or words, but through hard choices and harder deeds."
+ agot_nw_ranger_events.0100.desc.after:0 "The Night's Watch fell some time ago, and the North has grown accustomed to its absence. Its lands remain unclaimed, its duty unanswered, and no clear authority has stepped forward to fill the void.\n\nThe danger beyond the Wall has not changed, only the willingness to confront it. Whether the Watch is worth restoring is a question left to those bold or foolish enough to try.\n\nIf it is to return, it will not be through tradition, but through decision."
+ agot_nw_ranger_events.0100.a:0 "Perhaps the North will answer the Watch once more."
+ agot_nw_ranger_events.0100.a.tt:0 "You will seek the aid of [northern_lord.GetTitledFirstName], [Select_CString(northern_lord.IsFemale,'lady','lord')|U] of [northern_lord_title.GetNameNoTier], to restore the Night's Watch."
+ agot_nw_ranger_events.0100.b:0 "Then I will do what the Watch could not."
+ agot_nw_ranger_events.0100.c:0 "This burden is not mine to bear."
+
+ #ex-FR: Arrived at Winterfell
+ agot_nw_ranger_events.0101.t:0 "Before the [Select_CString(northern_lord.IsFemale,'lady','lord')|U] of [northern_lord_title.GetNameNoTierNoTooltip]"
+ agot_nw_ranger_events.0101.desc:0 "[destination_1.GetNameNoTier] rises from the snow like something eternal, unchanged by what has befallen us in the far North. I am shown into its halls not as First Ranger, but as a man in black without a command to his name.\n\nThe Night's Watch is broken, its brothers scattered, its purpose left to wither. If it is to be restored, it will not be done by strength of arms alone. The North has always been the Watch's truest ally, and now I must ask whether that bond still holds.\n\n[northern_lord.GetTitledFirstName] listens as I speak of what was lost, and of what might yet be rebuilt."
+ agot_nw_ranger_events.0101.desc.after:0 "[destination_1.GetNameNoTier] rises from the snow like something eternal, unchanged by what has befallen us in the far North.\n\nThe Night's Watch is broken, its brothers scattered, its purpose left to wither. If it is to be restored, it will not be done by strength of arms alone. The North has always been the Watch's truest ally, and now I must ask whether that bond still holds.\n\n[northern_lord.GetTitledFirstName] listens as I speak of what was lost, and of what might yet be rebuilt."
+ agot_nw_ranger_events.0101.a:0 "I will place the fate of the Watch before [northern_lord.GetHerHim]."
+
+ #The North: Lord of the North decides
+ agot_nw_ranger_events.0102.t:0 "The Old Bond"
+ agot_nw_ranger_events.0102.desc:0 "A man in black is brought before me, one who once held the rank of First Ranger. The Night's Watch that sent him is no more, broken by wildlings and left scattered across the far North. What remains of it now rests on the resolve of those who still remember its purpose.\n\nHe asks for [northern_lord_title.GetNameNoTierPossessive] aid in restoring the Watch, not for his own honor, but so that the old duty might stand again. It is a heavy request. The Watch has always been sworn to stand apart, yet the North has long been its shield when the shield was needed.\n\nIf we act, there will be war. If we refuse, the burden will fall on others — or not be taken up at all."
+ agot_nw_ranger_events.0102.desc.after:0 "A man in black is brought before me. The Night's Watch is no more, broken by wildlings and left scattered across the far North. What remains of it now rests on the resolve of those who still remember its purpose.\n\nHe asks for [northern_lord_title.GetNameNoTierPossessive] aid in restoring the Watch, not for his own honor, but so that the old duty might stand again. It is a heavy request. The Watch has always been sworn to stand apart, yet the North has long been its shield when the shield was needed.\n\nIf we act, there will be war. If we refuse, the burden will fall on others—or not be taken up at all."
+ agot_nw_ranger_events.0102.a:0 "[northern_lord_title.GetNameNoTierNoTooltip] will not abandon its duty."
+ agot_nw_ranger_events.0102.a.tt:0 "You will soon take up arms to help restore the Night's Watch."
+ agot_nw_ranger_events.0102.b:0 "The Watch must stand or fall on its own."
+
+ #ex-FR prewar event
+ agot_nw_ranger_events.0103.t.accepted:0 "[northern_lord_title.GetNameNoTierNoTooltip] Answers"
+ agot_nw_ranger_events.0103.t.refused:0 "[northern_lord_title.GetNameNoTierNoTooltip] Turns Away"
+ agot_nw_ranger_events.0103.desc.accepted:0 "[northern_lord.GetTitledFirstName] gives [northern_lord.GetHerHis] answer without flourish. [northern_lord_title.GetNameNoTier] will stand with what remains of the Night's Watch, not for reward or glory, but because some duties are not meant to be set aside.\n\nMen will be called, banners raised, and preparations made. The path ahead leads back into blood and cold, but I will not walk it alone."
+ agot_nw_ranger_events.0103.desc.refused:0 "[northern_lord.GetTitledFirstName] hears me out, then refuses. [northern_lord_title.GetNameNoTier] will not take up this cause, not now and not at such a cost. The Night's Watch must find its own way, or fade into memory.\n\nI leave Winterfell with no banners at my back, only the weight of the choice still before me."
+ agot_nw_ranger_events.0103.a:0 "Then the banners will rise."
+ agot_nw_ranger_events.0103.a.alone:0 "Then I will march alone."
+ agot_nw_ranger_events.0103.b:0 "This is not the moment."
+ agot_nw_ranger_events.0103.b.tt:0 "You will delay the war and wait for a better opportunity."
+
+ #ex-FR: War Lost
+ agot_nw_ranger_events.0104.t:0 "The Last Watch"
+ agot_nw_ranger_events.0104.desc:0 "The war is lost. The men who followed me are dead or scattered, and the cause I carried has ended in chains.\n\nI stand bound in the camp of [wildling.GetTitledFirstName], who has already decided my fate. There will be no rescue, no final bargain. These are the last hours left to me.\n\nIf the Night's Watch is ever to rise again, it will not be by my hand. All that remains is to face the end as I have faced the cold all my life."
+ agot_nw_ranger_events.0104.a:0 "My watch has ended."
+
+ #wildling: Wildling executes the ex-fr
+ agot_nw_ranger_events.0105.t:0 "The Last Crow"
+ agot_nw_ranger_events.0105.desc:0 "The fighting is done. [first_ranger.GetTitledFirstName], the black-cloaked man who led the charge, lies bound before me, beaten and spent. He speaks of vows and duty, of an order that once stood against us, but those words hold no power here.\n\nHis war is over. Leaving him alive serves no purpose, and mercy would only invite another fight. The matter is simple.\n\nWe end it now."
+ agot_nw_ranger_events.0105.a:0 "Finish it."
+
+ #ex-FR: NW Restored and becomes the new LC
+ agot_nw_ranger_events.0106.t:0 "The Watch Reforged"
+ agot_nw_ranger_events.0106.desc:0 "The fighting is over. The wildlings have been driven back, and the Night's Watch stands once more — diminished, scarred, but unbroken. Black cloaks return to the towers, and the vows are spoken again where they had nearly fallen silent.\n\nThe brothers look to me now. I did not set out to command them, yet there is no one else to take the burden. By their will, I am named Lord Commander, charged with holding together what was torn apart.\n\nThe Watch is restored, but it is not the same Watch as before. What comes next will not be won by force alone."
+ agot_nw_ranger_events.0106.a:0 "The Watch endures."
+
+ #Player notified about NW Restoration
+ agot_nw_ranger_events.0107.t:0 "The Watch Restored"
+ agot_nw_ranger_events.0107.desc:0 "Word spreads from the far North that the Night's Watch stands once more. After a bitter struggle, the wildlings who broke the order have been driven back, and black cloaks again man the castles along the Wall.\n\n[the_new_lc.GetFirstName], a new Lord Commander, has been chosen from among those who survived the fall, and the old vows are said to be spoken again. Whether the Watch will endure as it once did remains to be seen, but for now its fire has not gone out."
+ agot_nw_ranger_events.0107.a:0 "So the Wall has watchers again."
+
+ #Player notified about the fall of the NW
+ agot_nw_ranger_events.0108.t:0 "The Fall of the Night's Watch"
+ agot_nw_ranger_events.0108.desc:0 "Unsettling reports drift south from the far North. The Night's Watch has been shattered, its brothers slain or scattered, its strongholds left silent. Wildlings are said to roam freely where black cloaks once stood.\n\nWith no Watch to stand the line, the far North has been left to its own fate."
+ agot_nw_ranger_events.0108.a:0 "This is not good."
 
  ### CONTRACTS
  game_concept_agot_ranger_mission:0 "Ranger Mission"

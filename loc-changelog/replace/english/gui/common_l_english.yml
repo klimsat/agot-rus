@@ -96,9 +96,15 @@
  COA_REALM_TOOLTIP_CHARACTER_CLICK_INFO:0 "#I [Select_CString(CHARACTER.IsShownInCharacterWindow, 'Click to go to location', 'Click to view')]\nRight-click to interact with [CHARACTER.GetShortUINameNoTooltip]#!"
  COA_REALM_TOOLTIP_PRIMARY_TITLE_CLICK_INFO:0 "#I Click to view the Primary Title [CHARACTER.GetPrimaryTitle.GetNameNoTooltip|V]#!"
  COA_REALM_TOOLTIP_GUI_CLICK_INFO:0 "#I [Select_CString(Character.IsShownInCharacterWindow, 'Click to go to location', 'Click to view')]\nRight-click to interact with [Character.GetShortUINameNoTooltip]#!"
- cooltip_spouse_listing:0 "[spouse|E]: [ROOT.Char.GetPrimarySpouseOrBetrothed.GetName]"
- cooltip_betrothed_listing:0 "[betrothed|E]: [ROOT.Char.GetPrimarySpouseOrBetrothed.GetName]"
- cooltip_concubine_listing:1 "[concubine|E] of: [ROOT.Char.GetConcubinist.GetName]"
+ #AGOT Modified
+ #cooltip_spouse_listing:0 "[spouse|E]: [ROOT.Char.GetPrimarySpouseOrBetrothed.GetName]"
+ cooltip_spouse_listing:0 "[spouse|E]: [AGOTGetName(ROOT.Char.GetPrimarySpouseOrBetrothed)]"
+ #AGOT Modified
+ #cooltip_betrothed_listing:0 "[betrothed|E]: [ROOT.Char.GetPrimarySpouseOrBetrothed.GetName]"
+ cooltip_betrothed_listing:0 "[betrothed|E]: [AGOTGetName(ROOT.Char.GetPrimarySpouseOrBetrothed)]"
+ #AGOT Modified
+ #cooltip_concubine_listing:1 "[concubine|E] of: [ROOT.Char.GetConcubinist.GetName]"
+ cooltip_concubine_listing:1 "[concubine|E] of: [AGOTGetName(ROOT.Char.GetConcubinist)]"
  cooltip_unmarried_listing:0 "Unmarried"
  GLOBAL_OBSERVER:0 "Observing"
  PLAYER_OBSERVER:0 "Observing as [GetPlayer.GetShortUINameNotMeNoTooltip] ([SelectLocalization(GetPlayer.IsPlayer, 'OBSERVER_PLAYER_NAME', 'OBSERVER_AI')])"
