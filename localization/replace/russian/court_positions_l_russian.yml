@@ -1,7 +1,7 @@
 ﻿l_russian:
  #AGOT Modified
  #APPOINT_COURT_POSITION_VIEW_replace_character_header: "Заменить персонажа [AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee.GetShortUINameNoTooltip] на должности [AppointCourtPositionView.GetCourtPositionType.GetName|l]"
- APPOINT_COURT_POSITION_VIEW_replace_character_header: "Заменить персонажа #high [AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee.Custom('AGOTCustomGetTitledFullNameDynasty')]#! на должности [AppointCourtPositionView.GetCourtPositionType.GetName|l]"
+ APPOINT_COURT_POSITION_VIEW_replace_character_header: "Заменить персонажа [AGOTGetUINameNoTooltip(AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee)|V] на должности [AppointCourtPositionView.GetCourtPositionType.GetName|l]"
  APPOINT_COURT_POSITION_VIEW_select_character_header: "Назначить $court_position_acpv_rp_lower$"
  APPOINT_COURT_POSITION_VIEW_EMPLOYER_SALARY: "Жалование: [CourtPositionType.GetEmployerSalaryTextFor( Character.Self )|V]"
  APPOINT_COURT_POSITION_VIEW_EMPLOYEE_SALARY: "Жалование: [CourtPositionType.GetEmployeeSalaryTextFor( Character.Self )|V]"
@@ -36,10 +36,10 @@
  COURT_WINDOW_COURT_POSITIONS: "[CourtWindow.GetCourtOwner.Custom('GetCourtPositionPlural_RU_WC')|U]"
  #AGOT Modified
  #COURT_POSITION_REPLACE: "#T [Character.GetShortUINameNoTooltip]: заменить#!"
- COURT_POSITION_REPLACE: "#T #high [Character.Custom('AGOTCustomGetTitledFullNameDynasty')]#!: заменить#!"
+ COURT_POSITION_REPLACE:0 "#T [AGOTGetUINameNoTooltip(Character)|V]: заменить#!"
  #AGOT Modified
  #COURT_POSITION_REVOKE: "#T [Character.GetShortUINameNoTooltip]: уволить#!"
- COURT_POSITION_REVOKE: "#T #high [Character.Custom('AGOTCustomGetTitledFullNameDynasty')]#!: уволить#!"
+ COURT_POSITION_REVOKE:0 "#T [AGOTGetUINameNoTooltip(Character)|V]: уволить#!"
  COURT_POSITION_POWERFUL_AGENT: "@alert_icon! #alert_trial Полезный [Concept('agent', 'соучастник')|E] в [Concept('hostile_schemes', 'агрессивных происках')|E] против своего сюзерена#!"
  COURT_POSITION_OPINION_BONUS: "Бонус к [Concept( 'opinion', 'мнению' )|E]: [CourtPosition.GetOpinionBonus|=+]"
  COURT_POSITION_TOGGLE_AUTOMATION: "#T Переключить авторежим #!\n$COURT_POSITION_AUTOMATION_CURRENT$\n#I Щелкните для смены параметров авторежима#!"
