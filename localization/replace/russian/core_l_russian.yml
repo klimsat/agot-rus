@@ -541,10 +541,10 @@
  BANNER: "Точка сбора"
  #AGOT Modified
  #SCOPE_CHARACTER: "[ROOT.GetCharacter.GetUIName]:"
- SCOPE_CHARACTER: "#high [ROOT.GetCharacter.Custom('AGOTCustomGetShortUIName')]#![ROOT.GetCharacter.Custom('TitleSuffix')]:"
+ SCOPE_CHARACTER: "[AGOTGetLongUIName(ROOT.GetCharacter)|V]:"
  #AGOT Modified
  #SCOPE_CHARACTER_ME: "Я, [ROOT.GetCharacter.GetUIName]:"
- SCOPE_CHARACTER_ME: "Я, #high [ROOT.GetCharacter.Custom('AGOTCustomGetShortUIName')]#![ROOT.GetCharacter.Custom('TitleSuffix')]:"
+ SCOPE_CHARACTER_ME:0 "Я, [AGOTGetLongUIName(ROOT.GetCharacter)|V]:"
  SCOPE_LANDED_TITLE: "[ROOT.GetLandedTitle.GetName|U]:"
  SCOPE_PROVINCE: "[ROOT.GetProvince.GetName]:"
  SCOPE_ACTIVITY: "[ROOT.Activity.GetName]:"
@@ -606,7 +606,9 @@
  flag_desc: "Флаги — простые маркеры, которые можно использовать, чтобы отслеживать произошедшие в игре события. В зависимости от скоупа у них будет тот или иной тип (флаг персонажа, флаг интриги, sC.). Флаг конкретного скоупа (например, конкретного персонажа) будет задан до тех пор, пока эффект не удалит его, или до истечения таймера, если таковой был."
  TODO: "TODO: $WHAT$"
  EVENT_SIGNED: "Собственноручно,"
- EVENT_SIGNATURE: "[CHARACTER.GetNameNoTooltip]"
+ #AGOT Modified
+ #EVENT_SIGNATURE: "[CHARACTER.GetNameNoTooltip]"
+ EVENT_SIGNATURE: "[AGOTGetFullNameNoTooltip(CHARACTER)]"
  EVENT_REASON_SEPARATOR: ", "
  EVENT_REASON_SKILL: "Навык $SKILL$"
  EVENT_REASON_TRAIT: "Свойство [TRAIT.GetName( CHARACTER.Self )|L]"
