@@ -16,26 +16,26 @@
  agot_kingsguard_white_book_title_nickname: "Сир [ROOT.Char.GetFirstNameNicknamedNoTooltip]"
  agot_kingsguard_white_book_title_fallback: "Сир [ROOT.Char.GetNameNoTooltip]"
 
- agot_kingsguard_white_book_fallback_on_join:0 "[ROOT.Char.GetTitledFirstNameNoTooltip] [Select_CString(ROOT.Char.IsFemale, 'вступила', 'вступил' )] в Королевскую гвардию и [Select_CString(ROOT.Char.IsFemale, 'служила', 'служил' )] с честью."
- agot_kingsguard_white_book_fallback_after_death:0 "[ROOT.Char.GetTitledFirstNameNoTooltip] [Select_CString(ROOT.Char.IsFemale, 'вступила', 'вступил' )] в Королевскую гвардию и [Select_CString(ROOT.Char.IsFemale, 'служила', 'служил' )] с честью до самой смерти."
+ agot_kingsguard_white_book_fallback_on_join: "[ROOT.Char.GetTitledFirstNameNoTooltip] [Select_CString(ROOT.Char.IsFemale, 'вступила', 'вступил' )] в Королевскую гвардию и [Select_CString(ROOT.Char.IsFemale, 'служила', 'служил' )] с честью."
+ agot_kingsguard_white_book_fallback_after_death: "[ROOT.Char.GetTitledFirstNameNoTooltip] [Select_CString(ROOT.Char.IsFemale, 'вступила', 'вступил' )] в Королевскую гвардию и [Select_CString(ROOT.Char.IsFemale, 'служила', 'служил' )] с честью до самой смерти."
 
- agot_kingsguard_white_book_page:0 "[selected_kingsguard.Custom('GetWhiteBookPage')]"
+ agot_kingsguard_white_book_page: "[selected_kingsguard.Custom('GetWhiteBookPage')]"
 
- agot_age_ordinal_st:0 "-м"
- agot_age_ordinal_nd:0 "-м"
- agot_age_ordinal_rd:0 "-м"
- agot_age_ordinal_th:0 "-м"
+ agot_age_ordinal_st: "-м"
+ agot_age_ordinal_nd: "-м"
+ agot_age_ordinal_rd: "-м"
+ agot_age_ordinal_th: "-м"
 
- agot_kingsguard_white_book_page_empty:0 ""
- agot_kingsguard_white_book_page_join_parents:0 "Родители - [ROOT.Char.GetFather.GetFullName] и [ROOT.Char.GetMother.GetFullName]. "
- agot_kingsguard_white_book_page_join_father:0 "Отец - [ROOT.Char.GetFather.GetFullName]. "
- agot_kingsguard_white_book_page_join_mother:0 "Мать - [ROOT.Char.GetMother.GetFullName]. "
+ agot_kingsguard_white_book_page_empty: ""
+ agot_kingsguard_white_book_page_join_parents: "[AGOTGetBirthOrder(ROOT.Char)] [ROOT.Char.Custom('GetDaughterSon')|l]. Родители - [AGOTGetName(ROOT.Char.GetFather)] и [AGOTGetName(ROOT.Char.GetMother)][AGOTGetTitleSuffixNoFormat(ROOT.Char.GetFather)]. "
+ agot_kingsguard_white_book_page_join_father: "[AGOTGetBirthOrder(ROOT.Char)] [ROOT.Char.Custom('GetDaughterSon')|l]. Отец - [AGOTGetName(ROOT.Char.GetFather)][AGOTGetTitleSuffixNoFormat(ROOT.Char.GetFather)]. "
+ agot_kingsguard_white_book_page_join_mother: "[AGOTGetBirthOrder(ROOT.Char)] [ROOT.Char.Custom('GetDaughterSon')|l]. Мать - [AGOTGetName(ROOT.Char.GetMother)][AGOTGetTitleSuffixNoFormat(ROOT.Char.GetMother)]. "
 
- agot_kingsguard_white_book_page_join_paragraph:0 "[selected_kingsguard.Custom('GetWhiteBookParents')][Select_CString(selected_kingsguard.IsFemale, 'Назначена', 'Назначен' )] в Королевскую гвардию на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
- agot_kingsguard_white_book_page_lc_update:0 "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Назначена', 'Назначен' )] лордом-командующим Королевской гвардии на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
- agot_kingsguard_white_book_page_sent_to_nightswatch_update:0 "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Исключена', 'Исключён' )] из Королевской гвардии и [Select_CString(selected_kingsguard.IsFemale, 'отправлена', 'отправлен' )] в Ночной Дозор на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
- agot_kingsguard_white_book_page_removed_update:0 "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Исключена', 'Исключён' )] из Королевской гвардии на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
- agot_kingsguard_white_book_page_died_update:0 "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Умерла', 'Умер' )] на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни."
+ agot_kingsguard_white_book_page_join_paragraph: "[selected_kingsguard.Custom('GetWhiteBookParents')][Select_CString(selected_kingsguard.IsFemale, 'Назначена', 'Назначен' )] в Королевскую гвардию на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
+ agot_kingsguard_white_book_page_lc_update: "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Назначена', 'Назначен' )] лордом-командующим Королевской гвардии на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
+ agot_kingsguard_white_book_page_sent_to_nightswatch_update: "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Исключена', 'Исключён' )] из Королевской гвардии и [Select_CString(selected_kingsguard.IsFemale, 'отправлена', 'отправлен' )] в Ночной Дозор на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
+ agot_kingsguard_white_book_page_removed_update: "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Исключена', 'Исключён' )] из Королевской гвардии на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
+ agot_kingsguard_white_book_page_died_update: "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Умерла', 'Умер' )] на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни."
 
  # PLACEHOLDER
  # Velaryon_15
