@@ -8,24 +8,24 @@
  #############################################
 
  # ToS - Succession Crisis: ToS Demanded
- agot_trial_of_seven.0100.t:0 "A Demand Before the Realm"
- agot_trial_of_seven.0100.desc:0 "The crown has barely settled upon my head when the charge is spoken aloud. [accuser_leader.GetTitledFirstName] names my rule a usurpation and demands judgment for it, claiming the kingdom was taken by me.\n\nThe demand is clear enough. A Trial of Seven. Seven champions against seven, my cause set against [accuser_leader.GetHersHis], with the fate of my rule bound to the outcome. To deny it would be taken as confession in many eyes. To accept is to place the realm itself upon the field."
- agot_trial_of_seven.0100.desc.helper:0 "The crown has barely settled upon my head when the charge is spoken aloud. [accuser_leader.GetTitledFirstName] steps forward to name my rule a usurpation, and demands a Trial of Seven in the name of [true_heir.GetTitledFirstName], whose claim they declare stolen.\n\nThe demand is clear enough. Seven champions against seven, my cause set against the cause they have taken up, with the fate of my rule bound to the outcome. To deny it would be taken as fear in many eyes. To accept is to place the realm itself upon the field."
- agot_trial_of_seven.0100.desc.accuser:0 "The crown rests uneasy upon [defender_leader.GetTitledFirstNamePossessive] brow, and I will not let the realm pretend otherwise. Before lords and smallfolk alike, I name this rule what it is, a usurpation, and call for judgment beneath the eyes of gods and men.\n\nA Trial of Seven. Seven champions to stand for me and the claim I defend, seven for the one who sits the throne. Let steel and faith decide what words alone cannot. If [defender_leader.GetSheHe] refuses, the realm will know what that silence means."
- agot_trial_of_seven.0100.a:0 "Let the gods decide if [accuser_leader.GetSheHe] is right or wrong."
- agot_trial_of_seven.0100.a.accuser:0 "Let the Seven bear witness."
+ agot_trial_of_seven.0100.t: "Требование перед державой"
+ agot_trial_of_seven.0100.desc: "Едва корона опустилась на мою голову, как обвинение было произнесено вслух. [accuser_leader.GetTitledFirstName] называет моё правление узурпацией и требует суда за это, утверждая, что королевство было захвачено мной.\n\nТребование достаточно ясное. Суд Семерых. Семь обвинителей против семерых защитников, моё дело против [Select_CString(accuser_leader.IsFemale, 'её', 'его' )], и судьба моего правления зависит от исхода. Отрицать это было бы воспринято многими как признание вины. Согласиться - значит поставить на карту всю державу."
+ agot_trial_of_seven.0100.desc.helper: "Едва корона опустилась на мою голову, как обвинение было произнесено вслух. [accuser_leader.GetTitledFirstName] [Select_CString(accuser_leader.IsFemale, 'выступила', 'выступил' )] вперёд, назвав моё правление узурпацией, и [Select_CString(accuser_leader.IsFemale, 'потребовала', 'потребовал' )] Суда Семерых, заявив, что [Select_CString(true_heir.IsFemale, 'истинной правительницей', 'истинным правителем' )] является [true_heir.GetTitledFirstName], чьи притязания были украдены.\n\nТребование достаточно ясно. Семь защитников против семи обвинителей, моё дело противостоит делу, за которое они взялись, и судьба моего правления зависит от результата. Во многих глазах отказ от этого был бы воспринят как страх. Согласиться - значит поставить на карту всю державу."
+ agot_trial_of_seven.0100.desc.accuser: "[defender_leader.GetTitledFirstName] с трудом возлагает на себя корону, и я не позволю державе притворяться, что это не так. Как перед лордами, так и перед простонародьем, я объявляю это правление узурпацией и требую суда перед ликом богов и людей.\n\nСуд Семерых. Семь обвинителей выступят за меня и за то, что я отстаиваю, семеро за [Select_CString(defender_leader.IsFemale, 'ту', 'того' )], кто восседает на троне. Пусть сталь и вера решают, чего не могут сделать одни только слова. Если [defender_leader.GetSheHe] откажется, королевство узнает, что означает это молчание."
+ agot_trial_of_seven.0100.a: "Пусть боги решают, [Select_CString(accuser_leader.IsFemale, 'права она', 'прав он' )] или нет."
+ agot_trial_of_seven.0100.a.accuser: "Да будут Семеро свидетелями."
 
  # ToS - Succession Crisis: Interaction now available
- agot_trial_of_seven.0101.t:0 "A Path to Judgment"
- agot_trial_of_seven.0101.desc:0 "There is a path to call [crown_thief.GetTitledFirstName] to account for usurpation. I may demand a Trial of Seven and force the charge into the open, fighting before gods and realm alike for [crown_theft_king_legit_heir.GetTitledFirstNamePossessive] rightful claim to the throne."
- agot_trial_of_seven.0101.desc.legit_heir:0 "Perhaps I was too hasty in accepting what was done. [crown_thief.GetTitledFirstName] sits the throne that should be mine, and the realm has been left to pretend the matter settled. Yet there is another path. A Trial of Seven could force the charge into the open, letting steel and the gods decide whether my claim was truly stolen."
- agot_trial_of_seven.0101.a:0 "I will consider it."
- agot_trial_of_seven.0101.a.tt:0 "You may now Demand a Trial of Seven against the ruler."
+ agot_trial_of_seven.0101.t: "Путь к правосудию"
+ agot_trial_of_seven.0101.desc: "[crown_thief.GetTitledFirstName] - [Select_CString(crown_thief.IsFemale, 'узурпаторша', 'узурпатор' )], и есть способ призвать [Select_CString(crown_thief.IsFemale, 'её', 'его' )] к ответу за это. Я могу потребовать Суда Семерых и выдвинуть обвинение в открытую, сражаясь перед ликом как богов, так и перед державой за то, чтобы [crown_theft_king_legit_heir.GetTitledFirstName] [Select_CString(crown_theft_king_legit_heir.IsFemale, 'заняла', 'занял' )] трон, принадлежащий [Select_CString(crown_theft_king_legit_heir.IsFemale, 'ей', 'ему' )] по праву."
+ agot_trial_of_seven.0101.desc.legit_heir: "Возможно, я слишком поспешно [Select_CString(ROOT.Char.IsFemale, 'смирилась', 'смирился' )] с тем, что было сделано. [crown_thief.GetTitledFirstName] восседает на троне, который должен был принадлежать мне, а держава вынуждена притворяться, что вопрос решён. Но есть и другой путь. Суд Семерых позволяет выдвинуть обвинение в открытую, после чего правоту моего дела решат сталь и боги."
+ agot_trial_of_seven.0101.a: "Я подумаю над этим."
+ agot_trial_of_seven.0101.a.tt: "Теперь вы можете потребовать Суда Семерых против правителя."
 
  # ToS Denied
- agot_trial_of_seven.9999.t:0 "The Challenge Refused"
- agot_trial_of_seven.9999.desc:0 "My demand is refused. [recipient.GetTitledFirstName] will not answer me in the field, nor set its cause against mine before the realm. The refusal is wrapped in courtesy, but I hear the truth beneath it. They will not risk steel, not when steel might speak too loudly."
- agot_trial_of_seven.9999.a:0 "I will not keep silent about this."
+ agot_trial_of_seven.9999.t: "Отказ в испытании"
+ agot_trial_of_seven.9999.desc: "Моё требование отвергнуто. [recipient.GetTitledFirstName] не выступит против меня в открытую, и не выставит вопрос своей правоты перед всей державой. Отказ облечён в вежливую форму, но я слышу правду, скрытую за ней. [Select_CString(recipient.IsFemale, 'Она', 'Он' )] не станет рисковать сталью, особенно когда сталь может заговорить слишком громко."
+ agot_trial_of_seven.9999.a: "Я не буду молчать об этом."
 
  #######################################
  ### TOS: Succession Crisis OUTCOMES ###
