@@ -96,9 +96,15 @@
  COA_REALM_TOOLTIP_CHARACTER_CLICK_INFO: "#I [Select_CString(CHARACTER.IsShownInCharacterWindow, 'Щелкните, чтобы перейти', 'Щелкните, чтобы посмотреть')]\nЩелкните ПКМ, чтобы взаимодействовать с персонажем [CHARACTER.GetShortUINameNoTooltip]#!"
  COA_REALM_TOOLTIP_PRIMARY_TITLE_CLICK_INFO: "#I Нажмите, чтобы посмотреть, каким первым титулом владеет [CHARACTER.GetPrimaryTitle.GetNameNoTooltip|V]#!"
  COA_REALM_TOOLTIP_GUI_CLICK_INFO: "#I [Select_CString(Character.IsShownInCharacterWindow, 'Щелкните, чтобы перейти', 'Щелкните, чтобы посмотреть')]\nЩелкните ПКМ, чтобы взаимодействовать с персонажем [Character.GetShortUINameNoTooltip]#!"
- cooltip_spouse_listing: "[spouse|E]: [ROOT.Char.GetPrimarySpouseOrBetrothed.GetName]"
- cooltip_betrothed_listing: "[betrothal|E]: [ROOT.Char.GetPrimarySpouseOrBetrothed.GetName]"
- cooltip_concubine_listing: "[concubine|E] персонажа [ROOT.Char.GetConcubinist.GetName]"
+ #AGOT Modified
+ #cooltip_spouse_listing: "[spouse|E]: [ROOT.Char.GetPrimarySpouseOrBetrothed.GetName]"
+ cooltip_spouse_listing: "[spouse|E]: [AGOTGetName(ROOT.Char.GetPrimarySpouseOrBetrothed)]"
+ #AGOT Modified
+ #cooltip_betrothed_listing: "[betrothal|E]: [ROOT.Char.GetPrimarySpouseOrBetrothed.GetName]"
+ cooltip_betrothed_listing: "[betrothed|E]: [AGOTGetName(ROOT.Char.GetPrimarySpouseOrBetrothed)]"
+ #AGOT Modified
+ #cooltip_concubine_listing: "[concubine|E] персонажа [ROOT.Char.GetConcubinist.GetName]"
+ cooltip_concubine_listing: "[concubine|E] персонажа [AGOTGetName(ROOT.Char.GetConcubinist)]"
  cooltip_unmarried_listing: "Не состоит в браке"
  GLOBAL_OBSERVER: "Наблюдает"
  PLAYER_OBSERVER: "Наблюдает за персонажем [GetPlayer.GetShortUINameNotMeNoTooltip] ([SelectLocalization(GetPlayer.IsLocalPlayer, 'OBSERVER_PLAYER_NAME', 'OBSERVER_AI')])"
