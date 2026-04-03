@@ -10,11 +10,16 @@
  agot_events_bastard.personal_response_choice:0 "It will be up to [reveal_scope.GetNameNoTooltip] to respond to your demand."
  agot_events_bastard.demand_reject_harsh:0 "This is an outrageous demand! This means war!"
  agot_events_bastard.demand_reject_light:0 "This is punishment for being born. I'll not stand for it."
- agot_events_bastard.demand_reject_flavor:0 "You will reject [ruler_scope.GetNamePossessiveNoTooltip] demand."
- agot_events_bastard.demand_reject_tt:0 "@warning_icon! #warning This will irrevocably put you on a path to war with the Iron Throne.#!"
+ agot_events_bastard.demand_reject_flavor:0 "You will reject [ruler_scope.GetNamePossessiveNoTooltip] demand and press a claim to the throne."
+ agot_events_bastard.demand_reject_tt:0 "@warning_icon! #warning This will irrevocably put you on a path to war with the Iron Throne. You will press a claim and fight as the attacker.#!"
  agot_events_bastard.demand_accept_harsh:0 "Though it pains me, I will accept for the sake of peace."
  agot_events_bastard.demand_accept_light:0 "I will accept [ruler_scope.GetNamePossessiveNoTooltip] relative mercy."
  agot_events_bastard.demand_accept_flavor:0 "You will accept [ruler_scope.GetNamePossessiveNoTooltip] demand."
+ agot_events_bastard.demand_refuse_defensive_harsh:0 "I will not comply, but nor will I be the aggressor. Let them come."
+ agot_events_bastard.demand_refuse_defensive_light:0 "I refuse. If the Crown wishes to enforce it, they will have to march."
+ agot_events_bastard.demand_refuse_defensive_vassal_tt:0 "@warning_icon! #warning You will defy the Crown's demand and rebel against [ruler_scope.GetNamePossessiveNoTooltip] enforcement, but you will not press a claim to the throne.#!"
+ agot_events_bastard.demand_refuse_defensive_independent_tt:0 "@warning_icon! #warning You will defy the Crown's demand. The Crown will declare war to enforce it, but you will not press a claim to the throne. You will fight as the defender.#!"
+ agot_events_bastard.demand_refuse_defensive_flavor:0 "You will refuse [ruler_scope.GetNamePossessiveNoTooltip] demand and defend against enforcement, but will not press a claim to the throne."
  agot_events_bastard.unjust_warning_tt:0 "The realm may dislike demands deemed unjust."
  agot_events_bastard.no_demand_acknowledge:0 "A relief, to be sure."
 
@@ -235,8 +240,8 @@
  agot_events_bastard.0959.b:0 "I must respond, but let's not be rash."
  agot_events_bastard.0959.b.flavor:0 "You will rule lightly on this matter."
  agot_events_bastard.0959.c:0 "It is of no consequence. I shall say naught on this."
+ agot_events_bastard.0959.c_order:0 "With [reveal_scope.GetHerHis] vows, [reveal_scope.GetSheHe] has no true claim."
  agot_events_bastard.0959.c.flavor:0 "You will not respond to this development."
- agot_events_bastard.0959.d:0 "With [reveal_scope.GetHerHis] vows, [reveal_scope.GetSheHe] has no true claim."
 
  # Robert gets Eddards letter
  agot_events_bastard.0960.t:0 "A Plea from a Friend"
@@ -354,6 +359,18 @@
  agot_events_bastard.0985.desc_resolved:0 "This threat shall be resolved without bloodshed, such is my mercy and wish. The statement should reach your rookeries in the coming days, and I expect all to recognize it as fact."
  agot_events_bastard.0985.a:0 "Seems a fair response."
 
+ agot_events_bastard.0986.t:0 "The Crown Marches"
+ agot_events_bastard.0986.desc:0 "Word has reached us that [ruler_scope.GetName] has lost patience with our defiance. The Crown's armies are being mustered, and it seems [ruler_scope.GetSheHe] intends to enforce [ruler_scope.GetHerHis] decree regarding [Select_CString( reveal_scope.IsLocalPlayer, 'me', reveal_scope.GetName )] by force of arms. We must prepare to defend ourselves."
+ agot_events_bastard.0986.desc.same:0 "Word has reached us that our own kin, [ruler_scope.GetName], has lost patience with our defiance. The Crown's armies are being mustered to enforce [ruler_scope.GetHerHis] decree regarding [Select_CString( reveal_scope.IsLocalPlayer, 'me', reveal_scope.GetName )]. That it has come to this between family is a tragedy, but we must prepare to defend ourselves."
+ agot_events_bastard.0986.a:0 "Let them come."
+ agot_events_bastard.0986.a.tt:0 "@warning_icon! #warning [ruler_scope.GetNameNoTooltip] will declare war to enforce [ruler_scope.GetHerHis] royal decree regarding [reveal_scope.GetNameOrMeNoTooltip]. You will be the defender.#!"
+
+ agot_events_bastard.0987.t:0 "Enforce the Royal Decree"
+ agot_events_bastard.0987.desc:0 "Our demand regarding [reveal_scope.GetName] has been met with defiance. The time for words is over — we shall muster our armies and enforce our decree upon [reveal_employer.GetName] by right of the Crown."
+ agot_events_bastard.0987.desc.same:0 "Our demand regarding our own kin, [reveal_scope.GetName], has been met with defiance. Though it pains us to march against family, the authority of the Crown must be upheld. We shall muster our armies and enforce our decree upon [reveal_employer.GetName]."
+ agot_events_bastard.0987.a:0 "The Crown's word is law."
+ agot_events_bastard.0987.a.tt:0 "@warning_icon! #warning You will declare war on [reveal_employer.GetName] to enforce your royal decree regarding [reveal_scope.GetName].#!"
+
  #agot_events_bastard.0989 is a hidden event - handles war preparation
 
  # Pre-war marriage search
@@ -379,6 +396,7 @@
  agot_events_bastard.0992.desc.same:0 "So it has come to this.\n\nToo much time has passed to claim that I haven't received [ruler_scope.GetFirstNamePossessive] notice, and to mobilize the troops necessary I have sent the ravens calling the banners for war. The line is crossed, the die is cast, and the legitimate [ruler_scope.GetHouse.GetBaseName] is to be decided with blood.\n\nI survey the banners assembled before me, seeing the many that have flocked to defy the unjust demands of the tyrant [ruler_scope.GetNameNoTooltip]."
  agot_events_bastard.0992.desc.ned:0 "So it has come to this.\n\nToo much time has passed to claim that I haven't received [ruler_scope.GetFirstNamePossessive] notice, and to mobilize the troops necessary I have sent the ravens calling the banners for war. The line is crossed, the die is cast, and either [reveal_scope.GetHouse.GetBaseName] or [ruler_scope.GetHouse.GetBaseName] will reign victorious when this is over.\n\nI survey the banners assembled before me, and though my heart aches to march south against my one-time friend, I know that I owe it to Lyanna and to [reveal_scope.GetFirstName] to do what is right. For the mercy of men and myself both, I wish this to be a swift war."
  agot_events_bastard.0992.a:0 "Together we march for justice!"
+ agot_events_bastard.0992.a.tt:0 "@warning_icon! #warning You will press a claim on [ruler_scope.GetFirstNamePossessive] throne and declare war. You will fight as the attacker.#!"
 
  # Ruler war declaration alert
  agot_events_bastard.0993.t:0 "Demands Rejected"
@@ -386,6 +404,7 @@
  agot_events_bastard.0993.desc.same:0 "So it has come to this.\n\nRejecting my demands, the bastard [reveal_scope.GetName] has declared [reveal_scope.GetHerHis] intent to rule the [ruler_scope.GetPrimaryTitle.GetName] and called to [reveal_scope.GetHerHis] allies to uphold their claim. What manner of promises [reveal_scope.GetSheHe] must have made to assemble such a host is unknown, but the line is crossed, the die is cast, and either a true [reveal_scope.GetHouse.GetBaseName] or a false one will reign victorious when this is over.\n\nI survey the banners assembled before me, seeing the many that have flocked to defend my just rulership."
  agot_events_bastard.0993.desc.robert:0 "The events of the last few weeks have shocked me to my core, and none moreso than where I find myself now.\n\nMy one-time friend Eddard Stark has declared my demands unjust and raised his banners to install [reveal_scope.GetName] as ruler of the [ruler_scope.GetPrimaryTitle.GetName]. He has called his many allies and vassals to uphold this claim, and said that my demand proves me no better than the Mad King we deposed together.\n\nWhatever friendship once existed between us is now over. The line is crossed, the die is cast, and either Stark or Baratheon will reign victorious when this is over.\n\nI will crush the rebels, I will crush the Starks, and I will crush the little dragonspawn just as I crushed [reveal_scope.GetHerHis] father and grandfather!"
  agot_events_bastard.0993.a:0 "I shall destroy these pretender rebels!"
+ agot_events_bastard.0993.a.tt:0 "@warning_icon! #warning [reveal_scope.GetName] has declared war against you for the throne. You will fight as the defender.#!"
 
  # Ruler wins war
  agot_events_bastard.0994.t:0 "Order Restored"
@@ -411,6 +430,21 @@
  agot_events_bastard.0996.desc:0 "I watch on as [claimant.GetFirstName] steps through the gates of the throne room, crown adorning [claimant.GetHerHis] head. Confident eyes survey a new age, and with each step more, including myself, bend the knee before our new liege.\n\nPart of me still does not believe this is the world we now live in; it was not so long ago that [claimant.GetSheHe] did not even know the truth of [claimant.GetHerHis] parentage. Yet due to the path I set us down, a new day is dawning in the [claimant.GetPrimaryTitle.GetName]."
  agot_events_bastard.0996.a:0 "I wonder how [claimant.GetSheHe] is feeling right now..."
  agot_events_bastard.0996.b:0 "All hail [claimant.GetNameNoTooltip]!"
+
+ #agot_events_bastard.0997 is a hidden event - crown declares enforcement war
+
+ agot_events_bastard.0998.t:0 "The Royal Decree Enforced"
+ agot_events_bastard.0998.desc_execute:0 "The war is won, and [claimant.GetName] now stands at our mercy. The sentence shall be carried out as decreed."
+ agot_events_bastard.0998.desc_send_to_order:0 "The war is won. [claimant.GetName] shall be stripped of [claimant.GetHerHis] pretensions and sent to serve, as was decreed."
+ agot_events_bastard.0998.desc_imprison:0 "The war is won. [claimant.GetName] is already in chains - the decree has been enforced by the sword."
+ agot_events_bastard.0998.desc_bring_to_court:0 "The war is won. [claimant.GetName] shall be brought to court as decreed, where we can keep a close watch."
+ agot_events_bastard.0998.desc_give_up_claims:0 "The war is won. [claimant.GetName] shall renounce all claims to the throne, as was decreed."
+ agot_events_bastard.0998.desc_default:0 "The war is won. Our decree shall be enforced."
+ agot_events_bastard.0998.a:0 "Justice is served."
+
+ agot_events_bastard.0999.t:0 "The Crown Defeated"
+ agot_events_bastard.0999.desc:0 "Against all odds, we have prevailed against the Crown's attempt to enforce its decree. The Iron Throne's armies have been turned back, and we have won our freedom - along with suitable reparations for the trouble."
+ agot_events_bastard.0999.a:0 "We bow to no unjust decree."
 
  # Ruler notified of double execute acceptance
  agot_events_bastard.1001.t:0 "Demands Accepted"

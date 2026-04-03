@@ -1,11 +1,23 @@
 ﻿l_english:
- #send to citadel interaction
- agot_send_to_citadel_interaction:0 "Send to Citadel"
- agot_send_to_citadel_interaction_desc:0 "Send [recipient.GetFirstNameNoTooltip] to the citadel"
+
+ #Nightswatch
+ send_to_nightswatch_interaction:0 "Send to the Night's Watch #weak (Dynasty)#!"
+ send_to_nightswatch_interaction_extra_icon:0 "$hook_extra_icon$"
+ send_to_nightswatch_interaction_desc:0 "$dynasty_interaction_header$Send [recipient.GetShortUINameNoTooltip] away to serve as the shield of men in the Night's Watch. They will father no children and hold no lands, but it is a sacred and honorable duty."
+ send_to_nightswatch_interaction_toast:1 "[recipient.GetShortUIName] has left for the Night's Watch"
+ send_to_nightswatch_interaction_toast_desc:0 "Now his watch begins."
+
+ CHARACTER_INTERACTION_NOT_ALLOWED_IN_NIGHTSWATCH:0 "[recipient.GetSheHe] is not allowed to serve as a [knight|E] in the target [court|E]"
+
+ send_to_nightswatch_interaction_effect_desc:1 "#weak [CHARACTER.GetShortUIName] will leave your court to serve in the Night's Watch. [CHARACTER.GetSheHe|U] will forgo all inheritance and rights to serve in the defense of the realm.#!"
+
+ #Maester
+ agot_send_to_citadel_interaction:0 "Send to the Citadel"
+ agot_send_to_citadel_interaction_desc:0 "Send [recipient.GetFirstNameNoTooltip] to the Citadel"
  agot_send_to_citadel_interaction_extra_icon:0 "$hook_extra_icon$"
  agot_send_to_citadel_effect_desc:0 "#weak [CHARACTER.GetShortUIName] will leave your court to study at the Citadel. After taking his vows, he will put aside his house name and forgo all inheritance to serve the realm.#!"
  citadel_decline_summary:0 "If [recipient.GetShortUINameNoTooltip] declines he will remain in your [court|E]"
- tried_to_send_me_to_citadel_opinion:0 "Tried to send me to Citadel"
+ tried_to_send_me_to_citadel_opinion:0 "Tried to send me to the Citadel"
  REQUEST_CITADEL_NOTIFICATION_TEXT:0 "You are requested to leave your position in court and go to the Citadel to begin training as a maester."
  CITADEL_PATIENT:1 "[GetTrait('patient').GetName( recipient.Self )]: $VALUE|=+0$"
  CITADEL_CALM:1 "[GetTrait('calm').GetName( recipient.Self )]: $VALUE|=+0$"
@@ -29,5 +41,15 @@
  CITADEL_WEAK:1 "[personality|E] — #italic His weakness would make it difficult to earn glory in battle:#! $VALUE|=+0$"
  agot_the_citadel.1000.desc:0 "I can think of no greater joy than spending my life dedicated to scholarly pursuits. I will begin journeying to the Citadel immediately."
  agot_the_citadel.1000.positive:0 "I am glad [recipient.GetFirstNameNoTooltip] saw the wisdom in this action."
- agot_the_citadel.1001.desc:0 "Your suggestion for me to uproot my entire life and scurry off to the Citadel is ludicrous. I am happy where I am, and I have no plans to change that."
+ agot_the_citadel.1001.desc:0 "Your suggestion that I uproot my entire life and scurry off to the Citadel is ludicrous. I am happy where I am, and I have no plans to change that."
  agot_the_citadel.1001.negative:0 "Most unfortunate..."
+
+ #Silent Sister
+ send_to_silent_sisterhood_interaction:0 "Send to the Silent Sisterhood"
+ send_to_silent_sisterhood_interaction_desc:0 "Send [recipient.GetShortUINameNoTooltip] to take the vows of silence and join the sisterhood."
+
+ #Septon
+ take_vows_septon_interaction:0 "Ask to Take Vows"
+ take_vows_septon_interaction_desc:0 "Ask [recipient.GetShortUINameNoTooltip] to take the vows and join the clergy"
+ take_vows_septon_decline_summary:0 "If [recipient.GetShortUINameNoTooltip] declines [recipient.GetSheHe] will remain in your [court|E]"
+ REQUEST_SEPTON_VOWS_NOTIFICATION_TEXT:0 "You are requested to leave your position in court and take the vows."
