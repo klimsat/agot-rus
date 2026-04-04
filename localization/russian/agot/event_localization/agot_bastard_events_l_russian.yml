@@ -10,11 +10,16 @@
  agot_events_bastard.personal_response_choice:0 "Ответ на ваше требование будет зависеть от персонажа [reveal_scope.GetNameNoTooltip]."
  agot_events_bastard.demand_reject_harsh:0 "Это возмутительное требование! Это равносильно войне!"
  agot_events_bastard.demand_reject_light:0 "Это наказание за сам факт моего рождения. Я этого не потерплю."
- agot_events_bastard.demand_reject_flavor:0 "Вы отклоняете требования персонажа [ruler_scope.GetNamePossessiveNoTooltip]."
- agot_events_bastard.demand_reject_tt:0 "@warning_icon! #warning Это безвозвратно поставит вас на путь войны с Железным троном.#!"
+ agot_events_bastard.demand_reject_flavor:0 "You will reject [ruler_scope.GetNamePossessiveNoTooltip] demand and press a claim to the throne."
+ agot_events_bastard.demand_reject_tt:0 "@warning_icon! #warning This will irrevocably put you on a path to war with the Iron Throne. You will press a claim and fight as the attacker.#!"
  agot_events_bastard.demand_accept_harsh:0 "Хоть это и больно, но ради мира я соглашусь."
  agot_events_bastard.demand_accept_light:0 "Я приму относительное милосердие, которое мне предлагает [ruler_scope.GetNamePossessiveNoTooltip]."
  agot_events_bastard.demand_accept_flavor:0 "Я приму требования, которые [Select_CString(ruler_scope.IsFemale, 'выставила', 'выставил' )] [ruler_scope.GetNamePossessiveNoTooltip]."
+ agot_events_bastard.demand_refuse_defensive_harsh:0 "I will not comply, but nor will I be the aggressor. Let them come."
+ agot_events_bastard.demand_refuse_defensive_light:0 "I refuse. If the Crown wishes to enforce it, they will have to march."
+ agot_events_bastard.demand_refuse_defensive_vassal_tt:0 "@warning_icon! #warning You will defy the Crown's demand and rebel against [ruler_scope.GetNamePossessiveNoTooltip] enforcement, but you will not press a claim to the throne.#!"
+ agot_events_bastard.demand_refuse_defensive_independent_tt:0 "@warning_icon! #warning You will defy the Crown's demand. The Crown will declare war to enforce it, but you will not press a claim to the throne. You will fight as the defender.#!"
+ agot_events_bastard.demand_refuse_defensive_flavor:0 "You will refuse [ruler_scope.GetNamePossessiveNoTooltip] demand and defend against enforcement, but will not press a claim to the throne."
  agot_events_bastard.unjust_warning_tt:0 "Королевство может не одобрить требования, которые оно считает несправедливыми."
  agot_events_bastard.no_demand_acknowledge:0 "Это, конечно, радует."
  
@@ -235,8 +240,8 @@
  agot_events_bastard.0959.b:0 "Я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] ответить, но не будем спешить."
  agot_events_bastard.0959.b.flavor:0 "Вы вынесете мягкое решение по этому вопросу."
  agot_events_bastard.0959.c:0 "Это не имеет никакого значения. Я промолчу по этому вопросу."
+ agot_events_bastard.0959.c_order:0 "With [reveal_scope.GetHerHis] vows, [reveal_scope.GetSheHe] has no true claim."
  agot_events_bastard.0959.c.flavor:0 "Вы не будете реагировать на такое развитие событий."
- agot_events_bastard.0959.d:0 "С [reveal_scope.GetHerHis] обетами у н[reveal_scope.GetHerHis] нет никаких истинных прав."
 
  # Robert gets Eddards letter
  agot_events_bastard.0960.t:0 "Просьба от друга"
@@ -353,7 +358,19 @@
  agot_events_bastard.0985.desc_pending:0 "Любой лорд или леди, уличённые в пособничестве [reveal_scope.GetHerHim] в уклонении или ином уходе от выполнения этого требования, будут считаться изменниками и подвергнутся соответствующему наказанию."
  agot_events_bastard.0985.desc_resolved:0 "Эта угроза будет устранена без кровопролития, такова моя милость и желание. Вороны доставят письма в ваши дворы в ближайшие дни, и я ожидаю, что все признают его как факт."
  agot_events_bastard.0985.a:0 "Справедливый ответ."
- 
+
+ agot_events_bastard.0986.t:0 "The Crown Marches"
+ agot_events_bastard.0986.desc:0 "Word has reached us that [ruler_scope.GetName] has lost patience with our defiance. The Crown's armies are being mustered, and it seems [ruler_scope.GetSheHe] intends to enforce [ruler_scope.GetHerHis] decree regarding [Select_CString( reveal_scope.IsLocalPlayer, 'me', reveal_scope.GetName )] by force of arms. We must prepare to defend ourselves."
+ agot_events_bastard.0986.desc.same:0 "Word has reached us that our own kin, [ruler_scope.GetName], has lost patience with our defiance. The Crown's armies are being mustered to enforce [ruler_scope.GetHerHis] decree regarding [Select_CString( reveal_scope.IsLocalPlayer, 'me', reveal_scope.GetName )]. That it has come to this between family is a tragedy, but we must prepare to defend ourselves."
+ agot_events_bastard.0986.a:0 "Let them come."
+ agot_events_bastard.0986.a.tt:0 "@warning_icon! #warning [ruler_scope.GetNameNoTooltip] will declare war to enforce [ruler_scope.GetHerHis] royal decree regarding [reveal_scope.GetNameOrMeNoTooltip]. You will be the defender.#!"
+
+ agot_events_bastard.0987.t:0 "Enforce the Royal Decree"
+ agot_events_bastard.0987.desc:0 "Our demand regarding [reveal_scope.GetName] has been met with defiance. The time for words is over — we shall muster our armies and enforce our decree upon [reveal_employer.GetName] by right of the Crown."
+ agot_events_bastard.0987.desc.same:0 "Our demand regarding our own kin, [reveal_scope.GetName], has been met with defiance. Though it pains us to march against family, the authority of the Crown must be upheld. We shall muster our armies and enforce our decree upon [reveal_employer.GetName]."
+ agot_events_bastard.0987.a:0 "The Crown's word is law."
+ agot_events_bastard.0987.a.tt:0 "@warning_icon! #warning You will declare war on [reveal_employer.GetName] to enforce your royal decree regarding [reveal_scope.GetName].#!"
+
  #agot_events_bastard.0989 is a hidden event - handles war preparation
  
  # Pre-war marriage search
@@ -379,6 +396,7 @@
  agot_events_bastard.0992.desc.same:0 "И вот дошло до этого.\n\nПрошло слишком много времени, чтобы утверждать, что я не [Select_CString(ROOT.Char.IsFemale, 'получала', 'получал' )] никаких писем от персонажа [ruler_scope.GetFirstNamePossessive], и чтобы собрать необходимые войска, я [Select_CString(ROOT.Char.IsFemale, 'разослала', 'разослал' )] воронов, созывая знамёна к войне. Жребий брошен, законный [ruler_scope.GetHouse.GetBaseName] будет определён кровью.\n\nЯ осматриваю развевающиеся передо мной знамёна, видя, сколько людей собралось, чтобы бросить вызов несправдливым и тираническим требованиям, которые [Select_CString(ruler_scope.IsFemale, 'выдвинула', 'выдвинул' )] [ruler_scope.GetNameNoTooltip]."
  agot_events_bastard.0992.desc.ned:0 "И вот дошло до этого.\n\nПрошло слишком много времени, чтобы утверждать, что я не [Select_CString(ROOT.Char.IsFemale, 'получала', 'получал' )] никаких писем от персонажа [ruler_scope.GetFirstNamePossessive], и чтобы собрать необходимые войска, я [Select_CString(ROOT.Char.IsFemale, 'разослала', 'разослал' )] воронов, созывая знамёна к войне. Жребий брошен, и либо дом [reveal_scope.GetHouse.GetBaseName], либо дом [ruler_scope.GetHouse.GetBaseName] одержит победу.\n\nЯ осматриваю знамёна, развевающиеся передо мной знамёна, и хотя моё сердце болит от мысли о южном походе против моего бывшего друга, я знаю, что обязан поступить правильно по отношению к Лианне и [reveal_scope.GetFirstName]. Ради людского милосердия и себя самого я желаю, чтобы эта война была быстрой."
  agot_events_bastard.0992.a:0 "Мы вместе выступили за справедливость!"
+ agot_events_bastard.0992.a.tt:0 "@warning_icon! #warning You will press a claim on [ruler_scope.GetFirstNamePossessive] throne and declare war. You will fight as the attacker.#!"
  
  # Ruler war declaration alert
  agot_events_bastard.0993.t:0 "Требования отвергнуты"
@@ -386,6 +404,7 @@
  agot_events_bastard.0993.desc.same:0 "И вот дошло до этого.\n\nОтвергнув мои требования, бастард [reveal_scope.GetName] [Select_CString(reveal_scope.IsFemale, 'объявила', 'объявил' )] о своём намерении править державой [ruler_scope.GetPrimaryTitle.GetName] и [Select_CString(reveal_scope.IsFemale, 'призвала', 'призвал' )] своих союзников поддержать [Select_CString(reveal_scope.IsFemale, 'её', 'его' )] притязания. Какие обещания [Select_CString(reveal_scope.IsFemale, 'она могла', 'он мог' )] дать, чтобы собрать такую толпу, неизвестно, но жребий брошен, и либо истинный [reveal_scope.GetHouse.GetBaseName], либо самозванец воцарится с победой, когда всё закончится.\n\nЯ осматриваю развевающиеся передо мной знамёна, видя, как много людей собралось, чтобы защитить моё справедливое правление."
  agot_events_bastard.0993.desc.robert:0 "События последних недель потрясли меня до глубины души, и ничуть не больше, чем то, где я оказался сейчас.\n\nМой бывший друг Эддард Старк объявил мои требования несправедливыми и созвал знамёна, чтобы возвести персонажа [reveal_scope.GetName] на трон державы [ruler_scope.GetPrimaryTitle.GetName]. Он призвал своих многочисленных союзников и вассалов, чтобы поддержать это притязание, и утверждает, что моё требование доказывает, что я не лучше Безумного короля, которого мы вместе свергли.\n\nВся дружба, которая когда-то существовала между нами, теперь закончилась. Я сокрушу мятежников, я сокрушу Старков, я сокрушу мелкое драконье отродье, как я сокрушил [reveal_scope.GetHerHis] отца и деда!"
  agot_events_bastard.0993.a:0 "Я уничтожу этих самозваных мятежников!"
+ agot_events_bastard.0993.a.tt:0 "@warning_icon! #warning [reveal_scope.GetName] has declared war against you for the throne. You will fight as the defender.#!"
  
  # Ruler wins war
  agot_events_bastard.0994.t:0 "Порядок восстановлен"
@@ -411,7 +430,22 @@
  agot_events_bastard.0996.desc:0 "Я смотрю за тем, как [claimant.GetFirstName] входит в тронный зал, корона украшает [claimant.GetHerHis] голову. Уверенные глаза смотрят на новую эпоху, и с каждым шагом всё больше людей, включая меня, склоняют колени перед нашим новым сюзереном.\n\nЧасть меня всё ещё не верит, что это мир, в котором мы сейчас живём; не так давно [claimant.GetSheHe] даже не [Select_CString(claimant.IsFemale, 'знала', 'знал' )] правду о [claimant.GetHerHis] происхождении. Однако благодаря тому пути, который я [Select_CString(ROOT.Char.IsFemale, 'проложила', 'проложил' )], в державе [claimant.GetPrimaryTitle.GetName] наступает новый день."
  agot_events_bastard.0996.a:0 "Интересно, как [claimant.GetSheHe] себя сейчас чувствует..."
  agot_events_bastard.0996.b:0 "Да здравствует [claimant.GetNameNoTooltip]!"
- 
+
+ #agot_events_bastard.0997 is a hidden event - crown declares enforcement war
+
+ agot_events_bastard.0998.t:0 "The Royal Decree Enforced"
+ agot_events_bastard.0998.desc_execute:0 "The war is won, and [claimant.GetName] now stands at our mercy. The sentence shall be carried out as decreed."
+ agot_events_bastard.0998.desc_send_to_order:0 "The war is won. [claimant.GetName] shall be stripped of [claimant.GetHerHis] pretensions and sent to serve, as was decreed."
+ agot_events_bastard.0998.desc_imprison:0 "The war is won. [claimant.GetName] is already in chains - the decree has been enforced by the sword."
+ agot_events_bastard.0998.desc_bring_to_court:0 "The war is won. [claimant.GetName] shall be brought to court as decreed, where we can keep a close watch."
+ agot_events_bastard.0998.desc_give_up_claims:0 "The war is won. [claimant.GetName] shall renounce all claims to the throne, as was decreed."
+ agot_events_bastard.0998.desc_default:0 "The war is won. Our decree shall be enforced."
+ agot_events_bastard.0998.a:0 "Justice is served."
+
+ agot_events_bastard.0999.t:0 "The Crown Defeated"
+ agot_events_bastard.0999.desc:0 "Against all odds, we have prevailed against the Crown's attempt to enforce its decree. The Iron Throne's armies have been turned back, and we have won our freedom - along with suitable reparations for the trouble."
+ agot_events_bastard.0999.a:0 "We bow to no unjust decree."
+
  # Ruler notified of double execute acceptance
  agot_events_bastard.1001.t:0 "Требования приняты"
  agot_events_bastard.1001.desc.jon:0 "Я смотрю, как [reveal_scope.GetFirstName] и Эддард предстают передо мной. Трус даже не встречается взглядом со мной, когда его приводят к трону рядом с мерзким драконьим отродьем.\n\n«За преступления, связанные с укрывательством Таргариена, известной угрозы королевству-». По мере того, как зачитываются обвинения и указы, я перестаю слышать слова. Сердце колотится в груди. Внутри кипит ярость. Я чувствую, как в моём теле разгорается пекло, кожа гудит и кипит от гнева. Я не замечаю, что встаю, и понимаю, что спускаюсь с трона, только когда прохожу половину пути.\n\nНе дожидаясь окончания суда, я выхватываю из ножен королевского гвардейца меч и с размаху и криком отсекаю голову Эддарда Старка от его тела, острие меча раскалывает каменную кладку под ним. [reveal_scope.GetFirstNameNoTooltip] вскрикивает от ужаса, и я заставляю замолчать [reveal_scope.GetHerHis], занося меч, и кровь и каменная кладка разлетаются в великолепном багрово-мраморном великолепии.\n\nЯ стою там среди крови, кровь Таргариенов снова залила пол зала. Глядя в безжизненные глаза моего бывшего друга, я не нахожу покоя. Ярость не утихает. Лианны всё так же нет. В глазах моих придворных - то же самое, что я видел при дворе Безумного короля, и я задаюсь вопросом, как до этого дошло."
