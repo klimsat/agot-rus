@@ -16,241 +16,241 @@
  agot_kingsguard_white_book_title_nickname: "Сир [ROOT.Char.GetFirstNameNicknamedNoTooltip]"
  agot_kingsguard_white_book_title_fallback: "Сир [ROOT.Char.GetNameNoTooltip]"
 
- agot_kingsguard_white_book_fallback_on_join:0 "[ROOT.Char.GetTitledFirstNameNoTooltip] [Select_CString(ROOT.Char.IsFemale, 'вступила', 'вступил' )] в Королевскую гвардию и [Select_CString(ROOT.Char.IsFemale, 'служила', 'служил' )] с честью."
- agot_kingsguard_white_book_fallback_after_death:0 "[ROOT.Char.GetTitledFirstNameNoTooltip] [Select_CString(ROOT.Char.IsFemale, 'вступила', 'вступил' )] в Королевскую гвардию и [Select_CString(ROOT.Char.IsFemale, 'служила', 'служил' )] с честью до самой смерти."
+ agot_kingsguard_white_book_fallback_on_join: "[ROOT.Char.GetTitledFirstNameNoTooltip] [Select_CString(ROOT.Char.IsFemale, 'вступила', 'вступил' )] в Королевскую гвардию и [Select_CString(ROOT.Char.IsFemale, 'служила', 'служил' )] с честью."
+ agot_kingsguard_white_book_fallback_after_death: "[ROOT.Char.GetTitledFirstNameNoTooltip] [Select_CString(ROOT.Char.IsFemale, 'вступила', 'вступил' )] в Королевскую гвардию и [Select_CString(ROOT.Char.IsFemale, 'служила', 'служил' )] с честью до самой смерти."
 
- agot_kingsguard_white_book_page:0 "[selected_kingsguard.Custom('GetWhiteBookPage')]"
+ agot_kingsguard_white_book_page: "[selected_kingsguard.Custom('GetWhiteBookPage')]"
 
- agot_age_ordinal_st:0 "-м"
- agot_age_ordinal_nd:0 "-м"
- agot_age_ordinal_rd:0 "-м"
- agot_age_ordinal_th:0 "-м"
+ agot_age_ordinal_st: "-м"
+ agot_age_ordinal_nd: "-м"
+ agot_age_ordinal_rd: "-м"
+ agot_age_ordinal_th: "-м"
 
- agot_kingsguard_white_book_page_empty:0 ""
- agot_kingsguard_white_book_page_join_parents:0 "Родители - [ROOT.Char.GetFather.GetFullName] и [ROOT.Char.GetMother.GetFullName]. "
- agot_kingsguard_white_book_page_join_father:0 "Отец - [ROOT.Char.GetFather.GetFullName]. "
- agot_kingsguard_white_book_page_join_mother:0 "Мать - [ROOT.Char.GetMother.GetFullName]. "
+ agot_kingsguard_white_book_page_empty: ""
+ agot_kingsguard_white_book_page_join_parents: "[AGOTGetBirthOrder(ROOT.Char)] [ROOT.Char.Custom('GetDaughterSon')|l]. Родители - [AGOTGetName(ROOT.Char.GetFather)] и [AGOTGetName(ROOT.Char.GetMother)][AGOTGetTitleSuffixNoFormat(ROOT.Char.GetFather)]. "
+ agot_kingsguard_white_book_page_join_father: "[AGOTGetBirthOrder(ROOT.Char)] [ROOT.Char.Custom('GetDaughterSon')|l]. Отец - [AGOTGetName(ROOT.Char.GetFather)][AGOTGetTitleSuffixNoFormat(ROOT.Char.GetFather)]. "
+ agot_kingsguard_white_book_page_join_mother: "[AGOTGetBirthOrder(ROOT.Char)] [ROOT.Char.Custom('GetDaughterSon')|l]. Мать - [AGOTGetName(ROOT.Char.GetMother)][AGOTGetTitleSuffixNoFormat(ROOT.Char.GetMother)]. "
 
- agot_kingsguard_white_book_page_join_paragraph:0 "[selected_kingsguard.Custom('GetWhiteBookParents')][Select_CString(selected_kingsguard.IsFemale, 'Назначена', 'Назначен' )] в Королевскую гвардию на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
- agot_kingsguard_white_book_page_lc_update:0 "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Назначена', 'Назначен' )] лордом-командующим Королевской гвардии на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
- agot_kingsguard_white_book_page_sent_to_nightswatch_update:0 "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Исключена', 'Исключён' )] из Королевской гвардии и [Select_CString(selected_kingsguard.IsFemale, 'отправлена', 'отправлен' )] в Ночной Дозор на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
- agot_kingsguard_white_book_page_removed_update:0 "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Исключена', 'Исключён' )] из Королевской гвардии на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
- agot_kingsguard_white_book_page_died_update:0 "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Умерла', 'Умер' )] на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни."
+ agot_kingsguard_white_book_page_join_paragraph: "[selected_kingsguard.Custom('GetWhiteBookParents')][Select_CString(selected_kingsguard.IsFemale, 'Назначена', 'Назначен' )] в Королевскую гвардию на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
+ agot_kingsguard_white_book_page_lc_update: "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Назначена', 'Назначен' )] лордом-командующим Королевской гвардии на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
+ agot_kingsguard_white_book_page_sent_to_nightswatch_update: "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Исключена', 'Исключён' )] из Королевской гвардии и [Select_CString(selected_kingsguard.IsFemale, 'отправлена', 'отправлен' )] в Ночной Дозор на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
+ agot_kingsguard_white_book_page_removed_update: "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Исключена', 'Исключён' )] из Королевской гвардии на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни, когда [Select_CString(king.IsFemale, 'правила', 'правил' )] [AGOTGetName(king)]."
+ agot_kingsguard_white_book_page_died_update: "[white_book_page.GetFirstNameNoTooltip]\n\n[Select_CString(selected_kingsguard.IsFemale, 'Умерла', 'Умер' )] на [selected_kingsguard.GetAge][selected_kingsguard.Custom('GetAgeOrdinal')] году жизни."
 
  # PLACEHOLDER
  # Velaryon_15
- agot_kingsguard_white_book_Velaryon_15_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Velaryon_15'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Velaryon_11'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_137'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Velaryon_11'))]. Назначен первым лордом-командующим Королевской гвардии на 30-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_27'))]."
- agot_kingsguard_white_book_Velaryon_15_after_death:0 "$agot_kingsguard_white_book_Velaryon_15_on_join$\n\nУмер на 50-м году жизни."
+ agot_kingsguard_white_book_Velaryon_15_on_join: "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Velaryon_15'))] сын #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Velaryon_11').GetID] #L Деймона Велариона#!#! и #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_137').GetID] #L Эйрианы Таргариен#!#![AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Velaryon_11'))]. Назначен первым лордом-командующим Королевской гвардии на 30-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_27').GetID] #L королём Эйгоном I Таргариеном#!#!."
+ agot_kingsguard_white_book_Velaryon_15_after_death: "$agot_kingsguard_white_book_Velaryon_15_on_join$\n\nУмер на 50-м году жизни."
 
  # PLACEHOLDER
  # Darklyn_9
- agot_kingsguard_white_book_Darklyn_9_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Darklyn_9'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Darklyn_7'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Wayn_38'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Darklyn_7'))]. Назначен в Королевскую гвардию на 32-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_27'))]."
- agot_kingsguard_white_book_Darklyn_9_after_death:0 "$agot_kingsguard_white_book_Darklyn_9_on_join$\n\nУмер на 33-м году жизни."
+ agot_kingsguard_white_book_Darklyn_9_on_join: "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Darklyn_9'))] сын #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Darklyn_7').GetID] #L Ролланда Дарклина#!#! и #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Wayn_38').GetID] #L Марианны Уэйн#!#![AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Darklyn_7'))]. Назначен в Королевскую гвардию на 32-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_27').GetID] #L королём Эйгоном I Таргариеном#!#!."
+ agot_kingsguard_white_book_Darklyn_9_after_death: "$agot_kingsguard_white_book_Darklyn_9_on_join$\n\nУмер на 33-м году жизни."
 
  # PLACEHOLDER
  # Kingsguard_1
- agot_kingsguard_white_book_Kingsguard_1_on_join:0 "Назначен в Королевскую гвардию на 59-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_27'))]."
- agot_kingsguard_white_book_Kingsguard_1_after_death:0 "$agot_kingsguard_white_book_Kingsguard_1_on_join$\n\nУмер на 61-м году жизни."
+ agot_kingsguard_white_book_Kingsguard_1_on_join: "Назначен в Королевскую гвардию на 59-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_27').GetID] #L королём Эйгоном I Таргариеном#!#!."
+ agot_kingsguard_white_book_Kingsguard_1_after_death: "$agot_kingsguard_white_book_Kingsguard_1_on_join$\n\nУмер на 61-м году жизни."
 
  # PLACEHOLDER
  # Goode_3
- agot_kingsguard_white_book_Goode_3_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Goode_3'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Goode_14'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Hewett_65'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Goode_14'))]. Назначен в Королевскую гвардию на 30-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_27'))]."
- agot_kingsguard_white_book_Goode_3_after_death:0 "$agot_kingsguard_white_book_Goode_3_on_join$\n\nУмер на 62-м году жизни."
+ agot_kingsguard_white_book_Goode_3_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Goode_3'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Goode_14'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Hewett_65'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Goode_14'))]. Назначен в Королевскую гвардию на 30-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_27').GetID] #L королём Эйгоном I Таргариеном#!#!."
+ agot_kingsguard_white_book_Goode_3_after_death: "$agot_kingsguard_white_book_Goode_3_on_join$\n\nУмер на 62-м году жизни."
 
  # PLACEHOLDER
  # Goode_4
- agot_kingsguard_white_book_Goode_4_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Goode_4'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Goode_14'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Hewett_65'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Goode_14'))]. Назначен в Королевскую гвардию на 29-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_27'))]."
- agot_kingsguard_white_book_Goode_4_after_death:0 "$agot_kingsguard_white_book_Goode_4_on_join$\n\nУмер на 44-м году жизни."
+ agot_kingsguard_white_book_Goode_4_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Goode_4'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Goode_14'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Hewett_65'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Goode_14'))]. Назначен в Королевскую гвардию на 29-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_27').GetID] #L королём Эйгоном I Таргариеном#!#!."
+ agot_kingsguard_white_book_Goode_4_after_death: "$agot_kingsguard_white_book_Goode_4_on_join$\n\nУмер на 44-м году жизни."
 
  # PLACEHOLDER
  # Roote_7
- agot_kingsguard_white_book_Roote_7_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Roote_7'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Roote_44'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Common_50'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Roote_44'))]. Назначен в Королевскую гвардию на 29-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_27'))]."
+ agot_kingsguard_white_book_Roote_7_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Roote_7'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Roote_44'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Common_50'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Roote_44'))]. Назначен в Королевскую гвардию на 29-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_27').GetID] #L королём Эйгоном I Таргариеном#!#!."
  agot_kingsguard_white_book_Roote_7_after_death:0 "$agot_kingsguard_white_book_Roote_7_on_join$\n\nУмер на 47-м году жизни."
 
  # PLACEHOLDER
  # Swyft_15
- agot_kingsguard_white_book_Swyft_15_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Swyft_15'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Swyft_51'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Stackspear_32'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Swyft_51'))]. Назначен в Королевскую гвардию на 20-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_27'))]."
- agot_kingsguard_white_book_Swyft_15_lord_commander:0 "$agot_kingsguard_white_book_Swyft_15_on_join$\n\nНазначен лордом-командующим Королевской гвардии на 48-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_30'))]."
- agot_kingsguard_white_book_Swyft_15_after_death:0 "$agot_kingsguard_white_book_Swyft_15_lord_commander$\n\nУмер на 52-м году жизни."
+ agot_kingsguard_white_book_Swyft_15_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Swyft_15'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Swyft_51'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Stackspear_32'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Swyft_51'))]. Назначен в Королевскую гвардию на 20-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_27').GetID] #L королём Эйгоном I Таргариеном#!#!."
+ agot_kingsguard_white_book_Swyft_15_lord_commander: "$agot_kingsguard_white_book_Swyft_15_on_join$\n\nНазначен лордом-командующим Королевской гвардии на 48-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_30').GetID] #L королём Эйнисом Таргариеном#!#!."
+ agot_kingsguard_white_book_Swyft_15_after_death: "$agot_kingsguard_white_book_Swyft_15_lord_commander$\n\nУмер на 52-м году жизни."
 
  # PLACEHOLDER
  # Errol_12
- agot_kingsguard_white_book_Errol_12_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Errol_12'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Errol_10'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Fell_12_B'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Errol_10'))]. Назначен в Королевскую гвардию на 21-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_27'))]."
- agot_kingsguard_white_book_Errol_12_lord_commander:0 "$agot_kingsguard_white_book_Errol_12_on_join$\n\nНазначен лордом-командующим Королевской гвардии на 40-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_27'))]."
- agot_kingsguard_white_book_Errol_12_after_death:0 "$agot_kingsguard_white_book_Errol_12_lord_commander$\n\nУмер на 48-м году жизни."
+ agot_kingsguard_white_book_Errol_12_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Errol_12'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Errol_10'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Fell_12_B'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Errol_10'))]. Назначен в Королевскую гвардию на 21-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_27').GetID] #L королём Эйгоном I Таргариеном#!#!."
+ agot_kingsguard_white_book_Errol_12_lord_commander: "$agot_kingsguard_white_book_Errol_12_on_join$\n\nНазначен лордом-командующим Королевской гвардии на 40-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_27').GetID] #L королём Эйгоном I Таргариеном#!#!."
+ agot_kingsguard_white_book_Errol_12_after_death: "$agot_kingsguard_white_book_Errol_12_lord_commander$\n\nУмер на 48-м году жизни."
 
  # PLACEHOLDER
  # Langward_12
- agot_kingsguard_white_book_Langward_12_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Langward_12'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Langward_15'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Nayland_25'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Langward_15'))]. Назначен в Королевскую гвардию на 31-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_27'))]."
- agot_kingsguard_white_book_Langward_12_lord_commander:0 "$agot_kingsguard_white_book_Langward_12_on_join$\n\nНазначен лордом-командующим Королевской гвардии на 61-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_31'))]."
- agot_kingsguard_white_book_Langward_12_after_death:0 "$agot_kingsguard_white_book_Langward_12_lord_commander$\n\nУмер на 67-м году жизни."
+ agot_kingsguard_white_book_Langward_12_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Langward_12'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Langward_15'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Nayland_25'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Langward_15'))]. Назначен в Королевскую гвардию на 31-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_27').GetID] #L королём Эйгоном I Таргариеном#!#!."
+ agot_kingsguard_white_book_Langward_12_lord_commander: "$agot_kingsguard_white_book_Langward_12_on_join$\n\nНазначен лордом-командующим Королевской гвардии на 61-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_31').GetID] #L королём Мейгором Таргариеном#!#!."
+ agot_kingsguard_white_book_Langward_12_after_death: "$agot_kingsguard_white_book_Langward_12_lord_commander$\n\nУмер на 67-м году жизни."
 
  # PLACEHOLDER
  # Celtigar_62
- agot_kingsguard_white_book_Celtigar_62_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Celtigar_62'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Celtigar_16'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Sunglass_17'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Celtigar_16'))]. Назначен в Королевскую гвардию на 25-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_27'))]."
- agot_kingsguard_white_book_Celtigar_62_after_death:0 "$agot_kingsguard_white_book_Celtigar_62_on_join$\n\nУмер на 34-м году жизни."
+ agot_kingsguard_white_book_Celtigar_62_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Celtigar_62'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Celtigar_16'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Sunglass_17'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Celtigar_16'))]. Назначен в Королевскую гвардию на 25-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_27').GetID] #L королём Эйгоном I Таргариеном#!#!."
+ agot_kingsguard_white_book_Celtigar_62_after_death: "$agot_kingsguard_white_book_Celtigar_62_on_join$\n\nУмер на 34-м году жизни."
 
  # PLACEHOLDER
  # Bracken_42
- agot_kingsguard_white_book_Bracken_42_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Bracken_42'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Bracken_40'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Blackwood_47'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Bracken_40'))]. Назначен в Королевскую гвардию на 19-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_27'))]."
- agot_kingsguard_white_book_Bracken_42_after_removal:0 "$agot_kingsguard_white_book_Bracken_42_on_join$\n\nИсключён из Королевской гвардии и отправлен в Ночной Дозор на 39-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Bracken_42_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Bracken_42'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Bracken_40'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Blackwood_47'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Bracken_40'))]. Назначен в Королевскую гвардию на 19-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_27').GetID] #L королём Эйгоном I Таргариеном#!#!."
+ agot_kingsguard_white_book_Bracken_42_after_removal:0 "$agot_kingsguard_white_book_Bracken_42_on_join$\n\nИсключён из Королевской гвардии и отправлен в Ночной Дозор на 39-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
 
  # PLACEHOLDER
  # Darklyn_14
- agot_kingsguard_white_book_Darklyn_14_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Darklyn_14'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Darklyn_10'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Stokeworth_33'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Darklyn_10'))]. Назначен в Королевскую гвардию на 25-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_27'))]."
+ agot_kingsguard_white_book_Darklyn_14_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Darklyn_14'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Darklyn_10'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Stokeworth_33'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Darklyn_10'))]. Назначен в Королевскую гвардию на 25-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_27').GetID] #L королём Эйгоном I Таргариеном#!#!."
  agot_kingsguard_white_book_Darklyn_14_after_death:0 "$agot_kingsguard_white_book_Darklyn_14_on_join$\n\nУмер на 38-м году жизни."
 
  # PLACEHOLDER
  # Baratheon_19
- agot_kingsguard_white_book_Baratheon_19_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Baratheon_19'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Baratheon_14'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Durrandon_88'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Baratheon_14'))]. Назначен в Королевскую гвардию на 23-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_27'))]."
+ agot_kingsguard_white_book_Baratheon_19_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Baratheon_19'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Baratheon_14'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Durrandon_88'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Baratheon_14'))]. Назначен в Королевскую гвардию на 23-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_27').GetID] #L королём Эйгоном I Таргариеном#!#!."
  agot_kingsguard_white_book_Baratheon_19_after_death:0 "$agot_kingsguard_white_book_Baratheon_19_on_join$\n\nУмер на 30-м году жизни."
 
  # PLACEHOLDER
  # Moore_20
- agot_kingsguard_white_book_Moore_20_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Moore_20'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Moore_18'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Moreland_18'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Moore_18'))]. Назначен в Королевскую гвардию на 38-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_30'))]."
+ agot_kingsguard_white_book_Moore_20_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Moore_20'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Moore_18'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Moreland_18'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Moore_18'))]. Назначен в Королевскую гвардию на 38-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_30').GetID] #L королём Эйнисом Таргариеном#!#!."
  agot_kingsguard_white_book_Moore_20_after_death:0 "$agot_kingsguard_white_book_Moore_20_on_join$\n\nУмер на 48-м году жизни."
 
  # PLACEHOLDER
  # Mallery_12
- agot_kingsguard_white_book_Mallery_12_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Mallery_12'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Bywater_59'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Mallery_28'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Bywater_59'))]. Назначен в Королевскую гвардию на 21-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_30'))]."
- agot_kingsguard_white_book_Mallery_12_after_removal:0 "$agot_kingsguard_white_book_Mallery_12_on_join$\n\nИсключён из Королевской гвардии и отправлен в Ночной Дозор на 28-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Mallery_12_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Mallery_12'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Bywater_59'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Mallery_28'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Bywater_59'))]. Назначен в Королевскую гвардию на 21-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_30').GetID] #L королём Эйнисом Таргариеном#!#!."
+ agot_kingsguard_white_book_Mallery_12_after_removal:0 "$agot_kingsguard_white_book_Mallery_12_on_join$\n\nИсключён из Королевской гвардии и отправлен в Ночной Дозор на 28-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
 
  # PLACEHOLDER
  # Bush_1
- agot_kingsguard_white_book_Bush_1_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Bush_1'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Bush_39'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Nayland_44'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Bush_39'))]. Назначен в Королевскую гвардию на 24-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_31'))]."
+ agot_kingsguard_white_book_Bush_1_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Bush_1'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Bush_39'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Nayland_44'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Bush_39'))]. Назначен в Королевскую гвардию на 24-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_31').GetID] #L королём Мейгором Таргариеном#!#!."
  agot_kingsguard_white_book_Bush_1_after_death:0 "$agot_kingsguard_white_book_Bush_1_on_join$\n\nУмер на 30-м году жизни."
 
  # PLACEHOLDER
  # Tollett_18
- agot_kingsguard_white_book_Tollett_18_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Tollett_18'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Tollett_35'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Pryor_119'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Tollett_35'))]. Назначен в Королевскую гвардию на 20-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_31'))]."
- agot_kingsguard_white_book_Tollett_18_after_removal:0 "$agot_kingsguard_white_book_Tollett_18_on_join$\n\nИсключён из Королевской гвардии и отправлен в Ночной Дозор на 26-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Tollett_18_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Tollett_18'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Tollett_35'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Pryor_119'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Tollett_35'))]. Назначен в Королевскую гвардию на 20-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_31').GetID] #L королём Мейгором Таргариеном#!#!."
+ agot_kingsguard_white_book_Tollett_18_after_removal:0 "$agot_kingsguard_white_book_Tollett_18_on_join$\n\nИсключён из Королевской гвардии и отправлен в Ночной Дозор на 26-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
 
  # PLACEHOLDER
  # Crayne_16
- agot_kingsguard_white_book_Crayne_16_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Crayne_16'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Wode_63'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Crayne_29'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Wode_63'))]. Назначен в Королевскую гвардию на 18-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_31'))]."
- agot_kingsguard_white_book_Crayne_16_after_removal:0 "$agot_kingsguard_white_book_Crayne_16_on_join$\n\nИсключён из Королевской гвардии и отправлен в Ночной Дозор на 23-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Crayne_16_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Crayne_16'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Wode_63'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Crayne_29'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Wode_63'))]. Назначен в Королевскую гвардию на 18-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_31').GetID] #L королём Мейгором Таргариеном#!#!."
+ agot_kingsguard_white_book_Crayne_16_after_removal:0 "$agot_kingsguard_white_book_Crayne_16_on_join$\n\nИсключён из Королевской гвардии и отправлен в Ночной Дозор на 23-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
 
  # PLACEHOLDER
  # Morrigen_16
- agot_kingsguard_white_book_Morrigen_16_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Morrigen_16'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Morrigen_30'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Rogers_52'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Morrigen_30'))]. Назначен в Королевскую гвардию на 28-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
- agot_kingsguard_white_book_Morrigen_16_lord_commander:0 "$agot_kingsguard_white_book_Morrigen_16_on_join$\n\nНазначен лордом-командующим Королевской гвардии на 28-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Morrigen_16_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Morrigen_16'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Morrigen_30'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Rogers_52'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Morrigen_30'))]. Назначен в Королевскую гвардию на 28-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
+ agot_kingsguard_white_book_Morrigen_16_lord_commander:0 "$agot_kingsguard_white_book_Morrigen_16_on_join$\n\nНазначен лордом-командующим Королевской гвардии на 28-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Morrigen_16_after_death:0 "$agot_kingsguard_white_book_Morrigen_16_lord_commander$\n\nУмер на 65-м году жизни."
 
  # PLACEHOLDER
  # Doggett_12
- agot_kingsguard_white_book_Doggett_12_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Doggett_12'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Doggett_10'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Doggett_rs_10'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Doggett_10'))]. Назначен в Королевскую гвардию на 38-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Doggett_12_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Doggett_12'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Doggett_10'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Doggett_rs_10'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Doggett_10'))]. Назначен в Королевскую гвардию на 38-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Doggett_12_after_death:0 "$agot_kingsguard_white_book_Doggett_12_on_join$\n\nУмер на 50-м году жизни."
 
  # PLACEHOLDER
  # Kingsguard_2
- agot_kingsguard_white_book_Kingsguard_2_on_join:0 "Назначен в Королевскую гвардию на 39-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Kingsguard_2_on_join:0 "Назначен в Королевскую гвардию на 39-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Kingsguard_2_after_death:0 "$agot_kingsguard_white_book_Kingsguard_2_on_join$\n\nУмер на 49-м году жизни."
 
  # PLACEHOLDER
  # Kingsguard_3
- agot_kingsguard_white_book_Kingsguard_3_on_join:0 "Назначен в Королевскую гвардию на 29-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Kingsguard_3_on_join:0 "Назначен в Королевскую гвардию на 29-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Kingsguard_3_after_death:0 "$agot_kingsguard_white_book_Kingsguard_3_on_join$\n\nУмер на 36-м году жизни."
 
  # PLACEHOLDER
  # Kingsguard_4
- agot_kingsguard_white_book_Kingsguard_4_on_join:0 "Назначен в Королевскую гвардию на 19-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Kingsguard_4_on_join:0 "Назначен в Королевскую гвардию на 19-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Kingsguard_4_after_death:0 "$agot_kingsguard_white_book_Kingsguard_4_on_join$\n\nУмер на 48-м году жизни."
 
  # PLACEHOLDER
  # Kingsguard_5
- agot_kingsguard_white_book_Kingsguard_5_on_join:0 "Назначен в Королевскую гвардию на 62-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Kingsguard_5_on_join:0 "Назначен в Королевскую гвардию на 62-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Kingsguard_5_after_death:0 "$agot_kingsguard_white_book_Kingsguard_5_on_join$\n\nУмер на 72-м году жизни."
 
  # PLACEHOLDER
  # Roxton_42
- agot_kingsguard_white_book_Roxton_42_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Roxton_42'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Roxton_40'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Straw_41'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Roxton_40'))]. Назначен в Королевскую гвардию на 25-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Roxton_42_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Roxton_42'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Roxton_40'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Straw_41'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Roxton_40'))]. Назначен в Королевскую гвардию на 25-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Roxton_42_after_death:0 "$agot_kingsguard_white_book_Roxton_42_on_join$\n\nУмер на 39-м году жизни."
 
  # PLACEHOLDER
  # Strong_10
- agot_kingsguard_white_book_Strong_10_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Strong_10'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Strong_8'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Graves_39'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Strong_8'))]. Назначен в Королевскую гвардию на 24-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
- agot_kingsguard_white_book_Strong_10_after_removal:0 "$agot_kingsguard_white_book_Strong_10_on_join$\n\nИсключён из Королевской гвардии и отправлен в Ночной Дозор на 41-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Strong_10_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Strong_10'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Strong_8'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Graves_39'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Strong_8'))]. Назначен в Королевскую гвардию на 24-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
+ agot_kingsguard_white_book_Strong_10_after_removal:0 "$agot_kingsguard_white_book_Strong_10_on_join$\n\nИсключён из Королевской гвардии и отправлен в Ночной Дозор на 41-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
 
  # PLACEHOLDER
  # Redwyne_32
- agot_kingsguard_white_book_Redwyne_32_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Redwyne_32'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Redwyne_29'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Peake_36'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Redwyne_29'))]. Назначен в Королевскую гвардию на 18-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
- agot_kingsguard_white_book_Redwyne_32_lord_commander:0 "$agot_kingsguard_white_book_Redwyne_32_on_join$\n\nНазначен лордом-командующим Королевской гвардии на 44-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Redwyne_32_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Redwyne_32'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Redwyne_29'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Peake_36'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Redwyne_29'))]. Назначен в Королевскую гвардию на 18-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
+ agot_kingsguard_white_book_Redwyne_32_lord_commander:0 "$agot_kingsguard_white_book_Redwyne_32_on_join$\n\nНазначен лордом-командующим Королевской гвардии на 44-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Redwyne_32_after_death:0 "$agot_kingsguard_white_book_Redwyne_32_lord_commander$\n\nУмер на 64-м году жизни."
 
  # PLACEHOLDER
  # Shaw_20
- agot_kingsguard_white_book_Shaw_20_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Shaw_20'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Shaw_28'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Peck_13'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Shaw_28'))]. Назначен в Королевскую гвардию на 30-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Shaw_20_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Shaw_20'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Shaw_28'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Peck_13'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Shaw_28'))]. Назначен в Королевскую гвардию на 30-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Shaw_20_after_death:0 "$agot_kingsguard_white_book_Shaw_20_on_join$\n\nУмер на 51-м году жизни."
 
  # PLACEHOLDER
  # Toyne_44
- agot_kingsguard_white_book_Toyne_44_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Toyne_44'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Toyne_16'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Trant_92'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Toyne_16'))]. Назначен в Королевскую гвардию на 21-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Toyne_44_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Toyne_44'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Toyne_16'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Trant_92'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Toyne_16'))]. Назначен в Королевскую гвардию на 21-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Toyne_44_after_death:0 "$agot_kingsguard_white_book_Toyne_44_on_join$\n\nУмер на 48-м году жизни."
 
  # PLACEHOLDER
  # Banefort_37
- agot_kingsguard_white_book_Banefort_37_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Banefort_37'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Banefort_36'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Tortoll_62'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Banefort_36'))]. Назначен в Королевскую гвардию на 34-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Banefort_37_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Banefort_37'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Banefort_36'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Tortoll_62'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Banefort_36'))]. Назначен в Королевскую гвардию на 34-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Banefort_37_after_death:0 "$agot_kingsguard_white_book_Banefort_37_on_join$\n\nУмер на 53-м году жизни."
 
  # PLACEHOLDER
  # Royce_119
- agot_kingsguard_white_book_Royce_119_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Royce_119'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Royce_118'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Waynwood_104'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Royce_118'))]. Назначен в Королевскую гвардию на 22-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Royce_119_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Royce_119'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Royce_118'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Waynwood_104'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Royce_118'))]. Назначен в Королевскую гвардию на 22-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Royce_119_after_death:0 "$agot_kingsguard_white_book_Royce_119_on_join$\n\nУмер на 36-м году жизни."
 
  # PLACEHOLDER
  # Darklyn_39
- agot_kingsguard_white_book_Darklyn_39_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Darklyn_39'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Darklyn_15'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Swann_42'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Darklyn_15'))]. Назначен в Королевскую гвардию на 21-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Darklyn_39_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Darklyn_39'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Darklyn_15'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Swann_42'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Darklyn_15'))]. Назначен в Королевскую гвардию на 21-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Darklyn_39_after_death:0 "$agot_kingsguard_white_book_Darklyn_39_on_join$\n\nУмер на 34-м году жизни."
 
  # PLACEHOLDER
  # Manderly_46
- agot_kingsguard_white_book_Manderly_46_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Manderly_46'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Manderly_33'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Hornwood_60'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Manderly_33'))]. Назначен в Королевскую гвардию на 22-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Manderly_46_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Manderly_46'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Manderly_33'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Hornwood_60'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Manderly_33'))]. Назначен в Королевскую гвардию на 22-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Manderly_46_after_death:0 "$agot_kingsguard_white_book_Manderly_46_on_join$\n\nУмер на 40-м году жизни."
 
  # PLACEHOLDER
  # Westerling_23
- agot_kingsguard_white_book_Westerling_23_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Westerling_23'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Westerling_19'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Lorch_47'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Westerling_19'))]. Назначен в Королевскую гвардию на 19-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Westerling_23_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Westerling_23'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Westerling_19'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Lorch_47'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Westerling_19'))]. Назначен в Королевскую гвардию на 19-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Westerling_23_lord_commander:0 "$agot_kingsguard_white_book_Westerling_23_on_join$\n\nНазначен лордом-командующим Королевской гвардии на 42-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_60'))]."
  agot_kingsguard_white_book_Westerling_23_after_death:0 "$agot_kingsguard_white_book_Westerling_23_lord_commander$\n\nУмер на 49-м году жизни."
 
  # PLACEHOLDER
  # Donniger_28
- agot_kingsguard_white_book_Donniger_28_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Donniger_28'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Donniger_57'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Durress_32'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Donniger_57'))]. Назначен в Королевскую гвардию на 31-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Donniger_28_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Donniger_28'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Donniger_57'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Durress_32'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Donniger_57'))]. Назначен в Королевскую гвардию на 31-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Donniger_28_after_death:0 "$agot_kingsguard_white_book_Donniger_28_on_join$\n\nУмер на 39-м году жизни."
 
  # PLACEHOLDER
  # Cave_40
- agot_kingsguard_white_book_Cave_40_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Cave_40'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Cave_69'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Pyne_37'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Cave_69'))]. Назначен в Королевскую гвардию на 27-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Cave_40_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Cave_40'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Cave_69'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Pyne_37'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Cave_69'))]. Назначен в Королевскую гвардию на 27-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Cave_40_after_death:0 "$agot_kingsguard_white_book_Cave_40_on_join$\n\nУмер на 38-м году жизни."
 
  # PLACEHOLDER
  # Crabb_27
- agot_kingsguard_white_book_Crabb_27_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Crabb_27'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Crabb_58'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Bush_49'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Crabb_58'))]. Назначен в Королевскую гвардию на 20-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Crabb_27_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Crabb_27'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Crabb_58'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Bush_49'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Crabb_58'))]. Назначен в Королевскую гвардию на 20-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Crabb_27_after_death:0 "$agot_kingsguard_white_book_Crabb_27_on_join$\n\nУмер на 47-м году жизни."
 
  # PLACEHOLDER
  # Penrose_46
- agot_kingsguard_white_book_Penrose_46_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Penrose_46'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Penrose_15'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Staedmon_61'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Penrose_15'))]. Назначен в Королевскую гвардию на 27-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Penrose_46_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Penrose_46'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Penrose_15'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Staedmon_61'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Penrose_15'))]. Назначен в Королевскую гвардию на 27-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Penrose_46_after_death:0 "$agot_kingsguard_white_book_Penrose_46_on_join$\n\nУмер на 33-м году жизни."
 
  # PLACEHOLDER
  # Darklyn_18
- agot_kingsguard_white_book_Darklyn_18_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Darklyn_18'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Darklyn_16'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Manderly_44'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Darklyn_16'))]. Назначен в Королевскую гвардию на 18-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Darklyn_18_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Darklyn_18'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Darklyn_16'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Manderly_44'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Darklyn_16'))]. Назначен в Королевскую гвардию на 18-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Darklyn_18_after_death:0 "$agot_kingsguard_white_book_Darklyn_18_on_join$\n\nУмер на 54-м году жизни."
 
  # PLACEHOLDER
  # Mertyns_21
- agot_kingsguard_white_book_Mertyns_21_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Mertyns_21'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Mertyns_19'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Miller_39'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Mertyns_19'))]. Назначен в Королевскую гвардию на 20-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Mertyns_21_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Mertyns_21'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Mertyns_19'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Miller_39'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Mertyns_19'))]. Назначен в Королевскую гвардию на 20-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Mertyns_21_after_death:0 "$agot_kingsguard_white_book_Mertyns_21_on_join$\n\nУмер на 42-м году жизни."
 
  # PLACEHOLDER
  # Cargyll_11
- agot_kingsguard_white_book_Cargyll_11_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Cargyll_11'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Cargyll_9'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Buckwell_18_B'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Cargyll_9'))]. Назначен в Королевскую гвардию на 18-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Cargyll_11_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Cargyll_11'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Cargyll_9'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Buckwell_18_B'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Cargyll_9'))]. Назначен в Королевскую гвардию на 18-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Cargyll_11_after_death:0 "$agot_kingsguard_white_book_Cargyll_11_on_join$\n\nУмер на 49-м году жизни."
 
  # PLACEHOLDER
  # Cargyll_12
- agot_kingsguard_white_book_Cargyll_12_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Cargyll_12'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Cargyll_9'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Buckwell_18_B'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Cargyll_9'))]. Назначен в Королевскую гвардию на 18-м году жизни при [AGOTGetName(GetScriptedCharacterByHistoryID('Targaryen_35'))]."
+ agot_kingsguard_white_book_Cargyll_12_on_join:0 "[AGOTGetBirthOrder(GetScriptedCharacterByHistoryID('Cargyll_12'))] сын [AGOTGetName(GetScriptedCharacterByHistoryID('Cargyll_9'))] и [AGOTGetName(GetScriptedCharacterByHistoryID('Buckwell_18_B'))][AGOTGetTitleSuffixNoFormat(GetScriptedCharacterByHistoryID('Cargyll_9'))]. Назначен в Королевскую гвардию на 18-м году жизни #TOOLTIP:CHARACTER,[GetScriptedCharacterByHistoryID('Targaryen_35').GetID] #L королём Джейхейрисом I Таргариеном#!#!."
  agot_kingsguard_white_book_Cargyll_12_after_death:0 "$agot_kingsguard_white_book_Cargyll_12_on_join$\n\nУмер на 49-м году жизни."
 
  # PLACEHOLDER
