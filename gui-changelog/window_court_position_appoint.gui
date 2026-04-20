@@ -106,7 +106,7 @@ window = {
 						autoresize = yes
 						max_width = 550
 						min_width = 550
-						text = "[CourtPositionType.GetDescription]"
+						text = "[CourtPositionType.CalcTriggeredDescription( Character.Self )]"
 					}
 
 					expand = {}
@@ -610,6 +610,8 @@ types AppointCourtPositionTypes
 
 				onclick = "[CharacterListItem.OnClick('character')]"
 				enabled = "[CharacterListItem.IsSelectable]"
+				
+				using = SubTabShortcut
 
 				framesize = { 252 80 }
 				spriteType = Corneredtiled

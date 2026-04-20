@@ -14,22 +14,24 @@
 	datacontext = "[GovernmentAdministrationWindow.GetTitle]"
 	datacontext = "[Title.GetHolder]"
 
-	oncreate = "[BindTabsContext]"
-	oncreate = "[PdxGuiTabs.ListenFor( 'administration_tabs' )]"
-
 	state = {
 		name = _show
 		using = Animation_FadeIn_Quick
 		using = Sound_WindowShow_Standard
 		using = Window_Position_MainTab
 		using = Expand_Admin_Themes
+
 		on_start = "[SetMapMode( 'admin_vassal_types_map' )]"
-
-		on_start = "[PdxGuiTabs.AddTabIf( 'family', GetPlayer.GetGovernment.HasRule( 'administrative' ) )]" # Referenced in Code, don't rename`
-		on_start = "[PdxGuiTabs.AddTab( 'families' )]"
-		on_start = "[PdxGuiTabs.AddTabIf( 'themes', Character.GetGovernment.HasRule( 'administrative' ) )]"
-
 		on_start = "[GetVariableSystem.Clear( 'show_prominent_appointment' )]"
+	}
+
+	state = {
+		name = on_create
+		trigger_on_create = yes
+
+		on_start = "[GetVariableSystem.Set( 'your_family', 'true'  )]"
+		on_start = "[GetVariableSystem.Clear( 'families' )]"
+		on_start = "[GetVariableSystem.Clear( 'themes' )]"
 	}
 
 	state = {
@@ -39,9 +41,6 @@
 		using = Window_Position_MainTab_Hide
 		on_start = "[SetMapMode( 'realms' )]"
 		on_start = "[MeritPoolWindow.Close]"
-		on_start = "[PdxGuiTabs.RemoveTab( 'family' )]"
-		on_start = "[PdxGuiTabs.RemoveTab( 'families' )]"
-		on_start = "[PdxGuiTabs.RemoveTab( 'themes' )]"
 	}
 
 	margin_widget = {
@@ -52,7 +51,7 @@
 
 		widget = {
 			size = { 100% 100% }
-			
+
 			vbox = {
 				using = Window_Margins
 
@@ -72,18 +71,109 @@
 				#AGOT Added
 				agot_free_cities_election_progressbar = {}
 
-				hbox_tab_buttons = {
+				hbox = {
 					name = "administration_tabs"
+					layoutpolicy_horizontal = expanding
 
-					blockoverride "tab_name"
-					{
-						text = "[PdxGuiTabItem.LocalizeTab( 'administraction_tab' )]"
+					button_tab = {
+						name = "open_family_tab"
+						shortcut = "tab_1"
+						visible = "[GetPlayer.GetGovernment.HasRule( 'administrative' )]"
+
+						down = "[GetVariableSystem.Exists( 'your_family' )]"
+
+						onclick = "[GetVariableSystem.Set( 'your_family', 'true' )]"
+						onclick = "[GetVariableSystem.Clear( 'families' )]"
+						onclick = "[GetVariableSystem.Clear( 'themes' )]"
+
+						alwaystransparent = "[GetVariableSystem.Exists( 'your_family' )]"
+
+						blockoverride "tab_label"
+						{
+							text = "administraction_tab_family"
+							max_width = 220
+						}
+
+						blockoverride "icon_visible" {}
+
+						blockoverride "tab_icon"
+						{
+							texture = "gfx/interface/icons/flat_icons/house.dds"
+							down = "[GetVariableSystem.Exists( 'your_family' )]"
+						}
 					}
 
-					blockoverride "on_click"
-					{
-						onclick = "[CloseGameView( 'admin_vassal_detail_view' )]"
-						onclick = "[GetVariableSystem.Clear( 'show_prominent_appointment' )]"
+					button_tab = {
+						name = "open_families_tab"
+						shortcut = "[Select_CString(GetPlayer.GetGovernment.HasRule( 'administrative' ), 'tab_2', 'tab_1')]"
+
+						down = "[GetVariableSystem.Exists( 'families' )]"
+
+						onclick = "[GetVariableSystem.Set( 'families', 'true' )]"
+						onclick = "[GetVariableSystem.Clear( 'your_family' )]"
+						onclick = "[GetVariableSystem.Clear( 'themes' )]"
+
+						alwaystransparent = "[GetVariableSystem.Exists( 'families' )]"
+
+						blockoverride "tab_label"
+						{
+							text = "administraction_tab_families"
+							max_width = 220
+						}
+
+						blockoverride "icon_visible" {}
+
+						blockoverride "tab_icon"
+						{
+							texture = "gfx/interface/icons/flat_icons/noble_families.dds"
+							down = "[GetVariableSystem.Exists( 'families' )]"
+						}
+					}
+
+					button_tab = {
+						name = "open_themes_tab"
+						shortcut = "tab_3"
+						
+						button = {
+							visible = "[GetPlayer.GetGovernment.HasRule( 'administrative' )]"
+							shortcut = "tab_3"
+							down = "[GetVariableSystem.Exists( 'themes' )]"
+	
+							onclick = "[GetVariableSystem.Set( 'themes', 'true' )]"
+							onclick = "[GetVariableSystem.Clear( 'your_family' )]"
+							onclick = "[GetVariableSystem.Clear( 'families' )]"
+						}
+						button = {
+							visible = "[Not(GetPlayer.GetGovernment.HasRule( 'administrative' ))]"
+							shortcut = "tab_2"
+							down = "[GetVariableSystem.Exists( 'themes' )]"
+	
+							onclick = "[GetVariableSystem.Set( 'themes', 'true' )]"
+							onclick = "[GetVariableSystem.Clear( 'your_family' )]"
+							onclick = "[GetVariableSystem.Clear( 'families' )]"
+						}
+
+						down = "[GetVariableSystem.Exists( 'themes' )]"
+
+						onclick = "[GetVariableSystem.Set( 'themes', 'true' )]"
+						onclick = "[GetVariableSystem.Clear( 'your_family' )]"
+						onclick = "[GetVariableSystem.Clear( 'families' )]"
+
+						alwaystransparent = "[GetVariableSystem.Exists( 'themes' )]"
+
+						blockoverride "tab_label"
+						{
+							text = "administraction_tab_themes"
+							max_width = 220
+						}
+
+						blockoverride "icon_visible" {}
+
+						blockoverride "tab_icon"
+						{
+							texture = "gfx/interface/icons/flat_icons/title.dds"
+							down = "[GetVariableSystem.Exists( 'themes' )]"
+						}
 					}
 				}
 
@@ -91,7 +181,7 @@
 					name = "your_family"
 					widgetid = "your_family"
 					datacontext = "[GovernmentAdministrationWindow.GetPlayerHouse]"
-					visible = "[PdxGuiTabs.IsTabSet( 'family' )]"
+					visible = "[GetVariableSystem.Exists( 'your_family' )]"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
 
@@ -109,7 +199,7 @@
 
 				vbox = {
 					name = "themes"
-					visible = "[PdxGuiTabs.IsTabSet( 'themes' )]"
+					visible = "[GetVariableSystem.Exists( 'themes' )]"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
 
@@ -161,7 +251,7 @@
 				vbox = {
 					name = "powerful_families"
 					widgetid = "powerful_families"
-					visible = "[PdxGuiTabs.IsTabSet( 'families' )]"
+					visible = "[GetVariableSystem.Exists( 'families' )]"
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
 
@@ -973,8 +1063,8 @@ types GovernmentAdministrationThemes
 types GovernmentAdministration
 {
 	type vbox_merit_examinations = vbox {
-		
-		
+
+
 	}
 
 	type widget_title_troop_icon = widget {
@@ -1346,8 +1436,8 @@ types GovernmentAdministration
 
 			expand = {}
 
-			button_promote_candidate = { 
-				alwaystransparent = yes 
+			button_promote_candidate = {
+				alwaystransparent = yes
 			}
 
 			text_single = {
@@ -1377,8 +1467,8 @@ types GovernmentAdministration
 
 			expand = {}
 
-			button_promote_candidate = { 
-				alwaystransparent = yes 
+			button_promote_candidate = {
+				alwaystransparent = yes
 			}
 
 			text_single = {
@@ -1667,7 +1757,7 @@ types GovernmentAdministration
 							expand = {}
 						}
 					}
-					
+
 					warning_icon = {
 						size = { 32 32 }
 						visible = "[And(GreaterThan_int32( GetDataModelSize( HouseAspiration.GetLevels ), '(int32)1' ), DynastyHouse.IsHouseAttributeInactive)]"
@@ -1718,14 +1808,14 @@ types GovernmentAdministration
 				}
 			}
 		}
-		
+
 		# Investment cap - Only for admin realms who doesn't use merit
 		vbox = {
 			name = "government_panel_investment_cap_area"
 			visible = "[And( GetPlayer.GetTopLiege.GetGovernment.HasRule( 'administrative' ), Not( GetPlayer.GetTopLiege.GetGovernment.HasRule( 'merit' ) ) )]"
 			layoutpolicy_horizontal = expanding
 			spacing = 10
-			
+
 			hbox = {
 				layoutpolicy_horizontal = expanding
 				margin = { 15 2 }
@@ -1734,16 +1824,16 @@ types GovernmentAdministration
 				background = {
 					using = Background_Area
 				}
-				
+
 				text_single = {
 					layoutpolicy_horizontal = expanding
 					max_width = 500
-					
+
 					datacontext = "[GetPlayer]"
 
 					text = "ADMINISTRATIVE_GOVERNMENT_INVESTMENT_CAP"
 					align = nobaseline
-					
+
 					datacontext = "[GuiScope.SetRoot( GetPlayer.MakeScope ).GetScriptValueBreakdown( 'appointment_investment_cap' )]"
 					tooltip_visible = "[ValueBreakdown.HasTooltip]"
 
@@ -1793,7 +1883,6 @@ types GovernmentAdministration
 				hbox = {
 					datacontext = "[GetActivityType( 'activity_local_examination' )]"
 					datacontext = "[ActivityType.FindJoinableOpenActivityOfType]"
-					visible = "[Not( Activity.IsValid )]"
 
 					layoutpolicy_horizontal = expanding
 					spacing = 5
@@ -1857,7 +1946,6 @@ types GovernmentAdministration
 				hbox = {
 					datacontext = "[GetActivityType( 'activity_imperial_examination' )]"
 					datacontext = "[ActivityType.FindJoinableOpenActivityOfType]"
-					visible = "[Not( Activity.IsValid )]"
 
 					layoutpolicy_horizontal = expanding
 					spacing = 5
@@ -2292,6 +2380,16 @@ types GovernmentAdministration
 
 										blockoverride "hbox_merit_with_label_background" {}
 									}
+
+									warning_icon = {
+										visible = "[And(Character.IsMeritCapped, Not( EqualTo_int32( Character.GetMeritLevel, Character.GetGovernment.GetMaxMeritLevel ) ) )]"
+										position = { -5 0 }
+										size = { 25 25 }
+										allow_outside = yes
+
+										tooltip = "ADMIN_WINDOW_MERIT_CAPPED_TT"
+										using = tooltip_se
+									}
 								}
 
 								widget = {
@@ -2359,14 +2457,14 @@ types GovernmentAdministration
 							### EXAMINATIONS (all 3 adult exams, if there is space)
 							hbox = {
 								name = "admin_panel_character_item_exams" #ra_merit_candidacy_exams uses this
-								
+
 								visible = "[LessThanOrEqualTo_int32( GetDataModelSize(ProminentHouseMemberCharacterList.GetMeritPools( CharacterListItem.GetIndex )) , '(int32)3' )]"
 
 								spacing = 5
 								layoutpolicy_horizontal = expanding
 
 								widget_provincial_exam_status = {
-									
+
 									size = { 40 40 }
 								}
 
@@ -2397,7 +2495,7 @@ types GovernmentAdministration
 						spacing = 4
 						margin = { 4 4 }
 
-						widget_childrens_exam_status = { 
+						widget_childrens_exam_status = {
 							# no icons needed, the text already has them
 							blockoverride "pass_fail_icons" {}
 						}
@@ -2418,7 +2516,7 @@ types GovernmentAdministration
 							}
 						}
 					}
-					
+
 				}
 			}
 
@@ -2766,7 +2864,7 @@ types GovernmentAdministration
 		tooltipwidget = {
 			widget_value_breakdown_tooltip = {
 				datacontext = "[GovernmentAdministrationWindow.GetHousePowerTooltip( DynastyHouse.Self )]"
-				
+
 				blockoverride "header"
 				{
 					text_label_left = {
@@ -3415,24 +3513,6 @@ types GovernmentAdministration
 							align = nobaseline
 						}
 					}
-
-					# GOVERNOR EFFICIENCY
-#					hbox = {
-#						tooltip = "ADMIN_WINDOW_THEME_GOVERNOR_EFFICIENCY_TT"
-#						using = tooltip_ne
-#
-#						icon = {
-#							name = "char_governor_efficiency_icon"
-#							size = { 32 32 }
-#							texture = "gfx/interface/icons/icon_skill_governor_efficiency.dds"
-#						}
-#
-#						text_single = {
-#							name = "char_governor_efficiency_value"
-#							text = "ADMIN_WINDOW_THEME_GOVERNOR_EFFICIENCY_VALUE"
-#							align = nobaseline
-#						}
-#					}
 				}
 			}
 		}
@@ -3495,17 +3575,6 @@ types GovernmentAdministration
 						blend_mode = alphamultiply
 					}
 				}
-
-				# Leaving this commented out just in case
-				#text_single = {
-				#	layoutpolicy_horizontal = expanding
-				#	margin_bottom = 5
-				#
-				#	text = "ADMIN_WINDOW_MERIT_POOLS_PARTICIPANT_INFO"
-				#	default_format = "#weak"
-				#	align = center|nobaseline
-				#	max_width = 580
-				#}
 
 				text_multi = {
 					layoutpolicy_horizontal = expanding
@@ -3737,7 +3806,7 @@ types GovernmentAdministration
 
 	type widget_childrens_exam_status = widget {
 		size = { 60 60 }
-		
+
 		datacontext = "[Character.MakeScope]"
 
 		tooltip = "MERIT_TOOLTIP_EXAMINATION_PASSED_CHILD_EXAM"
@@ -3746,7 +3815,7 @@ types GovernmentAdministration
 		icon = {
 			size = { 100% 100% }
 			texture = "gfx/interface/icons/character_interactions/tgp_send_to_childrens_examination_interaction.dds"
-			
+
 			modify_texture = {
 				visible = "[Not(HasPassedChildrenExamination(Character))]"
 				texture = "gfx/interface/colors/colors_textured.dds"
@@ -3823,7 +3892,7 @@ types GovernmentAdministration
 
 	type widget_metropolitan_exam_status = widget {
 		size = { 60 60 }
-		
+
 		datacontext = "[Character.MakeScope]"
 
 		tooltip = "MERIT_TOOLTIP_EXAMINATION_PASSED_METROPOLITAN_EXAM"
@@ -3893,7 +3962,7 @@ types GovernmentAdministration
 				alpha = 0.8
 			}
 		}
-		
+
 		passed_examination_icon = {
 			visible = "[HasPassedPalaceExamination(Character)]"
 
@@ -4120,12 +4189,6 @@ template Background_Area_Family_Decoration {
 			spriteType = corneredTiled
 		}
 	}
-
-	#background = {
-	#visible = "[DynastyHouse.GetHeadOfHouse.IsPlayer]"
-	#using = Background_Area_Border
-	#using = Background_Frame_Gold
-	#}
 }
 
 template Background_Area_Admin_Purple {

@@ -230,6 +230,11 @@
 		name = "activity_event_widgets"
 		visible = "[ActivityWindow.HasActiveEvent]"
 		size = { 100% 100% }
+		allow_outside = yes
+		
+		blockoverride "tooltip_scroll_height" {
+			max_height = 580
+		}
 
 		# Used for pivotal moments in Chariot Races which are not fullscreen
 		widget = {
@@ -239,7 +244,6 @@
 			alwaystransparent = yes
 		}
 
-		allow_outside = yes
 		activity_event_widget = {
 			name = "activity_event"
 			parentanchor = center
@@ -1092,8 +1096,8 @@ types ActivityWindowTypes
 		datacontext = "[ActivityWindow.GetEventWindowInsert( PdxGuiWidget.AccessSelf )]"
 		datacontext = "[EventWindowViewInsert.GetOpenEvent]"
 		visible = "[EventWindowViewInsert.HasOpenEvent]"
+		allow_outside = yes # all of these are to allow us to scroll event previews
 
-		using = Event_Window_Debug_OptionTooltips
 		using = Event_Window_Debug_EventTools
 
 		state = {
@@ -1770,18 +1774,6 @@ types ActivityWindowTypes
 			}
 		}
 
-		#icon = {
-		#visible = "[And( EventWindowData.ShouldShowContentSource, EventWindowData.GetContentSourceDlc.HasEventDecoration )]"
-		#name = "source_icon"
-		#position = { 22 50 }
-		#size = { 263 64 }
-		#parentanchor = top|left
-		#texture = "[EventWindowData.GetContentSourceDlc.GetEventDecoration]"
-		#mirror = horizontal
-		#tooltip = "EVENT_CONTENT_SOURCE_TT"
-		#alpha = 1
-		#}
-
 		flowcontainer = {
 			name = "event_debug_info"
 			visible = "[InDebugMode]"
@@ -1796,17 +1788,35 @@ types ActivityWindowTypes
 				onclick = "[EventWindowViewInsert.Reload]"
 			}
 		}
+		
+		widget = {
+			size = { 0 100% }
+			position = { -600 -60 }
+			parentanchor = right
+			allow_outside = yes
+			alwaystransparent = yes
+			
+			datacontext = "[Activity.GetCurrentPhase]"
+			datacontext = "[Activity.GetCurrentPhase.GetPhase]"
+
+			blockoverride "clean_event_tooltips_position" {
+				position = { -770 60 }
+				parentanchor = bottom
+				widgetanchor = bottom|right
+			}
+			using = Event_Window_Debug_OptionTooltips
+		}
 	}
 
 	type activity_event_widget_base = widget
 	{
 		visible = "[EventWindowViewInsert.HasOpenEvent]"
 
-		using = Event_Window_Debug_OptionTooltips
 		using = Event_Window_Debug_EventTools
 
 		using = Window_Background
 		using = Window_Decoration_Frontend_Flat
+		allow_outside = yes
 
 		event_window_background_widget = {
 			margin = { 40 0 }
@@ -2642,6 +2652,15 @@ types ActivityWindowTypes
 			{
 				onclick = "[EventWindowViewInsert.Reload]"
 			}
+		}
+		
+		widget = {
+			size = { 0 100% }
+			position = { 20 0 }
+		
+			allow_outside = yes
+			alwaystransparent = yes
+			using = Event_Window_Debug_OptionTooltips
 		}
 	}
 

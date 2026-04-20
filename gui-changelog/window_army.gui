@@ -204,6 +204,25 @@ window = {
 					margin_bottom = 15
 
 					expand = {}
+					
+					widget = {
+						size = { 42 45 }
+						visible = "[GreaterThan_int32(GetDataModelSize(ArmyWindow.GetSelectedUnitItems), '(int32)1')]"
+						
+						button_round = {
+							name = "halt_button"
+							visible = "[IsValidCommand( ArmyWindow.GetOrders.GetHalt )]"
+							onclick = "[PostCommand( ArmyWindow.GetOrders.GetHalt )]"
+							tooltip = "ARMY_HALT_ALL"
+							shortcut = army_halt
+							parentanchor = bottom
+
+							button_pause = {
+								parentanchor = center
+								alwaystransparent = yes
+							}
+						}
+					}
 
 					widget = {
 						size = { 42 45 }
@@ -233,12 +252,31 @@ window = {
 							tooltip = "[ArmyWindow.BuildMergeTooltip]"
 							using = tooltip_ne
 							parentanchor = bottom
+							onclick = "[ArmyWindow.MergeSelected]"
+							shortcut = "army_merge"
 
 							button_army_merge = {
 								parentanchor = center
-								onclick = "[ArmyWindow.MergeSelected]"
-								shortcut = "army_merge"
+								alwaystransparent = yes
 							}
+						}
+					}
+
+					hbox = {
+						min_height = 45 # so it doesn't shift up and down
+						layoutpolicy_vertical = expanding
+						button_back = {
+							enabled = "[ArmyWindow.CanGoToPreviousArmy]"
+							onclick = "[ArmyWindow.GoToPreviousArmy]"
+							tooltip = "YOUR_PREV_ARMY"
+							shortcut = go_back
+						}
+						button_back = {
+							mirror = horizontal
+							enabled = "[ArmyWindow.CanGoToNextArmy]"
+							onclick = "[ArmyWindow.GoToNextArmy]"
+							tooltip = "YOUR_NEXT_ARMY"
+							shortcut = go_next
 						}
 					}
 				}
@@ -1039,6 +1077,7 @@ window = {
 							text_single = {
 								name = "status_text"
 								text = "[ArmyWindow.GetUnitItem.GetStatusDescription]"
+								tooltip = "[Army.GetMovementInfoForTooltip]"
 								default_format = "#high"
 								align = nobaseline
 							}
@@ -1075,6 +1114,21 @@ window = {
 									tooltip = "STOP_GATHERING"
 								}
 							}
+							
+							button_round = {
+								name = "halt_button"
+								size = { 30 30 }
+								visible = "[And(Army.IsMoving, Not(Army.IsGathering))]"
+								enabled = "[IsValidCommand( Army.GetOrders.GetHalt )]"
+								tooltip = "ARMY_HALT"
+								shortcut = army_halt
+								onclick = "[PostCommand( Army.GetOrders.GetHalt )]"
+
+								button_pause = {
+									parentanchor = center
+									alwaystransparent = yes
+								}
+							}
 						}
 
 						hbox = {
@@ -1092,6 +1146,12 @@ window = {
 							}
 						}
 					}
+				}
+				button = {
+					# so the shortcut takes priority
+					visible = "[IsValidCommand( ArmyWindow.GetOrders.GetHalt )]"
+					onclick = "[PostCommand( ArmyWindow.GetOrders.GetHalt )]"
+					shortcut = army_halt
 				}
 			}
 
@@ -1320,10 +1380,10 @@ window = {
 					visible = "[Army.IsSieging]"
 					button_army_split_off_besiegers = {
 						parentanchor = center
-
-						onclick = [ArmyWindow.SplitSelectedForSiege]
-						shortcut = army_split_half
+						alwaystransparent = yes
 					}
+					onclick = [ArmyWindow.SplitSelectedForSiege]
+					shortcut = army_split_for_siege
 					enabled = [ArmyWindow.CanSplitSelectedForSiege]
 					tooltip = [ArmyWindow.BuildSplitForSiegeTooltip]
 				}
@@ -1403,11 +1463,12 @@ window = {
 
 	widget = {
 		name = "expanded_armies_window"
-		visible = "[GetVariableSystem.Exists( 'expanded_armies_window' )]"
+		visible = "[And(GetVariableSystem.Exists( 'expanded_armies_window' ), GreaterThan_int32(GetDataModelSize(ArmyWindow.GetSelectedUnitItems), '(int32)1'))]"
 		parentanchor = top
 		widgetanchor = bottom
 		position = { 40 0 }
 		layer = top
+		visible_at_creation = no
 
 		allow_outside = yes
 
@@ -1423,11 +1484,13 @@ window = {
 			name = _hide
 			using = Animation_FadeOut_Quick
 			position_y = 50
+			on_finish = "[GetVariableSystem.Clear('expanded_armies_window')]"
 		}
 
 		vbox = {
 			alwaystransparent = no
 			set_parent_size_to_minimum = yes
+			min_width = 360
 
 			margin = { 5 5 }
 			using = Window_Background_Subwindow
@@ -2075,7 +2138,11 @@ types ArmyWindow
 
 			hbox = {
 				name = "soldiers"
-				tooltip = "[ArmyComposition.GetArmyCompositionTooltip]"
+				tooltip_offset = { -110 0 }
+				
+				tooltipwidget = {
+					using = Scrollable_Army_Composition_Tooltip
+				}
 
 				layoutpolicy_horizontal = expanding
 				spacing = 5
@@ -2137,7 +2204,9 @@ types ArmyWindow
 
 	type hbox_soldiers_and_quality_small_core = hbox
 	{
-		tooltip = "[ArmyComposition.GetArmyCompositionTooltip]"
+		tooltipwidget = {
+			using = Scrollable_Army_Composition_Tooltip
+		}
 		spacing = 3
 
 		icon = {
@@ -2180,15 +2249,11 @@ types ArmyWindow
 		margin = {5 5}
 		spacing = 5
 
-		tooltip = "[ArmyComposition.GetArmyCompositionTooltip]"
-
 		expand = {
 			layoutpolicy_horizontal = expanding
 		}
 
-		hbox_soldiers_and_quality_small_core = {
-			tooltip = ""
-		}
+		hbox_soldiers_and_quality_small_core = {}
 
 		expand = {
 			layoutpolicy_horizontal = expanding
@@ -2284,6 +2349,60 @@ types ArmyWindow
 				min = 0
 				max = "[IntToFloat(RegimentReorgEntry.GetMaxSoldierCount)]"
 				value = "[IntToFloat(RegimentReorgEntry.GetSoldierCount)]"
+			}
+		}
+	}
+}
+
+template Scrollable_Army_Composition_Tooltip {
+	scrolltip = {
+		blockoverride "scrolltip_size" {
+			size = { 330 0 }
+		}
+		blockoverride "scrolltip_header" {
+			
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				margin = { 5 10 }
+				margin_bottom = 0
+				spacing = 5
+				icon = {
+					name = "icon_soldier"
+					texture = "gfx/interface/icons/icon_soldier.dds"
+					size = { 40 40 }
+				}
+				
+				text_single = {
+					name = "strength"
+					text = "[ArmyComposition.GetSoldierCountString]"
+					using = Font_Size_Big
+					default_format = "#high"
+					align = nobaseline
+				}
+				
+				spacer = {
+					size = { 5 5 }
+				}
+				
+				vbox = {
+					layoutpolicy_vertical = expanding
+					margin_bottom = 7
+					expand = {}
+					
+					text_single = {
+						name = "quality_label"
+						text = "[ArmyComposition.GetArmyQualityName]"
+						align = nobaseline
+					}
+				}
+				
+				expand = {}
+			}
+		}
+		blockoverride "scrolltip_content" {
+			cooltip_paragraph = {
+				text = "[ArmyComposition.GetArmyCompositionTooltip]"
+				max_width = 440
 			}
 		}
 	}

@@ -18,7 +18,6 @@ types CharacterWindow
 			layoutpolicy_horizontal = expanding
 			size = { 0 325 }
 
-
 			widget = {
 				size = { 100% 100% }
 				using = Animation_Character_Window_Refresh
@@ -42,7 +41,7 @@ types CharacterWindow
 			### Primary Spouse
 			container_secondary = {
 				visible = "[CharacterWindow.ShouldShowSecondary]"
-				position = { 60 0 }
+				position = { 90 0 }
 
 				blockoverride "portrait_button"
 				{
@@ -54,14 +53,81 @@ types CharacterWindow
 			portrait_character_view_main = {
 				name = "tutorial_highlight_main_character_button"
 				parentanchor = bottom|left
-				position = { 60 0 }
+				position = { 0 0 }
+
+				state = {
+					name = _mouse_hierarchy_enter
+					on_finish = "[GetVariableSystem.Set('show_character_buttons', 'yes')]"
+				}
+
+				state = {
+					name = _mouse_hierarchy_leave
+					on_finish = "[GetVariableSystem.Clear('show_character_buttons')]"
+				}
 
 				using = Animation_Character_Window_Refresh_Short
+				
+
+				flowcontainer = {
+					direction = vertical
+					ignoreinvisible = yes
+					parentanchor = bottom|left
+					alpha = 1
+					alwaystransparent = no
+					min_width = 35
+
+					#Character related buttons that appear on hover
+					flowcontainer = {
+						name = "character_buttons"
+						parentanchor = hcenter
+						spacing = 5
+						ignoreinvisible = yes
+						direction = vertical
+						
+						visible = "[GetVariableSystem.Exists('show_character_buttons')]"
+						
+						state = {
+							name = _show
+							position_x = 0
+							alpha = 1
+							
+							using = Animation_Curve_Default
+							duration = 0.1
+						}
+						
+						state = {
+							name = _hide
+							position_x = -5
+							alpha = 0
+							
+							using = Animation_Curve_Default
+							duration = 0.25
+						}
+
+						button_normal = {
+							name = "open_memories"
+
+							size = { 35 35 }
+							datacontext = "[Character]"
+							tooltip = "OPEN_MEMORIES_TOOLTIP"
+							using = tooltip_es
+
+							icon_round_button_base = {}
+
+							button_memories = {
+								onclick = "[ToggleGameViewData( 'memories', Character.GetID  )]"
+								size = { 25 25 }
+								parentanchor = center
+							}
+						}
+					}
+				}
 
 				blockoverride "portrait_button"
 				{
 					using = tooltip_es
 					tooltip_offset = { -50 0 }
+					position = { 50 10 }
 				}
 
 				blockoverride "prison_bars" {
@@ -84,12 +150,15 @@ types CharacterWindow
 					}
 				}
 
+
+
 				blockoverride "portrait_opinion"
 				{
 					vassal_stance_icon = {
 						name = "vassal_stance"
 						size = { 20 20 }
 					}
+					position = { 50 0 }
 				}
 			}
 
@@ -100,6 +169,7 @@ types CharacterWindow
 
 			buttons_window_control = {
 				parentanchor = top|right
+				position = { 0 -3 }
 
 				blockoverride "extra_buttons"
 				{
@@ -200,30 +270,6 @@ types CharacterWindow
 				}
 			}
 
-			flowcontainer = {
-				parentanchor = bottom|left
-				position = { 5 -5 }
-				spacing = 5
-				ignoreinvisible = yes
-				direction = vertical
-
-				button_normal = {
-					name = "open_memories"
-
-					size = { 35 35 }
-					datacontext = "[Character]"
-					tooltip = "OPEN_MEMORIES_TOOLTIP"
-					using = tooltip_es
-
-					icon_round_button_base = {}
-
-					button_memories = {
-						onclick = "[ToggleGameViewData( 'memories', Character.GetID  )]"
-						size = { 25 25 }
-						parentanchor = center
-					}
-				}
-			}
 		}
 
 		############################
@@ -258,7 +304,6 @@ types CharacterWindow
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
 						margin = { 0 2 }
-
 						agot_name_flavorization_hbox = {}
 
 						hbox_character_relation_and_ai = {
@@ -270,7 +315,35 @@ types CharacterWindow
 					}
 
 					## Traits
-					agot_trait_expanding_button = {}
+					hbox = {
+						layoutpolicy_horizontal = expanding
+
+						hbox_traits_list = {
+							name = "tutorial_highlight_traits"
+							datacontext = "[CharacterWindow.GetTraitArrays]"
+							margin_bottom = 2
+						}
+
+						expand = {}
+
+						button_tertiary = {
+							size = { 22 45 }
+
+							onclick = "[CharacterWindow.ToggleExpandedTraits]"
+							down = "[CharacterWindow.AreTraitsExpanded]"
+
+							tooltip = "[SelectLocalization( CharacterWindow.AreTraitsExpanded, 'CV_TRAITS_HIDE_TT', 'CV_TRAITS_SHOW_TT' )]"
+
+							vbox = {
+								layoutpolicy_horizontal = expanding
+
+								icon = {
+									size = { 20 20 }
+									texture = "gfx/interface/icons/message_feed/trait.dds"
+								}
+							}
+						}
+					}
 				}
 
 				divider_light = {
@@ -352,13 +425,14 @@ types CharacterWindow
 						}
 
 						vbox = {
-							tooltip = "ADMIN_WINDOW_THEME_GOVERNOR_EFFICIENCY_TT"
-							using = tooltip_ne
-							spacing = -3
 							visible = "[Or( Character.GetGovernment.HasRule( 'administrative' ), And( And( Not( Character.HasLandedTitles ), Not( Character.HasLiege ) ), GetPlayer.GetGovernment.HasRule( 'administrative' ) ) )]"
 							margin_right = 3
+							spacing = -3
 
 							using = Animation_Character_Window_Refresh
+
+							tooltip = "ADMIN_WINDOW_THEME_GOVERNOR_EFFICIENCY_TT"
+							using = tooltip_ne
 
 							icon = {
 								name = "char_governor_efficiency_icon"
@@ -437,7 +511,7 @@ types CharacterWindow
 
 			## House
 			widget = {
-				name = "house"
+				name = "char_view_house_area" #lesson_china_house uses this
 				datacontext = "[Character.GetHouse]"
 				layoutpolicy_vertical = expanding
 				size = { 120 0 }
@@ -450,31 +524,59 @@ types CharacterWindow
 					}
 
 					coa_house_big = {
-						flowcontainer = {
-							name = "characters_status_in_house"
+						widget = {
 							parentanchor = bottom|right
-							position = { -10 0 }
-							ignoreinvisible = yes
+							widgetanchor = bottom|right
+							size = { 40 80 }
 
-							icon = {
-								name = "bastard"
-								visible = "[Not(Character.IsLegitimateMemberOfHouse)]"
-								framesize = { 40 40 }
-								frame = 4
-								size = { 20 20 }
-								texture = "gfx/interface/icons/portraits/relation.dds"
-								tooltip = "CV_TT_BASTARD"
-							}
+							vbox = {
+								layoutpolicy_vertical = expanding
+								name = "characters_status_in_house"
 
-							icon = {
-								name = "head_icon"
-								visible = "[LessThan_int32(Character.GetDynastyHeadRelationFrame('(bool)no'), '(int32)9')]"
-								size = { 20 20 }
+								expand = {}
 
-								texture = "gfx/interface/icons/portraits/relation.dds"
-								framesize = { 40 40 }
-								frame = "[Character.GetDynastyHeadRelationFrame('(bool)no')]"
-								tooltip = "[Character.GetDynastyHeadTooltip]"
+								icon = {
+									name = "bastard"
+									visible = "[Not(Character.IsLegitimateMemberOfHouse)]"
+									framesize = { 40 40 }
+									frame = 4
+									size = { 20 20 }
+									texture = "gfx/interface/icons/portraits/relation.dds"
+									tooltip = "CV_TT_BASTARD"
+								}
+
+								icon = {
+									name = "head_icon"
+									visible = "[LessThan_int32(Character.GetDynastyHeadRelationFrame('(bool)no'), '(int32)9')]"
+									size = { 20 20 }
+
+									texture = "gfx/interface/icons/portraits/relation.dds"
+									framesize = { 40 40 }
+									frame = "[Character.GetDynastyHeadRelationFrame('(bool)no')]"
+									tooltip = "[Character.GetDynastyHeadTooltip]"
+								}
+
+								icon_house_relation = {
+									size = { 20 20 }
+
+									datacontext = "[DynastyHouse.GetHouseRelationWith( GetPlayer.GetHouse )]"
+									tooltipwidget = {
+										house_relation_item_tooltip_no_progressbar = {
+											blockoverride "description_prefix" {
+												text_single = {
+													layoutpolicy_horizontal = expanding
+													text = "house_relation_your_relation_with"
+													default_format = "#weak"
+													align = left
+												}
+											}
+										}
+									}
+								}
+
+								spacer = {
+									size = { 0 10 }
+								}
 							}
 						}
 					}
@@ -542,13 +644,14 @@ types CharacterWindow
 				name = "realm_info"
 				min_width = 592
 
+				# hbox_character_view_secondary_stats_bar = {}
+
 				hbox = {
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
 
 					vbox = {
 						name = "realm_shield"
-						visible = "[Character.HasLandedTitles]"
 						layoutpolicy_vertical = expanding
 						spacing = 4
 						margin_top = -4
@@ -557,7 +660,7 @@ types CharacterWindow
 
 						coa_realm_medium_crown = {
 							datacontext = "[Character]"
-
+							visible = "[Character.HasLandedTitles]"
 							blockoverride "coa_button"
 							{
 								name = "realm_shield"
@@ -633,7 +736,6 @@ types CharacterWindow
 						hbox = {
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding
-							margin_right = 2
 
 							vbox_titles_claims_box = {
 								visible = "[Not( Character.GetPrimaryTitle.HasFaction )]"
@@ -678,12 +780,11 @@ types CharacterWindow
 
 					vbox = {
 						name = "diplomacy_items"
-
 						layoutpolicy_vertical = expanding
 
 						vbox_diplomacy_box = {
 							visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetDiplomacyItems), '(int32)0' )]"
-							margin_top = 4
+							margin_top = 5
 							margin_right = 5
 							using = Animation_Character_Window_Refresh
 
@@ -713,6 +814,7 @@ types CharacterWindow
 		### TABS
 		hbox = {
 			name = "tabs"
+			datacontext = "[CharacterWindow.GetCharacter]"
 			visible = "[And(CharacterWindow.AreNoneExpanded, Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_character_sheet_bottom').GetValue, '(CFixedPoint)0' ) ))]"
 			layoutpolicy_horizontal = expanding
 			using = Animation_ShowHide_Quick
@@ -720,97 +822,122 @@ types CharacterWindow
 
 			button_tab = {
 				name = "family_button"
-				datacontext = "[CharacterWindow.GetCharacter]"
-				layoutpolicy_horizontal = expanding
 
-				onclick = "[CharacterWindow.SetTab('family')]"
 				down = "[CharacterWindow.IsTabShown('family')]"
 
-				using = tooltip_above
+				onclick = "[GetVariableSystem.Set('family', 'true')]"
+				onclick = "[CharacterWindow.SetTab('family')]"
+				onclick = "[GetVariableSystem.Clear('relations')]"
+				onclick = "[GetVariableSystem.Clear('court')]"
+				onclick = "[GetVariableSystem.Clear('subjects')]"
+				shortcut = "tab_1"
+				#onclick = "[CharacterWindow.SetActiveTab('family')]"
 
-				hbox = {
-					text_single = {
-						layoutpolicy_horizontal = expanding
-						align = center
-						text = "CV_TAB_FAMILY"
-						default_format = "#low"
-					}
+				### Added on creation triggers for the default tab to trigger expand animation when opening the window for the first time
+				oncreate = "[PdxGuiWidget.TriggerAnimation('tab_active')]"
+				oncreate = "[PdxGuiWidget.FindChild('tab_name').TriggerAnimation('tab_name_hidden')]"
 
+				alwaystransparent = "[CharacterWindow.IsTabShown('family')]"
+
+				blockoverride "tab_label_visibility"
+				{
+					visible = "[GetVariableSystem.Exists( 'family' )]"
+				}
+
+				blockoverride "tab_label"
+				{
+					text = "CV_TAB_FAMILY"
+					max_width = 220
+				}
+
+				blockoverride "extra_info"
+				{
 					text_single = {
-						align = center
 						text = "[CharacterWindow.GetTabItemsCount('family')]"
+						align = nobaseline
 						default_format = "#low"
-						margin_right = 15
-						min_width = 30
 
-						using = Animation_Character_Window_Refresh
+						margin_top = 3
 					}
 				}
 			}
 
 			button_tab = {
 				name = "relations_button"
-				datacontext = "[CharacterWindow.GetCharacter]"
-				layoutpolicy_horizontal = expanding
 
+				onclick = "[GetVariableSystem.Set( 'relations', 'true' )]"
 				onclick = "[CharacterWindow.SetTab('relations')]"
+				onclick = "[GetVariableSystem.Clear( 'family' )]"
+				onclick = "[GetVariableSystem.Clear( 'court' )]"
+				onclick = "[GetVariableSystem.Clear( 'subjects' )]"
+				shortcut = "tab_2"
+
 				down = "[CharacterWindow.IsTabShown('relations')]"
 
-				using = tooltip_above
+				alwaystransparent = "[CharacterWindow.IsTabShown('relations')]"
 
-				hbox = {
+				blockoverride "tab_label_visibility"
+				{
+					visible = "[GetVariableSystem.Exists( 'relations' )]"
+				}
+
+				blockoverride "tab_label"
+				{
+					text = "CV_TAB_RELATIONS"
+					max_width = 220
+				}
+
+				blockoverride "extra_info"
+				{
 					text_single = {
-						layoutpolicy_horizontal = expanding
-						align = center
-						text = "CV_TAB_RELATIONS"
+						#AGOT Modified
+						# text = "[CharacterWindow.GetTabItemsCount('relations')]"
+						text = "[CharacterWindow.GetCharacter.MakeScope.ScriptValue('agot_relations_value')|0]"
+						align = nobaseline
 						default_format = "#low"
-					}
 
-					text_single = {
-						align = center
-						raw_text = "0"
-						default_format = "#low"
-						margin_right = 15
-						min_width = 30
-
-						using = Animation_Character_Window_Refresh
+						margin_top = 3
 					}
 				}
 			}
 
 			button_tab = {
 				name = "court_button"
-				datacontext = "[CharacterWindow.GetCharacter]"
-				#	visible = "[Not(Character.IsPlayer)]"
-				layoutpolicy_horizontal = expanding
 
+				onclick = "[GetVariableSystem.Set( 'court', 'true' )]"
 				onclick = "[CharacterWindow.SetTab('court')]"
+				onclick = "[GetVariableSystem.Clear( 'family' )]"
+				onclick = "[GetVariableSystem.Clear( 'relations' )]"
+				onclick = "[GetVariableSystem.Clear( 'subjects' )]"
+				shortcut = "tab_3"
+
 				down = "[CharacterWindow.IsTabShown('court')]"
 
-				using = tooltip_above
+				alwaystransparent = "[CharacterWindow.IsTabShown('court')]"
 
-				hbox = {
-					text_single = {
-						layoutpolicy_horizontal = expanding
-						align = center
-						text = "CV_TAB_COURT"
-						default_format = "#low"
-					}
+				blockoverride "tab_label_visibility"
+				{
+					visible = "[GetVariableSystem.Exists( 'court' )]"
+				}
 
+				blockoverride "tab_label"
+				{
+					text = "CV_TAB_COURT"
+					max_width = 220
+				}
+
+				blockoverride "extra_info"
+				{
 					text_single = {
-						align = center
 						raw_text = "0"
+						align = nobaseline
 						default_format = "#low"
-						margin_right = 15
-						min_width = 30
 
-						using = Animation_Character_Window_Refresh
+						margin_top = 3
 					}
 				}
 			}
 		}
-
-		spacer = { size = { 0 2 } }
 
 		widget = {
 			visible = "[CharacterWindow.AreNoneExpanded]"
@@ -922,7 +1049,7 @@ types CharacterWindow
 
 								blockoverride "portrait_datamodel" {
 									datamodel = "[CharacterWindow.GetSecondarySpouses]"
-									maxhorizontalslots = 4
+									maxhorizontalslots = 3
 								}
 
 								blockoverride "header_text"
@@ -931,14 +1058,14 @@ types CharacterWindow
 								}
 
 								blockoverride "expand_button_inside" {
-									visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)4' )]"
+									visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)3' )]"
 									onclick = "[CharacterWindow.ToggleExpandedRelation( 'spouses' )]"
 								}
 
 								blockoverride "remaining_items"
 								{
-									visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)4' )]"
-									text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)4' )|=]"
+									visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)3' )]"
+									text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetSecondarySpouses), '(int32)3' )|=]"
 								}
 
 								blockoverride "find_partner"
@@ -1359,7 +1486,6 @@ types CharacterWindow
 
 				blockoverride "container_implementation" {}
 
-				blockoverride "character_count" {}
 			}
 
 			####################################
@@ -1369,6 +1495,16 @@ types CharacterWindow
 			vbox_character_list = {
 				visible = "[CharacterWindow.IsTabShown('subjects')]"
 				datacontext = "[CharacterWindow.GetVassals]"
+
+				using = Animation_Tab_Switch
+				
+				blockoverride "post_sort" {
+					button_menu = {
+						tooltip = "MY_REALM_COMPACT_SUBJECT_LIST"
+						shortcut = compact_subject_list_character
+						onclick = "[GetVariableSystem.Toggle('compact_vassal_list_character')]"
+					}
+				}
 
 				blockoverride "sort_dropdown" {
 					dropdown_sort_characterlist = {
@@ -1383,56 +1519,77 @@ types CharacterWindow
 				}
 
 				blockoverride "container_implementation" {
-					fixedgridbox = {
-						name = "characters_grid"
-						datamodel = "[CharacterSelectionList.GetList]"
-						visible = "[Not(CharacterSelectionList.IsBuildingList)]"
-						addcolumn = 575
-						addrow = 125
-						setitemsizefromcell = yes
-
-						item = {
-							widget_vassal_list_item = {
-								datacontext = "[CharacterListItem.GetCharacter]"
-
-								blockoverride "vassal_buttons" {
-									hbox = {
-										layoutpolicy_horizontal = expanding
-
-										text_single = {
-											visible = "[And( Character.IsPowerfulVassal, Character.IsVassalOf( Character.GetOverlord ) )]"
+					vbox = {
+						layoutpolicy_horizontal = expanding
+						visible = "[Not(GetVariableSystem.Exists('compact_vassal_list_character'))]"
+						fixedgridbox = {
+							name = "characters_grid"
+							datamodel = "[CharacterSelectionList.GetList]"
+							visible = "[Not(CharacterSelectionList.IsBuildingList)]"
+							addcolumn = 575
+							addrow = 125
+							setitemsizefromcell = yes
+							
+							item = {
+								widget_vassal_list_item = {
+									datacontext = "[CharacterListItem.GetCharacter]"
+									
+									blockoverride "vassal_buttons" {
+										hbox = {
 											layoutpolicy_horizontal = expanding
-
-											text = "MY_REALM_WINDOW_POWERFUL_VASSAL"
-											align = nobaseline
-											max_width = 200
+											
+											text_single = {
+												visible = "[And( Character.IsPowerfulVassal, Character.IsVassalOf( Character.GetOverlord ) )]"
+												layoutpolicy_horizontal = expanding
+												
+												text = "MY_REALM_WINDOW_POWERFUL_VASSAL"
+												align = nobaseline
+												max_width = 200
+											}
+											
+											expand = {}
 										}
-
-										expand = {}
 									}
-								}
-								blockoverride "own_vassal" {}
-
-								blockoverride "realm_size_powerful_status" {
-									hbox = {
-										spacing = 10
-
-										text_single = {
-											visible = "[NotEqualTo_int32(Character.GetPrimaryTitle.GetTierFrame, '(int32)2')]" #nonbaron
-											layoutpolicy_horizontal = expanding
-
-											text = "REALM_WINDOW_SIZE"
-											align = nobaseline
-											max_width = 200
-
-											tooltip = "REALM_WINDOW_SIZE_TT"
+									blockoverride "own_vassal" {}
+									
+									blockoverride "realm_size_powerful_status" {
+										hbox = {
+											spacing = 10
+											
+											text_single = {
+												visible = "[NotEqualTo_int32(Character.GetPrimaryTitle.GetTierFrame, '(int32)2')]" #nonbaron
+												layoutpolicy_horizontal = expanding
+												
+												text = "REALM_WINDOW_SIZE"
+												align = nobaseline
+												max_width = 200
+												
+												tooltip = "REALM_WINDOW_SIZE_TT"
+											}
+											
+											expand = {}
 										}
-
-										expand = {}
 									}
+									
+									blockoverride "release_tributary_button" {}
 								}
-
-								blockoverride "release_tributary_button" {}
+							}
+						}
+					}
+					
+					vbox = {
+						layoutpolicy_horizontal = expanding
+						margin_top = 5
+						margin_left = 5
+						visible = "[GetVariableSystem.Exists('compact_vassal_list_character')]"
+						
+						fixedgridbox_compact_subjects = {
+							blockoverride "directive_button" {
+								visible = no
+							}
+							blockoverride "gridbox_size" {
+								addcolumn = 92
+								addrow = 115
 							}
 						}
 					}
@@ -1442,30 +1599,14 @@ types CharacterWindow
 				{
 					hbox = {
 						layoutpolicy_horizontal = growing
-						margin = { 15 0 }
-						margin_bottom = 5
+						margin = { 2 0 }
+						margin_bottom = 2
 						spacing = 5
 
 						block "bottom_bar" {}
 
 						expand = {}
 
-						widget = {
-							size = { 20 15 }
-
-							warning_icon = {
-								size = { 20 20 }
-								visible = "[Not( CharacterSelectionList.IsAllDefault )]"
-								tooltip = "CHARACTER_FINDER_FILTER_SET"
-							}
-						}
-
-						text_single = {
-							name = "character_count"
-							datacontext = "[CharacterSelectionList]"
-							text = "CHARACTER_FINDER_COUNT"
-							default_format = "#low"
-						}
 					}
 				}
 			}
@@ -1655,6 +1796,7 @@ types CharacterWindow
 
 							button_group = {
 								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = expanding
 								alwaystransparent = "[DiplomacyItem.IsConfederation]"
 
 								onclick = "[DiplomacyItem.OnClick]"
@@ -1663,81 +1805,85 @@ types CharacterWindow
 								using = tooltip_se
 
 								hbox = {
-									widget = {
-										size = { 65 74 }
+									vbox = {
+										margin_top = 20
+										widget = {
+											size = { 65 74 }
 
-										button = {
-											parentanchor = top|hcenter
-											alwaystransparent = "[DiplomacyItem.IsConfederation]"
-											position = { 0 -30 }
-											size = { 50 50 }
-											texture = "gfx/interface/icons/diplomatic_icons.dds"
-											frame = "[DiplomacyItem.GetDiplomacyFrame]"
-											framesize = { 120 120 }
-											scale = 1.3
+											button = {
+												parentanchor = top|hcenter
+												alwaystransparent = "[DiplomacyItem.IsConfederation]"
+												position = { 0 -30 }
+												size = { 50 50 }
+												texture = "gfx/interface/icons/diplomatic_icons.dds"
+												frame = "[DiplomacyItem.GetDiplomacyFrame]"
+												framesize = { 120 120 }
+												scale = 1.3
 
-											tooltip_visible = no
-										}
+												tooltip_visible = no
+											}
 
-										coa_realm_medium = {
-											visible = "[And(Not(DiplomacyItem.IsStruggle), Not(DiplomacyItem.IsConfederation))]"
-											datacontext = "[DiplomacyItem.GetTargetCharacter]"
-											parentanchor = hcenter
-
-											tooltip = "[DiplomacyItem.GetTooltip]"
-
-											text_single = {
-												name = "warscore"
-												visible = "[DiplomacyItem.HasWarScore]"
+											coa_realm_medium = {
+												visible = "[And(Not(DiplomacyItem.IsStruggle), Not(DiplomacyItem.IsConfederation))]"
+												datacontext = "[DiplomacyItem.GetTargetCharacter]"
 												parentanchor = hcenter
-												position = { 0 -20 }
 
-												text = "[DiplomacyItem.GetWarScoreFraction|0%=+]"
-												align = nobaseline
-												using = Font_Size_Medium
+												tooltip = "[DiplomacyItem.GetTooltip]"
 
-												background = {
-													using = Background_Area_ExtraDark
-													margin = { 3 1 }
+												text_single = {
+													name = "warscore"
+													visible = "[DiplomacyItem.HasWarScore]"
+													parentanchor = hcenter
+													position = { 0 -20 }
+
+													text = "[DiplomacyItem.GetWarScoreFraction|0%=+]"
+													align = nobaseline
+													using = Font_Size_Medium
+
+													background = {
+														using = Background_Area_ExtraDark
+														margin = { 3 1 }
+													}
 												}
 											}
-										}
 
-										coa_confederation_medium = {
-											datacontext = "[DiplomacyItem.GetConfederation]"
-											parentanchor = hcenter
-										}
+											coa_confederation_medium = {
+												datacontext = "[DiplomacyItem.GetConfederation]"
+												parentanchor = hcenter
+											}
 
-										coa_bloc_medium = {
-											datacontext = "[DiplomacyItem.GetConfederation]"
-											parentanchor = hcenter
-										}
+											coa_bloc_medium = {
+												datacontext = "[DiplomacyItem.GetConfederation]"
+												parentanchor = hcenter
+											}
 
-										button = {
-											datacontext = "[DiplomacyItem.GetStruggle]"
-											datacontext = "[DiplomacyItem.GetTargetCharacter]"
-											visible = "[DiplomacyItem.IsStruggle]"
-											position = { 0 -3 }
-											size = { 70 90 }
+											button = {
+												datacontext = "[DiplomacyItem.GetStruggle]"
+												datacontext = "[DiplomacyItem.GetTargetCharacter]"
+												visible = "[DiplomacyItem.IsStruggle]"
+												position = { 0 -3 }
+												size = { 70 90 }
 
-											onclick = "[DiplomacyItem.OnClick]"
+												onclick = "[DiplomacyItem.OnClick]"
 
-											tooltipwidget = struggle_tooltip
-											using = tooltip_es
-											tooltip_offset = { 0 22 }
+												tooltipwidget = struggle_tooltip
+												using = tooltip_es
+												tooltip_offset = { 0 22 }
 
-											widget_struggle_icon = {}
+												widget_struggle_icon = {}
+											}
 										}
 									}
 
 									text_multi = {
 										layoutpolicy_horizontal = expanding
 										alwaystransparent = "[DiplomacyItem.IsConfederation]"
+										margin_bottom = 8
 
 										text = "[DiplomacyItem.GetInfo]"
 										autoresize = yes
 										max_width = 440
-										min_height = 120
+										min_height = 0
 										using = Font_Size_Tiny
 									}
 								}
@@ -1747,6 +1893,7 @@ types CharacterWindow
 								name = "reason_characters"
 								visible = "[DiplomacyItem.HasReasonCharacters]"
 								margin_bottom = 10
+								layoutpolicy_vertical = expanding
 
 								portrait_head_small = {
 									name = "reason_character_left"

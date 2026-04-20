@@ -1309,6 +1309,8 @@ window = {
 
 						### CENTER PANEL WAR SCORE DETAILS ###
 						war_overview_center_panel_war_score_details = {}
+						
+						war_overview_center_panel_losses = {}
 
 						### CENTER PANEL CONTRIBUTION AS ALLIED ###
 						war_overview_center_panel_contribution_as_allied = {}
@@ -1334,6 +1336,7 @@ window = {
 							size = { 0 50 }
 							margin_left = 35
 							mirror = vertical
+							shortcut = "tab_1"
 
 							text = "TAB_DEFEAT"
 
@@ -1355,6 +1358,7 @@ window = {
 							visible = "[WarOverviewWindow.GetWar.GetActiveCB.GetType.IsWhitePeacePossible]"
 							margin_left = 35
 							mirror = vertical
+							shortcut = "tab_2"
 
 							text = "TAB_WHITE_PEACE"
 
@@ -1375,6 +1379,7 @@ window = {
 							size = { 0 50 }
 							margin_left = 35
 							mirror = vertical
+							shortcut = "[Select_CString(WarOverviewWindow.GetWar.GetActiveCB.GetType.IsWhitePeacePossible, 'tab_3', 'tab_2')]"
 
 							text = "TAB_VICTORY"
 
@@ -2554,6 +2559,145 @@ types WarOverView
 			}
 		}
 	}
+	
+	type war_overview_center_panel_losses = widget {
+		layoutpolicy_horizontal = expanding
+		size = { 0 40 }
+		alwaystransparent = no
+		
+		background = {
+			using = Background_Area_Dark
+		}
+
+		hbox = {
+			block "margins" {
+				margin = { 10 5 }
+			}
+	
+			hbox_war_casualties_side = {
+				block "left_context" {
+					datacontext = "[WarOverviewWindow.GetLeftSide]"
+				}
+			}
+			
+			block "losses" {
+				text_single = {
+					default_format = "#weak"
+					text = "LOSSES_WAR_OVERVIEW"
+					max_width = 150
+					layoutpolicy_horizontal = expanding
+					align = nobaseline|center
+				}
+			}
+			
+			hbox_war_casualties_side = {
+				block "right_context" {
+					datacontext = "[WarOverviewWindow.GetRightSide]"
+				}
+				blockoverride "align" {
+					align = nobaseline|right
+				}
+				blockoverride "right" {
+					righttoleft = yes
+				}
+				blockoverride "mirror" {
+					mirror = horizontal
+				}
+				blockoverride "no_mirror" {}
+			}
+		}
+	}
+	
+	type hbox_war_casualties_side = hbox {
+		block "spacing" {
+			spacing = 5
+		}
+		block "right" {}
+		hbox = {
+			block "right" {}
+			spacing = 5
+			tooltip = "[WarSide.GetParticipantLossesTooltip]"
+			
+			icon_flat_standard_red = {
+				texture = "gfx/interface/icons/flat_icons/army.dds"
+				block "size" {
+					size = { 30 30 }
+				}
+				enabled = "[NotZero(WarSide.GetBattleLosses)]"
+				block "no_mirror" {
+					mirror = horizontal
+				}
+			}
+			
+			text_single = {
+				autoresize = no
+				default_format = "#n"
+				size = { 50 20 }
+				alpha = "[Select_float( NotZero(WarSide.GetBattleLosses), '(float)1.0', '(float)0.5' )]"
+				block "battle" {
+					raw_text = "[Select_CString(NotZero(WarSide.GetBattleLosses), '#n', '#low')] [WarSide.GetBattleLosses|*1]"
+				}
+				block "align" {
+					align = nobaseline
+				}
+			}
+		}
+		
+		hbox = {
+			block "right" {}
+			spacing = 5
+			block "attrition_tt" {
+				tooltip = "ATTRITION_LOSSES_TT"
+			}
+			icon_flat_standard_red = {
+				texture = "gfx/interface/icons/flat_icons/prison_execute.dds"
+				block "size" {
+					size = { 28 28 }
+				}
+				enabled = "[NotZero(WarSide.GetAttritionLosses)]"
+			}
+			text_single = {
+				autoresize = no
+				size = { 50 20 }
+				default_format = "#n"
+				alpha = "[Select_float( NotZero(WarSide.GetAttritionLosses), '(float)1.0', '(float)0.5' )]"
+				block "attrition" {
+					raw_text = "[Select_CString(NotZero(WarSide.GetAttritionLosses), '#n', '#low')] [WarSide.GetAttritionLosses|*1]"
+				}
+				block "align" {
+					align = nobaseline
+				}
+			}
+		}
+		
+		hbox = {
+			block "right" {}
+			spacing = 5
+			block "char_tt" {
+				tooltip = "[WarSide.GetCharacterLossesTooltip]"
+			}
+			icon_flat_standard_red = {
+				texture = "gfx/interface/icons/flat_icons/knight.dds"
+				block "size" {
+					size = { 30 30 }
+				}
+				enabled = "[NotZero(WarSide.GetCharactersLost)]"
+				block "mirror" {}
+			}
+			text_single = {
+				autoresize = no
+				size = { 35 20 }
+				# default_format = "[]"
+				# alpha = "[Select_float( NotZero(WarSide.GetCharactersLost), '(float)1.0', '(float)0.5' )]"
+				block "characters" {
+					raw_text = "[Select_CString(NotZero(WarSide.GetCharactersLost), '#n', '#low')] [WarSide.GetCharactersLost]"
+				}
+				block "align" {
+					align = nobaseline
+				}
+			}
+		}
+	}
 
 	type war_overview_center_panel_contribution_as_allied = hbox {
 		layoutpolicy_horizontal = expanding
@@ -2877,11 +3021,6 @@ types WarOverView
 			text_single = {
 				layoutpolicy_horizontal = expanding
 				text = "WAR_OVERVIEW_HOSTAGES_DISALLOWED"
-				default_format = "#weak"
-			}
-			text_single = {
-				layoutpolicy_horizontal = expanding
-				text = "WAR_OVERVIEW_HOSTAGES_DISALLOWED_LANDLESS_ADVENTURER"
 				default_format = "#weak"
 			}
 		}

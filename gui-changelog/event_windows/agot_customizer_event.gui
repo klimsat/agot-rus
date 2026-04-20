@@ -1,4 +1,9 @@
-﻿window = {
+﻿@nameplate = 140
+@nameplate_coa = 265
+@lower_portrait = 180
+@margin = 30
+
+window = {
 	name = "agot_customizer_event"
 
 	parentanchor = center
@@ -9,8 +14,13 @@
 
 	datacontext = "[EventWindow.AccessEventWindowData]"
 
-	using = Event_Window_Debug_OptionTooltips
 	using = Event_Window_Debug_EventTools
+	blockoverride "is_event_on_top" {
+		enabled = "[EventWindow.IsOnTop]"
+	}
+	blockoverride "is_event_on_top_close" {
+		trigger_when = "[Not(EventWindow.IsOnTop)]"
+	}
 
 	state = {
 		name = show
@@ -184,7 +194,8 @@
 					portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('right_portrait', 'camera_event_right', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 					alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('right_portrait'))]"
 
-					tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
+					tooltip_visible = "[And(EventWindowData.ShouldShowPortraitInfo('right_portrait'), Not(IsGameSettingEnabled('show_event_name_plates')))]"
+					
 					tooltip_offset = { 100 600 }
 					using = tooltip_es
 					tooltip_widgetanchor = center
@@ -244,7 +255,8 @@
 					portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('left_portrait', 'camera_event_left', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 					alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
 
-					tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
+					tooltip_visible = "[And(EventWindowData.ShouldShowPortraitInfo('left_portrait'), Not(IsGameSettingEnabled('show_event_name_plates')))]"
+					
 					tooltip_widgetanchor = center
 					tooltip_offset = { 50 600 }
 					using = tooltip_ws
@@ -297,7 +309,9 @@
 				size = { 930 558 }
 				portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('left_portrait', 'camera_event_center', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
 				alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
-				tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
+
+				tooltip_visible = "[And(EventWindowData.ShouldShowPortraitInfo('left_portrait'), Not(IsGameSettingEnabled('show_event_name_plates')))]"
+				
 				using = tooltip_below
 				tooltip_offset = { 550 -580 }
 			}
@@ -1089,6 +1103,14 @@
 		ignoreinvisible = yes
 
 		using = Dragon_Customizer_Event_Window_Debug_Info
+	}
+
+	widget = {
+		size = { 0 100% }
+		position = { 20 0 }
+		allow_outside = yes
+		alwaystransparent = yes
+		using = Event_Window_Debug_OptionTooltips
 	}
 
 	vbox = { # Event shaders (in front of character portraits)

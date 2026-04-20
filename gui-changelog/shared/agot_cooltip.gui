@@ -20,6 +20,26 @@ types GameTooltipTypes
 		}
 	}
 
+	type agot_culture_tooltip_rd = text_multi
+	{
+		layoutpolicy_horizontal = growing
+		text = "AGOT_CULTURE_COOLTIP_RD"
+		margin = { 10 0 }
+		visible = "[Culture.MakeScope.Var('agot_culture_tt_desc').IsSet]"
+		autoresize = yes
+		max_width = 380
+	}
+
+	type agot_culture_tooltip_click = text_multi
+	{
+		layoutpolicy_horizontal = growing
+		text = "AGOT_CULTURE_COOLTIP_CLICK"
+		margin = { 10 0 }
+		visible = "[Culture.MakeScope.Var('agot_culture_tt_desc').IsSet]"
+		autoresize = yes
+		max_width = 380
+	}
+
 	# Dragon Types
 	type agot_dragon_type_living = text_single
 	{

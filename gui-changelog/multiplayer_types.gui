@@ -1973,9 +1973,8 @@ types JominiMultiplayerLobby
 			size = { 380 45 }
 
 			onclick = "[TryStartRulerDesigning( Character.Self, 'landless_adventurer' )]"
-			
 			#AGOT Modified
-			#enabled = "[LobbyView.HasSelectedPlayable]"
+			# enabled = "[LobbyView.HasSelectedPlayable]"
 			enabled = "[And( LobbyView.HasSelectedPlayable, Not( Or(Character.GetGovernment.IsType('ruins_government'), Or(Character.GetGovernment.IsType('unknown_government'), Character.GetGovernment.IsType('wilderness_government') ) )))]"
 
 			tooltip = "[LobbyHelperWindow.GetTryStartLandlessDesigningDesc( Character.Self, 'landless_adventurer' )]"
@@ -2331,6 +2330,7 @@ types JominiMultiplayerLobby
 									margin = { -8 0 }
 
 									button_tab = {
+										shortcut = "tab_1"
 										name = "show_players"
 										layoutpolicy_horizontal = expanding
 
@@ -2343,6 +2343,7 @@ types JominiMultiplayerLobby
 									}
 
 									button_tab = {
+										shortcut = "tab_2"
 										name = "show_settings"
 										layoutpolicy_horizontal = expanding
 

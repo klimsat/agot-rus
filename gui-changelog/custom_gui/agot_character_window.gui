@@ -337,21 +337,6 @@ types CharacterWindow
 	###########################
 	# TRAIT BUTTONS AND BOXES #
 	###########################
-	type agot_trait_expanding_button = button_standard_hover
-	{
-		layoutpolicy_horizontal = fixed
-		size = { 500 57 }
-		button_ignore = none
-		onclick = "[CharacterWindow.ToggleExpandedTraits]"
-		using = tooltip_nw
-		tooltip = "OUTLINER_EXPAND"
-
-		hbox_traits_list = {
-			name = "tutorial_highlight_traits"
-			datacontext = "[CharacterWindow.GetTraitArrays]"
-			margin_bottom = 2
-		}
-	}
 
 	type agot_expanded_traits_vbox = vbox
 	{
@@ -640,7 +625,7 @@ types CharacterWindow
 	{
 		visible = "[GetScriptedGui('agot_has_personal_coa').IsShown(GuiScope.SetRoot(CharacterWindow.GetCharacter.MakeScope).End)]"
 		datacontext = "[CharacterWindow.GetCharacter.GetRelationOfType( GetRelation( 'agot_personal_coa_slave' ) ).GetHouse]"
-		position = { -33 50 }
+		position = { -6 68 }
 		blockoverride "coa_tooltip" {
 		}
 		tooltipwidget = {
@@ -650,14 +635,14 @@ types CharacterWindow
 		}
 		flowcontainer = {
 			parentanchor = bottom|right
-			position = { 0 5 }
+			position = { 1 -1 }
 			ignoreinvisible = yes
 			button_find_title = {
 				visible = "[Character.IsPlayer]"
 				onmousehierarchyenter = "[GetScriptedGui('agot_summon_personal_coa_slave').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 				onclick = "[OpenHouseCustomizationWindow(DynastyHouse.Self)]"
 				tooltip = CUSTOMIZE_PERSONAL_ARMS
-				size = { 22 22 }
+				size = { 17 17 }
 			}
 		}
 	}

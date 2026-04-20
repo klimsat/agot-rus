@@ -116,21 +116,4 @@ types Bookmarks
 			}
 		}
 	}
-
-	type agot_bookmark_character_description = hbox
-	{
-		visible = "[GetVariableSystem.Exists( 'show_character_info' )]"
-		layoutpolicy_vertical = expanding
-		maximumsize = { 390 300 }
-
-		text_multi = {
-			name = "character_text"
-			layoutpolicy_horizontal = expanding
-			text = "[BookmarkCharacter.GetDescription]"
-			autoresize = yes
-			maximumsize = { 390 300 }
-			margin_top = 10
-			margin_bottom = 10
-		}
-	}
 }

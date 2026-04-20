@@ -64,41 +64,56 @@ window = {
 					visible = "[And( Not( GetPlayer.IsIndependentRuler ), Not( CouncilWindow.CanShowTopLiegeTab ) )]"
 
 					button_tab = {
-						layoutpolicy_horizontal = expanding
 						#AGOT Modified
 						# down = "[And( CouncilWindow.IsPlayerCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 						down = "[And(And(CouncilWindow.IsPlayerCouncilShown, Not(GetVariableSystem.Exists('diarchy_tab'))), GetVariableSystem.HasValue('council_tabs', 'my_council'))]"
 						onclick = "[CouncilWindow.SetPlayerCouncil]"
 						onclick = "[GetVariableSystem.Clear( 'diarchy_tab' )]"
+						shortcut = "tab_1"
+
+						alwaystransparent = "[And( CouncilWindow.IsPlayerCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 						#AGOT Added
 						onclick = "[GetVariableSystem.Set('council_tabs', 'my_council')]"
 
-						text_single = {
-							minimumsize = { 281 38 }
-							margin = { 15 0 }
+						blockoverride "tab_label"
+						{
 							text = "COUNCIL_WINDOW_PLAYER_COUNCIL"
-							resizeparent = yes
-							align = center|nobaseline
-							default_format = "#low"
+							max_width = 220
 						}
+
+						blockoverride "icon_visible" {}
+
+						blockoverride "tab_icon"
+						{
+							texture = "gfx/interface/icons/flat_icons/council.dds"
+							down = "[And( CouncilWindow.IsPlayerCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
+						}
+
 					}
 
 					button_tab = {
-						layoutpolicy_horizontal = expanding
 						down = "[And( CouncilWindow.IsLiegeCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 						onclick = "[CouncilWindow.SetLiegeCouncil]"
 						onclick = "[GetVariableSystem.Clear( 'diarchy_tab' )]"
+						shortcut = "tab_2"
 						#AGOT Added; Clear Main Council
 						onclick = "[GetVariableSystem.Clear('council_tabs')]"
 						visible = "[Not(IsNWAdventurer(GetPlayer))]"
 
-						text_single = {
-							minimumsize = { 281 38 }
-							margin = { 15 0 }
+						alwaystransparent = "[And( CouncilWindow.IsLiegeCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
+
+						blockoverride "tab_label"
+						{
 							text = "COUNCIL_WINDOW_LIEGE_COUNCIL"
-							resizeparent = yes
-							align = center|nobaseline
-							default_format = "#low"
+							max_width = 220
+						}
+
+						blockoverride "icon_visible" {}
+
+						blockoverride "tab_icon"
+						{
+							texture = "gfx/interface/icons/flat_icons/liege_council.dds"
+							down = "[And( CouncilWindow.IsLiegeCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 						}
 					}
 				}
@@ -109,67 +124,81 @@ window = {
 					visible = "[CouncilWindow.CanShowTopLiegeTab]"
 
 					button_tab = {
-						layoutpolicy_horizontal = preferred
 						#AGOT Modified
 						# down = "[And( CouncilWindow.IsPlayerCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 						down = "[And(And(CouncilWindow.IsPlayerCouncilShown, Not(GetVariableSystem.Exists('diarchy_tab'))), GetVariableSystem.HasValue('council_tabs', 'my_council'))]"
 						onclick = "[CouncilWindow.SetPlayerCouncil]"
 						onclick = "[GetVariableSystem.Clear( 'diarchy_tab' )]"
+						shortcut = "tab_1"
 						#AGOT Added
 						onclick = "[GetVariableSystem.Set('council_tabs', 'my_council')]"
 
-						text_single = {
-							layoutpolicy_horizontal = expanding
-							#AGOT Modified
-							# min_height = 38
-							minimumsize = { 180 38 }
-							margin = { 15 0 }
+						alwaystransparent = "[And( CouncilWindow.IsPlayerCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
+
+						blockoverride "tab_label"
+						{
 							text = "COUNCIL_WINDOW_PLAYER_COUNCIL"
-							resizeparent = yes
-							align = center|nobaseline
-							default_format = "#low"
+							max_width = 135
+						}
+
+						blockoverride "icon_visible" {}
+
+						blockoverride "tab_icon"
+						{
+							texture = "gfx/interface/icons/flat_icons/council.dds"
+							down = "[And( CouncilWindow.IsPlayerCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 						}
 					}
 
 					button_tab = {
-						layoutpolicy_horizontal = expanding
+						
 						down = "[And( CouncilWindow.IsLiegeCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 						onclick = "[CouncilWindow.SetLiegeCouncil]"
 						onclick = "[GetVariableSystem.Clear( 'diarchy_tab' )]"
+						shortcut = "tab_2"
 						#AGOT Added; Clear Main Council
 						onclick = "[GetVariableSystem.Clear('council_tabs')]"
 
-						text_single = {
-							layoutpolicy_horizontal = expanding
-							#AGOT Modified
-							# min_height = 38
-							minimumsize = { 180 38 }
-							margin = { 15 0 }
+						alwaystransparent = "[And( CouncilWindow.IsLiegeCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
+						
+						blockoverride "tab_label"
+						{
 							text = "COUNCIL_WINDOW_LIEGE_COUNCIL"
-							parentanchor = center
-							align = center|nobaseline
-							default_format = "#low"
+							max_width = 135
+						}
+
+						blockoverride "icon_visible" {}
+
+						blockoverride "tab_icon"
+						{
+							texture = "gfx/interface/icons/flat_icons/liege_council.dds"
+							down = "[And( CouncilWindow.IsLiegeCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 						}
 					}
 
 					button_tab = {
-						layoutpolicy_horizontal = preferred
+						
 						down = "[And( CouncilWindow.IsTopLiegeCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 						onclick = "[CouncilWindow.SetTopLiegeCouncil]"
 						onclick = "[GetVariableSystem.Clear( 'diarchy_tab' )]"
+						shortcut = "tab_3"
 						#AGOT Added; Clear Main Council
 						onclick = "[GetVariableSystem.Clear('council_tabs')]"
 
-						text_single = {
-							layoutpolicy_horizontal = expanding
-							#AGOT Modified
-							# min_height = 38
-							minimumsize = { 180 38 }
-							margin = { 15 0 }
+						alwaystransparent = "[And( CouncilWindow.IsTopLiegeCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
+
+						blockoverride "tab_label"
+						{
 							text = "COUNCIL_WINDOW_TOP_LIEGE_COUNCIL"
-							resizeparent = yes
-							align = center|nobaseline
-							default_format = "#low"
+							max_width = 135
+						}
+
+						blockoverride "icon_visible" {}
+
+						blockoverride "tab_icon"
+						{
+							texture = "gfx/interface/icons/flat_icons/liege_council.dds"
+							down = "[And( CouncilWindow.IsLiegeCouncilShown, Not( GetVariableSystem.Exists( 'diarchy_tab' ) ) )]"
 						}
 					}
 				}
@@ -178,7 +207,7 @@ window = {
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
 
-					#AGOT Added; Scrollbox
+					#AGOT Added; to scrollbox_content
 					scrollbox = {
 					size = { 102% 100% }
 					position = { -10 0 }
@@ -937,7 +966,7 @@ types CouncilWindow
 				}
 
 				button_round = {
-					visible = "[And( And( Character.GetLiege.GetGovernment.HasGovernmentFlag( 'government_is_celestial' ), GreaterThanOrEqualTo_int32( Character.GetLiege.GetPrimaryTitle.GetTierFrame, '(int32)7' ) ), Not(Character.IsPlayer) )]"
+					visible = "[HasAccessToMinistry( Character.GetLiege )]"
 					parentanchor = top|right
 					position = { -5 0 }
 
@@ -970,7 +999,7 @@ types CouncilWindow
 				icon = {
 					size = { 40 40 }
 					parentanchor = top|right
-					position = { -4 8 }
+					position = { -4 50 }
 					texture = "gfx/interface/icons/modifiers/council_positive.dds"
 					tooltip = "ON_COUNCIL_EFFECTS"
 					visible = "[Character.IsLocalPlayer]"
@@ -1305,7 +1334,7 @@ types CouncilTaskTypes
 	type vbox_council_layout = vbox {
 		### COUNCIL
 		vbox = {
-			visible = "[Not( And( CouncilWindow.GetCharacter.GetGovernment.HasGovernmentFlag( 'government_is_celestial' ), ObjectsEqual( CouncilWindow.GetCharacter.GetPrimaryTitle, GetTitleByKey('h_china').Self) ) )]"
+			visible = "[Not( HasAccessToMinistry( CouncilWindow.GetCharacter ) )]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 			datacontext = "[CouncilWindow]"
@@ -1631,7 +1660,7 @@ types CouncilTaskTypes
 
 					#AGOT Modified
 					# visible = "[Not( CouncilOwnerNomadic )]"
-					visible = "[And( Not( CouncilOwnerNomadic ), Not(IsNWAdventurer(GetPlayer)))]"
+					visible = "[And(Not(CouncilOwnerNomadic), Not(IsNWAdventurer(GetPlayer)))]"
 
 					background =  {
 						texture = "gfx/interface/skinned/illustrations/council/bg_council_chancellor.dds"
@@ -1658,7 +1687,7 @@ types CouncilTaskTypes
 					datacontext = "[ActiveCouncilTask.GetPositionType]"
 					datacontext = "[ActiveCouncilTask.GetCouncillor]"
 					#AGOT Added
-					visible = "[And( Not( CouncilOwnerNomadic ), Not(IsNWAdventurer(GetPlayer)))]"
+					visible = "[And(Not(CouncilOwnerNomadic), Not(IsNWAdventurer(GetPlayer)))]"
 
 					background =  {
 						texture = "gfx/interface/skinned/illustrations/council/bg_council_steward.dds"
@@ -1794,7 +1823,7 @@ types CouncilTaskTypes
 
 		### MINISTRY
 		vbox = {
-			visible = "[And( CouncilWindow.GetCharacter.GetGovernment.HasGovernmentFlag( 'government_is_celestial' ), ObjectsEqual( CouncilWindow.GetCharacter.GetPrimaryTitle, GetTitleByKey('h_china').Self) )]"
+			visible = "[HasAccessToMinistry( CouncilWindow.GetCharacter )]"
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 			datacontext = "[CouncilWindow]"
@@ -2048,7 +2077,7 @@ types CouncilTaskTypes
 						margin = { 10 0 }
 						margin_bottom = 5
 						spacing = 5
-						
+
 						widget_councillor_item = { # Minister of Rites (court chaplain)
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding

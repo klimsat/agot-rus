@@ -30,7 +30,7 @@ window = {
 	vbox = {
 		name = "create_accolade_tutorial_uses_this"
 		widgetid = "create_accolade_tutorial_uses_this"
-		margin = { 4 4 }
+		margin = { 5 5 }
 
 		header_pattern = {
 			layoutpolicy_horizontal = expanding
@@ -56,13 +56,12 @@ window = {
 
 		hbox = {
 			layoutpolicy_horizontal = expanding
-			margin = { 16 0 }
-			margin_top = 8
+			margin = { 15 0 }
 
 			widget = {
-				size = { 140 160 }
+				size = { 145 160 }
 
-				accolade_banner = {
+				accolade_banner_dark = {
 					size = { 100% 100% }
 				}
 
@@ -77,24 +76,24 @@ window = {
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
 
-				margin = { 16 0 }
+				margin = { 15 5 }
 
 				background = {
 					using = Background_Area
 
-					margin = { 0 2 }
+					margin = { 0 -5 }
 				}
 
 				hbox = {
-					spacing = 8
+					spacing = 5
 					layoutpolicy_horizontal = expanding
 
-					margin = { 0 8 }
+					margin = { 0 10 }
 
 					background = {
 						using = Background_Area_Dark
 						alpha = 0.6
-						margin = { 16 0 }
+						margin = { 15 0 }
 					}
 
 					text_single = {
@@ -109,6 +108,7 @@ window = {
 						size = { 25 25 }
 						visible = "[Not( CreateAccoladeView.IsRenaming )]"
 						onclick = "[CreateAccoladeView.ToggleRenaming]"
+						tooltip = "RENAME_ACCOLADE"
 					}
 
 					editbox_standard = {
@@ -131,25 +131,25 @@ window = {
 					name = "candidate_attributes_tutorial_uses_this"
 					widgetid = "candidate_attributes_tutorial_uses_this"
 					layoutpolicy_horizontal = expanding
-					layoutpolicy_vertical = expanding
+					margin_top = 5
 
 					vbox = {
 						layoutpolicy_horizontal = expanding
-						spacing = 8
+						spacing = 10
 
 						accolade_type_box = {
-							datacontext = "[CreateAccoladeView.GetSelectedPrimaryType]"
+							datacontext = "[CreateAccoladeView.GetSelectedInitialType]"
 
 							blockoverride "subtitle_text"
 							{
-								text = "ACCOLADE_PRIMARY_TYPE"
+								text = "ACCOLADE_TYPE"
 							}
 
 							blockoverride "change_button"
 							{
 								icon = {
-									visible = "[AccoladeType.GetPrimaryMaaUnlock.IsValid]"
-									datacontext = "[AccoladeType.GetPrimaryMaaUnlock]"
+									visible = "[AccoladeType.GetMaaUnlock.IsValid]"
+									datacontext = "[AccoladeType.GetMaaUnlock]"
 									texture = "[MenAtArmsType.GetIcon]"
 									tooltipwidget = {
 										widget_maa_type_container_tooltip = {
@@ -160,110 +160,70 @@ window = {
 										}
 									}
 									size = { 30 30 }
-								}
-
-								button_round = {
-									name = "change_primary_type"
-									size = { 32 32 }
-
-									enabled = "[GreaterThan_int32( GetDataModelSize( CreateAccoladeView.GetPotentialTypes ), '(int32)2')]"
-									onclick = "[CreateAccoladeView.ToggleChangingPrimaryType]"
-									tooltip = "[CreateAccoladeView.GetChangePrimaryTypeTooltip]"
-
-									button_change = {
-										parentanchor = center
-										size = { 24 24 }
-										alwaystransparent = yes
-									}
-								}
-							}
-						}
-
-						hbox = {
-							layoutpolicy_horizontal = expanding
-							allow_outside = yes
-
-							divider_light = {
-								layoutpolicy_horizontal = expanding
-							}
-
-							widget = {
-								size = { 30 6 }
-								allow_outside = yes
-
-								button_round = {
-									size = { 24 24 }
-									parentanchor = center
-									widgetanchor = center
-
-									enabled = "[GreaterThan_int32( GetDataModelSize( CreateAccoladeView.GetPotentialTypes ), '(int32)1')]"
-									onclick = "[CreateAccoladeView.SwapSelectedAttributeTypes]"
-
-									button_change = {
-										parentanchor = center
-										size = { 18 18 }
-										alwaystransparent = yes
-									}
-								}
-							}
-
-							divider_light = {
-								layoutpolicy_horizontal = expanding
-							}
-						}
-
-						accolade_type_box = {
-							datacontext = "[CreateAccoladeView.GetSelectedSecondaryType]"
-
-							blockoverride "subtitle_text"
-							{
-								text = "ACCOLADE_SECONDARY_TYPE"
-							}
-
-							blockoverride "icons"
-							{
-								icon = {
-									visible = "[AccoladeType.GetPrimaryMaaUnlock.IsValid]"
-									datacontext = "[AccoladeType.GetPrimaryMaaUnlock]"
-									texture = "[MenAtArmsType.GetIcon]"
-									tooltipwidget = {
-										widget_maa_type_container_tooltip = {
-											blockoverride "maa_texture"
-											{
-												texture = "[MenAtArmsType.GetHorizontalImageForCulture( GetPlayer.GetCulture )]"
-											}
-										}
-									}
-									size = { 30 30 }
-
-									icon = {
-										size = { 30 30 }
-										position = { 5 5 }
-										texture = "gfx/interface/icons/symbols/icon_cross.dds"
-										tooltip = "[AccoladeType.GetPrimaryMaaUnlockWarning]"
-									}
-								}
-							}
-
-							blockoverride "change_button"
-							{
-								button_round = {
-									name = "change_secondary_type"
-									size = { 32 32 }
-
-									enabled = "[GreaterThan_int32( GetDataModelSize( CreateAccoladeView.GetPotentialTypes ), '(int32)2')]"
-									onclick = "[CreateAccoladeView.ToggleChangingSecondaryType]"
-									tooltip = "[CreateAccoladeView.GetChangeSecondaryTypeTooltip]"
-
-									button_change = {
-										parentanchor = center
-										size = { 24 24 }
-										alwaystransparent = yes
-									}
 								}
 							}
 						}
 					}
+				}
+
+				expand = {}
+
+				hbox = {
+					visible = "[CreateAccoladeView.GetSelectedKnight.IsGuest]"
+					layoutpolicy_horizontal = expanding
+
+					button_standard = {
+						visible = "[CreateAccoladeView.GetSelectedKnight.IsPlayerInteractionShown('recruit_guest_interaction')]"
+						enabled = "[CreateAccoladeView.GetSelectedKnight.IsPlayerInteractionValid('recruit_guest_interaction')]"
+						onclick = "[CreateAccoladeView.GetSelectedKnight.OpenPlayerInteraction('recruit_guest_interaction')]"
+						text = "[CreateAccoladeView.GetSelectedKnight.GetPlayerInteractionName('recruit_guest_interaction')]"
+						tooltip = "[CreateAccoladeView.GetSelectedKnight.GetPlayerInteractionTooltip('recruit_guest_interaction')]"
+						using = tooltip_se
+					}
+				}
+				hbox = {
+					visible = "[Not( CreateAccoladeView.GetSelectedKnight.IsGuest )]"
+					layoutpolicy_horizontal = expanding
+					spacing = 5
+
+					button_standard = {
+						size = { 90 33 }
+						onclick = "[MilitaryView.SetKnightForced( CreateAccoladeView.GetSelectedKnight.Self )]"
+						down = "[CreateAccoladeView.GetSelectedKnight.IsKnightForced]"
+						alwaystransparent = "[CreateAccoladeView.GetSelectedKnight.IsKnightForced]"
+
+						text = "KNIGHTS_VIEW_FORCE"
+
+						tooltip = "CREATE_ACCOLADE_FORCE_TT"
+						using = tooltip_se
+					}
+
+					button_standard = {
+						size = { 90 33 }
+						onclick = "[MilitaryView.SetKnightDefault( CreateAccoladeView.GetSelectedKnight.Self )]"
+						down = "[CreateAccoladeView.GetSelectedKnight.IsKnightDefault]"
+						alwaystransparent = "[CreateAccoladeView.GetSelectedKnight.IsKnightDefault]"
+
+						text = "KNIGHTS_VIEW_ALLOW"
+
+						tooltip = "CREATE_ACCOLADE_BY_PROWESS_TT"
+						using = tooltip_se
+					}
+
+					button_standard = {
+						size = { 90 33 }
+						onclick = "[MilitaryView.SetKnightDisallowed( CreateAccoladeView.GetSelectedKnight.Self )]"
+						down = "[CreateAccoladeView.GetSelectedKnight.IsKnightDisallowed]"
+						alwaystransparent = "[CreateAccoladeView.GetSelectedKnight.IsKnightDisallowed]"
+						enabled = "[Not( CreateAccoladeView.GetSelectedKnight.IsAcclaimedKnight )]"
+
+
+						text = "KNIGHTS_VIEW_FORBID"
+						tooltip = "[SelectLocalization( CreateAccoladeView.GetSelectedKnight.IsAcclaimedKnight, 'CANNOT_FORBID_ACCLAIMED_KNIGHT', 'CREATE_ACCOLADE_FORBID_TT' )]"
+						using = tooltip_se
+					}
+
+					expand = {}
 				}
 
 				expand = {}
@@ -272,12 +232,12 @@ window = {
 			vbox = {
 				visible = "[Not(CreateAccoladeView.GetSelectedKnight.IsValid)]"
 				layoutpolicy_horizontal = expanding
-				margin = { 8 0 }
+				margin = { 10 0 }
 
 				text_multi = {
+					align = center
 					text = "CREATE_ACCOLADE_SELECT_KNIGHT"
 					default_format = "#help"
-					using = Font_Size_Medium
 					autoresize = yes
 					max_width = 300
 				}
@@ -290,71 +250,40 @@ window = {
 			visible = "[CreateAccoladeView.GetSelectedKnight.IsValid]"
 
 			hbox = {
-				margin = { 0 8 }
-				allow_outside = yes
+				spacing = 10
+				margin = { 0 15 }
 
-				widget = {
-					size = { 460 30 }
-					allow_outside = yes
+				button_standard = {
+					size = { 200 40 }
 
-					datacontext = "[CreateAccoladeView.GetProgressBar]"
+					#onclick = "[CreateAccoladeView.Close]"
+					onclick = "[OpenGameViewData( 'create_accolade_view', MilitaryView.GetCharacter.GetID )]"
+					shortcut = "go_back"
 
-					hbox_complex_bar_progress = {
-						layoutpolicy_horizontal = expanding
-					}
-
-					hbox_complex_bar_progress_next = {
-						layoutpolicy_horizontal = expanding
-					}
-
-					hbox_complex_bar_levels = {
-						layoutpolicy_horizontal = expanding
-
-						blockoverride "marker" {
-							icon = {
-								name = "rank_icon"
-								parentanchor = center
-								widgetanchor = center
-								allow_outside = yes
-								size = { 44 44 }
-
-								texture = "[CreateAccoladeView.GetComplexBarRankIcon( ComplexBar.GetIndexOfItem( ComplexBarItem.Self ) )]"
-								tooltip = "[CreateAccoladeView.GetComplexBarRankTooltip( ComplexBar.GetIndexOfItem( ComplexBarItem.Self ) )]"
-							}
-						}
-					}
+					text = "CANCEL"
 				}
 
+				button_primary = {
+					size = { 200 40 }
+					enabled = "[CreateAccoladeView.CanCreateAccolade]"
+					onclick = "[CreateAccoladeView.CreateAccolade]"
+
+					tooltip = "[CreateAccoladeView.GetCreateAccoladeTooltip]"
+					text = "CREATE_ACCOLADE"
+				}
 			}
 		}
 
 		hbox = {
-			spacing = 8
-			margin = { 0 16 }
-
-			button_standard = {
-				size = { 200 40 }
-
-				onclick = "[CreateAccoladeView.Close]"
-				onclick = "[OpenGameView( 'knights' )]"
-
-				text = "CANCEL"
-			}
-
-			button_primary = {
-				size = { 200 40 }
-				enabled = "[CreateAccoladeView.CanCreateAccolade]"
-				onclick = "[CreateAccoladeView.CreateAccolade]"
-
-				tooltip = "[CreateAccoladeView.GetCreateAccoladeTooltip]"
-				text = "CREATE_ACCOLADE"
-			}
-		}
-
-		hbox = {
-			margin_bottom = 8
+			margin_bottom = 5
 
 			text_label_center = {
+				visible = "[CreateAccoladeView.GetSelectedInitialType.IsValid]"
+				text = "CREATE_ACCOLADE_TYPES"
+				default_format = "#medium"
+			}
+			text_label_center = {
+				visible = "[Not( CreateAccoladeView.GetSelectedInitialType.IsValid )]"
 				text = "KNIGHTS_SUBHEADER"
 				default_format = "#medium"
 			}
@@ -366,24 +295,23 @@ window = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 
-			visible = "[Not( CreateAccoladeView.IsChangingType )]"
+			visible = "[Not( CreateAccoladeView.GetSelectedInitialType.IsValid )]"
 
 			blockoverride "scrollbox_content" {
 				vbox = {
-					layoutpolicy_horizontal = expanding
-
 					name = "acclaimed_knights"
 					datamodel = "[MilitaryView.GetKnights]"
 					datacontext = "[CreateAccoladeView.AccessKnightsView]"
-					spacing = 8
+					layoutpolicy_horizontal = expanding
+					spacing = 5
 
 					item = {
 						button_standard = {
 							layoutpolicy_horizontal = expanding
-							size = { 0 130 }
+							size = { 0 126 }
 
 							# has at least 2 potential accolade types
-							visible = "[And( Or( Not( Character.HasLandedTitles ), Character.GetPrimaryTitle.IsBarony ), KnightsView.HasPotentialAccolade( Character.Self ) )]"
+							visible = "[And( And( Or( Not( Character.HasLandedTitles ), Character.GetPrimaryTitle.IsBarony ), KnightsView.HasPotentialAccolade( Character.Self ) ), GreaterThanOrEqualTo_int32(Character.GetProwess, '(int32)8'))]"
 							onclick = "[CreateAccoladeView.SetSelectedKnight( Character.Self )]"
 							tooltip = "CREATE_ACCOLADE_ASSIGN_TT"
 							using = tooltip_nw
@@ -405,16 +333,14 @@ window = {
 							}
 
 							vbox = {
-								spacing = 8
-								margin_top = 4
 								margin_left = 4
-								margin_right = 16
+								margin_right = 15
 
 								hbox = {
 									layoutpolicy_horizontal = expanding
 									layoutpolicy_vertical = expanding
-									margin_right = 4
-									spacing = 5
+									margin_right = 5
+									spacing = 10
 
 									portrait_head = {
 										alpha = "[Select_float( Character.IsKnight, '(float)1.0', '(float)0.6' )]"
@@ -423,21 +349,39 @@ window = {
 									vbox = {
 										layoutpolicy_vertical = expanding
 										layoutpolicy_horizontal = expanding
-										spacing = 10
-										margin_top = 10
+										spacing = 15
 
 										hbox = {
 											layoutpolicy_horizontal = expanding
+											margin = { 0 5 }
+
+											background = {
+												using = Background_Area_Dark
+												alpha = 0.7
+												margin_left = 16
+												margin_right = 10
+												margin_top = -2
+
+												modify_texture = {
+													texture = "gfx/interface/component_masks/mask_fade_horizontal_extended.dds"
+													blend_mode = alphamultiply
+												}
+											}
 
 											hbox = {
 												layoutpolicy_horizontal = expanding
 												layoutpolicy_vertical = expanding
-												spacing = 4
+												spacing = 10
 
-												icon = {
+												widget = {
 													visible = "[Character.IsKnight]"
-													texture = "gfx/interface/icons/icon_knight_small.dds"
-													size = { 40 40 }
+													size = { 30 30 }
+
+													icon = {
+														parentanchor = center
+														texture = "gfx/interface/icons/icon_knight_small.dds"
+														size = { 40 40 }
+													}
 												}
 
 												vbox = {
@@ -454,7 +398,6 @@ window = {
 														alwaystransparent = yes
 													}
 
-
 													text_single = {
 														layoutpolicy_horizontal = expanding
 														text = "[Character.GetRelationToString( GetPlayer )]"
@@ -468,18 +411,12 @@ window = {
 												}
 											}
 
-											vbox = {
-												layoutpolicy_vertical = expanding
-												margin = { 4 4 }
-
-												text_label_center  = {
-													text = "[prowess_i][Character.GetSkill( 'prowess' )]"
-													using = Font_Size_Big
-													default_format = "#high"
-													alwaystransparent = yes
-												}
-
-												expand = {}
+											text_single  = {
+												text = "[prowess_i][Character.GetSkill( 'prowess' )]"
+												align = nobaseline
+												default_format = "#high"
+												alwaystransparent = yes
+												using = Font_Size_Big
 											}
 										}
 
@@ -600,96 +537,64 @@ window = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 
-			visible = "[CreateAccoladeView.IsChangingType]"
+			visible = "[CreateAccoladeView.GetSelectedInitialType.IsValid]"
 
-			blockoverride "scrollbox_content" {
-
-				vbox = {
-					name = "accolade_types"
+			blockoverride "scrollbox_content"
+			{
+				fixedgridbox = {
+					name = "types_grid"
 					datamodel = "[CreateAccoladeView.GetPotentialTypes]"
 					layoutpolicy_horizontal = expanding
-					spacing = 10
+					flipdirection = yes
+					datamodel_wrap = 3
+					addcolumn = 180
+					addrow = 164
 
 					item = {
-						hbox = {
-							visible = "[And( Not( ObjectsEqual( AccoladeType.Self, CreateAccoladeView.GetSelectedPrimaryType ) ), Not( ObjectsEqual( AccoladeType.Self, CreateAccoladeView.GetSelectedSecondaryType ) ) )]"
-							layoutpolicy_horizontal = expanding
+						widget = {
+							size = { 140 150 }
 
-							margin_top = 10
-							margin_bottom = 10
-							spacing = 10
+							button_standard = {
+								size = { 96 120 }
+								parentanchor = top|hcenter
+								onclick = "[CreateAccoladeView.SetSelectedInitialType( AccoladeType.Self )]"
+								tooltipwidget = {
+									object_tooltip_pop_out = {
+										blockoverride "title_text" {
+											margin = { 0 8 }
+											text = "[AccoladeType.GetName]"
+											default_format = "#T"
+										}
+										blockoverride "concept_link" {
+											text = "[accolade_type|E]"
+										}
+										blockoverride "description_text" {
+											text = "CREATE_ACCOLADE_SET_INITIAL_TYPE_TT"
+										}
+									}
+								}
 
-							background = {
-								using = Background_Area
+								highlight_icon = {
+									name = "accolade_type_icon"
+									parentanchor = center
+									size = { 92	116 }
+									texture = "[AccoladeType.GetIcon]"
+									using = Mask_Rough_Edges
+								}
 
-								margin = { 15 5 }
+								selection_glow = {
+									visible = "[ObjectsEqual( AccoladeType.Self, CreateAccoladeView.GetSelectedInitialType )]"
+								}
 							}
 
-							text_single = {
+							text_label_center = {
+								name = "accolade_type_name"
+								parentanchor = bottom|hcenter
 								layoutpolicy_horizontal = expanding
-
-								text = "[AccoladeType.GetName]"
-
-								align = nobaseline
-							}
-
-							icon = {
-								datacontext = "[AccoladeType.GetPrimaryMaaUnlock]"
-								visible = "[MenAtArmsType.IsValid]"
-								texture = "[MenAtArmsType.GetIcon]"
-								tooltipwidget = {
-									widget_maa_type_container_tooltip = {
-										blockoverride "maa_texture"
-										{
-											texture = "[MenAtArmsType.GetHorizontalImageForCulture( GetPlayer.GetCulture )]"
-										}
-									}
-								}
-								size = { 30 30 }
-
-								icon = {
-									visible = "[CreateAccoladeView.IsChangingSecondaryType]"
-									size = { 30 30 }
-									texture = "gfx/interface/icons/symbols/icon_cross.dds"
-									tooltip = "[AccoladeType.GetPrimaryMaaUnlockWarning]"
-								}
-							}
-
-							icon = {
-								datacontext = "[AccoladeType.GetSecondaryMaaUnlock]"
-								visible = "[MenAtArmsType.IsValid]"
-								texture = "[MenAtArmsType.GetIcon]"
-								tooltipwidget = {
-									widget_maa_type_container_tooltip = {
-										blockoverride "maa_texture"
-										{
-											texture = "[MenAtArmsType.GetHorizontalImageForCulture( GetPlayer.GetCulture )]"
-										}
-									}
-								}
-								size = { 30 30 }
-							}
-
-							button_standard = {
-								visible = "[CreateAccoladeView.IsChangingPrimaryType]"
-
-								onclick = "[CreateAccoladeView.SetSelectedPrimaryType( AccoladeType.Self )]"
-								onclick = "[CreateAccoladeView.ToggleChangingPrimaryType]"
-								tooltip = "CREATE_ACCOLADE_SET_PRIMARY_TYPE_TT"
-								using = tooltip_nw
-
-								text = "SELECT"
-							}
-
-							button_standard = {
-								visible = "[CreateAccoladeView.IsChangingSecondaryType]"
-
-								onclick = "[CreateAccoladeView.SetSelectedSecondaryType( AccoladeType.Self )]"
-								onclick = "[CreateAccoladeView.ToggleChangingSecondaryType]"
-								tooltip = "CREATE_ACCOLADE_SET_SECONDARY_TYPE_TT"
-								using = tooltip_nw
-
-								text = "SELECT"
+								text = "[AccoladeType.GetNameNoTooltip]"
+								align = center
+								default_format = "#high"
+								max_width = 150
 							}
 						}
 					}

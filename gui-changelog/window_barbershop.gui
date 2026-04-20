@@ -11,6 +11,7 @@ window = {
 		name = _show
 		using = Animation_FadeIn_Standard
 		using = Sound_WindowShow_Standard
+		on_finish = "[GetVariableSystem.Clear('barbershop_screenshot')]"
 	}
 
 	state = {
@@ -25,6 +26,7 @@ window = {
 		size = { 100% 100% }
 		shortcut = "close_window"
 		onclick = "[BarbershopScreenshotHandler.ToggleScreenshotButtons]"
+		onclick = "[GetVariableSystem.Clear('hide_barbershop_manually')]"
 	}
 
 	### ALL CHARACTER PORTRAITS ###
@@ -67,6 +69,11 @@ window = {
 			{
 				visible = "[BarbershopCoAHandler.IsTitleWindowHovered]"
 			}
+			
+			blockoverride "close_coa" {
+				visible = "[BarbershopCoAHandler.IsTitleWindowHovered]"
+				onclick = "[BarbershopCoAHandler.ToggleTitle]"
+			}
 
 			hbox = {
 				barbershop_coa_realm = {
@@ -86,6 +93,11 @@ window = {
 			{
 				visible = "[BarbershopCoAHandler.IsHouseWindowHovered]"
 			}
+			
+			blockoverride "close_coa" {
+				visible = "[BarbershopCoAHandler.IsHouseWindowHovered]"
+				onclick = "[BarbershopCoAHandler.ToggleHouse]"
+			}
 
 			hbox = {
 				barbershop_coa_house = {
@@ -104,6 +116,10 @@ window = {
 			blockoverride "coa_window_frame"
 			{
 				visible = "[BarbershopCoAHandler.IsDynastyWindowHovered]"
+			}
+			blockoverride "close_coa" {
+				visible = "[BarbershopCoAHandler.IsDynastyWindowHovered]"
+				onclick = "[BarbershopCoAHandler.ToggleDynasty]"
 			}
 
 			hbox = {
@@ -159,7 +175,7 @@ window = {
 	### SCENE TAB - Hide UI notification ###
 	container = {
 		name = "hide_ui_notification"
-		visible = "[BarbershopScreenshotHandler.IsShowHideUINotificationVisible]"
+		visible = "[And(BarbershopScreenshotHandler.IsShowHideUINotificationVisible, Not(GetVariableSystem.Exists('hide_barbershop_manually')))]"
 		layer = confirmation
 		parentanchor = center
 
@@ -198,14 +214,16 @@ window = {
 		expand = {}
 
 		hbox = {
-			min_width = 362
 			spacing = 22
+			visible = "[Not(GetVariableSystem.Exists('barbershop_screenshot'))]"
+			ignoreinvisible = no # to avoid screenshot button shifting
 
 			button_standard = {
 				name = "hide_ui_button"
 				visible = "[Not(BarbershopScreenshotHandler.IsScreenshotModeActive)]"
 				text = "ROYAL_COURT_SCREENSHOT_HIDE_UI"
 				onclick = "[BarbershopScreenshotHandler.ToggleScreenshotButtons]"
+				shortcut = "barbershop_hide_ui"
 				tooltip = "ROYAL_COURT_SCREENSHOT_HIDE_UI_TOOLTIP"
 				using = tooltip_ne
 			}
@@ -213,18 +231,39 @@ window = {
 			button_standard = {
 				name = "screenshot_button"
 				visible = "[BarbershopScreenshotHandler.IsScreenshotButtonVisible]"
+				onclick = "[GetVariableSystem.Set('barbershop_screenshot', 'yes')]"
+				
 				button_capture = {
 					size = { 36 36 }
 					position = { 2 -2 }
 				}
+				
 				text = "BARBERSHOP_SCREENSHOT"
-				onclick = "[BarbershopScreenshotHandler.TakeScreenshot]"
 				onmousehierarchyenter = "[BarbershopScreenshotHandler.EnterScreenshotMode]"
-				onmousehierarchyleave = "[BarbershopScreenshotHandler.ExitScreenshotMode]"
 				tooltip = "BARBERSHOP_SCREENSHOT_TT"
 				using = tooltip_ne
+				
+				# adds a tiny delay, so UI doesn't become instantly visible when taking a screenshot
+				state = {
+					name = _mouse_hierarchy_leave
+					on_finish = "[BarbershopScreenshotHandler.ExitScreenshotMode]"
+				}
 			}
 		}
+	}
+	
+	state = {
+		name = screenshot
+		# need to delay so the screenshot doesn't have the button in it
+		delay = 0.1
+		trigger_when = "[GetVariableSystem.Exists('barbershop_screenshot')]"
+		on_finish = "[BarbershopScreenshotHandler.TakeScreenshot]"
+		next = "exit"
+	}
+	state = {
+		name = exit
+		on_finish = "[GetVariableSystem.Clear('barbershop_screenshot')]"
+		on_finish = "[BarbershopScreenshotHandler.ExitScreenshotMode]"
 	}
 
 	vbox = {
@@ -252,11 +291,9 @@ window = {
 				name = "left_panel"
 				layoutpolicy_vertical = expanding
 
-				#AGOT Modified
-				# minimumsize = { 500 0 }
-				minimumsize = { 575 0 }
+				minimumsize = { 500 0 }
 
-				margin_bottom = 45
+				margin_bottom = 15
 
 				using = Window_Background_Sidebar
 				using = Window_Margins_Sidebar
@@ -267,23 +304,49 @@ window = {
 					layoutpolicy_horizontal = expanding
 
 					button_tab = {
-						layoutpolicy_horizontal = expanding
+						shortcut = "barbershop_tab_1"
 						onclick = "[BarbershopWindow.SetTabAppearanceVisible]"
 						down = "[BarbershopWindow.IsTabAppearanceVisible]"
-						text = "BARBERSHOP_TAB_APPEARANCE"
+
+						blockoverride "tab_label"
+						{
+							text = "BARBERSHOP_TAB_APPEARANCE"
+							max_width = 220
+						}
+
+						blockoverride "icon_visible" {}
+
+						blockoverride "tab_icon"
+						{
+							texture = "gfx/interface/icons/flat_icons/window_me.dds"
+							down = "[BarbershopWindow.IsTabAppearanceVisible]"
+						}
+
 						tooltip = "BARBERSHOP_TAB_APPEARANCE_TT"
 						using = tooltip_ne
-						default_format = "#low"
 					}
 
 					button_tab = {
-						layoutpolicy_horizontal = expanding
+						shortcut = "barbershop_tab_2"
 						onclick = "[BarbershopWindow.SetTabSceneVisible]"
 						down = "[BarbershopWindow.IsTabSceneVisible]"
-						text = "BARBERSHOP_TAB_SCENE"
+
+						blockoverride "tab_label"
+						{
+							text = "BARBERSHOP_TAB_SCENE"
+							max_width = 220
+						}
+
+						blockoverride "icon_visible" {}
+
+						blockoverride "tab_icon"
+						{
+							texture = "gfx/interface/icons/flat_icons/pool.dds"
+							down = "[BarbershopWindow.IsTabSceneVisible]"
+						}
+
 						tooltip = "BARBERSHOP_TAB_SCENE_TT"
 						using = tooltip_ne
-						default_format = "#low"
 					}
 				}
 
@@ -291,19 +354,14 @@ window = {
 				vbox = {
 					name = "appearance_tab"
 					visible = "[BarbershopWindow.IsTabAppearanceVisible]"
+					layoutpolicy_vertical = expanding
 
-					margin = { 20 10 }
-					#AGOT Modified
-					# spacing = 15
-					spacing = 5
+					scrollbox = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						size = { 480 0 }
 
-					#AGOT Disabled
-					# scrollbox = {
-						# layoutpolicy_horizontal = expanding
-						# size = { 480 644 }
-
-						#AGOT Disabled
-						# blockoverride "scrollbox_content" {
+						blockoverride "scrollbox_content" {
 							vbox = {
 								layoutpolicy_horizontal = expanding
 
@@ -312,67 +370,64 @@ window = {
 								item = {
 									hbox = {
 										layoutpolicy_horizontal = expanding
-										#AGOT Disabled
-										# spacing = 10
-
+										layoutpolicy_vertical = expanding
+										spacing = 10
+										
 										vbox = {
 											spacing = 2
-
-											#AGOT Disabled; moved below
-											# hbox = {
-												# layoutpolicy_horizontal = expanding
-
-												# text_label_left = {
-													# text = "[BarbershopAccessoryCategory.GetName]"
-												# }
-
-												# expand = {}
-											# }
-
+											
 											hbox = {
-												#AGOT Added
 												layoutpolicy_horizontal = expanding
+												
+												text_label_left = {
+													text = "[BarbershopAccessoryCategory.GetName]"
+												}
+												
+												expand = {}
+											}
+											
+											hbox = {
 												spacing = 5
-
-												#AGOT Modified
-												# button_search = {
-													# size = { 30 30 }
-													# onclick = "[BarbershopWindow.ShowSearchFilter( PdxGuiWidget.GetIndexInDataModel )]"
-
-													# tooltip = "BARBERSHOP_FUZZY_SEARCH_TT"
-													# using = tooltip_ne
-												# }
-												agot_barbershop_label_plus_search = {}
-
+												
+												button_search = {
+													size = { 30 30 }
+													onclick = "[BarbershopWindow.ShowSearchFilter( PdxGuiWidget.GetIndexInDataModel )]"
+													
+													tooltip = "BARBERSHOP_FUZZY_SEARCH_TT"
+													using = tooltip_ne
+													using = SubTabShortcut
+												}
+												
 												dropdown_menu_standard = {
 													blockoverride "dropdown_properties"
 													{
 														datamodel = "[BarbershopAccessoryCategory.GetItems]"
+														onselectionchanged = "[BarbershopAccessoryCategory.SelectColorPicker]"
 														onselectionchanged = "[BarbershopAccessoryCategory.OnSelect]"
 														selectedindex = "[BarbershopAccessoryCategory.GetHoveredIndex]"
 													}
-
+													
 													blockoverride "dropdown_size"
 													{
 														size = { 322 32 }
 													}
-
+													
 													blockoverride "dropdown_list_maxsize"
 													{
 														maximumsize = { 314 450 }
 													}
-
+													
 													blockoverride "dropdown_active_item_properties"
 													{
 														text = "[BarbershopAccessoryItem.GetName]"
 													}
-
+													
 													blockoverride "dropdown_item_properties"
 													{
 														onmousehierarchyenter = "[BarbershopAccessoryItem.OnHover]"
 														text = "[BarbershopAccessoryItem.GetName]"
 													}
-
+													
 													blockoverride "dropdown_list_properties"
 													{
 														onmousehierarchyenter = "[BarbershopAccessoryCategory.SetShowTextSearch('(bool)no')]"
@@ -380,11 +435,11 @@ window = {
 													}
 												}
 											}
-
+											
 											editbox_standard = {
 												visible = "[BarbershopAccessoryCategory.IsTextSearchVisible]"
 												layoutpolicy_horizontal = expanding
-
+												
 												blockoverride "editbox_properties"
 												{
 													name = "input"
@@ -394,31 +449,31 @@ window = {
 													ontextedited = "[BarbershopAccessoryCategory.OnEdit]"
 												}
 											}
-
+											
 											scrollbox = {
 												name = "filtered_list"
 												visible = "[BarbershopAccessoryCategory.HasItemsFiltered]"
 												layoutpolicy_horizontal = expanding
 												layoutpolicy_vertical = expanding
 												size = { 100 204 }
-
+												
 												blockoverride "scrollbox_content"
 												{
 													vbox = {
 														datamodel = "[BarbershopAccessoryCategory.GetItemsFiltered]"
 														layoutpolicy_horizontal = expanding
 														spacing = 3
-
+														
 														item = {
 															button_standard = {
 																name = "fuzzy_item_button"
 																layoutpolicy_horizontal = expanding
 																size = { 0 24 }
-
+																
 																onclick = "[BarbershopAccessoryCategory.OnSelectFiltered( PdxGuiWidget.GetIndexInDataModel )]"
 																onmousehierarchyenter = "[BarbershopAccessoryItem.OnHover]"
 																onmousehierarchyleave = "[BarbershopWindow.RestorePreviousPortraitModifierIndex]"
-
+																
 																button_ignore = none
 																
 																text_single = {
@@ -434,101 +489,116 @@ window = {
 												}
 											}
 										}
-
+										
 										vbox = {
-											visible = "[BarbershopAccessoryCategory.CanEditColor]"
-
-											#AGOT Disabled
-											# background = {
-												# using = Background_Area_Dark
-											# }
-											#AGOT Added
-											margin_top = 2
-
-											button_standard_clean = {
-												name = "color_button"
-												#AGOT Modified
-												# size = { 64 64 }
-												size = { 22 22 }
-												onclick = "[BarbershopAccessoryCategory.SelectColorPicker]"
-												down = "[BarbershopAccessoryCategory.IsActiveColorPicker]"
-
-												icon = {
-													parentanchor = center
-													#AGOT Modified
-													# size = { 58 58 }
-													size = { 16 16 }
-
-													texture = "gfx/interface/colors/white.dds"
-													tintcolor = "[BarbershopAccessoryCategory.GetCurrentColor]"
-													#AGOT Disabled
-													# using = Mask_Rough_Edges
-
-													tooltip = "BARBERSHOP_SELECT_COLOR_PICKER_TT"
+											layoutpolicy_vertical = expanding
+											margin_top = 8
+											
+											hbox = {
+												visible = "[BarbershopAccessoryCategory.CanEditColor]"
+												spacing = 3
+												
+												vbox = {
+													layoutpolicy_vertical = expanding
+													
+													button_standard_clean = {
+														background = {
+															using = Background_Area_Dark
+														}
+														name = "color_button"
+														size = { 50 50 }
+														onclick = "[BarbershopAccessoryCategory.SelectColorPicker]"
+														down = "[BarbershopAccessoryCategory.IsActiveColorPicker]"
+														
+														icon = {
+															parentanchor = center
+															size = { 42 42 }
+															
+															texture = "gfx/interface/colors/white.dds"
+															tintcolor = "[BarbershopAccessoryCategory.GetCurrentColor]"
+															using = Mask_Rough_Edges
+															
+															tooltip = "BARBERSHOP_SELECT_COLOR_PICKER_TT"
+															using = tooltip_ne
+														}
+													}
+												}
+												
+												button_clear = {
+													name = "revert_to_default"
+													visible = "[BarbershopAccessoryCategory.HasColorOverride]"
+													size = { 32 32 }
+													onclick = "[BarbershopAccessoryCategory.ResetColorToNatural]"
+													
+													tooltip = "BARBERSHOP_RESET_NATURAL_COLORS_TT"
 													using = tooltip_ne
 												}
 											}
+											
+											expand = {}
 										}
-										#AGOT Added
-										expand = {}
+										
 										expand = {}
 									}
 								}
 							}
-						#AGOT Disabled x2
-						# }
-					# }
-				}
-
-				### APPEARANCE TAB - Color picker ###
-				vbox = {
-					name = "color_picker"
-					visible = "[BarbershopWindow.IsTabAppearanceVisible]"
-
-					hbox = {
-						text_label_center = {
-							text = "COA_DESIGNER_COLOR_PICKER_EXPAND_HEADER"
 						}
 					}
-					hbox = {
-						datacontext = "[BarbershopWindow.GetColorPickerHandler]"
-						visible = "[BarbershopColorPickerHandler.HasMultipleColorChannels]"
-
-						dropdown_menu_standard =
-						{
-							blockoverride "dropdown_properties"
-							{
-								datamodel = "[BarbershopColorPickerHandler.GetColorChannels]"
-								onselectionchanged = "[BarbershopColorPickerHandler.SetColorChannel]"
-								selectedindex = "[BarbershopColorPickerHandler.GetHoveredIndex]"
-							}
-
-							blockoverride "dropdown_size"
-							{
-								size = { 300 32 }
-							}
-
-							blockoverride "dropdown_list_maxsize"
-							{
-								maximumsize = { 291 350 }
-							}
-
-							blockoverride "dropdown_active_item_properties"
-							{
-								text = "[BarbershopItem.GetName]"
-							}
-
-							blockoverride "dropdown_item_properties"
-							{
-								text = "[BarbershopItem.GetName]"
+					
+					### APPEARANCE TAB - Color picker ###
+					vbox = {
+						name = "color_picker"
+						layoutpolicy_horizontal = expanding
+						
+						margin_top = 10
+						spacing = 5
+						
+						hbox = {
+							text_label_center = {
+								text = "COA_DESIGNER_COLOR_PICKER_EXPAND_HEADER"
 							}
 						}
-					}
-
-					barbershop_color_picker = {
-						visible = yes
-						color = "[BarbershopColorPickerHandler.GetColor]"
-						oncoloredited = "[BarbershopColorPickerHandler.PickColor]"
+						
+						hbox = {
+							datacontext = "[BarbershopWindow.GetColorPickerHandler]"
+							visible = "[BarbershopColorPickerHandler.HasMultipleColorChannels]"
+							
+							dropdown_menu_standard =
+							{
+								blockoverride "dropdown_properties"
+								{
+									datamodel = "[BarbershopColorPickerHandler.GetColorChannels]"
+									onselectionchanged = "[BarbershopColorPickerHandler.SetColorChannel]"
+									selectedindex = "[BarbershopColorPickerHandler.GetHoveredIndex]"
+								}
+								
+								blockoverride "dropdown_size"
+								{
+									size = { 300 32 }
+								}
+								
+								blockoverride "dropdown_list_maxsize"
+								{
+									maximumsize = { 291 350 }
+								}
+								
+								blockoverride "dropdown_active_item_properties"
+								{
+									text = "[BarbershopItem.GetName]"
+								}
+								
+								blockoverride "dropdown_item_properties"
+								{
+									text = "[BarbershopItem.GetName]"
+								}
+							}
+						}
+						
+						barbershop_color_picker = {
+							visible = yes
+							color = "[BarbershopColorPickerHandler.GetColor]"
+							oncoloredited = "[BarbershopColorPickerHandler.PickColor]"
+						}
 					}
 				}
 
@@ -561,10 +631,11 @@ window = {
 
 								hbox = {
 									spacing = 5
-									
+
 									button_search = {
 										size = { 30 30 }
 										onclick = "[BarbershopBackgroundCategory.ToggleTextSearch]"
+										shortcut = "barbershop_background"
 
 										tooltip = "BARBERSHOP_FUZZY_SEARCH_TT"
 										using = tooltip_ne
@@ -668,7 +739,9 @@ window = {
 
 						expand = {}
 
-						hbox = {
+						vbox = {
+							layoutpolicy_vertical = expanding
+							
 							vbox = {
 								name = "zoom"
 								datacontext = "[BarbershopWindow.GetBackgroundCategory]"
@@ -687,26 +760,32 @@ window = {
 								hbox = {
 									name = "zoom_buttons"
 									spacing = 20
+									
+									barbershop_button_zoom_out = {
+										name = "zoom_out"
+										size = { 30 30 }
+										onclick = "[BarbershopWindow.ZoomOut]"
+										shortcut = "barbershop_zoom_out"
+										shortcut = "barbershop_zoom_out_2"
+										
+										using = tooltip_se
+										tooltip = "BARBERSHOP_ZOOM_OUT_TT"
+									}
 
 									barbershop_button_zoom_in = {
 										name = "zoom_in"
 										size = { 30 30 }
 										onclick = "[BarbershopWindow.ZoomIn]"
+										shortcut = "barbershop_zoom_in"
+										shortcut = "barbershop_zoom_in_2"
 
 										using = tooltip_se
 										tooltip = "BARBERSHOP_ZOOM_IN_TT"
 									}
-
-									barbershop_button_zoom_out = {
-										name = "zoom_out"
-										size = { 30 30 }
-										onclick = "[BarbershopWindow.ZoomOut]"
-
-										using = tooltip_se
-										tooltip = "BARBERSHOP_ZOOM_OUT_TT"
-									}
 								}
 							}
+							
+							expand = {}
 						}
 						expand = {}
 					}
@@ -764,10 +843,12 @@ window = {
 					vbox = {
 						name = "barbershop_characters"
 						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
 
 						scrollbox = {
 							layoutpolicy_horizontal = expanding
-							size = { 480 644 }
+							layoutpolicy_vertical = expanding
+							size = { 480 0 }
 
 							blockoverride "scrollbox_content" {
 								vbox = {
@@ -797,28 +878,25 @@ window = {
 
 						margin = { 20 0 }
 						margin_top = 15
-
+						spacing = 10
+						
 						hbox = {
 							layoutpolicy_horizontal = expanding
-							#AGOT Added
-							margin_bottom = 8
-
+							
 							text_label_left = {
 								text = "COA_DESIGNER_HEADER"
 							}
-
+							
 							expand = {}
 						}
-
+						
 						hbox = {
 							layoutpolicy_horizontal = expanding
-
+							
 							vbox = {
 								visible = "[BarbershopWindow.HasPrimaryTitle]"
-								#AGOT Disabled
-								# margin_top = -17
-
-								coa_realm_small_crown = {
+								
+								coa_realm_medium = {
 									blockoverride "coa_hover_glow_visible" {
 										visible = no
 									}
@@ -828,40 +906,39 @@ window = {
 										onclick = "[BarbershopCoAHandler.ToggleTitle]"
 									}
 								}
-
+								
 								tooltip = "BARBERSHOP_COA_TOGGLE_TT"
 								using = tooltip_se
 							}
-							#AGOT Added
-							spacer = { size = { 10 0 } }
-
+							
 							vbox = {
 								visible = "[DynastyHouse.IsValid]"
-
+								
 								coa_house_small = {
 									blockoverride "coa_tooltip" {}
 									blockoverride "coa_button" {
 										onclick = "[BarbershopCoAHandler.ToggleHouse]"
 									}
 								}
-
+								
 								tooltip = "BARBERSHOP_COA_TOGGLE_TT"
 								using = tooltip_se
 							}
-
+							
 							vbox = {
 								visible = "[Dynasty.IsValid]"
-
+								
 								coa_dynasty_small = {
 									blockoverride "coa_tooltip" {}
 									blockoverride "coa_button" {
 										onclick = "[BarbershopCoAHandler.ToggleDynasty]"
 									}
 								}
-
+								
 								tooltip = "BARBERSHOP_COA_TOGGLE_TT"
 								using = tooltip_se
 							}
+							
 							expand = {}
 						}
 					}
@@ -918,7 +995,6 @@ window = {
 
 			expand = {}
 
-
 		}
 		expand = {}
 	}
@@ -956,21 +1032,62 @@ window = {
 	}
 
 	### CLOSE BUTTON
-	widget = {
-		visible = "[BarbershopScreenshotHandler.AreTabsVisible]"
+	
+	button = {
+		size = { 60 60 }
 		parentanchor = top|right
-		position = { -10 10}
-		size = { 50 50 }
-
-		background = {
-			using = Background_Area_Dark
-		}
-
-		button_close = {
-			parentanchor = center
+		visible = "[BarbershopScreenshotHandler.AreTabsVisible]"
+		onclick = "[BarbershopWindow.CloseWithoutSave]"
+		
+		widget = {
+			parentanchor = top|right
+			position = { -10 10 }
+			size = { 50 50 }
 			
-			onclick = "[BarbershopWindow.CloseWithoutSave]"
+			background = {
+				using = Background_Area_Dark
+			}
+			
+			button_close = {
+				parentanchor = center
+				
+				onclick = "[BarbershopWindow.CloseWithoutSave]"
+				shortcut = "close_window"
+			}
 		}
+	}
+	
+	# hotkeys
+	
+	button = {
+		shortcut = "barbershop_zoom_in"
+		shortcut = "barbershop_zoom_in_2"
+		onclick = "[BarbershopWindow.ZoomIn]"
+	}
+	button = {
+		shortcut = "barbershop_zoom_out"
+		shortcut = "barbershop_zoom_out_2"
+		onclick = "[BarbershopWindow.ZoomOut]"
+	}
+	container = {
+		visible = "[And( Not(BarbershopScreenshotHandler.IsScreenshotButtonVisible), Not(BarbershopScreenshotHandler.IsScreenshotBeingTaken) )]"
+		button = {
+			shortcut = "barbershop_hide_ui"
+			onclick = "[BarbershopScreenshotHandler.ToggleScreenshotButtons]"
+			onclick = "[GetVariableSystem.Clear('hide_barbershop_manually')]"
+		}
+	}
+	button = {
+		shortcut = "barbershop_hide_ui"
+		onclick = "[BarbershopScreenshotHandler.ToggleScreenshotButtons]"
+		visible = "[Not(GetVariableSystem.Exists('hide_barbershop_manually'))]"
+		onclick = "[GetVariableSystem.Set('hide_barbershop_manually', 'yes')]"
+	}
+	# safeguard
+	button = {
+		visible = "[GetVariableSystem.Exists('barbershop_screenshot')]"
+		shortcut = close_window
+		onclick = "[GetVariableSystem.Clear('barbershop_screenshot')]"
 	}
 }
 
@@ -1051,24 +1168,13 @@ types BarbershopTypes {
 				}
 
 				vbox = {
-					spacing = 5
-					
-					button_clear = {
-						name = "revert_to_default"
-						size = { 36 36 }
-						onclick = "[BarbershopColorPickerHandler.ResetColorToNatural]"
-
-						tooltip = "BARBERSHOP_RESET_NATURAL_COLORS_TT"
-						using = tooltip_ne
-					}
-
 					widget = {
 						name = "spectrum_icon"
-						size = { 32 216 }
+						size = { 32 256 }
 
 						icon = {
 							name = "color_slider"
-							size = { 32 216 }
+							size = { 32 256 }
 							shaderfile = "gfx/FX/pdxgui_colorpicker.shader"
 							effectname = "PdxGuiColorSlider"
 							texture = "gfx/editor_gui/editor_transparent.dds"
@@ -1090,7 +1196,7 @@ types BarbershopTypes {
 							name = "spectrum_border"
 							parentanchor = center
 							alwaystransparent = yes
-							size = { 36 220 }
+							size = { 36 260 }
 
 							background = {
 								texture = "gfx/interface/component_tiles/tile_vignette_3px.dds"
@@ -1173,16 +1279,6 @@ types BarbershopTypes {
 		}
 		vbox = {
 			layoutpolicy_vertical = expanding
-			hbox = {
-				layoutpolicy_horizontal = expanding
-				expand = {}
-				button_close = {
-					name = "button_close_coa_realm"
-					visible = "[BarbershopCoAHandler.IsTitleWindowHovered]"
-					clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_close"
-					onclick = "[BarbershopCoAHandler.ToggleTitle]"
-				}
-			}
 			expand = {}
 			text_label_left = {
 				visible = "[BarbershopCoAHandler.IsTitleTextVisible]"
@@ -1224,16 +1320,6 @@ types BarbershopTypes {
 		}
 		vbox = {
 			layoutpolicy_vertical = expanding
-			hbox = {
-				layoutpolicy_horizontal = expanding
-				expand = {}
-				button_close = {
-					name = "button_close_coa_realm"
-					visible = "[BarbershopCoAHandler.IsHouseWindowHovered]"
-					clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_close"
-					onclick = "[BarbershopCoAHandler.ToggleHouse]"
-				}
-			}
 			expand = {}
 			text_label_left = {
 				visible = "[BarbershopCoAHandler.IsHouseTextVisible]"
@@ -1275,16 +1361,6 @@ types BarbershopTypes {
 		}
 		vbox = {
 			layoutpolicy_vertical = expanding
-			hbox = {
-				layoutpolicy_horizontal = expanding
-				expand = {}
-				button_close = {
-					name = "button_close_coa_realm"
-					visible = "[BarbershopCoAHandler.IsDynastyWindowHovered]"
-					clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_close"
-					onclick = "[BarbershopCoAHandler.ToggleDynasty]"
-				}
-			}
 			expand = {}
 			text_label_left = {
 				visible = "[BarbershopCoAHandler.IsDynastyTextVisible]"
@@ -1339,6 +1415,18 @@ types BarbershopTypes {
 			color = { 0.9 0.9 0.9 0.25 }
 			margin = { -4 -4 }
 		}
+		
+		button_close = {
+			name = "button_close_coa_realm"
+			parentanchor = top|right
+			position = { -15 15 }
+			clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_close"
+			
+			block "close_coa" {
+				visible = "[BarbershopCoAHandler.IsTitleWindowHovered]"
+				onclick = "[BarbershopCoAHandler.ToggleTitle]"
+			}
+		}
 
 		state = {
 			name = _show
@@ -1384,14 +1472,14 @@ types BarbershopTypes {
 		text_single = {
 			layoutpolicy_horizontal = expanding
 			text = "DNA_MODIFIERS_LINK"
-			
+
 			fonttintcolor = "[TooltipInfo.GetTintColor]"
-			
+
 			tooltipwidget = {
 				container = {
 					name = "DnaModifierTooltip"
 					alwaystransparent = no
-					
+
 					object_tooltip_pop_out = {
 						blockoverride "header_additions"
 						{
@@ -1399,25 +1487,25 @@ types BarbershopTypes {
 								margin_right = 10
 								margin_top = 8
 								margin_left = -4
-								
+
 								button_copy = {
 									size = { 52 52 }
-									
+
 									onclick = "[Character.CopyDnaAccessoryToClipboard]"
 									raw_tooltip = "Copy DNA Modifiers"
 								}
 							}
 						}
-						
+
 						blockoverride "title_text"
 						{
 							margin = { 0 8 }
 							text = "DNA_MODIFIERS"
 							default_format = "#T"
 						}
-						
+
 						blockoverride "concept_link" {}
-						
+
 						blockoverride "description_text"
 						{
 							max_width = 600
@@ -1486,10 +1574,12 @@ types BarbershopTypes {
 		blockoverride "title_text"
 		{
 			margin = { 0 8 }
-			text = "[Character.GetShortUINameNotMeNoTooltip]"
+			#AGOT Modified
+			#text = "[Character.GetShortUINameNotMeNoTooltip]"
+			text = "[AGOTGetNameNoTooltip(Character)|V]"
 			default_format = "#T"
 		}
-		
+
 		blockoverride "concept_link" {}
 
 		blockoverride "main_description"
@@ -1623,7 +1713,9 @@ types BarbershopTypes {
 					name = "rotate_left"
 					onclick = "[BarbershopCameraSettings.DecrementRotation]"
 					size = { 30 30 }
-
+					shortcut = "barbershop_rotate_left"
+					shortcut = "barbershop_rotate_left_2"
+					
 					tooltip = "BARBERSHOP_ROTATE_LEFT_TT"
 				}
 
@@ -1633,9 +1725,29 @@ types BarbershopTypes {
 					name = "rotate_right"
 					onclick = "[BarbershopCameraSettings.IncrementRotation]"
 					size = { 30 30 }
+					shortcut = "barbershop_rotate_right"
+					shortcut = "barbershop_rotate_right_2"
 
 					tooltip = "BARBERSHOP_ROTATE_RIGHT_TT"
 				}
+			}
+		}
+		
+		# so you can always rotate the selected portrait without hover
+		container = {
+			visible = "[Or(BarbershopPortrait.IsBeingHovered, BarbershopWindow.IsTabAppearanceVisible)]"
+			button = {
+				name = "rotate_left"
+				shortcut = "barbershop_rotate_left"
+				shortcut = "barbershop_rotate_left_2"
+				onclick = "[BarbershopCameraSettings.DecrementRotation]"
+			}
+
+			button = {
+				name = "rotate_right"
+				shortcut = "barbershop_rotate_right"
+				shortcut = "barbershop_rotate_right_2"
+				onclick = "[BarbershopCameraSettings.IncrementRotation]"
 			}
 		}
 

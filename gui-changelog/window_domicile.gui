@@ -34,6 +34,7 @@
 
 				blockoverride "tab_button"
 				{
+					shortcut = "tab_1"
 					onclick = "[GetVariableSystem.Toggle( 'bookmark_overview' )]"
 					onclick = "[GetVariableSystem.Clear( 'show_building_panel' )]"
 					onclick = "[GetVariableSystem.Clear( 'bookmark_patrons' )]"
@@ -76,12 +77,13 @@
 			### DOMICILE BOOKMARK PATRONS
 			button_tab_vertical_bookmark = {
 				#AGOT Modified
-				#visible = "[IsLandlessAdventurer( DomicileWindow.GetCharacter )]"
+				# visible = "[IsLandlessAdventurer( DomicileWindow.GetCharacter )]"
 				visible = "[And(IsLandlessAdventurer( DomicileWindow.GetCharacter ),Not(IsPirate( DomicileWindow.GetCharacter)))]"
 				down = "[GetVariableSystem.Exists( 'bookmark_patrons' )]"
 
 				blockoverride "tab_button"
 				{
+					shortcut = "tab_2"
 					onclick = "[GetVariableSystem.Toggle( 'bookmark_patrons' )]"
 					onclick = "[GetVariableSystem.Clear( 'show_building_panel' )]"
 					onclick = "[GetVariableSystem.Clear( 'bookmark_overview' )]"
@@ -122,12 +124,13 @@
 			### DOMICILE BOOKMARK FOLLOWERS
 			button_tab_vertical_bookmark = {
 				#AGOT Modified
-				#visible = "[IsLandlessAdventurer( DomicileWindow.GetCharacter )]"
+				# visible = "[IsLandlessAdventurer( DomicileWindow.GetCharacter )]"
 				visible = "[And(IsLandlessAdventurer( DomicileWindow.GetCharacter ),Not(IsPirate( DomicileWindow.GetCharacter)))]"
 				down = "[GetVariableSystem.Exists( 'bookmark_followers' )]"
 
 				blockoverride "tab_button"
 				{
+					shortcut = "tab_3"
 					onclick = "[GetVariableSystem.Toggle( 'bookmark_followers' )]"
 					onclick = "[GetVariableSystem.Clear( 'show_building_panel' )]"
 					onclick = "[GetVariableSystem.Clear( 'bookmark_overview' )]"
@@ -172,6 +175,7 @@
 
 				blockoverride "tab_button"
 				{
+					shortcut = "tab_2"
 					onclick = "[GetVariableSystem.Toggle( 'bookmark_disciples' )]"
 					onclick = "[GetVariableSystem.Clear( 'show_building_panel' )]"
 					onclick = "[GetVariableSystem.Clear( 'bookmark_overview' )]"
@@ -418,7 +422,7 @@
 
 				button_edit_text = {
 					#AGOT Modified
-					#visible = "[And( DomicileWindow.HasRenameWindow, GetVariableSystem.Exists( 'open_edit_domicile_name_contextual_button' ) )]"
+					# visible = "[And( DomicileWindow.HasRenameWindow, GetVariableSystem.Exists( 'open_edit_domicile_name_contextual_button' ) )]"
 					visible = "[And(Not(GetPlayer.GetGovernment.IsType( 'pirate_government')),And( DomicileWindow.HasRenameWindow, GetVariableSystem.Exists( 'open_edit_domicile_name_contextual_button' ) ))]"
 					parentanchor = right|vcenter
 					position = { -40 -2 }
@@ -512,7 +516,7 @@
 
 				button_edit_text = {
 					#AGOT Modified
-					#visible = "[And( DomicileWindow.HasRenameWindow, GetVariableSystem.Exists( 'open_edit_domicile_name_contextual_button' ) )]"
+					# visible = "[And( DomicileWindow.HasRenameWindow, GetVariableSystem.Exists( 'open_edit_domicile_name_contextual_button' ) )]"
 					visible = "[And(Not(GetPlayer.GetGovernment.IsType( 'pirate_government')),And( DomicileWindow.HasRenameWindow, GetVariableSystem.Exists( 'open_edit_domicile_name_contextual_button' ) ))]"
 					parentanchor = right|vcenter
 					position = { -25 0 }
@@ -1293,8 +1297,6 @@
 							ignoreinvisible = yes
 							spacing = 5
 
-							#AGOT Modified; prevent player patrons showing
-							# datamodel = "[GetPlayer.GetTaskContractEmployers]"
 							datamodel = "[Character.GetTaskContractEmployers]"
 
 							text_label_center = {
@@ -1313,8 +1315,6 @@
 							ignoreinvisible = yes
 							spacing = 5
 
-							#AGOT Modified; prevent player patrons showing
-							# datamodel = "[GetPlayer.GetTaskContractEmployers]"
 							datamodel = "[Character.GetTaskContractEmployers]"
 
 							text_label_center = {
@@ -1681,6 +1681,7 @@ template domicile_building_slot_tooltip {
 		alwaystransparent = no
 
 		object_tooltip_pop_out = {
+			margin_bottom = 15
 			blockoverride "header_additions"
 			{
 				hbox = {
@@ -1886,7 +1887,8 @@ types DomicileWindowTypes {
 	{
 		name = "building_slot"
 		effectname = "NoDisabled"
-
+		
+		using = SubTabShortcut
 		onclick = "[GetVariableSystem.Set( 'show_building_panel', 'true' )]"
 		onclick = "[GetVariableSystem.Clear( 'bookmark_overview' )]"
 		onclick = "[GetVariableSystem.Clear( 'bookmark_patrons' )]"

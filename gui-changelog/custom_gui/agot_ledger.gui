@@ -1,0 +1,98 @@
+﻿#######################################################
+################# AGOT LEDGER WINDOW ##################
+#######################################################
+
+types LedgerTypes
+{
+	type agot_ledger_coa_title_medium = coa_title_medium
+	{
+		scale = 0.8
+		visible = "[Not(IsTitleShownInLedger)]"
+		blockoverride "coa_button"
+		{
+			tooltip = AGOT_LEDGER_HIDE_TITLE_NAME_TT
+		}
+	}
+
+	type agot_ledger_hide_title_name = text_ledger
+	{
+		text = AGOT_LEDGER_HIDE_TITLE_NAME
+		size = { 190 20 }
+		layoutpolicy_horizontal = expanding
+		visible = "[Not(IsTitleShownInLedger)]"
+	}
+
+	type agot_dragon_portrait_ledger_tiny = portrait_button
+	{
+		parentanchor = bottom|hcenter
+		using = visible_if_dragon
+		size = { 100% 45 }
+		position = { 0 -3 }
+		using = portrait_base
+		portrait_texture = "[Character.GetPortrait('environment_dragonpit_portrait', 'camera_dragon_head', 'dragon_head', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+		mask = "gfx/portraits/portrait_mask_head.dds"
+		effectname = "NoHighlight"
+
+		block "portrait_button" {}
+		visible = "[IsCharacterDragon]"
+	}
+
+	type agot_dragon_portrait_frame_ledger = portrait_button
+	{
+		parentanchor = bottom|hcenter
+		size = { 68 68 }
+		position = { 0 6 }
+		using = portrait_base
+		using = visible_if_dragon
+		
+		block "portrait_texture"
+		{
+			portrait_texture = "[Character.GetPortrait('environment_dragonpit_portrait', 'camera_dragon_head', 'dragon_head', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+		}
+		
+		mask = "gfx/portraits/portrait_mask_head_small.dds"
+		effectname = "NoHighlight"
+		
+		block "portrait_button" { }
+	}
+
+	type agot_ledger_coa_house_small = coa_house_small
+	{
+		visible = "[Not(IsDynastyShownInLedger)]"
+		blockoverride "coa_button"
+		{
+			tooltip = AGOT_LEDGER_HIDE_HOUSE_NAME_TT
+		}
+	}
+
+	type agot_ledger_coa_house_big_podium = coa_house_big
+	{
+		datacontext = "[LedgerDynastyHouseItem.GetHouse]"
+		visible = "[And(DynastyHouse.IsValid, Not(IsDynastyShownInLedger))]"
+		parentanchor = center
+		blockoverride "coa_button"
+		{
+			tooltip = AGOT_LEDGER_HIDE_HOUSE_NAME_TT
+		}
+	}
+
+	type agot_ledger_hide_house_name = text_ledger
+	{
+		visible = "[Not(IsDynastyShownInLedger)]"
+		size = { 140 20 }
+		block "name" {
+			text = AGOT_LEDGER_HIDE_HOUSE_NAME
+		}
+	}
+
+	type agot_ledger_hide_house_founding_date = text_ledger
+	{
+		size = { 80 20 }
+		visible = "[Not(IsDynastyShownInLedger)]"
+		block "found" {
+			text = AGOT_LEDGER_HIDE_HOUSE_FOUNDING_TT
+			tooltip = AGOT_LEDGER_HIDE_HOUSE_FOUNDING_TT
+		}
+		default_format = "#emp;low"
+	}
+}

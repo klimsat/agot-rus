@@ -599,9 +599,9 @@ types CoATypes
 			direction = vertical
 
 			block "position" {
-			position = { 0 -10 }
+				position = { 0 -10 }
 			}
-			
+
 			spacing = -4
 			ignoreinvisible = yes
 
@@ -863,8 +863,10 @@ types CoATypes
 	{
 		size = { 48 48 }
 
+		hbox = {
+			margin = { 4 4 }
+
 		coa_dynasty_lowborn_widget = {
-			parentanchor = center
 			size = { 40 40 }
 
 			blockoverride "icon_size"
@@ -876,7 +878,6 @@ types CoATypes
 		coa_dynasty_widget = {
 			size = { 40 40 }
 			using = CoA_Dynasty_Defaults
-			parentanchor = center
 
 			coat_of_arms_icon = {
 				parentanchor = center
@@ -897,59 +898,62 @@ types CoATypes
 			}
 
 			coa_dynasty_frame = {
-				#AGOT Modified
-				# size = { 48 48 }
 				size = { 40 40 }
 				texture = "[Dynasty.GetCulture.GetCultureDynastyCoAFrame]"
 			}
 		}
 	}
+	}
 
 	type coa_dynasty_small = widget
 	{
-		size = { 72 72 }
+		size = { 64 64 }
 
-		coa_dynasty_lowborn_widget = {
-			parentanchor = center
-			#AGOT Modified
-			# size = { 56 56 }
-			size = { 64 64 }
-			blockoverride "icon_size"
-			{
+		hbox = {
+			margin = { 4 4 }
+
+			coa_dynasty_lowborn_widget = {
 				#AGOT Modified
-				# size = { 44 44 }
-				size = { 56 56 }
-			}
-		}
-
-		coa_dynasty_widget = {
-			#AGOT Modified
-			# size = { 56 56 }
-			size = { 64 64 }
-			using = CoA_Dynasty_Defaults
-			parentanchor = center
-
-			coat_of_arms_icon = {
-				parentanchor = center
-				#AGOT Modified
-				# size = { 44 44 }
+				# size = { 56 56 }
 				size = { 64 64 }
-				coat_of_arms = "[Dynasty.GetDynastyCoA.GetTexture('(int32)88','(int32)88')]"
-				coat_of_arms_slot = "[Dynasty.GetDynastyCoA.GetSlot('(int32)88','(int32)88')]"
-				coat_of_arms_mask = "[Dynasty.GetCulture.GetCultureDynastyCoAMask]"
-				coat_of_arms_offset = "[Dynasty.GetCulture.GetCultureDynastyCoAOffset]"
-				coat_of_arms_scale = "[Dynasty.GetCulture.GetCultureDynastyCoAScale]"
-
-				modify_texture = {
-					texture = "gfx/interface/coat_of_arms/coa_overlay.dds"
-					blend_mode = overlay
-					alpha = @overlay_alpha
+				blockoverride "icon_size"
+				{
+					#AGOT Modified
+					# size = { 44 44 }
+					size = { 56 56 }
 				}
 			}
 
-			coa_dynasty_frame = {
+			coa_dynasty_widget = {
+				#AGOT Modified
+				# size = { 56 56 }
 				size = { 64 64 }
-				texture = "[Dynasty.GetCulture.GetCultureDynastyCoAFrame]"
+				using = CoA_Dynasty_Defaults
+
+				coat_of_arms_icon = {
+					parentanchor = center
+					#AGOT Modified
+					# size = { 44 44 }
+					size = { 64 64 }
+					coat_of_arms = "[Dynasty.GetDynastyCoA.GetTexture('(int32)88','(int32)88')]"
+					coat_of_arms_slot = "[Dynasty.GetDynastyCoA.GetSlot('(int32)88','(int32)88')]"
+					coat_of_arms_mask = "[Dynasty.GetCulture.GetCultureDynastyCoAMask]"
+					coat_of_arms_offset = "[Dynasty.GetCulture.GetCultureDynastyCoAOffset]"
+					coat_of_arms_scale = "[Dynasty.GetCulture.GetCultureDynastyCoAScale]"
+
+					modify_texture = {
+						texture = "gfx/interface/coat_of_arms/coa_overlay.dds"
+						blend_mode = overlay
+						alpha = @overlay_alpha
+					}
+				}
+
+				coa_dynasty_frame = {
+					#AGOT Modified
+					# size = { 56 56 }
+					size = { 64 64 }
+					texture = "[Dynasty.GetCulture.GetCultureDynastyCoAFrame]"
+				}
 			}
 		}
 	}
@@ -1007,51 +1011,55 @@ types CoATypes
 
 	type coa_dynasty_big = widget
 	{
+		#AGOT Modified
+		# size = { 120 120 }
 		size = { 128 128 }
 
-		coa_dynasty_lowborn_widget = {
-			parentanchor = center
-			#AGOT Modified
-			# size = { 112 112 }
-			size = { 120 120 }
-			blockoverride "icon_size"
-			{
-				#AGOT Modified
-				# size = { 88 88 }
-				size = { 112 112 }
-			}
-		}
+		hbox = {
+			margin = { 3 5 }
 
-		coa_dynasty_widget = {
-			#AGOT Modified
-			# size = { 112 112 }
-			size = { 120 120 }
-			using = CoA_Dynasty_Defaults
-			parentanchor = center
-
-			coat_of_arms_icon = {
-				parentanchor = center
+			coa_dynasty_lowborn_widget = {
 				#AGOT Modified
-				# size = { 88 88 }
+				# size = { 112 112 }
 				size = { 120 120 }
-				coat_of_arms = "[Dynasty.GetDynastyCoA.GetTexture('(int32)172','(int32)172')]"
-				coat_of_arms_slot = "[Dynasty.GetDynastyCoA.GetSlot('(int32)172','(int32)172')]"
-				coat_of_arms_mask = "[Dynasty.GetCulture.GetCultureDynastyCoAMask]"
-				coat_of_arms_offset = "[Dynasty.GetCulture.GetCultureDynastyCoAOffset]"
-				coat_of_arms_scale = "[Dynasty.GetCulture.GetCultureDynastyCoAScale]"
-
-				modify_texture = {
-					texture = "gfx/interface/coat_of_arms/coa_overlay.dds"
-					blend_mode = overlay
-					alpha = @overlay_alpha
+				blockoverride "icon_size"
+				{
+					#AGOT Modified
+					# size = { 86 86 }
+					size = { 112 112 }
 				}
 			}
 
-			coa_dynasty_frame = {
+			coa_dynasty_widget = {
 				#AGOT Modified
-				# size = { 128 128 }
+				# size = { 112 112 }
 				size = { 120 120 }
-				texture = "[Dynasty.GetCulture.GetCultureDynastyCoAFrame]"
+				using = CoA_Dynasty_Defaults
+
+				coat_of_arms_icon = {
+					parentanchor = center
+					#AGOT Modified
+					# size = { 86 86 }
+					size = { 120 120 }
+					coat_of_arms = "[Dynasty.GetDynastyCoA.GetTexture('(int32)172','(int32)172')]"
+					coat_of_arms_slot = "[Dynasty.GetDynastyCoA.GetSlot('(int32)172','(int32)172')]"
+					coat_of_arms_mask = "[Dynasty.GetCulture.GetCultureDynastyCoAMask]"
+					coat_of_arms_offset = "[Dynasty.GetCulture.GetCultureDynastyCoAOffset]"
+					coat_of_arms_scale = "[Dynasty.GetCulture.GetCultureDynastyCoAScale]"
+
+					modify_texture = {
+						texture = "gfx/interface/coat_of_arms/coa_overlay.dds"
+						blend_mode = overlay
+						alpha = @overlay_alpha
+					}
+				}
+
+				coa_dynasty_frame = {
+					#AGOT Modified
+					# size = { 112 112 }
+					size = { 120 120 }
+					texture = "[Dynasty.GetCulture.GetCultureDynastyCoAFrame]"
+				}
 			}
 		}
 	}
@@ -2798,7 +2806,7 @@ types CoATypes
 
 		coa_house_widget = {
 			using = CoA_House_Defaults
-			visible = "[Character.HasSealCoA]"
+			visible = "[And(Character.HasSealCoA, Character.GetHouse.IsValid)]"
 			datacontext = "[Character.GetHouse]"
 			parentanchor = center
 

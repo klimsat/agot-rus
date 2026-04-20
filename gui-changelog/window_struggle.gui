@@ -18,10 +18,10 @@ window = {
 
 	state = {
 		name = _show
-		on_start = "[PdxGuiTriggerAllAnimations('struggle_appear')]"
 		using = Animation_FadeIn_Quick
 		using = Sound_WindowShow_Standard
 		position = { 42 0 }
+		on_start = "[PdxGuiTriggerAllAnimations('struggle_appear')]"
 		on_start = "[GetVariableSystem.Clear( 'showing_ending_decisions' )]"
 		on_start = "[GetVariableSystem.Clear( 'struggle_ending_phase_details' )]"
 	}
@@ -40,19 +40,7 @@ window = {
 
 		widget = {
 			size = { 100% 100% }
-			state = {
-				name = struggle_appear
-				delay = 0.1
-				using = Animation_Curve_Default
-				alpha = 1
-				duration = 0.8
-			}
 
-			state = {
-				name = struggle_hide
-				using = Animation_Curve_Default
-				alpha = 0
-			}
 			background = {
 				name = "decorative_background"
 				margin_left = -40
@@ -277,19 +265,6 @@ window = {
 					margin_top= 18
 					layoutpolicy_horizontal = expanding
 
-					state = {
-						name = struggle_appear
-						delay = 0.1
-						using = Animation_Curve_Default
-						alpha = 1
-						duration = 0.8
-					}
-
-					state = {
-						name = struggle_hide
-						using = Animation_Curve_Default
-						alpha = 0
-					}
 
 					vbox = {
 						name = "current_phase_widget"
@@ -598,19 +573,6 @@ window = {
 									using = Animation_FadeIn_Quick
 								}
 
-								state = {
-									name = struggle_appear
-									delay = 0.3
-									using = Animation_Curve_Default
-									alpha = 1
-									duration = 0.5
-								}
-
-								state = {
-									name = struggle_hide
-									using = Animation_Curve_Default
-									alpha = 0
-								}
 
 								vbox = { # Phase progressing
 									visible = "[Not( Struggle.IsInTransitionPhase )]"
@@ -672,20 +634,6 @@ window = {
 						size = { 200 186 }
 						scissor = yes
 
-						state = {
-							name = struggle_appear
-							delay = 0.1
-							using = Animation_Curve_Default
-							alpha = 1
-							duration = 0.8
-						}
-
-						state = {
-							name = struggle_hide
-							using = Animation_Curve_Default
-							alpha = 0
-						}
-
 						vbox = {
 							name = "next_phase_area"
 
@@ -704,6 +652,7 @@ window = {
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
 						margin_top = 10
+						margin_bottom = 25 # the time widget
 
 						visible = "[Not( VariableSystem.Exists('showing_ending_decisions') )]"
 
@@ -780,7 +729,6 @@ window = {
 
 							state = {
 								name = struggle_appear
-								delay = 0.5
 								using = Animation_Curve_Default
 								alpha = 1
 								duration = 0.4
@@ -928,9 +876,6 @@ window = {
 										}
 									}
 								}
-							}
-							expand = {
-								layoutpolicy_vertical = expanding
 							}
 						}
 					}

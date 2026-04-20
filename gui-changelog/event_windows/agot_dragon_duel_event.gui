@@ -6,8 +6,17 @@ window = {
 	widgetanchor = center
 	layer = events
 	alpha = 0
+	allow_outside = yes
 
 	datacontext = "[EventWindow.AccessEventWindowData]"
+	
+	using = Event_Window_Debug_EventTools
+	blockoverride "is_event_on_top" {
+		enabled = "[EventWindow.IsOnTop]"
+	}
+	blockoverride "is_event_on_top_close" {
+		trigger_when = "[Not(EventWindow.IsOnTop)]"
+	}
 
 	widget = {
 		visible = "[Not(GameHasMultiplePlayers)]"
@@ -410,6 +419,18 @@ window = {
 				}
 			}
 		}
+	}
+	
+	widget = {
+		size = { 410 100% }
+		allow_outside = yes
+		alwaystransparent = yes
+		blockoverride "event_tooltips_position" {
+			position = { 120 0 }
+			parentanchor = bottom
+			widgetanchor = bottom|right	
+		}
+		using = Event_Window_Debug_OptionTooltips
 	}
 
 	vbox = { # Event shaders (in front of character portraits)

@@ -128,35 +128,48 @@ window = {
 			margin_top = 10
 
 			button_tab = {
-				layoutpolicy_horizontal = expanding
+				shortcut = "tab_1"
 				onclick = "[GetVariableSystem.Set( 'culture_view_tabs', 'overview' )]"
 				onclick = "[CultureWindow.HideReformationMode]"
 				down = "[GetVariableSystem.HasValue( 'culture_view_tabs', 'overview' )]"
 
-				text_single = {
-					text = "CULTURE_VIEW_OVERVIEW"
+				alwaystransparent = "[GetVariableSystem.HasValue( 'culture_view_tabs', 'overview' )]"
 
-					size = {100% 100%}
-					autoresize = no
-					align = hcenter|nobaseline
-					default_format = "#low"
+				blockoverride "tab_label"
+				{
+					text = "CULTURE_VIEW_OVERVIEW"
+					max_width = 220
+				}
+
+				blockoverride "icon_visible" {}
+
+				blockoverride "tab_icon"
+				{
+					texture = "gfx/interface/icons/flat_icons/culture.dds"
+					down = "[GetVariableSystem.HasValue( 'culture_view_tabs', 'overview' )]"
 				}
 			}
 
 			button_tab = {
+				shortcut = "tab_2"
 				name = "innovations_tab_tutorial_uses_this"
-				layoutpolicy_horizontal = expanding
+
 				onclick = "[GetVariableSystem.Set( 'culture_view_tabs', 'innovations' )]"
 				onclick = "[CultureWindow.HideReformationMode]"
 				down = "[GetVariableSystem.HasValue( 'culture_view_tabs', 'innovations' )]"
 
-				text_single = {
+				blockoverride "tab_label"
+				{
 					text = "CULTURE_VIEW_INNOVATIONS"
-					
-					size = {100% 100%}
-					autoresize = no
-					align = hcenter|nobaseline
-					default_format = "#low"
+					max_width = 220
+				}
+
+				blockoverride "icon_visible" {}
+
+				blockoverride "tab_icon"
+				{
+					texture = "gfx/interface/icons/flat_icons/innovations.dds"
+					down = "[GetVariableSystem.HasValue( 'culture_view_tabs', 'innovations' )]"
 				}
 			}
 		}

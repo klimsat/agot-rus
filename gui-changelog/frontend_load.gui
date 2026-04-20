@@ -83,6 +83,7 @@ types LoadGameTypes
 								item = {
 									button_saved_games = {
 										size = { 390 90 }
+										using = SubTabShortcut
 									}
 								}
 							}
@@ -500,8 +501,15 @@ types LoadGameTypes
 
 				hbox = {
 					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
 
 					vbox = {
+						layoutpolicy_vertical = expanding
+						
+						# desired width
+						spacer = {
+							size = { 250 0 }
+						}
 
 						vbox = {
 							layoutpolicy_horizontal = expanding
@@ -536,15 +544,6 @@ types LoadGameTypes
 							}
 						}
 
-						# text_single = {
-						# 	visible = "[SaveGameItem.HasMissingDLCs]"
-						# 	text = "MISSING_DLC"
-						# 	layoutpolicy_horizontal = expanding
-						# 	align = left
-						# 	default_format = "#low"
-						# 	tooltip = "[SaveGameItem.GetMissingDLCInfo]"
-						# }
-
 						text_single = {
 							visible = "[SaveGameItem.HasMissingMods]"
 							text = "MISSING_MODS"
@@ -569,174 +568,174 @@ types LoadGameTypes
 
 						### ADDITIONAL SAVE INFO ##
 
-						hbox = {
+						vbox = {
 							layoutpolicy_horizontal = expanding
+							
 							margin = { 10 5 }
-
+							
+							background = { using = Background_Area_Dark }
+							
 							hbox = {
 								layoutpolicy_horizontal = expanding
-
-								background = {
-									using = Background_Area_Dark
-									margin = { 10 5 }
-
+								visible = "[SaveGameItem.IsCloudSave]"
+								spacing = 5
+								
+								cloud_save_icon = {}
+								
+								text_single = {
+									text = "LOAD_CLOUDSAVE_TOOLTIP"
+									default_format = "#low"
+									align = nobaseline
 								}
-
-								vbox = {
-									hbox = {
-										layoutpolicy_horizontal = expanding
-										visible = "[SaveGameItem.IsCloudSave]"
-										spacing = 5
-
-										cloud_save_icon = {}
-
-										text_single = {
-											text = "LOAD_CLOUDSAVE_TOOLTIP"
-											default_format = "#low"
-											align = nobaseline
-										}
-
-										expand = {}
-									}
-
-									hbox = {
-										layoutpolicy_horizontal = expanding
-										visible = "[SaveGameItem.IsIronmanSave]"
-										spacing = 5
-
-										ironman_save_icon = {}
-
-										text_single = {
-											text = "LOAD_IRONMAN_TOOLTIP"
-											default_format = "#low"
-											align = nobaseline
-										}
-
-										expand = {}
-									}
-
-									hbox = {
-										layoutpolicy_horizontal = expanding
-										visible = "[SaveGameItem.CanGetAchievements]"
-										spacing = 5
-
-										achievements_enabled_icon = {}
-
-										text_single = {
-											text = "LOAD_ACHIEVEMENTS_ENABLED_TOOLTIP"
-											default_format = "#low"
-											align = nobaseline
-										}
-
-										expand = {}
-									}
-
-									hbox = {
-										layoutpolicy_horizontal = expanding
-										visible = "[Not(SaveGameItem.CanGetAchievements)]"
-										spacing = 5
-
-										achievements_disabled_icon = {}
-
-										text_single = {
-											text = "LOAD_ACHIEVEMENTS_DISABLED_TOOLTIP"
-											default_format = "#low"
-											align = nobaseline
-										}
-
-										expand = {}
-									}
-
-									hbox = {
-										layoutpolicy_horizontal = expanding
-										visible = "[SaveGameItem.IsMultiplayer]"
-										spacing = 5
-
-										icon_multiplayer = {}
-
-										text_single = {
-											text = "LOAD_MULTIPLAYER_TOOLTIP"
-											default_format = "#low"
-											align = nobaseline
-										}
-
-										expand = {}
-									}
-
-									hbox = {
-										layoutpolicy_horizontal = expanding
-										visible = "[Not(SaveGameItem.IsValid)]"
-										spacing = 5
-
-										invalid_save_icon = {}
-
-										text_single = {
-											text = "LOAD_INVALID_TOOLTIP"
-											default_format = "#low"
-											align = nobaseline
-										}
-
-										expand = {}
-									}
-
-									hbox = {
-										layoutpolicy_horizontal = expanding
-										visible = "[SaveGameItem.HasMissingDLCs]"
-										spacing = 5
-
-										missing_dlcs_icon = {}
-
-										text_multi = {
-											text = "[SaveGameItem.GetMissingDLCInfo]"
-											default_format = "#low"
-											align = nobaseline
-											autoresize = yes
-											max_width = 250
-										}
-
-										expand = {}
-									}
-
-									hbox = {
-										layoutpolicy_horizontal = expanding
-										visible = "[SaveGameItem.HasAchievementBlockingGameRules]"
-										spacing = 5
-
-										achievements_disabled_icon = {}
-
-										text_multi = {
-											text = "[SaveGameItem.GetAchievementBlockingGameRulesInfo]"
-											default_format = "#low"
-											autoresize = yes
-											max_width = 250
-										}
-
-										expand = {}
-									}
-
-									hbox = {
-										layoutpolicy_horizontal = expanding
-										visible = "[And( SaveGameItem.CanGetAchievements, Not( IsGameChecksumOk ) )]"
-										spacing = 5
-
-										achievements_disabled_icon = {}
-
-										text_multi = {
-											text = "GAME_CHECKSUM_CHANGED_FROM_SAVE_FILE"
-											default_format = "#low"
-											autoresize = yes
-											max_width = 250
-										}
-
-										expand = {}
-									}
-								}
-
+								
 								expand = {}
 							}
-
-							expand = {}
+							
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								visible = "[SaveGameItem.IsIronmanSave]"
+								spacing = 5
+								
+								ironman_save_icon = {}
+								
+								text_single = {
+									text = "LOAD_IRONMAN_TOOLTIP"
+									default_format = "#low"
+									align = nobaseline
+								}
+								
+								expand = {}
+							}
+							
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								visible = "[SaveGameItem.CanGetAchievements]"
+								spacing = 5
+								
+								achievements_enabled_icon = {}
+								
+								text_single = {
+									text = "LOAD_ACHIEVEMENTS_ENABLED_TOOLTIP"
+									default_format = "#low"
+									align = nobaseline
+								}
+								
+								expand = {}
+							}
+							
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								visible = "[Not(SaveGameItem.CanGetAchievements)]"
+								spacing = 5
+								
+								achievements_disabled_icon = {}
+								
+								text_single = {
+									text = "LOAD_ACHIEVEMENTS_DISABLED_TOOLTIP"
+									default_format = "#low"
+									align = nobaseline
+								}
+								
+								expand = {}
+							}
+							
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								visible = "[SaveGameItem.IsMultiplayer]"
+								spacing = 5
+								
+								icon_multiplayer = {}
+								
+								text_single = {
+									text = "LOAD_MULTIPLAYER_TOOLTIP"
+									default_format = "#low"
+									align = nobaseline
+								}
+								
+								expand = {}
+							}
+							
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								visible = "[Not(SaveGameItem.IsValid)]"
+								spacing = 5
+								
+								invalid_save_icon = {}
+								
+								text_single = {
+									text = "LOAD_INVALID_TOOLTIP"
+									default_format = "#low"
+									align = nobaseline
+								}
+								
+								expand = {}
+							}
+							
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								visible = "[SaveGameItem.HasAchievementBlockingGameRules]"
+								spacing = 5
+								
+								achievements_disabled_icon = {}
+								
+								text_multi = {
+									text = "[SaveGameItem.GetAchievementBlockingGameRulesInfo]"
+									default_format = "#low"
+									autoresize = yes
+									max_width = 250
+								}
+								
+								expand = {}
+							}
+							
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								visible = "[And( SaveGameItem.CanGetAchievements, Not( IsGameChecksumOk ) )]"
+								spacing = 5
+								
+								achievements_disabled_icon = {}
+								
+								text_multi = {
+									text = "GAME_CHECKSUM_CHANGED_FROM_SAVE_FILE"
+									default_format = "#low"
+									autoresize = yes
+									max_width = 250
+								}
+								
+								expand = {}
+							}
 						}
+						
+						scrollbox = {
+							layoutpolicy_horizontal = expanding
+							layoutpolicy_vertical = expanding
+							visible = "[SaveGameItem.HasMissingDLCs]"
+							
+							blockoverride "scrollbox_background" {}
+							blockoverride "scrollbox_background_fade" {}
+							blockoverride "scrollbox_margins" {}
+							
+							blockoverride "scrollbox_content" {
+								hbox = {
+									layoutpolicy_horizontal = expanding
+									using = Scrollbox_Margins
+									
+									background = { using = Background_Area_Dark }
+									
+									text_multi = {
+										text = "[SaveGameItem.GetMissingDLCInfo]"
+										default_format = "#low"
+										align = nobaseline
+										autoresize = yes
+										max_width = 250
+									}
+
+									expand = {}
+								}
+							}
+						}
+						
+						expand = {}
 					}
 
 					expand = {}

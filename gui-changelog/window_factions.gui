@@ -10,19 +10,19 @@ window = {
 
 	using = Window_Size_MainTab
 
-	# Tabs setup
-	oncreate = "[BindTabsContext]"
-
 	state = {
 		name = _show
 		using = Animation_FadeIn_Quick
 		using = Sound_WindowShow_Standard
 		using = Window_Position_MainTab
+	}
 
-		on_start = "[PdxGuiTabs.RemoveTab( 'targeting_factions' )]"
-		on_start = "[PdxGuiTabs.RemoveTab( 'my_factions' )]"
-		on_start = "[PdxGuiTabs.AddTabIf( 'targeting_factions', Not( And( FactionsWindow.IsPrimaryTitleTitular, Not( GetPlayer.IsIndependentRuler ) ) ) )]"
-		on_start = "[PdxGuiTabs.AddTabIf( 'my_factions', Not( And( GetPlayer.IsIndependentRuler, Not( FactionsWindow.IsInAnyFaction ) ) ) )]"
+	state = {
+		name = on_create
+		trigger_on_create = yes
+
+		on_start = "[GetVariableSystem.Set( 'targeting_factions', 'true'  )]"
+		on_start = "[GetVariableSystem.Clear( 'my_factions' )]"
 	}
 
 	state = {
@@ -58,12 +58,63 @@ window = {
 					}
 				}
 
-				### Tabs header
-				hbox_tab_buttons = {
+				hbox = {
 					name = "factions_panel_tab_buttons" #tutorial uses this
-					blockoverride "tab_name"
-					{
-						text = "[PdxGuiTabItem.LocalizeTab( 'factions_tab' )]"
+					layoutpolicy_horizontal = expanding
+					visible = "[Not( And( GetPlayer.IsIndependentRuler, Not( FactionsWindow.IsInAnyFaction ) ) )]"
+					#visible = "[PdxGuiTabs.AddTabIf( 'targeting_factions', Not( And( FactionsWindow.IsPrimaryTitleTitular, Not( GetPlayer.IsIndependentRuler ) ) ) )]" # Save for reference to fix visible trigger
+					#visible = "[PdxGuiTabs.AddTabIf( 'my_factions', Not( And( GetPlayer.IsIndependentRuler, Not( FactionsWindow.IsInAnyFaction ) ) ) )]" # Save for reference to fix visible trigger of tabs
+
+					button_tab = {
+						name = "open_factions_against_you_tab"
+						shortcut = "tab_1"
+
+						down = "[GetVariableSystem.Exists( 'targeting_factions' )]"
+
+						onclick = "[GetVariableSystem.Set( 'targeting_factions', 'true' )]"
+						onclick = "[GetVariableSystem.Clear( 'my_factions' )]"
+
+						alwaystransparent = "[GetVariableSystem.Exists( 'targeting_factions' )]"
+
+						blockoverride "tab_label"
+						{
+							text = "FACTIONS_WINDOW_TARGETING_FACTIONS"
+							max_width = 220
+						}
+
+						blockoverride "icon_visible" {}
+
+						blockoverride "tab_icon"
+						{
+							texture = "gfx/interface/icons/flat_icons/faction_against_you.dds"
+							down = "[GetVariableSystem.Exists( 'targeting_factions' )]"
+						}
+					}
+
+					button_tab = {
+						name = "open_factions_against_liege_tab"
+						shortcut = "tab_2"
+
+						down = "[GetVariableSystem.Exists( 'my_factions' )]"
+
+						onclick = "[GetVariableSystem.Set( 'my_factions', 'true' )]"
+						onclick = "[GetVariableSystem.Clear( 'targeting_factions' )]"
+
+						alwaystransparent = "[GetVariableSystem.Exists( 'my_factions' )]"
+
+						blockoverride "tab_label"
+						{
+							text = "FACTIONS_WINDOW_MY_FACTIONS"
+							max_width = 220
+						}
+
+						blockoverride "icon_visible" {}
+
+						blockoverride "tab_icon"
+						{
+							texture = "gfx/interface/icons/flat_icons/faction_against_liege.dds"
+							down = "[GetVariableSystem.Exists( 'my_factions' )]"
+						}
 					}
 				}
 
@@ -89,7 +140,7 @@ window = {
 					# Outer container for factions against player character
 					scrollbox = {
 						name = "against_you"
-						visible = "[PdxGuiTabs.IsTabSet( 'targeting_factions' )]"
+						visible = "[GetVariableSystem.Exists( 'targeting_factions' )]"
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
 
@@ -145,14 +196,14 @@ window = {
 											max_width = 400
 
 											default_format = "#low;italic"
-											align = center		
-											parentanchor = center							
+											align = center
+											parentanchor = center
 										}
 
 
 									}
 
-									
+
 									vbox = {
 										layoutpolicy_horizontal = expanding
 										margin = { 10 5 }
@@ -224,7 +275,7 @@ window = {
 					# Outer container for factions against players liege
 					scrollbox = {
 						name = "against_liege"
-						visible = "[Or( PdxGuiTabs.IsTabSet( 'my_factions' ), FactionsWindow.IsPrimaryTitleTitular ) ]"
+						visible = "[Or( GetVariableSystem.Exists( 'my_factions' ), FactionsWindow.IsPrimaryTitleTitular )]"
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
 
@@ -327,7 +378,7 @@ window = {
 									datamodel = "[FactionsWindow.GetCreateFactionItems]"
 									visible = "[FactionsWindow.CanCreateAnyFaction]"
 									layoutpolicy_horizontal = growing
-									spacing = 3
+									spacing = 5
 									margin = { 20 0 }
 
 									item = {
@@ -437,7 +488,7 @@ types  FactionWindow
 					using = Background_Area_Dark
 					margin = { 0 2 }
 				}
-				
+
 				widget = {
 					size = { 100 100 }
 					name = "leader"
@@ -453,7 +504,7 @@ types  FactionWindow
 					portrait_head_small = {
 						datacontext = "[Faction.GetSpecialCharacterOrLeader]"
 						visible = "[Faction.HasSpecialCharacterOrLeader]"
- 						parentanchor = center
+						parentanchor = center
 
 						blockoverride "opinion_box" {}
 						blockoverride "status_icons" {}
@@ -508,7 +559,7 @@ types  FactionWindow
 					min_width = 100
 					align = center|nobaseline
 					autoresize = yes
-					
+
 					text = "[Faction.GetSpecialCharacterTitle]"
 				}
 				expand = {}
@@ -665,6 +716,7 @@ types  FactionWindow
 
 							vbox = {
 								margin_top = 10
+								spacing = 5
 
 								button_standard = {
 									#AGOT Modified
@@ -696,7 +748,7 @@ types  FactionWindow
 
 								button_standard = {
 									name = "show_members_tageting_factions"
-									visible = "[And(PdxGuiTabs.IsTabSet('targeting_factions'), Not(FactionItem.ShowCannotJoin))]"
+									visible = "[And(GetVariableSystem.Exists('targeting_factions'), Not(FactionItem.ShowCannotJoin))]"
 
 									onclick = "[FactionItem.ShowHideMembersFrame]"
 
@@ -721,7 +773,7 @@ types  FactionWindow
 
 								button_standard = {
 									name = "show_members_against_liege"
-									visible = "[And(PdxGuiTabs.IsTabSet('my_factions'), FactionItem.ShowCannotJoin)]"
+									visible = "[And(GetVariableSystem.Exists( 'my_factions' ), FactionItem.ShowCannotJoin)]"
 
 									onclick = "[FactionItem.ShowHideMembersFrame]"
 
@@ -747,31 +799,35 @@ types  FactionWindow
 						}
 					}
 				}
-
 				### Faction at war
 				hbox = {
 					layoutpolicy_horizontal = expanding
-
-					vbox = {
+	
+					hbox = {
+						layoutpolicy_horizontal = expanding
 						name = "faction_in_war"
 						visible = "[Faction.IsAtWar]"
 						margin_top = 10
 						spacing = -2
-
+	
 						icon = {
 							texture = "gfx/interface/icons/character_interactions/icon_coax_to_war.dds"
 							size = { 64 64 }
 						}
-
-						text_single = {
+	
+						text_multi = {
+							layoutpolicy_horizontal = expanding
 							text = "FACTIONS_WINDOW_FACTION_AT_WAR"
 							align = center
 							using = Font_Size_Medium
+							max_width = 400
+							autoresize = yes
 						}
 					}
-
+	
 					expand = {}
 				}
+
 			}
 		}
 
@@ -782,8 +838,8 @@ types  FactionWindow
 			name = "faction_buttons"
 			layoutpolicy_horizontal = expanding
 			margin_right = 20
-			margin_top = 10
-			margin_bottom = 8
+			margin_top = 5
+			margin_bottom = 15
 			spacing = 10
 
 			expand = {}
@@ -807,7 +863,7 @@ types  FactionWindow
 
 			button_standard = {
 				name = "show_members"
-				visible = "[And(PdxGuiTabs.IsTabSet('my_factions'), Not(FactionItem.ShowCannotJoin))]"
+				visible = "[And(GetVariableSystem.Exists('my_factions'), Not(FactionItem.ShowCannotJoin))]"
 				onclick = "[FactionItem.ShowHideMembersFrame]"
 
 				button_expand = {
