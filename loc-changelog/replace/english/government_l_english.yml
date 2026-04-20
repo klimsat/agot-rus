@@ -228,6 +228,8 @@
 
  create_cadet_branches_trigger:0 "Creation of [cadet_branches|E]"
  create_cadet_branches_rule:0 "Create [cadet_branches|E]"
+
+ GOVERNMENT_TYPE_INCOMPATIBLE_WITH_PRIMARY_HOLDING: "[CHARACTER.GetName] primary [holding|E] [HOLDING.GetName] ([HOLDING.GetType.GetName]) in [PROVINCE.GetName] is incompatible with [GOVERNMENT_TYPE.GetName] [government|E]"
  GOVERNMENT_RULE_INFO:1 "$EFFECT_LIST_BULLET$ Can $RULE|V$"
  GOVERNMENT_HOLDING_INFO:1 "$EFFECT_LIST_BULLET$ Can hold [HOLDING_TYPE.GetName|V] [holdings|E]"
  GOVERNMENT_CLAN_NOT_ALLIED:0 "No [alliance|E] as Clan [vassal|E]"
@@ -252,8 +254,8 @@
  government_is_mandala: "Uses the [mandala|E] #V [GetBuilding('mandala_capital_01').GetTypeName]#! [great_project|E] and [great_building|E]"
  government_is_japan_feudal: "$government_is_japan_administrative$"
  government_is_japan_administrative: "Has access to [manor|E], [blocs|E], and [house_aspirations|E]"
- government_is_meritocratic: "Has access to an [estate|E] and uses [merit|E]"
- government_is_steppe_admin: "Has access to an [estate|E] and uses [merit|E] and [obedience|E]"
+ government_is_meritocratic: "Has access to an [estate|E]"
+ government_is_steppe_admin: "Has access to an [estate|E] and uses [obedience|E]"
  government_has_influence: "Uses [influence_i|E][influence|E]"
  government_has_merit: "Uses [merit_i|E][merit|E]"
  government_has_treasury: "Uses [treasury_i|E][treasury|E]"
@@ -299,11 +301,11 @@
  friendly_desc: "They may perhaps not always see eye to eye, but the members of this house are always on friendly terms."
  harmonious: "Harmonious"
  harmonious_desc: "A house in perfect harmony. The members of this house do what they can to stand united and lend each other aid at all times." 
- antagonistic_house_approves_war_victory: "All of [attacker.GetShortUINamePossessive] [house|E] [vassals|E] gain #P 10#! [opinion|E] of [attacker.GetShortUIName] for #V 10 years#! #weak (Impressed by Offensive Victory)#!"
- antagonistic_house_approves_war_victory_defensive: "All of [defender.GetShortUINamePossessive] [house|E] [vassals|E] gain #P 15#! [opinion|E] of [defender.GetShortUIName] for #V 10 years#! #weak (Impressed by Defensive Victory)#!"
- antagonistic_house_disapproves_war_white_peace: "All of [attacker.GetShortUINamePossessive] [house|E] [vassals|E] lose #N 10#! [opinion|E] of [attacker.GetShortUIName] for #V 10 years#! #weak (Finds White Peace Weak)#!"
+ antagonistic_house_approves_war_victory: "All of [attacker.GetShortUINamePossessive] [house|E] [vassals|E] Gain #P 10#! [opinion|E] of [attacker.GetShortUIName] for #V 10 years#! #weak (Impressed by Offensive Victory)#!"
+ antagonistic_house_approves_war_victory_defensive: "All of [defender.GetShortUINamePossessive] [house|E] [vassals|E] Gain #P 15#! [opinion|E] of [defender.GetShortUIName] for #V 10 years#! #weak (Impressed by Defensive Victory)#!"
+ antagonistic_house_disapproves_war_white_peace: "All of [attacker.GetShortUINamePossessive] [house|E] [vassals|E] Lose #N 10#! [opinion|E] of [attacker.GetShortUIName] for #V 10 years#! #weak (Finds White Peace Weak)#!"
  antagonistic_house_disapproves_war_white_peace_defender: "All of [defender.GetShortUINamePossessive] [house|E] [vassals|E] lose #N 10#! [opinion|E] of [defender.GetShortUIName] for #V 10 years#! #weak (Finds White Peace Weak)#!"
- antagonistic_house_disapproves_war_defeat: "All of [attacker.GetShortUINamePossessive] [house|E] [vassals|E] lose #N 20#! [opinion|E] of [attacker.GetShortUIName] for #V 10 years#! #weak (Embarrassed by Defeat)#!"
+ antagonistic_house_disapproves_war_defeat: "All of [attacker.GetShortUINamePossessive] [house|E] [vassals|E] Lose #N 20#! [opinion|E] of [attacker.GetShortUIName] for #V 10 years#! #weak (Embarrassed by Defeat)#!"
  antagonistic_house_disapproves_war_defeat_defender: "All of [defender.GetShortUINamePossessive] [house|E] [vassals|E] lose #N 20#! [opinion|E] of [defender.GetShortUIName] for #V 10 years#! #weak (Embarrassed by Defeat)#!"
  
  house_unity_parameter_unity_antagonistic_cb_cost: "[casus_belli|E] Cost: @war_icon!#P [EmptyScope.ScriptValue('unity_antagonistic_cb_cost_display_value')|0]%#!"
@@ -990,3 +992,7 @@
  appointment_title_value.diarch: "[grand_secretariat_director|E]"
  appointment_title_value.minister: "[minister|E] [title|E]"
  appointment_title_value.distance_to_capital: "Distance to [capital|E]"
+ 
+ change_to_administrative_holding_tt: "[capital|E] [barony|E] ([THIS.Char.GetCapitalLocation.GetTitle.GetBaseNameNoTier]) becomes a [castle|E] [holding|E]"
+ change_to_administrative_permafrost_tt: "[THIS.Char.GetCapitalLocation.GetTitle.GetDeJureLiege.GetBaseNameNoTier] [county|E] loses the [GetModifier('mpo_siberian_permafrost_modifier').GetNameWithTooltip] [modifier|E]"
+ change_to_administrative_permafrost_bad_tt: "[THIS.Char.GetCapitalLocation.GetTitle.GetDeJureLiege.GetBaseNameNoTier] [county|E] loses the [GetModifier('mpo_siberian_permafrost_modifier_bad').GetNameWithTooltip] [modifier|E]"

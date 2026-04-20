@@ -543,9 +543,12 @@
  culture_parameter_better_court_poets_no_dlc: "" # Intentionally empty
  court_position_poets_free: "Improved #V [GetCourtPositionType('court_poet_court_position').GetName]#!"
 
- culture_parameter_frugal_blacksmith_maa_size: "The #V $building_type_smiths_01$#! line of [buildings|E] increase the #V Number of [knight_i][knights|E]#! and the #V Size of [men_at_arms|E] [regiments|E]#!"
+ culture_parameter_frugal_blacksmith_invite_knight_decision_cooldown: "The [GetDecisionWithKey('invite_knights_decision').GetName] [decision|E] has a cooldown of #V 2#! years"
+ culture_parameter_frugal_blacksmith_better_invite_knight_decision: "The [GetDecisionWithKey('invite_knights_decision').GetName] [decision|E] invites #V 2#! more $knight_culture_player_plural_no_tooltip$"
+ culture_parameter_frugal_blacksmith_cheaper_invite_knight_decision: "[GetDecisionWithKey('invite_knights_decision').GetName] [decision|E] Cost: #P [prestige_i]-50%#!"
+ culture_parameter_frugal_blacksmith_cheaper_recruit_to_court: "#V [GetPlayer.GetPlayerInteractionName('recruit_guest_interaction')]#! [interaction|E] Cost: #P [gold_i]-50%#!"
  culture_parameter_warrior_lodges_lift_restrictions: "The #V $building_type_warrior_lodges_01$#! line of [buildings|E] can always be constructed in [counties|E] of this [culture|E]"
- culture_parameter_strength_in_numbers_maa_limit_bonus: "The #V $building_type_barracks_01$#! and #V $building_type_war_camps_01$#! lines of [buildings|E] increase the #V [men_at_arms|E] Regiment Limit#!"
+ culture_parameter_strength_in_numbers_maa_limit_bonus: "The #V $building_type_barracks_01$#! and #V $building_type_war_camps_01$#! lines of [buildings|E] increase #V [levy|E] Size#! in [counties|E] of this [culture|E]"
  culture_parameter_strength_in_numbers_heavy_maa_ban: "@warning_icon! #X [heavy_infantry|E], [heavy_cavalry|E] and [elephant_cavalry|E] [men_at_arms|E] cannot be recruited by [rulers|E] of this [culture|E]#!"
  culture_parameter_next_level_w_mills: "The #V $building_type_watermills_01$#! and #V $building_type_windmills_01$#! lines of [buildings|E] can be constructed one [era|E] early"
  culture_parameter_next_level_smiths: "The #V $building_type_smiths_01$#! line of [buildings|E] can be constructed one [era|E] early"
@@ -721,10 +724,11 @@
  culture_parameter_trade_port_building_bonuses:1 "The #V $building_type_common_tradeport_01$#! line of [buildings|E] will generate additional tax in [counties|E] of this [culture|E]"
  culture_parameter_peat_quarries_building_bonuses:0 "The #V $building_type_peat_quarries_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_trade_ports_give_control_growth:0 "The #V $building_type_common_tradeport_01$#! line of [buildings|E] will increase #V Control Growth#! in [counties|E] of this [culture|E]"
- culture_parameter_trade_ports_give_levies:0 "The #V $building_type_common_tradeport_01$#! line of [buildings|E] increase #V Levies#! and #V Size of [men_at_arms|E] [regiments|E]#! in [counties|E] of this [culture|E]"
+ culture_parameter_trade_ports_give_levies:0 "The #V $building_type_common_tradeport_01$#! line of [buildings|E] increase #V Levies#! in [counties|E] of this [culture|E]"
  culture_parameter_mystic_trait_gives_bonuses:1 "The [GetTrait('lifestyle_mystic').GetName( GetNullCharacter )] line of [traits|E] have additional bonuses"
  culture_parameter_mystic_trait_more_common:1 "The [GetTrait('lifestyle_mystic').GetName( GetNullCharacter )] line of [traits|E] are more common"
  culture_parameter_mendicant_mystics_may_appear:0 "Wandering mystics may appear at court, offering boons or criticisms"
+ culture_parameter_less_likely_to_gain_elder_health_traits: "The [elder_traits|E] are less common"
  culture_parameter_enable_garden_duchy_building:0 "Rulers can construct the #high $building_type_royal_garden_01$#! [duchy_building|E]"
  culture_parameter_can_appoint_court_gardener:0 "Can appoint the [GetCourtPositionType('court_gardener_court_position').GetName()] [court_position|E]"
  culture_parameter_can_recruit_gardeners:1 "Gain a [decision|E] to recruit characters with the [GetTrait('lifestyle_gardener').GetName( GetNullCharacter )] [trait|E]"
@@ -739,7 +743,9 @@
  culture_parameter_number_of_consorts_hegemony: "Rulers of the [hegemony|E] tier, if allowed by [gender_law|E], can have up to $VALUE|V0$ [concubines|E]"
  culture_parameter_poet_trait_gives_bonuses:0 "The [GetTrait('lifestyle_poet').GetName( GetNullCharacter )] [trait|E] has additional bonuses"
  culture_parameter_poet_trait_more_common:0 "The [GetTrait('lifestyle_poet').GetName( GetNullCharacter )] [trait|E] is more common"
- culture_parameter_piety_gain_on_building_complete_in_forest_taiga:2 "Gain [piety_i][piety|E] when completing [buildings|E] in [holdings|E] with either #V Forest#!, #V Jungle#! or #V Taiga#! [terrain|E]"
+ #AGOT Modified
+ #culture_parameter_piety_gain_on_building_complete_in_forest_taiga:2 "Gain [piety_i][piety|E] when completing [buildings|E] in [holdings|E] with either #V Forest#!, #V Jungle#! or #V Taiga#! [terrain|E]"
+ culture_parameter_piety_gain_on_building_complete_in_forest_taiga:2 "Gain [piety_i][piety|E] when completing [buildings|E] in [holdings|E] with either #V Forest#!, #V Jungle#!, #V $cloudforest$#!, #V Taiga#!, or #V $taiga_bog$#!  [terrain|E]"
  culture_parameter_piety_gain_on_building_complete_in_mountains:1 "Gain [piety_i][piety|E] when completing [buildings|E] in [holdings|E] with either #V Mountain#! or #V Desert Mountain#! [terrain|E]"
  culture_parameter_can_duel_rivals:0 "$UNLOCKS_ABILITY_TO_DUEL_RIVALS$"
  culture_parameter_cannot_fire_court_chaplain:0 "You cannot fire your [court_chaplain|E]"
@@ -1272,7 +1278,7 @@
 
  #EP2 Traditions
  tradition_ep2_avid_falconers_name:0 "Avid Falconers"
- tradition_ep2_avid_falconers_desc:0 "The art of breeding, training, and hunting with raptors like falcons and hawks is one of most prestigious past-times among this culture's elite."
+ tradition_ep2_avid_falconers_desc:0 "The art of breeding, training, and hunting with raptors like falcons and hawks is one of most prestigious pastimes among this culture's elite."
  culture_parameter_falconer_traits_more_common:0 "[characters|E] gain more Falconer [trait_level_track_xp|E]"
  culture_parameter_forest_hunt_success_chance:0 "Increased [hunt_success_chance|E] in [GetTerrain( 'forest' ).GetName] and [GetTerrain( 'taiga' ).GetName]"
  culture_parameter_hills_hunt_success_chance:0 "Increased [hunt_success_chance|E] in [GetTerrain( 'hills' ).GetName]"
@@ -1377,12 +1383,12 @@ culture_parameter_founding_temple_citadels_gives_more_piety: "Founding [temple_c
 culture_parameter_warmonger_city_founders: "Founding [temple_citadel|e] [holdings|e] sets [control_i|e][control|e] to #P 100%#!"
 culture_parameter_temple_citadel_fort_level_bonus: "[temple_citadels|e] have increased [fort_level_i][fort_level|E]"
 culture_parameter_temple_citadel_control_bonus: "[temple_citadels|e] provide a small [control_i][control|E] bonus"
-not_a_defense_focused_culture: "Less than #N 50%#! of the [culture|e] [counties|e] are [coastal|e]"
+not_a_defense_focused_culture: "Less than #N 50%#! of the [culture|e] [counties|e] are coastal"
 
 tradition_tgp_hydraulic_builders_name: "Hydraulic Builders"
 tradition_tgp_hydraulic_builders_desc: "This culture places great importance in utilizing waterworks in spiritual ways. At the center of this fascination is the [GetBuilding('sacred_pool_06').GetName], which tend to be expanded into large reservoirs with utmost religious significance. "
-culture_parameter_sacred_pool_additional_bonuses: "The [GetBuilding('sacred_pool_01').GetTypeName|V] line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]#V $building_type_sacred_pool_01$#!"
-culture_parameter_waterworks_additional_bonuses: "The [GetBuilding('waterworks_01').GetTypeName|V] line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]#V $building_type_waterworks_01$#!"
+culture_parameter_sacred_pool_additional_bonuses: "The [GetBuilding('sacred_pool_01').GetTypeName|V] line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
+culture_parameter_waterworks_additional_bonuses: "The [GetBuilding('waterworks_01').GetTypeName|V] line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
 culture_parameter_may_build_sacred_pools_ahead_of_time: "All [GetBuilding('sacred_pool_01').GetTypeName|V] [buildings|E] can be built one [era|E] earlier"
 
 tradition_tgp_esoteric_power_name: "Esoteric Power"
@@ -1407,7 +1413,7 @@ forming_confederations_is_less_expensive_desc: "[actor.GetCulture.GetName] has [
 
 tradition_tgp_religious_hospitality_name: "Religious Hospitality"
 tradition_tgp_religious_hospitality_desc: "This culture is adept at blending foreign religions with their customs, leading to a more cosmopolitan society with many faiths living peacefully amongst each other. Much of this is achieved through trade and international relations."
-not_a_coastal_culture: "Less than #N 50.0%#! of the [culture|e] [counties|e] are [coastal|e]"
+not_a_coastal_culture: "Less than #N 50.0%#! of the [culture|e] [counties|e] are coastal"
 culture_parameter_development_gain_from_religious_exiles_is_doubled: "The [development|e] gain from [GetDecisionWithKey('invite_religious_exiles_decision').GetName] [decision|e] is doubled"
 culture_parameter_invite_courtiers_reasons: "Invite to Court [character_interaction|e] Acceptance: #P +15#!"
 invite_courtiers_additional_reason: "[actor.GetCulture.GetName] [culture_traditions|E]: $VALUE|=+0$"
@@ -1561,17 +1567,17 @@ culture_parameter_ai_uses_religious_exiles: "Characters use the [GetDecisionWith
  culture_parameter_permafrost_cannot_become_feudal: "Can not take the #V Adopt Feudal Ways#! and #V Adopt Feudal Ways through Liege#! [decisions|E]"
  culture_parameter_permafrost_modifier_mechanic: "[counties|E] of this [culture|E] start with #V $mpo_siberian_permafrost_modifier$#! [modifier|E] that reduces [development|E] and [control|E]. If the [holder|E] and [county|E] have [culture|E] with this [culture_tradition|E], #V $mpo_siberian_permafrost_modifier$#! does not lower [control|E] and provides bonuses."
  #AGOT Modified
- #culture_parameter_permafrost_modifier_removal_condition: "#V $mpo_siberian_permafrost_modifier$#! [modifier|E] can be removed by the #V $expand_the_steppe_decision_generic$#! [decision|E] or #V $feudalize_holding_interaction$#! [interaction|E]"
- culture_parameter_permafrost_modifier_removal_condition: "#V $mpo_siberian_permafrost_modifier$#! [modifier|E] can be removed by the #V $feudalize_holding_interaction$#! [interaction|E]"
+ #culture_parameter_permafrost_modifier_removal_condition: "#V $mpo_siberian_permafrost_modifier$#! [modifier|E] can be removed by the #V $expand_the_steppe_decision_generic$#! [decision|E] or #V $feudalize_holding_interaction$#! [interaction|E] or #V $demand_admin_interaction$#! [interaction|E]"
+ culture_parameter_permafrost_modifier_removal_condition: "#V $mpo_siberian_permafrost_modifier$#! [modifier|E] can be removed by the #V $feudalize_holding_interaction$#! [interaction|E] or #V $demand_admin_interaction$#! [interaction|E]"
  permafrost_modifier_removal_desc: "Removes #V $mpo_siberian_permafrost_modifier$#! from every [county|E] that has it"
  culture_parameter_martial_traits_give_out_hcav_bonus: "[GetTrait('gallant').GetName( GetNullCharacter )], [GetTrait('overseer').GetName( GetNullCharacter )], and [GetTrait('strategist').GetName( GetNullCharacter )] [traits|E] provide bonuses to [heavy_cavalry|E] [men_at_arms|E]"
  culture_parameter_stewardship_traits_give_out_cav_bonus: "[GetTrait('avaricious').GetName( GetNullCharacter )], [GetTrait('architect').GetName( GetNullCharacter )], and [GetTrait('administrator').GetName( GetNullCharacter )] [traits|E] provide bonuses to [light_cavalry|E], [heavy_cavalry|E], and [archer_cavalry|E] [men_at_arms|E]"
 
  #AGOT Modified
  #mpo_siberian_permafrost_modifier: "Siberian Permafrost"
- #mpo_siberian_permafrost_modifier_desc: "Soil frozen for millennia, no groundwater access, sparse vegetation. Terrain shifts every year due to repeated melting and refreezing. To make these lands their own, those who live here need centuries to adapt. Everybody, everything else will perish and join the ancient dead beneath the ice.\n\n#weak This modifier can be removed either by the #V $feudalize_holding_interaction$#! [interaction|E] or after conquering the whole North by the #V $expand_the_steppe_decision_generic$#! [decision|E] for the #V $dlc_mpo_steppe_siberia_further_expansion_tooltip$#! region#!\n\n"
+ #mpo_siberian_permafrost_modifier_desc: "Soil frozen for millennia, no groundwater access, sparse vegetation. Terrain shifts every year due to repeated melting and refreezing. To make these lands their own, those who live here need centuries to adapt. Everybody, everything else will perish and join the ancient dead beneath the ice.\n\n#weak This modifier can be removed either by the #V $feudalize_holding_interaction$#! [interaction|E] or #V $demand_admin_interaction$#! [interaction|E]  or after conquering the whole North by the #V $expand_the_steppe_decision_generic$#! [decision|E] for the #V $dlc_mpo_steppe_siberia_further_expansion_tooltip$#! region#!\n\n"
  mpo_siberian_permafrost_modifier: "Hyperborean Permafrost"
- mpo_siberian_permafrost_modifier_desc: "Soil frozen for millennia, no groundwater access, sparse vegetation. Terrain shifts every year due to repeated melting and refreezing. To make these lands their own, those who live here need centuries to adapt. Everybody, everything else will perish and join the ancient dead beneath the ice.\n\n#weak This modifier can be removed by the #V $feudalize_holding_interaction$#! [interaction|E]#!\n\n"
+ mpo_siberian_permafrost_modifier_desc: "Soil frozen for millennia, no groundwater access, sparse vegetation. Terrain shifts every year due to repeated melting and refreezing. To make these lands their own, those who live here need centuries to adapt. Everybody, everything else will perish and join the ancient dead beneath the ice.\n\n#weak This modifier can be removed by the #V $feudalize_holding_interaction$#! [interaction|E]#! or #V $demand_admin_interaction$#! [interaction|E] \n\n"
 
  mpo_siberian_permafrost_modifier_bad: "$mpo_siberian_permafrost_modifier$"
  mpo_siberian_permafrost_modifier_bad_desc: "$mpo_siberian_permafrost_modifier_desc$"
@@ -1606,6 +1612,10 @@ culture_parameter_ai_uses_religious_exiles: "Characters use the [GetDecisionWith
  tradition_stratified_society_family_member_toast_desc: "Thanks to the achievements of [family_success.GetName], you have gained [merit|E] and need not take the @provincial_exam_icon! [GetActivityType( 'activity_local_examination' ).GetName]"
  tgp_nepotism_bypass_exams_modifier: "Examination Exempt"
  tgp_nepotism_bypass_exams_modifier_desc: "This character has circumvented the typical examination needed to become an official through a close relative's influence."
+ 
+ tradition_fortress_mastery_name: "Fortress Mastery"
+ tradition_fortress_mastery_desc: "This culture has a long tradition of defensive ingenuity, using the local terrain to shield their homeland and repel would-be invaders. They pair this skill with mastery of the bow and agile troops, capable of outmanoeuvring any foe."
+ culture_parameter_governor_trait_gives_counter_resistance: "Every rank of the [GetTrait('governor').GetName( GetPlayer )] [trait|E] grants [EmptyScope.ScriptValue('governor_trait_counter_bonus_value')|+%0] $MOD_COMBAT_COUNTER_RESISTANCE|V$"
 
  tenet_takamin_name: "Takamin"
  tenet_takamin_desc: "Believing bears as manifestations of gods, the sanctity of these animals must be respected, and the killing of one during hunts should be done with utmost respect."

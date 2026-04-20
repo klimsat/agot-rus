@@ -170,7 +170,7 @@
 
  COURT_POSITION_TASK_EFFECTS_HEADER: "#S Effects#!\n"
  COURT_POSITION_TASK_EMPLOYER_EFFECTS: "#S Effect on [liege|E]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerModifierDescription( CourtPosition.Self )]#!"
- COURT_POSITION_TASK_EMPLOYER_COURT_EFFECTS: "#S Effect on [liege|E]'s [court|E]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerCourtModifierDescription( CourtPosition.Self )]#!"
+ COURT_POSITION_TASK_EMPLOYER_COURT_EFFECTS: "#S Effect on [liege|E]'s [GetPlayer.Custom('GetCourtiersTypeConcept')|U]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerCourtModifierDescription( CourtPosition.Self )]#!"
  COURT_POSITION_TASK_EMPLOYEE_EFFECTS: "#S Effect on [CourtPositionType.GetName]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployeeModifierDescription]#!"
  COURT_POSITION_TASK_START_EFFECTS: "#S When started:#!#indent_newline:2 \n[CourtPositionTaskType.GetOnStartEffectDesc( CourtPosition.Self )]#!"
  COURT_POSITION_TASK_END_EFFECTS: "#S When stopped:#!#indent_newline:2 \n[CourtPositionTaskType.GetOnEndEffectDesc( CourtPosition.Self )]#!"
@@ -179,7 +179,7 @@
  COURT_POSITION_TASK_HINT: "Potential [court_position_tasks_short|E]:"
  COURT_POSITION_TASK_GENERIC_TT: "My [CourtPositionType.GetNameNoTooltip] will actively perform the [CourtPositionTaskType.GetName|V] [court_position_task_short|e]."
  COURT_POSITION_TASK_EMPLOYER_GENERIC_EFFECTS: "#S Effect on [liege|E]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerModifierGenericDescription]#!"
- COURT_POSITION_TASK_EMPLOYER_COURT_GENERIC_EFFECTS: "#S Effect on [liege|E]'s [court|E]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerCourtModifierGenericDescription]#!"
+ COURT_POSITION_TASK_EMPLOYER_COURT_GENERIC_EFFECTS: "#S Effect on [liege|E]'s [GetPlayer.Custom('GetCourtiersTypeConcept')|U]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerCourtModifierGenericDescription]#!"
  COURT_POSITION_TASK_START_GENERIC_EFFECTS: "#S When started:#!#indent_newline:2 \n[CourtPositionTaskType.GetOnStartEffectGenericDesc]#!"
  COURT_POSITION_TASK_END_GENERIC_EFFECTS: "#S When stopped:#!#indent_newline:2 \n[CourtPositionTaskType.GetOnEndEffectGenericDesc]#!"
  COURT_POSITION_TASK_GENERIC_COST: "#S Cost (per month):#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerCostText( GetPlayer )]#!"
@@ -471,6 +471,7 @@
  courtier_inspired_message: "$poet_inspired_message$"
  courtier_inspired_effect: "Your [courtier|E] [inspired_courtier.GetFirstName] gained an @inspiration_icon![inspiration|E]"
  court_poet_skald: "Court Skald"
+ court_poet_skald_desc: "The $court_poet_skald$ is a connoisseur of words and verse, providing their Liege and all at court with entertainment, intellectual stimulation, and emotional experiences."
 
  #AGOT Modified
  # bodyguard_court_position:0 "Bodyguard"
@@ -544,6 +545,7 @@
  is_imprisoned_court_position_executioner: "They are imprisoned and #bold not#! currently employed as an [GetCourtPositionType('executioner_court_position').GetName()]"
  faith_allows_master_assassin: "Their [faith|E]:\n$BULLET$Has the [GetFaithDoctrine('tenet_fp3_fedayeen').GetBaseName] [core_tenet|E]\n$BULLET$Does #bold not#! have the [GetFaithDoctrine('tenet_pacifism').GetBaseName] [core_tenet|E] or the [GetFaithDoctrine('tenet_dharmic_pacifism').GetBaseName] [core_tenet|E]"
  is_not_a_ceremonial_liege_trigger: "They are #bold not#! a [ceremonial_liege|E]"
+ not_travel_option_character: "They are #bold not#! hired from a [travel_option|e]"
 
  clan_tax_collector_court_position: "Tax Collector"
  clan_tax_collector_court_position_desc: "The $clan_tax_collector_court_position$ is tasked with organizing and collecting taxes, making sure that [clan|E] [vassals|E] pay their due diligence."
@@ -598,7 +600,7 @@
  wet_nurse_instill_virtue: "Instill Virtue"
  wet_nurse_instill_virtue_desc: "This character is teaching kids at court what kind of behavior is expected from them."
  wet_nurse_instill_virtue_notification_desc: "[ROOT.Char.GetShortUIName] taught [child_character.GetShortUIName] how to behave like a proper [notification_character.GetFaith.GetAdherentName]"
- wet_nurse_instill_virtue_fallback_tt: "[children|E] at [court|E] may gain a [virtuous|E] [trait|E] every month"
+ wet_nurse_instill_virtue_fallback_tt: "[children|E] at [court|E] may gain a [virtuous|E] [personality_trait|E] every month"
  wet_nurse_promote_relationships: "Promote Friendship"
  wet_nurse_promote_relationships_desc: "This character is tasked with ensuring a healthy environment where the children at court can thrive."
  wet_nurse_promote_relationships_fallback_tt: "[children|E] at [court|E] may gain [opinion_i][opinion|E] with one another, become [friends|E], or stop being [bullies|E]"

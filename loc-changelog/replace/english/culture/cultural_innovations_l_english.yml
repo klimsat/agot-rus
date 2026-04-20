@@ -477,10 +477,10 @@
   # TGP Siege Units Unlock
   ################## 
 
-  unlock_siege_maa_first_level: "[SelectLocalization( Or( Or( ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('han').GetHeritage.GetName ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('goryeo').GetHeritage.GetName ) ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('japanese').GetHeritage.GetName ) ), 'unlock_maa_ballista','unlock_maa_onager')]"
-  unlock_siege_maa_second_level: "[SelectLocalization( Or( Or( ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('han').GetHeritage.GetName ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('goryeo').GetHeritage.GetName ) ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('japanese').GetHeritage.GetName ) ), 'unlock_maa_cloud_ladder','unlock_maa_mangonel')]"
-  unlock_siege_maa_third_level: "[SelectLocalization( Or( Or( ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('han').GetHeritage.GetName ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('goryeo').GetHeritage.GetName ) ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('japanese').GetHeritage.GetName ) ), 'unlock_maa_siege_tower','unlock_maa_trebuchet')]"
-  unlock_siege_maa_fourth_level: "[SelectLocalization( Or( Or( ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('han').GetHeritage.GetName ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('goryeo').GetHeritage.GetName ) ), ObjectsEqual( GetPlayer.GetCulture.GetHeritage.GetName, GetCultureByKey('japanese').GetHeritage.GetName ) ), 'unlock_maa_cannon','unlock_maa_bombard')]"
+  unlock_siege_maa_first_level: "[GetPlayer.Custom('GetRegionalSiegeLevel1MAA')]"
+  unlock_siege_maa_second_level: "[GetPlayer.Custom('GetRegionalSiegeLevel2MAA')]"
+  unlock_siege_maa_third_level: "[GetPlayer.Custom('GetRegionalSiegeLevel3MAA')]"
+  unlock_siege_maa_fourth_level: "[GetPlayer.Custom('GetRegionalSiegeLevel4MAA')]"
 
   unlock_maa_ballista: "Can recruit [GetMaA('ballista').GetName] as [men_at_arms|E]"
   unlock_maa_cloud_ladder: "Can recruit [GetMaA('cloud_ladder').GetName] as [men_at_arms|E]"

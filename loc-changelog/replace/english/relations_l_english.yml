@@ -515,36 +515,87 @@
 
  #Perspective specific NoComma
  MyCharacterIntroductionNoComma_my_counciltitle_firstname:0 "my [ROOT.Char.GetCouncilTitle] [ROOT.Char.GetFirstName]"
- MyCharacterIntroductionNoComma_my_relation_titledfirstname:0 "my [second.Custom2('RelationToMe', ROOT.Char)] [ROOT.Char.GetTitledFirstName]"
- MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_primaryspouse:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetPrimarySpouse.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetPrimarySpouse.Custom2('MyCharacterIntroductionNoComma', second)]"
- MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_father:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetFather.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetFather.Custom2('MyCharacterIntroductionNoComma', second)]"
- MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_mother:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetMother.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetMother.Custom2('MyCharacterIntroductionNoComma', second)]"
- MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_councillor:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetCouncilTitle] of [ROOT.Char.GetLiege.Custom2('MyCharacterIntroductionNoComma', second)]"
- MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_knight:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetLiege.Custom('KnightCultureNoTooltip')] of [ROOT.Char.GetLiege.Custom2('MyCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #MyCharacterIntroductionNoComma_my_relation_titledfirstname:0 "my [second.Custom2('RelationToMe', ROOT.Char)] [ROOT.Char.GetTitledFirstName]"
+ MyCharacterIntroductionNoComma_my_relation_titledfirstname:0 "my [second.Custom2('RelationToMe', ROOT.Char)] [AGOTGetTitledFirstName(ROOT.Char)]"
+ #AGOT Modified
+ #MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_primaryspouse:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetPrimarySpouse.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetPrimarySpouse.Custom2('MyCharacterIntroductionNoComma', second)]"
+ MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_primaryspouse:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetPrimarySpouse.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetPrimarySpouse.Custom2('MyCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_father:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetFather.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetFather.Custom2('MyCharacterIntroductionNoComma', second)]"
+ MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_father:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetFather.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetFather.Custom2('MyCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_mother:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetMother.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetMother.Custom2('MyCharacterIntroductionNoComma', second)]"
+ MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_mother:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetMother.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetMother.Custom2('MyCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_councillor:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetCouncilTitle] of [ROOT.Char.GetLiege.Custom2('MyCharacterIntroductionNoComma', second)]"
+ MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_councillor:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetCouncilTitle] of [ROOT.Char.GetLiege.Custom2('MyCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_knight:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetLiege.Custom('KnightCultureNoTooltip')] of [ROOT.Char.GetLiege.Custom2('MyCharacterIntroductionNoComma', second)]"
+ MyCharacterIntroductionNoComma_the_relation_of_MyCharacterIntroductionNoComma_knight:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetLiege.Custom('KnightCultureNoTooltip')] of [ROOT.Char.GetLiege.Custom2('MyCharacterIntroductionNoComma', second)]"
 
  YourCharacterIntroductionNoComma_your_counciltitle_firstname:0 "your [ROOT.Char.GetCouncilTitle] [ROOT.Char.GetFirstName]"
- YourCharacterIntroductionNoComma_your_relation_titledfirstname:0 "your [second.Custom2('RelationToMe', ROOT.Char)] [ROOT.Char.GetTitledFirstName]"
- YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_primaryspouse:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetPrimarySpouse.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetPrimarySpouse.Custom2('YourCharacterIntroductionNoComma', second)]"
- YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_father:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetFather.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetFather.Custom2('YourCharacterIntroductionNoComma', second)]"
- YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_mother:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetMother.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetMother.Custom2('YourCharacterIntroductionNoComma', second)]"
- YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_councillor:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetCouncilTitle] of [ROOT.Char.GetLiege.Custom2('YourCharacterIntroductionNoComma', second)]"
- YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_knight:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetLiege.Custom('KnightCultureNoTooltip')] of [ROOT.Char.GetLiege.Custom2('YourCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #YourCharacterIntroductionNoComma_your_relation_titledfirstname:0 "your [second.Custom2('RelationToMe', ROOT.Char)] [ROOT.Char.GetTitledFirstName]"
+ YourCharacterIntroductionNoComma_your_relation_titledfirstname:0 "your [second.Custom2('RelationToMe', ROOT.Char)] [AGOTGetTitledFirstName(ROOT.Char)]"
+ #AGOT Modified
+ #YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_primaryspouse:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetPrimarySpouse.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetPrimarySpouse.Custom2('YourCharacterIntroductionNoComma', second)]"
+ YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_primaryspouse:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetPrimarySpouse.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetPrimarySpouse.Custom2('YourCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_father:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetFather.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetFather.Custom2('YourCharacterIntroductionNoComma', second)]"
+ YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_father:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetFather.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetFather.Custom2('YourCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_mother:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetMother.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetMother.Custom2('YourCharacterIntroductionNoComma', second)]"
+ YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_mother:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetMother.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetMother.Custom2('YourCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_councillor:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetCouncilTitle] of [ROOT.Char.GetLiege.Custom2('YourCharacterIntroductionNoComma', second)]"
+ YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_councillor:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetCouncilTitle] of [ROOT.Char.GetLiege.Custom2('YourCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_knight:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetLiege.Custom('KnightCultureNoTooltip')] of [ROOT.Char.GetLiege.Custom2('YourCharacterIntroductionNoComma', second)]"
+ YourCharacterIntroductionNoComma_the_relation_of_YourCharacterIntroductionNoComma_knight:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetLiege.Custom('KnightCultureNoTooltip')] of [ROOT.Char.GetLiege.Custom2('YourCharacterIntroductionNoComma', second)]"
 
  HerHisCharacterIntroductionNoComma_herhis_counciltitle_firstname:0 "[second.GetHerHis] [ROOT.Char.GetCouncilTitle] [ROOT.Char.GetFirstName]"
  HerHisCharacterIntroductionNoComma_herhis_relation_titledfirstname:0 "[second.GetHerHis] [second.Custom2('RelationToMe', ROOT.Char)] [ROOT.Char.GetTitledFirstName]"
- HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_primaryspouse:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetPrimarySpouse.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetPrimarySpouse.Custom2('HerHisCharacterIntroductionNoComma', second)]"
- HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_father:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetFather.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetFather.Custom2('HerHisCharacterIntroductionNoComma', second)]"
- HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_mother:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetMother.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetMother.Custom2('HerHisCharacterIntroductionNoComma', second)]"
- HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_councillor:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetCouncilTitle] of [ROOT.Char.GetLiege.Custom2('HerHisCharacterIntroductionNoComma', second)]"
- HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_knight:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetLiege.Custom('KnightCultureNoTooltip')] of [ROOT.Char.GetLiege.Custom2('HerHisCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #HerHisCharacterIntroductionNoComma_herhis_relation_titledfirstname:0 "[second.GetHerHis] [second.Custom2('RelationToMe', ROOT.Char)] [ROOT.Char.GetTitledFirstName]"
+ HerHisCharacterIntroductionNoComma_herhis_relation_titledfirstname:0 "[second.GetHerHis] [second.Custom2('RelationToMe', ROOT.Char)] [AGOTGetTitledFirstName(ROOT.Char)]"
+ #AGOT Modified
+ #HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_primaryspouse:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetPrimarySpouse.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetPrimarySpouse.Custom2('HerHisCharacterIntroductionNoComma', second)]"
+ HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_primaryspouse:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetPrimarySpouse.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetPrimarySpouse.Custom2('HerHisCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_father:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetFather.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetFather.Custom2('HerHisCharacterIntroductionNoComma', second)]"
+ HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_father:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetFather.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetFather.Custom2('HerHisCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_mother:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetMother.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetMother.Custom2('HerHisCharacterIntroductionNoComma', second)]"
+ HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_mother:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetMother.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetMother.Custom2('HerHisCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_councillor:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetCouncilTitle] of [ROOT.Char.GetLiege.Custom2('HerHisCharacterIntroductionNoComma', second)]"
+ HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_councillor:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetCouncilTitle] of [ROOT.Char.GetLiege.Custom2('HerHisCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_knight:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetLiege.Custom('KnightCultureNoTooltip')] of [ROOT.Char.GetLiege.Custom2('HerHisCharacterIntroductionNoComma', second)]"
+ HerHisCharacterIntroductionNoComma_the_relation_of_HerHisCharacterIntroductionNoComma_knight:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetLiege.Custom('KnightCultureNoTooltip')] of [ROOT.Char.GetLiege.Custom2('HerHisCharacterIntroductionNoComma', second)]"
 
- NamePossessiveCharacterIntroductionNoComma_namepossessive_counciltitle_firstname:0 "[second.GetTitledFirstNamePossessiveNoTooltip] [ROOT.Char.GetCouncilTitle] [ROOT.Char.GetFirstName]"
- NamePossessiveCharacterIntroductionNoComma_namepossessive_relation_titledfirstname:0 "[second.GetTitledFirstNamePossessiveNoTooltip] [second.Custom2('RelationToMe', ROOT.Char)] [ROOT.Char.GetTitledFirstName]"
- NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroduction_primaryspouse:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetPrimarySpouse.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetPrimarySpouse.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
- NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroduction_father:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetFather.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetFather.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
- NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroduction_mother:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetMother.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetMother.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
- NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroductionNoComma_councillor:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetCouncilTitle] of [ROOT.Char.GetLiege.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
- NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroductionNoComma_knight:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetLiege.Custom('KnightCultureNoTooltip')] of [ROOT.Char.GetLiege.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #NamePossessiveCharacterIntroductionNoComma_namepossessive_counciltitle_firstname:0 "[second.GetTitledFirstNamePossessiveNoTooltip] [ROOT.Char.GetCouncilTitle] [ROOT.Char.GetFirstName]"
+ NamePossessiveCharacterIntroductionNoComma_namepossessive_counciltitle_firstname:0 "[AGOTGetTitledFirstNamePossessiveNoTooltip(second)] [ROOT.Char.GetCouncilTitle] [ROOT.Char.GetFirstName]"
+ #AGOT Modified
+ #NamePossessiveCharacterIntroductionNoComma_namepossessive_relation_titledfirstname:0 "[second.GetTitledFirstNamePossessiveNoTooltip] [second.Custom2('RelationToMe', ROOT.Char)] [ROOT.Char.GetTitledFirstName]"
+ NamePossessiveCharacterIntroductionNoComma_namepossessive_relation_titledfirstname:0 "[AGOTGetTitledFirstNamePossessiveNoTooltip(second)] [second.Custom2('RelationToMe', ROOT.Char)] [ROOT.Char.GetTitledFirstName]"
+ #AGOT Modified
+ #NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroduction_primaryspouse:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetPrimarySpouse.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetPrimarySpouse.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
+ NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroduction_primaryspouse:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetPrimarySpouse.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetPrimarySpouse.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroduction_father:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetFather.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetFather.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
+ NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroduction_father:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetFather.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetFather.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroduction_mother:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetMother.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetMother.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
+ NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroduction_mother:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetMother.Custom2('RelationToMe', ROOT.Char)] of [ROOT.Char.GetMother.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroductionNoComma_councillor:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetCouncilTitle] of [ROOT.Char.GetLiege.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
+ NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroductionNoComma_councillor:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetCouncilTitle] of [ROOT.Char.GetLiege.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
+ #AGOT Modified
+ #NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroductionNoComma_knight:0 "[ROOT.Char.GetTitledFirstName], the [ROOT.Char.GetLiege.Custom('KnightCultureNoTooltip')] of [ROOT.Char.GetLiege.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
+ NamePossessiveCharacterIntroductionNoComma_the_relation_of_NamePossessiveCharacterIntroductionNoComma_knight:0 "[AGOTGetTitledFirstName(ROOT.Char)], the [ROOT.Char.GetLiege.Custom('KnightCultureNoTooltip')] of [ROOT.Char.GetLiege.Custom2('NamePossessiveCharacterIntroductionNoComma', second)]"
 
 
  #Perspective specific Comma
@@ -561,16 +612,36 @@
 
 
  #Support loc functions & keys
- CharacterIntroductionSupportNoComma_titledfirstnameoftitle:0 "[ROOT.Char.GetName]"
- CharacterIntroductionSupportNoComma_firstnamedynastyname_a_noblewoman_from_liege_title:0 "[ROOT.Char.GetFullName], a noblewoman from [ROOT.Char.GetLiege.GetPrimaryTitle.GetNameNoTierNoTooltip]"
- CharacterIntroductionSupportNoComma_firstnamedynastyname_a_nobleman_from_liege_title:0 "[ROOT.Char.GetFullName], a nobleman from [ROOT.Char.GetLiege.GetPrimaryTitle.GetNameNoTierNoTooltip]"
- CharacterIntroductionSupportNoComma_firstname_a_commoner_from_liege_title:0 "[ROOT.Char.GetFirstName], a commoner from [ROOT.Char.GetLiege.GetPrimaryTitle.GetNameNoTierNoTooltip]"
- CharacterIntroductionSupportNoComma_firstnamedynastyname_a_noblewoman_from_current_location:0 "[ROOT.Char.GetFullName], a noblewoman from [ROOT.Char.GetCurrentLocation.GetTitle.GetNameNoTierNoTooltip]"
- CharacterIntroductionSupportNoComma_firstnamedynastyname_a_nobleman_from_current_location:0 "[ROOT.Char.GetFullName], a nobleman from [ROOT.Char.GetCurrentLocation.GetTitle.GetNameNoTierNoTooltip]"
- CharacterIntroductionSupportNoComma_firstname_a_commoner_from_current_location:0 "[ROOT.Char.GetFirstName], a commoner from [ROOT.Char.GetCurrentLocation.GetTitle.GetNameNoTierNoTooltip]"
- CharacterIntroductionSupportNoComma_firstnamedynastyname_a_noblewoman:0 "[ROOT.Char.GetFullName], a noblewoman"
- CharacterIntroductionSupportNoComma_firstnamedynastyname_a_nobleman:0 "[ROOT.Char.GetFullName], a nobleman"
- CharacterIntroductionSupportNoComma_firstname_a_commoner:0 "[ROOT.Char.GetFirstName], a commoner"
+ #AGOT Modified
+ #CharacterIntroductionSupportNoComma_titledfirstnameoftitle:0 "[ROOT.Char.GetName]"
+ CharacterIntroductionSupportNoComma_titledfirstnameoftitle:0 "[AGOTGetFullName(ROOT.Char)]"
+ #AGOT Modified
+ #CharacterIntroductionSupportNoComma_firstnamedynastyname_a_noblewoman_from_liege_title:0 "[ROOT.Char.GetFullName], a noblewoman from [ROOT.Char.GetLiege.GetPrimaryTitle.GetNameNoTierNoTooltip]"
+ CharacterIntroductionSupportNoComma_firstnamedynastyname_a_noblewoman_from_liege_title:0 "[AGOTGetName(ROOT.Char)], a noblewoman from [ROOT.Char.GetLiege.GetPrimaryTitle.GetNameNoTierNoTooltip]"
+ #AGOT Modified
+ #CharacterIntroductionSupportNoComma_firstnamedynastyname_a_nobleman_from_liege_title:0 "[ROOT.Char.GetFullName], a nobleman from [ROOT.Char.GetLiege.GetPrimaryTitle.GetNameNoTierNoTooltip]"
+ CharacterIntroductionSupportNoComma_firstnamedynastyname_a_nobleman_from_liege_title:0 "[AGOTGetName(ROOT.Char)], a nobleman from [ROOT.Char.GetLiege.GetPrimaryTitle.GetNameNoTierNoTooltip]"
+ #AGOT Modified
+ #CharacterIntroductionSupportNoComma_firstname_a_commoner_from_liege_title:0 "[ROOT.Char.GetFirstName], a commoner from [ROOT.Char.GetLiege.GetPrimaryTitle.GetNameNoTierNoTooltip]"
+ CharacterIntroductionSupportNoComma_firstname_a_commoner_from_liege_title:0 "[AGOTGetName(ROOT.Char)], a commoner from [ROOT.Char.GetLiege.GetPrimaryTitle.GetNameNoTierNoTooltip]"
+ #AGOT Modified
+ #CharacterIntroductionSupportNoComma_firstnamedynastyname_a_noblewoman_from_current_location:0 "[ROOT.Char.GetFullName], a noblewoman from [ROOT.Char.GetCurrentLocation.GetTitle.GetNameNoTierNoTooltip]"
+ CharacterIntroductionSupportNoComma_firstnamedynastyname_a_noblewoman_from_current_location:0 "[AGOTGetName(ROOT.Char)], a noblewoman from [ROOT.Char.GetCurrentLocation.GetTitle.GetNameNoTierNoTooltip]"
+ #AGOT Modified
+ #CharacterIntroductionSupportNoComma_firstnamedynastyname_a_nobleman_from_current_location:0 "[ROOT.Char.GetFullName], a nobleman from [ROOT.Char.GetCurrentLocation.GetTitle.GetNameNoTierNoTooltip]"
+ CharacterIntroductionSupportNoComma_firstnamedynastyname_a_nobleman_from_current_location:0 "[AGOTGetName(ROOT.Char)], a nobleman from [ROOT.Char.GetCurrentLocation.GetTitle.GetNameNoTierNoTooltip]"
+ #AGOT Modified
+ #CharacterIntroductionSupportNoComma_firstname_a_commoner_from_current_location:0 "[ROOT.Char.GetFirstName], a commoner from [ROOT.Char.GetCurrentLocation.GetTitle.GetNameNoTierNoTooltip]"
+ CharacterIntroductionSupportNoComma_firstname_a_commoner_from_current_location:0 "[AGOTGetName(ROOT.Char)], a commoner from [ROOT.Char.GetCurrentLocation.GetTitle.GetNameNoTierNoTooltip]"
+ #AGOT Modified
+ #CharacterIntroductionSupportNoComma_firstnamedynastyname_a_noblewoman:0 "[ROOT.Char.GetFullName], a noblewoman"
+ CharacterIntroductionSupportNoComma_firstnamedynastyname_a_noblewoman:0 "[AGOTGetName(ROOT.Char)], a noblewoman"
+ #AGOT Modified
+ #CharacterIntroductionSupportNoComma_firstnamedynastyname_a_nobleman:0 "[ROOT.Char.GetFullName], a nobleman"
+ CharacterIntroductionSupportNoComma_firstnamedynastyname_a_nobleman:0 "[AGOTGetName(ROOT.Char)], a nobleman"
+ #AGOT Modified
+ #CharacterIntroductionSupportNoComma_firstname_a_commoner:0 "[ROOT.Char.GetFirstName], a commoner"
+ CharacterIntroductionSupportNoComma_firstname_a_commoner:0 "[AGOTGetName(ROOT.Char)], a commoner"
  CharacterIntroductionSupportNoComma_fallback:0 "[ROOT.Char.Custom2('CharacterIntroductionSupportNoComma', SCOPE.sC('second'))]"
 
 

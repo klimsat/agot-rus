@@ -310,6 +310,7 @@
  great_project_error_plan_mandala_capital: "Missing requirements to plan the expansion of the Mandala Capital"
 
  only_single_great_project_type_allowed: "[great_project|E] of this type is #bold not#! already being planned or ongoing"
+ you_are_owner_of_the_project: "You are the owner of the [great_project|E]"
  great_project_type_minister_project_culture: "Assimilate Area"
  minister_project_culture_name_chinese: "Sinicize Area"
  minister_project_culture_name_default: "Culture Convert Area"
@@ -410,10 +411,10 @@
  grand_campaign_target_border_tt_global: "[TARGET_CHARACTER.GetPrimaryTitle.GetName] is bordering the [GetTitleByKey('h_china').GetName] [realm|E] or [tributaries|E]"
  movement_power_increased_grand_campaign_name: "Won a Grand Campaign"
  movement_power_decreased_grand_campaign_name: "Lost a Grand Campaign"
- grand_campaign_movement_power_gain_tt: "Gains [movement_power|E]: [movement_power_i]#P +100#! "
- grand_campaign_movement_power_loss_tt: "Loses [movement_power|E]: [movement_power_i]#N -100#! "
- grand_campaign_won_tt: "If contributors or [owner.GetShortUIName] [completely_control|E] at least #V 50%#! of contested [titles|E]:\n$BULLET_WITH_TAB$Every contributor:\n$TAB$$BULLET_WITH_TAB$$grand_campaign_movement_power_gain_tt$\n$BULLET_WITH_TAB$[owner.GetShortUIName|U] will gain [legitimacy_i][EmptyScope.ScriptValue('major_legitimacy_gain')|+0]\n$BULLET_WITH_TAB$$great_project_type_grand_campaign_project_contribution_win_tt$\n$BULLET_WITH_TAB$[owner.GetShortUIName|U] will trigger '$catalyst_grand_campaign$'"
- grand_campaign_lost_tt: "Otherwise:\n$BULLET_WITH_TAB$Every contributor:\n$TAB$$BULLET_WITH_TAB$$grand_campaign_movement_power_loss_tt$\n$BULLET_WITH_TAB$[owner.GetShortUIName|U] will trigger '$catalyst_grand_campaign_lost$'"
+ grand_campaign_movement_power_gain_tt: "[THIS.Char.GetFirstName] ([THIS.Char.Custom('GetMyMovement')]) gains [movement_power|E]: [movement_power_i]#P +100#!"
+ grand_campaign_movement_power_loss_tt: "[THIS.Char.GetFirstName] ([THIS.Char.Custom('GetMyMovement')]) loses [movement_power|E]: [movement_power_i]#N -100#!"
+ grand_campaign_won_tt: "If contributors or [owner.GetShortUIName] [completely_control|E] at least #V 50%#! of contested [titles|E]:\n$BULLET_WITH_TAB$Every contributor:\n$TAB$$BULLET_WITH_TAB$Gains [movement_power|E]: [movement_power_i]#P +100#!\n$BULLET_WITH_TAB$[owner.GetShortUIName|U] will gain [legitimacy_i][EmptyScope.ScriptValue('major_legitimacy_gain')|+0]\n$BULLET_WITH_TAB$$great_project_type_grand_campaign_project_contribution_win_tt$\n$BULLET_WITH_TAB$[owner.GetShortUIName|U] will trigger '$catalyst_grand_campaign$'"
+ grand_campaign_lost_tt: "Otherwise:\n$BULLET_WITH_TAB$Every contributor:\n$TAB$$BULLET_WITH_TAB$Loses [movement_power|E]: [movement_power_i]#N -100#!\n$BULLET_WITH_TAB$[owner.GetShortUIName|U] will trigger '$catalyst_grand_campaign_lost$'"
  grand_campaign_start_tt: "[GetTitleByKey('e_minister_grand_marshal').GetName] [title|E] [holder|E] will start the [GetCasusBelliType('grand_campaign_kingdom_invasion_cb').GetName] [war|E]"
  
  great_project_type_minister_project_development: "Develop Communities"
@@ -478,7 +479,7 @@
  holder_has_military_appointment_tt: "[THIS.Char.GetShortUINamePossessive] [THIS.Char.Custom('GetProvinceAdministrationConcept')] is #bold not#! a military [governorship|E]"
 
  great_project_type_minister_project_conduct_census: "Conduct Census"
- great_project_type_minister_project_conduct_census_desc: "Minster of Revenue will perform a census on the population of selected duchy with great benefits to it's inhabitants and local [holders|E] [treasury|E]."
+ great_project_type_minister_project_conduct_census_desc: "Minster of Revenue will perform a census on the population of selected duchy with great benefits to its inhabitants and local [holders|E] [treasury|E]."
  great_project_purge_treasury_debt_msg_t: "From [GetGreatProjectType('minister_project_conduct_census').GetNameNoTooltip]"
  great_project_type_minister_project_conduct_census_contribution_conduct_census: "Census"
  great_project_type_minister_project_conduct_census_contribution_purge_treasury_debt: "Purge Treasury Debt"

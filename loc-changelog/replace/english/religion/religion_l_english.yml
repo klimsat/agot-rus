@@ -1,4 +1,4 @@
-﻿l_english:
+﻿l_english: 
  RELIGION_LOC_PLACEHOLDER:0 "#D PLACEHOLDER!#!"
 
  FAITH_HOSTILITY_EVIL:1 "[faith_evil|L]"
@@ -24,7 +24,8 @@
  REL_HEAD_TITLE_NAME:1 "[my_faith.GetAdjectiveNoTooltip|U] [my_faith.ReligiousHeadTitleName|U]"
  HOLY_SITE_UNDER_CONTROL:0 "#P Controlled by [FAITH.GetName]#!"
  HOLY_SITE_NOT_UNDER_CONTROL:0 "@warning_icon! #X Not controlled by [FAITH.GetName]#!"
- FAITH_WINDOW_HOLY_SITE_TOOLTIP:1 "#T [holy_site|E] of [HolySite.GetName]#!\n[GuiHolySiteItem.GetControlDesc]\nWhen controlled by [GuiHolySiteItem.GetFaith.GetName], the following effects apply:\n[HolySite.GetEffectDesc( GuiHolySiteItem.GetFaith )]\n\n#I Click to view [HolySite.GetBarony.GetName]#!"
+ FAITH_WINDOW_HOLY_SITE_TOOLTIP: "#T [holy_site|E] of [HolySite.GetName]#!\n[HolySiteItem.GetControlDesc]\nWhen controlled by [HolySiteItem.GetFaith.GetName], the following effects apply:\n[HolySite.GetEffectDesc( HolySiteItem.GetFaith )]\n\n#I Click to view [HolySite.GetBarony.GetName]#!"
+ FERVOR_BASE_GROWTH: "Base growth"
  FERVOR_GAIN_FROM_HOLY_SITES:0 "From [holy_sites|E]"
  PIETY_HEAD_OF_FAITH:0 "[head_of_faith|E]"
  FERVOR_GAIN_SIZE_MODIFIER:0 "Size of [faith|E]"
@@ -34,10 +35,10 @@
  fervor_gain_upgraded_temple_holding_culture_parameter:0 "Upgraded Temple Holding #weak (from [tradition|E])#!"
  fervor_loss_religious_war:0 "[war_goal_title.GetName] gained from the [defender.GetFaith.GetAdherentNamePlural] in a Holy War"
  fervor_gain_religious_war:0 "[war_goal_title.GetName] lost in a [attacker.GetFaith.GetAdjective] Holy War"
- fervor_loss_great_holy_war:0 "[war_goal_title.GetName] gained in a [attacker.GetFaith.Custom('GHWName')]"
- fervor_gain_great_holy_war:0 "[war_goal_title.GetName] lost in a [attacker.GetFaith.Custom('GHWName')]"
- fervor_loss_lost_great_holy_war:0 "Failed [the_faith.Custom('GHWName')] for [target_kingdom.GetName]"
- fervor_loss_crusade_invalid:0 "Failed [the_faith.Custom('GHWName')]"
+ fervor_loss_great_holy_war:0 "[war_goal_title.GetName] gained in a [attacker.GetFaith.GHWName]"
+ fervor_gain_great_holy_war:0 "[war_goal_title.GetName] lost in a [attacker.GetFaith.GHWName]"
+ fervor_loss_lost_great_holy_war:0 "Failed [the_faith.GHWName] for [target_kingdom.GetName]"
+ fervor_loss_crusade_invalid:0 "Failed [the_faith.GHWName]"
  test_interaction_fervor_gain:0 "Gain from test interaction"
  fervor_gain_chakravarti:0 "Chakravartin proclaimed"
  fervor_gain_almohads:0 "Rise of the Almohads"
@@ -986,7 +987,7 @@
  no_head_of_faith_name: "No [head_of_faith|E] [doctrine|E]"
  doctrine_parameter_minimum_fervor:0 "Fervor cannot go below #V $VALUE|0$%#!"
  doctrine_spiritual_head_name:0 "Spiritual"
- doctrine_spiritual_head_desc:0 "The physical world and the spiritual world are not alike. We must ensure the spiritual world has it's own leader, to guide us and to protect our faith from being profaned by physical desires."
+ doctrine_spiritual_head_desc:0 "The physical world and the spiritual world are not alike. We must ensure the spiritual world has its own leader, to guide us and to protect our faith from being profaned by physical desires."
  doctrine_parameter_spiritual_head_of_faith:0 "The position of [head_of_faith|E] is given to a prominent clergy member"
  doctrine_parameter_spiritual_head_of_faith_claims:0 "The [head_of_faith|E] can grant [claims|E] on landed titles to pious adherents"
  doctrine_parameter_spiritual_head_of_faith_gold:0 "The [head_of_faith|E] can grant [gold|E] to pious adherents"
@@ -1264,6 +1265,11 @@
  special_doctrine_is_eastern_faith_desc:0 "Together we are bound not by a single faith, but by the many faiths that make up the religious fabric of our society. Though we may call ourselves different names and follow different paths, some from outside our own belief system have learned to coexist in our society as if they were one of us."
  doctrine_parameter_hostility_override_tenet_eastern_syncretism:0 "Non-Eastern [faiths|E] with the $tenet_eastern_syncretism_name$ tenet are considered [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V] instead of $hostility_evil_tooltippable$"
 
+ special_doctrine_is_sinitic_faith_name:0 "Sinitic Cosmology"
+ is_sinitic_faith_name:0 "$special_doctrine_is_sinitic_faith_name$"
+ special_doctrine_is_sinitic_faith_desc:0 "$special_doctrine_is_eastern_faith_desc$"
+ doctrine_parameter_hostility_override_tenet_sinitic_syncretism:0 "Non-Sinitic [faiths|E] with the $tenet_sinitic_syncretism_name$ tenet are considered [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V] instead of $hostility_evil_tooltippable$"
+
  special_doctrine_is_gnostic_faith_name:0 "$tenet_gnosticism_name$"
  is_gnostic_faith_name:0 "$special_doctrine_is_gnostic_faith_name$"
  special_doctrine_is_gnostic_faith_desc:0 "$tenet_gnosticism_desc$"
@@ -1405,6 +1411,7 @@
  doctrine_funeral_sky_burial_name: "$tenet_sky_burials_name$"
  doctrine_funeral_sky_burial_desc: "$tenet_sky_burials_desc$"
  doctrine_funeral_mummification_name: "Mummification"
+ mummification_funeral_name: "Mummification"
  doctrine_funeral_mummification_desc: "The body has ceased to function, but it is still the vessel by which the spirit will journey to [ROOT.Faith.PositiveAfterLife]. The physical form therefore must be as constant as the soul, awaiting the judgement of [ROOT.Faith.FateGodName]."
  doctrine_family_rites_name: "Family Rites"
  doctrine_family_rites_desc: "Death is a period of mourning and ritual for those who live. Hierarchy and seniority matter as much in death as in life; it is important to venerate those more elderly even after their passing, and to be seen venerating in the correct ways."
@@ -1431,3 +1438,5 @@
  global_religion.1000.serenity_aspect: "You will live in the capital, [ROOT.Char.GetCapitalLocation.GetTitle.GetNameNoTierNoTooltip]."
 
  is_faith_dominant_gender_tt: "[THIS.Char.GetShortUINamePossessiveNoFormat|U] gender ([THIS.Char.Custom('FemaleMale')|U]) is dominant in [CharYourHerHis( THIS.Char )] [faith|E] #weak ([THIS.Char.GetFaith.GetName])#!"
+
+ unreformed_name: "[GetFaithDoctrine('unreformed_faith_doctrine').GetBaseName]"

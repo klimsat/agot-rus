@@ -9,9 +9,11 @@
 
  SCHEME_AGENT_GOLD:0 "[gold_i] Bribe"
  SCHEME_AGENT_TREASURY:0 "[treasury_i] [treasury|E] Transfer"
+ SCHEME_AGENT_TREASURY_BRIBE: "[treasury_i] Bribe"
  SCHEME_HOOK:1 "Use a [hook_i][hook|e]"
  SCHEME_HOOK_EXPLICIT: "[hook_i] Use your [hook|E] on #EMP them#!"
  SCHEME_AGENT_GOLD_SIGNIFICANT: "[gold_i] #EMP Hefty#! Bribe"
+ SCHEME_AGENT_TREASURY_SIGNIFICANT_BRIBE: "[treasury_i] #EMP Hefty#! Bribe"
  offer_gold.tt.cannot_offer_both_bribes: "A bribe can only have one size"
  not_two_overrides: "You cannot use two auto-accept options"
  SCHEME_AGENT_HOOK: "[hook_i] Offer a [hook|E] on yourself"
@@ -76,8 +78,10 @@
 
 
  SCHEME_AGENT_GOLD_VALID: "Pay [gold_i][SCOPE.ScriptValue('bribe_value')|V0] to [recipient.GetShortUINameNoTooltip]"
+ SCHEME_AGENT_TREASURY_BRIBE_VALID: "Use [treasury_i][SCOPE.ScriptValue('bribe_value')|V0] to pay [recipient.GetShortUINameNoTooltip] [gold_i][SCOPE.ScriptValue('bribe_value')|V0]"
  SCHEME_AGENT_TREASURY_VALID: "Transfer [treasury_i][SCOPE.ScriptValue('treasury_bribe_value')|V0] to [recipient.GetShortUINameNoTooltip]"
  SCHEME_AGENT_GOLD_SIGNIFICANT_VALID: "Pay [gold_i][SCOPE.ScriptValue('greater_bribe_value')|V0] to [recipient.GetShortUINameNoTooltip]"
+ SCHEME_AGENT_TREASURY_SIGNIFICANT_VALID: "Use [treasury_i][SCOPE.ScriptValue('greater_bribe_value')|V0] to pay [recipient.GetShortUINameNoTooltip] [gold_i][SCOPE.ScriptValue('greater_bribe_value')|V0]"
  SCHEME_AGENT_OPPORTUNITIES_VALID: "Gain [EmptyScope.ScriptValue('agent_acceptance_per_burnt_opportunity_value')|=+P0] acceptance per [scheme_opportunity_opportunity|E] spent"
  SCHEME_AGENT_PRESTIGE_VALID: "Transfer [prestige_i][SCOPE.ScriptValue('prestige_bribe_value')|V0] to [recipient.GetShortUINameNoTooltip]"
  SCHEME_AGENT_INFLUENCE_VALID: "Transfer [influence_i][SCOPE.ScriptValue('influence_bribe_value')|V0] to [recipient.GetShortUINameNoTooltip]"

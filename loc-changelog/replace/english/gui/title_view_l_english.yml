@@ -70,7 +70,7 @@
  TITLE_VIEW_USURP_TITLE:0 "Usurp"
  USURP_TITLE_TITLE:1 "Usurp the [TITLE.GetBaseNameNoTooltip]"
  USURP_TITLE_TOOLTIP_TITLE:1 "#T Usurp the [TITLE.GetBaseName]#!"
- USURP_TITLE_TEXT: "Usurp [TITLE.GetName] from [TITLE.GetHolder.GetUIName].\n Cost:\n[SelectLocalization(GetPlayer.GetGovernment.IsType('meritocratic_government'), 'USURP_TITLE_DESC_TREASURY', 'USURP_TITLE_DESC_GOLD')]$GOLD|0V$\n\nI will gain [prestige_i]$PRESTIGE|0V$\n\n[TITLE.GetHolder.GetUIName] will lose [legitimacy|E]."
+ USURP_TITLE_TEXT: "Usurp [TITLE.GetName] from [TITLE.GetHolder.GetUIName].\n Cost:\n[SelectLocalization( Or( GetPlayer.GetGovernment.IsType( 'celestial_government' ), Or(GetPlayer.GetGovernment.IsType( 'meritocratic_government' ), GetPlayer.GetGovernment.IsType( 'administrative_government' ))), 'USURP_TITLE_DESC_TREASURY', 'USURP_TITLE_DESC_GOLD')]$GOLD|0V$\n\nI will gain [prestige_i]$PRESTIGE|0V$\n\n[TITLE.GetHolder.GetUIName] will lose [legitimacy|E]."
  USURP_TITLE_DESC_GOLD: "[gold_i]"
  USURP_TITLE_DESC_TREASURY: "[treasury_i]"
 
