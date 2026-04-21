@@ -317,13 +317,13 @@
  activity_playdate_predicted_cost: "Стоимость такого мероприятия, как [GetActivityType( 'activity_playdate' ).GetNameNoTooltip|l], зависит в основном от вашего [Concept( 'income', 'дохода' )|E] и [Concept( 'title_tier', 'уровня' )|E]."
 
  liege_accolades_glory_reward_title: "Получена [glory|El]"
- liege_accolades_glory_reward: "Участники с уважением отзывались о воинских достоинствах, и особых похвал удостоились [root_scope.Custom('KnightCulturePluralNoTooltip')|l] [Select_CString(root_scope.IsLocalPlayer, '', 'персонажа ' )][root_scope.GetNamePossessiveOrMy][Select_CString(root_scope.IsLocalPlayer, 'его персонажа', '' )]"
+ liege_accolades_glory_reward: "Участники с уважением отзывались о воинских достоинствах, и особых похвал удостоились [accolade_owner.Custom('KnightCulturePluralNoTooltip')|l] [Select_CString(accolade_owner.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ', accolade_owner.GetShortUIName))]"
 
  knight_accolade_glory_reward_title: "Получена [glory|El]"
- knight_accolade_glory_reward: "[root_scope.GetShortUIName], выдающийся [root_scope.Custom('KnightCultureNoTooltip')|l], поражает и впечатляет"
+ knight_accolade_glory_reward: "[acclaimed_knight.GetShortUIName|U], выдающийся [acclaimed_knight.Custom('KnightCultureNoTooltip')|l], поражает и впечатляет"
 
  liege_accolades_glory_reward_tour_title: "Получена [glory|El]"
- liege_accolades_glory_reward_tour: "[root_scope.Custom('KnightCulturePluralNoTooltip')|U] [Select_CString(root_scope.IsLocalPlayer, '', 'персонажа ' )][root_scope.GetNamePossessiveOrMy][Select_CString(root_scope.IsLocalPlayer, 'его персонажа', '' )] промчались по этим землям, поразив всех величием и властностью"
+ liege_accolades_glory_reward_tour: "[accolade_owner.Custom('KnightCulturePluralNoTooltip')|U] [Select_CString(accolade_owner.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ', accolade_owner.GetShortUIName))] промчались по этим землям, поразив всех величием и властностью"
 
 
  #Chariot Race

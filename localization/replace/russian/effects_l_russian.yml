@@ -301,9 +301,9 @@
 
  CONVERTS_TO_DOMICILE: "[Concept('yurt', 'Кочевая столица')|E] принимает [FAITH.GetAdjective|Vl]"
  CONVERTED_TO_DOMICILE: "[Concept('yurt', 'Кочевая столица')|E] приняла [FAITH.GetAdjective|Vl]"
+
  CULTURE_CONVERTS_TO_DOMICILE: "[Concept('yurt', 'Кочевая столица')|E] принимает #L [TARGET_CULTURE.GetCollectiveNoun|Vl]ую#! [Concept('culture', 'культуру')|E]"
  CULTURE_CONVERTED_TO_DOMICILE: "[Concept('yurt', 'Кочевая столица')|E] приняла #L [TARGET_CULTURE.GetCollectiveNoun|Vl]ую#! [Concept('culture', 'культуру')|E]"
-
 
  SET_CHARACTER_FAITH_EFFECT: "[CHARACTER.GetShortUIName|U] меняет конфессию на [FAITH.GetAdjective|Vl]"
 
@@ -1564,15 +1564,15 @@
  TITLE_JOIN_FACTION: "[TITLE.GetName] присоединяется к [Concept( 'faction', 'фракции' )|E] «[FACTION.GetName|V]»"
  TITLE_LEAVE_FACTION: "[TITLE.GetName] покидает [Concept( 'faction', 'фракцию' )|E] «[FACTION.GetName|V]»"
 
- COUNTY_CULTURE_EFFECT: "Культура владения [TITLE.GetNameNoTier] меняется на #V #L [TARGET_CULTURE.GetCollectiveNoun|l]ую#!#!"
- COUNTY_CULTURE_PAST_EFFECT: "Культура владения [TITLE.GetNameNoTier] сменилась на #V #L [TARGET_CULTURE.GetCollectiveNoun|l]ую#!#!"
- SET_CULTURE_EFFECT: "Культура меняется на #V [TARGET_CULTURE.GetCollectiveNoun|l]#L ую#!#!"
- SET_CULTURE_PAST_EFFECT: "Культура сменилась на #V [TARGET_CULTURE.GetCollectiveNoun|l]#L ую#!#!"
+ COUNTY_CULTURE_EFFECT: "[culture|E] владения [TITLE.GetNameNoTier] меняется на #V #L [TARGET_CULTURE.GetName|l]ую#!#!"
+ COUNTY_CULTURE_PAST_EFFECT: "[culture|E] владения [TITLE.GetNameNoTier] сменилась на #V #L [TARGET_CULTURE.GetName|l]ую#!#!"
+ SET_CULTURE_EFFECT: "[culture|E] меняется на #V #L [TARGET_CULTURE.GetName|l]ую#!#!"
+ SET_CULTURE_PAST_EFFECT: "[culture|E] сменилась на #V #L [TARGET_CULTURE.GetName|l]ую#!#!"
 
- COUNTY_FAITH_EFFECT: "[Concept('faith', 'Конфессия')|E] сменится на [FAITH.GetTextIcon]#L #V [FAITH.GetName|l]ую#!#!"
+ COUNTY_FAITH_EFFECT: "[Concept('faith', 'Конфессия')|E] меняется на [FAITH.GetTextIcon]#L #V [FAITH.GetName|l]ую#!#!"
  COUNTY_FAITH_PAST_EFFECT: "[Concept('faith', 'Конфессия')|E] сменилась на [FAITH.GetTextIcon]#L #V [FAITH.GetName|l]ую#!#!"
- THIRD_COUNTY_FAITH_EFFECT: "[Concept('faith', 'Конфессия')|E] титула «[TITLE.GetBaseName]» меняется на [FAITH.GetTextIcon]#L #V [FAITH.GetName|l]ую#!#!"
- THIRD_COUNTY_FAITH_PAST_EFFECT: "[Concept('faith', 'Конфессия')|E] титула «[TITLE.GetBaseName]» сменилась на [FAITH.GetTextIcon]#L #V [FAITH.GetName|l]ую#!#!"
+ THIRD_COUNTY_FAITH_EFFECT: "[Concept('faith', 'Конфессия')|E] владения [TITLE.GetBaseName] меняется на [FAITH.GetTextIcon]#L #V [FAITH.GetName|l]ую#!#!"
+ THIRD_COUNTY_FAITH_PAST_EFFECT: "[Concept('faith', 'Конфессия')|E] владения [TITLE.GetBaseName] сменилась на [FAITH.GetTextIcon]#L #V [FAITH.GetName|l]ую#!#!"
 
  ADD_ATTACKER_EFFECT: "Присоединяется к [Concept('war', 'войне')|E] «[WAR.GetName|V]» в качестве атакующего на [Select_CString(WAR.GetActiveCB.GetAttacker.IsLocalPlayer, 'вашей стороне', 'стороне персонажа ')][Select_CString(WAR.GetActiveCB.GetAttacker.IsLocalPlayer, '', WAR.GetActiveCB.GetAttacker.GetShortUIName)]"
  ADD_ATTACKER_EFFECT_FIRST: "Вы присоединяетесь к [Concept('war', 'войне')|E] «[WAR.GetName|V]» в качестве атакующего на стороне персонажа [WAR.GetActiveCB.GetAttacker.GetShortUIName]"
@@ -1765,18 +1765,18 @@
  THEOCRACY_STARTED_APPROVING_EFFECT: "Уже поддерживает вас #weak  ([church_property|El])#!"
  THEOCRACY_STOPPED_APPROVING_EFFECT: "@warning_icon! #X Прекращает поддерживать вас#! #weak ([church_property|El])#!"
 
- STARTS_PREP_GREAT_HOLY_WAR: "[GREAT_HOLY_WAR.GetFaith.Custom('GHWName')] против [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
- STARTS_GREAT_HOLY_WAR: "Начинается [GREAT_HOLY_WAR.GetFaith.Custom('GHWName')] против [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ STARTS_PREP_GREAT_HOLY_WAR: "[GREAT_HOLY_WAR.GetFaith.GHWName] против [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ', TARGET_CHARACTER.GetShortUIName))]"
+ STARTS_GREAT_HOLY_WAR: "Начинается [GREAT_HOLY_WAR.GetFaith.GHWName] против [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ', TARGET_CHARACTER.GetShortUIName))]"
 
- GHW_UNPLEDGE_ATTACKER_PLAYER: "[GREAT_HOLY_WAR.GetFaith.Custom('GHWName')]: отказ от участия"
- GHW_UNPLEDGED_ATTACKER_PLAYER: "[GREAT_HOLY_WAR.GetFaith.Custom('GHWName')]: отказ от участия"
- GHW_UNPLEDGE_DEFENDER_PLAYER: "[GREAT_HOLY_WAR.GetFaith.Custom('GHWName')]: отказ от участия"
- GHW_UNPLEDGED_DEFENDER_PLAYER: "[GREAT_HOLY_WAR.GetFaith.Custom('GHWName')]: отказ от участия"
- GHW_I_UNPLEDGE_ATTACKER: "Вы не будете выступать на стороне нападающих в войне [GREAT_HOLY_WAR.GetFaith.Custom('GHWName')]"
- GHW_I_UNPLEDGED_ATTACKER: "Вы не выступили на стороне нападающих в войне [GREAT_HOLY_WAR.GetFaith.Custom('GHWName')]"
- GHW_I_UNPLEDGE_DEFENDER: "Вы не будете выступать на стороне защитников в войне [GREAT_HOLY_WAR.GetFaith.Custom('GHWName')]"
- GHW_I_UNPLEDGED_DEFENDER: "Вы не выступили на стороне защитников в войне [GREAT_HOLY_WAR.GetFaith.Custom('GHWName')]"
- GHW_CHANGE_TARGET_EFFECT: "[GREAT_HOLY_WAR.GetFaith.Custom('GHWName')] выберет целью [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
+ GHW_UNPLEDGE_ATTACKER_PLAYER: "[GREAT_HOLY_WAR.GetFaith.GHWName]: отказ от участия"
+ GHW_UNPLEDGED_ATTACKER_PLAYER: "[GREAT_HOLY_WAR.GetFaith.GHWName]: отказ от участия"
+ GHW_UNPLEDGE_DEFENDER_PLAYER: "[GREAT_HOLY_WAR.GetFaith.GHWName]: отказ от участия"
+ GHW_UNPLEDGED_DEFENDER_PLAYER: "[GREAT_HOLY_WAR.GetFaith.GHWName]: отказ от участия"
+ GHW_I_UNPLEDGE_ATTACKER: "Вы не будете выступать на стороне нападающих в войне [GREAT_HOLY_WAR.GetFaith.GHWName]"
+ GHW_I_UNPLEDGED_ATTACKER: "Вы не выступили на стороне нападающих в войне [GREAT_HOLY_WAR.GetFaith.GHWName]"
+ GHW_I_UNPLEDGE_DEFENDER: "Вы не будете выступать на стороне защитников в войне [GREAT_HOLY_WAR.GetFaith.GHWName]"
+ GHW_I_UNPLEDGED_DEFENDER: "Вы не выступили на стороне защитников в войне [GREAT_HOLY_WAR.GetFaith.GHWName]"
+ GHW_CHANGE_TARGET_EFFECT: "[GREAT_HOLY_WAR.GetFaith.GHWName] выберет целью персонажа [TARGET_CHARACTER.GetName]"
  GHW_SET_BENEFICIARY_EFFECT: "Выбрать персонажа [TARGET_CHARACTER.GetShortUIName] в качестве [Concept( 'beneficiary', 'бенефициара' )|E]"
 
  LEASE_OUT_TO_HOLY_ORDER_EFFECT: "Сдает титул [TITLE.GetName] в аренду ордену [HOLY_ORDER.GetName]"
@@ -1973,6 +1973,8 @@
 
  SET_HOLDING_TYPE_EFFECT_GLOBAL: "Тип [Concept('holding', 'владения')|E] [PROVINCE.GetBaronyNameExplicitly] сменяется на «$NEW_HOLDING_TYPE_NAME$»"
  SET_HOLDING_TYPE_EFFECT_GLOBAL_PAST: "Тип [Concept('holding', 'владения')|E] [PROVINCE.GetBaronyNameExplicitly] сменился на «$NEW_HOLDING_TYPE_NAME$»"
+ SET_HOLDING_TYPE_EFFECT_THIRD: "$SET_HOLDING_TYPE_EFFECT_GLOBAL$"
+ SET_HOLDING_TYPE_EFFECT_THIRD_PAST: "$SET_HOLDING_TYPE_EFFECT_GLOBAL_PAST$"
 
  replace_building_effect_global: "Здание «$OldBuildingName$» во владении [PROVINCE.GetBaronyNameExplicitly] заменяется зданием «[Building.GetName]»"
  replace_building_effect_global_past: "Здание «$OldBuildingName$» во владении [PROVINCE.GetBaronyNameExplicitly] заменено зданием «[Building.GetName]»"
@@ -2020,7 +2022,7 @@
 
  CHANGE_DE_JURE_DRIFT_PROGRESS_EFFECT: "[TITLE.GetName] получает $VALUE|V0$ к прогрессу [Concept( 'de_jure_drift', 'изменения де-юре статуса' )|E] в сторону титула [TARGET_TITLE.GetName]"
 
- I_PLEDGE_ATTACKER_GHW_DESC: "Вы обещаете, что [GREAT_HOLY_WAR.GetFaith.Custom('GHWName')] не останется без вашей поддержки"
+ I_PLEDGE_ATTACKER_GHW_DESC: "Вы обещаете, что [GREAT_HOLY_WAR.GetFaith.GHWName] не останется без вашей поддержки"
 
  CUSTOM_SEIZE_TITLE_AND_BELOW_DE_JURE_EFFECT: "Захватывает [TARGET_TITLE.GetName] с [de_jure|El] землями"
  CUSTOM_SEIZE_TITLE_AND_BELOW_DE_JURE_EFFECT_PAST: "Захватывает титул [TARGET_TITLE.GetName] и принадлежащие ему [de_jure|El] земли"
@@ -2623,6 +2625,12 @@
  REMOVE_TITLE_LAW_EFFECTS_PAST_EFFECT: "Закон [LAW.GetName|V] удален со всеми эффектами"
  CHANGE_FIRST_NAME_EFFECT: "Изменить имя на $NAME$"
  CHANGE_FIRST_NAME_PAST_EFFECT: "Имя изменено на $NAME$"
+ set_regnal_name_global: "Меняет тронное имя на $NAME$"
+ set_regnal_name_global_past: "Тронное имя изменено на $NAME$"
+ remove_regnal_name_global: "Отказывается от тронного имени"
+ remove_regnal_name_global_past: "Состоялся отказ от тронного имени"
+ REMOVE_REGNAL_NAME_EFFECT: "Отказывается от тронного имени"
+ REMOVE_REGNAL_NAME_PAST_EFFECT: "Состоялся отказ от тронного имени"
  REMOVE_ALL_HOUSE_MODIFIER_INSTANCES_EFFECT: "Теряет все модификаторы $MODIFIER$"
  REMOVE_ALL_HOUSE_MODIFIER_INSTANCES_PAST_EFFECT: "Потеряны все модификаторы $MODIFIER$"
  ADD_HOOK_NO_TOAST_EFFECT: "Получает [hooks|El] #weak ($TYPE$)#! на [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
@@ -2666,6 +2674,8 @@
  CONTRACT_MODIFICATION_BLOCKED_FIRST_PAST: "Внесение изменений в ваш [Concept('vassal_contract', 'вассальный договор')|E] было #X заблокировано#!"
  CONTRACT_MODIFICATION_BLOCKED_THIRD: "[Concept('vassal_contract', 'Вассальный договор')|E] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] больше #X нельзя#! изменить"
  CONTRACT_MODIFICATION_BLOCKED_THIRD_PAST: "[Concept('vassal_contract', 'Вассальный договор')|E] [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )] больше #X нельзя#! изменить"
+ CONTRACT_MODIFICATION_BLOCKED_THIRD_NEG: "[Concept('vassal_contract', 'Вассальный договор')|E] [Select_CString(CHARACTER.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ', CHARACTER.GetShortUIName))] может быть пересмотрен"
+ CONTRACT_MODIFICATION_BLOCKED_THIRD_PAST_NEG: "[Concept('vassal_contract', 'Вассальный договор')|E] [Select_CString(CHARACTER.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ', CHARACTER.GetShortUIName))] может быть пересмотрен"
 
  COPY_LOCALIZED_TEXT: "Имя $KEY$ было скопировано; источник: $VALUE$ [Select_CString(TARGET_CHARACTER.IsLocalPlayer, '', 'персонажа ' )][TARGET_CHARACTER.GetShortUINamePossessive][Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
  REMOVE_LOCALIZED_TEXT: "$VARIABLE$: удалено у [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
@@ -2676,8 +2686,8 @@
  SAT_MY_MOTHER: "[TARGET_CHARACTER.GetShortUIName|U] — ваша новая мать"
  SAT_THEIR_MOTHER: "[TARGET_CHARACTER.GetShortUIName|U] — новая мать [Select_CString(CHARACTER.IsLocalPlayer, '', 'персонажа ' )][CHARACTER.GetShortUINamePossessive][Select_CString(CHARACTER.IsLocalPlayer, 'его персонажа', '' )]"
 
- ADD_LOOT_ARMY_EFFECT: "Добавляет $VALUE|0V$ ед. [Concept('loot', 'добычи')|E] текущей [Select_CString( Army.IsRaidArmy, 'совершающей налет', 'торгующей' )] армии"
- ADD_LOOT_ARMY_PAST_EFFECT: "Добавлено $VALUE|0V$ ед. [Concept('loot', 'добычи')|E] [Select_CString( Army.IsRaidArmy, 'совершающей налет', 'торгующей' )] армии"
+ ADD_LOOT_ARMY_EFFECT: "Добавляет армии $VALUE|0V$ ед. [Concept('loot', 'добычи')|E]"
+ ADD_LOOT_ARMY_PAST_EFFECT: "Армии добавлено $VALUE|0V$ ед. [Concept('loot', 'добычи')|E]"
 
  send_to_varangian_guard_interaction_effect_desc: "#weak Во время службы в варяжской гвардии [CHARACTER.GetShortUIName] может увеличить свои [Concept( 'skills', 'навыки' )|E] или получить [Concept( 'traits', 'свойства' )|E], однако есть шанс получить ранение или того хуже. [CHARACTER.GetSheHe|U] вернется через несколько лет, но отозвать [CHARACTER.GetHerHis] раньше не получится.#!"
 
@@ -2765,6 +2775,7 @@
  custom.every_martial_palace_entrant: "Каждый участник с наиболее развитым навыком [Concept('martial', 'военного дела')|E]"
  custom.every_learning_palace_entrant: "Каждый участник с наиболее развитым навыком [Concept('learning', 'учености')|E]"
  custom.every_stewardship_palace_entrant: "Каждый участник с наиболее развитым навыком [Concept('stewardship', 'управления')|E]"
+ custom.every_compassionate_entourage_character: "Каждый путешествующий [Concept('character', 'персонаж')|E] со свойством «[GetTrait('compassionate').GetName( GetNullCharacter )]»"
 
  guest_and_family_move_to_specific_pool_effect.tt.family: "[character|E] и путешествующие с ним члены [Concept( 'family', 'семьи' )|E]"
 
@@ -3086,29 +3097,29 @@
 
  GAIN_TRAIT_XP: "Получает $VALUE|V0$ [Concept( 'trait_level_track_xp', 'опыта пути развития свойства' )|E] $TRACK_NAME$ #weak ([TRAIT.GetName( CHARACTER.Self )])#!"
  I_GAIN_TRAIT_XP: "Вы получаете $VALUE|V0$ [Concept( 'trait_level_track_xp', 'опыта пути развития свойства' )|E] $TRACK_NAME$#weak ([TRAIT.GetName( CHARACTER.Self )])#!"
- THEY_GAIN_TRAIT_XP: "[CHARACTER.GetName] получает $VALUE|V0$ [Concept( 'trait_level_track_xp', 'опыта пути развития свойства' )|E] $TRACK_NAME$ #weak ([TRAIT.GetName( CHARACTER.Self )])#!"
+ THEY_GAIN_TRAIT_XP: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'получаете', 'получает' )] $VALUE|V0$ [Concept('trait_level_track_xp', 'опыта пути развития свойства')|E] $TRACK_NAME$ #weak ([TRAIT.GetName( CHARACTER.Self )])#!"
  GAINED_TRAIT_XP: "Получено $VALUE|V0$ [Concept( 'trait_level_track_xp', 'опыта пути развития свойства' )|E] $TRACK_NAME$ #weak ([TRAIT.GetName( CHARACTER.Self )])#!"
  I_GAINED_TRAIT_XP: "Вы получили $VALUE|V0$ [Concept( 'trait_level_track_xp', 'опыта пути развития свойства' )|E] $TRACK_NAME$#weak ([TRAIT.GetName( CHARACTER.Self )])#!"
- THEY_GAINED_TRAIT_XP: "[CHARACTER.GetName] [Select_CString(CHARACTER.IsFemale, 'получила', 'получил' )] $VALUE|V0$ [Concept( 'trait_level_track_xp', 'опыта пути развития свойства' )|E] $TRACK_NAME$#weak ([TRAIT.GetName( CHARACTER.Self )])#!"
+ THEY_GAINED_TRAIT_XP: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'получили', Select_CString(CHARACTER.IsFemale, 'получила', 'получил' ))] $VALUE|V0$ [Concept('trait_level_track_xp', 'опыта пути развития свойства')|E] $TRACK_NAME$ #weak ([TRAIT.GetName( CHARACTER.Self )])#!"
  LOSE_TRAIT_XP: "Теряет $VALUE|V0$ [Concept( 'trait_level_track_xp', 'опыта пути развития свойства' )|E] $TRACK_NAME$ #weak ([TRAIT.GetName( CHARACTER.Self )])#!"
  I_LOSE_TRAIT_XP: "Вы теряете $VALUE|V0$ [Concept( 'trait_level_track_xp', 'опыта пути развития свойства' )|E] $TRACK_NAME$#weak ([TRAIT.GetName( CHARACTER.Self )])#!"
- THEY_LOSE_TRAIT_XP: "[CHARACTER.GetName] теряет $VALUE|V0$ [Concept( 'trait_level_track_xp', 'опыта пути развития свойства' )|E] $TRACK_NAME$ #weak ([TRAIT.GetName( CHARACTER.Self )])#!"
+ THEY_LOSE_TRAIT_XP: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'теряете', 'теряет' )] $VALUE|V0$ [Concept('trait_level_track_xp', 'опыта пути развития свойства')|E] $TRACK_NAME$ #weak ([TRAIT.GetName( CHARACTER.Self )])#!"
  LOST_TRAIT_XP: "Теряет $VALUE|V0$ $TRACK_NAME$ [Concept( 'trait_level_track_xp', 'опыта пути развития свойства' )|E] #weak ([TRAIT.GetName( CHARACTER.Self )])#!"
  I_LOST_TRAIT_XP: "Вы потеряли $VALUE|V0$ [Concept( 'trait_level_track_xp', 'опыта пути развития свойства' )|E] $TRACK_NAME$#weak ([TRAIT.GetName( CHARACTER.Self )])#!"
- THEY_LOST_TRAIT_XP: "[CHARACTER.GetName] [Select_CString(CHARACTER.IsFemale, 'потеряла', 'потерял' )] $VALUE|V0$ [Concept( 'trait_level_track_xp', 'опыта пути развития свойства' )|E] $TRACK_NAME$ #weak ([TRAIT.GetName( CHARACTER.Self )])#!"
+ THEY_LOST_TRAIT_XP: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'потеряли', Select_CString(CHARACTER.IsFemale, 'потеряла', 'потерял' ))] $VALUE|V0$ [Concept('trait_level_track_xp', 'опыта пути развития свойства')|E] $TRACK_NAME$ #weak ([TRAIT.GetName( CHARACTER.Self )])#!"
 
  GAIN_TRAIT_XP_SINGLE: "Получает $VALUE|0+$ ед. [Concept( 'trait_level_track_xp', 'опыта' )|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
  I_GAIN_TRAIT_XP_SINGLE: "Вы получили $VALUE|0+$ ед. [Concept( 'trait_level_track_xp', 'опыта' )|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
- THEY_GAIN_TRAIT_XP_SINGLE: "[CHARACTER.GetName] получает $VALUE|0$ ед. [Concept( 'trait_level_track_xp', 'опыта' )|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
+ THEY_GAIN_TRAIT_XP_SINGLE: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'получаете', 'получает' )] $VALUE|0$ [Concept('trait_level_track_xp', 'опыта пути развития')|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
  GAINED_TRAIT_XP_SINGLE: "Получено $VALUE|0+$ ед. [Concept( 'trait_level_track_xp', 'опыта' )|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
  I_GAINED_TRAIT_XP_SINGLE: "Вы получили $VALUE|0+$ ед. [Concept( 'trait_level_track_xp', 'опыта' )|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
- THEY_GAINED_TRAIT_XP_SINGLE: "[CHARACTER.GetName] [Select_CString(CHARACTER.IsFemale, 'получила', 'получил' )] $VALUE|0+$ ед. [Concept( 'trait_level_track_xp', 'опыта' )|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
+ THEY_GAINED_TRAIT_XP_SINGLE: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'получили', Select_CString(CHARACTER.IsFemale, 'получила', 'получил' ))] $VALUE|0+$ [Concept('trait_level_track_xp', 'опыта пути развития')|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
  LOSE_TRAIT_XP_SINGLE: "Теряет $VALUE|0-$ ед. [Concept( 'trait_level_track_xp', 'опыта' )|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
  I_LOSE_TRAIT_XP_SINGLE: "Вы теряете $VALUE|0-$ ед. [Concept( 'trait_level_track_xp', 'опыта' )|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
- THEY_LOSE_TRAIT_XP_SINGLE: "[CHARACTER.GetName] теряет $VALUE|0-$ ед. [Concept( 'trait_level_track_xp', 'опыта' )|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
+ THEY_LOSE_TRAIT_XP_SINGLE: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'теряете', 'теряет' )] $VALUE|0-$ [Concept('trait_level_track_xp', 'опыта пути развития')|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
  LOST_TRAIT_XP_SINGLE: "Потеряно $VALUE|0-$ ед. [Concept( 'trait_level_track_xp', 'опыта' )|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
  I_LOST_TRAIT_XP_SINGLE: "Вы потеряли $VALUE|0-$ ед. [Concept( 'trait_level_track_xp', 'опыта' )|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
- THEY_LOST_TRAIT_XP_SINGLE: "[CHARACTER.GetName] [Select_CString(CHARACTER.IsFemale, 'потеряла', 'потерял' )] $VALUE|0-$ ед. [Concept( 'trait_level_track_xp', 'опыта' )|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
+ THEY_LOST_TRAIT_XP_SINGLE: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsLocalPlayer, 'потеряли', Select_CString(CHARACTER.IsFemale, 'потеряла', 'потерял' ))] $VALUE|0-$ [Concept('trait_level_track_xp', 'опыта пути развития')|E] [Concept('trait', 'свойства')|E] «[TRAIT.GetName( CHARACTER.Self )]»"
 
  I_GAIN_POTENTIAL_HOOK: "Вы приближаетесь к тому, чтобы поймать персонажа [TARGET_CHARACTER.GetShortUIName] на [hook_i][Concept( 'hook', 'крючок' )|E]"
  I_GOT_POTENTIAL_HOOK: "Вы приблизились к тому, чтобы поймать персонажа [TARGET_CHARACTER.GetShortUIName] на [hook_i][Concept( 'hook', 'крючок' )|E]"
@@ -3288,6 +3299,19 @@
  change_merit_level_global_neg: "Теряет $VALUE|+0$ [Concept('merit_levels', 'степеней заслуг')|E]"
  change_merit_level_global_past: "Получено $VALUE|+0$ [Concept('merit_levels', 'степеней заслуг')|E]"
  change_merit_level_global_past_neg: "Потеряно $VALUE|+0$ [Concept('merit_levels', 'степеней заслуг')|E]"
+
+ I_GAIN_BARTER_GOODS_EFFECT: "Вы получаете $VALUE|+0$[barter_goods_i]"
+ I_LOSE_BARTER_GOODS_EFFECT: "Вы теряете $VALUE|-0$[barter_goods_i]"
+ GAIN_BARTER_GOODS_EFFECT: "Получает $VALUE|V0$[barter_goods_i]"
+ LOSE_BARTER_GOODS_EFFECT: "Теряет $VALUE|V0$[barter_goods_i]"
+ GAINED_BARTER_GOODS_EFFECT: "Получено $VALUE|V0$[barter_goods_i]"
+ LOST_BARTER_GOODS_EFFECT: "Потеряно $VALUE|V0$[barter_goods_i]"
+ THEY_GAIN_BARTER_GOODS_EFFECT: "[CHARACTER.GetShortUIName|U] получает $VALUE|V0$[barter_goods_i]"
+ THEY_LOSE_BARTER_GOODS_EFFECT: "[CHARACTER.GetShortUIName|U] теряет $VALUE|V0$[barter_goods_i]"
+ I_GAINED_BARTER_GOODS_EFFECT: "Вы получили $VALUE|-0$[barter_goods_i]"
+ I_LOST_BARTER_GOODS_EFFECT: "Вы потеряли $VALUE|-0$[barter_goods_i]"
+ THEY_GAINED_BARTER_GOODS_EFFECT: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsFemale, 'получила', 'получил' )] $VALUE|V0$[barter_goods_i]"
+ THEY_LOST_BARTER_GOODS_EFFECT: "[CHARACTER.GetShortUIName|U] [Select_CString(CHARACTER.IsFemale, 'потеряла', 'потерял')] $VALUE|V0$[barter_goods_i]"
 
  accept_task_contract_global: "Принять контракт «[TASK_CONTRACT.GetName]» \n"
  invalidate_task_contract_global: "[GetPlayer.Custom('GetContractOrIssueGameConcept')] «[TASK_CONTRACT.GetType.GetName]» теряет актуальность"
@@ -3582,8 +3606,8 @@
  TRIGGER_SUB_REGION_CATALYST_THIRD: "Ситуация «[Situation.GetName]» запускает катализатор «$CATALYST_NAME$» в регионе [SituationSubRegion.GetName], добавляя $VALUE|V$ прогресса приближения к фазе «[SituationPhaseType.GetNameWithIcon]»"
  TRIGGER_SUB_REGION_CATALYST_FIRST: "Вы запускаете катализатор «$CATALYST_NAME$» в регионе [SituationSubRegion.GetName], добавляя $VALUE|V$ прогресса приближения к фазе «[SituationPhaseType.GetNameWithIcon]»"
 
- ADD_TAKEOVER_PHASE_POINTS_EFFECT: "[Concept('situation', 'Ситуация')|E] «[SITUATION.GetName]» в [Concept('situation_sub_region', 'области')|E] [SUB_REGION.GetName] смещается на $VALUE|V$ в сторону [Concept('situation_phase_phase', 'фазы')|E] «$SITUATION_PHASE$»"
- ADD_TAKEOVER_PHASE_POINTS_EFFECT_PAST: "[Concept('situation', 'Ситуация')|E] «[SITUATION.GetName]» в [Concept('situation_sub_region', 'области')|E] [SUB_REGION.GetName] сместилась на $VALUE|V$ в сторону [Concept('situation_phase_phase', 'фазы')|E] «$SITUATION_PHASE$»"
+ ADD_TAKEOVER_PHASE_POINTS_EFFECT: "[Concept('situation', 'Ситуация')|E] «[SITUATION.GetName]» в [Concept('situation_sub_region', 'области')|E] [SUB_REGION.GetName] смещается на $VALUE|V$ в сторону [Concept('situation_phase', 'фазы')|E] «$SITUATION_PHASE$»"
+ ADD_TAKEOVER_PHASE_POINTS_EFFECT_PAST: "[Concept('situation', 'Ситуация')|E] «[SITUATION.GetName]» в [Concept('situation_sub_region', 'области')|E] [SUB_REGION.GetName] сместилась на $VALUE|V$ в сторону [Concept('situation_phase', 'фазы')|E] «$SITUATION_PHASE$»"
 
  set_special_guest_first: "Вы присоединяется к занятию «[ACTIVITY.GetName]» как $SpecialGuestName$"
  set_special_guest_first_past: "Вы присоединились к занятию «[ACTIVITY.GetName]» как $SpecialGuestName$"
@@ -3658,7 +3682,11 @@
  enact_treasury_budgets_init_third_past: "$enact_treasury_budgets_third_past$"
 
  set_house_aspiration_global: "[aspiration|E] [Concept('house', 'дома')|E] [DynastyHouse.GetBaseName|V] меняется на #HIGH $TYPE$#!"
- set_house_aspiration_third: "[Concept('house_aspiration', 'Устремление')|E] [Concept('house', 'дома')|E] [DynastyHouse.GetBaseName|V] меняется на #HIGH $TYPE$#!"
+ set_house_aspiration_global_past: "[aspiration|E] [Concept('house', 'дома')|E] [DynastyHouse.GetBaseName|V] меняется на #HIGH $TYPE$#!"
+ set_house_aspiration_first: "[Concept('house_aspiration', 'Устремление')|E] [Concept('house', 'дома')|E] [DynastyHouse.GetBaseName|V] меняется на #HIGH $TYPE$#!"
+ set_house_aspiration_first_past: "[Concept('house_aspiration', 'Устремление')|E] [Concept('house', 'дома')|E] [DynastyHouse.GetBaseName|V] меняется на #HIGH $TYPE$#!"
+ set_house_aspiration_third: "$set_house_aspiration_first$"
+ set_house_aspiration_third_past: "$set_house_aspiration_first_past$"
 
  set_house_aspiration_with_level_global: "$set_house_aspiration_with_level_third$"
  set_house_aspiration_with_level_global_past: "$set_house_aspiration_with_level_third_past$"
