@@ -170,7 +170,7 @@
 
  COURT_POSITION_TASK_EFFECTS_HEADER: "#S Эффекты#!\n"
  COURT_POSITION_TASK_EMPLOYER_EFFECTS: "#S Влияние на [Concept( 'liege', 'сюзерена' )|E]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerModifierDescription( CourtPosition.Self )]#!"
- COURT_POSITION_TASK_EMPLOYER_COURT_EFFECTS: "#S Влияние на [Concept( 'court', 'двор' )|E] [Concept( 'liege', 'сюзерена' )|E]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerCourtModifierDescription( CourtPosition.Self )]#!"
+ COURT_POSITION_TASK_EMPLOYER_COURT_EFFECTS: "#S [GetPlayer.Custom('GetCourtiersTypeConcept')|U] [Concept('liege', 'сюзерена')|E] получают эффект:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerCourtModifierDescription( CourtPosition.Self )]#!"
  COURT_POSITION_TASK_EMPLOYEE_EFFECTS: "#S Влияние на $court_position_cpt_rp_lower$:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployeeModifierDescription]#!"
  COURT_POSITION_TASK_START_EFFECTS: "#S При начале:#!#indent_newline:2 \n[CourtPositionTaskType.GetOnStartEffectDesc( CourtPosition.Self )]#!"
  COURT_POSITION_TASK_END_EFFECTS: "#S При завершении:#!#indent_newline:2 \n[CourtPositionTaskType.GetOnEndEffectDesc( CourtPosition.Self )]#!"
@@ -179,7 +179,7 @@
  COURT_POSITION_TASK_HINT: "Возможные [Concept('court_position_tasks_short', 'поручения')|E]:"
  COURT_POSITION_TASK_GENERIC_TT: "[CourtPositionType.GetNameNoTooltip] приступит к выполнению [Concept( 'court_position_task_short', 'поручения' )|E] «[CourtPositionTaskType.GetName|V]»."
  COURT_POSITION_TASK_EMPLOYER_GENERIC_EFFECTS: "#S Влияние на [Concept( 'liege', 'сюзерена' )|E]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerModifierGenericDescription]#!"
- COURT_POSITION_TASK_EMPLOYER_COURT_GENERIC_EFFECTS: "#S Влияние на [Concept( 'court', 'двор' )|E] [Concept( 'liege', 'сюзерена' )|E]:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerCourtModifierGenericDescription]#!"
+ COURT_POSITION_TASK_EMPLOYER_COURT_GENERIC_EFFECTS: "#S [GetPlayer.Custom('GetCourtiersTypeConcept')|U] [Concept('liege', 'сюзерена')|E] получают эффект:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerCourtModifierGenericDescription]#!"
  COURT_POSITION_TASK_START_GENERIC_EFFECTS: "#S При начале:#!#indent_newline:2 \n[CourtPositionTaskType.GetOnStartEffectGenericDesc]#!"
  COURT_POSITION_TASK_END_GENERIC_EFFECTS: "#S При завершении:#!#indent_newline:2 \n[CourtPositionTaskType.GetOnEndEffectGenericDesc]#!"
  COURT_POSITION_TASK_GENERIC_COST: "#S Стоимость (в месяц):#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerCostText( GetPlayer )]#!"
@@ -471,7 +471,8 @@
  courtier_inspired_message: "$poet_inspired_message$"
  courtier_inspired_effect: "Ваш [Concept('courtier', 'придворный')|E] [inspired_courtier.GetFirstName] обретает @inspiration_icon![Concept('inspiration', 'вдохновение')|E]"
  court_poet_skald: "Придворный скальд"
- 
+ court_poet_skald_desc: "$court_poet_skald$ — ценитель слов и рифм, развлекает сюзерена и двор, пробуждая в слушателях мысли и чувства."
+
  #AGOT Modified
  # bodyguard_court_position: "Bodyguard"
  bodyguard_court_position: "Присяжный щит"
@@ -544,6 +545,7 @@
  is_imprisoned_court_position_executioner: "Находятся в тюрьме и в настоящий момент #bold не#! состоят в должности «[GetCourtPositionType('executioner_court_position').GetName()]»"
  faith_allows_master_assassin: "Их [Concept('faith', 'конфессия')|E]:\n$BULLET$Придерживается [Concept('core_tenet', 'догмата')|E] «[GetFaithDoctrine('tenet_fp3_fedayeen').GetBaseName]»\n$BULLET$#bold Не#! имеет [Concept('core_tenet', 'догматов')|E] «[GetFaithDoctrine('tenet_pacifism').GetBaseName]» или «[GetFaithDoctrine('tenet_dharmic_pacifism').GetBaseName]»"
  is_not_a_ceremonial_liege_trigger: "#bold Не#! является [Concept('ceremonial_liege', 'церемониальным сюзереном')|E]"
+ not_travel_option_character: "#bold Не#! нанят через [Concept('travel_option', 'вариант путешествия')|E]"
 
  clan_tax_collector_court_position: "Сборщик налогов"
  clan_tax_collector_court_position_desc: "Сборщик налогов занимается организацией сбора налогов и следит за тем, чтобы [Concept( 'clan', 'клановые' )|E] [Concept('vassals', 'вассалы' )|E] платили подати."
@@ -598,7 +600,7 @@
  wet_nurse_instill_virtue: "Прививание добродетелей"
  wet_nurse_instill_virtue_desc: "Этот персонаж учит детей при дворе подобающему поведению."
  wet_nurse_instill_virtue_notification_desc: "[ROOT.Char.GetShortUIName] [Select_CString(ROOT.Char.IsLocalPlayer, 'научили', Select_CString(ROOT.Char.IsFemale, 'научила', 'научил' ))] [Select_CString(child_character.IsLocalPlayer, '', 'персонажа ' )|l][child_character.GetShortUINamePossessive|l][Select_CString(child_character.IsLocalPlayer, 'его персонажа', '' )] вести себя как добропорядочный [notification_character.GetFaith.GetAdherentName|l]"
- wet_nurse_instill_virtue_fallback_tt: "Каждый месяц есть шанс, что [Concept('children', 'дети')|E] при [Concept('court', 'дворе')|E] получат [Concept('virtuous', 'добродетельное')|E] [Concept('trait', 'свойство')|E]"
+ wet_nurse_instill_virtue_fallback_tt: "Каждый месяц есть шанс, что [Concept('children', 'дети')|E] при [Concept('court', 'дворе')|E] получат [Concept('virtuous', 'добродетельное')|E] [Concept('personality_trait', 'свойство личности')|E]"
  wet_nurse_promote_relationships: "Поддержка дружбы"
  wet_nurse_promote_relationships_desc: "Этому персонажу поручено позаботиться, чтобы детям при дворе хорошо жилось."
  wet_nurse_promote_relationships_fallback_tt: "[Concept('children', 'Дети')|E] при [Concept('court', 'дворе')|E] могут улучить [opinion_i][Concept( 'opinion', 'мнение' )|E] друг о друге, стать [Concept('friends', 'друзьями')|E] или перестать [Concept('bullies', 'обижать')|E] друг друга"

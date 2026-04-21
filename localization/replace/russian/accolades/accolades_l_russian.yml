@@ -3,11 +3,12 @@
  ACCOLADE: "Акколада"
  ACCOLADES: "Акколады"
  CREATE_ACCOLADE: "Создать акколаду"
- CREATE_ACCOLADE_CONFIRM: "Эти почести увеличат [Concept( 'opinion', 'мнение' )|E] [Concept( 'acclaimed_knight', 'именитого рыцаря' )|E] о #high вас#!.\n\nСтоимость: #high $COST$#!"
+ CREATE_ACCOLADE_TYPES: "Доступные [Concept('accolade_types', 'атрибуты акколады')|E]:"
+ CREATE_ACCOLADE_CONFIRM: "Эти почести повысят [Concept('opinion', 'мнение')|E] [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E] о #high вас#!.\n\nСтоимость: #high $COST$#!"
  CREATE_ACCOLADE_CONFIRM_ACCEPT: "$CREATE_ACCOLADE$"
  CREATE_ACCOLADE_COST: "#T $CREATE_ACCOLADE$#!\n[Concept( 'accolade_types', 'Акколады' )|E] вашего рыцаря предоставят вам бонусы, усиливающиеся по мере получения [Concept( 'glory', 'славы' )|E].\n\nСтоимость: #high $COST$#!"
  CREATE_ACCOLADE_EMPTY_TYPE: "Пустой атрибут акколады"
- CREATE_ACCOLADE_SELECT_KNIGHT: "Выберите нового [Concept( 'acclaimed_knight', 'именитого рыцаря' )|E] для [Concept( 'accolade', 'акколады' )|E]. Доступные [Concept( 'accolade_types', 'типы акколады' )|E] зависят от [Concept( 'skills', 'навыков' )|E] и [Concept( 'traits', 'свойств' )|E] [Concept( 'knight', 'рыцаря' )|E]."
+ CREATE_ACCOLADE_SELECT_KNIGHT: "Выберите нового [Concept('acclaimed_knight', 'именитого рыцаря')|E] для [Concept('accolade_possessive', 'акколады')|E]. Доступные [Concept('accolade_types', 'атрибуты акколады')|E] зависят от [Concept('skills', 'навыков')|E] и [Concept('traits', 'свойств')|E] [Concept('knight', 'рыцаря')|E]."
  CREATE_ACCOLADE_ASSIGN: "$knight_culture_player_no_tooltip$ — назначить"
  CREATE_ACCOLADE_ASSIGN_TT: "#help Нажмите, чтобы назначить этого персонажа [Concept( 'acclaimed_knight', 'именитым рыцарем' )|E] [Concept( 'accolade', 'акколады' )|E]"
  ACCOLADE_GLORY_VALUE: "[Concept( 'glory', 'Слава' )|E]: $VALUE|0$"
@@ -18,10 +19,11 @@
  ACCOLADE_ARMY_MODIFIERS: "#S Модификаторы армии:#!"
  ACCOLADE_GLORY: "[glory|E]"
  ACCOLADE_GLORY_TOOLTIP: "[glory|E]\nСейчас: [Accolade.GetGlory|0]\nСлед. [accolade_rank_short|E]: [Accolade.GetGloryForNextUnlock|0]"
- ACCOLADES_LIMIT: "Акколады: [Character.GetNumActiveAccolades]/[Character.GetNumAccoladeSlots]"
+ ACCOLADES_LIMIT: "Акколады: #V [Character.GetNumAccolades]/[Character.GetNumAccoladeSlots]#!"
+ ACCOLADES_LIMIT_TT: "#T Максимум акколад: [Character.GetNumAccoladeSlots]#!\n[Character.GetNumAccoladeSlotsBreakdown]"
  ACCOLADE_SHOW: "Показать [Concept( 'accolade', 'акколаду' )|E]"
  ACCOLADE_OWNER_ALREADY_HAS_ACCOLADE_OF_TYPE: "У владельца уже есть активная [Concept( 'accolade', 'акколада' )|E] типа $TYPE$"
- ACCOLADE_NOT_ENOUGH_POTENTIAL_TYPES: "[Character.GetNameNoTooltip] не отвечает требованиям для как минимум двух типов акколад"
+ ACCOLADE_NOT_ENOUGH_POTENTIAL_TYPES: "[Character.GetNameNoTooltip] не отвечает требованиям [Concept('accolade_type', 'атрибута акколады')|E]"
  #AGOT Modified 
  #ACCOLADE_CHARACTER_ALREADY_ACCLAIMED: "[Character.GetNameNoTooltip] is already an Acclaimed Knight"
  ACCOLADE_CHARACTER_ALREADY_ACCLAIMED: "[Character.GetNameNoTooltip] уже именитый капитан"
@@ -33,41 +35,37 @@
  ACCOLADE_CHARACTER_ALREADY_HEAD_OR_SUCCESSOR_THIS: "[Character.GetNameNoTooltip] уже именитый капитан или преемник этой акколады"
  ACCOLADE_SUCCESSOR: "Преемник"
  ACCOLADE_SUCCESSOR_NAME: "Преемник: [Accolade.GetSuccessor.GetUIName]"
+ ACCOLADE_OBTAINED_TYPES_NAME: "Получены [Concept('accolade_types', 'атрибуты акколады')|E]:"
+ ACCOLADE_OBTAINED_TYPES_TYPE_NAME: "[ObtainedAccoladeType.GetType.GetName]"
  ACCOLADE_ACCLAIMED_KNIGHT: "Именитый $knight_culture_player_no_tooltip$"
  ACCOLADE_ACCLAIMED_KNIGHT_NAME: "Именитый $knight_culture_player_no_tooltip$: [Accolade.GetAcclaimedKnight.GetUIName]"
- ACCOLADE_GLORY_AND_LEVEL: "[glory|E]: [Accolade.GetGlory|0], #low Ранг [Accolade.GetCurrentRankNumber]#!"
+ ACCOLADE_GLORY_AND_LEVEL: "[accolade_rank_short|e]: [Accolade.GetCurrentRankNumber]; [Concept('glory','слава')|E]: [Accolade.GetGlory|0]"
  CURRENT_ACCOLADE_GLORY_AND_LEVEL: "$ACCOLADE_GLORY_AND_LEVEL$ сейчас"
+ ACCOLADE_UNSPENT_POINTS: "Неизрасходованные [Concept('accolade_types', 'атрибуты акколады')|E]: [SelectLocalization(LessThan_int32( Accolade.GetAvailableLevelUpPoints, '(int32)0' ), '0', 'ACCOLADE_AVAILABLE_POINTS')]"
+ ACCOLADE_AVAILABLE_POINTS: "[Accolade.GetAvailableLevelUpPoints|V]"
+ ACCOLADE_MAX_POINTS: "Достигнут предельный [Concept('accolade_ranks', 'ранг акколады')|E]"
  ACCOLADE_CHANGE_SUCCESSOR: "Изменить преемника акколады"
- DEACTIVATE_ACCOLADE: "Прекратить акколаду"
- DEACTIVATE_ACCOLADE_CONFIRM: "[Concept( 'opinion', 'Мнение' )|E] [Concept( 'acclaimed_knight', 'именитого рыцаря' )|E] о #high вас#! ухудшится\n\nСтоимость: #high $COST$#!"
- DEACTIVATE_ACCOLADE_CONFIRM_ACCEPT: "$DEACTIVATE_ACCOLADE$"
- DEACTIVATE_ACCOLADE_TT: "#T $DEACTIVATE_ACCOLADE$#!\nАкколада становится [Concept( 'inactive_accolade', 'неактивной' )|E]. Бонусы больше не действуют.\nСтоимость: $COST$"
- INACTIVE_ACCOLADES: "Недействительная акколада"
- ACTIVATE_ACCOLADE: "Активировать снова"
  CHANGE_ACCLAIMED_KNIGHT: "Изменить именитого рыцаря"
  DESTROY_ACCOLADE: "Уничтожить"
  DESTROY_ACCOLADE_CONFIRM: "[Accolade.GetName] — удалить навсегда?"
  DESTROY_ACCOLADE_CONFIRM_ACCEPT: "$DESTROY_ACCOLADE$"
  ACCOLADE_APPOINT: "Назначить"
- ACCOLADE_PRIMARY_TYPE: "Основной [Concept( 'accolade_type', 'тип акколады' )|E]"
- ACCOLADE_SECONDARY_TYPE: "Дополнительный [Concept( 'accolade_type', 'тип акколады' )|E]"
- ACCOLADE_ACTIVE_EFFECTS_PRIMARY: "#TS Активные эффекты, если акколада является основной:#!"
- ACCOLADE_ACTIVE_EFFECTS_SECONDARY: "#TS Активные эффекты, если акколада является дополнительной:#!"
+ ACCOLADE_TYPE: "[Concept('accolade_type', 'Атрибут акколады')|E]"
+ ACCOLADE_ACTIVE_EFFECTS_TITLE: "#TS Активные эффекты:#!"
  ACCOLADE_SUCCESSOR_REQUIREMENTS: "Требования к преемнику"
- LOCKED_ACCOLADE_SLOT: "#T Недоступная акколада#!\nРазблокируется через [Concept( 'innovations', 'инновации' )|E], [Concept( 'dynasty_perks', 'наследия династии' )|E] и рост [Concept( 'title_tiers', 'уровня' )|E] вашего титула"
+ LOCKED_ACCOLADE_SLOT: "#T Недоступная акколада#!\n$LOCKED_ACCOLADE_SLOT_INFO$"
+ LOCKED_ACCOLADE_SLOT_INFO: "Разблокируется через военные [Concept('innovations', 'инновации')|E] (#V $innovation_bannus$#! и #V $innovation_knighthood$#!), [Concept('dynasty_perks', 'наследие династии')|E] «[GetDynastyPerk('glory_legacy_2').GetName]» и повышение [Concept('title_tiers', 'уровня')|E] вашего титула"
  ACCOLADE_SET_ACCLAIMED_KNIGHT: "[Character.GetShortUINameNoTooltip] — назначить [Concept( 'acclaimed_knight', 'именитым рыцарем' )|E] акколады [Accolade.GetNameNoTooltip]\nНа это будет израсходовано небольшое количество [Concept( 'glory', 'славы' )|E]"
  ACCOLADE_SET_ACCLAIMED_KNIGHT_ONLY_PRIMARY: "[Character.GetShortUINameNoTooltip] — назначить [Concept( 'acclaimed_knight', 'именитым рыцарем' )|E] акколады [Accolade.GetNameNoTooltip]\nПоскольку будут выполнены требования лишь к основному [Concept( 'accolade_type', 'типу акколады' )|E], будет израсходовано много [Concept( 'glory', 'славы' )|E], а дополнительный [Concept( 'accolade_type', 'тип акколады' )|E] может быть заменен"
  ACCOLADE_CANNOT_SET_ACCLAIMED_KNIGHT: "@warning_icon! #X [Character.GetShortUINameNoTooltip] не удовлетворяет требованиям к основному [Concept( 'accolade_type', 'типу акколады' )|E] ([Accolade.GetNameNoTooltip])#!"
  TROOP_ACCLAIMED_KNIGHTS: "#T [Concept( 'acclaimed_knights', 'именитые рыцари' )|E]: $VALUE|0$#!"
- ACCLAIMED_KNIGHT_RELATION: "[Concept( 'acclaimed_knight', 'Именитый рыцарь' )|E]"
+ ACCLAIMED_KNIGHT_RELATION: "[Character.GetAcclaimedAccolade.GetName] @acclaimed_knight_icon!"
  ACCLAIMED_KNIGHT_AND_ACCOLADE: "[Accolade.GetAcclaimedKnight.GetName]: [Accolade.GetName]"
  ACCOLADE_ASSIGN_SUCCESSOR_TT: "#help Щелкните, чтобы выбрать этого персонажа в качестве преемника [Concept( 'accolade', 'акколады' )|E]#!"
- ACCOLADE_ASSIGN_SUCCESSOR_ONLY_PRIMARY_TT: "$ACCOLADE_ASSIGN_SUCCESSOR_TT$\n@warning_icon! #X Поскольку преемник удовлетворяет требованиям только для основного [Concept( 'accolade_type', 'типа акколады' )|E], при [Concept( 'accolade_succession', 'наследовании' )|E] будет потеряно больше [Concept( 'glory', 'славы' )|E]. Кроме того, вторичный атрибут [Concept( 'accolade', 'акколады' )|E] может быть изменен#!"
+ ACCOLADE_ASSIGN_SUCCESSOR_ONLY_PRIMARY_TT: "$ACCOLADE_ASSIGN_SUCCESSOR_TT$\n@warning_icon! #X Поскольку преемник удовлетворяет требованиям только для основного [Concept('accolade_type', 'атрибута акколады')|E], при [Concept('accolade_succession', 'наследовании')|E] будет потеряно больше [Concept('glory', 'славы')|E]. Кроме того, вторичный атрибут [Concept('accolade_possessive', 'акколады')|E] может быть изменен#!"
  ACCOLADE_CANNOT_ASSIGN_SUCCESSOR_TT: "@warning_icon! #X [Character.GetShortUINameNoTooltip] не удовлетворяет требованиям для наследования этой [Concept( 'accolade', 'акколады' )|E]#!"
- CREATE_ACCOLADE_SET_PRIMARY_TYPE_TT: "#help Установить этот [Concept( 'accolade_type', 'тип акколады' )|E] как $ACCOLADE_PRIMARY_TYPE$#!"
- CREATE_ACCOLADE_SET_SECONDARY_TYPE_TT: "#help Установить этот [Concept( 'accolade_type', 'тип акколады' )|E] как $ACCOLADE_SECONDARY_TYPE$#!"
- ACCOLADE_CHANGE_PRIMARY_TYPE: "Изменить: $ACCOLADE_PRIMARY_TYPE$"
- ACCOLADE_CHANGE_SECONDARY_TYPE: "Изменить: $ACCOLADE_SECONDARY_TYPE$"
+ CREATE_ACCOLADE_SET_INITIAL_TYPE_TT: "[AccoladeType.BuildEffects]\n\n#I Щелкните, чтобы выбрать этот [Concept('accolade_type', 'атрибут акколады')|E]#!"
+ ACCOLADE_CHANGE_INITIAL_TYPE: "Изменить [Concept('accolade_type', 'атрибут акколады')|E]"
  CREATE_ACCOLADE_CANNOT_CHANGE_TYPES: "@warning_icon! #X [Character.GetShortUINameNoTooltip] не удовлетворяет требованиям ни к каким [Concept( 'accolade_types', 'типам акколад' )|E], кроме выбранных #!"
  ACCOLADE_LIEGE_MODIFIERS: "#S Модификаторы сюзерена:#!"
  #AGOT Modified 
@@ -76,13 +74,17 @@
  ACCOLADE_KNIGHT_ARMY_MODIFIERS: "#S [knight_army_modifiers|E]:#!"
  ACCOLADE_UNLOCKS: "#S Получено:#!"
  CREATE_ACCOLADE_NO_ACCLAIMED_KNIGHTS: "@warning_icon! #X У вас отсутствует $knight_culture_player_no_tooltip$, подходящий для роли «[acclaimed_knight|E]» #!"
- ACCOLADE_PRIMARY_TYPE_TT: "#T [Accolade.GetPrimaryType.GetNameWithAccolade( Accolade.Self )]#!\nОсновной [Concept( 'accolade_type', 'тип акколады' )|E]"
- ACCOLADE_SECONDARY_TYPE_TT: "#T [Accolade.GetSecondaryType.GetNameWithAccolade( Accolade.Self )]#!\nДополнительный [Concept( 'accolade_type', 'тип акколады' )|E]"
- ACCOLADE_PRIMARY_TYPE_NAME: "Основной [Concept( 'accolade_type', 'тип акколады' )|E]: [Accolade.GetPrimaryType.GetNameWithAccolade( Accolade.Self )]"
- ACCOLADE_SECONDARY_TYPE_NAME: "Дополнительный [Concept( 'accolade_type', 'тип акколады' )|E]: [Accolade.GetSecondaryType.GetNameWithAccolade( Accolade.Self )]"
+ OBTAINED_ACCOLADE_TYPE_TT: "Эффекты от текущего [Concept('accolade_rank_short', 'ранга')|E] [ObtainedAccoladeType.GetLevel]:\n$TAB$#indent_newline:4 [Accolade.BuildActiveEffectsForType( ObtainedAccoladeType.Self )]"
+ UPGRADE_ACCOLADE_TYPE_TT: "$UPGRADE_ACCOLADE_TYPE$\n\n#I Щелкните, чтобы улучшить акколаду «[ObtainedAccoladeType.GetType.GetNameWithAccolade( Accolade.Self )]» до нового [Concept('accolade_rank_short', 'ранга')|E]#!"
+ UPGRADE_ACCOLADE_TYPE: "Эффекты от следующего [Concept('accolade_rank', 'ранга акколады')|E] [Add_int32( ObtainedAccoladeType.GetLevel, '(int32)1' )]:\n$TAB$#indent_newline:4 [Accolade.BuildNextRankEffectsForType( ObtainedAccoladeType.Self )]#!"
+ ACCOLADE_TYPE_TT: "[AddLocalizationIf( Not( StringIsEmpty( AccoladeType.GetKnightValidForAccoladeTypeDesc(Accolade.Self) ) ), 'ACCOLADE_TYPE_TRIGGERS' ) ][AccoladeType.BuildEffects]"
+ ACCOLADE_TYPE_TRIGGERS: "[AccoladeType.GetKnightValidForAccoladeTypeDesc(Accolade.Self)]\n\n"
+ ACCOLADE_TYPE_DISABLED: "[AddLocalizationIf( LessThan_int32(Accolade.GetAvailableLevelUpPoints, '(int32)1' ), 'ACCOLADE_TYPE_DISABLED_NO_POINTS' )]\n$ACCOLADE_TYPE_TT$"
+ ACCOLADE_TYPE_DISABLED_NO_POINTS: "@warning_icon! #X У этого [Concept('acclaimed_knight', 'именитого рыцаря')|E] 0 неизрасходованных [Concept('accolade_types', 'атрибутов акколады')|E]#!\n\n"
  ACCOLADE_RANK_HEADER_AND_EFFECTS_TT: "#T [AccoladeType.GetLevelAndGloryOfRank( AccoladeRank.Self )]#!\n[AccoladeRank.GetEffects]"
  CANNOT_FORBID_ACCLAIMED_KNIGHT: "@warning_icon! #X Нельзя запретить [Concept( 'acclaimed_knight', 'именитому рыцарю' )|E] занять роль «$knight_culture_player_no_tooltip$» #!"
- MANAGE_ACCOLADE_NAME: "#help Щелкните, чтобы изменить акколаду «[Accolade.GetName]»#!"
+ MANAGE_ACCOLADE_NAME: "#T [Accolade.GetName]#!\n#I Щелкните, чтобы просмотреть сведения об [Concept('accolade', 'акколаде')|E]#!"
+ MANAGE_ACCOLADE_UPGRADE: "#T [Accolade.GetName]#!\nУ этого [Concept('acclaimed_knight', 'именитого рыцаря')|E] есть $ACCOLADE_UNSPENT_POINTS|l$\n#I Щелкните, чтобы просмотреть сведения об [Concept('accolade', 'акколаде')|E]#!"
  ACCOLADE_CLEAR_SUCCESSOR: "Удалить преемника"
  ACCOLADE_TYPE_REQUIREMENTS: "#S Требования атрибута#!"
  OPINION_ACTIVE_ACCLAIMED_KNIGHT: "Действующий [Concept( 'acclaimed_knight', 'именитый рыцарь' )|E]"
@@ -92,11 +94,33 @@
  REGIMENT_ACCLAIMED_STAT_ENTRY_MULT: "От [Concept( 'acclaimed_knights', 'именитых рыцарей' )|E]: $VALUE|+=%0$"
  ACCLAIMED_KNIGHTS_IN_ARMY: "[Concept( 'acclaimed_knights', 'Именитые рыцари' )|E] в армии"
  ACCOLADE_HISTORY: "История акколады"
- SHOW_ACCOLADE_HISTORY: "Показать историю акколады"
+ SHOW_ACCOLADE_HISTORY: "#T $ACCOLADE_HISTORY$#!\n#I Щелкните, чтобы увидеть предыдущих [Concept('acclaimed_knights', 'именитых рыцарей')|E], удостоенных акколады «[Accolade.GetName]»#!"
+ RETIRE_ACCOLADE: "Прекратить акколаду"
+ RETIRE_ACCOLADE_TT: "#T $RETIRE_ACCOLADE$#!\n#I Щелкните, чтобы уничтожить [Concept('accolade', 'акколаду')|E] «[Accolade.GetName]»#!"
+ RETIRE_ACCOLADE_CONFIRM_TEXT: "Вы действительно хотите прекратить акколаду «[Accolade.GetName]»?"
+
  ACCOLADE_HISTORY_ENTRY_DATE: "[acclaimed_knight|E], начиная с [AccoladeHistoryEntry.GetAcclaimedDate.GetString]"
  ACCOLADE_NO_SUCCESSOR_FOUND: "При дворе нет подходящего преемника."
  ACCOLADE_SUCCESSOR_REQUIREMENT_HEADER: "[Concept('accolade_type', 'Атрибут акколады')|E]: [ACCOLADE.GetPrimaryType.GetName]"
-  
+ ACCOLADE_SQUIRE_STATUS: "Уровень пригодности [Concept('accolade_squires', 'оруженосцев')|E]: [AccoladeView.GetAccoladeSquireQuality]"
+ ACCOLADE_ADD_NEW_TYPE_TT: "Добавить новый [Concept('accolade_type', 'атрибут акколады')|E]\n\n[AddLocalizationIf( LessThan_int32(Accolade.GetAvailableLevelUpPoints, '(int32)1' ), 'ACCOLADE_TYPE_DISABLED_NO_POINTS' )]#I Щелкните, чтобы открыть список атрибутов акколады#!"
+ ACCOLADE_ATTRIBUTE_SELECTION_CONFIRM: "Добавить атрибут"
+ ACCOLADE_ATTRIBUTE_SELECTION_CONFIRM_TT: "#T Добавить выбранный атрибут#!"
+ ACCOLADE_ATTRIBUTE_SELECTION_DISABLED_TT: "[AddLocalizationIf( LessThan_int32(Accolade.GetAvailableLevelUpPoints, '(int32)1' ), 'ACCOLADE_TYPE_DISABLED_NO_POINTS' )][AccoladeType.GetKnightValidForAccoladeTypeDesc(Accolade.Self)]"
+ ADD_NEW_ACCOLADE_TYPE_CONFIRM_TEXT_TITLE: "Добавить атрибут"
+ ADD_NEW_ACCOLADE_TYPE_CONFIRM_TEXT_TEXT: "Акколада «[ACCOLADE.GetName]» получает атрибут «[AccoladeType.GetName]»"
+ ADD_NEW_ACCOLADE_TYPE_CONFIRM_TEXT_ACCEPT: "Подтвердить"
+ RENAME_ACCOLADE: "#T Изменить название акколады#!\n#I Щелкните, чтобы переименовать акколаду#!"
+ #AGOT Modified
+ #ACCOLADE_SQUIRE_QUALITY_BREAKDOWN_NAME: "#T Пригодность оруженосцев:#!"
+ ACCOLADE_SQUIRE_QUALITY_BREAKDOWN_NAME: "#T Пригодность новобранцев:#!"
+
+ ACCOLADE_SQUIRE_QUALITY_0: "#N @aptitude:1:inherit_color!Безнадежные#!"
+ ACCOLADE_SQUIRE_QUALITY_1: "#N @aptitude:2:inherit_color!Неумелые#!"
+ ACCOLADE_SQUIRE_QUALITY_2: "#color_yellow @aptitude:3:inherit_color!Неопытные#!"
+ ACCOLADE_SQUIRE_QUALITY_3: "#P @aptitude:4:inherit_color!Способные#!"
+ ACCOLADE_SQUIRE_QUALITY_4: "#P @aptitude:5:inherit_color!Умелые#!"
+
  ACCOLADE_UNSUNG: "Невоспетый"
  ACCOLADE_ESTABLISHED: "Известный"
  ACCOLADE_RECOGNIZED: "Признанный"
@@ -659,3 +683,157 @@
  accolade_maiden: "Дева"
   
  accolade_name_the_red_knight_of_harpenden: "Красный рыцарь Харпендена"
+
+
+ unlock_accolade_type_scripted_effect.tt: "[accolade_knight.GetName] может [Concept('acclaimed', 'удостоиться')|E] акколады «[unlock_accolade.GetName]»"
+
+ #Common attribute unlocks
+
+ marauder_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('sadistic').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('callous').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('vengeful').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('army', 'армия')|E], в которой сражается [Concept('acclaimed_knight', 'именитый рыцарь')|E], [Concept('occupies', 'оккупирует')|E] вражеское [Concept('holding', 'владение')|E]"
+ accolade_marauder_unlock.t: "[marauder.GetName] [Select_CString(marauder.IsFemale, 'воодушевлена', 'воодушевлен' )] разорением вражеской твердыни"
+ accolade_marauder_unlock.tt: "[marauder.GetName] может быть [Concept('acclaimed', Select_CString(marauder.IsFemale, 'удостоена', 'удостоен' ) )|E] акколады «[GetAccoladeType('marauder_attribute').GetName]»"
+
+ idealist_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('compassionate').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('forgiving').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('generous').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('trusting').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] может получить доступ к атрибуту, когда #high вы#! без всяких условий освобождаете [Concept('prisoner', 'узника')|E]"
+ accolade_idealist_unlock.t: "[idealist.GetName] [Select_CString(idealist.IsFemale, 'воодушевлена', 'воодушевлен' )] освобождением узника"
+ accolade_idealist_unlock.tt: "При виде нашего милосердного обращения с пленными [idealist.GetName] [Select_CString(idealist.IsFemale, 'испытала', 'испытал' )] душевный подъем. [idealist.GetSheHe|U] может [Concept('acclaimed', 'удостоиться')|E] акколады «[GetAccoladeType('idealist_attribute').GetName]»"
+
+ charmer_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('seducer').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('lustful').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] может получить доступ к атрибуту, когда вы завершаете [Concept('scheme', 'происки')|E] по #TOOLTIP:SCHEME_TYPE,seduce #L соблазнению#!#!"
+ accolade_charmer_unlock.t: "[accolade_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'воодушевлена', 'воодушевлен' )] дерзким соблазнением"
+ accolade_charmer_unlock.tt: "[accolade_knight.GetName] может [Concept('acclaimed', 'удостоиться')|E] акколады «[GetAccoladeType('charmer_attribute').GetName]»"
+
+ thug_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('reaver').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('wrathful').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('arbitrary').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('arrogant').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('impatient').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('army', 'армия')|E], в которой сражается [Concept('acclaimed_knight', 'именитый рыцарь')|E], убивает вражеских [Concept('knights', 'рыцарей')|E]"
+ accolade_thug_unlock.t: "[accolade_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'воодушевлена', 'воодушевлен' )] убийством врагов в бою"
+ accolade_thug_unlock.tt: "[accolade_knight.GetName] может [Concept('acclaimed', 'удостоиться')|E] акколады «[GetAccoladeType('thug_attribute').GetName]»"
+
+ disciplinarian_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('organizer').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('overseer').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('diligent').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('temperate').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('stubborn').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('army', 'армия')|E], в которой сражается [Concept('acclaimed_knight', 'именитый рыцарь')|E], терпит поражение в [Concept('battle', 'битве')|E]"
+ accolade_disciplinarian_unlock.t: "[accolade_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'воодушевлена', 'воодушевлен' )] поражением в битве"
+ accolade_disciplinarian_unlock.tt: "[accolade_knight.GetName] может [Concept('acclaimed', 'удостоиться')|E] акколады «[GetAccoladeType('disciplinarian_attribute').GetName]»"
+
+ fanatic_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('holy_warrior').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('zealous').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('army', 'армия')|E], в которой сражается [Concept('acclaimed_knight', 'именитый рыцарь')|E], [Concept('battles', 'ведет бой')|E] с враждебной [Concept('faith', 'конфессией')|E]"
+ fanatic_attribute.battle_message_tt: "[acclaimed_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'проявила', 'проявил' )] себя в битве против конфессии, воплощающей зло"
+
+ stalwart_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('honest').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('just').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('patient').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('unyielding_defender').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] [Concept('traveling', 'путешествует')|E] в составе #high вашей#! [Concept('entourage', 'свиты')|E] по [Concept('provinces', 'провинциям')|E] с высоким уровнем [Concept('travel_danger', 'опасности')|E]"
+ accolade_stalwart_unlock.t: "[accolade_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'воодушевлена', 'воодушевлен' )] путешествием через опасные земли"
+ accolade_stalwart_unlock.tt: "[accolade_knight.GetName] может [Concept('acclaimed', 'удостоиться')|E] акколады «[GetAccoladeType('stalwart_attribute').GetName]»"
+
+ scoundrel_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('ambitious').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('gregarious').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('greedy').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('deceitful').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('adventurer').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] может получить доступ к атрибуту, когда #high вы#! завершаете любые [Concept('hostile_scheme', 'агрессивные')|E] [Concept('scheme', 'происки')|E], кроме #TOOLTIP:SCHEME_TYPE,murder #L убийства#!#!"
+ accolade_scoundrel_unlock.t: "[accolade_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'воодушевлена', 'воодушевлен' )] агрессивными происками"
+ accolade_scoundrel_unlock.tt: "[accolade_knight.GetName] может [Concept('acclaimed', 'удостоиться')|E] акколады «[GetAccoladeType('scoundrel_attribute').GetName]»"
+
+ valiant_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('brave').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('berserker').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('reckless').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('army', 'армия')|E], в которой сражается [Concept('acclaimed_knight', 'именитый рыцарь')|E], [Concept('battles', 'ведет бой')|E] с численно превосходящим противником"
+ valiant_attribute.battle_message_tt: "[acclaimed_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'проявила', 'проявил' )] себя в битве против превосходящих вражеских сил"
+
+
+ #Skilled attribute unlocks
+ politicker_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('diplomat').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[diplomacy_skill|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] — [EmptyScope.ScriptValue('skill_accolade_qualifying_value')|V0]\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] участвует в таких [Concept('activity', 'занятиях')|E], как [GetActivityType('activity_coronation').GetName|l] или [GetActivityType('activity_wedding').GetName|l]"
+ accolade_politicker_unlock.t_coronation: "[accolade_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'воодушевлена', 'воодушевлен' )] политическими интригами во время коронации"
+ accolade_politicker_unlock.t_wedding: "[accolade_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'воодушевлена', 'воодушевлен' )] политическими интригами во время свадьбы"
+ accolade_politicker_unlock.tt: "[accolade_knight.GetName] может [Concept('acclaimed', 'удостоиться')|E] акколады «[GetAccoladeType('politicker_attribute').GetName]»"
+
+ reeve_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('administrator').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[stewardship_skill|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] — [EmptyScope.ScriptValue('skill_accolade_qualifying_value')|V0] и выше\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] участвует в таком [Concept('activity', 'занятии')|E], как [GetActivityType('activity_tour').GetName|l]"
+ accolade_reeve_unlock.t: "[accolade_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'воодушевлена', 'воодушевлен' )] большим туром"
+ accolade_reeve_unlock.tt: "[accolade_knight.GetName] может [Concept('acclaimed', 'удостоиться')|E] акколады «[GetAccoladeType('reeve_attribute').GetName]»"
+
+ manipulator_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('schemer').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[intrigue_skill|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] — [EmptyScope.ScriptValue('skill_accolade_qualifying_value')|V0] и выше\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] может получить доступ к атрибуту, когда #high вы#! завершаете [Concept('scheme', 'происки')|E] по #TOOLTIP:SCHEME_TYPE,murder #L убийству#!#!"
+ accolade_manipulator_unlock.t: "[accolade_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'воодушевлена', 'воодушевлен' )] замыслом убийства"
+ accolade_manipulator_unlock.tt: "[accolade_knight.GetName] может [Concept('acclaimed', 'удостоиться')|E] акколады «[GetAccoladeType('manipulator_attribute').GetName]»"
+
+ tactician_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('strategist').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[martial_skill|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] — [EmptyScope.ScriptValue('skill_accolade_qualifying_value')|V0] и выше\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] соглашается сыграть в [Concept('board_games', 'настольные игры')|E]"
+ accolade_tactician_unlock.t: "[accolade_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'воодушевлена', 'воодушевлен' )] размышлениями над стратегической игрой"
+ accolade_tactician_unlock.tt: "[accolade_knight.GetName] может [Concept('acclaimed', 'удостоиться')|E] акколады «[GetAccoladeType('tactician_attribute').GetName]»"
+
+ mentor_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('whole_of_body').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[learning_skill|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] — [EmptyScope.ScriptValue('skill_accolade_qualifying_value')|V0] и выше\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] становится [Concept('guardian', 'опекуном')|E] #high вашего#! ребенка"
+ accolade_mentor_unlock.t: "[accolade_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'воодушевлена', 'воодушевлен' )] обучением подопечного"
+ accolade_mentor_unlock.tt: "[accolade_knight.GetName] может [Concept('acclaimed', 'удостоиться')|E] акколады «[GetAccoladeType('mentor_attribute').GetName]»"
+
+ contender_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[prowess|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] — #V 24#! и выше\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в пеших состязаниях — #V 50#! и выше\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в конных состязаниях — #V 50#! и выше\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в поединках интеллектов — #V 50#! и выше\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в стрельбе из лука — #V 50#! и выше"
+
+ huntsmaster_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('lifestyle_hunter').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$Ваша [Concept('cultures', 'культура')|E] и культура [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E] не имеют [Concept('tradition', 'традиции')|E] #V $tradition_vegetarianism_name$#!\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] посещает #TOOLTIP:ACTIVITY_TYPE,activity_hunt #L охоту#!#!"
+ accolade_huntsmaster_unlock.t: "[accolade_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'воодушевлена', 'воодушевлен' )] охотой"
+ accolade_huntsmaster_unlock.tt: "[accolade_knight.GetName] может [Concept('acclaimed', 'удостоиться')|E] акколады «[GetAccoladeType('huntsmaster_attribute').GetName]»"
+
+ master_of_revels_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('lifestyle_reveler').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] посещает [GetActivityType('activity_feast').GetName|l]"
+ accolade_master_of_revels_unlock.t_feast: "[accolade_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'воодушевлена', 'воодушевлен' )] веселой пирушкой"
+ accolade_master_of_revels_unlock.tt: "[accolade_knight.GetName] может [Concept('acclaimed', 'удостоиться')|E] акколады «[GetAccoladeType('master_of_revels_attribute').GetName]»"
+
+ #MaA attribute unlocks
+ archer_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('forest_fighter').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в стрельбе из лука — #V 30#! и выше\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] сражается в [Concept('battle', 'битве')|E] вместе с любыми [Concept('men_at_arms', 'профессиональными')|E] [Concept('archer', 'лучниками')|E]"
+ archer_attribute.battle_message_tt: "[acclaimed_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'проявила', 'проявил' )] себя, командуя лучниками в бою"
+
+ skirmisher_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('winter_soldier').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('jungle_stalker').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в стрельбе из лука — #V 30#! и выше\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в пеших состязаниях — #V 30#! и выше\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] сражается в [Concept('battle', 'битве')|E] вместе с любыми [Concept('men_at_arms', 'профессиональными')|E] [Concept('skirmisher', 'застрельщиками')|E]"
+ skirmisher_attribute.battle_message_tt: "[acclaimed_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'проявила', 'проявил' )] себя, командуя застрельщиками в бою. [acclaimed_knight.GetSheHe|U] может быть [Concept('acclaimed', Select_CString(acclaimed_knight.IsFemale, 'удостоена', 'удостоен' ) )|E] акколады «[GetAccoladeType('skirmisher_attribute').GetName]»"
+
+ pike_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('rough_terrain_expert').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в пеших состязаниях — #V 30#! и выше\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] сражается в [Concept('battle', 'битве')|E] вместе с любыми [Concept('men_at_arms', 'профессиональными')|E] [Concept('spearmen', 'копейщиками')|E]"
+ pike_attribute.battle_message_tt: "[acclaimed_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'проявила', 'проявил' )] себя, командуя копейщиками в бою. [acclaimed_knight.GetSheHe|U] может быть [Concept('acclaimed', Select_CString(acclaimed_knight.IsFemale, 'удостоена', 'удостоен' ) )|E] акколады «[GetAccoladeType('pike_attribute').GetName]»"
+
+ outrider_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('open_terrain_expert').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в конных состязаниях — #V 30#! и выше\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] сражается в [Concept('battle', 'битве')|E] вместе с любой [Concept('men_at_arms', 'профессиональной')|E] [Concept('light_cavalry', 'легкой кавалерией')|E]"
+ outrider_attribute.battle_message_tt: "[acclaimed_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'проявила', 'проявил' )] себя, командуя легкой кавалерией в бою. [acclaimed_knight.GetSheHe|U] может быть [Concept('acclaimed', Select_CString(acclaimed_knight.IsFemale, 'удостоена', 'удостоен' ) )|E] акколады «[GetAccoladeType('outrider_attribute').GetName]»"
+
+ vanguard_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('strong').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('athletic').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойствами «[GetTrait('physique_good_1').GetName( GetNullCharacter )]», «[GetTrait('physique_good_2').GetName( GetNullCharacter )]» или «[GetTrait('physique_good_3').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в пеших состязаниях — #V 30#! и выше\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] сражается в [Concept('battle', 'битве')|E] вместе с любой [Concept('men_at_arms', 'профессиональной')|E] [Concept('heavy_infantry', 'тяжелой пехотой')|E]"
+ #AGOT Modified
+ #vanguard_attribute.unlock_tt_2: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[culture|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] обладает [Concept('innovation', 'инновацией')|E] #V $innovation_quilted_armor$#!, #V $innovation_sarawit$#! или #V $innovation_legionnaires$#!\n$EFFECT_LIST_BULLET$[culture|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] обладает [Concept('culture_tradition', 'культурной традицией')|E] «[GetCultureTradition('tradition_fp1_coastal_warriors').GetName]», [GetCultureTradition('tradition_hird').GetName]», «[GetCultureTradition('tradition_futuwaa').GetName]», [GetCultureTradition('tradition_druzhina').GetName]», «[GetCultureTradition('tradition_khadga_puja').GetName]», «[GetCultureTradition('tradition_garuda_warriors').GetName]», «[GetCultureTradition('tradition_himalayan_settlers').GetName]», «[GetCultureTradition('tradition_mubarizuns').GetName]», «[GetCultureTradition('tradition_burman_royal_army').GetName]» или «[GetCultureTradition('tradition_mountaineer_ruralism').GetName]»"
+ vanguard_attribute.unlock_tt_2: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[culture|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] обладает [Concept('innovation', 'инновацией')|E] #V $innovation_quilted_armor$#!, #V $innovation_sarawit$#! или #V $innovation_legionnaires$#!\n$EFFECT_LIST_BULLET$[culture|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] обладает [Concept('culture_tradition', 'культурной традицией')|E] «[GetCultureTradition('tradition_fp1_coastal_warriors').GetName]» или [GetCultureTradition('tradition_hird').GetName]»"
+ vanguard_attribute.battle_message_tt: "[acclaimed_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'проявила', 'проявил' )] себя, командуя тяжелой пехотой в бою. [acclaimed_knight.GetSheHe|U] может быть [Concept('acclaimed', Select_CString(acclaimed_knight.IsFemale, 'удостоена', 'удостоен' ) )|E] акколады «[GetAccoladeType('vanguard_attribute').GetName]»"
+
+ lancer_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('aggressive_attacker').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в конных состязаниях — #V 30#! и выше\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] сражается в [Concept('battle', 'битве')|E] вместе с любой [Concept('men_at_arms', 'профессиональной')|E] [Concept('heavy_cavalry', 'тяжелой кавалерией')|E]"
+ #AGOT Modified
+ #lancer_attribute.unlock_tt_2: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[culture|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] обладает [Concept('innovation', 'инновацией')|E]#V $innovation_arched_saddle$#! или #V $innovation_valets$#!\n$EFFECT_LIST_BULLET$[culture|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] обладает [Concept('culture_tradition', 'культурной традицией')|E] «[GetCultureTradition('tradition_caucasian_wolves').GetName]», «[GetCultureTradition('tradition_roman_legacy').GetName]», «[GetCultureTradition('tradition_ep3_audacious_cadets').GetName]» или «[GetCultureTradition('tradition_ep3_imperial_tagmata').GetName]»"
+ lancer_attribute.unlock_tt_2: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[culture|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] обладает [Concept('innovation', 'инновацией')|E]#V $innovation_arched_saddle$#! или #V $innovation_valets$#!\n$EFFECT_LIST_BULLET$[culture|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] обладает [Concept('culture_tradition', 'культурной традицией')|E] «[GetCultureTradition('tradition_ep3_audacious_cadets').GetName]» или «[GetCultureTradition('tradition_ep3_imperial_tagmata').GetName]»"
+ lancer_attribute.battle_message_tt: "[acclaimed_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'проявила', 'проявил' )] себя, командуя тяжелой кавалерией в бою. [acclaimed_knight.GetSheHe|U] может быть [Concept('acclaimed', Select_CString(acclaimed_knight.IsFemale, 'удостоена', 'удостоен' ) )|E] акколады «[GetAccoladeType('lancer_attribute').GetName]»"
+
+ crossbowmen_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('cautious_leader').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в стрельбе из лука — #V 30#! и выше\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] сражается в [Concept('battle', 'битве')|E] вместе с любыми [Concept('men_at_arms', 'профессиональными')|E] #TOOLTIP:MEN_AT_ARMS_TYPE,crossbowmen #L арбалетчиками#!#!"
+ crossbowmen_attribute.unlock_tt_2: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[culture|E] [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E] обладает [Concept('innovation', 'инновацией')|E] #V $innovation_advanced_bowmaking$#!\n$EFFECT_LIST_BULLET$[culture|E] [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E] обладает [Concept('innovation', 'инновацией')|E] #V $innovation_repeating_crossbow$#!"
+ crossbowmen_attribute.battle_message_tt: "[acclaimed_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'проявила', 'проявил' )] себя, командуя арбалетчиками в бою. [acclaimed_knight.GetSheHe|U] может быть [Concept('acclaimed', Select_CString(acclaimed_knight.IsFemale, 'удостоена', 'удостоен' ) )|E] акколады «[GetAccoladeType('crossbowmen_attribute').GetName]»"
+
+ camelry_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('desert_warrior').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в конных состязаниях — #V 30#! и выше\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] сражается в [Concept('battle', 'битве')|E] вместе с любыми [Concept('men_at_arms', 'профессиональными')|E] [Concept('camel_cavalry', 'боевыми верблюдами')|E]"
+ camelry_attribute.battle_message_tt: "[acclaimed_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'проявила', 'проявил' )] себя, командуя боевыми верблюдами в бою. [acclaimed_knight.GetSheHe|U] может быть [Concept('acclaimed', Select_CString(acclaimed_knight.IsFemale, 'удостоена', 'удостоен' ) )|E] акколады «[GetAccoladeType('camelry_attribute').GetName]»"
+
+ elephantry_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('jungle_stalker').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в конных состязаниях — #V 30#! и выше\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] сражается в [Concept('battle', 'битве')|E] вместе с любой [Concept('men_at_arms', 'профессиональной')|E] [Concept('elephant_cavalry', 'элефантерией')|E]"
+ elephantry_attribute.battle_message_tt: "[acclaimed_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'проявила', 'проявил' )] себя, командуя элефантерией в бою. [acclaimed_knight.GetSheHe|U] может быть [Concept('acclaimed', Select_CString(acclaimed_knight.IsFemale, 'удостоена', 'удостоен' ) )|E] акколады «[GetAccoladeType('elephantry_attribute').GetName]»"
+
+ horse_archer_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает #TOOLTIP:GAME_TRAIT,flexible_leader,0 #L гибкостью мышления#!#!\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в конных состязаниях — #V 30#! и выше\n$EFFECT_LIST_BULLET$[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» [Concept('acclaimed_knight', 'именитого рыцаря')|E] в стрельбе из лука — #V 30#! и выше\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] сражается в [Concept('battle', 'битве')|E] вместе с любыми [Concept('men_at_arms', 'профессиональными')|E] [Concept('archer_cavalry', 'конными лучниками')|E]"
+ horse_archer_attribute.unlock_tt_2: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[culture|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] позволяет нанимать #TOOLTIP:MEN_AT_ARMS_TYPE,horse_archers#L конных лучников#!#! в качестве [Concept('men_at_arms', 'профессионалов')|E]\n$EFFECT_LIST_BULLET$У [Concept('acclaimed_knight', 'именитого рыцаря')|E] [Concept('nomadic', 'кочевая')|E] [Concept('government', 'форма правления')|E]\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('nomadic_philosophy').GetName( GetNullCharacter )]»"
+ horse_archer_attribute.battle_message_tt: "[acclaimed_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'проявила', 'проявил' )] себя, командуя конными лучниками в бою. [acclaimed_knight.GetSheHe|U] может быть [Concept('acclaimed', Select_CString(acclaimed_knight.IsFemale, 'удостоена', 'удостоен' ) )|E] акколады «[GetAccoladeType('horse_archer_attribute').GetName]»"
+
+ gunpowder_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('scholar').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[learning_skill|E] [Concept('acclaimed_knight', 'именитого рыцаря')|E] — [EmptyScope.ScriptValue('skill_accolade_acceptable_value')|V0] и выше\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] сражается в [Concept('battle', 'битве')|E] вместе с любыми [Concept('men_at_arms', 'профессиональными')|E] [Concept('gunpowder', 'стрелками-пехотинцами')|E]"
+ gunpowder_attribute.unlock_tt_2: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[culture|E] [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E] обладает [Concept('innovation', 'инновацией')|E] #V $innovation_gunpowder$#!\n$EFFECT_LIST_BULLET$[culture|E] [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E] обладает [Concept('innovation', 'инновацией')|E] #V $innovation_fire_medicine$#!"
+ gunpowder_attribute.battle_message_tt: "[acclaimed_knight.GetName] [Select_CString(accolade_knight.IsFemale, 'проявила', 'проявил' )] себя, командуя стрелками-пехотинцами в бою. [acclaimed_knight.GetSheHe|U] может быть [Concept('acclaimed', Select_CString(acclaimed_knight.IsFemale, 'удостоена', 'удостоен' ) )|E] акколады «[GetAccoladeType('gunpowder_attribute').GetName]»"
+
+ besieger_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('military_engineer').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('logistician').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$Можно получить доступ к атрибуту, когда [Concept('acclaimed_knight', 'именитый рыцарь')|E] сражается в [Concept('battle', 'битве')|E] вместе с любыми [Concept('men_at_arms', 'профессиональными')|E] [Concept('siege_weapons', 'осадными орудиями')|E]"
+ accolade_besieger_unlock.t: "Под впечатлением от командования осадными орудиями"
+ accolade_besieger_unlock.tt: "[besieger.GetName] может быть [Concept('acclaimed', Select_CString(besieger.IsFemale, 'удостоена', 'удостоен' ) )|E] акколады «[GetAccoladeType('besieger_attribute').GetName]»"
+
+ house_knight_attribute.unlock_tt: "Выполняется любое из нижеследующих условий:\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] принадлежит к #high вашему#! [Concept('house', 'дому')|E]\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] обладает свойством «[GetTrait('loyal').GetName( GetNullCharacter )]»\n$EFFECT_LIST_BULLET$[acclaimed_knight|E] является вашим [Concept('friend', 'другом')|E]"
+ house_knight_attribute.unlock_denounced_tt: "[acclaimed_knight|E] не обладает свойством «[GetTrait('denounced').GetName( GetNullCharacter )]»"
+
+ maa_accolade_unlock.t: "[acclaimed_knight.GetName] [Select_CString(acclaimed_knight.IsFemale, 'воодушевлена', 'воодушевлен' )] битвой"
+
+ single_maa_attribute_allowance: "Для [Concept('accolade', 'акколады')|E] еще не выбрана [Concept('accolade_type', 'специализация')|E] на определенном типе [Concept('men_at_arms', 'профессиональных солдат')|E]"
+
+ #Squires tooltip
+ SQUIRES_BASE_VALUE: "Базовая пригодность"
+ SQUIRES_GLORY_VALUE: "[glory|E], добытая [Concept('acclaimed_knight', 'именитым рыцарем')|E]"
+ SQUIRES_OWNER_MARTIAL_VALUE: "Навык «[Concept('martial', 'военное дело')|E]» у [Concept('liege', 'сюзерена')|E]"
+ SQUIRES_PROWESS_VALUE: "[prowess|E] [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E]"
+ SQUIRES_MARTIAL_VALUE: "Навык «[Concept('martial', 'военное дело')|E]» у [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E]"
+ SQUIRES_BLADEMASTER_VALUE: "[trait|E] «[GetTrait('lifestyle_blademaster').GetName( GetNullCharacter )]» у [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E]"
+ SQUIRES_HASTILUDES_VALUE_BASE: "[trait|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» у [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E]"
+ SQUIRES_HASTILUDES_VALUE_FOOT: "[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» в пеших состязаниях у [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E]"
+ SQUIRES_HASTILUDES_VALUE_HORSE: "[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» в конных состязаниях у [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E]"
+ SQUIRES_HASTILUDES_VALUE_WIT: "[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» в поединках интеллектов у [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E]"
+ SQUIRES_HASTILUDES_VALUE_BOW: "[trait_level_track_xp|E] «[GetTrait('tourney_participant').GetName( GetNullCharacter )]» в стрельбе из лука у [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E]"
+ SQUIRES_OWN_CHILD: "Ребенок [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E] — [Concept('accolade_squire', 'оруженосец')|E] или [Concept('knight', 'рыцарь')|E]"
+ SQUIRES_RESPECTED_ELDER: "Возраст [Concept('acclaimed_knight_possessive', 'именитого рыцаря')|E]"
+
+ #AGOT Modified
+ #accolade_squire_training.t: "Обучен оруженосец акколады «[accolade.GetNameNoTooltip]»"
+ accolade_squire_training.t: "Обучен новобранец акколады «[accolade.GetNameNoTooltip]»"
+ accolade_squire_training.desc: "[squire.GetFirstName] обучается как [type.GetName]"
+ accolade_knight_training.t: "Акколада «[accolade.GetNameNoTooltip]» улучшается"
+ accolade_knight_training.desc: "Ваш [Concept('acclaimed_knight', 'именитый рыцарь')|E] получает опыт как [type.GetName]"
+
+ #AGOT Modified
+ #message_filter_accolade_squire_training: "Именитый рыцарь обучает оруженосца"
+ message_filter_accolade_squire_training: "Именитый рыцарь обучает новобранца"
+ message_filter_accolade_knight_training: "Именитый рыцарь улучшает навыки"
+ accolade_education_tt: "Увеличивается вероятность повысить @skill_prowess_icon![Concept('prowess', 'доблесть')|E] и другие [Concept('skills', 'навыки')|E] и [Concept('traits', 'свойства')|E], связанные с [Concept('accolade', 'акколадой')|E] [Select_CString(guardian.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ', guardian.GetShortUIName))] — «[guardian.GetAcclaimedAccolade.GetName]»"
