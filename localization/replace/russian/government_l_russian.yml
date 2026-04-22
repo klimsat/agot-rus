@@ -228,6 +228,8 @@
 
  create_cadet_branches_trigger: "Создание [Concept( 'cadet_branch', 'младших линий' )|E]"
  create_cadet_branches_rule: "Создавать [Concept( 'cadet_branch', 'младшие линии' )|E]"
+
+ GOVERNMENT_TYPE_INCOMPATIBLE_WITH_PRIMARY_HOLDING: "Основное [Concept('holding', 'владение')|E] персонажа [CHARACTER.GetName], [HOLDING.GetName] ([HOLDING.GetType.GetName]) в провинции [PROVINCE.GetName] несовместимо с [Concept('government', 'формой правления')|E] «[GOVERNMENT_TYPE.GetName|l]»"
  GOVERNMENT_RULE_INFO: "$EFFECT_LIST_BULLET$ Разрешено $RULE|V$"
  GOVERNMENT_HOLDING_INFO: "$EFFECT_LIST_BULLET$ Можно включать [holding|El]: [HOLDING_TYPE.GetName|V]"
  GOVERNMENT_CLAN_NOT_ALLIED: "Не заключен [alliance|El] с клановым #E [vassal|l]ом#!"
@@ -252,8 +254,8 @@
  government_is_mandala: "Использует #V [Concept('great_building', 'грандиозную постройку')|E] и [Concept('great_project', 'грандиозный проект')|E]#! [Concept('mandala', 'мандалы')|E] [GetBuilding('mandala_capital_01').GetTypeName]"
  government_is_japan_feudal: "$government_is_japan_administrative$"
  government_is_japan_administrative: "Есть доступ к [Concept('manor', 'усадьбе')|E], [Concept('blocs', 'блокам')|E] и [Concept('house_aspiration', 'устремлениям дома')|E]"
- government_is_meritocratic: "Есть доступ к [Concept('estate', 'поместью')|E], использует [Concept('merit', 'заслуги')|E]"
- government_is_steppe_admin: "Есть доступ к [Concept('estate', 'поместью')|E], использует [Concept('merit', 'заслуги')|E] и [Concept('obedience', 'покорность')|E]"
+ government_is_meritocratic: "Есть доступ к [Concept('estate', 'поместью')|E]"
+ government_is_steppe_admin: "Есть доступ к [Concept('estate', 'поместью')|E], использует [Concept('obedience', 'покорность')|E]"
  government_has_influence: "Используется [influence_i|E][Concept('influence', 'влияние')|E]"
  government_has_merit: "Используются [merit_i|E][merit|El]"
  government_has_treasury: "Используется [treasury_i|E][treasury|El]"
@@ -990,3 +992,7 @@
  appointment_title_value.diarch: "[Concept('grand_secretariat_director', 'Глава дворцового секретариата')|E]"
  appointment_title_value.minister: "[Concept('minister', 'Министерский')|E] [Concept('title', 'титул')|E]"
  appointment_title_value.distance_to_capital: "Расстояние до [Concept('capital', 'столицы')|E]"
+
+ change_to_administrative_holding_tt: "[Concept('capital', 'Cтоличное')|E] [Concept('barony', 'баронство')|E] ([THIS.Char.GetCapitalLocation.GetTitle.GetBaseNameNoTier]) становится [Concept('castle', 'замковым')|E] [Concept('holding', 'владением')|E]"
+ change_to_administrative_permafrost_tt: "[Concept('county', 'Графство')|E] [THIS.Char.GetCapitalLocation.GetTitle.GetDeJureLiege.GetBaseNameNoTier] теряет [Concept('modifier', 'модификатор')|E] «[GetModifier('mpo_siberian_permafrost_modifier').GetNameWithTooltip]»"
+ change_to_administrative_permafrost_bad_tt: "[Concept('county', 'Графство')|E] [THIS.Char.GetCapitalLocation.GetTitle.GetDeJureLiege.GetBaseNameNoTier] теряет [Concept('modifier', 'модификатор')|E] «[GetModifier('mpo_siberian_permafrost_modifier_bad').GetNameWithTooltip]»"
