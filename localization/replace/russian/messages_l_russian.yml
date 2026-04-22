@@ -201,11 +201,11 @@
  msg_faction_grows_desc: "Крестьяне, которыми правит [LEFT_CHARACTER.GetShortUINameNoTooltip], становятся амбициозными и вступают во [Concept('faction', 'фракцию')|E] «[FACTION.GetName]» против меня."
  msg_betrothal_invalidated: "Помолвка недействительна"
  msg_betrothal_invalidated_desc: "Согласно правилам вашей новой [Concept( 'faith', 'конфессии' )|E], вы и [LEFT_CHARACTER.GetShortUIName] больше не можете быть [Concept( 'betrothed', 'помолвлены' )|E]"
- msg_betrothal_invalidated_player_heir: "[player_heir|E] $msg_betrothal_invalidated$"
+ msg_betrothal_invalidated_player_heir: "Помолвка наследника недействительна"
  msg_betrothal_invalidated_player_heir_desc: "[Select_CString(LEFT_CHARACTER.IsLocalPlayer, '', 'Персонаж ' )][LEFT_CHARACTER.GetNamePossessiveOrMy|U][Select_CString(LEFT_CHARACTER.IsLocalPlayer, ' персонаж', '' )] принимает новую [Concept( 'faith', 'веру' )|E], согласно правилам которой [Select_CString(LEFT_CHARACTER.IsFemale, 'она', 'он' )] и [Select_CString(RIGHT_CHARACTER.IsLocalPlayer, '', 'персонаж ' )][RIGHT_CHARACTER.GetNamePossessiveOrMy][Select_CString(RIGHT_CHARACTER.IsLocalPlayer, ' персонаж', '' )] больше не могут быть [Concept( 'betrothed', 'помолвлены' )|E]"
  msg_break_betrothal: "Помолвка расторгнута"
  msg_break_betrothal_desc: "Ваша [Concept( 'betrothal', 'помолвка' )|E] с персонажем [LEFT_CHARACTER.GetShortUIName] разорвана."
- msg_break_betrothal_player_heir: "[player_heir|E] $msg_break_betrothal$"
+ msg_break_betrothal_player_heir: "Помолвка расторгнута"
  msg_break_betrothal_player_heir_desc: "[LEFT_CHARACTER.GetShortUIName] и [RIGHT_CHARACTER.GetShortUIName] больше не [Concept( 'betrothal', 'помолвлены' )|E]"
  msg_spouse_invalidated: "Супружество недействительно"
  msg_spouse_invalidated_desc: "Согласно воззрениям вашей [Concept('faith', 'конфессии')|E] или [Concept('culture_possessive', 'культуры')|E], вы и [LEFT_CHARACTER.GetShortUIName] больше не [Concept('spouse', 'в браке')|E]"
@@ -282,6 +282,7 @@
  msg_tributary_contract_broken_due_to_war_text: "Ваш [Concept('tributary_contract', 'договор о дани')|E] нарушен из-за [Concept('war', 'войны')|E]"
  msg_claim_war_invalidated_message: "Война «[war.GetName]» окончена: [defender.GetShortUIName] больше не владеет ни одним из графств, на которые заявлялись претензии."
  msg_claim_war_invalidated_claimant_unavailable_dead_message: "Война «[war.GetName]» окончена: [claimant.GetShortUIName] [Select_CString(claimant.IsFemale, 'умерла', 'умер' )], а потому [attacker.GetShortUIName] больше не может использовать [claimant.GetHerHis] претензию."
+ msg_claim_war_invalidated_claimant_unavailable_dead_attacker_message: "Война «[war.GetName]» окончена: [attacker.GetShortUIName] [Select_CString(attacker.IsFemale, 'умерла', 'умер' )], и [Select_CString(attacker.IsFemale, 'его', 'ее' )] претензией больше не воспользоваться."
  msg_claim_war_invalidated_claimant_unavailable_not_vassal_message: "Война «[war.GetName]» окончена: [claimant.GetShortUIName] больше не является вассалом или придворным персонажа [attacker.GetShortUIName], а потому [Select_CString(attacker.IsFemale, 'она', 'он' )] больше не может использовать [claimant.GetHerHis] претензию."
  msg_claim_war_invalidated_claimant_is_now_a_minister_message: "Война «[war.GetName]» окончена: [claimant.GetShortUIName] теперь [Select_CString(claimant.IsLocalPlayer, 'являетесь', 'является' )] [Concept('minister', 'министром')|E], а потому [Select_CString(claimant.IsLocalPlayer, 'ваша', Select_CString(claimant.IsFemale, 'ее', 'его' ))] [Concept('claim', 'претензия')|E] утратила значение."
  msg_de_jure_duchy_war_invalidated_message: "Война «[war.GetName]» окончена: [defender.GetShortUIName] больше не владеет никакими территориями в оспариваемом герцогстве."
@@ -302,6 +303,8 @@
  msg_free_house_member_war_invalidated_message: "Война «[war.GetName]» окончена: [defender.GetTitledFirstName] больше не держит в темнице членов [Concept( 'house', 'дома' )|E] [attacker.GetHouse.GetBaseNameNoTooltip]"
  msg_unify_house_war_invalidated_message: "Война «[war.GetName]» окончена: [defender.GetTitledFirstName] больше не владеет вассалами из [Concept( 'house', 'дома' )|E] [attacker.GetHouse.GetBaseNameNoTooltip]"
  msg_laamp_raid_contract_war_invalidated_message: "Война «[war.GetName]» окончена: [Concept( 'task_contract', 'контракт' )] «[GetTaskContractType('laamp_raid_contract').GetName]» от персонажа [attacker.GetShortUIName] более не действителен."
+ msg_celestial_war_invalidation_no_longer_son_of_heaven: "Война «[war.GetName]» окончена: [attacker.GetShortUIName] [Select_CString(attacker.IsLocalPlayer, 'утратили', Select_CString(attacker.IsFemale, 'утратила', 'утратил' ))] [Concept('mandate', 'мандат')|E]"
+ msg_celestial_war_invalidation_chaos: "[dynastic_cycle|E] находится в [Concept('situation_dynastic_cycle_phase', 'фазе')|E] «[GetSituationType('dynastic_cycle').GetPhaseType('situation_dynastic_cycle_phase_chaos').GetName]»"
 
  msg_my_hook_replaced: "Замена влияния"
  msg_my_hook_replaced_desc: "Вместо прежнего способа держать персонажа [LEFT_CHARACTER.GetShortUIName] [hook|El] у вас появился новый: [HOOK.GetName]"
@@ -360,9 +363,9 @@
  merit_level_loss.desc: "Вы очерняете свое имя и имя своей семьи."
  stress_level_reduced.message: "Снижен [Concept( 'stress_level', 'уровень стресса' )|E]"
  stress_level_reduced.text: "Вас больше не одолевает [Concept( 'stress', 'стресс' )|E]"
- msg_holy_order_patronage_lost: "Покровительство над [Concept( 'holy_order', 'священным орденом' )|E] утрачено"
+ msg_holy_order_patronage_lost: "Потеряно покровительство священному ордену"
  msg_holy_order_patronage_lost_desc: "[holy_order|E] [LEFT_TITLE.GetName] больше не под вашим патронажем"
- msg_holy_order_patronage_gained: "Покровительство над [Concept( 'holy_order', 'священным орденом' )|E] получено"
+ msg_holy_order_patronage_gained: "Получено покровительство священному ордену"
  msg_holy_order_patronage_gained_desc: "Теперь вы покровительствуете [Concept( 'holy_order', 'священному ордену' )|E] [LEFT_TITLE.GetName]"
  msg_murder_scheme_agent_join_title: "К заговору с целью убийства присоединился соучастник"
  msg_murder_scheme_agent_join_message: "[agent.GetTitledFirstName] [Select_CString(agent.IsFemale, 'примкнула', 'примкнул' )] к вашим проискам, чтобы убить персонажа [target.GetTitledFirstName]."
@@ -412,7 +415,7 @@
  msg_artifact_gained_title: "Наследство: [artifact_inherited.GetNameNoTooltip]"
  msg_artifact_gained_desc: "Вы унаследовали артефакт «[artifact_inherited.GetNameNoTooltip]» от персонажа [old_owner.GetUIName]!"
 
- msg_rival_dethroned: "[Select_CString(actor.IsFemale, 'Ваша соперница', 'Ваш соперник' )] [actor.GetTitledFirstName] [Select_CString(actor.IsFemale, 'лишилась', 'лишился' )] титула"
+ msg_rival_dethroned: "Соперник потерял титул"
  msg_rival_dethroned_desc: "[Select_CString(actor.IsFemale, 'Ваша', 'Ваш' )] [Concept( 'rival', Select_CString(actor.IsFemale, 'соперница', 'соперник' ))|E] [actor.GetTitledFirstName] [Select_CString(actor.IsFemale, 'лишилась', 'лишился' )] титула [title.GetBaseName]"
 
  msg_court_position_gained: "Назначение на должность [COURT_POSITION_TYPE.GetNameNoTooltip]"
@@ -434,6 +437,8 @@
  msg_stops_being_obese_desc: "Вас больше не беспокоит [GetModifier( 'obese_modifier' ).GetNameWithTooltip]"
  msg_stops_being_malnourished: "Больше не страдает от недоедания"
  msg_stops_being_malnourished_desc: "Вас больше не беспокоит [GetModifier( 'malnourished_modifier' ).GetNameWithTooltip]"
+ msg_health_change: "Ваше здоровье меняется"
+ msg_health_change_desc: "Ваше здоровье изменилось"
 
  msg_event_timeout: "Событие окончено: $EVENT_NAME$"
  msg_event_timeout_desc: "$EVENT_TIMEOUT_EFFECTS$"
@@ -584,7 +589,7 @@
  msg_great_project_aborted_title: "Проект «[GreatProject.GetNameNoTooltip]» заброшен"
  msg_great_project_aborted_desc: "В [Concept('great_project', 'проект')|E] «[GreatProject.GetType.GetName]», находящийся во владении [GreatProject.GetLocation.GetName], больше нельзя внести вклад."
  msg_great_project_completed_title: "Проект «[GreatProject.GetNameNoTooltip]» завершен"
- msg_great_project_completed_desc: "Проект «[GreatProject.GetName]» во владении [GreatProject.GetOwner.GetCapitalLocation.GetName] был успешно завершен"
+ msg_great_project_completed_desc: "Проект «[GreatProject.GetName]» во владении [GreatProject.GetLocation.GetName] был успешно завершен"
 
  msg_known_pregnancy: "[LEFT_CHARACTER.GetTitledFirstNameNoTooltip] беременеет"
 
@@ -625,6 +630,8 @@
  msg_courtier_child_of_age_title: "Придворный взрослеет"
  msg_dynasty_child_of_age_title: "Ребенок из династии взрослеет"
  msg_dynasty_child_of_age_desc: "[Select_CString(educated_child.IsFemale, 'Ваша', 'Ваш' )] [relative.Custom2('RelationToMeShort', SCOPE.sC('educated_child'))] [educated_child.GetShortUIName] [Select_CString(educated_child.IsFemale, 'достигла', 'достиг' )] совершеннолетия у вас [ROOT.Char.Custom('GetCourt_RU_Where')]"
+ msg_child_of_age_title: "Ваш ребенок взрослеет"
+ msg_child_of_age_desc: "[Select_CString(educated_child.IsFemale, 'Ваша', 'Ваш' )] [relative.Custom2('RelationToMeShort', SCOPE.sC('educated_child'))] [educated_child.GetShortUIName] [Select_CString(educated_child.IsFemale, 'достигла', 'достиг' )] совершеннолетия"
 
  #msg_mandala_temple_completed_01.title: "$building_type_mandala_capital_01$ Completed"
  #msg_mandala_temple_completed_02up.title: "$building_type_mandala_capital_01$ Expanded"

@@ -361,14 +361,13 @@
  action_send_child_to_university: "@child_icon! Отправить ребенка в университет"
  action_send_child_to_university_label: "@child_icon! Отправить ребенка в университет"
  action_send_child_to_university_click: "#I Нажмите, чтобы открыть окно учебы#!"
- action_send_child_to_university_desc: "Вы можете отправить своего ребенка в университет\n\n#help В вашей [Concept( 'realm', 'державе' )|E] было построено [Concept( 'building', 'здание' )|E] университета! Если отправить ребенка обучаться туда, то его [Concept( 'education', 'образование' )|E] только выиграет от этого.\n\nОднако вы могли уже подобрать подходящего [Concept( 'guardian', 'опекуна' )|E].#!"
+ action_send_child_to_university_desc: "Вы можете отправить своего ребенка в университет\n\n#help В вашей [Concept( 'realm', 'державе' )|E] есть [Concept('holy_site', 'священное')|E] [Concept( 'building', 'здание' )|E] — [GetBuilding('holy_site_cathedral_01').GetName|l], [GetBuilding('generic_university').GetName|l] или #L [GetTitleByKey('h_china').GetAdjective|l]ая#! [Concept('realm_capital', 'столица')|E]. Можно отправить ребенка учиться, чтобы улучшить его [Concept('education_trait', 'свойство образования')|E] по достижении [Concept('adult', 'совершеннолетия')|E].\n\nЕсли, конечно, вы уже не подобрали подходящего [Concept( 'guardian', 'опекуна' )|E].#!"
  action_send_child_to_university_unimportant: "@warning_icon! #X У вас недостаточно [Concept( 'gold', 'золота' )|E], чтобы заплатить за обучение#!"
- is_sent_to_university: "Получит образование лучше обычного!"
   
  action_send_guardian_to_university: "$action_send_child_to_university$"
  action_send_guardian_to_university_label: "$action_send_child_to_university_label$"
  action_send_guardian_to_university_click: "$action_send_child_to_university_click$"
- action_send_guardian_to_university_desc: "Вы можете отправить своего ребенка в университет\n\n#help В [Concept( 'realm', 'державе' )|E] ребенка есть [Concept( 'building', 'здание' )|E] университета! Если отправить ребенка обучаться туда, то его [Concept( 'education', 'образование' )|E] только выиграет от этого.\n\nОднако нужно будет найти ребенку подходящего [Concept( 'guardian', 'опекуна' )|E].#!"
+ action_send_guardian_to_university_desc: "Вы можете отправить своего ребенка в университет\n\n#help В [Concept( 'realm', 'державе' )|E], где сейчас пребывает ребенок, есть [Concept('holy_site', 'священное')|E] [Concept( 'building', 'здание' )|E] — [GetBuilding('holy_site_cathedral_01').GetName|l], [GetBuilding('generic_university').GetName|l] или #L [GetTitleByKey('h_china').GetAdjective|l]ая#! [Concept('realm_capital', 'столица')|E]. Можно отправить ребенка учиться, чтобы улучшить его [Concept('education_trait', 'свойство образования')|E] по достижении [Concept('adult', 'совершеннолетия')|E].\n\nНо сначала нужно найти ребенку подходящего [Concept( 'guardian', 'опекуна' )|E].#!"
  action_send_guardian_to_university_unimportant: "$action_send_child_to_university_unimportant$"
   
  action_send_child_to_your_university: "$action_send_child_to_university$"
@@ -380,7 +379,7 @@
  action_send_yourself_to_university: "@child_icon! Отправиться в университет"
  action_send_yourself_to_university_label: "$action_send_yourself_to_university$"
  action_send_yourself_to_university_click: "#I Нажмите, чтобы отправиться в университет#!"
- action_send_yourself_to_university_desc: "Вы можете отправиться в университет\n\n#help В вашей [Concept( 'realm', 'державе' )|E] есть [Concept( 'building', 'здание' )|E] университета! Посещение университета в рамках [Concept( 'education', 'обучения' )|E] пойдет вам на пользу и поможет получить лучшее образование.#!"
+ action_send_yourself_to_university_desc: "Вы можете отправиться в университет\n\n#help В вашей [Concept( 'realm', 'державе' )|E] есть [Concept('holy_site', 'священное')|E] [Concept( 'building', 'здание' )|E] — [GetBuilding('holy_site_cathedral_01').GetName|l], [GetBuilding('generic_university').GetName|l] или #L [GetTitleByKey('h_china').GetAdjective|l]ая#! [Concept('realm_capital', 'столица')|E]. Посещение университета в рамках [Concept( 'education', 'обучения' )|E] пойдет вам на пользу и поможет получить лучшее образование.#!"
  action_send_yourself_to_university_unimportant: "$action_send_child_to_university_unimportant$"
   
  action_war_declared: "Объявление войны!"
@@ -457,14 +456,14 @@
  action_heir_in_line_of_succession_for_title_click: "#I Щелкните, чтобы посмотреть [title|El]#!"
  action_heir_in_line_of_succession_for_title_combined_unimportant: "$action_in_line_of_succession_for_title_combined_unimportant$"
  action_heir_in_line_of_succession_for_title_unimportant: "$action_in_line_of_succession_for_title_unimportant$"
-  
- action_low_control_in_county: "@control_icon! Слабый контроль над графством [landed_title.GetNameNoTierNoTooltip] #low ([landed_title.MakeScope.ScriptValue('script_county_control')|0]/100)#!"
+
+ action_low_control_in_county: "@control_icon! Слабый контроль над графством [landed_title.GetNameNoTierNoTooltip] #low ([landed_title.GetCountyData.GetControl|0]/100)#!"
  action_low_control_in_county_combined_group_label: "@control_icon! Слабый контроль над графствами"
  action_low_control_in_county_combined_group_name: "@control_icon! Слабый [control|El] в нескольких [Concept( 'counties', 'графствах' )|El]"
  action_low_control_in_county_desc: "Ваш [Concept( 'control', 'контроль' )|E] над графством [landed_title.GetName] слаб, что снижает получаемые с него [Concept( 'taxes', 'налоги' )|E] и собираемое там [Concept( 'levies', 'ополчение' )|E].$action_low_control_in_county_HELP$"
  action_low_control_in_county_combined_group_description: "Ваш [Concept( 'control', 'контроль' )|E] над несколькими [Concept( 'counties', 'графствами' )|E] слаб, что снижает получаемые с него [Concept( 'taxes', 'налоги' )|E] и собираемое там [Concept( 'levies', 'ополчение' )|E].$action_low_control_in_county_HELP$"
  action_low_control_in_county_label: "$action_low_control_in_county$"
- action_low_control_in_county_combined_label: "[landed_title.Custom('GetTierIcon')] [landed_title.GetNameNoTooltip] #low ([landed_title.MakeScope.ScriptValue('script_county_control')|0]/100)#!"
+ action_low_control_in_county_combined_label: "[landed_title.Custom('GetTierIcon')] [landed_title.GetNameNoTooltip] #low ([landed_title.GetCountyData.GetControl|0]/100)#!"
  action_low_control_in_county_click: "#I Нажмите, чтобы посмотреть [counties|El], которых это касается#!"
  action_low_control_in_county_HELP: "\n\n#help Чтобы увеличить контроль над графством, вы можете поручить вашему [Concept( 'marshal', 'маршалу' )|E] задачу «[increase_control|E]».#!"
   
@@ -709,72 +708,36 @@
  action_can_ask_hof_for_claim_combined_label: "[target_title.Custom('GetTierIcon')] [target_title.GetNameNoTooltip] персонажа [recipient.GetShortUINameNoTooltip]"
  action_can_ask_hof_for_claim_click: "#I Нажмите, чтобы посмотреть титул#!"
  action_can_ask_hof_for_claim_HELP: "\n\n#help Вы можете просить [Concept( 'head_of_faith', 'главу конфессии' )|E] позволять вам [Concept( 'claims', 'претензии' )|E] — это неплохая возможность повысить себе [Concept( 'rank', 'ранг' )|E] или расширить границы [Concept( 'realm', 'державы' )|E].\n\nПравителям с высоким [Concept( 'piety_level', 'уровнем набожности' )|E] и [Concept( 'virtuous', 'добродетельными' )|E] [Concept( 'traits', 'свойствами' )|E] будет проще получать претензии, а [Concept( 'sinful', 'грешные' )|E] правители чаще будут становиться их объектом.#!"
-  
- action_find_accolade_successor: "@acclaimed_knight_icon! У акколады нет достойного преемника"
- action_find_accolade_successor_label: "@acclaimed_knight_icon! #high [recipient.GetNameNoTooltip]#! нуждается в достойном преемнике"
- action_find_accolade_successor_combined_label: "@acclaimed_knight_icon! #high [recipient.GetNameNoTooltip]#!"
- action_find_accolade_successor_desc: "Рекомендуется воспользоваться взаимодействием #high «Найти достойного преемника»#! во вкладке «Изменить преемника акколады», чтобы при [Concept( 'accolade_succession', 'наследовании' )|E] она не стала [Concept( 'inactive_accolade', 'недействительной' )|E].$action_find_accolade_successor_HELP$"
- #AGOT Modified 
- #action_find_accolade_successor_HELP: "\n\n#help A Successor #EMP must#! meet the [accolade|E]'s Primary [accolade_type|E] requirements — but causes less [glory|E] loss if they fulfill Secondary [accolade_type|E] requirements too.\n\nAn eligible [knight|E] can also be found by recruiting [guests|E], through [marriage|E], the Invite to Court [interaction|E] or the Invite Knights [decision|E].#!"
- #action_find_accolade_successor_click: "#I Click to view your Knights#!"
- action_find_accolade_successor_HELP: "\n\n#help Чтобы получить [Concept( 'accolade', 'акколаду' )|E], наследник #EMP обязан#! соответствовать требованиям к получению основного [Concept( 'accolade_type', 'типа акколады' )|E]. Если же он одновременно может получить и второстепенный, затраты [Concept( 'glory', 'славы' )|E] окажутся меньше.\n\nЧтобы обзавестись подходящим [Concept( 'knight', 'капитаном' )|E], можно нанять одного из [Concept('guests', 'гостей')|E], заключить [Concept( 'marriage', 'брак' )|E], воспользоваться [Concept( 'interaction', 'взаимодействием' )|E] «Пригласить ко двору» или принять [Concept( 'decision', 'решение' )|E] «Пригласить капитанов»#!"
- action_find_accolade_successor_click: "#I Щелкните, чтобы просмотреть капитанов#!"
- action_find_accolade_successor_unimportant: "@warning_icon! #X Поиск достойных преемников акколады сейчас недоступен#!"
-  
- action_find_accolade_successor_combined_group_name: "@acclaimed_knight_icon! У акколад нет преемников"
- action_find_accolade_successor_combined_group_label: "@acclaimed_knight_icon! У акколад нет преемников"
- action_find_accolade_successor_combined_group_description: "У вас есть [Concept( 'acclaimed_knights', 'именитые рыцари' )|E] без преемников и нет подходящих кандидатов. При [Concept( 'accolade_succession', 'наследовании акколады' )|E] каждая невостребованная [Concept( 'accolade', 'акколада' )|E] становится [Concept( 'inactive_accolade', 'недействительной' )|E].$action_find_accolade_successor_HELP$"
- #AGOT Modified 
- #action_find_accolade_successor_combined_unimportant: "@warning_icon! #X There are no valid Successors among your Knights"
- action_find_accolade_successor_combined_unimportant: "@warning_icon! #X Среди ваших капитанов нет подходящих преемников"
-  
- action_accolade_successor_available: "@acclaimed_knight_icon! Доступен преемник акколады"
- action_accolade_successor_available_label: "@acclaimed_knight_icon! #high [recipient.GetNameNoTooltip]#! может получить достойного преемника по вашему указанию"
- action_accolade_successor_available_combined_label: "@acclaimed_knight_icon! #high [recipient.GetNameNoTooltip]#!"
- action_accolade_successor_available_desc: "Если вы назначите [Concept( 'acclaimed_knight', 'именитому рыцарю' )|E] подходящего преемника, то акколада при [Concept( 'accolade_succession', 'наследовании' )|E] не станет [Concept( 'inactive_accolade', 'недействительной' )|E].$action_accolade_successor_available_HELP$"
- action_accolade_successor_available_HELP: "\n\n#help Преемники соответствуют требованиям к основному [Concept( 'accolade_type', 'атрибуту акколады' )|E], а иногда — и к [Concept( 'accolade', 'ее' )|E] второстепенному атрибуту.\n\nЕсли же они соответствуют только основным требованиям, то второстепенный атрибут акколады может измениться при наследовании, что приведет к дополнительной потере [Concept( 'glory', 'славы' )|E]."
- #AGOT Modified 
- #action_accolade_successor_available_click: "#I Click to view your Knights#!"
- action_accolade_successor_available_click: "#I Щелкните, чтобы просмотреть капитанов#!"
-  
- action_accolade_successor_available_combined_group_name: "@acclaimed_knight_icon! Доступны преемники акколады"
- action_accolade_successor_available_combined_group_label: "@acclaimed_knight_icon! Можно назначить преемников акколады"
- action_accolade_successor_available_combined_group_description: "Если назначить подходящих преемников, акколады не станут [Concept( 'inactive_accolade', 'недействительными' )|E] при [Concept( 'accolade_succession', 'наследовании' )|E]..$action_accolade_successor_available_HELP$"
-  
+
  action_empty_accolade_slot: "@acclaimed_knight_icon! Можно создать акколаду"
  action_empty_accolade_slot_label: "@acclaimed_knight_icon! Можно создать акколаду"
  action_empty_accolade_slot_desc: "Количество [Concept( 'accolades', 'акколад' )|E] ниже максимального. Одного из ваших [Concept( 'knights', 'рыцарей' )|E] можно сделать [Concept( 'acclaimed_knight', 'именитым' )|E].$action_empty_accolade_slot_HELP$"
- action_empty_accolade_slot_HELP: "\n\n#help Если у вас нет [Concept( 'inactive_accolade', 'недействительной акколады' )|E], которую вы хотите восстановить, возможно, стоит потратить [Concept( 'prestige', 'престиж' )|E] на создание новой акколады.#!"
+ action_empty_accolade_slot_HELP: "\n\n#help Возможно, стоит потратить [Concept( 'prestige', 'престиж' )|E] на создание новой акколады.#!"
  #AGOT Modified 
  #action_empty_accolade_slot_unimportant: "@warning_icon! #X The Knight may also be a valid Successor for an existing Accolade"
- #action_empty_accolade_slot_click: "#I Click to view your Knights#!"
  action_empty_accolade_slot_unimportant: "@warning_icon! #X Капитан также может быть подходящим преемником существующей акколады"
+ #AGOT Modified 
+ #action_empty_accolade_slot_click: "#I Щелкните, чтобы просмотреть рыцарей#!"
  action_empty_accolade_slot_click: "#I Щелкните, чтобы просмотреть капитанов#!"
   
- action_inactive_accolade: "@acclaimed_knight_icon! Можно восстановить недействительную акколаду"
- action_inactive_accolade_label: "@acclaimed_knight_icon! Акколаду #high «[recipient.GetNameNoTooltip]»#! можно сделать действительной"
- action_inactive_accolade_combined_label: "@acclaimed_knight_icon! #high [recipient.GetNameNoTooltip]#!"
- action_inactive_accolade_desc: "У акколады «[recipient.GetName]» есть назначенный [Concept( 'acclaimed_knight', 'именитый рыцарь' )|E] или подходящий кандидат, которого можно назначить.$action_inactive_accolade_HELP$"
- #AGOT Modified 
- #action_inactive_accolade_HELP: "\n\n#help If an [inactive_accolade|e] is empty, appoint a [knight|e] to it. Once it has an Acclaimed Knight, the Accolade may be Reinstated, restoring its effects for no [prestige|e] cost.\n\nYou may wish to instead permanently Destroy an Inactive Accolade and thereby unassign its Acclaimed Knight.#!"!
- #action_inactive_accolade_click: "#I Click to view your Knights#!"
- action_inactive_accolade_HELP: "\n\n#help Если [Concept( 'inactive_accolade', 'недействительная акколада' )|E] не востребована, назначьте ей [Concept( 'knight', 'капитана' )|E]. Акколаду с назначенным именитым капитаном можно восстановить — в таком случае она начнет действовать без затрат [Concept( 'prestige', 'престижа' )|E].\n\nТакже можно уничтожить недействительную акколаду. Тогда назначенный именитый капитан потеряет свое назначение.#!"
- action_inactive_accolade_click: "#I Щелкните, чтобы просмотреть капитанов#!"
-  
- action_inactive_accolade_combined_group_label: "@acclaimed_knight_icon! Можно восстановить недействительные акколады"
- action_inactive_accolade_combined_group_name: "@acclaimed_knight_icon! Можно восстановить недействительные акколады"
- action_inactive_accolade_combined_group_description: "У вас есть несколько [Concept( 'inactive_accolade', 'недействительных акколад' )|E] с назначенными [Concept( 'acclaimed_knights', 'именитыми рыцарями' )|E] или подходящие кандидаты, которых можно назначить.$action_inactive_accolade_HELP$"
-  
- action_restore_accolade: "@acclaimed_knight_icon! Можно восстановить недействительные акколады"
- action_restore_accolade_label: "@acclaimed_knight_icon! Можно использовать решение #high «Восстановить акколады»#!"
- action_restore_accolade_desc: "У вас есть как минимум одна [Concept( 'inactive_accolade', 'недействительная акколада' )|E] и ни одного подходящего [Concept( 'acclaimed_knight', 'именитого рыцаря' )|E].$action_restore_accolade_HELP$"
- action_restore_accolade_HELP: "\n\n#help Найдите подходящего [Concept( 'knight', 'рыцаря' )|E]. В этом вам поможет [Concept( 'decision', 'решение' )|E] #high «Восстановить акколады»#!: воспользовавшись им, вы пригласите рыцарей, соответствующие требованиям к [Concept( 'accolade_type', 'атрибуту' )|E] недействительных акколад.#!"
- action_restore_accolade_click: "#I Щелкните, чтобы просмотреть решения#!"
-  
+ action_accolade_can_spend_attribute: "@acclaimed_knight_icon! Можно улучшить [Concept( 'accolade', 'акколаду' )|E]"
+ action_accolade_can_spend_attribute_label: "@acclaimed_knight_icon! [recipient.GetNameNoTooltip] может улучшить акколаду"
+ action_accolade_can_spend_attribute_desc: "[recipient.GetName] обладает хотя бы одним доступным [Concept('accolade_type', 'атрибутом')|E].$action_accolade_can_spend_attribute_HELP$"
+ action_accolade_can_spend_attribute_HELP: "\n\n#help [recipient.GetNameNoTooltip] [Select_CString(recipient.IsFemale, 'стяжала', 'стяжал' )] достаточно [Concept('glory', 'славы')|E], чтобы увеличить свой [Concept('accolade_rank', 'ранг акколады')|E] и получить дополнительный [Concept('accolade_type', 'атрибут')|E]."
+ #AGOT Modified
+ #action_accolade_can_spend_attribute_click: "#I Щелкните, чтобы просмотреть рыцарей#!"
+ action_accolade_can_spend_attribute_click: "#I Щелкните, чтобы просмотреть капитанов#!"
+ action_accolade_can_spend_attribute_combined_label: "@acclaimed_knight_icon! [recipient.GetNameNoTooltip] может улучшить акколаду"
+ action_accolade_can_spend_attribute_combined_group_label: "@acclaimed_knight_icon! Вы можете улучшить акколады"
+ action_accolade_can_spend_attribute_combined_group_name: "@acclaimed_knight_icon! Можно улучшить [Concept( 'accolades', 'акколады' )|E]"
+ action_accolade_can_spend_attribute_combined_group_description: "У вас есть как минимум один [Concept('acclaimed_knight', 'именитый рыцарь')|E] с доступным [Concept('accolade_type', 'атрибутом акколады')|E].$action_accolade_can_spend_attribute_combined_HELP$"
+ action_accolade_can_spend_attribute_combined_HELP: "\n\n#help У некоторых ваших [Concept('acclaimed_knights', 'именитых рыцарей')|E] достаточно [Concept('glory', 'славы')|E], чтобы увеличить [Concept('accolade_rank', 'ранг акколады')|E] и получить дополнительный [Concept('accolade_type', 'атрибут')|E]."
+
  action_end_regency: "Завершить правление ([actor.GetDiarchyTypeName|l])"
  action_end_regency_label: "@end_regency! Можно отказаться от формы правления «[actor.GetDiarchyTypeName]»"
  action_end_regency_desc: "Сейчас вы и [recipient.GetTitledFirstName] [Concept( 'sharing_power', 'разделяете полномочия' )|E], однако вы достаточно властны, чтобы править самостоятельно.$action_end_regency_help$"
  action_end_regency_help: "\n\n#help $game_concept_sharing_power$ дает другому [Concept( 'character', 'персонажу' )|E] такую же власть над [Concept( 'realm', 'державой' )|E], что и вам, и может приводить к дополнительным затратам [Concept( 'prestige', 'престижа' )|E] на [Concept( 'diarch_affected_actions', 'обычные действия' )|E].#!"
+ action_end_regency_unimportant: "@alert_icon! #X [recipient.GetTitledFirstName|U] не согласится#!"
  action_end_regency_click: "#I Щелкните, чтобы открыть взаимодействие с персонажем#!"
   
  action_swing_scales_regent: "Сместить $game_concept_scales_of_power$"
@@ -1025,12 +988,12 @@
  action_new_tier_3_governance_issue_unimportant: "$action_new_governance_issue_unimportant$"
  action_new_tier_3_governance_issue_combined_unimportant: "$action_new_governance_issue_combined_unimportant$"
   
- action_laamp_apprehension_threat: "@prison_icon! Вас считают преступником в державе [apprehender.GetPrimaryTitle.GetBaseNameNoTierNoTooltip|V]"
- action_laamp_apprehension_threat_label: "@prison_icon! Изгой в державе [apprehender.GetPrimaryTitle.GetBaseNameNoTierNoTooltip|V] ([actor.GetTitledFirstNameRegnal])"
+ action_laamp_apprehension_threat: "@prison_icon! Вас считают преступником в державе [apprehender.GetPrimaryTitle.GetDefinitiveNameNoTooltip|V]"
+ action_laamp_apprehension_threat_label: "@prison_icon! Изгой в державе [apprehender.GetPrimaryTitle.GetDefinitiveNameNoTooltip|V] ([actor.GetTitledFirstNameRegnal])"
  action_laamp_apprehension_threat_desc: "Ваш [Concept('camp', 'лагерь')|E] находится в [Concept('realm', 'державе')|E], которой правит [actor.GetShortUIName], где вас считают [Concept('criminal', 'преступником')|E]$action_laamp_apprehension_threat_HELP$"
  action_laamp_apprehension_threat_HELP: "\n\n#help Вас могут [Concept('imprison', 'заключить в тюрьму')|E] и принудительно распустить ваш [Concept('camp', 'лагерь')|E], и вы не можете брать [Concept('task_contracts', 'контракты')|E] здесь\n\nВам лучше покинуть эту [Concept('realm', 'державу')|E], если вы недостаточно сильны, чтобы ввязаться в [Concept('war', 'войну')|E] с ней#!"
  action_laamp_apprehension_threat_combined_label: "Изгой в державе [actor.GetPrimaryTitle.Custom('GetTierIcon')] [actor.GetPrimaryTitle.GetBaseNameNoTier|V] ([actor.GetTitledFirstNameRegnal])"
- action_laamp_apprehension_threat_combined_group_label: "@prison_icon! Вас считают преступником в державе [apprehender.GetPrimaryTitle.GetBaseNameNoTierNoTooltip|V]"
+ action_laamp_apprehension_threat_combined_group_label: "@prison_icon! Вас считают преступником в державе [apprehender.GetPrimaryTitle.GetDefinitiveNameNoTooltip|V]"
  action_laamp_apprehension_threat_combined_group_name: "$action_laamp_apprehension_threat$"
  action_laamp_apprehension_threat_combined_group_description: "Несколько местных [Concept('rulers', 'правителей')|E] считают вас [Concept('criminal', 'преступником')|E]$action_laamp_apprehension_threat_HELP$"
  action_laamp_apprehension_threat_click: "#I Щелкните, чтобы переместить лагерь#!"
@@ -1257,6 +1220,16 @@
  action_can_make_elder_request_desc: "Вы можете попросить [Concept('elder', 'старейшину')|E], [Concept('disciples', 'послушников')|E] или [Concept('movement_leader', 'лидера движения')|E] исполнить вашу скромную просьбу"
  action_can_make_elder_request_click: "#I Щелкните, чтобы открыть взаимодействие «$celestial_request_elders_support_interaction$»#!"
   
+ action_can_find_secrets: "@minister! Вам стоит поискать секреты #weak (происки)#!"
+ action_can_find_secrets_label: "@minister! Вам стоит поискать секреты #weak (происки)#! при [Concept('court', 'дворе')|E] [Select_CString(recipient.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ', recipient.GetShortUINameNoTooltip))]"
+ action_can_find_secrets_combined_group_label: "$action_can_find_secrets$"
+ action_can_find_secrets_combined_group_name: "$action_can_find_secrets$"
+ action_can_find_secrets_combined_group_description: "Вы можете провести расследование при [Concept('court', 'дворе')|E] других [Concept('vassals', 'вассалов')|E], чтобы найти [Concept('secrets', 'секреты')|E], за которые [Concept('liege', 'сюзерен')|E] заплатит вам [gold_i][Concept('gold', 'золотом')|E]. Также с их помощью можно создать [hook_i][Concept('hooks', 'рычаги влияния')|E]$action_can_find_secrets_HELP$"
+ action_can_find_secrets_combined_label: "[court|E] [Select_CString(recipient.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ', recipient.GetShortUINameNoTooltip))]"
+ action_can_find_secrets_desc: "Вы можете провести расследование при [Concept('court', 'дворе')|E] персонажа [recipient.GetShortUIName], чтобы найти [Concept('secrets', 'секреты')|E], за которые [Concept('liege', 'сюзерен')|E] заплатит вам [gold_i][Concept('gold', 'золотом')|E]. Также с их помощью можно создать [hook_i][Concept('hooks', 'рычаги влияния')|E]$action_can_find_secrets_HELP$"
+ action_can_find_secrets_click: "#I Щелкните, чтобы открыть взаимодействие «$censor_find_secrets_interaction$»#!"
+ action_can_find_secrets_HELP: "\n\n#help [vassals|E], обладающие [Concept('titles', 'титулами')|E] высокого [Concept('title_tier', 'уровня')|E], представляют собой самые заманчивые цели, и здесь показаны только десять наиболее могущественных среди них. Тем не менее, вы можете выбрать любого вассала вашего [Concept('liege', 'сюзерена')|E].#!"
+
  action_awaiting_coronation: "$action_awaiting_coronation_label$"
  action_awaiting_coronation_label: "@activity_coronation! Вы не провели коронацию"
  action_awaiting_coronation_desc: "Пока [Concept('ruler', 'правитель')|E] не проведет [Concept('coronation', 'коронацию')|E], его [Concept('vassals', 'вассалы')|E] и соседи будут считать его нелегитимным.$action_awaiting_coronation_HELP$"

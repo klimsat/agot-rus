@@ -70,7 +70,7 @@
  TITLE_VIEW_USURP_TITLE: "Узурпировать"
  USURP_TITLE_TITLE: "Узурпировать титул [TITLE.GetBaseNameNoTooltip]"
  USURP_TITLE_TOOLTIP_TITLE: "#T Узурпировать титул [TITLE.GetBaseName]#!"
- USURP_TITLE_TEXT: "Узурпировать титул [TITLE.GetName] у [Select_CString(TITLE.GetHolder.IsLocalPlayer, 'вас', Concatenate('персонажа ', TITLE.GetHolder.GetUIName))].\n Стоимость:\n[SelectLocalization(GetPlayer.GetGovernment.IsType('meritocratic_government'), 'USURP_TITLE_DESC_TREASURY', 'USURP_TITLE_DESC_GOLD')] $GOLD|0V$ ед.\n\nЯ получу [prestige_i]$PRESTIGE|0V$ ед.\n\n[Select_CString(TITLE.GetHolder.IsLocalPlayer, 'Вы', Concatenate(' ', TITLE.GetHolder.GetUIName))] [Select_CString(TITLE.GetHolder.IsLocalPlayer, 'потеряете', 'потеряет')] [Concept('legitimacy', 'легитимность')|E]."
+ USURP_TITLE_TEXT: "Узурпировать титул [TITLE.GetName] у [Select_CString(TITLE.GetHolder.IsLocalPlayer, 'вас', Concatenate('персонажа ', TITLE.GetHolder.GetUIName))].\n Стоимость:\n[SelectLocalization( Or( GetPlayer.GetGovernment.IsType( 'celestial_government' ), Or(GetPlayer.GetGovernment.IsType( 'meritocratic_government' ), GetPlayer.GetGovernment.IsType( 'administrative_government' ))), 'USURP_TITLE_DESC_TREASURY', 'USURP_TITLE_DESC_GOLD')]$GOLD|0V$\n\nЯ получу [prestige_i]$PRESTIGE|0V$\n\n[TITLE.GetHolder.GetUIName|U] [Select_CString(TITLE.GetHolder.IsLocalPlayer, 'потеряете', 'потеряет')] [Concept('legitimacy', 'легитимность')|E]."
  USURP_TITLE_DESC_GOLD: "[gold_i]"
  USURP_TITLE_DESC_TREASURY: "[treasury_i]"
  
