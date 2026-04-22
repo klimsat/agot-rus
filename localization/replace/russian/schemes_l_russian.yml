@@ -9,9 +9,11 @@
 
  SCHEME_AGENT_GOLD: "[gold_i] Подкуп"
  SCHEME_AGENT_TREASURY: "Передача [treasury_i] [Concept('treasury', 'государственной казны')|E]"
+ SCHEME_AGENT_TREASURY_BRIBE: "[treasury_i] Подкуп"
  SCHEME_HOOK: "Использовать [hook_i][Concept( 'hook', 'влияние' )|E]"
  SCHEME_HOOK_EXPLICIT: "[hook_i] Использовать [Concept( 'hook', 'рычаг влияния' )|E] на #EMP цель#!"
  SCHEME_AGENT_GOLD_SIGNIFICANT: "[gold_i] Предложить #EMP солидную#! сумму"
+ SCHEME_AGENT_TREASURY_SIGNIFICANT_BRIBE: "[treasury_i] Предложить #EMP солидную#! сумму"
  offer_gold.tt.cannot_offer_both_bribes: "Можно предложить подкуп только одного размера"
  not_two_overrides: "Нельзя использовать два варианта автоприема одновременно"
  SCHEME_AGENT_HOOK: "[hook_i] Предложить [Concept( 'hook', 'рычаг влияния' )|E] на себя"
@@ -76,8 +78,10 @@
 
 
  SCHEME_AGENT_GOLD_VALID: "Заплатить [SCOPE.ScriptValue('bribe_value')|V0][gold_i] персонажу [recipient.GetShortUINameNoTooltip]"
+ SCHEME_AGENT_TREASURY_BRIBE_VALID: "Использовать [SCOPE.ScriptValue('bribe_value')|V0][treasury_i], чтобы заплатить [SCOPE.ScriptValue('bribe_value')|V0][gold_i] персонажу [recipient.GetShortUINameNoTooltip]"
  SCHEME_AGENT_TREASURY_VALID: "Передать [SCOPE.ScriptValue('treasury_bribe_value')|V0][treasury_i] персонажу [recipient.GetShortUINameNoTooltip]"
  SCHEME_AGENT_GOLD_SIGNIFICANT_VALID: "Заплатить [SCOPE.ScriptValue('greater_bribe_value')|V0][gold_i] персонажу [recipient.GetShortUINameNoTooltip]"
+ SCHEME_AGENT_TREASURY_SIGNIFICANT_VALID: "Использовать [SCOPE.ScriptValue('greater_bribe_value')|V0][treasury_i], чтобы заплатить [SCOPE.ScriptValue('greater_bribe_value')|V0][gold_i] персонажу [recipient.GetShortUINameNoTooltip]"
  SCHEME_AGENT_OPPORTUNITIES_VALID: "Будет получено [EmptyScope.ScriptValue('agent_acceptance_per_burnt_opportunity_value')|=+P0] ед. к принятию предложений за каждое потраченное [Concept( 'scheme_opportunity_opportunity', 'очко преимущества' )|E]"
  SCHEME_AGENT_PRESTIGE_VALID: "Передать [SCOPE.ScriptValue('prestige_bribe_value')|V0][prestige_i] персонажу [recipient.GetShortUINameNoTooltip]"
  SCHEME_AGENT_INFLUENCE_VALID: "Передать [SCOPE.ScriptValue('influence_bribe_value')|V0][influence_i] персонажу [recipient.GetShortUINameNoTooltip]"
