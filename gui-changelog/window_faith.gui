@@ -26,7 +26,7 @@ window = {
 		# on_start = "[GetVariableSystem.Set( 'faith_view_tabs', 'beliefs' )]"
 		on_start = "[GetVariableSystem.Set( 'hide_bottom_left_HUD', 'true' )]"
 		#AGOT Added
-		on_start = "[GetScriptedGui('faith_switch_effect').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('faith', FaithWindow.GetFaith.MakeScope).End)]"
+		on_finish = "[GetScriptedGui('faith_switch_effect').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('faith', FaithWindow.GetFaith.MakeScope).End)]"
 
 		using = Animation_FadeIn_Quick
 		using = Sound_WindowShow_Standard
@@ -1470,6 +1470,8 @@ types FaithWindow
 								name = "show_faith_info"
 								size = { 0 80 }
 								layoutpolicy_horizontal = expanding
+								#AGOT Added
+								visible = "[FaithIsNotUnknown]"
 
 								state = {
 									name = _mouse_click

@@ -39,9 +39,7 @@ window = {
 			}
 		}
 
-		vbox_spy_list = {
-
-		}
+		vbox_spy_list = {}
 	}
 }
 
@@ -80,7 +78,7 @@ types SpyNetworkWindow {
 						tooltip = "INTRIGUE_WINDOW_SPIES_MAX_COUNT"
 						icon = {
 							size = { 23 23 }
-							texture = "gfx/interface/icons/message_feed/spy_master.dds"						
+							texture = "gfx/interface/icons/message_feed/spy_master.dds"
 						}
 
 						text_single = {
@@ -246,5 +244,31 @@ types SpyNetworkWindow {
 				}
 			}
 		}
+	}
+
+	type agot_spy_network_button_tab = button_tab
+	{
+		name = "open_spy_network_tab"
+		onclick = "[IntrigueWindow.SetTab('schemes')]"
+		onclick = "[GetVariableSystem.Set('intrigue_view_tabs', 'spy_network')]"
+		down = "[GetVariableSystem.HasValue('intrigue_view_tabs', 'spy_network')]"
+		shortcut = "tab_3"
+
+		alwaystransparent = "[GetVariableSystem.HasValue('intrigue_view_tabs', 'spy_network')]"
+
+		blockoverride "tab_label"
+		{
+			text = "OPEN_SPY_NETWORK_TAB"
+			max_width = 220
+		}
+
+		blockoverride "icon_visible" {}
+
+		blockoverride "tab_icon"
+		{
+			texture = "gfx/interface/icons/flat_icons/slander.dds"
+			down = "[GetVariableSystem.HasValue('intrigue_view_tabs', 'spy_network')]"
+		}
+		using = tooltip_above
 	}
 }
