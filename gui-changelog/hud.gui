@@ -7075,7 +7075,9 @@ types HUD
 
 					widget = {
 						name = "domain_limit"
-						visible = "[Not( IsLandlessAdventurer( GetPlayer ) )]"
+						#AGOT Modified
+						#visible = "[Not( IsLandlessAdventurer( GetPlayer ) )]"
+						visible = "[GetPlayer.IsLandedRuler]"
 
 						layoutpolicy_vertical = expanding
 
