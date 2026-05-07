@@ -20,10 +20,12 @@
  culture_parameter_forder_trait_bonuses:0 "#italic From the Rivers#!: The [GetTrait('forder').GetName( GetNullCharacter )] [traits|E] have additional bonuses"
  culture_parameter_rough_terrain_trait_bonuses:0 "The [GetTrait('rough_terrain_expert').GetName( GetNullCharacter )] [traits|E] have additional bonuses"
  culture_parameter_can_recruit_forder_specialist:0 "Gain a [decision|E] to recruit [commanders|E] with [GetTrait('forder').GetName( GetNullCharacter )] [traits|E]"
- culture_parameter_can_have_paramours:0 "Characters can openly have paramours chosen for love, rather than for the sake of political alliances"
+ culture_parameter_can_have_paramours:0 "Characters can have a [agot_paramour|E]
  culture_parameter_the_mark_trait_gives_bonuses:0 "#italic Children of the Waves#!: The [GetTrait('the_mark').GetName( GetNullCharacter )] [traits|E] have additional bonuses"
  culture_parameter_cheaper_tour_activity:0 "The [GetActivityType( 'activity_tour' ).GetName] activity is #P 10%#! cheaper"
  cheaper_tour_activity_discount:0 "[GetPlayer.GetCulture.GetName] [culture|E]" # multiplier desc
+ culture_parameter_hunts_cd_ten_percent_quicker:0 "Delay between [GetActivityType('activity_hunt').GetName] [activities|E]: #P -10% #!"
+ culture_parameter_more_likely_to_steal_artifacts:0 "Members of this culture are more likely to steal [artifacts|E] in battles or raids"
 
  #Child Traits
  culture_parameter_bossy_trait_more_common:0 "[children|E] are more likely to get the [GetTrait('bossy').GetName( GetNullCharacter )] [trait|E]"
@@ -38,6 +40,7 @@
  culture_parameter_cannibal_trait_is_more_common:0 "The [GetTrait('cannibal').GetName( GetNullCharacter )] [trait|E] is more common"
  culture_parameter_greensight_more_common:0 "The [GetTrait('greensight').GetName( GetNullCharacter )] [trait|E] is more common"
  culture_parameter_fashionable_trait_more_common:0 "The [GetTrait('fashionable').GetName( GetNullCharacter )] [trait|E] is more common"
+ culture_parameter_deceitful_trait_more_common:0 "The [GetTrait('deceitful').GetName( GetNullCharacter )] [trait|E] is more common"
 
  #Commander Traits
  culture_parameter_organizer_trait_more_common:0 "The [GetTrait('organizer').GetName( GetNullCharacter )] [commander_trait|E] is more common"
@@ -65,6 +68,9 @@
  culture_parameter_cannibal_trait_more_valued:0 "The [GetTrait('cannibal').GetName( GetNullCharacter )] [trait|E] is more valued"
  culture_parameter_poet_trait_more_valued:0 "The [GetTrait('lifestyle_poet').GetName( GetNullCharacter )] [trait|E] is more valued"
  culture_parameter_vengeful_trait_more_valued:0 "The [GetTrait('vengeful').GetName( GetNullCharacter )] [trait|E] is more valued"
+ culture_parameter_strong_trait_more_valued:0 "The [GetTrait('strong').GetName( GetNullCharacter )] [trait|E] is more valued"
+ culture_parameter_arrogant_trait_more_valued:0 "The [GetTrait('arrogant').GetName( GetNullCharacter )] [trait|E] is more valued"
+ culture_parameter_reaver_trait_more_valued:0 "The [GetTrait('reaver').GetName( GetNullCharacter )] [trait|E] is more valued"
 
  #Trait Looked Down Upon
  culture_parameter_slave_master_trait_looked_down_upon:0 "The [GetTrait('slave_master').GetName( GetNullCharacter )] [trait|E] is looked down upon"
@@ -102,10 +108,16 @@
  culture_parameter_better_barracks_bonuses:0 "The #V $building_type_barracks_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_better_orchard_bonuses:0 "The #V $building_type_orchards_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_better_caravanserai_bonuses:0 "The #V $building_type_caravanserai_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
+ culture_parameter_better_gathering_hall_bonuses:0 "The #V $building_type_longhouses_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_better_mine_bonuses:0 "The #V $building_type_agot_gold_mines_01$#! and #V $building_type_agot_silver_mines_01$#! lines of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_watermills_without_innovations_unlock:0 "The #V $building_type_watermills_01$#! line of [buildings|E] do not require innovations to be built"
- culture_parameter_control_gain_on_building_complete:0 "Gain #P 15#! [control|E] when a [building|E] is constructed #weak (up to once a year)#!"
+ culture_parameter_piety_per_blacksmith_level:0 "Gain #10% more monthly [piety|E] per #V $building_type_blacksmiths_01$ level"
  culture_parameter_piety_gain_on_building_complete:0 "Gain [piety|E] when a [building|E] is constructed"
+ culture_parameter_control_gain_on_building_complete:0 "Gain #P 15#! [control|E] when a [building|E] is constructed #weak (up to once a year)#!"
+
+ #Naming
+ culture_parameter_uses_generic_milk_names:0 "Characters of this culture use [agot_milk_names|E] for newborns"
+ culture_parameter_uses_animal_milk_names:0 "Characters of this culture use animal-based [agot_milk_names|E] for newborns"
 
  #Misc
  culture_parameter_shortened_truce_period:0 "Shorter [truces|E]"
@@ -188,17 +200,11 @@
  tradition_agot_wildling_name:0 "Ferocious, Savage, and Wild"
  tradition_agot_wildling_desc:0 "Where the majority of peoples and societies progress and grow, there are groups that refuse to bow before progress, what can be seen by the many Wildlings in Westeros. The majority of them are found Beyond the Wall, but there are groups found in the Mountains of the Moon. These tribal groups are fierce, if undeveloped, and can become threats in large numbers."
 
- tradition_agot_moon_clan_name:0 "Above the Setting Sun"
- tradition_agot_moon_clan_desc:0 "In the depths of the Mountains of the Moon dwell its clansmen, the most savage and uncivilized men anywhere south of the Wall. They are the last true remnants of the First Men in the Vale, their mountainous home protecting them from the onslaught of the Andals, leaving them to continue their primitive ways without much outside intervention."
-
  tradition_agot_rushlander_name:0 "Where Rivers Meet Hills"
  tradition_agot_rushlander_desc:0 "A culture born on the border of the Vale and the Riverlands, Rushlanders are a hardy people adapted to life in the hills as well as the rivers."
 
  tradition_agot_harsh_laws_name:0 "Harsh Rule"
  tradition_agot_harsh_laws_desc:0 "Society shapes the laws. History has shown that it's natural for a harsh land to give rise to harsh people, and they, in turn, make harsh laws to rule by."
-
- tradition_agot_thenn_name:0 "The Last of the First"
- tradition_agot_thenn_desc:0 "Known as the more 'sophisticated' of the free folk by those south of the Wall, the Thenns consider themselves to be the last remaining First Men. The inhabitants of the mountain valley in the Frostfangs interact more with giants than with other cultures but have managed to learn the occasional word or sentence in Common Tongue, despite having never deviated from the Old Tongue they still speak today. Priding themselves in their belief in Magnar, the Thenn are somewhat more disciplined and organized than other free folk, and have managed to amass an impressive bronze armory. While those south of the Wall may consider the Thenn to be savage, they are more than capable, often coming into conflict with the Night's Watch."
 
  tradition_agot_andalos_name:0 "Hills Under the Stars"
  tradition_agot_andalos_desc:0 "It was to Hugor that the Seven-Who-Are-One anointed upon the hill in Andalos with seven stars and tasked to bring the Andals to Westeros, their divine reward for maintaining the compact with the Seven-Who-Are-One."
@@ -466,3 +472,36 @@
 
  tradition_agot_greenblood_name:0 "Barges of Green and Scourge"
  tradition_agot_greenblood_desc:0 "#italic “Some of the Rhoynar mourned the loss of the ships, and rather than embracing their new land, they took to plying the waters of the Greenblood, finding it a pale shadow of Mother Rhoyne, whom they continued to worship. They still exist to this day, known as the orphans of the Greenblood.”#!"
+
+ tradition_agot_thenns_name:0 "The Last of the First"
+ tradition_agot_thenns_desc:0 "#italic “...Magnar of Thenn, whose own people thought him more god than lord;”#!"
+
+ tradition_agot_cave_dweller_name:0 "In the Depths of the Earth"
+ tradition_agot_cave_dweller_desc:0 "#italic “Deeper he went, and deeper, and when he tried t' turn back the ways that seemed familiar ended in stone rather than sky. Soon his torches began t' fail, one by one, till finally there was naught but dark. Gendel's folk were never seen again, but on a still night you can hear their children's children's children sobbing under the hills, still looking for the way back up. Listen? Do you hear them?”#!"
+
+ tradition_agot_fangmen_name:0 "In a Wilderness of Stone and Ice"
+ tradition_agot_fangmen_desc:0 "#italic “How many wildlings are there? How many men of fighting age? No one knows with certainty. The Frostfangs are cruel, inhospitable, a wilderness of stone and ice. They will not long sustain any great number of people. I can see only one purpose in this gathering.”#!"
+
+ tradition_agot_forestmen_name:0 "Unbending Knees"
+ tradition_agot_forestmen_desc:0 "#italic “We free folk know things you kneelers have forgotten. Sometimes the short road is not the safest, Jon Snow. The Horned Lord once said that sorcery is a sword without a hilt. There is no safe way to grasp it.”#!"
+
+ tradition_agot_frozen_shoremen_name:0 "With Tusk and Pick"
+ tradition_agot_frozen_shoremen_desc:0 "#italic “... and even queerer places: the men of the Frozen Shore who rode in chariots made of walrus bones pulled along by packs of savage dogs,”#!"
+
+ tradition_agot_hornfoots_name:0 "Keep Your Feet"
+ tradition_agot_hornfoots_desc:0 "#italic “With his own eyes Jon had beheld the Hornfoot men trotting along in column on bare soles as hard as boiled leather.”#!"
+
+ tradition_agot_ice_river_clans_name:0 "A Flicker of Melted Ice"
+ tradition_agot_ice_river_clans_desc:0 "#italic “the terrible ice-river clans who were said to feast on human flesh,”#!"
+
+ tradition_agot_lake_folk_name:0 "Let It Go"
+ tradition_agot_lake_folk_desc:0 "#italic “The snow was knee deep everywhere but where the men had shoveled it away, to hack holes into the frozen ground with axe and spade and pick. The wind was swirling from the west, driving still more snow across the frozen surface of the lakes.”#!"
+
+ tradition_agot_milkwatermen_name:0 "Valley of Kings and Heroes"
+ tradition_agot_milkwatermen_desc:0 "#italic “...they opened a hundred graves . . . graves of kings and heroes, all over the valley of the Milkwater, but they never . . .”#!"
+
+ tradition_agot_nightrunners_name:0 "Dancing in the Pale Moonlight"
+ tradition_agot_nightrunners_desc:0 "#italic “...making peace between Harma Dogshead and the Lord o' Bones, between the Hornfoots and the Nightrunners,”#!"
+
+ tradition_agot_moon_clans_name:0 "Fury from Above"
+ tradition_agot_moon_clans_desc:0 "#italic “... but many more fled westward to the high valleys and stony passes of the Mountains of the Moon. There the descendants of this once-proud people dwell to this very day, leading short, savage, brutal lives amongst the peaks as bandits and outlaws, preying upon any man fool enough to enter their mountains without a strong escort. Little better than the free folk beyond the Wall, these mountain clans, too, are called wildlings by the civilized.”#!"
