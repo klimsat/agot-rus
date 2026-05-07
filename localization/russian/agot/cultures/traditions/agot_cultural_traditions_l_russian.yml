@@ -20,10 +20,12 @@
  culture_parameter_forder_trait_bonuses:0 "#italic Из рек#!: [traits|E] [GetTrait('forder').GetName( GetNullCharacter )] дают дополнительные бонусы"
  culture_parameter_rough_terrain_trait_bonuses:0 "[traits|E] [GetTrait('rough_terrain_expert').GetName( GetNullCharacter )] дают дополнительные бонусы"
  culture_parameter_can_recruit_forder_specialist:0 "Получает [decision|El] для найма [Concept('commanders', 'командиров')|E] с [Concept('traits', 'свойством')|E] [GetTrait('forder').GetName( GetNullCharacter )]."
- culture_parameter_can_have_paramours:0 "Персонажи могут открыто иметь любовниц, выбранных по любви, а не ради политических союзов"
+ culture_parameter_can_have_paramours:0 "Персонажи могут иметь [Concept('agot_paramour', 'парамуров')|E]"
  culture_parameter_the_mark_trait_gives_bonuses:0 "#italic Дети волн#!: [traits|E] [GetTrait('the_mark').GetName( GetNullCharacter )] дают дополнительные бонусы"
  culture_parameter_cheaper_tour_activity:0 "Занятие «[GetActivityType( 'activity_tour' ).GetName]» обходится на #P 10%#! дешевле"
  cheaper_tour_activity_discount:0 "#L [GetPlayer.GetCulture.GetCollectiveNoun]ая#! [Concept('culture', 'культура')|E]" # multiplier desc
+ culture_parameter_hunts_cd_ten_percent_quicker:0 "Задержка между [Concept('activity', 'занятиями')|E] «[GetActivityType('activity_hunt').GetName]»: #P -10% #!"
+ culture_parameter_more_likely_to_steal_artifacts:0 "Представители этой культуры чаще похищают [artifacts|E] в битвах или налётах"
 
  #Child Traits
  culture_parameter_bossy_trait_more_common:0 "[children|E] с большей вероятностью получат [Concept('trait', 'свойство')|E] «[GetTrait('bossy').GetName( GetNullCharacter )]»"
@@ -37,7 +39,8 @@
  culture_parameter_dragon_dreams_more_common:0 "[trait|E] «[GetTrait('dragon_dreams').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_cannibal_trait_is_more_common:0 "[trait|E] «[GetTrait('cannibal').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_greensight_more_common:0 "[trait|E] «[GetTrait('greensight').GetName( GetNullCharacter )]» встречается чаще"
- culture_parameter_fashionable_trait_more_common:0 "[Concept('trait', 'Свойство')|E] «[GetTrait('fashionable').GetName( GetNullCharacter )]» встречается чаще"
+ culture_parameter_fashionable_trait_more_common:0 "[trait|E] «[GetTrait('fashionable').GetName( GetNullCharacter )]» встречается чаще"
+ culture_parameter_deceitful_trait_more_common:0 "[trait|E] «[GetTrait('deceitful').GetName( GetNullCharacter )]» встречается чаще"
 
  #Commander Traits
  culture_parameter_organizer_trait_more_common:0 "[commander_trait|E] «[GetTrait('organizer').GetName( GetNullCharacter )]» встречается чаще"
@@ -65,6 +68,9 @@
  culture_parameter_cannibal_trait_more_valued:0 "[trait|E] «[GetTrait('cannibal').GetName( GetNullCharacter )]» ценится выше"
  culture_parameter_poet_trait_more_valued: "[trait|E] «[GetTrait('lifestyle_poet').GetName( GetNullCharacter )]» ценится выше"
  culture_parameter_vengeful_trait_more_valued:0 "[trait|E] «[GetTrait('vengeful').GetName( GetNullCharacter )]» ценится выше"
+ culture_parameter_strong_trait_more_valued:0 "[trait|E] «[GetTrait('strong').GetName( GetNullCharacter )]» ценится выше"
+ culture_parameter_arrogant_trait_more_valued:0 "[trait|E] «[GetTrait('arrogant').GetName( GetNullCharacter )]» ценится выше"
+ culture_parameter_reaver_trait_more_valued:0 "[trait|E] «[GetTrait('reaver').GetName( GetNullCharacter )]» ценится выше"
 
  #Trait Looked Down Upon
  culture_parameter_slave_master_trait_looked_down_upon:0 "[trait|E] «[GetTrait('slave_master').GetName( GetNullCharacter )]» презирается"
@@ -102,10 +108,16 @@
  culture_parameter_better_barracks_bonuses:0 "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_barracks_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_better_orchard_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_orchards_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_better_caravanserai_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_caravanserai_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
+ culture_parameter_better_gathering_hall_bonuses:0 "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_longhouses_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_better_mine_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_agot_gold_mines_01$#! и #V $building_type_agot_silver_mines_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_watermills_without_innovations_unlock:0 "Для строительства цепочки [Concept('buildings', 'зданий')|E] #V $building_type_watermills_01$#! не требуется инновация"
- culture_parameter_control_gain_on_building_complete:0 "Завершение строительства [Concept('building', 'здания')|E] предоставляет #P 15#! [Concept('control', 'контроля')|E] #weak (до одного раза в год)#!"
+ culture_parameter_piety_per_blacksmith_level:0 "Получаете на #10% больше ежемесячного [Concept('piety', 'благочестия')|E] за каждый уровень #V $building_type_blacksmiths_01$"
  culture_parameter_piety_gain_on_building_complete:0 "Завершение строительства [Concept('building', 'здания')|E] предоставляет [Concept('piety', 'благочестие')|E]"
+ culture_parameter_control_gain_on_building_complete:0 "Завершение строительства [Concept('building', 'здания')|E] предоставляет #P 15#! [Concept('control', 'контроля')|E] #weak (до одного раза в год)#!"
+
+ #Naming
+ culture_parameter_uses_generic_milk_names:0 "Персонажи этой культуры используют [agot_milk_names|E] для новорождённых"
+ culture_parameter_uses_animal_milk_names:0 "Персонажи этой культуры используют [Concept('agot_milk_names', 'молочные имена')|E] на основе названий животных для новорождённых"
 
  #Misc
  culture_parameter_shortened_truce_period:0 "Снижение продолжительности [Concept('truces', 'перемирий')|E]"
@@ -188,17 +200,11 @@
  tradition_agot_wildling_name:0 "Свирепые, жестокие и одичалые"
  tradition_agot_wildling_desc:0 "Пока большинство народов и обществ развивается и растёт, существуют группы, отказывающиеся склониться перед прогрессом — как это видно по множеству одичалых в Вестеросе. Большинство из них живёт за Стеной, но отдельные племена встречаются и в Лунных горах. Эти племенные общины свирепы, пусть и не слишком развиты, и в больших количествах способны стать угрозой."
 
- tradition_agot_moon_clan_name:0 "Над заходящим солнцем"
- tradition_agot_moon_clan_desc:1 "В глубине Лунных гор обитают горные кланы, самые дикие и нецивилизованные люди к югу от Стены. Они - последние истинные остатки Первых людей в Долине, их горный дом защищает их от натиска андалов, оставляя им возможность продолжать свой примитивный образ жизни без особого вмешательства извне."
-
  tradition_agot_rushlander_name:0 "Там, где реки встречаются с холмами"
  tradition_agot_rushlander_desc:1 "Культура, зародившаяся на границе Долины и Речных земель. Жители пограничья - выносливый народ, приспособленный к жизни как на холмах, так и на реках."
 
  tradition_agot_harsh_laws_name:0 "Суровое правление"
  tradition_agot_harsh_laws_desc:1 "Общество формирует законы. История показала, что суровая земля порождает суровых людей, а они, в свою очередь, создают суровые законы, чтобы править."
-
- tradition_agot_thenn_name:0 "Последние из первых"
- tradition_agot_thenn_desc:1 "Известные как более «утончённые» из вольного народа среди тех, кто живёт к югу от Стены, тенны считают себя последними оставшимися Первыми людьми. Жители горной долины на вершинах Клыков Мороза больше общаются с великанами, чем с представителями других культур, но им удалось выучить несколько слов или предложений на общем языке, хотя они никогда не отходили от старого языка, на котором говорят и по сей день. Гордясь своей верой в Магнара, тенны несколько более дисциплинированны и организованны, чем другие представители вольного народа, и сумели собрать внушительный бронзовый арсенал. Хотя те, кто живёт к югу от Стены, могут считать теннов дикарями, они более чем способны, и часто вступают в конфликты с Ночным Дозором."
 
  tradition_agot_andalos_name:0 "Холмы под звёздами"
  tradition_agot_andalos_desc:0 "Именно Хугор был помазан Семи ликами Единого на холме в Андалосе семью звёздами и призван привести андалов в Вестерос - их божественную награду за соблюдение договора с Семи ликами Единого."
@@ -466,3 +472,36 @@
 
  tradition_agot_greenblood_name: "Баржи Зеленокровной и Плети"
  tradition_agot_greenblood_desc: "#italic «Некоторые ройнары оплакивали потерю кораблей и вместо того, чтобы целовать свою новую землю, они исследовали воды Зеленокровной, найдя её лишь бледной тенью Матери-Ройны, которой они продолжали поклоняться. Они существуют и по сей день, известные как сироты Зеленокровной».#!"
+ 
+ tradition_agot_thenns_name:0 "Последние из первых"
+ tradition_agot_thenns_desc:0 "#italic “...магнар Тенна, которого собственный народ почитал скорее богом, чем лордом;”#!"
+
+ tradition_agot_cave_dweller_name:0 "В глубинах земли"
+ tradition_agot_cave_dweller_desc:0 "#italic “Всё глубже он уходил, всё глубже, а когда попытался повернуть назад, знакомые пути упирались в камень вместо неба. Вскоре его факелы начали гаснуть один за другим, пока наконец не осталась лишь тьма. Народ Генделя больше никто не видел, но тихой ночью можно услышать, как дети детей их детей рыдают под холмами, всё ещё ища путь наверх. Слышите? Вы слышите их?”#!"
+
+ tradition_agot_fangmen_name:0 "В пустоши камня и льда"
+ tradition_agot_fangmen_desc:0 "#italic “Сколько там одичалых? Сколько мужчин боевого возраста? Никто не знает наверняка. Клыки Мороза жестоки, негостеприимны — это пустошь камня и льда. Они не смогут долго прокормить большое число людей. Я вижу лишь одну цель у этого сборища.”#!"
+
+ tradition_agot_forestmen_name:0 "Непреклонённые колени"
+ tradition_agot_forestmen_desc:0 "#italic “Мы, вольный народ, знаем то, что вы, коленопреклонённые, забыли. Иногда короткая дорога не самая безопасная, Джон Сноу. Рогатый Лорд однажды сказал, что колдовство — это меч без рукояти. Нет безопасного способа за него ухватиться.”#!"
+
+ tradition_agot_frozen_shoremen_name:0 "Клыком и киркой"
+ tradition_agot_frozen_shoremen_desc:0 "#italic “...и ещё более странные места: людей Ледяного Берега, что ездили в колесницах из моржовых костей, которые тащили стаи свирепых псов,”#!"
+
+ tradition_agot_hornfoots_name:0 "Крепко стойте на ногах"
+ tradition_agot_hornfoots_desc:0 "#italic “Своими глазами Джон видел, как рогоногие мужчины бежали колонной на босых подошвах, твёрдых, как варёная кожа.”#!"
+
+ tradition_agot_ice_river_clans_name:0 "Мерцание талого льда"
+ tradition_agot_ice_river_clans_desc:0 "#italic “ужасные кланы Ледяной реки, о которых говорили, будто они пируют человеческой плотью,”#!"
+
+ tradition_agot_lake_folk_name:0 "Пусть уходит"
+ tradition_agot_lake_folk_desc:0 "#italic “Снег всюду был по колено, кроме тех мест, где люди отгребли его, чтобы топорами, лопатами и кирками прорубать ямы в промёрзшей земле. Ветер кружил с запада, гоня всё новый снег по замёрзшей поверхности озёр.”#!"
+
+ tradition_agot_milkwatermen_name:0 "Долина королей и героев"
+ tradition_agot_milkwatermen_desc:0 "#italic “...они вскрыли сотню могил . . . могил королей и героев, по всей долине Молочной Воды, но так и не . . .”#!"
+
+ tradition_agot_nightrunners_name:0 "Танцуя в бледном лунном свете"
+ tradition_agot_nightrunners_desc:0 "#italic “...миря Харму Пёсью Голову с Владыкой Костей, рогоногих с ночными бегунами,”#!"
+
+ tradition_agot_moon_clans_name:0 "Ярость с высоты"
+ tradition_agot_moon_clans_desc:0 "#italic “...но куда больше их бежало на запад, в высокие долины и каменистые перевалы Лунных гор. Там потомки этого некогда гордого народа живут и по сей день, проводя короткие, дикие и жестокие жизни среди вершин как разбойники и изгнанники, нападая на всякого глупца, который войдёт в их горы без сильной охраны. Эти горные кланы, немногим лучше вольного народа за Стеной, цивилизованные люди тоже зовут одичалыми.”#!"
