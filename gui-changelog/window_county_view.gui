@@ -149,7 +149,7 @@ window = {
 							name = "foreign_county"
 							#AGOT Modified
 							# visible = "[Not(Or(ObjectsEqual( Character.Self, GetPlayer ),Character.IsOtherLiegeOrAbove( GetPlayer )))]"
-							visible = "[And(Not(HasIronThroneTopLiege), Not(Or(ObjectsEqual( Character.Self, GetPlayer ),Character.IsOtherLiegeOrAbove( GetPlayer ))))]"
+							visible = "[And(Not(HasIronThroneTopLiege), Not(Or(ObjectsEqual(Character.Self, GetPlayer), Character.IsOtherLiegeOrAbove(GetPlayer))))]"
 							layoutpolicy_horizontal = expanding
 							#AGOT Modified
 							# text = "HOLDING_VIEW_FOREIGN_COUNTY"
@@ -1698,7 +1698,7 @@ window = {
 					background = {
 						#AGOT Modified
 						# visible = "[And(NotEqualTo_uint32( HoldingView.GetCountyTitle.GetHolder.GetID, HoldingView.GetTitle.GetLesseeOrHolder.GetID ), HoldingView.GetTitle.HasHolder)]"
-						visible = "[And(ProvinceIsNotHidden, And(NotEqualTo_uint32( HoldingView.GetCountyTitle.GetHolder.GetID, HoldingView.GetTitle.GetLesseeOrHolder.GetID ), HoldingView.GetTitle.HasHolder))]"
+						visible = "[And(ProvinceIsNotHidden, And(NotEqualTo_uint32(HoldingView.GetCountyTitle.GetHolder.GetID, HoldingView.GetTitle.GetLesseeOrHolder.GetID), HoldingView.GetTitle.HasHolder))]"
 
 						texture = "gfx/interface/skinned/mask_pattern.dds"
 						texture_density = 3
@@ -1769,7 +1769,7 @@ window = {
 								datacontext = "[HoldingView.GetTitle.GetLesseeOrHolder]"
 								#AGOT Modified
 								# visible = "[And( NotEqualTo_uint32( HoldingView.GetCountyTitle.GetHolder.GetID, HoldingView.GetProvince.GetTitle.GetLesseeOrHolder.GetID ), HoldingView.GetTitle.HasHolder )]"
-								visible = "[And(ProvinceIsNotHidden, And( NotEqualTo_uint32( HoldingView.GetCountyTitle.GetHolder.GetID, HoldingView.GetProvince.GetTitle.GetLesseeOrHolder.GetID ), HoldingView.GetTitle.HasHolder ))]"
+								visible = "[And(ProvinceIsNotHidden, And(NotEqualTo_uint32(HoldingView.GetCountyTitle.GetHolder.GetID, HoldingView.GetProvince.GetTitle.GetLesseeOrHolder.GetID), HoldingView.GetTitle.HasHolder))]"
 								allow_outside = yes
 								size = { 85 90 }
 

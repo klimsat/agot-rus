@@ -19,7 +19,7 @@ types Title
 		button_primary = {
 			tooltip = "agot_pirate_higher_tier_title_decision_tooltip"
 			datacontext = "[GetDecisionWithKey('agot_pirate_higher_tier_title_decision')]"
-			onclick = "[OpenGameViewData( 'decision_detail', Decision.Self)]"
+			onclick = "[OpenGameViewData('decision_detail', Decision.Self)]"
 
 			hbox = {
 				layoutpolicy_horizontal = expanding
@@ -74,14 +74,15 @@ types Title
 
 	type agot_show_pirate_designated_heir_for_landless = hbox
 	{
-		visible = "[And(TitleViewWindow.GetTitle.GetHolder.MakeScope.Var('appointed_pirate_jank_heir').IsSet,TitleViewWindow.GetTitle.MakeScope.Var('is_pirate_domicile').IsSet)]"
+		visible = "[And(TitleViewWindow.GetTitle.GetHolder.MakeScope.Var('appointed_pirate_jank_heir').IsSet, TitleViewWindow.GetTitle.MakeScope.Var('is_pirate_domicile').IsSet)]"
 		portrait_head_small = {
 			datacontext = "[TitleViewWindow.GetTitle.GetHolder.GetRelationOfType( GetRelation('pirate_ship_designated_heir'))]"
 		}
 	}
+
 	type agot_show_pirate_designated_heir_for_landed = hbox
 	{
-		visible = "[And(TitleViewWindow.GetTitle.MakeScope.Var('is_pirate_domicile').IsSet,Not(TitleViewWindow.GetTitle.GetHolder.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet))]"
+		visible = "[And(TitleViewWindow.GetTitle.MakeScope.Var('is_pirate_domicile').IsSet, Not(TitleViewWindow.GetTitle.GetHolder.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet))]"
 		portrait_head_small = {
 			datacontext = "[TitleViewWindow.GetTitle.GetHolder.GetPlayerHeir]"
 			visible = "[TitleViewWindow.GetTitle.GetHolder.GetPlayerHeir.IsValid]"

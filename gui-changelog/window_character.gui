@@ -766,6 +766,91 @@ window = {
 					}
 					expand = {}
 				}
+
+				# AGOT Added
+				### Pre War Liege
+				vbox = {
+					name = "pre_war_liege_etc_area"
+					datacontext = "[CharacterWindow.GetCharacter.MakeScope.Var('pre_war_liege').Char]"
+					visible = "[CharacterWindow.GetCharacter.MakeScope.Var( 'pre_war_liege' ).Char.IsValid]"
+					allow_outside = yes
+
+					margin_right = 20
+					layoutpolicy_vertical = expanding
+					using = Animation_Character_Window_Refresh
+
+					portrait_head_small = {
+						name = "liege_portrait" #tutorial uses this
+						blockoverride "portrait_transformation"
+						{
+							portrait_scale = { -1 1 }
+							portrait_offset = { 1 0 }
+						}
+
+						blockoverride "coa" {
+							coa_realm_tiny = {
+								visible = "[And(CharacterWindow.GetCharacter.IsAlive, CharacterWindow.GetCharacter.MakeScope.Var( 'pre_war_liege' ).Char.IsValid)]"
+								parentanchor = bottom|left
+								position = { 3 -2 }
+								scale = 0.85
+							}
+
+							coa_title_tiny = {
+								visible = "[And(Not(CharacterWindow.GetCharacter.IsAlive), CharacterWindow.GetCharacter.MakeScope.Var( 'pre_war_liege' ).Char.IsValid)]"
+								datacontext = "[CharacterWindow.GetCharacter.MakeScope.Var('pre_war_liege').Char]"
+								parentanchor = bottom|left
+								position = { 3 -2 }
+								scale = 0.85
+							}
+						}
+					}
+					
+					hbox = {
+						spacing = 3
+
+						datacontext = "[CharacterWindow.GetCharacter]"
+
+						text_label_center = {
+							text = "[Concept('liege', 'Pre-War Liege')|E]"
+						}
+					}
+
+					portrait_opinion = {
+						name = "pre_war_liege_opinion"
+
+						datacontext = "[CharacterWindow.GetCharacter]"
+						visible = "[And( Character.MakeScope.Var('pre_war_liege').Char.IsValid, And( Character.IsAlive, Not(Character.IsLocalPlayer ) ) )]"
+
+						blockoverride "dread_logic" {
+							visible = "[Character.ShouldShowDreadEffectIconFor( Character.MakeScope.Var( 'pre_war_liege' ).Char )]"
+							frame = "[Character.GetDreadEffectIconFrameFor( Character.MakeScope.Var( 'pre_war_liege' ).Char )]"
+							tooltip = "[Character.GetDreadEffectTooltipFor( Character.MakeScope.Var( 'pre_war_liege' ).Char )]"
+						}
+
+						blockoverride "opinion_text"
+						{
+							text = "[Character.GetOpinionOf( Character.MakeScope.Var( 'pre_war_liege' ).Char )|=]"
+							fonttintcolor = "[Character.GetOpinionOfTint( CharacterWindow.GetCharacter.MakeScope.Var( 'pre_war_liege' ).Char )]"
+						}
+
+						blockoverride "ott_heading_text"
+						{
+							text = "[Character.GetOpinionHeadingText( CharacterWindow.GetCharacter.MakeScope.Var( 'pre_war_liege' ).Char )]"
+						}
+
+						blockoverride "ott_opinion_value_text"
+						{
+							text = "[Character.GetOpinionOf( Character.MakeScope.Var( 'pre_war_liege' ).Char )|=]"
+							fonttintcolor = "[Character.GetOpinionOfTint( CharacterWindow.GetCharacter.MakeScope.Var( 'pre_war_liege' ).Char )]"
+						}
+
+						blockoverride "ott_opinion_breakdown_text"
+						{
+							text = "[Character.GetOpinionBreakdownText( CharacterWindow.GetCharacter.MakeScope.Var( 'pre_war_liege' ).Char )]"
+						}
+					}
+					expand = {}
+				}
 			}
 
 			### Host

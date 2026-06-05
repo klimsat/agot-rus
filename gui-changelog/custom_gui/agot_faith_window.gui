@@ -6,7 +6,7 @@ types FaithWindow
 {
 	type agot_faith_doctrine_insert = fixedgridbox
 	{
-		datamodel = "[FaithWindow.GetCategoryHelper( 'special' ).GetCategory]"
+		datamodel = "[FaithWindow.GetCategoryHelper('special').GetCategory]"
 		flipdirection = yes
 		addcolumn = 230
 		addrow = 65
@@ -27,7 +27,7 @@ types FaithWindow
 					using = Background_Area
 				}
 
-				text = "[FaithDoctrine.GetNameNoTooltip( DoctrineItem.GetFaith )]"
+				text = "[FaithDoctrine.GetNameNoTooltip(DoctrineItem.GetFaith)]"
 				align = nobaseline
 				tooltip = "FAITH_WINDOW_DOCTRINE_TOOLTIP_WITH_FAITH"
 				using = tooltip_es
@@ -42,18 +42,18 @@ template agot_faith_window_state_changes
 		name = "patron_dismiss"
 		next = _show
 
-		on_start = "[GetVariableSystem.Set( 'faith_view_tabs', 'beliefs' )]"
-		trigger_when = "[And( GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' ), Not(GetScriptedGui('religion_has_patron_gods').IsShown(GuiScope.SetRoot(FaithWindow.GetFaith.MakeScope).End)))]"
-		on_finish = "[GetScriptedGui('clear_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		on_start = "[GetVariableSystem.Set('faith_view_tabs', 'beliefs')]"
+		trigger_when = "[And(GetVariableSystem.HasValue('faith_view_tabs', 'patron'), Not(GetScriptedGui('religion_has_patron_gods').IsShown(GuiScope.SetRoot(FaithWindow.GetFaith.MakeScope).End)))]"
+		on_finish = "[GetScriptedGui('clear_patron_god_list').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 	}
 	state = {
 		name = "faith_change"
 		next = _show
 
-		on_start = "[GetScriptedGui('clear_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-		trigger_when = "[Not(ObjectsEqual( GetPlayer.MakeScope.Var('selected_faith').Faith, Faith.Self ))]"
-		on_finish = "[GetScriptedGui('faith_switch_effect').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('faith', FaithWindow.GetFaith.MakeScope).End)]"
-		on_finish = "[GetScriptedGui('get_patron_god_list').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('faith', FaithWindow.GetFaith.MakeScope).End)]"
+		on_start = "[GetScriptedGui('clear_patron_god_list').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+		trigger_when = "[Not(ObjectsEqual(GetPlayer.MakeScope.Var('selected_faith').Faith, Faith.Self))]"
+		on_finish = "[GetScriptedGui('faith_switch_effect').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('faith', FaithWindow.GetFaith.MakeScope).End)]"
+		on_finish = "[GetScriptedGui('get_patron_god_list').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('faith', FaithWindow.GetFaith.MakeScope).End)]"
 	}
 }
 
@@ -61,11 +61,11 @@ types PatronWindow
 {
 	type agot_patron_tab_button = button_tab {
 		shortcut = "tab_3"
-		onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'patron' )]"
-		down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' )]"
+		onclick = "[GetVariableSystem.Set('faith_view_tabs', 'patron')]"
+		down = "[GetVariableSystem.HasValue('faith_view_tabs', 'patron')]"
 		visible = "[GetScriptedGui('religion_has_patron_gods').IsShown(GuiScope.SetRoot(FaithWindow.GetFaith.MakeScope).End)]"
 
-		alwaystransparent = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' )]"
+		alwaystransparent = "[GetVariableSystem.HasValue('faith_view_tabs', 'patron')]"
 
 		blockoverride "tab_label"
 		{
@@ -78,7 +78,7 @@ types PatronWindow
 		blockoverride "tab_icon"
 		{
 			texture = "gfx/interface/icons/flat_icons/patron.dds"
-			down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' )]"
+			down = "[GetVariableSystem.HasValue('faith_view_tabs', 'patron')]"
 		}
 	}
 
@@ -159,7 +159,7 @@ types PatronWindow
 
 		button_standard = {
 			size = { 760 130 }
-			enabled = "[Or(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName), ScriptedGui.IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('faith', FaithWindow.GetFaith.MakeScope).End))]"
+			enabled = "[Or(EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('faith', FaithWindow.GetFaith.MakeScope).End))]"
 			modify_texture = {
 				name = "overlay"
 				texture = "gfx/interface/buttons/button_standard_overlay.dds"
@@ -173,19 +173,19 @@ types PatronWindow
 
 			onclick = "[GetVariableSystem.Set('selected_patron', Scope.GetFlagName)]"
 			onclick = "[GetVariableSystem.Set('show_patron_select_confirm', 'true')]"
-			#onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag( GetVariableSystem.Get( 'selected_patron' ))).End )]"
+			#onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('patron_name', MakeScopeFlag(GetVariableSystem.Get('selected_patron'))).End)]"
 
 			hbox = {
 				icon = { # Standard
-					visible = "[GetScriptedGui('has_this_patron_god').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag( Scope.GetFlagName)).End)]"
+					visible = "[GetScriptedGui('has_this_patron_god').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('patron_name', MakeScopeFlag(Scope.GetFlagName)).End)]"
 					size = { 130 130 }
 					texture = "[GetCultureInnovationType(Concatenate(Scope.GetFlagName, '_patron_icon')).GetIcon]"
 					using = Mask_Rough_Edges
 					alpha = 0.75
 				}
 				icon = { # PATRON_ICON_DARK
-					visible = "[Not(GetScriptedGui('has_this_patron_god').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag(Scope.GetFlagName)).End))]"
-					#visible = "[Or(Not(GetScriptedGui('has_this_patron_god').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag(Scope.GetFlagName)).End)),Not(ScriptedGui.IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).End)))]"
+					visible = "[Not(GetScriptedGui('has_this_patron_god').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('patron_name', MakeScopeFlag(Scope.GetFlagName)).End))]"
+					#visible = "[Or(Not(GetScriptedGui('has_this_patron_god').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('patron_name', MakeScopeFlag(Scope.GetFlagName)).End)), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
 					size = { 130 130 }
 					texture = "[GetCultureInnovationType(Concatenate(Scope.GetFlagName, '_patron_icon')).GetIcon]"
 					using = Mask_Rough_Edges
@@ -196,7 +196,7 @@ types PatronWindow
 						alpha = 0.65
 					}
 					modify_texture = {
-						visible = "[Or(Not(GetScriptedGui('has_this_patron_god').IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'patron_name', MakeScopeFlag(Scope.GetFlagName)).End)),Not(ScriptedGui.IsValid(GuiScope.SetRoot( GetPlayer.MakeScope ).End)))]"
+						visible = "[Or(Not(GetScriptedGui('has_this_patron_god').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('patron_name', MakeScopeFlag(Scope.GetFlagName)).End)), Not(ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
 						texture = "gfx/interface/colors/grey.dds"
 						blend_mode = normal
 						alpha = 0.25
@@ -233,11 +233,11 @@ types PatronWindow
 
 							text_multi = { # Desc not highlighted
 								size = { 300 60 }
-								visible = "[Not(And(GetVariableSystem.HasValue( 'show_patron_modifiers', StaticModifier.GetName ), ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)))]"
+								visible = "[Not(And(GetVariableSystem.HasValue('show_patron_modifiers', StaticModifier.GetName), ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)))]"
 								parentanchor = left
 								default_format = "#low"
 								block "flavor_text" {
-									text = "[Localize( Concatenate( 'patron_god_desc_', Scope.GetFlagName ))]"
+									text = "[Localize(Concatenate('patron_god_desc_', Scope.GetFlagName))]"
 								}
 								autoresize = yes
 								fontsize = 13
@@ -245,11 +245,11 @@ types PatronWindow
 							}
 							text_multi = { # Desc highlighted
 								size = { 300 60 }
-								visible = "[EqualTo_string( GetPlayer.MakeScope.Var( 'patron_god' ).GetFlagName, Scope.GetFlagName )]"
+								visible = "[EqualTo_string(GetPlayer.MakeScope.Var('patron_god').GetFlagName, Scope.GetFlagName)]"
 								parentanchor = left
 								default_format = "#high"
 								block "flavor_text" {
-									text = "[Localize( Concatenate( 'patron_god_desc_', Scope.GetFlagName ))]"
+									text = "[Localize(Concatenate('patron_god_desc_', Scope.GetFlagName))]"
 								}
 								autoresize = yes
 								fontsize = 13
@@ -371,7 +371,7 @@ types PatronWindow
 					layoutpolicy_horizontal = expanding
 					button_primary_big = {
 						text = patron_select_confirm
-						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('patron_name', MakeScopeFlag(GetVariableSystem.Get('selected_patron'))).End )]"
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('patron_name', MakeScopeFlag(GetVariableSystem.Get('selected_patron'))).End )]"
 						onclick = "[GetVariableSystem.Set('show_patron_select_confirm', 'false')]"
 					}
 				}

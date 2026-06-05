@@ -1307,7 +1307,7 @@ types MyRealmWindow
 				text_label_center = {
 					#AGOT Modified
 					# visible = "[IsLandlessAdventurer( Character )]"
-					visible = "[And(IsLandlessAdventurer(Character),Not(IsPirate(Character)))]"
+					visible = "[And(IsLandlessAdventurer(Character), Not(IsPirate(Character)))]"
 					text = "[camp_purpose|E]"
 				}
 				#AGOT Added
@@ -1650,7 +1650,7 @@ types MyRealmWindow
 				text_single = {
 					#AGOT Modified
 					# visible = "[GuiLaw.IsEnacted]"
-					visible = "[And(Not(IsPirate(Character)),GuiLaw.IsEnacted)]"
+					visible = "[And(Not(IsPirate(Character)), GuiLaw.IsEnacted)]"
 					parentanchor = center
 					position = { 3 -2 }
 
@@ -2583,7 +2583,7 @@ types MyRealmWindow
 				name = "their_partition_share"
 				#AGOT Modified
 				# visible = "[And( MyRealmWindow.HasPartition, DataModelHasItems( MyRealmWindow.GetMyPartitionShare ) )]"
-				visible = "[And(Not(MyRealmWindow.GetCharacter.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet),And( MyRealmWindow.HasPartition, DataModelHasItems( MyRealmWindow.GetMyPartitionShare ) ))]"
+				visible = "[And(Not(MyRealmWindow.GetCharacter.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet), And(MyRealmWindow.HasPartition, DataModelHasItems(MyRealmWindow.GetMyPartitionShare)))]"
 				layoutpolicy_horizontal = expanding
 
 				margin_left = 5
@@ -3800,7 +3800,7 @@ types MyRealmWindow
 			name = "no_heir_warning"
 			#AGOT Modified
 			# visible = "[Not( MyRealmWindow.HasHeir )]"
-			visible = "[And(Not(MyRealmWindow.GetCharacter.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet),Not( MyRealmWindow.HasHeir ))]"
+			visible = "[And(Not(MyRealmWindow.GetCharacter.GetPrimaryTitle.MakeScope.Var('is_pirate_domicile').IsSet), Not(MyRealmWindow.HasHeir))]"
 			margin = { 0 4 }
 
 			text = "MY_REALM_WINDOW_NO_HEIR_FLAVOR"
@@ -4028,7 +4028,7 @@ types MyRealmWindow
 					{
 						#AGOT Modified
 						# visible = "[And( GuiLawGroup.IsAvailable, Not( GuiLawGroup.GetLawGroup.HasFlag( 'realm_law' ) ))]"
-						visible = "[Or( And( GuiLawGroup.IsAvailable, Not( GuiLawGroup.GetLawGroup.HasFlag( 'realm_law' ) )), And( Not( GuiLawGroup.GetLawGroup.HasFlag( 'all_realm_law' )), GuiLawGroup.IsAvailable ))]"
+						visible = "[Or(And(GuiLawGroup.IsAvailable, Not(GuiLawGroup.GetLawGroup.HasFlag('realm_law'))), And(Not(GuiLawGroup.GetLawGroup.HasFlag('all_realm_law')), GuiLawGroup.IsAvailable))]"
 					}
 				}
 			}

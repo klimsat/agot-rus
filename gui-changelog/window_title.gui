@@ -759,7 +759,7 @@ window = {
 								visible = "[And( And( Not(Character.IsLocalPlayer), TitleViewWindow.ShowUsurp ), Or( Not( IsNomad( GetPlayer ) ), GreaterThanOrEqualTo_int32( GetPlayer.GetPrimaryTitle.GetTierFrame, Title.GetTierFrame ) ) )]"
 								#AGOT Modified
 								# enabled = "[IsValidCommand( TitleViewWindow.GetUsurpTitle )]"
-								enabled = "[And( IsValidCommand( TitleViewWindow.GetUsurpTitle ), GetScriptedGui('agot_can_usurp_title').IsShown(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End))]"
+								enabled = "[And(IsValidCommand(TitleViewWindow.GetUsurpTitle), GetScriptedGui('agot_can_usurp_title').IsShown(GuiScope.SetRoot(TitleViewWindow.GetTitle.MakeScope).End))]"
 								onclick = "[CreateCommandPopup( TitleViewWindow.GetUsurpTitle )]"
 								tooltip = "[TitleViewWindow.GetUsurpTitleButtonTooltip]"
 
@@ -780,7 +780,7 @@ window = {
 					name = "create_title"
 					#AGOT Modified
 					# visible = "[And( And( Not( Title.IsBarony ), And( Not( TitleViewWindow.GetTitle.HasHolder ), Not( Title.IsNobleFamilyTitle ) ) ), Or( Not( IsNomad( GetPlayer ) ), GreaterThanOrEqualTo_int32( GetPlayer.GetPrimaryTitle.GetTierFrame, Title.GetTierFrame ) ) )]"
-					visible = "[And( And( Not( Title.IsBarony ), And( Not( TitleViewWindow.GetTitle.HasHolder ), Not( Title.IsNobleFamilyTitle ) ) ), Or( Not( Or(IsNomad(GetPlayer), IsPirate(GetPlayer)) ), GreaterThanOrEqualTo_int32( GetPlayer.GetPrimaryTitle.GetTierFrame, Title.GetTierFrame ) ) )]"
+					visible = "[And(And(Not(Title.IsBarony), And(Not(TitleViewWindow.GetTitle.HasHolder), Not(Title.IsNobleFamilyTitle))), Or(Not(Or(IsNomad(GetPlayer), IsPirate(GetPlayer))), GreaterThanOrEqualTo_int32(GetPlayer.GetPrimaryTitle.GetTierFrame, Title.GetTierFrame)))]"
 					margin = { 0 25 }
 					spacing = 15
 
@@ -1076,7 +1076,7 @@ window = {
 								text_multi = {
 									#AGOT Modified
 									# visible = "[Not(And( InDebugMode, TitleViewWindow.GetTitle.HasLaws))]"
-									visible = "[And(Not(And( InDebugMode, TitleViewWindow.GetTitle.HasLaws)),Not(TitleViewWindow.GetTitle.MakeScope.Var('is_pirate_domicile').IsSet))]"
+									visible = "[And(Not(And(InDebugMode, TitleViewWindow.GetTitle.HasLaws)), Not(TitleViewWindow.GetTitle.MakeScope.Var('is_pirate_domicile').IsSet))]"
 									text = "[TitleViewWindow.GetSuccessionDescription]"
 									layoutpolicy_horizontal = expanding
 									margin = { 20 5 }

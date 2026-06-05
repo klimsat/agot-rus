@@ -241,7 +241,7 @@ window = {
 				onclick = "[GetVariableSystem.Set( 'faith_view_tabs', 'beliefs' )]"
 				#AGOT Modified
 				# down = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'beliefs' )]"
-				down = "[Not(Or(GetVariableSystem.HasValue( 'faith_view_tabs', 'holy_sites' ), GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' )))]"
+				down = "[Not(Or(GetVariableSystem.HasValue('faith_view_tabs', 'holy_sites'), GetVariableSystem.HasValue('faith_view_tabs', 'patron')))]"
 
 				alwaystransparent = "[GetVariableSystem.HasValue( 'faith_view_tabs', 'beliefs' )]"
 
@@ -916,7 +916,7 @@ window = {
 					name = "create_faith"
 					#AGOT Modified
 					# visible = "[And( ObjectsEqual(Faith.Self, GetPlayer.GetFaith ), GetVariableSystem.HasValue( 'faith_view_tabs', 'beliefs' ))]"
-					visible = "[Not(Or(GetVariableSystem.HasValue( 'faith_view_tabs', 'holy_sites' ), GetVariableSystem.HasValue( 'faith_view_tabs', 'patron' )))]"
+					visible = "[Not(Or(GetVariableSystem.HasValue('faith_view_tabs', 'holy_sites'), GetVariableSystem.HasValue('faith_view_tabs', 'patron')))]"
 					minimumsize = { 240 0 }
 
 					onclick = "[OpenGameViewData( 'faith_creation', Faith.GetID )]"
