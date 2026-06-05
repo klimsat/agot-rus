@@ -28,7 +28,6 @@
  culture_parameter_more_likely_to_steal_artifacts:0 "Members of this culture are more likely to steal [artifacts|E] in battles or raids"
  culture_parameter_immune_to_all_diseases_except_greyscale:0 "Members of this culture are immune to all diseases except for [GetTrait('greyscale').GetName( GetNullCharacter )], which they are always born with"
 
-
  #Child Traits
  culture_parameter_bossy_trait_more_common:0 "[children|E] are more likely to get the [GetTrait('bossy').GetName( GetNullCharacter )] [trait|E]"
  culture_parameter_curious_trait_more_common:0 "[children|E] are more likely to get the [GetTrait('curious').GetName( GetNullCharacter )] [trait|E]"
@@ -44,6 +43,7 @@
  culture_parameter_fashionable_trait_more_common:0 "The [GetTrait('fashionable').GetName( GetNullCharacter )] [trait|E] is more common"
  culture_parameter_possessed_trait_more_common:0 "The [GetTrait('possessed_1').GetName( GetNullCharacter )] [trait|E] is more common"
  culture_parameter_deceitful_trait_more_common:0 "The [GetTrait('deceitful').GetName( GetNullCharacter )] [trait|E] is more common"
+ culture_parameter_gregarious_trait_more_common:0 "The [GetTrait('gregarious').GetName( GetNullCharacter )] [trait|E] is more common"
 
  #Commander Traits
  culture_parameter_organizer_trait_more_common:0 "The [GetTrait('organizer').GetName( GetNullCharacter )] [commander_trait|E] is more common"
@@ -74,6 +74,7 @@
  culture_parameter_strong_trait_more_valued:0 "The [GetTrait('strong').GetName( GetNullCharacter )] [trait|E] is more valued"
  culture_parameter_arrogant_trait_more_valued:0 "The [GetTrait('arrogant').GetName( GetNullCharacter )] [trait|E] is more valued"
  culture_parameter_reaver_trait_more_valued:0 "The [GetTrait('reaver').GetName( GetNullCharacter )] [trait|E] is more valued"
+ culture_parameter_reveler_traits_increased_opinion:0 "The [GetTrait('lifestyle_reveler').GetName( GetNullCharacter )] [traits|E] are more valued"
 
  #Trait Looked Down Upon
  culture_parameter_slave_master_trait_looked_down_upon:0 "The [GetTrait('slave_master').GetName( GetNullCharacter )] [trait|E] is looked down upon"
@@ -91,6 +92,7 @@
  culture_parameter_dull_trait_looked_down_upon:0 "The [GetTrait('dull').GetName(GetNullCharacter)] [trait|E] is looked down upon"
  culture_parameter_eunuch_trait_is_looked_down_upon:0 "The [GetTrait('eunuch_1').GetName(GetNullCharacter)] [traits|E] and [GetTrait('beardless_eunuch').GetName(GetNullCharacter)] are looked down upon"
  culture_parameter_impatient_trait_is_looked_down_upon:0 "The [GetTrait('impatient').GetName(GetNullCharacter)] [trait|E] is looked down upon"
+ culture_parameter_sadistic_trait_looked_down_upon:0 "The [GetTrait('sadistic').GetName(GetNullCharacter)] [trait|E] is looked down upon"
 
  #Wanderers Extra Skills
  culture_parameter_wanderers_gain_extra_learning_skills:0 "[wanderers|E] gain extra knowledge skills over time, such as [learning|E] or [lifestyle_traits|E]"
@@ -113,11 +115,13 @@
  culture_parameter_better_orchard_bonuses:0 "The #V $building_type_orchards_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_better_caravanserai_bonuses:0 "The #V $building_type_caravanserai_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_better_gathering_hall_bonuses:0 "The #V $building_type_longhouses_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
+ culture_parameter_better_guild_bonuses:0 "The #V $building_type_guild_halls_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_better_mine_bonuses:0 "The #V $building_type_agot_gold_mines_01$#! and #V $building_type_agot_silver_mines_01$#! lines of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_watermills_without_innovations_unlock:0 "The #V $building_type_watermills_01$#! line of [buildings|E] do not require innovations to be built"
  culture_parameter_piety_per_blacksmith_level:0 "Gain #10% more monthly [piety|E] per #V $building_type_blacksmiths_01$ level"
  culture_parameter_piety_gain_on_building_complete:0 "Gain [piety|E] when a [building|E] is constructed"
  culture_parameter_control_gain_on_building_complete:0 "Gain #P 15#! [control|E] when a [building|E] is constructed #weak (up to once a year)#!"
+ culture_parameter_minor_development_gain_on_building_complete:0 "Gain #V 10#! [development_growth|E] when a [building|E] is constructed #weak (up to once a year)#!"
 
  #Naming
  culture_parameter_uses_generic_milk_names:0 "Characters of this culture use [agot_milk_names|E] for newborns"
@@ -156,20 +160,11 @@
  tradition_agot_valeman_finger_name:0 "Humble Service"
  tradition_agot_valeman_finger_desc:0 "The Fingers are a dreary, windswept place, so assailed by the winds from the frigid north that little vegetation grows near their tips. There is little living to be made for the smallfolk beyond herding grazing animals, as there's scant land to make usable cropland. Thus, the Fingermen live modest lives, and the goatherds and sharecroppers find some contentment in their unforgiving home."
 
- tradition_agot_honeywiner_name:0 "Soft and Sweet"
- tradition_agot_honeywiner_desc:0 "The men of the Honeywine and its surrounding lands are some of the most prosperous in all Westeros. With fertile lands and the great city of Oldtown, much trade flows through the river that gives the people their name. With the Citadel and Starry Sept, the area is a bastion of learning in Westeros, with even many smallfolk being lettered."
-
  tradition_agot_valeman_upper_name:0 "High Above"
  tradition_agot_valeman_upper_desc:0 "Set apart from their kin who make their homes in the Vale's fertile valleys, the men who dwell in the heights of the Mountains of the Moon are a far more rugged, stalwart folk. In times of war, it is they who man the first lines of defense against outside incursions, and with their lives at high altitude, it is also they who must deal most with incursions from the Mountain Clansmen."
 
- tradition_agot_reachman_name:0 "Greenhand's Glory"
- tradition_agot_reachman_desc:0 "The Reach is a prosperous and fertile land built on the backs of hardworking smallfolk. It is also a land of families with some of the oldest roots in Westeros, dating back to the mythical Garth Greenhand, from whom most prominent Reachmen families claim descent. With so many families striving for prominence in a wealthy land, the ties that bind them are stronger and more important than elsewhere in Westeros."
-
  tradition_agot_riverlands_name:0 "Rewards of the River"
  tradition_agot_riverlands_desc:0 "The Rivermen are a people often caught between the powers around them, yet they tend to thrive when they have a strong king of their own. The Trident and its tributaries define their lives more than anything else, and from these waters they prosper."
-
- tradition_agot_shieldman_name:0 "Guarding the Mander"
- tradition_agot_shieldman_desc:0 "Named after their primary function as a shield against Ironborn attacks, the Shield Isles are a collective of four well-fortified islands of the Reach, overseen by four separate houses. A loyal (although arguably isolated) people, those of the Shield Isles are known for their hardy temperaments and sense of duty. The islands are famous for their beacons, which elders in watchtowers light island by island to spread warnings of incoming longships to inland settlements. Above all else, those from the Shield Isles value themselves as a first line of naval defense."
 
  tradition_agot_stormlands_name:0 "Like Unto Their Weather"
  tradition_agot_stormlands_desc:0 "The Stormlanders are a hardy bunch, well known for their martial inclinations and their quickness to anger. The men and women of the Stormlands have weathered the wrath of men, nature, and even the gods themselves, and yet they not only remain, but prosper."
@@ -179,9 +174,6 @@
 
  tradition_agot_vale_name:0 "Mountain and Vale"
  tradition_agot_vale_desc:0 "The old kingdom of the Arryns is dominated by the Mountains of the Moon and the vales that run between them, chiefly the Vale of Arryn. These two features have isolated the peoples east of them from the rest of Westeros and united them."
-
- tradition_agot_vineman_name:0 "Wine, Women, and Song"
- tradition_agot_vineman_desc:0 "Ever since the coming of Gilbert of the Vines, the men of the Arbor have known but one thing: wine. The vineyards of the Arbor are legendary in Westeros and beyond for the quality wine they produce, and many a merchant and sailor set their anchors in Ryamsport to buy the finest Arbor reds."
 
  tradition_agot_north_name:0 "Bound by Bronze and Iron"
  tradition_agot_north_desc:0 "The Northrons, the men and women who call the North their home, are a grim and hardy people. United by the Hungry Wolf thousands of years ago, the peoples are as varied as the lands they call home, and yet all are bound by their ancient oaths."
@@ -200,6 +192,9 @@
 
  tradition_agot_dorne_rhoynish_heritage_name:0 "Children of the Mother Rhoyne"
  tradition_agot_dorne_rhoynish_heritage_desc:0 "Rhoynish civilization is ancient and illustrious. So deep is the history of the Rhoynar that some credit them with teaching the Andals how to smith and work with iron. Hailing from the city-states along the river Rhoyne, the Rhoynar worship numerous gods of the river and also have a special affinity for all manner of boats, from small fishing vessels to obscene pleasure barges. Rhoynish culture is notably different from that of the Andals, with equal inheritance being the norm for both women and men, and same-sex relations being accepted. The Rhoynar are known for embracing works of art and music, which may be partially why some Rhoynar cultural practices were so quick to catch on when the Rhoyne arrived in Dorne."
+
+ tradition_agot_reach_name:0 "Fruits of the Green"
+ tradition_agot_reach_desc:0 "The Reach is vast and bountiful, home to the largest farms and fields in Westeros — a land of plenty. Its people are famed for their knights and chivalry, as well as their longstanding enmity with the Dornish."
 
  tradition_agot_wildling_name:0 "Ferocious, Savage, and Wild"
  tradition_agot_wildling_desc:0 "Where the majority of peoples and societies progress and grow, there are groups that refuse to bow before progress, what can be seen by the many Wildlings in Westeros. The majority of them are found Beyond the Wall, but there are groups found in the Mountains of the Moon. These tribal groups are fierce, if undeveloped, and can become threats in large numbers."
@@ -515,3 +510,15 @@
 
  tradition_agot_stonemen_name:0 "Kissed by the Grey"
  tradition_agot_stonemen_desc:0 "#italic “The Prince of Sorrows does not bestow his grey kiss lightly.”#!"
+
+ tradition_agot_mandermen_name:0 "Guided by the Hand"
+ tradition_agot_mandermen_desc:0 "#italic “The Reach proper, a vast expanse of fields and farms, lakes and rivers, hills and woods and fragrant meadows, mills and mines, dotted with small villages, thriving market towns, and ancient castles, stretching from the Shield Islands in the Sunset Sea, up the mouth of the Mander, past Highgarden, to Red Lake, Goldengrove, and Bitterbridge, as far as Tumbleton and the Mander's headwaters.”#!"
+
+ tradition_agot_honeywiner_name:0 "With Thought and Faith"
+ tradition_agot_honeywiner_desc:0 "#italic “No history of the Reach is complete without a look at Oldtown, that most grand and ancient of cities, still the richest, largest, and most beautiful in all Westeros, even if King's Landing has eclipsed it as most populous.”#!"
+
+ tradition_agot_shieldmen_name:0 "Shields in the Mist"
+ tradition_agot_shieldmen_desc:0 "#italic “The most telling blow was struck by King Garth VII, the Goldenhand, King of the Reach, when he drove the ironmen from the Misty Islands, renamed them the Shield Islands, and resettled them with his own fiercest warriors and finest seamen to defend the mouth of the Mander.”#!"
+
+ tradition_agot_arbormen_name:0 "With Wine in Our Sails"
+ tradition_agot_arbormen_desc:0 "#italic “... for another cup of wine, a golden vintage from the Arbor, fruity and rich.”#!"
