@@ -28,7 +28,6 @@
  culture_parameter_more_likely_to_steal_artifacts: "Представители этой культуры чаще похищают [artifacts|E] в битвах или налётах"
  culture_parameter_immune_to_all_diseases_except_greyscale: "Представители этой культуры невосприимчивы ко всем болезням, кроме #TOOLTIP:GAME_TRAIT,greyscale, #L серой хвори#!#! — этот недуг всегда присутствует у них с рождения"
 
-
  #Child Traits
  culture_parameter_bossy_trait_more_common:0 "[children|E] с большей вероятностью получат [Concept('trait', 'свойство')|E] «[GetTrait('bossy').GetName( GetNullCharacter )]»"
  culture_parameter_curious_trait_more_common:0 "[children|E] с большей вероятностью получат [Concept('trait', 'свойство')|E] «[GetTrait('curious').GetName( GetNullCharacter )]»"
@@ -44,6 +43,7 @@
  culture_parameter_fashionable_trait_more_common:0 "[trait|E] «[GetTrait('fashionable').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_possessed_trait_more_common: "[trait|E] «[GetTrait('possessed_1').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_deceitful_trait_more_common: "[trait|E] «[GetTrait('deceitful').GetName( GetNullCharacter )]» встречается чаще"
+ culture_parameter_gregarious_trait_more_common: "[trait|E] «[GetTrait('gregarious').GetName( GetNullCharacter )]» встречается чаще"
 
  #Commander Traits
  culture_parameter_organizer_trait_more_common:0 "[commander_trait|E] «[GetTrait('organizer').GetName( GetNullCharacter )]» встречается чаще"
@@ -74,6 +74,7 @@
  culture_parameter_strong_trait_more_valued: "[trait|E] «[GetTrait('strong').GetName( GetNullCharacter )]» ценится выше"
  culture_parameter_arrogant_trait_more_valued: "[trait|E] «[GetTrait('arrogant').GetName( GetNullCharacter )]» ценится выше"
  culture_parameter_reaver_trait_more_valued: "[trait|E] «[GetTrait('reaver').GetName( GetNullCharacter )]» ценится выше"
+ culture_parameter_reveler_traits_increased_opinion: "[trait|E] «[GetTrait('lifestyle_reveler').GetName( GetNullCharacter )]» ценится выше"
 
  #Trait Looked Down Upon
  culture_parameter_slave_master_trait_looked_down_upon:0 "[trait|E] «[GetTrait('slave_master').GetName( GetNullCharacter )]» презирается"
@@ -91,6 +92,7 @@
  culture_parameter_dull_trait_looked_down_upon: "[trait|E] «[GetTrait('dull').GetName(GetNullCharacter)]» презирается"
  culture_parameter_eunuch_trait_is_looked_down_upon: "[traits|E] «[GetTrait('eunuch_1').GetName(GetNullCharacter)]» и «[GetTrait('beardless_eunuch').GetName(GetNullCharacter)]» презираются"
  culture_parameter_impatient_trait_is_looked_down_upon: "[trait|E] «[GetTrait('impatient').GetName(GetNullCharacter)]» презирается"
+ culture_parameter_sadistic_trait_looked_down_upon: "[trait|E] «[GetTrait('sadistic').GetName(GetNullCharacter)]» презирается"
 
  #Wanderers Extra Skills
  culture_parameter_wanderers_gain_extra_learning_skills:0 "[wanderers|E] со временем получают дополнительные навыки, например [Concept('learning', 'учёность')|E] или [Concept('lifestyle_traits', 'приобретённые свойства')|E]"
@@ -113,11 +115,13 @@
  culture_parameter_better_orchard_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_orchards_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_better_caravanserai_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_caravanserai_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_better_gathering_hall_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_longhouses_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
+ culture_parameter_better_guild_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_guild_halls_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_better_mine_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_agot_gold_mines_01$#! и #V $building_type_agot_silver_mines_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_watermills_without_innovations_unlock:0 "Для строительства цепочки [Concept('buildings', 'зданий')|E] #V $building_type_watermills_01$#! не требуется инновация"
  culture_parameter_piety_per_blacksmith_level: "Каждый уровень постройки #V $building_type_blacksmiths_01$ предоставляет на #10% больше ежемесячного [Concept('piety', 'благочестия')|E]"
  culture_parameter_piety_gain_on_building_complete:0 "Завершение строительства [Concept('building', 'здания')|E] предоставляет [Concept('piety', 'благочестие')|E]"
  culture_parameter_control_gain_on_building_complete: "Завершение строительства [Concept('building', 'здания')|E] предоставляет #P 15#! [Concept('control', 'контроля')|E] #weak (до одного раза в год)#!"
+ culture_parameter_minor_development_gain_on_building_complete: "Завершение строительства [Concept('building', 'здания')|E] предоставляет #V 10#! [Concept('development_growth', 'роста развития')|E] #weak (до одного раза в год)#!"
 
  #Naming
  culture_parameter_uses_generic_milk_names: "Персонажи этой культуры используют [Concept('agot_milk_names', 'молочные имена')|E] для новорождённых"
@@ -156,20 +160,11 @@
  tradition_agot_valeman_finger_name:0 "Скромная служба"
  tradition_agot_valeman_finger_desc:1 "Персты - мрачное и ветреное место, настолько сильно бушующее северными ветрами, что почти не растёт растительность неподалеку от их кончиков. Для простолюдинов здесь мало возможностей заработать на жизнь, кроме как выращивать скот на выпасе, ведь земли мало, чтобы сделать их пригодными для сельского хозяйства. Таким образом, жители Перстов живут скромной жизнью, а козоводы и арендаторы находят некоторое удовлетворение в своем непрощающем доме."
 
- tradition_agot_honeywiner_name:0 "Мягкая и сладкая"
- tradition_agot_honeywiner_desc:1 "Люди, проживающие на берегах реки Медовички и ее окрестностей, являются одними из самых процветающих во всем Вестеросе. Благодаря плодородным землям и великому городу Староместу, много торговли проходит через эту реку, которая дала людям свое название. С Цитаделью и Звездной септой, эта область является оплотом образования в Вестеросе, и даже многие простые люди умеют читать и писать."
-
  tradition_agot_valeman_upper_name:0 "В вышине"
  tradition_agot_valeman_upper_desc:1 "Отделённые от своих сородичей, которые обосновались в плодородных землях Долины, люди, которые живут на высотах Лунных гор, являются куда более грубыми, стойкими людьми. Во время войны именно они становятся первой линией защиты от внешних вторжений, а также им приходится иметь дело с наибольшим числом нападений от горных клановцев, поскольку они живут на высотах."
 
- tradition_agot_reachman_name:0 "Слава Зелёной Руки"
- tradition_agot_reachman_desc:1 "Простор - это процветающая и плодородная земля, созданная на трудах усердных мелких феодалов. Это также земля семей с некоторыми из самых древних корней во всем Вестеросе, которые восходят к мифическому Гарту Зелёной Руке, от которого происходят большинство выдающихся семей Простора, как они сами утверждают. С таким количеством семей, стремящихся к превосходству в богатой земле, связи, которые их объединяют, сильнее и важнее, чем где-либо ещё во всем Вестеросе."
-
  tradition_agot_riverlands_name:0 "Щедроты реки"
  tradition_agot_riverlands_desc:0 "Жители Речных земель - народ, часто зависящий от окружающих их сил, но они, как правило, процветают, когда у них есть собственный сильный король. Трезубец и его притоки определяют их жизнь больше, чем что-либо другое, и благодаря этим водам они процветают."
-
- tradition_agot_shieldman_name:0 "Стражи Мандера"
- tradition_agot_shieldman_desc:1 "Щитовые острова, названные так в честь своей главной функции - служить щитом от нападений железнорожденных, - представляют собой совокупность четырех хорошо укреплённых островов Простора, находящихся под надзором четырёх отдельных домов. Верный (хотя и, возможно, изолированный) народ, жители Щитовых островов известны своим выносливым характером и чувством долга. Острова славятся своими маяками, которые старейшины на сторожевых башнях зажигают остров за островом, чтобы предупредить внутренние поселения о приближающихся кораблях. Прежде всего, жители Щитовых островов ценят себя как первую линию морской обороны."
 
  tradition_agot_stormlands_name:0 "Родство с климатом"
  tradition_agot_stormlands_desc:0 "Жители Штормовых земель - народ выносливый, хорошо известный своими воинственными наклонностями и вспыльчивостью. Мужчины и женщины Штормовых земель выдерживали гнев людей, природы и даже самих богов, и всё же они не только выжили, но и процветают."
@@ -179,9 +174,6 @@
 
  tradition_agot_vale_name:0 "Горы и Долина"
  tradition_agot_vale_desc:0 "Старое королевство Арренов определяют Лунные горы и долины, тянущиеся между ними, прежде всего Долина Арренов. Эти две особенности изолировали народы к востоку от них от остального Вестероса и сплотили их."
-
- tradition_agot_vineman_name:0 "Вино, женщины и песни"
- tradition_agot_vineman_desc:1 "Со времён Гилберта Винной Лозы, люди Арбора знают только одно - вино. Виноградники Арбора легендарны в Вестеросе и за его пределами благодаря качеству производимого ими вина, и многие купцы и моряки бросали якорь в Раэмпорте, чтобы купить лучшее арборское красное."
 
  tradition_agot_north_name:0 "Связанные бронзой и железом"
  tradition_agot_north_desc:0 "Северяне, мужчины и женщины, которые называют Север своим домом, - суровый и выносливый народ. Объединённые Голодным Волком тысячи лет назад, эти народы столь же разнообразны, как и земли, которые они называют своим домом, и все же все они связаны своими древними клятвами."
@@ -200,6 +192,9 @@
 
  tradition_agot_dorne_rhoynish_heritage_name:0 "Дети Матери-Ройны"
  tradition_agot_dorne_rhoynish_heritage_desc:1 "Ройнарская цивилизация древняя и прославленная. История ройнаров настолько глубока, что некоторые приписывают им то, что они научили андалов кузнечному делу и работе с железом. Родом из городов-государств вдоль реки Ройна, ройнары поклоняются многочисленным богам реки, а также питают особую привязанность ко всем видам лодок, от небольших рыболовных судов до непристойных прогулочных барж. Культура ройнаров заметно отличается от культуры андалов: равное наследование является нормой как для женщин, так и для мужчин, а однополые отношения допускаются. Ройнары известны своим пристрастием к произведениям искусства и музыке, что отчасти может быть причиной того, что некоторые ройнарские культурные обычаи так быстро прижились, когда ройнары прибыли в Дорн."
+
+ tradition_agot_reach_name: "Зелёные плоды"
+ tradition_agot_reach_desc: "Простор огромен и изобилен, здесь расположены крупнейшие фермы и поля Вестероса — земли изобилия. Его жители славятся своими рыцарями и галантностью, а также давней враждой с дорнийцами."
 
  tradition_agot_wildling_name:0 "Свирепые, жестокие и одичалые"
  tradition_agot_wildling_desc:0 "Пока большинство народов и обществ развивается и растёт, существуют группы, отказывающиеся склониться перед прогрессом — как это видно по множеству одичалых в Вестеросе. Большинство из них живёт за Стеной, но отдельные племена встречаются и в Лунных горах. Эти племенные общины свирепы, пусть и не слишком развиты, и в больших количествах способны стать угрозой."
@@ -515,3 +510,15 @@
 
  tradition_agot_stonemen_name: "Серый поцелуй"
  tradition_agot_stonemen_desc: "#italic «Принц Горестей не раздаёт свои серые поцелуи кому попало».#!"
+
+ tradition_agot_mandermen_name: "Ведомые Рукой"
+ tradition_agot_mandermen_desc: "#italic «Сам Простор – обширная равнина с полями и пастбищами, реками и озерами, лесами, холмами и душистыми лугами, мельницами и рудниками, усеянная деревеньками, процветающими торговыми городками и древними замками. Она простирается от Щитовых островов в Закатном море, лежащих выше устья Мандера, до самых верховий этой реки (где город Тамблтон), охватывая Хайгарден, Алое озеро, Золотую Рощу и Горький Мост».#!"
+
+ tradition_agot_honeywiner_name: "Разум и вера"
+ tradition_agot_honeywiner_desc: "#italic «Старомест — портовый город на юго-западном побережье Простора, один из старейших, крупнейших и богатейших городов Вестероса, не уступающий столице страны — Королевской Гавани ни в чём, кроме численности населения».#!"
+
+ tradition_agot_shieldmen_name: "Щиты в тумане"
+ tradition_agot_shieldmen_desc: "#italic «Наиболее показательный удар был нанесён правителем Простора, королём Гартом VII Златоруким, когда он выгнал железнорождённых с Туманных островов, и переименовал их в Щитовые острова. Чтобы защищать устье Мандера, он поселил здесь своих лучших моряков и самых свирепых воинов».#!"
+
+ tradition_agot_arbormen_name: "Вино на наших парусах"
+ tradition_agot_arbormen_desc: "#italic «... ещё чашу густого золотистого вина из Арбора».#!"
