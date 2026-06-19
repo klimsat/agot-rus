@@ -40,7 +40,8 @@
 
  ##Return Settlement Holding to Wilderness
  return_settlement_county_to_wilderness:0 "Abandon this [settlement_holding|E]"
- return_settlement_county_to_wilderness_desc:0 "Destroy all [buildings|E] in this [holding|E] and revert it into a [wilderness_holding|E]."
+ return_settlement_county_to_wilderness_desc_one_province:0 "Return this [holding|E] to [wilderness_holding|E], destroying all [buildings|E]."
+ return_settlement_county_to_wilderness_desc:0 "Return this [county|E] to [wilderness_holding|E], destroying all [buildings|E] and additional baronies."
  return_settlement_county_to_wilderness_notification:0 "Abandoned [settlement_holding|E]"
  return_settlement_to_wilderness_cannot_be_your_primary_title: "Cannot be your [primary_title|E]"
 
@@ -51,7 +52,8 @@
 
  ##Colonize Pirate Den Holding
  colonize_pirate_den_interaction:0 "Colonize"
- colonize_pirate_den_interaction_desc:0 "Destroy all [buildings|E] in this [holding|E] and convert it into a [settlement_holding|E]."
+ colonize_pirate_den_interaction_desc:0 "Destroy all [buildings|E] in all [holdings|E] in this county and convert them into [settlement_holdings|E]."
+ colonize_pirate_den_interaction_desc_one_province:0 "Destroy all [buildings|E] in this barony and convert it into a [settlement_holding|E]."
  colonize_pirate_den_interaction_notification:0 "Holding Colonized"
 
  support_colonize_pirate_den_interaction:0 "Aid Colonization"
@@ -73,6 +75,7 @@
  two_or_fewer_blockers_remain_in_settlement:0 "More than two [colonization_blockers|E] remain in this [settlement_holding|E]"
  has_fully_upgraded_settlement_holding:0 "The [settlement_holding|E] [building|E] is not fully upgraded"
  NOT_MUST_NOT_HAVE_BLOCKERS_TRIGGER:0 "Province contains one or more [colonization_blockers|E]"
+ capital_province_is_settlement:0 "[county_capital|E] is a [settlement|E]"
 
  settlement_holding_limit:0 "#size:18 #bold [ongoing_colonies|E]: [Character.MakeScope.Var('num_settled_wilderness').GetValue]/[Character.MakeScope.ScriptValue('settlement_title_tier_limit')] [holdings|E]#!#!\nSettlement: [Character.MakeScope.Var('num_settled_wilderness').GetValue]\n\n#size:16 #italic [settlement_holding_limit|E]: #high [Character.MakeScope.ScriptValue('settlement_title_tier_limit')]#!#!#!\nPrimary Title [title_tier|E]: #P +[Character.MakeScope.ScriptValue('settlement_title_tier_limit')]#!"
 

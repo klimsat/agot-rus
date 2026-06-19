@@ -45,8 +45,8 @@
  COOLTIP_CHARACTER_NAME_DISPLAY:0 "[AGOTGetLongUINameNoTooltip(Character)]#medium , [Character.GetAge]#!"
  LIST_CHARACTER_NAME_DISPLAY:0 "[AGOTGetLongUINameNoTooltip(Character)|V]"
  AGOT_CANNOT_HIRE_MENATARMS:0 "#T Create New [men_at_arms|E] [regiment|E]#!\n[MilitaryItem.GetMaACanBeCreatedTooltip]\n@warning_icon! #X You cannot hire men-at-arms while subject to the [GetModifier('agot_pentos_braavos_treaty').GetNameWithTooltip] #!"
- AGOT_HIRE_MERCENARIES_TOOLTIP:0 "#T [MercenaryCompany.GetName] #!\n#I Click to view details#![SelectLocalization(GetScriptedGui('agot_can_hire_mercenaries').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End), '', 'AGOT_HIRE_MERCENARIES_ADD')]"
- AGOT_HIRE_MERCENARIES_ADD:0 "\n\n@warning_icon! #X You cannot hire mercenaries while subject to the [GetModifier('agot_pentos_braavos_treaty').GetNameWithTooltip] #!"
+ AGOT_HIRE_MERCENARIES_TOOLTIP:0 "#T [MercenaryCompany.GetName] #!\n#I Click to view details#![SelectLocalization(GetScriptedGui('agot_can_hire_mercenaries').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('merc_company', MercenaryCompany.GetHomeCounty.MakeScope).End), '', 'AGOT_HIRE_MERCENARIES_ADD')]"
+ AGOT_HIRE_MERCENARIES_ADD:0 "\n\n@warning_icon! #X You cannot hire mercenaries for one of the following reasons:\n\n$EFFECT_LIST_BULLET$You cannot be subject to the [GetModifier('agot_pentos_braavos_treaty').GetNameWithTooltip]\n$EFFECT_LIST_BULLET$You cannot hire mercenaries from Beyond the Wall as a Westerosi ruler #!"
 
  TITLE_VIEW_TITLE_HISTORY_LABEL_NON_PIRATE_SHIP:0 "History of the [Title.GetBaseName]"
  TITLE_VIEW_TITLE_HISTORY_LABEL_PIRATE_SHIP:0 "History of the [Title.GetName]"
