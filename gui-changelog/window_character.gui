@@ -770,9 +770,9 @@ window = {
 				# AGOT Added
 				### Pre War Liege
 				vbox = {
-					name = "pre_war_liege_etc_area"
-					datacontext = "[CharacterWindow.GetCharacter.MakeScope.Var('pre_war_liege').Char]"
-					visible = "[CharacterWindow.GetCharacter.MakeScope.Var( 'pre_war_liege' ).Char.IsValid]"
+					name = "agot_pre_war_liege_etc_area"
+					datacontext = "[CharacterWindow.GetCharacter.MakeScope.Var('agot_pwl_direct').Char]"
+					visible = "[CharacterWindow.GetCharacter.MakeScope.Var( 'agot_pwl_direct' ).Char.IsValid]"
 					allow_outside = yes
 
 					margin_right = 20
@@ -789,15 +789,15 @@ window = {
 
 						blockoverride "coa" {
 							coa_realm_tiny = {
-								visible = "[And(CharacterWindow.GetCharacter.IsAlive, CharacterWindow.GetCharacter.MakeScope.Var( 'pre_war_liege' ).Char.IsValid)]"
+								visible = "[And(CharacterWindow.GetCharacter.IsAlive, CharacterWindow.GetCharacter.MakeScope.Var( 'agot_pwl_direct' ).Char.IsValid)]"
 								parentanchor = bottom|left
 								position = { 3 -2 }
 								scale = 0.85
 							}
 
 							coa_title_tiny = {
-								visible = "[And(Not(CharacterWindow.GetCharacter.IsAlive), CharacterWindow.GetCharacter.MakeScope.Var( 'pre_war_liege' ).Char.IsValid)]"
-								datacontext = "[CharacterWindow.GetCharacter.MakeScope.Var('pre_war_liege').Char]"
+								visible = "[And(Not(CharacterWindow.GetCharacter.IsAlive), CharacterWindow.GetCharacter.MakeScope.Var( 'agot_pwl_direct' ).Char.IsValid)]"
+								datacontext = "[CharacterWindow.GetCharacter.MakeScope.Var('agot_pwl_direct').Char]"
 								parentanchor = bottom|left
 								position = { 3 -2 }
 								scale = 0.85
@@ -816,37 +816,37 @@ window = {
 					}
 
 					portrait_opinion = {
-						name = "pre_war_liege_opinion"
+						name = "agot_pwl_direct_opinion"
 
 						datacontext = "[CharacterWindow.GetCharacter]"
-						visible = "[And( Character.MakeScope.Var('pre_war_liege').Char.IsValid, And( Character.IsAlive, Not(Character.IsLocalPlayer ) ) )]"
+						visible = "[And( Character.MakeScope.Var('agot_pwl_direct').Char.IsValid, And( Character.IsAlive, Not(Character.IsLocalPlayer ) ) )]"
 
 						blockoverride "dread_logic" {
-							visible = "[Character.ShouldShowDreadEffectIconFor( Character.MakeScope.Var( 'pre_war_liege' ).Char )]"
-							frame = "[Character.GetDreadEffectIconFrameFor( Character.MakeScope.Var( 'pre_war_liege' ).Char )]"
-							tooltip = "[Character.GetDreadEffectTooltipFor( Character.MakeScope.Var( 'pre_war_liege' ).Char )]"
+							visible = "[Character.ShouldShowDreadEffectIconFor( Character.MakeScope.Var( 'agot_pwl_direct' ).Char )]"
+							frame = "[Character.GetDreadEffectIconFrameFor( Character.MakeScope.Var( 'agot_pwl_direct' ).Char )]"
+							tooltip = "[Character.GetDreadEffectTooltipFor( Character.MakeScope.Var( 'agot_pwl_direct' ).Char )]"
 						}
 
 						blockoverride "opinion_text"
 						{
-							text = "[Character.GetOpinionOf( Character.MakeScope.Var( 'pre_war_liege' ).Char )|=]"
-							fonttintcolor = "[Character.GetOpinionOfTint( CharacterWindow.GetCharacter.MakeScope.Var( 'pre_war_liege' ).Char )]"
+							text = "[Character.GetOpinionOf( Character.MakeScope.Var( 'agot_pwl_direct' ).Char )|=]"
+							fonttintcolor = "[Character.GetOpinionOfTint( CharacterWindow.GetCharacter.MakeScope.Var( 'agot_pwl_direct' ).Char )]"
 						}
 
 						blockoverride "ott_heading_text"
 						{
-							text = "[Character.GetOpinionHeadingText( CharacterWindow.GetCharacter.MakeScope.Var( 'pre_war_liege' ).Char )]"
+							text = "[Character.GetOpinionHeadingText( CharacterWindow.GetCharacter.MakeScope.Var( 'agot_pwl_direct' ).Char )]"
 						}
 
 						blockoverride "ott_opinion_value_text"
 						{
-							text = "[Character.GetOpinionOf( Character.MakeScope.Var( 'pre_war_liege' ).Char )|=]"
-							fonttintcolor = "[Character.GetOpinionOfTint( CharacterWindow.GetCharacter.MakeScope.Var( 'pre_war_liege' ).Char )]"
+							text = "[Character.GetOpinionOf( Character.MakeScope.Var( 'agot_pwl_direct' ).Char )|=]"
+							fonttintcolor = "[Character.GetOpinionOfTint( CharacterWindow.GetCharacter.MakeScope.Var( 'agot_pwl_direct' ).Char )]"
 						}
 
 						blockoverride "ott_opinion_breakdown_text"
 						{
-							text = "[Character.GetOpinionBreakdownText( CharacterWindow.GetCharacter.MakeScope.Var( 'pre_war_liege' ).Char )]"
+							text = "[Character.GetOpinionBreakdownText( CharacterWindow.GetCharacter.MakeScope.Var( 'agot_pwl_direct' ).Char )]"
 						}
 					}
 					expand = {}
