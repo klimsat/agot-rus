@@ -628,7 +628,7 @@
  building_agot_dragonmont_01_desc:0 "$building_type_agot_dragonmont_01_desc$"
 
  building_type_agot_spicetown_01:0 "Спайстаун"
- building_type_agot_spicetown_01_desc:0 "Когда-то Спайстаун был сердцем Дрифтмарка и уступал только Королевской Гавани в качестве главного порта Черноводного залива."
+ building_type_agot_spicetown_01_desc: "Финансовый центр Дрифтмарка, Спайстаун уступает в объёмах торговли и процветания лишь величайшим городам Вестероса."
  building_agot_spicetown_01:0 "Порт Морского Змея"
  building_agot_spicetown_01_desc:0 "При Корлисе Веларионе порт Спайстауна превзошёл Сумрачный Дол и все остальные порты Черноводного залива, за исключением Королевской Гавани. Здесь можно встретить корабли со всего Вестероса, Вольных городов и даже Нефритовых Врат."
  building_type_agot_spicetown_generic_01: "$building_type_agot_spicetown_01$"
@@ -2003,7 +2003,7 @@
  building_agot_hugor_hill_01_desc:0 "$building_type_agot_hugor_hill_01_desc$"
 
  building_type_agot_godworf_01:0 "Творение богов"
- building_type_agot_godworf_01_desc:0 "Считается, что Творение богов, древний порт в северной части Узкого моря, был главным портом андалов во время их вторжений в Вестерос и до сих пор является убежищем для тех, кто путешествует по Узкому морю."
+ building_type_agot_godworf_01_desc: "Считается, что Творение богов, древний порт у северных берегов Узкого моря, был главным портом андалов во время их вторжений в Вестерос и остаётся убежищем для тех, кто бороздит его воды."
  building_agot_godworf_01:0 "Порт богов"
  building_agot_godworf_01_desc:0 "$building_type_agot_godworf_01_desc$"
 
@@ -2419,6 +2419,10 @@
  agot_ships_hold_06_domicile_building:0 "Необъятный корабельный трюм"
  agot_ships_hold_06_domicile_building_desc:0 "$agot_ships_hold_01_domicile_building_desc$"
 
+ agot_pirate_diving_bell_domicile_building: "Водолазный колокол"
+ agot_pirate_diving_bell_domicile_building_desc: "Корабль оснащён водолазным колоколом, позволяющим экипажу опускаться на дно океана в поисках потерянных сокровищ."
+ domicile_building_parameter_diving_bell_pirate_ship: "Открывает [Concept('activity', 'занятие')|E] #TOOLTIP:ACTIVITY_TYPE,activity_agot_sailing #L морского путешествия#!#! - $agot_sailing_type_treasure$"
+
  # Farm Buildings
  building_type_agot_urban_farms_01:0 "Пекарни"
  building_type_agot_urban_farms_01_desc:0 "Сердце города - это не замок, не кузница, а пекарня."
@@ -2495,6 +2499,11 @@
  funeral_cost_discount_max_desc:0 "Снижение стоимости проведения занятия [GetActivityType('activity_funeral').GetTextIcon][GetActivityType('activity_funeral').GetName]"
  agot_weeping_tower_02_effect_desc:0 "$funeral_cost_discount_max_desc$ в этом [Concept( 'holding', 'владении' )|E]: [EmptyScope.ScriptValue('tournament_activity_cost_max_discount_value')|P0%]"
  ironoaks_effect_desc:0 "$feast_cost_discount_max_desc$"
+ agot_sailing_activity_cost_discount_minor_desc: "$unlocks_building_desc$Сниженная стоимость проведения [GetActivityType('activity_agot_sailing').GetTextIcon]#TOOLTIP:ACTIVITY_TYPE,activity_agot_sailing #L морского путешествия#!#! в этом [Concept('holding', 'владении')|E]: #P -10%#!\n"
+ agot_sailing_activity_cost_discount_medium_desc: "$unlocks_building_desc$Сниженная стоимость проведения [GetActivityType('activity_agot_sailing').GetTextIcon]#TOOLTIP:ACTIVITY_TYPE,activity_agot_sailing #L морского путешествия#!#! в этом [Concept('holding', 'владении')|E]: #P -20%#!\n"
+ agot_sailing_activity_cost_discount_major_desc: "$unlocks_building_desc$Сниженная стоимость проведения [GetActivityType('activity_agot_sailing').GetTextIcon]#TOOLTIP:ACTIVITY_TYPE,activity_agot_sailing #L морского путешествия#!#! в этом [Concept('holding', 'владении')|E]: #P -30%#!\n"
+ agot_sailing_activity_cost_discount_max_desc: "$unlocks_building_desc$Сниженная стоимость проведения [GetActivityType('activity_agot_sailing').GetTextIcon]#TOOLTIP:ACTIVITY_TYPE,activity_agot_sailing #L морского путешествия#!#! в этом [Concept('holding', 'владении')|E]: #P -40%#!\n"
+ agot_sailing_activity_cost_discount_special_desc: "$unlocks_building_desc$Сниженная стоимость проведения [GetActivityType('activity_agot_sailing').GetTextIcon]#TOOLTIP:ACTIVITY_TYPE,activity_agot_sailing #L морского путешествия#!#! в этом [Concept('holding', 'владении')|E]: #P -40%#!\n"
 
  #AGOT Building Requirements
  SPECIAL_BUILDING_NOT_ENABLED_WHILE_NOT_HUMAN:0 "Владелец должен быть человеком"
