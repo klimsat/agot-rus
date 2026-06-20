@@ -40,7 +40,8 @@
 
  ##Return Settlement Holding to Wilderness
  return_settlement_county_to_wilderness: "Покинуть это [settlement_holding|El]"
- return_settlement_county_to_wilderness_desc: "Уничтожить все [buildings|El] в этом [Concept( 'holdings', 'владении' )|E] и превратить его в [settlement_holding|El]."
+ return_settlement_county_to_wilderness_desc_one_province: "Вернуть это [Concept('holding', 'владение')|E] в состояние [Concept('wilderness_holding', 'дебрей')|E], уничтожив все [Concept('buildings', 'постройки')|E]."
+ return_settlement_county_to_wilderness_desc: "Вернуть это [Concept('county', 'графство')|E] в состояние [Concept('wilderness_holding', 'дебрей')|E], уничтожив все [Concept('buildings', 'постройки')|E] и дополнительные баронства."
  return_settlement_county_to_wilderness_notification: "Заброшенное [settlement_holding|El]"
  return_settlement_to_wilderness_cannot_be_your_primary_title: "Не может быть вашим [Concept('primary_title', 'первым титулом')|E]"
 
@@ -51,7 +52,8 @@
 
  ##Colonize Pirate Den Holding
  colonize_pirate_den_interaction:0 "Колонизировать"
- colonize_pirate_den_interaction_desc:0 "Уничтожить все [buildings|El] в этом [Concept( 'holding', 'владении' )|E] и превратить его во [settlement_holding|El]."
+ colonize_pirate_den_interaction_desc: "Уничтожить все [Concept('buildings', 'постройки')|E] во всех [Concept('holdings', 'владениях')|E] этого графства и превратить его во [settlement_holding|El]."
+ colonize_pirate_den_interaction_desc_one_province: "Уничтожить все [Concept('buildings', 'постройки')|E] в этом баронстве и превратить его в [Concept('settlement_holding', 'поселение')|E]."
  colonize_pirate_den_interaction_notification:0 "Владение колонизировано"
 
  support_colonize_pirate_den_interaction:0 "Помочь колонизации"
@@ -73,6 +75,7 @@
  two_or_fewer_blockers_remain_in_settlement:0 "Более двух [Concept( 'colonization_blockers', 'препятствий для колонизации' )|E] присутствует в этом [Concept( 'settlement_holding', 'поселении' )|E]"
  has_fully_upgraded_settlement_holding:0 "[building|E] [Concept( 'settlement_holding', 'поселения' )|El] не до конца улучшено"
  NOT_MUST_NOT_HAVE_BLOCKERS_TRIGGER:0 "Провинция имеет одно или несколько [Concept( 'colonization_blockers', 'препятствий для колонизации' )|E]"
+ capital_province_is_settlement: "[Concept('county_capital', 'Столица графства')|E] является [Concept('settlement', 'поселением')|E]"
 
  settlement_holding_limit:0 "#size:18 #bold [ongoing_colonies|E]: [Character.MakeScope.Var('num_settled_wilderness').GetValue]/[Character.MakeScope.ScriptValue('settlement_title_tier_limit')] [Concept( 'holdings', 'владений' )|E]#!#!\nПоселение: [Character.MakeScope.Var('num_settled_wilderness').GetValue]\n\n#size:16 #italic [settlement_holding_limit|E]: #high [Character.MakeScope.ScriptValue('settlement_title_tier_limit')]#!#!#!\n[title_tier|E] основного титула: #P +[Character.MakeScope.ScriptValue('settlement_title_tier_limit')]#!"
  

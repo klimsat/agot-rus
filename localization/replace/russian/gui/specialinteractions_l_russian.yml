@@ -115,7 +115,9 @@
  normal_hegemonic_tribute_prestige: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'hegemonic_tribute_prestige' ).GetObligationName( 'hegemonic_prestige_transfer_normal' )]»"
  high_hegemonic_tribute_prestige: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'hegemonic_tribute_prestige' ).GetObligationName( 'hegemonic_prestige_transfer_high' )]»"
 
- expected_to_pay_tribute: "[SCOPE.sC('tributary_loc').GetShortUIName|U] [Select_CString(SCOPE.sC('tributary_loc').IsLocalPlayer, 'будете обязаны', Select_CString(SCOPE.sC('tributary_loc').IsFemale, 'будет обязана', 'будет обязан' ))] регулярно [Concept('travel', 'путешествовать')|E] во владение [SCOPE.sC('suzerain_loc').GetCapitalLocation.GetName], чтобы платить дань"
+ #AGOT Modified
+ #expected_to_pay_tribute: "[SCOPE.sC('tributary_loc').GetShortUIName|U] [Select_CString(SCOPE.sC('tributary_loc').IsLocalPlayer, 'будете обязаны', Select_CString(SCOPE.sC('tributary_loc').IsFemale, 'будет обязана', 'будет обязан' ))] регулярно [Concept('travel', 'путешествовать')|E] во владение [SCOPE.sC('suzerain_loc').GetCapitalLocation.GetName], чтобы платить дань"
+ expected_to_pay_tribute: "[SCOPE.sC('tributary_loc').GetShortUIName|U] [Select_CString(SCOPE.sC('tributary_loc').IsLocalPlayer, 'будете обязаны', Select_CString(SCOPE.sC('tributary_loc').IsFemale, 'будет обязана', 'будет обязан' ))] регулярно [Concept('travel', 'путешествовать')|E] во владение [SCOPE.sC('suzerain_loc').GetCapitalLocation.GetName], чтобы платить дань державе [SCOPE.sC('suzerain_loc').GetPrimaryTitle.GetBaseNameNoTierNoTooltip]"
 
  low_nomad_tribute_herd: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'nomad_government_herd' ).GetObligationName( 'herd_tax_low' )]»"
  normal_nomad_tribute_herd: "[Concept('tributary_contract', 'Договор о дани')|E] изначально имеет пункт «[GetSubjectContractType( 'nomad_government_herd' ).GetObligationName( 'herd_tax_normal' )]»"
