@@ -101,140 +101,131 @@ types CountyViewTypes
 	######################
 	# SETTLEMENT BUTTONS #
 	######################
-	type agot_county_view_settlement_buttons = widget
+	type agot_county_view_settlement_buttons = vbox
 	{
-		allow_outside = yes
-		parentanchor = right|top
+		button_round = { ## RETURN SETTLEMENT BACK TO WILDERNESS ###
+			datacontext = "[HoldingView.GetGUIHoldingBuilding]"
+			datacontext = "[HoldingView.GetTitle]"
+			datacontext = "[HoldingView.GetHolder]"
+			visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('return_settlement_county_to_wilderness', Title.Self) )]"
+			enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('return_settlement_county_to_wilderness', Title.Self)]"
+			tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('return_settlement_county_to_wilderness', Title.Self)]"
+			oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
+			clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
+			onclick = "[Character.OpenPlayerInteractionWithTargetTitle('return_settlement_county_to_wilderness', Title.Self)]"
 
-		vbox = {
-			ignoreinvisible = yes
-
-			position = { -265 110 }
-
-			button_round  = { ## RETURN SETTLEMENT BACK TO WILDERNESS ###
-				datacontext = "[HoldingView.GetGUIHoldingBuilding]"
-				datacontext = "[HoldingView.GetTitle]"
-				datacontext = "[HoldingView.GetHolder]"
-				visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('return_settlement_county_to_wilderness', Title.Self) )]"
-				enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('return_settlement_county_to_wilderness', Title.Self)]"
-				tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('return_settlement_county_to_wilderness', Title.Self)]"
-				oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
-				clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
-				onclick = "[Character.OpenPlayerInteractionWithTargetTitle('return_settlement_county_to_wilderness', Title.Self)]"
-
-				button_abandon_holding = {
-					size = { 25 25 }
-					parentanchor = center
-					alwaystransparent = yes
-				}
+			button_abandon_holding = {
+				size = { 28 28 }
+				parentanchor = center
+				alwaystransparent = yes
 			}
+		}
 
-			button_round  = { ## FEUDALIZE INTO CASTLE HOLDING ###
-				datacontext = "[HoldingView.GetGUIHoldingBuilding]"
-				datacontext = "[HoldingView.GetTitle]"
-				datacontext = "[HoldingView.GetHolder]"
-				visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('feudalize_into_castle_holding_interaction', Title.Self) )]"
-				enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('feudalize_into_castle_holding_interaction', Title.Self)]"
-				tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('feudalize_into_castle_holding_interaction', Title.Self)]"
-				oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
-				clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
-				onclick = "[Character.OpenPlayerInteractionWithTargetTitle('feudalize_into_castle_holding_interaction', Title.Self)]"
+		button_round = { ## FEUDALIZE INTO CASTLE HOLDING ###
+			datacontext = "[HoldingView.GetGUIHoldingBuilding]"
+			datacontext = "[HoldingView.GetTitle]"
+			datacontext = "[HoldingView.GetHolder]"
+			visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('feudalize_into_castle_holding_interaction', Title.Self) )]"
+			enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('feudalize_into_castle_holding_interaction', Title.Self)]"
+			tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('feudalize_into_castle_holding_interaction', Title.Self)]"
+			oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
+			clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
+			onclick = "[Character.OpenPlayerInteractionWithTargetTitle('feudalize_into_castle_holding_interaction', Title.Self)]"
 
-				button_feudalize_holding = {
-					size = { 25 25 }
-					parentanchor = center
-					alwaystransparent = yes
-				}
+			button_feudalize_holding = {
+				size = { 28 28 }
+				parentanchor = center
+				alwaystransparent = yes
 			}
+		}
 
-			button_round  = { ## FEUDALIZE INTO CITY HOLDING ###
-				datacontext = "[HoldingView.GetGUIHoldingBuilding]"
-				datacontext = "[HoldingView.GetTitle]"
-				datacontext = "[HoldingView.GetHolder]"
-				visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('feudalize_into_city_holding_interaction', Title.Self) )]"
-				enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('feudalize_into_city_holding_interaction', Title.Self)]"
-				tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('feudalize_into_city_holding_interaction', Title.Self)]"
-				oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
-				clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
-				onclick = "[Character.OpenPlayerInteractionWithTargetTitle('feudalize_into_city_holding_interaction', Title.Self)]"
+		button_round = { ## FEUDALIZE INTO CITY HOLDING ###
+			datacontext = "[HoldingView.GetGUIHoldingBuilding]"
+			datacontext = "[HoldingView.GetTitle]"
+			datacontext = "[HoldingView.GetHolder]"
+			visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('feudalize_into_city_holding_interaction', Title.Self) )]"
+			enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('feudalize_into_city_holding_interaction', Title.Self)]"
+			tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('feudalize_into_city_holding_interaction', Title.Self)]"
+			oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
+			clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
+			onclick = "[Character.OpenPlayerInteractionWithTargetTitle('feudalize_into_city_holding_interaction', Title.Self)]"
 
-				button_feudalize_holding_city = {
-					size = { 25 25 }
-					parentanchor = center
-					alwaystransparent = yes
-				}
+			button_feudalize_holding_city = {
+				size = { 28 28 }
+				parentanchor = center
+				alwaystransparent = yes
 			}
+		}
 
-			button_round  = { ## FEUDALIZE INTO TEMPLE HOLDING ###
-				datacontext = "[HoldingView.GetGUIHoldingBuilding]"
-				datacontext = "[HoldingView.GetTitle]"
-				datacontext = "[HoldingView.GetHolder]"
-				visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('feudalize_into_temple_holding_interaction', Title.Self) )]"
-				enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('feudalize_into_temple_holding_interaction', Title.Self)]"
-				tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('feudalize_into_temple_holding_interaction', Title.Self)]"
-				oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
-				clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
-				onclick = "[Character.OpenPlayerInteractionWithTargetTitle('feudalize_into_temple_holding_interaction', Title.Self)]"
+		button_round = { ## FEUDALIZE INTO TEMPLE HOLDING ###
+			datacontext = "[HoldingView.GetGUIHoldingBuilding]"
+			datacontext = "[HoldingView.GetTitle]"
+			datacontext = "[HoldingView.GetHolder]"
+			visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('feudalize_into_temple_holding_interaction', Title.Self) )]"
+			enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('feudalize_into_temple_holding_interaction', Title.Self)]"
+			tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('feudalize_into_temple_holding_interaction', Title.Self)]"
+			oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
+			clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
+			onclick = "[Character.OpenPlayerInteractionWithTargetTitle('feudalize_into_temple_holding_interaction', Title.Self)]"
 
-				button_feudalize_holding_temple = {
-					size = { 25 25 }
-					parentanchor = center
-					alwaystransparent = yes
-				}
+			button_feudalize_holding_temple = {
+				size = { 28 28 }
+				parentanchor = center
+				alwaystransparent = yes
 			}
+		}
 
-			button_round  = { ## TRIBALIZE A HOLDING ###
-				datacontext = "[HoldingView.GetGUIHoldingBuilding]"
-				datacontext = "[HoldingView.GetTitle]"
-				datacontext = "[HoldingView.GetHolder]"
-				visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('tribalize_settlement_holding_interaction', Title.Self) )]"
-				enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('tribalize_settlement_holding_interaction', Title.Self)]"
-				tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('tribalize_settlement_holding_interaction', Title.Self)]"
-				oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
-				clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
-				onclick = "[Character.OpenPlayerInteractionWithTargetTitle('tribalize_settlement_holding_interaction', Title.Self)]"
+		button_round = { ## TRIBALIZE A HOLDING ###
+			datacontext = "[HoldingView.GetGUIHoldingBuilding]"
+			datacontext = "[HoldingView.GetTitle]"
+			datacontext = "[HoldingView.GetHolder]"
+			visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('tribalize_settlement_holding_interaction', Title.Self) )]"
+			enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('tribalize_settlement_holding_interaction', Title.Self)]"
+			tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('tribalize_settlement_holding_interaction', Title.Self)]"
+			oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
+			clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
+			onclick = "[Character.OpenPlayerInteractionWithTargetTitle('tribalize_settlement_holding_interaction', Title.Self)]"
 
-				button_feudalize_holding = {
-					size = { 25 25 }
-					parentanchor = center
-					alwaystransparent = yes
-				}
+			button_feudalize_holding = {
+				size = { 28 28 }
+				parentanchor = center
+				alwaystransparent = yes
 			}
+		}
 
-			button_round  = { ## COLONIZE A PIRATE DEN ###
-				datacontext = "[HoldingView.GetGUIHoldingBuilding]"
-				datacontext = "[HoldingView.GetTitle]"
-				datacontext = "[HoldingView.GetHolder]"
-				visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('colonize_pirate_den_interaction', Title.Self) )]"
-				enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('colonize_pirate_den_interaction', Title.Self)]"
-				tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('colonize_pirate_den_interaction', Title.Self)]"
-				oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
-				clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
-				onclick = "[Character.OpenPlayerInteractionWithTargetTitle('colonize_pirate_den_interaction', Title.Self)]"
+		button_round = { ## COLONIZE A PIRATE DEN ###
+			datacontext = "[HoldingView.GetGUIHoldingBuilding]"
+			datacontext = "[HoldingView.GetTitle]"
+			datacontext = "[HoldingView.GetHolder]"
+			visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('colonize_pirate_den_interaction', Title.Self) )]"
+			enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('colonize_pirate_den_interaction', Title.Self)]"
+			tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('colonize_pirate_den_interaction', Title.Self)]"
+			oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
+			clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
+			onclick = "[Character.OpenPlayerInteractionWithTargetTitle('colonize_pirate_den_interaction', Title.Self)]"
 
-				button_feudalize_holding = {
-					size = { 25 25 }
-					parentanchor = center
-					alwaystransparent = yes
-				}
+			button_feudalize_holding = {
+				size = { 28 28 }
+				parentanchor = center
+				alwaystransparent = yes
 			}
+		}
 
-			button_round  = { ## PIRATIZE A CASTLE ###
-				datacontext = "[HoldingView.GetGUIHoldingBuilding]"
-				datacontext = "[HoldingView.GetTitle]"
-				datacontext = "[HoldingView.GetHolder]"
-				visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('pirate_takeover_of_holding_interaction', Title.Self) )]"
-				enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('pirate_takeover_of_holding_interaction', Title.Self)]"
-				tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('pirate_takeover_of_holding_interaction', Title.Self)]"
-				oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
-				clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
-				onclick = "[Character.OpenPlayerInteractionWithTargetTitle('pirate_takeover_of_holding_interaction', Title.Self)]"
+		button_round = { ## PIRATIZE A CASTLE ###
+			datacontext = "[HoldingView.GetGUIHoldingBuilding]"
+			datacontext = "[HoldingView.GetTitle]"
+			datacontext = "[HoldingView.GetHolder]"
+			visible = "[And( Character.IsLocalPlayer, Character.IsPlayerInteractionShownAndCanPickTitle('pirate_takeover_of_holding_interaction', Title.Self) )]"
+			enabled = "[Character.IsPlayerInteractionWithTargetTitleValid('pirate_takeover_of_holding_interaction', Title.Self)]"
+			tooltip = "[Character.GetPlayerInteractionWithTargetTitleTooltip('pirate_takeover_of_holding_interaction', Title.Self)]"
+			oversound = "event:/SFX/UI/Generic/sfx_ui_generic_pointer_over"
+			clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_select"
+			onclick = "[Character.OpenPlayerInteractionWithTargetTitle('pirate_takeover_of_holding_interaction', Title.Self)]"
 
-				button_feudalize_holding = {
-					size = { 25 25 }
-					parentanchor = center
-					alwaystransparent = yes
-				}
+			button_feudalize_holding = {
+				size = { 28 28 }
+				parentanchor = center
+				alwaystransparent = yes
 			}
 		}
 	}

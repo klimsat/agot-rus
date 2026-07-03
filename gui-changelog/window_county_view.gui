@@ -260,7 +260,9 @@ window = {
 							datacontext = "[HoldingView.GetProvince]"
 							visible = "[IsLandlessAdventurer( GetPlayer )]"
 							widgetid = "move_domcicle_button"
-							size = { 50 50 }
+							#AGOT Modified
+							# size = { 50 50 }
+							size = { 40 40 }
 
 							enabled = "[Domicile.CanMoveTo( Province.Self )]"
 							onclick = "[OpenGameViewData( 'move_domicile_planner', Province.Self )]"
@@ -272,7 +274,9 @@ window = {
 							button_icon = {
 								alwaystransparent = yes
 								parentanchor = center
-								size = { 30 30 }
+								#AGOT Modified
+								# size = { 30 30 }
+								size = { 25 25 }
 								texture = "gfx/interface/icons/flat_icons/move_camp.dds"
 							}
 						}
@@ -1035,8 +1039,6 @@ window = {
 				layoutpolicy_vertical = expanding
 				minimumsize = { 0 320 }
 				margin = { 5 5 }
-				#AGOT Added
-				agot_county_view_settlement_buttons = {}
 
 				state = {
 					name = "holding_view_refresh"
@@ -1817,6 +1819,8 @@ window = {
 									allow_outside = yes
 
 									expand = {}
+									#AGOT Added
+									agot_county_view_settlement_buttons = {}
 
 									icon = {
 										name = "church_property"

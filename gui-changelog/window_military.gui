@@ -1298,7 +1298,7 @@ types ArmiesView
 										datamodel = "[HiredTroopItem.GetRegiments]"
 									}
 									#AGOT Added
-									enabled = "[GetScriptedGui('agot_can_hire_mercenaries').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+									enabled = "[GetScriptedGui('agot_can_hire_mercenaries').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('merc_company', HiredTroopItem.GetMercenaryCompany.GetHomeCounty.MakeScope).End)]"
 								}
 							}
 						}
@@ -2119,7 +2119,7 @@ types ArmiesView
 				tooltip = "CREATE_MAA_TOOLTIP"
 				down = "[MilitaryItem.IsOpen]"
 				#AGOT Added
-				enabled = "[GetScriptedGui('agot_can_hire_mercenaries').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+				enabled = "[GetScriptedGui('agot_can_hire_MAA').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 				tooltip_when_disabled = "AGOT_CANNOT_HIRE_MENATARMS"
 
 				button_plus = {

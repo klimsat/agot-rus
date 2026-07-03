@@ -334,6 +334,94 @@ types CharacterWindow
 		}
 	}
 
+	###############################
+	# ADDITIONAL PORTRAIT BUTTONS #
+	###############################
+	type agot_pre_war_liege_portrait_vbox = vbox
+	{
+		name = "agot_pre_war_liege_etc_area"
+		datacontext = "[CharacterWindow.GetCharacter.MakeScope.Var('agot_pwl_direct').Char]"
+		visible = "[CharacterWindow.GetCharacter.MakeScope.Var('agot_pwl_direct').Char.IsValid]"
+		allow_outside = yes
+
+		margin_right = 20
+		layoutpolicy_vertical = expanding
+		using = Animation_Character_Window_Refresh
+
+		portrait_head_small = {
+			name = "liege_portrait" #tutorial uses this
+			blockoverride "portrait_transformation"
+			{
+				portrait_scale = { -1 1 }
+				portrait_offset = { 1 0 }
+			}
+
+			blockoverride "coa" {
+				coa_realm_tiny = {
+					visible = "[And(CharacterWindow.GetCharacter.IsAlive, CharacterWindow.GetCharacter.MakeScope.Var('agot_pwl_direct').Char.IsValid)]"
+					parentanchor = bottom|left
+					position = { 3 -2 }
+					scale = 0.85
+				}
+
+				coa_title_tiny = {
+					visible = "[And(Not(CharacterWindow.GetCharacter.IsAlive), CharacterWindow.GetCharacter.MakeScope.Var('agot_pwl_direct').Char.IsValid)]"
+					datacontext = "[CharacterWindow.GetCharacter.MakeScope.Var('agot_pwl_direct').Char]"
+					parentanchor = bottom|left
+					position = { 3 -2 }
+					scale = 0.85
+				}
+			}
+		}
+		
+		hbox = {
+			spacing = 3
+
+			datacontext = "[CharacterWindow.GetCharacter]"
+
+			text_label_center = {
+				max_width = 90
+				text = "[Concept('liege', Localize('MW_GUI_PRE_WAR_LIEGE_LABEL'))|E]"
+			}
+		}
+
+		portrait_opinion = {
+			name = "agot_pwl_direct_opinion"
+
+			datacontext = "[CharacterWindow.GetCharacter]"
+			visible = "[And(Character.MakeScope.Var('agot_pwl_direct').Char.IsValid, And(Character.IsAlive, Not(Character.IsLocalPlayer)))]"
+
+			blockoverride "dread_logic" {
+				visible = "[Character.ShouldShowDreadEffectIconFor( Character.MakeScope.Var('agot_pwl_direct').Char )]"
+				frame = "[Character.GetDreadEffectIconFrameFor( Character.MakeScope.Var('agot_pwl_direct').Char )]"
+				tooltip = "[Character.GetDreadEffectTooltipFor( Character.MakeScope.Var('agot_pwl_direct').Char )]"
+			}
+
+			blockoverride "opinion_text"
+			{
+				text = "[Character.GetOpinionOf( Character.MakeScope.Var('agot_pwl_direct').Char )|=]"
+				fonttintcolor = "[Character.GetOpinionOfTint( CharacterWindow.GetCharacter.MakeScope.Var('agot_pwl_direct').Char )]"
+			}
+
+			blockoverride "ott_heading_text"
+			{
+				text = "[Character.GetOpinionHeadingText( CharacterWindow.GetCharacter.MakeScope.Var('agot_pwl_direct').Char )]"
+			}
+
+			blockoverride "ott_opinion_value_text"
+			{
+				text = "[Character.GetOpinionOf( Character.MakeScope.Var('agot_pwl_direct').Char )|=]"
+				fonttintcolor = "[Character.GetOpinionOfTint( CharacterWindow.GetCharacter.MakeScope.Var('agot_pwl_direct').Char )]"
+			}
+
+			blockoverride "ott_opinion_breakdown_text"
+			{
+				text = "[Character.GetOpinionBreakdownText( CharacterWindow.GetCharacter.MakeScope.Var('agot_pwl_direct').Char )]"
+			}
+		}
+		expand = {}
+	}
+
 	###########################
 	# TRAIT BUTTONS AND BOXES #
 	###########################
