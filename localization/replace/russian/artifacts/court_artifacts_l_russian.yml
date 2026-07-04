@@ -195,17 +195,17 @@
  feature_animal_hide_type_bison: "несгибаемого бизона"
  feature_animal_hide_type_elk: "могучего лося"
 
- artifact_animal_hide_name_legendary: "Шкура [newly_created_artifact.Custom('GetLegendaryColor_RU_TRUNC')][newly_created_artifact.Custom('GetAnimalType_RU_Gen_END')] [newly_created_artifact.Custom('ArtifactAnimalType_RU_RP')] из земли [location.GetTitle.GetDeJureLiege.GetNameNoTier]"
- artifact_animal_hide_name_adventurer: "Шкура [newly_created_artifact.Custom('ArtifactAnimalAdjective_RU_END')][newly_created_artifact.Custom('GetAnimalType_RU_Gen_END')] [newly_created_artifact.Custom('ArtifactAnimalType_RU_RP')] из земли [location.GetBaronyNameExplicitlyNoTooltip]"
+ artifact_animal_hide_name_legendary: "Шкура [newly_created_artifact.Custom('GetLegendaryColor_RU_TRUNC')][newly_created_artifact.Custom('GetAnimalType_RU_Gen_END')] [newly_created_artifact.Custom('ArtifactAnimalType_RU_Gen')] из земли [location.GetTitle.GetDeJureLiege.GetNameNoTier]"
+ artifact_animal_hide_name_adventurer: "Шкура [newly_created_artifact.Custom('ArtifactAnimalAdjective_RU_TRUNC')][newly_created_artifact.Custom('GetAnimalType_RU_Gen_END')] [newly_created_artifact.Custom('ArtifactAnimalType_RU_Gen')] из земли [location.GetBaronyNameExplicitlyNoTooltip]"
  artifact_animal_hide_name_cat: "Шкура кошки по кличке [owner.Custom('CatStoryName')]"
  artifact_animal_hide_name_dog: "Шкура собаки по кличке [owner.Custom('DogStoryName')]"
- artifact_animal_hide_name_base: "Шкура [newly_created_artifact.Custom('ArtifactAnimalAdjective_RU_END')][newly_created_artifact.Custom('GetAnimalType_RU_Gen_END')] [newly_created_artifact.Custom('ArtifactAnimalType_RU_RP')]"
+ artifact_animal_hide_name_base: "Шкура [newly_created_artifact.Custom('ArtifactAnimalAdjective_RU_TRUNC')][newly_created_artifact.Custom('GetAnimalType_RU_Gen_END')] [newly_created_artifact.Custom('ArtifactAnimalType_RU_Gen')]"
  artifact_animal_hide_description: "Дубленая шкура [newly_created_artifact.GetFeatureText( 'animal_hide_type' )] [SCOPE.Custom('ArtifactQuality')] качества, [newly_created_artifact.Custom('ArtifactSmallHideAcquisitionMethod')]."
 
  artifact_small_hide_name: "$artifact_animal_hide_name_base$"
  artifact_small_hide_description: "$artifact_animal_hide_description$"
  artifact_small_hide_acquisition_pet: "сохраненная в память о верном друге и спутнике"
- artifact_small_hide_acquisition_hunt: "добытая персонажем [ROOT.Artifact.MakeScope.Var('adventure_artifact_hunter').Char.GetTitledFirstName] во владении [ROOT.Artifact.MakeScope.Var('adventure_artifact_location').Province.GetBaronyNameExplicitly]"
+ artifact_small_hide_acquisition_hunt: "что добыл[Select_CString(ROOT.Artifact.MakeScope.Var('adventure_artifact_hunter').Char.IsFemale, 'а', '' )] [ROOT.Artifact.MakeScope.Var('adventure_artifact_hunter').Char.GetTitledFirstName|l] во владении [ROOT.Artifact.MakeScope.Var('adventure_artifact_location').Province.GetBaronyNameExplicitly]"
  create_artifact_small_hide_tooltip: "[adventurer.GetShortUIName] [Select_CString(adventurer.IsFemale, 'добыла и выдубила', 'добыл и выдубил' )] шкуру [SCOPE.Custom('ArtifactQuality')] качества"
 
  artifact_animal_hide_medium_name: "$artifact_animal_hide_name_base$"
@@ -217,9 +217,9 @@
  create_artifact_big_hide_tooltip: "$create_artifact_small_hide_tooltip$"
  
  # Skull
- artifact_wall_skull_name_legendary: "Череп [newly_created_artifact.Custom('GetLegendaryColor_RU_TRUNC')][newly_created_artifact.Custom('GetAnimalType_RU_Gen_END')] [newly_created_artifact.Custom('ArtifactAnimalType_RU_RP')] из земли [owner.MakeScope.Var('adventure_artifact_location').Province.GetTitle.GetDeJureLiege.GetNameNoTier]"
- artifact_wall_skull_name_adventurer: "Череп [newly_created_artifact.Custom('ArtifactAnimalAdjective_RU_END')][newly_created_artifact.Custom('GetAnimalType_RU_Gen_END')] из земли [owner.MakeScope.Var('adventure_artifact_location').Province.GetBaronyNameExplicitly]"
- artifact_wall_skull_name: "Череп [newly_created_artifact.Custom('ArtifactAnimalAdjective_RU_END')][newly_created_artifact.Custom('GetAnimalType_RU_Gen_END')]"
+ artifact_wall_skull_name_legendary: "Череп [newly_created_artifact.Custom('GetLegendaryColor_RU_TRUNC')][newly_created_artifact.Custom('GetAnimalType_RU_Gen_END')] [newly_created_artifact.Custom('ArtifactAnimalType_RU_Gen')] из земли [owner.MakeScope.Var('adventure_artifact_location').Province.GetTitle.GetDeJureLiege.GetNameNoTier]"
+ artifact_wall_skull_name_adventurer: "Череп [newly_created_artifact.Custom('ArtifactAnimalAdjective_RU_TRUNC')][newly_created_artifact.Custom('GetAnimalType_RU_Gen_END')] [newly_created_artifact.Custom('GetAnimalType_RU_Gen')] из земли [owner.MakeScope.Var('adventure_artifact_location').Province.GetBaronyNameExplicitly]"
+ artifact_wall_skull_name: "Череп [newly_created_artifact.Custom('ArtifactAnimalAdjective_RU_TRUNC')][newly_created_artifact.Custom('GetAnimalType_RU_Gen_END')] [newly_created_artifact.Custom('GetAnimalType_RU_Gen')]"
  artifact_wall_skull_description: "Череп [newly_created_artifact.GetFeatureText( 'animal_skull_type' )], [creator.GetTitledFirstName] [Select_CString(creator.IsFemale, 'добыла', 'добыл' )] его во владении [location.GetBaronyNameExplicitly]. Череп [SCOPE.Custom('ArtifactAdverbQuality')] сохранился и лежит на [SCOPE.Custom('ArtifactAdverbWealth')] украшенном постаменте из [newly_created_artifact.GetFeatureText( 'generic_material_wood' )]."
  artfact_animal_adjective: "[newly_created_artifact.Custom('ArtifactAnimalAdjective')|U]"
  artifact_animal_great: "великан"
@@ -504,7 +504,7 @@
  feature_book_title_diplomacy_cicero: "Книга «Изречения триарха» $artifact_name_prefix_artifact_scope$"
  #AGOT Modified
  #feature_book_topic_diplomacy_cicero: "A [Artifact.GetOwner.Custom('ArtifactAdverbWealth')] illuminated collection of the orations of Cicero, ancient master of Latin eloquence."
- feature_book_topic_diplomacy_cicero: "[SCOPE.Custom('ArtifactAdverbWealth')|U] оформленное собрание изречений Триарха Волантиса, древнего мастера валирийской словесности."
+ feature_book_topic_diplomacy_cicero: "[Artifact.GetOwner.Custom('ArtifactAdverbWealth')|U] оформленное собрание изречений Триарха Волантиса, древнего мастера валирийской словесности."
  #AGOT Modified
  #feature_book_title_diplomacy_hitopadesa: "$artifact_name_prefix_artifact_scope$ Hitopadesa"
  feature_book_title_diplomacy_hitopadesa: "Книга «Антология басен» $artifact_name_prefix_artifact_scope$"
@@ -516,7 +516,7 @@
  feature_book_title_diplomacy_kalila: "Книга «Басни о животных» $artifact_name_prefix_artifact_scope$"
  #AGOT Modified
  #feature_book_topic_diplomacy_kalila: "A [Artifact.GetOwner.Custom('ArtifactAdverbWealth')]-illuminated manuscript containing a collection of animal fables known as Kalila wa-Dimna."
- feature_book_topic_diplomacy_kalila: "[SCOPE.Custom('ArtifactAdverbWealth')|U] иллюстрированный манускрипт с баснями о животных."
+ feature_book_topic_diplomacy_kalila: "[Artifact.GetOwner.Custom('ArtifactAdverbWealth')|U] иллюстрированный манускрипт с баснями о животных."
  #AGOT Modified
  #feature_book_title_diplomacy_edda: "$artifact_name_prefix_artifact_scope$ Edda"
  feature_book_title_diplomacy_edda: "Книга «Нефритовый компендиум» $artifact_name_prefix_artifact_scope$"
