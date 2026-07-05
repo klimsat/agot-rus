@@ -1,8 +1,8 @@
 ﻿l_russian:
- ACTIVITY_LOG_ENTRY_EFFECT:1 "#S Эффекты#!\n$EFFECT$"
- activity_tournament_province_desc:2 "Вы устроили турнир в провинции [ROOT.Province.GetName]\nПровинции с подходящими зданиями позволяют сэкономить [gold_i] [Concept( 'gold', 'золота' )|E]"
+ ACTIVITY_LOG_ENTRY_EFFECT: "#S Эффекты#!\n$EFFECT$"
+ activity_tournament_province_desc: "Вы устроили турнир в провинции [ROOT.Province.GetName]\nПровинции с подходящими зданиями позволяют сэкономить [gold_i] [Concept( 'gold', 'золота' )|E]"
  activity_feast_guest_desc: "$BULLET_WITH_TAB$[Concept( 'opinion', 'Мнение' )|E] гостей об участниках может улучшиться\n$BULLET_WITH_TAB$[stress_loss_i][Concept( 'stress', 'Стресс' )|E] участников может снизиться\n$BULLET_WITH_TAB$Участники могут получить [Concept( 'trait', 'свойство' )|E] «[GetTrait('lifestyle_reveler').GetName( GetNullCharacter )]»"
- activity_tournament_guest_desc:1 "#weak Приняв участие в турнире, вы сможете побороться за приз победителя, а еще — отдохнуть и приятно провести время. Помимо этого, вы получите возможность улучшить свое воинское мастерство.#!"
+ activity_tournament_guest_desc: "#weak Приняв участие в турнире, вы сможете побороться за приз победителя, а еще — отдохнуть и приятно провести время. Помимо этого, вы получите возможность улучшить свое воинское мастерство.#!"
 
  guest_friendship_title: "$activity_pulse_action_guest_friendship$"
  # AGOT Modified
@@ -14,19 +14,19 @@
  activity_pulse_action_guest_insulted: "[second.GetShortUINameNoTooltip|U] [Select_CString(second.IsLocalPlayer, 'оскорбляете', Select_CString(second.IsFemale, 'оскорбляет', 'оскорбляет' ))] [Select_CString(first.IsLocalPlayer, '', 'персонажа ' )][first.GetNamePossessiveOrMy][Select_CString(first.IsLocalPlayer, 'его персонажа', '' )]"
 
  # Tournament - Activity Invalidated
- activity_system.0040.t:1 "Турнир окончен"
- activity_system.0040.desc:1 "Увы, обстоятельства переменились, и недолгий разговор с организаторами подтвердил ваши худшие опасения: турнир отменяется.\n\nМимо бредут подавленные зрители, дети разочарованно хнычут, держась за руки родителей. Остаётся надеяться, что в скором времени выпадет другая возможность провести турнир."
- activity_system.0040.a:1 "Какая жалость."
+ activity_system.0040.t: "Турнир окончен"
+ activity_system.0040.desc: "Увы, обстоятельства переменились, и недолгий разговор с организаторами подтвердил ваши худшие опасения: турнир отменяется.\n\nМимо бредут подавленные зрители, дети разочарованно хнычут, держась за руки родителей. Остаётся надеяться, что в скором времени выпадет другая возможность провести турнир."
+ activity_system.0040.a: "Какая жалость."
 
  # New Host after Character Death
- activity_system.0080.t:1 "Новый устроитель"
- activity_system.0080.desc:2 "Смерть устроителя вызвала настоящую панику среди организаторов турнира. Многочисленные гости даже не подозревали, какой хаос воцарился за кулисами праздника.\n\nК счастью, в итоге организаторам удалось прийти к согласию."
+ activity_system.0080.t: "Новый устроитель"
+ activity_system.0080.desc: "Смерть устроителя вызвала настоящую панику среди организаторов турнира. Многочисленные гости даже не подозревали, какой хаос воцарился за кулисами праздника.\n\nК счастью, в итоге организаторам удалось прийти к согласию."
  activity_system.0080.desc_other: "Празднование продолжается, и [host.GetTitledFirstName] теперь всем заправляет!"
  activity_system.0080.desc_me: "Празднование продолжается, и я теперь всем заправляю!"
  activity_system.0080.a: "Вернёмся к делу."
 
  #Pilgrimages: New Host after Character Death
- activity_system.0081.t:1 "Пункт назначения"
+ activity_system.0081.t: "Пункт назначения"
  activity_system.0081.desc.relation_family_liked: "[ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('old_host'))] [old_host.GetTitledFirstName], к сожалению, [Select_CString(old_host.IsFemale, 'покинула', 'покинул' )] этот мир и"
  activity_system.0081.desc.relation_liked: "[old_host.GetTitledFirstName], к сожалению, [Select_CString(old_host.IsFemale, 'покинула', 'покинул' )] этот мир и"
  activity_system.0081.desc.relation_family: "[ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('old_host'))] [old_host.GetTitledFirstName], к сожалению, [Select_CString(old_host.IsFemale, 'покинула', 'покинул' )] этот мир и"
@@ -41,20 +41,20 @@
 
  # Intent Invalidated
  activity_system.0090.t: "Намерения недействительны"
- activity_system.0090.desc:1 "В свете изменившихся обстоятельств становится очевидно, что мне не суждено исполнить мои предыдущие намерения. Мимо проходят довольные люди, не замечая охватившего меня замешательства.\n\nЧего ещё желает мое сердце? Быть может, мне пора отдохнуть и расслабиться?"
- activity_system.0090.a:1 "Пора переключиться на что-то другое."
+ activity_system.0090.desc: "В свете изменившихся обстоятельств становится очевидно, что мне не суждено исполнить мои предыдущие намерения. Мимо проходят довольные люди, не замечая охватившего меня замешательства.\n\nЧего ещё желает мое сердце? Быть может, мне пора отдохнуть и расслабиться?"
+ activity_system.0090.a: "Пора переключиться на что-то другое."
 
  # Intent Target Invalidated
- activity_system.0091.t:1 "Недействительная цель намерений"
- activity_system.0091.desc:1 "В свете изменившихся обстоятельств становится очевидно, что предыдущий объект моих намерений более не играет никакой роли в моих планах. мне не суждено исполнить мои предыдущие намерения. Мимо проходят довольные люди, не замечая охватившего меня замешательства.\n\nКто же теперь заслуживает моего внимания? Быть может, мне пора заняться собой?"
- activity_system.0091.a:1 "Мне нужна новая муза..."
+ activity_system.0091.t: "Недействительная цель намерений"
+ activity_system.0091.desc: "В свете изменившихся обстоятельств становится очевидно, что предыдущий объект моих намерений более не играет никакой роли в моих планах. мне не суждено исполнить мои предыдущие намерения. Мимо проходят довольные люди, не замечая охватившего меня замешательства.\n\nКто же теперь заслуживает моего внимания? Быть может, мне пора заняться собой?"
+ activity_system.0091.a: "Мне нужна новая муза..."
 
  # Activity Conclusion
- activity_system.0100.t:2 "Грустное празднество"
+ activity_system.0100.t: "Грустное празднество"
  activity_system.0100.desc: "Невероятно! Несмотря на все приготовления и разосланные загодя приглашения, никто из гостей не явился! Похоже, что [activity_type.GetNameNoTooltip()|U] пройдёт без зрителей. Что ж, [location.GetName] — тот ещё медвежий угол, дорога сюда полна опасностей.\n\n"
  activity_system.0100.outro_away: "Значит, пора собираться назад, в столицу. [ROOT.Char.GetCapitalLocation.GetName], я возвращаюсь домой."
  activity_system.0100.outro_home: "По крайней мере, не пришлось отъезжать далеко от дома."
- activity_system.0100.a:1 "Но почему? Почему никто не приехал?"
+ activity_system.0100.a: "Но почему? Почему никто не приехал?"
 
  activity_system.1010.t: "Прерванное путешествие"
  activity_system.1010.desc: "К сожалению, [host.GetNameRegnal], [Select_CString(host.IsFemale, 'моя предшественница, покинула', 'мой предшественник, покинул' )] этот мир во время объезда своих владений. Причина смерти: [host.GetDeathReason].\n\n"
@@ -69,17 +69,17 @@
  activity_system.0300.t: "Война не ждет"
  activity_system.0300.desc.intro.traveling: "Звук рогов, зовущий на войну, долетел даже сюда, в место под названием [target_activity_location.GetName]. Здесь я нахожусь по пути на мероприятие [target_activity_type.GetNameNoTooltip], которое должно состояться в месте [target_activity_location.GetName]. "
  activity_system.0300.desc.intro.activity: "Звук рогов, зовущий на войну, долетел даже сюда, в место под названием [target_activity_location.GetName], где мной проводится [target_activity_type.GetNameNoTooltip]. "
- activity_system.0300.desc.attacker:1 "Я вступаю в войну против персонажа [war_opponent.GetNameRegnal|U]."
+ activity_system.0300.desc.attacker: "Я вступаю в войну против персонажа [war_opponent.GetNameRegnal|U]."
  activity_system.0300.desc.defender: "[Select_CString(war_opponent.IsFemale, 'Эта', 'Этот' )] [war_opponent.Custom2('InsultNoun', ROOT.Char)] [war_opponent.GetNameRegnal|U] [Select_CString(war_opponent.IsFemale, 'объявила', 'объявил' )] мне войну!\n\n"
  activity_system.0300.desc.outro: "На подготовку к мероприятию [target_activity_type.GetNameNoTooltip] потрачено много сил и средств, и мне очень не хочется отправлять гостей по домам. Однако нельзя недооценивать важность этого противостояния.\n\nВозможно, мне следует сосредоточиться на войне..."
  activity_system.0300.a: "Дальше я разберусь самостоятельно."
  #AGOT Modified, fixing Paradox oops
  #activity_system.0300.a.tt: "Занятие [target_activity.GetNameNoTooltip] будет продолжено"
- activity_system.0300.a.tt: "Занятие [target_activity_type.GetNameNoTooltip] будет продолжено"
+ activity_system.0300.a.tt: "[target_activity_type.GetNameNoTooltip] продолжится"
  activity_system.0300.b: "Мне нужно сосредоточиться на этой войне."
  #AGOT Modified, fixing Paradox oops
  #activity_system.0300.b.tt: "Занятие [target_activity.GetNameNoTooltip] отменяется, и все его участники отправятся по домам"
- activity_system.0300.b.tt: "Занятие [target_activity_type.GetNameNoTooltip] отменяется, и все его участники отправятся по домам"
+ activity_system.0300.b.tt: "[target_activity_type.GetNameNoTooltip] отменяется, и все участники отправятся по домам"
  activity_system.0300.b.tt.cost: "Часть расходов, возможно, будет возмещена"
 
  activity_system.0301.t: "[target_activity_type.GetNameNoTooltip]: отмена"
