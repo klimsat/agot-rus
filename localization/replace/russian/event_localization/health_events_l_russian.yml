@@ -90,7 +90,7 @@
  health.1007.a: "В борьбе с этим врагом победа невозможна."
 
  health.1008.t: "[SCOPE.Custom('EventTitleDisease')]: огонь любви"
- health.1008.desc: "Жжение в паху стало настолько невыносимым, что мне пришлось извиниться и уйти к себе в [ROOT.Char.Custom('GetChamber_RU_1')]. В одиночестве я наконец могу почесаться и обрести облегчение.\n\nНет, никакого облегчения нет: стоило мне почесаться, как эти ужасные волдыри вскрылись!"
+ health.1008.desc: "Жжение в паху стало настолько невыносимым, что мне пришлось извиниться и уйти к себе в [ROOT.Char.Custom('GetChamber')]. В одиночестве я наконец могу почесаться и обрести облегчение.\n\nНет, никакого облегчения нет: стоило мне почесаться, как эти ужасные волдыри вскрылись!"
  health.1008.partner.a: "[infecting_partner.GetFirstNameNoTooltip]...!"
  health.1008.no_partner.a: "Как? Кто?!"
 
@@ -450,7 +450,7 @@
  health.3200.failure.desc: "Неужели это [sick_character.GetTitledFirstName]? [sick_character.GetSheHe|U] словно и не человек вовсе, а мешанина истерзанной, распухшей плоти, едва напоминающей человека. Я беру [sick_character.GetHerHis] руку в свои. [ROOT.GetCharacter.Custom2('RelationToMeShort', SCOPE.sC('sick_character'))|U] пытается говорить, но ни единого звука не срывается с [sick_character.GetHerHis] губ."
  health.3200.failure.desc_2: "До меня доносится жуткий, полный боли вопль, который лишь отдаленно напоминает человеческий. Кажется, это [ROOT.Char.Custom('GetChambersOrTent')|l], где проживает [ROOT.GetCharacter.Custom2('RelationToMeShort', SCOPE.sC('sick_character'))] [sick_character.GetTitledFirstName]. Я врываюсь внутрь и вижу, что [sick_character.GetFirstNameNoTooltip] лежит на полу, #EMP [Select_CString(sick_character.IsFemale, 'залитая', 'залитый' )]#! кровью."
  health.3200.failure.desc_3: "Мне не сразу удается осознать, какой ущерб [sick_character.Custom2('MyCharacterIntroduction', ROOT.Char)] [Select_CString(sick_character.IsFemale, 'нанесла', 'нанес' )] собственному телу. [Select_CString(sick_character.IsFemale, 'Она вся', 'Он весь' )] в крови, но все равно рьяно орудует ножом. Прежде чем я успеваю вмешаться, [sick_character.GetSheHe] разочарованно смотрит на острый клинок и теряет сознание."
- health.3200.end.desc: "\n\n[physician.Custom2('InsultAdjective', ROOT.Char)|U] [Select_CString(physician.IsFemale, 'лекарша', 'лекарь' )], жмется в углу, нервно выкручивая руки..."
+ health.3200.end.desc: "\n\n[physician.Custom2('InsultAdjective', ROOT.Char)|U][Select_CString(physician.IsFemale, 'ая', 'ый' )] [Select_CString(physician.IsFemale, 'лекарша', 'лекарь' )], жмется в углу, нервно заламывая руки..."
  health.3200.death.tt: "[sick_character.GetTitledFirstName] умирает во время лечения."
 
  health.3201.desc: "[ROOT.GetCharacter.Custom2('RelationToMe', SCOPE.sC('sick_character'))] смотрит на меня диким взором. Я спрашиваю, что за жуткое видение [sick_character.GetHerHim] явилось, но с [sick_character.GetHerHis] губ не срывается ни звука.\n\n"
@@ -592,8 +592,8 @@
  health.6204.desc_2: "Спустя какое-то время я чувствую движение, а затем что-то холодное и острое упирается мне в шею. Я едва чувствую порез. Но я слышу тяжелое дыхание, слышу, как нож со стуком падает на пол, слышу всхлипы у моего уха... А затем... Ничего."
  health.6204.a: "Наконец-то свобода..."
 
- health.6205.desc_1: "Спустя какое-то время я чувствую движение, а затем — мягкое давление на лицо. Давление растет, и я понимаю, что не могу дышать. Я испытываю лишь одно чувство... Благодарность. И когда я уже почти теряю сознание, поток воздуха внезапно врывается в мои легкие. Я слышу плач и истерический голос. Я слышу шаги, направляющиеся прочь из [ROOT.Char.Custom('GetRoom_RU_2')]."
- health.6205.desc_2: "Спустя какое-то время я чувствую движение, а затем что-то холодное и острое упирается мне в шею. Давление усиливается и... я слышу, как нож падает. Слышу плач, умоляющий голос — и звук шагов, направленных прочь из [ROOT.Char.Custom('GetRoom_RU_2')]."
+ health.6205.desc_1: "Спустя какое-то время я чувствую движение, а затем — мягкое давление на лицо. Давление растет, и я понимаю, что не могу дышать. Я испытываю лишь одно чувство... Благодарность. И когда я уже почти теряю сознание, поток воздуха внезапно врывается в мои легкие. Я слышу плач и истерический голос. Я слышу шаги, направляющиеся прочь из [ROOT.Char.Custom('GetRoom_RU_Gen')]."
+ health.6205.desc_2: "Спустя какое-то время я чувствую движение, а затем что-то холодное и острое упирается мне в шею. Давление усиливается и... я слышу, как нож падает. Слышу плач, умоляющий голос — и звук шагов, направленных прочь из [ROOT.Char.Custom('GetRoom_RU_Gen')]."
  health.6205.a: "Нет... Пожалуйста... Вернись..."
 
  health.6206.desc: "«[ROOT.Char.GetFirstNameNoTooltip]...»\n\nЯ слышу, как [close_person.GetFirstName] обращается ко мне, но тихо, словно издалека. «[ROOT.Char.GetFirstNameNoTooltip], я... я не могу».\n\nМеня наполняет отчаяние, и сквозь туман в моей голове до меня доносятся лишь плач и стихающий звук шагов."
