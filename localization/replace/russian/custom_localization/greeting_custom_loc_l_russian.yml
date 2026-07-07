@@ -23,8 +23,8 @@
  greeting_vassal_liked_regent: "Приветствую, [second.Custom('ComplimentAdjective')][Select_CString(second.IsFemale, 'ая', 'ый' )] [Select_CString(second.IsFemale, 'подданная', 'вассал' )] [ROOT.Char.Custom('GetCeremonialLiegeOrLiegeTitlePossessive')|l]!"
  greeting_vassal_liked_ceremonial_liege: "[Select_CString(second.IsFemale, 'Моя', 'Мой' )] [second.Custom2('ComplimentAdjective', ROOT.Char)][Select_CString(second.IsFemale, 'ая', 'ый' )] [ROOT.Char.Custom('GetCeremonialLiegeOrLiegeTitle')]!"
  greeting_vassal_dislike: "[Select_CString(second.IsFemale, 'Моя', 'Мой' )] [second.Custom2('InsultAdjective', ROOT.Char)][Select_CString(second.IsFemale, 'ая', 'ый' )] [Select_CString(second.IsFemale, 'подданная', 'вассал' )]!"
- greeting_vassal_dislike_regent: "[second.Custom2('InsultAdjective', ROOT.Char)|U] [Select_CString(second.IsFemale, 'подданная', 'вассал' )] [ROOT.Char.Custom('GetCeremonialLiegeOrLiegeTitlePossessive')|l]!"
- greeting_vassal_dislike_ceremonial_liege: "[Select_CString(second.IsFemale, 'Моя', 'Мой' )] [second.Custom2('InsultAdjective', ROOT.Char)] [ROOT.Char.Custom('GetCeremonialLiegeOrLiegeTitle')|l]!"
+ greeting_vassal_dislike_regent: "[second.Custom2('InsultAdjective', ROOT.Char)|U][Select_CString(second.IsFemale, 'ая', 'ый' )] [Select_CString(second.IsFemale, 'подданная', 'вассал' )] [ROOT.Char.Custom('GetCeremonialLiegeOrLiegeTitlePossessive')|l]!"
+ greeting_vassal_dislike_ceremonial_liege: "[Select_CString(second.IsFemale, 'Моя', 'Мой' )] [second.Custom2('InsultAdjective', ROOT.Char)][Select_CString(second.IsFemale, 'ая', 'ый' )] [ROOT.Char.Custom('GetCeremonialLiegeOrLiegeTitle')|l]!"
  greeting_vassal_fallback: "[ROOT.Char.Custom2('GreetingToVassalNeutral', second)]!"
  greeting_vassal_neutral: "Моему вассалу,"
  greeting_vassal_neutral_regent: "[Select_CString(second.IsFemale, 'Подданной', 'Вассалу' )] [ROOT.Char.Custom('GetCeremonialLiegeOrLiegeTitlePossessive')|l]!"
@@ -36,11 +36,11 @@
  greeting_family_fallback: "Приветствую, [ROOT.Char.Custom2('RelationToMeShort', second)]!"
 
  greeting_foreign_ruler: "Приветствую, [second.GetNameNoTooltip]!"
- greeting_foreign_ruler_negative: "[second.Custom2('InsultAdjective', ROOT.Char)] [second.GetTitledFirstNameNoTooltip]!"
+ greeting_foreign_ruler_negative: "[second.Custom2('InsultAdjective', ROOT.Char)][Select_CString(second.IsFemale, 'ая', 'ый' )] [second.GetTitledFirstNameNoTooltip]!"
  greeting_foreign_ruler_positive: "[second.Custom('ComplimentAdjective')|U][Select_CString(second.IsFemale, 'ая', 'ый' )] [second.GetNameNoTooltip]!"
 
  greeting_generic: "Приветствую, [second.GetNameNoTooltip]!"
- greeting_generic_negative: "[second.Custom2('InsultAdjective', ROOT.Char)] [second.GetFirstNameNoTooltip]!"
+ greeting_generic_negative: "[second.Custom2('InsultAdjective', ROOT.Char)][Select_CString(second.IsFemale, 'ая', 'ый' )] [second.GetFirstNameNoTooltip]!"
  greeting_generic_positive: "[second.Custom('ComplimentAdjective')|U][Select_CString(second.IsFemale, 'ая', 'ый' )] [second.GetFirstNameNoTooltip],"
 
  greeting_appropriate_positive_liege: "[ROOT.Char.Custom2('GreetingToLiegePositive', second)]"

@@ -21,7 +21,7 @@
  ACTIVITY_WINDOW_YOUR_INTENT: "Ваше намерение"
 
  ACTIVITY_INTENT_SELECTION_HEADER: "Изменить замысел занятия «[ActivityType.GetNameNoTooltip]»"
- ACTIVITY_INTENT_SELECTION_TEXT: "Выберите [Concept( 'intent', 'намерение' )|E], которое будете преследовать в ходе занятия «[ActivityType.GetName]»"
+ ACTIVITY_INTENT_SELECTION_TEXT: "Выберите [Concept( 'intent', 'намерение' )|E], которое будете преследовать\nв ходе занятия «[ActivityType.GetName]»"
  ACTIVITY_CHANGE_INTENT_TOOLTIP: "#T [ActivityIntent.GetName]#!\n[ActivityIntent.GetDescription][AddParagraph( ActivityIntentSelectionWindow.GetCanPickIntentDesc( ActivityIntent.Self ) )]"
  ACTIVITY_INTENT_TARGET_LABEL: "Цель намерения «[ActivityIntent.GetName]»"
  ACTIVITY_SINGLE_INTENT_TOOLTIP: "#T [ActivityIntent.GetName]#!\n[ActivityIntent.GetDescription]"
@@ -54,7 +54,7 @@
  ACTIVITY_GUEST_WILL_ACCEPT: "#T @check_icon! Примет приглашение#!\n#indent_newline:3 Всего: [ActivityGuestListWindow.GetJoinChance( CharacterListItem.Self )|+=0]\n[ActivityGuestListWindow.GetJoinChanceBreakdown( CharacterListItem.Self )]#!"
  ACTIVITY_GUEST_WILL_DECLINE: "#T @cross_icon! Отклонит приглашение#!\n#indent_newline:3 Всего: [ActivityGuestListWindow.GetJoinChance( CharacterListItem.Self )|+=0] (примет лишь в случае, если общий показатель положителен)\n[ActivityGuestListWindow.GetJoinChanceBreakdown( CharacterListItem.Self )]#!"
  ACTIVITY_GUEST_MAY_NOT_ARRIVE: "@warning_icon! #X Может #bold опоздать#!#!"
- ACTIVITY_SPECIAL_GUEST_ACCEPTANCE: "[Select_CString(Character.IsFemale, 'Она','Он')] с большей вероятностью согласится принять ваше приглашение"
+ ACTIVITY_SPECIAL_GUEST_ACCEPTANCE: "[Select_CString(Character.IsFemale, 'Она', 'Он')] с большей вероятностью согласится принять ваше приглашение"
  ACTIVITY_GUEST_LIST_SELECT_HONORARY_GUEST: "#T Выбрать: [ActivityGuestListWindow.GetSelectingSpecialGuest.GetType.GetNameIfHost( ActivityGuestListWindow.GetHost )]#!\n[Character.GetShortUINameNoTooltip] будет выполнять роль «[ActivityGuestListWindow.GetSelectingSpecialGuest.GetType.GetNameIfHost( ActivityGuestListWindow.GetHost )]», [ActivityType.GetLocalizedTextWithFallback( 'special_guest_acceptance', 'ACTIVITY_SPECIAL_GUEST_ACCEPTANCE' )]."
 
  ACTIVITY_SPECIAL_OPTION_SELECTED: "#P Выбрано#!"

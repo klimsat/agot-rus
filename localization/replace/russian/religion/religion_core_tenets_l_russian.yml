@@ -67,7 +67,7 @@
 
  tenet_gnosticism_name: "Гностицизм"
  tenet_gnosticism_desc: "В каждом есть некая божественная искра, которая через познание может освободиться и вернуться к своему духовному истоку."
- doctrine_parameter_hostility_override_tenet_gnosticism: "Воспринимает прочие гностические и дуалистические [faiths|El] как [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V], а не как $hostility_hostile_tooltippable$ или $hostility_evil_tooltippable$"
+ doctrine_parameter_hostility_override_tenet_gnosticism: "Воспринимает прочие гностические и дуалистические [faiths|El] как [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|Vl], а не как [GetHostilityLevelName( '(int32)2' )|Vl] или [GetHostilityLevelName( '(int32)3' )|Vl]"
  doctrine_parameter_hostility_override_special_doctrine_is_gnostic_faith: ""
  doctrine_parameter_granting_titles_gives_stress: "[stress|E] снижается при раздаче [Concept( 'titles', 'титулов' )|E] "
 
@@ -155,8 +155,8 @@
 
  tenet_legalism_name: "Легализм"
  tenet_legalism_desc: "Наши законы — плод набожной мудрости многих поколений. Подчиняясь, мы проявляем благочестие, любой же грешник всегда будет вне закона."
- doctrine_parameter_legalism_reduced_faction_virtues: "[vassals|E] и [counties|El] с большей вероятности вступят во [factions|El], если правитель [Concept( 'virtuous', 'добродетельный' )|El]"
- doctrine_parameter_legalism_increased_faction_sins: "[vassals|E] и [counties|El] с большей вероятности вступят во [factions|El], если правитель если правитель [Concept('sinful','грешник')|El]"
+ doctrine_parameter_legalism_reduced_faction_virtues: "[vassals|E] и [counties|El] с меньшей вероятностью вступят во [factions|El], если правитель [Concept( 'virtuous', 'добродетельный' )|El]"
+ doctrine_parameter_legalism_increased_faction_sins: "[vassals|E] и [counties|El] с большей вероятностью вступят во [factions|El], если правитель [Concept('sinful', 'грешник')|El]"
  doctrine_parameter_legalism_modified_law_costs: "Снижает стоимость законов на #P -10%#! за каждую [virtue|El] правителя"
  doctrine_parameter_legalism_modified_law_costs_2: "Повышает стоимость законов на #N 10%#! за каждый [sin|El] правителя"
  doctrine_parameter_legalism_trust_just_leader_active: "Если применяется выборное [succession|El], то [electors|El] вероятнее поддержат кандидатуру [Concept( 'liege', 'сюзерена' )|El], если тот обладает свойством «$trait_just$»"
@@ -301,7 +301,7 @@
  tenet_sinitic_syncretism_name: "Синитский синкретизм"
  tenet_sinitic_syncretism_desc: "Мы можем многое почерпнуть из древних китайских вероучений, которые на протяжении многих веков наставляли наш народ на путь добра и праведности."
  doctrine_parameter_hostility_override_sinitic_hostility_doctrine: "Синитские [Concept('faiths', 'конфессии')|E] воспринимаются только как [GetHostilityLevelName( FAITH_DOCTRINE_PARAMETER.GetIntValue )|Vl]"
- #Instead, add these doctrine parameters to appropriate tenets (presently Dharmic Syncretism). 
+ #Instead, add these doctrine parameters to appropriate tenets (presently Dharmic Syncretism).
  doctrine_parameter_is_sinitic_faith_bilateral_loc_override: "Считает, что синитские [Concept('faiths', 'конфессии')|E] — [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V], а не $hostility_evil_tooltippable$. Синитские $game_concept_faiths$ отвечают тем же"
  doctrine_parameter_hostility_override_special_doctrine_is_sinitic_faith: "Считает, что синитские [Concept('faiths', 'конфессии')|E] — [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V], а не $hostility_evil_tooltippable$. Синитские $game_concept_faiths$ отвечают тем же"
  doctrine_parameter_sinitic_syncretic_actor_opinion_active: "Взаимный бонус [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] к [Concept('opinion', 'мнению')|E] персонажей, принадлежащих к синитским [Concept('faiths', 'конфессиям')|E]"
@@ -311,11 +311,11 @@
 
  tenet_unreformed_syncretism_name: "Синкретические традиции"
  tenet_unreformed_syncretism_desc: "Кто мы такие, чтобы говорить людям, что их традиции неверны? Мы не должны отрывать их от корней и запрещать обычаи, которым много сотен лет: нам стоит прислушаться к ним и постараться понять."
- doctrine_parameter_hostility_override_unreformed_faith_doctrine: "Считает, что [faiths|El], имеющие доктрину «[GetFaithDoctrine('unreformed_faith_doctrine').GetBaseName]», — [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V], а не $hostility_evil_tooltippable$. Эти [faiths|El] отвечают тем же."
- doctrine_parameter_hostility_override_west_african_unreformed_faith_doctrine: "Считает, что африканские нереформированные [faiths|El] — [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V], а не $hostility_evil_tooltippable$. Африканские нереформированные конфессии отвечают тем же."
+ doctrine_parameter_hostility_override_unreformed_faith_doctrine: "Считает, что [faiths|El], имеющие доктрину «[GetFaithDoctrine('unreformed_faith_doctrine').GetBaseName]», — [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|Vl], а не [GetHostilityLevelName( '(int32)3' )|Vl]. Эти [faiths|El] отвечают тем же."
+ doctrine_parameter_hostility_override_west_african_unreformed_faith_doctrine: "Считает, что африканские нереформированные [faiths|El] — [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|Vl], а не [GetHostilityLevelName( '(int32)3' )|Vl]. Африканские нереформированные конфессии отвечают тем же."
  doctrine_parameter_unreformed_syncretic_actor_opinion_active: "Взаимный бонус [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] к [Concept( 'opinion', 'мнению' )|E] персонажей, чья [Concept( 'faiths', 'конфессия' )|E] [GetFaithDoctrine('unreformed_faith_doctrine').GetBaseName|l]"
  doctrine_parameter_opinion_of_unreformed_syncretic_recipient_opinion_active: ""
- doctrine_parameter_unreformed_syncretic_recipient_opinion_active: "Взаимный бонус [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] к [Concept( 'opinion', 'мнению' )|E] персонажей, принадлежащих к [Concept( 'faiths', 'конфессиям' )|E] с догматом «$tenet_unreformed_syncretism_name$»"
+ doctrine_parameter_unreformed_syncretic_recipient_opinion_active: "Взаимный бонус [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] к [Concept( 'opinion', 'мнению' )|E] персонажей, принадлежащих к [Concept( 'faiths', 'конфессиям' )|E] с [Concept('core_tenet', 'догматом')|E] синкретических традиций"
  doctrine_parameter_opinion_of_unreformed_syncretic_actor_opinion_active: ""
  doctrine_parameter_unreformed_syncretic_conversion_malus_active: "Базовая скорость обращения объединенных конфессий снижается на [EmptyScope.ScriptValue('conversion_syncretic_with_religion_malus_efficancy_procentage')|-0%]"
 
@@ -324,38 +324,38 @@
  #This is deliberately left blank. It should not be deleted or filled in: such will break the loc.
  doctrine_parameter_hostility_override_special_doctrine_is_christian_faith: ""
  #Instead, add these doctrine parameters to appropriate tenets (presently Christian Syncretism & Pastoral Isolation).
- doctrine_parameter_is_christian_faith_bilateral_loc_override: "Считает, что христианские [faiths|El] — [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V], а не $hostility_evil_tooltippable$. Христианские [faiths|El] отвечают тем же."
- doctrine_parameter_is_christian_faith_pastoral_isolation_loc_override: "Прочие христианские [faiths|El] всегда рассматриваются как [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V], невзирая на различия доктрин"
+ doctrine_parameter_is_christian_faith_bilateral_loc_override: "Считает, что христианские [faiths|El] — [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|Vl], а не [GetHostilityLevelName( '(int32)3' )|Vl]. Христианские [faiths|El] отвечают тем же."
+ doctrine_parameter_is_christian_faith_pastoral_isolation_loc_override: "Прочие христианские [faiths|El] всегда рассматриваются как [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|Vl], невзирая на различия доктрин"
  doctrine_parameter_can_use_christian_artefacts: "Может полностью раскрывать потенциал христианских [Concept( 'artifacts', 'артефактов' )|E]"
  doctrine_parameter_christian_syncretic_actor_opinion_active: "Взаимный бонус [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] к [Concept( 'opinion', 'мнению' )|E] персонажей, принадлежащих к христианским [Concept( 'faiths', 'конфессиям' )|E]"
  doctrine_parameter_opinion_of_christian_syncretic_recipient_opinion_active: ""
- doctrine_parameter_christian_syncretic_recipient_opinion_active: "Взаимный бонус [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] к [Concept( 'opinion', 'мнению' )|E] персонажей, принадлежащих к [Concept( 'faiths', 'конфессиям' )|E] с догматом «$tenet_christian_syncretism_name$»"
+ doctrine_parameter_christian_syncretic_recipient_opinion_active: "Взаимный бонус [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] к [Concept( 'opinion', 'мнению' )|E] персонажей, принадлежащих к [Concept( 'faiths', 'конфессиям' )|E] с [Concept('core_tenet', 'догматом')|E] христианского синкретизма"
  doctrine_parameter_opinion_of_christian_syncretic_actor_opinion_active: ""
  doctrine_parameter_hostility_override_special_doctrine_adoptionist_school_felicitous_doctrine: ""
  doctrine_parameter_hostility_override_special_doctrine_adoptionist_school_radical_doctrine: ""
- doctrine_parameter_adoptionists_like_ecumenism: "Считает, что $christianity_religion_adj$ие [faiths|El] с доктриной «[GetFaithDoctrine('special_doctrine_ecumenical_christian').GetBaseName]», — $hostility_astray_tooltippable$, а не $hostility_hostile_tooltippable$"
- doctrine_parameter_adoptionists_are_unilateral_hostile: "Для прочих $christianity_religion_adj$их [Concept( 'faiths', 'конфессий' )|E] они всего лишь $hostility_hostile_tooltippable$, в то время как менее изысканные $adoptionist_adherent_plural$ — $hostility_evil_tooltippable$"
- doctrine_parameter_adoptionists_are_unilateral_evil: "Для других $christianity_religion_adj$их [Concept( 'faiths', 'конфессий' )|E] они — $hostility_evil_tooltippable$"
- doctrine_parameter_adoptionists_are_mutual_evil: "Считает, что все прочие $christianity_religion_adherent_plural$ — $hostility_evil_tooltippable$. Они отвечают тем же."
+ doctrine_parameter_adoptionists_like_ecumenism: "Считает, что $christianity_religion_adj$ие [faiths|El] с доктриной «[GetFaithDoctrine('special_doctrine_ecumenical_christian').GetBaseName]», — [GetHostilityLevelName( '(int32)1' )|Vl], а не [GetHostilityLevelName( '(int32)2' )|Vl]"
+ doctrine_parameter_adoptionists_are_unilateral_hostile: "Для прочих $christianity_religion_adj$их [Concept( 'faiths', 'конфессий' )|E] они всего лишь [GetHostilityLevelName( '(int32)2' )|Vl], в то время как менее изысканные $adoptionist_adherent_plural$ — [GetHostilityLevelName( '(int32)3' )|Vl]"
+ doctrine_parameter_adoptionists_are_unilateral_evil: "Для других $christianity_religion_adj$их [Concept( 'faiths', 'конфессий' )|E] они — [GetHostilityLevelName( '(int32)3' )|Vl]"
+ doctrine_parameter_adoptionists_are_mutual_evil: "Считает, что все прочие $christianity_religion_adherent_plural$ — [GetHostilityLevelName( '(int32)3' )|Vl]. Они отвечают тем же."
  doctrine_parameter_adoptionist_school_removed_on_reformation: "Тончайшие нюансы этого учения #EMP полностью#! утрачены во время [Concept( 'reformation', 'реформации' )|E]"
- doctrine_parameter_adoptionists_attractively_intuitive_theology: "[EmptyScope.ScriptValue('fp2_lyonese_monk_conversion_bonus_root_value')|=+%0] к скорости обращения других [GetReligionByKey('christianity_religion').GetGetName]их [Concept( 'faiths', 'конфессий' )|E]"
+ doctrine_parameter_adoptionists_attractively_intuitive_theology: "[EmptyScope.ScriptValue('fp2_lyonese_monk_conversion_bonus_root_value')|=+%0] к скорости обращения других #L [GetReligionByKey('christianity_religion').GetName|l]их#! [Concept( 'faiths', 'конфессий' )|E]"
 
  tenet_islamic_syncretism_name: "Исламский синкретизм"
  tenet_islamic_syncretism_desc: "Слова Пророка справедливы и мудры, и хотя жизнь наша полна других забот, мы не должны забывать о его мыслях и деяниях."
- doctrine_parameter_hostility_override_special_doctrine_is_islamic_faith: "Считает, что исламские [faiths|El] — [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V], а не $hostility_evil_tooltippable$. Исламские [faiths|El] отвечают тем же."
+ doctrine_parameter_hostility_override_special_doctrine_is_islamic_faith: "Считает, что исламские [faiths|El] — [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|Vl], а не [GetHostilityLevelName( '(int32)3' )|Vl]. Исламские [faiths|El] отвечают тем же."
  doctrine_parameter_can_use_islamic_artefacts: "Может полностью раскрывать потенциал исламских [Concept( 'artifacts', 'артефактов' )|E]"
  doctrine_parameter_islamic_syncretic_actor_opinion_active: "Взаимный бонус [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] к [Concept( 'opinion', 'мнению' )|E] персонажей, принадлежащих к исламским [Concept( 'faiths', 'конфессиям' )|E]"
  doctrine_parameter_opinion_of_islamic_syncretic_recipient_opinion_active: ""
- doctrine_parameter_islamic_syncretic_recipient_opinion_active: "Взаимный бонус [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] к [Concept( 'opinion', 'мнению' )|E] персонажей, принадлежащих к [Concept( 'faiths', 'конфессиям' )|E] с догматом «$tenet_islamic_syncretism_name$»"
+ doctrine_parameter_islamic_syncretic_recipient_opinion_active: "Взаимный бонус [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] к [Concept( 'opinion', 'мнению' )|E] персонажей, принадлежащих к [Concept( 'faiths', 'конфессиям' )|E] с [Concept('core_tenet', 'догматом')|E] исламского синкретизма"
  doctrine_parameter_opinion_of_islamic_syncretic_actor_opinion_active: ""
 
  tenet_jewish_syncretism_name: "Иудейский синкретизм"
  tenet_jewish_syncretism_desc: "Хоть мы и не готовы признать еврейский народ богоизбранным, заключенная в Торе мудрость неоспорима. Мы можем многое почерпнуть из нее."
- doctrine_parameter_hostility_override_special_doctrine_is_jewish_faith: "Считает, что иудейские [faiths|El] — [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|V], а не $hostility_evil_tooltippable$. Иудейские [faiths|El] отвечают тем же."
+ doctrine_parameter_hostility_override_special_doctrine_is_jewish_faith: "Считает, что иудейские [faiths|El] — [GetHostilityLevelName( TOKEN_PARAMETER.GetIntValue )|Vl], а не [GetHostilityLevelName( '(int32)3' )|Vl]. Иудейские [faiths|El] отвечают тем же."
  doctrine_parameter_can_use_jewish_artefacts: "Может полностью раскрывать потенциал иудейских [Concept( 'artifacts', 'артефактов' )|E]"
  doctrine_parameter_jewish_syncretic_actor_opinion_active: "Взаимный бонус [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] к [Concept( 'opinion', 'мнению' )|E] персонажей, принадлежащих к иудейским [Concept( 'faiths', 'конфессиям' )|E]"
  doctrine_parameter_opinion_of_jewish_syncretic_recipient_opinion_active: ""
- doctrine_parameter_jewish_syncretic_recipient_opinion_active: "Взаимный бонус [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] к [Concept( 'opinion', 'мнению' )|E] персонажей, принадлежащих к [Concept( 'faiths', 'конфессиям' )|E] с догматом «$tenet_jewish_syncretism_name$»"
+ doctrine_parameter_jewish_syncretic_recipient_opinion_active: "Взаимный бонус [EmptyScope.ScriptValue('syncretic_mutual_opinion_bonus_value')|=+0] к [Concept( 'opinion', 'мнению' )|E] персонажей, принадлежащих к [Concept( 'faiths', 'конфессиям' )|E] с [Concept('core_tenet', 'догматом')|E] иудейского синкретизма"
  doctrine_parameter_opinion_of_jewish_syncretic_actor_opinion_active: ""
 
  #Additional Tenets
@@ -375,7 +375,7 @@
 
  tenet_sacred_shadows_name: "Святая ложь"
  tenet_sacred_shadows_desc: "Ложь — наиболее сложное из существующих искусств. Те, чья ложь кажется правдой, святые. Тот же, кто может успешно лгать самому себе, поистине непобедим."
- doctrine_parameter_piety_gain_from_successful_intrigue_schemes: "Последователи получают благочестие, успешно завершая [Concept( 'schemes', 'происки' )|E]"
+ doctrine_parameter_piety_gain_from_successful_intrigue_schemes: "Последователи получают благочестие, успешно завершая [Concept('intrigue', 'интриганские')|E] [Concept( 'schemes', 'происки' )|E]"
  doctrine_parameter_adherents_more_likely_to_join_schemes: "Последователи с большим энтузиазмом присоединяются к чужим [Concept( 'schemes', 'проискам' )|E]"
 
  tenet_pursuit_of_power_name: "Жажда власти"
@@ -421,7 +421,7 @@
  tenet_household_gods_desc: "Мы почитаем наших #EMP ларов#! и #EMP гениев#! — духов-покровителей, защищающих наши жилища. Но превыше всего мы восхваляем нашего славного императора, чьей душе вверена защита всей державы."
 
  #BP3 Parameter
- doctrine_parameter_allows_brewery: "$allows_brewery$ для [Concept('temple_holdings','храмовых владений')|E]"
+ doctrine_parameter_allows_brewery: "$allows_brewery$ для [Concept('temple_holdings', 'храмовых владений')|E]"
 
  #TGP
  immaterial_harmony_name: "Духовная гармония"

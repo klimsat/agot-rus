@@ -253,11 +253,11 @@
  DISMANTLE_EMPIRE_WAR_SPECIFIC_NAME: "[ConcatIfNeitherEmpty('$ORDER|q$', ' ')] #L [ATTACKER.GetPrimaryTitle.GetPrefix]-[DEFENDER.GetPrimaryTitle.GetAdjective|l]ая#! имперская война за легитимность"
  DISMANTLE_EMPIRE_WAR_SPECIFIC_NAME_BASE: "#L [ATTACKER.GetPrimaryTitle.GetAdjective]ий#! домен [DEFENDER.GetPrimaryTitle.GetName]"
  dismantle_holy_pretender_cb_victory_desc: "$e_hre$ будет уничтожена. Все вассальные титулы, [de_jure|El] входящие в $e_hre_adj$ую империю, становятся де-юре вассалами Римской империи."
- dismantle_holy_pretender_cb_defeat_desc: "$e_hre$ останется нетронутой. $e_roman_empire$ обязуется выплатить компенсацию."
+ dismantle_holy_pretender_cb_defeat_desc: "$e_hre$ останется нетронутой. $h_roman_empire$ обязуется выплатить компенсацию."
 
  dismantle_byz_pretender_cb: "Изгнать претендента"
- dismantle_holy_pretender_cb_victory_desc: "$e_hre$ будет уничтожена. Все вассальные титулы, [de_jure|El] входящие в $e_hre_adj$ую империю, становятся де-юре вассалами Римской империи."
- dismantle_holy_pretender_cb_defeat_desc: "$e_hre$ останется нетронутой. $h_roman_empire$ обязуется выплатить компенсацию."
+ dismantle_byz_pretender_cb_victory_desc: "$e_byzantium$ будет уничтожена. Все вассальные титулы, [de_jure|El] входящие в $e_byzantium_adj$ую империю, становятся де-юре вассалами Римской империи."
+ dismantle_byz_pretender_cb_defeat_desc: "$e_byzantium$ останется нетронутой. $h_roman_empire$ обязуется выплатить компенсацию."
 
  all_vassals_of_defender: "Все вассалы [Select_CString(defender.IsLocalPlayer, '', 'персонажа ' )][defender.GetNamePossessiveOrMy][Select_CString(defender.IsLocalPlayer, 'его персонажа', '' )]"
 
@@ -391,7 +391,7 @@
  CLAN_INVASION_CB_NAME: "Покорить [Concept('kingdom', 'королевство')|E]"
  clan_invasion_war_victory_desc_attacker: "Вы вассализируете все титулы в державе персонажа [defender.GetShortUINamePossessive], [de_jure|El] принадлежащие цели."
  clan_invasion_war_victory_desc: "[attacker.GetShortUIName|U] [Select_CString(attacker.IsLocalPlayer, 'вассализируете', 'вассализирует' )] все титулы в державе [Select_CString(defender.IsLocalPlayer, '', 'персонажа ' )][defender.GetNamePossessiveOrMy][Select_CString(defender.IsLocalPlayer, 'его персонажа', '' )], [de_jure|El] принадлежащие цели."
- invasion_war_warning_desc: "\n\n#XЗа всю жизнь можно развязать только одну [Concept( 'war', 'войну' )|El] с вторжением против [Concept( 'title', 'титула' )|El] уровня «[kingdom|El]»#!"
+ invasion_war_warning_desc: "\n\n#X  За всю жизнь можно развязать только одну [Concept( 'war', 'войну' )|El] с вторжением против [Concept( 'title', 'титула' )|El] уровня «[kingdom|El]»#!"
  hungarian_invasion_war_victory_desc_attacker: "Вы владеете всеми титулами в державе [defender.GetShortUINamePossessive] Среднедунайской низменности. Все территории за ее пределами будут брошены."
  hungarian_invasion_war_victory_desc: "Захватывает все титулы в державе [defender.GetShortUINamePossessive] Среднедунайской низменности. Все территории за ее пределами будут брошены."
  hungarian_invasion_war_warning_desc: "\n\n#X Великое переселение народов может осуществить только один участник кампании один раз на всем ее протяжении.#!"
@@ -473,7 +473,7 @@
  religious_war_victory_desc: "Будут захвачены все титулы #L [defender.GetFaith.GetName|l]их#! правителей в указанном [Concept( 'title', 'титуле' )|E], а все #L [attacker.GetFaith.GetName|l]ие#! правители станут вассалами [Select_CString(attacker.IsLocalPlayer, '', 'персонажа ' )][attacker.GetNamePossessiveOrMy][Select_CString(attacker.IsLocalPlayer, 'его персонажа', '' )]."
  religious_war_white_peace_desc: "Ни один [Concept( 'title', 'титул' )|E] не меняет хозяина."
  religious_war_defeat_desc: "Ни один [Concept( 'title', 'титул' )|E] не меняет хозяина."
- major_religious_war_warning_desc: "\n\n#XЗа всю жизнь можно развязать только одну [Concept( 'holy_war', 'священную войну' )|El] против [Concept( 'title', 'титула' )|El] уровня «[kingdom|El]»#!"
+ major_religious_war_warning_desc: "\n\n#X  За всю жизнь можно развязать только одну [Concept( 'holy_war', 'священную войну' )|El] против [Concept( 'title', 'титула' )|El] уровня «[kingdom|El]»#!"
 
  excommunication_war_victory_desc_defender: "Вас [Concept( 'deposed', 'свергли' )|E]."
  excommunication_war_victory_desc: "[defender.GetShortUIName|U] [Concept( 'deposed', Select_CString(defender.IsLocalPlayer, 'свергнуты', Select_CString(defender.IsFemale, 'свергнута', 'свергнут' )))|E]."
@@ -617,7 +617,7 @@
  cb_rejected_caliph_discount: "Отвержение власти халифа"
  INSTALL_LOYALIST_PUPPET_WAR_NAME: "$fp3_install_loyalist_cb$ — [DEFENDER.GetPrimaryTitle.GetBaseNameNoTier]"
  INSTALL_LOYALIST_PUPPET_CB_NAME: "$fp3_install_loyalist_cb$"
- fp3_install_loyalist_cb.tt.loyalist_stooge: "[defender.GetTitledFirstName] [Select_CString(defender.IsFemale, 'должна', 'должен' )] иметь как минимум одного [Concept( 'vassal', 'вассала' )] ([GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]) — не [Concept( 'friends', 'друга' )|E] и не имеющего на [Select_CString(defender.IsFemale, 'нее', 'него' )] [Concept( 'hook', 'влияния' )|E]"
+ fp3_install_loyalist_cb.tt.loyalist_stooge: "[defender.GetTitledFirstName] [Select_CString(defender.IsFemale, 'должна', 'должен' )] иметь как минимум одного [Concept( 'vassal', 'вассала' )|E] ([GetTrait('fp3_struggle_supporter').GetName( GetNullCharacter )]) — не [Concept( 'friends', 'друга' )|E] и не имеющего на [Select_CString(defender.IsFemale, 'нее', 'него' )] [Concept( 'hook', 'влияния' )|E]"
 
  fp3_turkic_invasion_cb: "$fp3_turkic_invasion_cb_name$"
  fp3_turkic_invasion_cb_name: "Профинансированное завоевание"
@@ -706,7 +706,7 @@
  expansion_create_target_title_tt: "Титул [de_jure_target.GetName] будет создан и передан вам"
 
  influence_war_cb: "$INFLUENCE_WAR_CB_NAME$"
- INFLUENCE_WAR_NAME_BASE: "[ATTACKER.GetTopLiege.GetPrimaryTitle.GetAdjective]ий домен [DEFENDER.GetPrimaryTitle.GetName]"
+ INFLUENCE_WAR_NAME: "[ConcatIfNeitherEmpty('$ORDER|q$', ' ')] #L [ATTACKER.GetTopLiege.GetPrimaryTitle.GetAdjective]ое#! расширение домена [TITLE.GetBaseName]"
  INFLUENCE_WAR_NAME_BASE: "[ATTACKER.GetTopLiege.GetPrimaryTitle.GetAdjective]ий домен [DEFENDER.GetPrimaryTitle.GetName]"
  INFLUENCE_WAR_CB_NAME: "Поддержанная бюрократическая война"
  influence_war_top_liege_gains_title_desc: "[attacker.GetTopLiege.GetShortUIName|U] [Select_CString(attacker.GetTopLiege.IsLocalPlayer, 'получили', Select_CString(attacker.GetTopLiege.IsFemale, 'получила', 'получил'))] оспариваемый [Concept('title', 'титул')|E]."
@@ -744,7 +744,7 @@
  custom.every_no_longer_neighbor_tributary: "Каждый [Concept('tributary', 'данник')|E], с которым больше нет границ"
 
  mpo_nomad_invasion_war_tribal_conversion_desc: "\n\n@alert_icon! #alert_trial Ваша [Concept('government', 'форма правления')|E] становится [Concept('tribal', 'племенной')|E], [Concept('capital', 'столица')|E] перемещается, а некоторые захваченные [Concept('counties', 'графства')|E] обращаются в вашу [Concept('culture', 'культуру')|E] и [Concept('faith', 'веру')|E].#!"
- mpo_nomad_invasion_war_clan_conversion_desc: "\n\n@alert_icon! #alert_trial Ваша [Concept('government', 'форма правления')|E] становится[Concept('clan', 'клановой')|E], [Concept('capital', 'столица')|E] перемещается, а некоторые захваченные [Concept('counties', 'графства')|E] обращаются в вашу [Concept('culture', 'культуру')|E] и [Concept('faith', 'веру')|E].#!"
+ mpo_nomad_invasion_war_clan_conversion_desc: "\n\n@alert_icon! #alert_trial Ваша [Concept('government', 'форма правления')|E] становится  [Concept('clan', 'клановой')|E], [Concept('capital', 'столица')|E] перемещается, а некоторые захваченные [Concept('counties', 'графства')|E] обращаются в вашу [Concept('culture', 'культуру')|E] и [Concept('faith', 'веру')|E].#!"
  mpo_nomad_invasion_war_conversion_desc: "\n\n@alert_icon! #alert_trial Ваша [Concept('government', 'форма правления')|E] становится [Concept('feudal', 'феодальной')|E], [Concept('capital', 'столица')|E] перемещается, а некоторые захваченные [Concept('counties', 'графства')|E] обращаются в вашу [Concept('culture', 'культуру')|E] и [Concept('faith', 'веру')|E].#!"
  NOMAD_CB_UNREFORMED_COST: "Ваша [Concept('faith', 'конфессия')|E] — [GetFaithDoctrine('west_african_unreformed_faith_doctrine').GetBaseName]"
  overrunning_war_victory_desc_attacker: "Вы захватываете все титулы в державе персонажа [defender.GetShortUIName], [Concept('de_jure', 'де-юре')|E] принадлежащие цели. Один из них становится вашей [Concept('capital', 'столицей')|E], часть населения обращается в вашу [Concept('culture', 'культуру')|E] и [Concept('faith', 'веру')|E], и теперь вы —"

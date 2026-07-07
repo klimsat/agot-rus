@@ -1,7 +1,7 @@
 ﻿l_russian:
  #AGOT Modified
- #APPOINT_COURT_POSITION_VIEW_replace_character_header: "Заменить персонажа [AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee.GetShortUINameNoTooltip] на должности [AppointCourtPositionView.GetCourtPositionType.GetName|l]"
- APPOINT_COURT_POSITION_VIEW_replace_character_header: "Заменить персонажа [AGOTGetUINameNoTooltip(AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee)|V] на должности [AppointCourtPositionView.GetCourtPositionType.GetName|l]"
+ #APPOINT_COURT_POSITION_VIEW_replace_character_header: "Заменить $court_position_acpv_rp_lower$ [AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee.GetShortUINameNoTooltip]"
+ APPOINT_COURT_POSITION_VIEW_replace_character_header: "Заменить $court_position_acpv_rp_lower$ [AGOTGetUINameNoTooltip(AppointCourtPositionView.GetCourtPositionToReplace.GetEmployee)|V]"
  APPOINT_COURT_POSITION_VIEW_select_character_header: "Назначить $court_position_acpv_rp_lower$"
  APPOINT_COURT_POSITION_VIEW_EMPLOYER_SALARY: "Жалование: [CourtPositionType.GetEmployerSalaryTextFor( Character.Self )|V]"
  APPOINT_COURT_POSITION_VIEW_EMPLOYEE_SALARY: "Жалование: [CourtPositionType.GetEmployeeSalaryTextFor( Character.Self )|V]"
@@ -50,8 +50,7 @@
 
  COURT_POSITIONS_WINDOW_GROUP_HEADER: "$NAME$"
  COURT_POSITIONS_WINDOW_GROUP_DENIED: "Недоступные возможные придворные должности"
- COURT_POSITIONS_WINDOW_MONTHLY_SALARY: "Жалованье в месяц:"
- COURT_POSITIONS_WINDOW_MONTHLY_SALARY_YOUR: "Ваше жалованье:"
+ COURT_POSITIONS_WINDOW_MONTHLY_SALARY: "Жалование в месяц:"
  COURT_POSITIONS_WINDOW_MONTHLY_SALARY_YOUR: "Ваше жалование:"
  COURT_POSITIONS_WINDOW_EMPLOYER_SALARY_SHORT: "#L [CourtPosition.GetEmployerSalaryTextShort]#!"
  COURT_POSITIONS_WINDOW_EMPLOYEE_SALARY_SHORT: "#L [CourtPosition.GetEmployeeSalaryTextShort]#!"
@@ -73,13 +72,13 @@
  COURT_POSITIONS_COURT_VIEW_appoint_court_position_button: "Назначить на должность при дворе"
  COURT_POSITIONS_COURT_VIEW_appoint_court_position_button_tooltip: "#T Назначить на должность при дворе#!\n\nНазначить [Concept( 'vassal', 'вассала' )|E] или придворного на [Concept( 'court_position', 'должность при дворе' )|E]."
  COURT_POSITIONS_COURT_VIEW_positions_in_your_court: "[CourtPositionsWindow.CourtOwner.Custom('GetCourtOrOfficerPositionConceptPlural')|U] в вашем имении ([CourtPositionsWindow.CourtOwner.Custom('GetRealmOrDomicileConcept')])"
- COURT_POSITIONS_COURT_VIEW_salaries_gained: "Ежемесячный доход от жалованья:"
- COURT_POSITIONS_COURT_VIEW_salaries_paid: "Ежемесячные выплаты жалованья:"
+ COURT_POSITIONS_COURT_VIEW_salaries_gained: "Ежемесячный доход от жалования:"
+ COURT_POSITIONS_COURT_VIEW_salaries_paid: "Ежемесячные выплаты жалования:"
  COURT_POSITIONS_SALARY_FOR: "$EMPLOYEE$ ($COURT_POSITION$)"
  COURT_POSITIONS_INCOME: "Доход от [Concept( 'court_positions', 'придворных должностей' )|E]"
  COURT_POSITIONS_EXPENSES: "Расходы на [Concept( 'court_positions', 'придворные должности' )|E]"
- COURT_POSITIONS_SALARIES_PAID: "Выплаты жалованья"
- COURT_POSITIONS_SALARIES_GAINED: "Получаемое жалованье"
+ COURT_POSITIONS_SALARIES_PAID: "Выплаты жалования"
+ COURT_POSITIONS_SALARIES_GAINED: "Получаемое жалование"
  COURT_POSITION_TYPE_SCALING_MODIFIER_DESCRIPTION: "$MODIFIER$: $RANGED_MODIFIER$ (исходя из [Concept( 'aptitude', 'пригодности' )|E])"
 
  COURT_POSITIONS_your_positions_in_liege_court: "Ваше [Concept( 'court_positions', 'положение' )|E] при дворе [Concept( 'liege', 'сюзерена' )|E]"
@@ -126,16 +125,16 @@
  COURT_POSITION_TOOLTIP_EMPLOYEE_REQUIREMENT: "Требования к $court_position_cpt_ntt_dp_lower$:"
  COURT_POSITION_TOOLTIP_EMPLOYEE_REQUIREMENT_NESTED: "#TOOLTIP:COURT_POSITION_TOOLTIP_EMPLOYEE_REQUIREMENT_NESTED_TT #L Требования к должности «[CourtPositionType.GetNameNoTooltip]»#!#!"
  COURT_POSITION_TOOLTIP_EMPLOYEE_REQUIREMENT_NESTED_TT: "[CourtPositionType.GetEmployeeRequirementDescriptionText]"
- COURT_POSITION_TOOLTIP_SALARY: "Жалованье: [CourtPosition.GetSalaryText]"
- COURT_POSITION_TOOLTIP_SALARIES_GOLD_PAID: "Затраты [gold_i][Concept('gold', 'золота')|E] на жалованье"
- COURT_POSITION_TOOLTIP_SALARIES_GOLD_EARNED: "Доход в виде [gold_i][Concept('gold', 'золота')|E] от жалованья"
- COURT_POSITION_TOOLTIP_SALARIES_PRESTIGE_PAID: "Затраты [prestige_i][Concept('prestige', 'престижа')|E] на жалованье"
- COURT_POSITION_TOOLTIP_SALARIES_PRESTIGE_EARNED: "Доход в виде [prestige_i][Concept('prestige', 'престижа')|E] от жалованья"
- COURT_POSITION_TOOLTIP_SALARIES_PIETY_PAID: "Затраты [piety_i][Concept('piety', 'благочестия')|E] на жалованье"
- COURT_POSITION_TOOLTIP_SALARIES_PIETY_EARNED: "Доход в виде [piety_i][Concept('piety', 'благочестия')|E] от жалованья"
- COURT_POSITION_TOOLTIP_SALARIES_DYNASTY_PRESTIGE_PAID: "Затраты [dynasty_prestige_i][Concept('dynasty_prestige', 'престижа династии')|E] на жалованье"
- COURT_POSITION_TOOLTIP_SALARIES_DYNASTY_PRESTIGE_EARNED: "Доход в виде [dynasty_prestige_i][Concept('dynasty_prestige', 'престижа династии')|E] от жалованья"
- COURT_POSITION_TOOLTIP_SALARIES_INFLUENCE_PAID: "Затраты [influence_i][Concept('influence', 'влияния')|E] на жалованье"
+ COURT_POSITION_TOOLTIP_SALARY: "Жалование: [CourtPosition.GetSalaryText]"
+ COURT_POSITION_TOOLTIP_SALARIES_GOLD_PAID: "Затраты [gold_i][Concept('gold', 'золота')|E] на жалование"
+ COURT_POSITION_TOOLTIP_SALARIES_GOLD_EARNED: "Доход в виде [gold_i][Concept('gold', 'золота')|E] от жалования"
+ COURT_POSITION_TOOLTIP_SALARIES_PRESTIGE_PAID: "Затраты [prestige_i][Concept('prestige', 'престижа')|E] на жалование"
+ COURT_POSITION_TOOLTIP_SALARIES_PRESTIGE_EARNED: "Доход в виде [prestige_i][Concept('prestige', 'престижа')|E] от жалования"
+ COURT_POSITION_TOOLTIP_SALARIES_PIETY_PAID: "Затраты [piety_i][Concept('piety', 'благочестия')|E] на жалование"
+ COURT_POSITION_TOOLTIP_SALARIES_PIETY_EARNED: "Доход в виде [piety_i][Concept('piety', 'благочестия')|E] от жалования"
+ COURT_POSITION_TOOLTIP_SALARIES_DYNASTY_PRESTIGE_PAID: "Затраты [dynasty_prestige_i][Concept('dynasty_prestige', 'престижа династии')|E] на жалование"
+ COURT_POSITION_TOOLTIP_SALARIES_DYNASTY_PRESTIGE_EARNED: "Доход в виде [dynasty_prestige_i][Concept('dynasty_prestige', 'престижа династии')|E] от жалования"
+ COURT_POSITION_TOOLTIP_SALARIES_INFLUENCE_PAID: "Затраты [influence_i][Concept('influence', 'влияния')|E] на жалование"
  COURT_POSITION_TOOLTIP_SALARIES_INFLUENCE_EARNED: "Доход в виде [influence_i][Concept('influence', 'влияния')|E] от жалования"
  COURT_POSITION_TOOLTIP_SALARIES_HERD_PAID: "Затраты [herd_i][Concept('herd', 'стад')|E] на жалование"
  COURT_POSITION_TOOLTIP_SALARIES_HERD_EARNED: "Доход в виде [herd_i][Concept('herd', 'стад')|E]"
@@ -174,7 +173,7 @@
  COURT_POSITION_TASK_EMPLOYEE_EFFECTS: "#S Влияние на $court_position_cpt_rp_lower$:#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployeeModifierDescription]#!"
  COURT_POSITION_TASK_START_EFFECTS: "#S При начале:#!#indent_newline:2 \n[CourtPositionTaskType.GetOnStartEffectDesc( CourtPosition.Self )]#!"
  COURT_POSITION_TASK_END_EFFECTS: "#S При завершении:#!#indent_newline:2 \n[CourtPositionTaskType.GetOnEndEffectDesc( CourtPosition.Self )]#!"
- COURT_POSITION_TASK_COST: "#S Стоимость (в месяц):#!#indent_newline:2 \n[CourtPositionTaskType.GetCostText( CourtPosition.GetEmployer.Self )]#!"
+ COURT_POSITION_TASK_COST: "#S Стоимость (в месяц):#!#indent_newline:2 \n[CourtPositionTaskType.GetEmployerCostText( CourtPosition.GetEmployer.Self )]#!"
 
  COURT_POSITION_TASK_HINT: "Возможные [Concept('court_position_tasks_short', 'поручения')|E]:"
  COURT_POSITION_TASK_GENERIC_TT: "[CourtPositionType.GetNameNoTooltip] приступит к выполнению [Concept( 'court_position_task_short', 'поручения' )|E] «[CourtPositionTaskType.GetName|V]»."
@@ -265,7 +264,7 @@
  court_position_gregarious_trait: "[GetTrait('gregarious').GetName( ROOT.Char )]"
  court_position_diplomat_trait: "[GetTrait('diplomat').GetName( ROOT.Char )]"
  court_position_poet_trait: "[GetTrait('lifestyle_poet').GetName( ROOT.Char )]"
- court_position_no_poet_trait: "#bold Не#! обладает [Concept('trait', 'свойством')|E] «[GetTrait('poet').GetName( ROOT.Char )]»"
+ court_position_no_poet_trait: "#bold Не#! обладает [Concept('trait', 'свойством')|E] «[GetTrait('lifestyle_poet').GetName( ROOT.Char )]»"
  court_position_blademaster_3_trait: "[GetTrait('lifestyle_blademaster').GetName( ROOT.Char )]"
  court_position_blademaster_2_trait: "[GetTrait('lifestyle_blademaster').GetName( ROOT.Char )]"
  court_position_blademaster_1_trait: "[GetTrait('lifestyle_blademaster').GetName( ROOT.Char )]"
@@ -376,14 +375,14 @@
  court_position_tradition_saharan_nomads: "[culture_tradition|E]: $tradition_saharan_nomads_name$"
  court_position_tradition_desert_nomads: "[culture_tradition|E]: $tradition_desert_nomads_name$"
 
- court_physician_court_position: "Личный врач"
+ court_physician_court_position: "Придворный врач"
  court_physician_tradition_bonus: "От [Concept( 'culture_tradition', 'культурных традиций' )|E]"
  court_physician_court_position_desc: "$court_physician_court_position$ отвечает за здоровье и благополучие [Concept( 'court', 'двора' )|E], при котором служит. Он лечит болезни и зашивает раны в меру собственных способностей."
  court_physician_employer_custom_effect_description: "$BULLET$Оказывает [Concept('medical_treatments', 'медицинскую помощь')|E]"
  court_physician_not_employed_or_away_tt: "У вас отсутствует [GetCourtPositionType('court_physician_court_position').GetName()|l], или же обладатель этой должности сейчас не с вами"
 
  hire_physician_decision: "Искать врача"
- hire_physician_decision_tooltip: "Ваши слуги предложат несколько кандидатур, подходящих на должность #TOOLTIP:COURT_POSITION_TYPE,court_physician_court_position #L личного врача#!#!"
+ hire_physician_decision_tooltip: "Ваши слуги предложат несколько кандидатур, подходящих на должность #TOOLTIP:COURT_POSITION_TYPE,court_physician_court_position #L придворного врача#!#!"
  hire_physician_decision_desc: "[ROOT.Char.Custom('GetCourtLower')|U] нуждается во враче, который будет ухаживать за больными и ранеными. Попрошу слуг привести несколько подходящих кандидатов."
  hire_physician_decision_effect_tooltip: "Вам предложат несколько кандидатов на должность «[GetCourtPositionType('court_physician_court_position').GetName()]», и вы сможете нанять одного из них за вознаграждение и ежемесячное жалование в размере [gold_i][SCOPE.ScriptValue('court_position_physician_salary')]"
  hire_physician_decision_confirm: "Начать поиски"
@@ -622,7 +621,7 @@
  yearly_legend_spread_tt: "Каждый год один из ваших [Concept('vassals', 'вассалов' )|E] или соседних [Concept( 'rulers', 'правителей' )|E] может [Concept( 'promoted_legend', 'поддержать' )|E] вашу легенду. Более высокая [Concept( 'aptitude', 'пригодность' )|E] увеличит шанс того, что это произойдет."
 
  court_position_tourney_participant_trait: "$tourney_participant_horse$"
- charioteer_court_position: "Возничий-чемпион"
+ charioteer_court_position: "Колесничий-чемпион"
  charioteer_court_position_desc: "$charioteer_court_position$ — профессиональный гонщик на колесницах, имеющий спонсора."
  charioteer_employer_custom_effect_description: "$BULLET$[GetActivityType( 'activity_chariot_race' ).GetName]: первые 3 места приносят [influence|El]"
 
@@ -639,7 +638,7 @@
 
  charioteer_training: "Подготовка колесничего"
  charioteer_training_desc: "Этот персонаж будет день и ночь тренироваться в управлении колесницей, приобретая бесценный опыт."
- charioteer_training_tt: "Возничий-чемпион будет постепенно накапливать опыт [Concept( 'trait', 'свойства' )|E] «#high Колесничий#!»"
+ charioteer_training_tt: "Колесничий-чемпион будет постепенно накапливать опыт [Concept( 'trait', 'свойства' )|E] «#high Колесничий#!»"
 
  court_position_fickle: "[GetTrait('fickle').GetName( ROOT.Char )]"
  #AGOT Disabled, Errors
@@ -659,7 +658,7 @@
 
  court_brewmaster_court_position: "Придворный пивовар"
  court_brewmaster_court_position_desc: "Придворному пивовару доверено взаимодействие с пивоварами державы, чтобы в распоряжении сюзерена всегда были лучшие напитки."
- court_brewmaster_employer_custom_effect_description: "$BULLET$[GetActivityType( 'activity_feast' ).GetName] стоит на #positive_value @gold_icon!5%#!-#positive_value @gold_icon!25%#! дешевле (в зависимости от [Concept('aptitude', 'пригодности')|E])$BULLET$[GetActivityType( 'activity_feast' ).GetName] дает на #positive_value 5%#!-#positive_value 25%#! большие награды (в зависимости от [Concept('aptitude', 'пригодности')|E])"
+ court_brewmaster_employer_custom_effect_description: "$BULLET$[GetActivityType( 'activity_feast' ).GetName] стоит на #positive_value @gold_icon!5%#!-#positive_value @gold_icon!25%#! дешевле (в зависимости от [Concept('aptitude', 'пригодности')|E])\n$BULLET$[GetActivityType( 'activity_feast' ).GetName] дает на #positive_value 5%#!-#positive_value 25%#! большие награды (в зависимости от [Concept('aptitude', 'пригодности')|E])"
  court_brewmaster_requirement_tt: "В [Concept('barony', 'баронстве')|E] в вашем [Concept('domain', 'домене')|E] есть [Concept('building', 'здание')|E] #color_white [GetBuilding('breweries_01').GetName]#! или одно из его улучшений"
  court_brewmaster_popular_opinion: "Опустошить погреба"
  court_brewmaster_popular_opinion_desc: "Увеличить производство по всей державе, чтобы мы могли регулярно делиться лучшими напитками с народом."
@@ -883,7 +882,7 @@
  boyan_impress_vassals_tt: "[Concept('faction_commitment', 'Преданность')|E] [Concept('vassal', 'вассала')|E] фракции: #P -20#!"
  boyan_prepare_raids: "Подготовка налетов"
  boyan_prepare_raids_desc: "Этот персонаж готовит армии сюзерена к набегу на далекие державы."
- boyan_validity_trigger_tt: "Уровень [Concept( 'martial', 'военного дела' )|E] не ниже [martial_i]12"
+ boyan_validity_trigger_tt: "[martial_i][martial|E] не ниже #high 12#!"
  
  siege_engineer_court_position: "Осадный инженер"
  siege_engineer_court_position_desc: "В качестве осадного инженера обычно выступает иностранец, приглашенный в степи из-за своих познаний в осадном деле."
@@ -901,7 +900,7 @@
  yurtchi_lean_times_desc: "Этот персонаж принимает меры для ограничения расходов клана."
  yurtchi_prosperous_times: "Устроить кутеж"
  yurtchi_prosperous_times_desc: "Этот персонаж обеспечивает довольство клана ценой значительных расходов."
- yurtchi_validity_trigger_tt: "[stewardship|E] не ниже [stewardship_i]12"
+ yurtchi_validity_trigger_tt: "[stewardship_i][stewardship|E] не ниже #high 12#!"
  
  cherbi_court_position: "Черби"
  cherbi_court_position_fallback: "Старший телохранитель"
@@ -917,7 +916,7 @@
  court_position_bodyguard_cherbi_modifier: "[Concept('aptitude', 'Пригодность')|E] должности «[GetCourtPositionType('cherbi_court_position').GetName|U]»"
  cherbi_double_the_guard: "Удвоенная стража"
  cherbi_double_the_guard_desc: "Этому персонажу поручено обеспечить безопасность сюзерена #bold любой#! ценой."
- cherbi_validity_trigger_tt: "[prowess|E] не ниже [prowess_i]12"
+ cherbi_validity_trigger_tt: "[prowess_i][prowess|E] не ниже #high 12#!"
  
  yeke_jarquchi_court_position: "Еке джаркучи"
  yeke_jarquchi_court_position_fallback: "Главный блюститель законов"
@@ -940,7 +939,7 @@
  yeke_jarquchi_missing_aptitude: "#P 2-10#! ед. (исходя из [Concept('aptitude', 'пригодности')|E])"
  yeke_jarquchi_culture_acceptance_trigger_tt: "Все [Concept('counties', 'графства')|E] [Concept('realm', 'державы')|E] принадлежат к #L [liege.GetCulture.GetCollectiveNoun|l]ой#! культуре"
  culture_acceptance_desc_yeke_jarquchi: "[liege.GetName] [Select_CString(liege.IsFemale, 'распространяла', 'распространял' )] эту [Concept('culture', 'культуру')|E] в своей [Concept('realm', 'державе')|E]"
- yeke_jarquchi_validity_trigger_tt: "[diplomacy|E] не ниже [diplomacy_i]12"
+ yeke_jarquchi_validity_trigger_tt: "[diplomacy_i][diplomacy|E] не ниже #high 12#!"
  
  foreign_emissary_court_position: "Иноземный эмиссар"
  foreign_emissary_court_position_desc: "Иноземного эмиссара приглашают из далеких земель, чтобы он развлек сюзерена экзотическими историями, также эмиссар совершает дипломатические визиты к соседним правителям."
@@ -1122,4 +1121,3 @@
  minister_bureaucrat_court_position: "Ведомственный помощник"
  minister_bureaucrat_court_position_desc: "Мандатное правление требует большого количества бюрократов. Благодаря тщательному отбору, который проводят главы ведомств, эти чиновники обеспечивают бесперебойную работу правительства."
  minister_bureaucrat_court_position_mod_desc: "$EFFECT_LIST_BULLET$Помощник дает бонусы к различным [Concept('ministry', 'министерским')|E] поручениям, таким как [Concept('great_projects', 'грандиозные проекты')|E], в зависимости от своей [Concept('aptitude', 'пригодности')|E]"
- 
