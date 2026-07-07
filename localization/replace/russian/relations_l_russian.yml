@@ -166,8 +166,8 @@
  relation_fellow_vassal_male: "собрат-вассал"
  relation_councillor_female: "[second.GetCouncilTitle]"
  relation_councillor_male: "[second.GetCouncilTitle]"
- relation_court_physician_female: "личная врачевательница"
- relation_court_physician_male: "личный врач"
+ relation_court_physician_female: "придворная врачевательница"
+ relation_court_physician_male: "придворный врач"
  relation_keeper_of_swans_female: "смотрительница лебедей"
  relation_keeper_of_swans_male: "смотритель лебедей"
  relation_travel_leader_female: "караванщица"
@@ -230,8 +230,8 @@
  relation_court_astrologer_female: "звездочет"
  relation_court_astrologer_male_possessive: "звездочета"
  relation_court_astrologer_female_possessive: "звездочета"
- relation_court_physician_female_possessive: "личная врачевательница"
- relation_court_physician_male_possessive: "личный врач"
+ relation_court_physician_female_possessive: "придворная врачевательница"
+ relation_court_physician_male_possessive: "придворный врач"
  relation_keeper_of_swans_female_possessive: "смотрительницы лебедей"
  relation_keeper_of_swans_male_possessive: "смотрителя лебедей"
  relation_travel_leader_female_possessive: "караванщицы"
@@ -724,7 +724,7 @@
  FRAME_RELATION_LEGITIMIZAD_BASTARD: "[legitimized_bastard|E]"
  FRAME_RELATION_MY_FAMILY: "Ваш $RELATION$"
 
- #Dynasty House Family Status 
+ #Dynasty House Family Status
  FAMILY_STATUS_REGENT_OR_IMPERIAL: "[Character.Custom('TopLiegeIsRegentOrImperialFamilyType')]"
  FAMILY_STATUS_IMPERIAL: "[imperial_family|E]"
  FAMILY_STATUS_REGENT: "[regent_family|E]"
@@ -742,21 +742,21 @@
  FRAME_RELATION_TRIBUTARY: "#T [SubjectContract.GetContractGroup.GetNameNoTooltip]#!\nЭтот [Concept('ruler', 'правитель')|E] — ваш [Concept('tributary', 'данник')|E]"
 
  FRAME_RELATION_OBEDIENT: "[Character.GetShortUIName|U] [Select_CString(Character.IsLocalPlayer, 'подчиняетесь', 'подчиняется')] [Select_CString(TARGET_CHARACTER.IsLocalPlayer, 'вашему', Concatenate('персонажу ',TARGET_CHARACTER.GetShortUIName))]."
- FRAME_RELATION_NO_OBEDIENCE: "[Character.GetShortUIName|U] [Select_CString(Character.IsLocalPlayer, 'не подчиняетесь', 'не подчиняется')] никому."
+ FRAME_RELATION_NO_OBEDIENCE: "[Character.GetShortUIName|U] никому [Select_CString(Character.IsLocalPlayer, 'не подчиняетесь', 'не подчиняется')]."
 
  #Dynastic Cycle 
  #AGOT Disabled 
  # FRAME_MOVEMENT_COMMON: "#T Member of [Character.Custom('GetMyMovement')]#!\n[personal_movement_power|E]: [movement_power_i][Character.MakeScope.Var('movement_power_individual').GetValue|V0] (+[Character.MakeScope.Var('movement_power_disciples').GetValue|0])\n[movement_power|E]: [movement_power_i][GetSituation('dynastic_cycle').GetParticipantGroupByCharacter(Character.Self).MakeScope.Var('movement_power').GetValue|V0]"
- # FRAME_MOVEMENT_COMMON_WITH_LEADER: "$FRAME_MOVEMENT_COMMON$\n[AddLocalizationIf( Not( StringIsEmpty( GetSituation('dynastic_cycle').GetParticipantGroupByCharacter(Character.Self).MakeScope.Var('movement_leader').Char.GetName ) ),'FRAME_MOVEMENT_LEADER')]" 
- # FRAME_MOVEMENT_LEADER: "[movement_leader|E]: [GetSituation('dynastic_cycle').GetParticipantGroupByCharacter(Character.Self).MakeScope.Var('movement_leader').Char.GetShortUIName|U]" 
+ # FRAME_MOVEMENT_COMMON_WITH_LEADER: "$FRAME_MOVEMENT_COMMON$\n[AddLocalizationIf( Not( StringIsEmpty( GetSituation('dynastic_cycle').GetParticipantGroupByCharacter(Character.Self).MakeScope.Var('movement_leader').Char.GetName ) ),'FRAME_MOVEMENT_LEADER')]"
+ # FRAME_MOVEMENT_LEADER: "[movement_leader|E]: [GetSituation('dynastic_cycle').GetParticipantGroupByCharacter(Character.Self).MakeScope.Var('movement_leader').Char.GetShortUIName|U]"
 
- # FRAME_ADVANCEMENT_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$" 
- # FRAME_EXPANSION_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$" 
- # FRAME_CONSERVATIVE_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$" 
- # FRAME_PRO_HEGEMON_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$" 
- # FRAME_UNDECIDED_MOVEMENT: "$FRAME_MOVEMENT_COMMON$" 
+ # FRAME_ADVANCEMENT_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$"
+ # FRAME_EXPANSION_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$"
+ # FRAME_CONSERVATIVE_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$"
+ # FRAME_PRO_HEGEMON_MOVEMENT: "$FRAME_MOVEMENT_COMMON_WITH_LEADER$"
+ # FRAME_UNDECIDED_MOVEMENT: "$FRAME_MOVEMENT_COMMON$"
 
- #To address someone (RelationToMeAddress) 
+ #To address someone (RelationToMeAddress)
  relation_my_love: "моя любовь"
  relation_my_friend: "мой друг"
  relation_my_title_foreign: "Ваше Высочество"
