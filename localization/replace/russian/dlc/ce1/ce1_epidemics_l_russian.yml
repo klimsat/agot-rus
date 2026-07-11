@@ -29,21 +29,21 @@
  game_concept_plague_major_desc: "$game_concept_infection_chance_desc$"
  game_concept_plague_minor: "Эпидемия"
  game_concept_plague_minor_desc: "$game_concept_infection_chance_desc$"
-
+ 
  epidemic_smallpox: "Оспа"
  #AGOT Modified
- #epidemic_bubonic_plague: "Бубонная чума"
+ #epidemic_bubonic_plague: "Bubonic Plague"
  epidemic_bubonic_plague: "Закатная чума"
  epidemic_bubonic_plague_global_notification: "терзает земли"
  #AGOT Modified
- #epidemic_black_death: "Черная смерть"
+ #epidemic_black_death: "Black Death"
  epidemic_black_death: "Великое весеннее поветрие"
  #AGOT Modified
- #epidemic_typhus: "Тиф"
+ #epidemic_typhus: "Typhus"
  epidemic_typhus: "Зелёная лихорадка"
  epidemic_consumption: "Чахотка"
- #AGOT Modified
- #epidemic_measles: "Корь"
+ #AGOT Modifed
+ #epidemic_measles: "Measles"
  epidemic_measles: "Пятнистая лихорадка"
  epidemic_realm_loc: "[ROOT.Epidemic.GetStartingOutbreakProvince.GetCounty.GetTitle.GetHolder.GetTopLiege.GetPrimaryTitle.GetAdjectiveNoTooltip|U]"
  epidemic_ruler_loc: "[ROOT.Epidemic.GetStartingOutbreakProvince.GetCounty.GetTitle.GetHolder.GetTopLiege.GetTitleAsNameNoTooltip|U]"
@@ -77,8 +77,8 @@
  epidemic_province_sweats: "$epidemic_province_loc$ий пот"
  epidemic_realm_fever: "$epidemic_realm_loc$ая лихорадка"
  #AGOT Modified
- #epidemic_terrain_fever: "$epidemic_terrain_ya$ лихорадка"
- epidemic_terrain_fever: "$epidemic_terrain_ya$ лихорадка" #[ROOT.Epidemic.GetStartingOutbreakProvince.Custom('TerrainTypeProvince')|U]
+ #epidemic_terrain_fever: "[ROOT.Epidemic.GetStartingOutbreakProvince.GetTerrain.GetNameNoTooltip|U] Fever"
+ epidemic_terrain_fever: "$epidemic_terrain_ya$ лихорадка"
  epidemic_culture_sweats: "$epidemic_culture_loc$ий пот"
  epidemic_devils_fever: "Лихорадка [ROOT.Epidemic.GetStartingOutbreakProvince.GetCounty.GetTitle.GetHolder.GetFaith.random_EvilGodNames|U]"
  epidemic_camp_fever: "Лагерная лихорадка"
@@ -105,8 +105,8 @@
  epidemic_bloody_flux: "Дизентерия"
  epidemic_realm_flux: "$epidemic_realm_loc$ий понос"
  #AGOT Modified
- #epidemic_terrain_flux: "Понос"
- epidemic_terrain_flux: "$epidemic_terrain_iy$ понос" #[ROOT.Epidemic.GetStartingOutbreakProvince.Custom('TerrainTypeProvince')|U]
+ #epidemic_terrain_flux: "[ROOT.Epidemic.GetStartingOutbreakProvince.GetTerrain.GetNameNoTooltip|U] Flux"
+ epidemic_terrain_flux: "$epidemic_terrain_iy$ понос"
  epidemic_ruler_flux: "$epidemic_ruler_adject_ru_cust_loc$ий понос"
  epidemic_titled_ruler_flux: "Понос $epidemic_ruler_ru_cust_loc$"
  epidemic_culture_flux: "$epidemic_culture_loc$ий понос"
@@ -135,8 +135,8 @@
  epidemic_reapers_due: "Дань Жнецу"
  epidemic_little_leprosy: "Малая проказа"
  epidemic_crimson_horror: "Багровый ужас"
- #AGOT Modified
- #trait_measles: "Корь"
+ #AGOT Modifed
+ #trait_measles: "Measles"
  trait_measles: "Пятнистая лихорадка"
  trait_measles_desc: "Этот персонаж страдает от затяжной лихорадки, сыпи и кашля, из-за чего многие нарекают этот недуг «малой проказой»."
  trait_measles_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] страдает от затяжной лихорадки, сыпи и кашля, из-за чего многие объясняют этот недуг «малой проказой»."
@@ -144,12 +144,12 @@
  trait_dysentery: "Дизентерия"
  trait_dysentery_desc: "Лихорадка, беспамятство и боли в животе заставляют этого персонажа... #EMP извергать#! кровь в уборных."
  trait_dysentery_character_desc: "Из-за лихорадки, беспамятства и боли в животе [ROOT.GetCharacter.GetFirstNameNoTooltip]... #EMP извергает#! кровь в уборных."
- #AGOT Modified
- #epidemic_ergotism: "Священный огонь"
+ #AGOT Modifed
+ #epidemic_ergotism: "Holy Fire"
  epidemic_ergotism: "Танцевальная чума"
  epidemic_saint_anthonys_fire: "Антонов огонь"
- #AGOT Modified
- #trait_ergotism: "Священный огонь"
+ #AGOT Modifed
+ #trait_ergotism: "Holy Fire"
  trait_ergotism: "Танцевальная чума"
  trait_ergotism_desc: "Этот персонаж страдает от болезненных припадков, головной боли, тошноты и диареи — непроизвольные спазмы делают это похожим на танец."
  trait_ergotism_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] страдает от болезненных припадков, головной боли, тошноты и диареи — непроизвольные спазмы делают это похожим на танец."
@@ -161,7 +161,7 @@
  county_epidemic_recovered_medium_modifier_desc: "$county_epidemic_recovered_minor_modifier_desc$"
  county_epidemic_recovered_strong_modifier: "Впечатляющее восстановление после болезни"
  county_epidemic_recovered_strong_modifier_desc: "$county_epidemic_recovered_minor_modifier_desc$"
-
+ 
  shattered_by_plague_tt: "Все [Concept( 'counties', 'графства' )|E], имеющие #high 30#! и более [Concept( 'development', 'развития' )|E]"
  ravaged_by_plague_tt: "Все [Concept( 'counties', 'графства' )|E], имеющие от #high 20#! до #high 30#! [Concept( 'development', 'развития' )|E]"
  blighted_by_plague_tt: "Все [Concept( 'counties', 'графства' )|E], имеющие от #high 15#! до #high 20#! [Concept( 'development', 'развития' )|E]"
@@ -181,3 +181,6 @@
  epidemic_raqguul_plague: "Чума Ракгула"
  epidemic_saturday_night_fever: "Лихорадка субботнего вечера"
  epidemic_cooties: "Кутис"
+
+
+

@@ -1,8 +1,8 @@
 ﻿l_russian:
  AGOT_VASSALIZATION_CB_NAME:2 "Железный трон - [vassalization_casus_belli|E] персонажа [DEFENDER.GetShortUIName]"
 
- AGOT_VASSALIZATION_WAR_NAME: "$ORDER$ #L [ATTACKER.GetPrimaryTitle.GetPrefix]о#!-#L [DEFENDER.GetPrimaryTitle.GetAdjective|l]ая#! война за вассализацию Железным троном"
- AGOT_VASSALIZATION_WAR_NAME_BASE: "#L [ATTACKER.GetPrimaryTitle.GetAdjective]ий#! домен [DEFENDER.GetPrimaryTitle.GetName]"
+ AGOT_VASSALIZATION_WAR_NAME:1 "$ORDER$ #L [ATTACKER.GetPrimaryTitle.GetPrefix]о#!-#L [DEFENDER.GetPrimaryTitle.GetAdjective|l]ая#! война за вассализацию Железным троном"
+ AGOT_VASSALIZATION_WAR_NAME_BASE:0 "#L [ATTACKER.GetPrimaryTitle.GetAdjective]ий#! домен [DEFENDER.GetPrimaryTitle.GetName]"
 
  #AGOT CLAIMANT WAR
  agot_duskendale_claimant_war:0 "Война претендента"
@@ -120,25 +120,25 @@
 
  #AGOT Bastard Events
  agot_bastard_claimant_war:0 "Война королевского бастарда"
- agot_bastard_claimant_war_name: "[CLAIMANT.Custom('BastardClaimantWarName')]"
+ agot_bastard_claimant_war_name:0 "[CLAIMANT.Custom('BastardClaimantWarName')]"
  agot_bastard_claimant_war_name_nicked:0 "Война [ROOT.Char.Custom('SurnameSwitch')]" # There is a space in the Cusloc Key
  agot_bastard_claimant_war_name_no_nick:0 "Война бастарда персонажа [ROOT.Char.GetFather.GetFirstNamePossessiveNoTooltip]"
  agot_bastard_claimant_war_invalid:0 "[claimant.GetName] [Select_CString(claimant.IsFemale, 'умерла', 'умер' )]. [claimant.GetHerHis] претензия более не может быть продавлена."
  agot_bastard_claimant_war_victory:0 "[claimant.GetName] будет [Select_CString(claimant.IsFemale, 'возведена на трон как правительница', 'возведён на трон как правитель' )] державы [defender.GetPrimaryTitle.GetName]!"
  agot_bastard_claimant_war_white_peace:0 "[attacker.GetName] и [defender.GetName] согласились прекратить кровопролитие. [claimant.GetName] вернётся домой, и на этом дело закончится."
- agot_bastard_claimant_war_defeat:0 "[defender.GetName] побеждает, а мятежники предстанут перед [defender.GetHerHis] правосудием." 
+ agot_bastard_claimant_war_defeat:0 "[defender.GetName] побеждает, а мятежники предстанут перед [defender.GetHerHis] правосудием."
 
- agot_bastard_enforcement_war: "Навязывание исполнения королевского указа"
- agot_bastard_enforcement_war_name: "Навязывание исполнения королевского указа персонажа [ATTACKER.GetTitledFirstName] на домен [DEFENDER.GetPrimaryTitle.GetNameNoTier]"
- agot_bastard_enforcement_war_invalid: "[claimant.GetName] [Select_CString(claimant.IsFemale, 'умерла', 'умер' )]. В навязывании исполнения больше нет необходимости."
- agot_bastard_enforcement_war_victory: "[attacker.GetName] навяжет исполнение своего королевского указа персонажу [defender.GetName]."
- agot_bastard_enforcement_war_victory_execute_both: "[attacker.GetName] навяжет исполнение своего королевского указа — [claimant.GetName] и [defender.GetName] будут казнены."
- agot_bastard_enforcement_war_victory_execute_bastard: "[attacker.GetName] навяжет исполнение своего королевского указа — [claimant.GetName] будет [Select_CString(claimant.IsFemale, 'казнена', 'казнён' )]."
- agot_bastard_enforcement_war_victory_send_to_order: "[attacker.GetName] навяжет исполнение своего королевского указа — [claimant.GetName] будет [Select_CString(claimant.IsFemale, 'отправлена', 'отправлен' )] в услужение ордену."
- agot_bastard_enforcement_war_victory_bring_to_court: "[attacker.GetName] навяжет исполнение своего королевского указа — [claimant.GetName] отправится ко двору."
- agot_bastard_enforcement_war_victory_give_up_claims: "[attacker.GetName] навяжет исполнение своего королевского указа — [claimant.GetName] откажется от всех притязаний на трон."
- agot_bastard_enforcement_war_white_peace: "[attacker.GetName] и [defender.GetName] договорились о перемирии. Вопрос закрыт."
- agot_bastard_enforcement_war_defeat: "[defender.GetName] успешно [Select_CString(defender.IsFemale, 'воспротивилась', 'воспротивился' )] указу персонажа [attacker.GetTitledFirstName]."
+ agot_bastard_enforcement_war:0 "Навязывание исполнения королевского указа"
+ agot_bastard_enforcement_war_name:0 "Навязывание исполнения королевского указа персонажа [ATTACKER.GetTitledFirstName] на домен [DEFENDER.GetPrimaryTitle.GetNameNoTier]"
+ agot_bastard_enforcement_war_invalid:0 "[claimant.GetName] [Select_CString(claimant.IsFemale, 'умерла', 'умер' )]. В навязывании исполнения больше нет необходимости."
+ agot_bastard_enforcement_war_victory:0 "[attacker.GetName] навяжет исполнение своего королевского указа персонажу [defender.GetName]."
+ agot_bastard_enforcement_war_victory_execute_both:0 "[attacker.GetName] навяжет исполнение своего королевского указа — [claimant.GetName] и [defender.GetName] будут казнены."
+ agot_bastard_enforcement_war_victory_execute_bastard:0 "[attacker.GetName] навяжет исполнение своего королевского указа — [claimant.GetName] будет [Select_CString(claimant.IsFemale, 'казнена', 'казнён' )]."
+ agot_bastard_enforcement_war_victory_send_to_order:0 "[attacker.GetName] навяжет исполнение своего королевского указа — [claimant.GetName] будет [Select_CString(claimant.IsFemale, 'отправлена', 'отправлен' )] в услужение ордену."
+ agot_bastard_enforcement_war_victory_bring_to_court:0 "[attacker.GetName] навяжет исполнение своего королевского указа — [claimant.GetName] отправится ко двору."
+ agot_bastard_enforcement_war_victory_give_up_claims:0 "[attacker.GetName] навяжет исполнение своего королевского указа — [claimant.GetName] откажется от всех притязаний на трон."
+ agot_bastard_enforcement_war_white_peace:0 "[attacker.GetName] и [defender.GetName] договорились о перемирии. Вопрос закрыт."
+ agot_bastard_enforcement_war_defeat:0 "[defender.GetName] успешно [Select_CString(defender.IsFemale, 'воспротивилась', 'воспротивился' )] указу персонажа [attacker.GetTitledFirstName]."
 
  #Pirates
  DISRUPT_PIRACY_WAR_NAME:0 "Пресечение пиратства"
@@ -200,11 +200,11 @@
  DAEMON_FIRST_STEPSTONE_WAR_CB_NAME:0 "Высадка на Ступени" # Should never be seen
  daemon_stepstones_second_war:0 "Война за Ступени"
  DAEMON_SECOND_STEPSTONE_WAR_NAME:0 "Война #L [ATTACKER.GetFirstName]а#! за Ступени"
+ DAEMON_SECOND_STEPSTONE_WAR_NAME_BASE:0 "Война #L [ATTACKER.GetFirstName]а#! за Ступени"
  DAEMON_TRIARCHY_CONQUEST_WAR_NAME: "Война #L [ATTACKER.GetFirstNamePossessive]а#! за Три Дочери"
  DAEMON_TRIARCHY_CONQUEST_WAR_NAME_BASE: "Война #L [ATTACKER.GetFirstNamePossessive]а#! за Три Дочери"
- DAEMON_SECOND_STEPSTONE_WAR_NAME_BASE:0 "Война #L [ATTACKER.GetFirstName]а#! за Ступени"
- daemon_invades_triarchy_war:0 "Война за Три Дочери"
  DAEMON_SECOND_STEPSTONE_WAR_CB_NAME:0 "Война за Ступени" # Should never be seen\
+ daemon_invades_triarchy_war:0 "Война за Три Дочери"
  admiral_subjugation_cb:0 "Покорение адмирала"
  triarchy_anti_daemon_war:0 "Война по претензии"
 

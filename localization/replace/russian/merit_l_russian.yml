@@ -1,4 +1,4 @@
-﻿l_russian:
+﻿l_russian: 
  TOTAL_MERIT: "Суммарные [Concept('merit', 'заслуги')|E]: $VALUE|V0$"
  MERIT_EFFECTS_BREAKDOWN: "#S Эффекты:#![AddTextIf( Not( StringIsEmpty(GetMeritLevelEffects( Character.GetMeritLevel )) ), '\n' )][GetMeritLevelEffects( Character.GetMeritLevel )]"
  MERIT_PROGRESSBAR_MARKER_TOOLTIP: "#T [GetMeritLevelNameNoTooltip( ComplexBarItem.GetIndex )]#!\nТребуемые $game_concept_merit$: [GetMeritLevelThreshold( ComplexBarItem.GetIndex )|V^]\n\n[GetMeritModifierByLevel( ComplexBarItem.GetIndex ).GetDescWithBulletPointEffects][AddTextIf( GreaterThan_int32( ComplexBarItem.GetIndex, '(int32)1' ), '\n' )]$BULLET$[Concept('movement_power', 'силы движения')|E]: [movement_power_i] [Multiply_int32( ComplexBarItem.GetIndex, '(int32)10' )|+=0]\n[GetMaxAppointmentRankDescription( 'заслуги', ComplexBarItem.GetIndex )][Character.GetMeritLevelDescription( ComplexBarItem.GetIndex )]"
@@ -12,7 +12,7 @@
  CHILDRENS_EXAMINATION_PASSED_FAIL: "[SelectLocalization( HasPassedChildrenExamination(Character), 'EXAMINATION_PASSED', SelectLocalization(HasFailedChildrenExamination(Character), SelectLocalization(Character.IsAdult, 'EXAMINATION_FAILED_NO_RETAKE' , 'EXAMINATION_FAILED') ,'EXAMINATION_NOT_TAKEN') )]"
 
  EXAMINATION_PASSED: "@passed_examination!#P Сдан#!"
- EXAMINATION_FAILED_NO_RETAKE: "@failed_examination!#N Провален#!"
+ EXAMINATION_FAILED_NO_RETAKE: "@failed_examination!#N Провален#!" 
  EXAMINATION_FAILED: "$EXAMINATION_FAILED_NO_RETAKE$ #weak (можно повторить попытку)#![AddLocalizationIf(And(And(Character.IsMeritCapped, Character.IsAdult), Or(ObjectsEqual(GetPlayer, Character.GetWarden.Self), Character.IsLocalPlayer)), 'EXAMINATION_WOULD_TAKE')]"
  EXAMINATION_NOT_TAKEN: "#weak Не сдан#![AddLocalizationIf(And(And(And(Character.IsMeritCapped, Character.CanImproveMeritRank), Character.IsAdult), Or(ObjectsEqual(GetPlayer, Character.GetWarden.Self), Character.IsLocalPlayer)), 'EXAMINATION_WOULD_TAKE')]"
  EXAMINATION_WOULD_TAKE: "\n\nБез сдачи этого [Concept('examination', 'экзамена')|E] максимальная [Concept('merit_level', 'степень заслуг')|E] [Select_CString(Character.IsLocalPlayer, 'вашего персонажа', Concatenate('персонажа ', Character.GetShortUIName))] будет ограничена. [SelectLocalization(Character.IsLocalPlayer, 'EXAMINATION_WOULD_TAKE_ME', 'EXAMINATION_WOULD_TAKE_OTHER')]"
@@ -21,10 +21,10 @@
  MERIT_GOVERNOR_APPOINTMENT_SCORE_POSITIVE: "$BULLET$[candidate_score|E]: @appointment_score!#P +[Character.GetGovernorAppointmentScoreByMerit]#!"
  MERIT_GOVERNOR_APPOINTMENT_SCORE_NEGATIVE: "$BULLET$[candidate_score|E]: @appointment_score!#N [Character.GetGovernorAppointmentScoreByMerit]#!"
  MERIT_MOVEMENT_POWER: "$BULLET$[Concept('movement_power', 'Сила движения')|E]: [movement_power_i] [Character.GetMovementPowerByMerit|+=0]"
-  
+
  MERIT_PROGRESS_HEADING: "Перейти на следующую $game_concept_merit_level$"
  MAX_MERIT_RANK_BREAKDOWN_TOOLTIP: "#T Максимальная [Concept('merit_level', 'степень заслуг')|E]#!\n[PlayerValueItem.GetMaxLevelBreakdown( Character.Self )]"
-  
+
  MERIT_CAP_OVERFLOW_WILL_COUNT: "#weak Заслуги, приобретенные после достижения их лимита, будут учтены, если лимит повысится в результате экзаменов.#!"
  MERIT_RANK_CAP_TT: "#T Лимит заслуг достигнут#!\n[SelectLocalization( Character.GetGovernment.IsType( 'celestial_government' ), 'MERIT_RANK_CAP_CELESTIAL_TT', 'MERIT_RANK_CAP_MERITOCRATIC_TT')]"
  MERIT_RANK_CAP_CELESTIAL_TT: "[AddLocalizationIf( Character.ShouldShowExaminationRequirement( '(int32)3' ), 'MERIT_RANK_CAP_CELESTIAL_PROVINCIAL_EXAMINATION_TT' )][AddLocalizationIf( Character.ShouldShowExaminationRequirement( '(int32)5' ), 'MERIT_RANK_CAP_CELESTIAL_METROPOLITAN_EXAMINATION_TT' )][AddLocalizationIf( Character.ShouldShowExaminationRequirement( '(int32)7' ), 'MERIT_RANK_CAP_CELESTIAL_PALACE_EXAMINATION_TT' )]\n\n$MERIT_CAP_OVERFLOW_WILL_COUNT$"
@@ -34,7 +34,7 @@
  MERIT_RANK_CAP_CELESTIAL_METROPOLITAN_EXAMINATION_TT: "Чтобы получить @merit_level_5_icon![GetModifier( 'merit_level_5' ).GetNameWithTooltip|L], необходимо сдать экзамен муниципального (или более высокого) уровня"
  MERIT_RANK_CAP_CELESTIAL_PALACE_EXAMINATION_TT: "Чтобы получить @merit_level_7_icon![GetModifier( 'merit_level_7' ).GetNameWithTooltip], необходимо сдать дворцовый экзамен"
  MERIT_RANK_CAP_MERITOCRATIC_PROVINCIAL_EXAMINATION_TT: "Чтобы получить @merit_level_4_icon![GetModifier( 'merit_level_4' ).GetNameWithTooltip|L], необходимо сдать экзамен провинциального (или более высокого) уровня"
-  
+
  currency_tier_0_appointment_pool_desc: "$BULLET$Нельзя назначить управлять никакими [Concept('title', 'титулами')|E]"
  currency_tier_1_appointment_pool_desc: "$BULLET$Можно назначить управлять [Concept('titles', 'титулами')|E] [Concept('title_tier', 'уровня')|E] [Concept('barony', 'баронства')|E]"
  currency_tier_2_appointment_pool_desc: "$BULLET$Можно назначить управлять [Concept('titles', 'титулами')|E] [Concept('title_tier', 'уровня')|E] [Concept('county', 'графства')|E] #weak (и ниже)#!"
@@ -42,8 +42,8 @@
  currency_tier_4_appointment_pool_desc: "$BULLET$Можно назначить управлять [Concept('titles', 'титулами')|E] [Concept('title_tier', 'уровня')|E] [Concept('kingdom', 'королевства')|E] #weak (и ниже)#!"
  currency_tier_5_appointment_pool_desc: "$BULLET$Можно назначить управлять [Concept('titles', 'титулами')|E] [Concept('title_tier', 'уровня')|E] [Concept('empire', 'империи')|E] #weak (и ниже)#!"
  currency_tier_6_appointment_pool_desc: "$BULLET$Можно назначить управлять [Concept('titles', 'титулами')|E] [Concept('title_tier', 'уровня')|E] [Concept('hegemony', 'гегемонии')|E] #weak (и ниже)#!"
-  
- career_path_civilian_province: "@celestial_standard_administration! [Concept('civilian_career_path', 'Гражданская служба')|E]"
+
+ career_path_civilian_province: "@celestial_standard_administration! [Concept('civilian_career_path', 'Гражданская служба')|E]" 
  career_path_military_province: "@celestial_military_administration! [Concept('military_career_path', 'Военная служба')|E]"
  career_path_none: "Стезя не выбрана"
 
@@ -57,5 +57,6 @@
  celestial_government_merit_level_7_description: "\n\nДля [Concept('government', 'правительства')|E] «[GetGovernment('celestial_government').GetNameE]»: чиновники этого ранга должны сдать [Concept('palace_examination', 'дворцовый экзамен')|E]. Следующий ранг — #TOOLTIP:STATIC_MODIFIER,merit_level_8 #V #L 2-й#!#!#!."
  celestial_government_merit_level_8_description: "\n\nДля [Concept('government', 'правительства')|E] «[GetGovernment('celestial_government').GetNameE]»: чиновники этого ранга должны сдать [Concept('palace_examination', 'дворцовый экзамен')|E]. Следующий ранг — #TOOLTIP:STATIC_MODIFIER,merit_level_9 #V #L 1-й#!#!#!."
  celestial_government_merit_level_9_description: "\n\nДля [Concept('government', 'правительства')|E] «[GetGovernment('celestial_government').GetNameE]»: чиновники этого ранга должны сдать [Concept('palace_examination', 'дворцовый экзамен')|E]."
-
+ 
  SORT_MERIT: "$game_concept_merit$"
+ 

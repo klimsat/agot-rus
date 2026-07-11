@@ -3,7 +3,7 @@
  health.1015.t: "[SCOPE.Custom('EventTitleDisease')]: небольшая напасть"
  health.1015.desc: "#EMP Зуд.#! Я просыпаюсь среди ночи и вижу, что моя нога вся в крови. Как и мои ногти. Зуд так силен, что я не могу остановиться и расчесываю все сильнее.\n\nЯ окунаю лицо в холодную воду в надежде, что мне полегчает. В отражении я вижу свои покрасневшие глаза."
  #AGOT Modified
- #health.1015.court_physician.desc: "\n\n«[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetLadyLord], это недуг, известный как корь»."
+ #health.1015.court_physician.desc: "\n\n"My [ROOT.Char.Custom('FormOfAddressForLiege')|U], that's the malady known as measles.""
  health.1015.court_physician.desc: "\n\n«[ROOT.Char.Custom('FormOfAddressForLiege')|U], это недуг, известный как пятнистая лихорадка»."
  health.1015.a: "Я так больше не вынесу!"
  health.1016.t: "[SCOPE.Custom('EventTitleDisease')]: алый фонтан"
@@ -44,7 +44,7 @@
  disease_desc_short_dysentery: "терзает кровавый понос"
  disease_desc_short_ergotism: "терзают непроизвольные спазмы"
  #AGOT Modified
- #disease_desc_short_typhus: "мучает лагерная лихорадка"
+ #disease_desc_short_typhus: "tormented by camp fever"
  disease_desc_short_typhus: "мучает зелёная лихорадка"
  disease_desc_short_consumption: "измучил кровавый кашель"
  disease_desc_short_smallpox: "покрыли рубцы и сыпь"
@@ -312,14 +312,14 @@
  epidemic_events.2006.b: "Каждый танец рано или поздно заканчивается. #EMP Правда?#!"
  epidemic_events.2006.c: "Возьмите веревки и свяжите [Select_CString(dance_victim.IsFemale, 'ее', 'его' )]!"
  epidemic_events.2006.d: "Именем [ROOT.Char.GetFaith.HighGodNamePossessive] я изгоню тебя, демон!"
-
+ 
  epidemic_events.3000.t: "$travel_danger_prefix$ кровь на двери"
  epidemic_events.3000.desc: "Во владении [epidemic_location.GetName] не осталось цветов, кроме красного. И звуков, кроме кашля. Мы понукаем лошадей двигаться дальше, но я вижу, как бледнеет [companion.GetTitledFirstName], сжав губы так сильно, что они побелели.\n\n«Помогите...» — один из тех, кого мы сочли покойником, медленно шевелится, преодолевая боль. Тело жертвы [sick_peasant.Custom('disease_desc_short')]."
  epidemic_events.3000.a: "«Я не могу закрыть на это глаза»."
  epidemic_events.3000.b: "«[companion.GetFirstNameNoTooltip], вы можете им помочь»."
  epidemic_events.3000.c: "«У нас нет на это времени»."
  epidemic_events.3000.b.sick: "[companion.GetShortUIName] заболевает"
-
+ 
  epidemic_events.3010.t: "$travel_danger_prefix$ мертвечина"
  epidemic_events.3010.desc: "Прибыв во владение [epidemic_location.GetName], мы замечаем, что запасы воды на исходе. Посреди опустевшей деревни располагается симпатичный колодец, и мы посылаем своих коней к нему.\n\nВскоре становится ясно, почему деревня опустела.\n\nТела лежат на земле, их [sick_peasant.Custom('disease_desc_short')], а над бледными головами кружат падальщики. Мрачное зрелище."
  epidemic_events.3010.a: "Мне доводилось читать о порченой воде..."
@@ -456,10 +456,10 @@
  epidemic_events.5010.b.lose: "Вас затапливает ужас"
 
  #AGOT Modified
- #epidemic_events.5900.t: "Черная смерть"
+ #epidemic_events.5900.t: "The Black Death"
  epidemic_events.5900.t: "Великое весеннее поветрие"
  #AGOT Modified
- #epidemic_events.5900.desc: "Зараза ширится по земле.\n\nЖуткие бубоны растут на телах жертв, чьи слабые стоны о помощи стихают, когда они захлебываются собственным гноем.\n\nВсе, от нищего попрошайки до самого прославленного императора, боятся безразличной косы безжалостного морового поветрия. Выжившие могут лишь беспомощно смотреть, как все вокруг них гибнут.\n\nВерующие ищут защиты у божественных сил, а могущественные в своих богатствах, но никому нет спасения. Жуткие щупальца стелются по земле и удушают ее, пока она не перестанет дышать.\n\nЧерная смерть пришла к нам. Храни нас [ROOT.Char.GetFaith.HighGodName]."
+ #epidemic_events.5900.desc: "Pestilence stalks the land.\n\nGrisly, bubbling buboes grow upon the victims, whose pitiful calls for help are slowly stifled as they gutter and drown in their own pus-filled throats.\n\nFrom the lowliest urchin to the most fêted emperor, all dread the indiscriminate scythe of the merciless plague. Those that survive must watch helplessly as all around them perish.\n\nThe devoted look to the divine for a savior, and the powerful their riches, but none can truly be safe. Dreadful tendrils spread across the land, constricting it until it no longer breathes.\n\nThe Great Spring Sickness is upon us. [ROOT.Char.GetFaith.HighGodName] save us all."
  epidemic_events.5900.desc: "Зараза ширится по земле.\n\nЖуткие бубоны растут на телах жертв, чьи слабые стоны о помощи стихают, когда они захлебываются собственным гноем.\n\nВсе, от нищего попрошайки до самого прославленного лорда, боятся безразличной косы безжалостного морового поветрия. Выжившие могут лишь беспомощно смотреть, как все вокруг них гибнут.\n\nВерующие ищут защиты у божественных сил, а могущественные в своих богатствах, но никому нет спасения. Жуткие щупальца стелются по земле и удушают ее, пока она не перестанет дышать.\n\nВеликое весеннее поветрие пришло к нам. Храни нас [ROOT.Char.GetFaith.HighGodName]."
  epidemic_events.5900.desc_asia: "Мор среди нас.\n\nБольные раздуваются от язв, их легкие отказывают, и стоны превращаются в булькающий хрип. Смерть заставляет умолкнуть даже самых шумных.\n\nПощады не будет. Неумолимое колесо страданий раздавит каждого — от босоногого пахаря до затворника-князя. Живым остается лишь сметать пепел с порога и подсчитывать опустевшие циновки.\n\nКто-то читает сутры, другие упорно держатся за церемонии и чинопочитание — но никакой указ не в силах остановить разложение, и никакие заслуги не искупят потерь. Поветрие стелется незримо, словно туман в низинах, но с каждым рассветом оно оставляет новые следы.\n\nЧерная смерть пришла. Небеса отвернулись от нас."
  epidemic_events.5900.christian: "«Отче наш, сущий на небесах! Да святится имя Твое...»"
@@ -481,7 +481,7 @@
  epidemic_events.5902.d: "Пусть пройдут."
 
  epidemic_events.5903.t: "Отказ от простых радостей"
- epidemic_events.5903.desc: "«[ROOT.Char.GetFirstName]! Нет!» — звенящим голосом кричит [family.GetFirstName], заглушая топот копыт. [Select_CString(family.IsFemale, 'Она', 'Он' )] подбегает ко мне, буравя меня осуждающим взглядом.\n\n«Вы же знаете, что там происходит. Все эти смерти и болезнь... — [Select_CString(family.IsFemale, 'она', 'он' )] с несчастным видом заламывает руки. — Лучше остаться здесь, [SelectLocalization( IsLandlessAdventurer( ROOT.Char ), 'в лагере', 'за стенами')], в безопасности. Пожалуйста».\n\nМне остается лишь вздохнуть. Будь я чуть быстрее при выезде из ворот, у меня была бы возможность прямо сейчас скакать по полям, наслаждаясь природой."
+ epidemic_events.5903.desc: "«[ROOT.Char.GetFirstName]! Нет!» — звенящим голосом кричит [family.GetFirstName], заглушая топот копыт. [Select_CString(family.IsFemale, 'Она', 'Он' )] подбегает ко мне, буравя меня осуждающим взглядом.\n\n«Вы же знаете, что там происходит. Все эти смерти и болезнь... — [Select_CString(family.IsFemale, 'она', 'он' )] с несчастным видом заламывает руки. — Лучше остаться здесь, [SelectLocalization( IsLandlessAdventurer( ROOT.Char ), 'в лагере', 'за стенами')], в безопасности. Пожалуйста».\n\nМне остается лишь вздохнуть. Будь я чуть быстрее при выезде из ворот, у меня была бы возможность прямо сейчас скакать по полям, наслаждаясь природой." 
  epidemic_events.5903.a: "[Select_CString(family.IsFemale, 'Она, вероятно, права', 'Он, вероятно, прав' )]."
  epidemic_events.5903.b: "«Да все со мной будет нормально!»"
 
@@ -552,5 +552,5 @@
  msg_epidemic_infection_desc_1: "[Concept( 'epidemic', 'Поветрие' )|E], известное как «[epidemic.GetName]», распространяется на владение [LEFT_TITLE.GetProvince.GetBaronyNameExplicitly]"
  msg_epidemic_infection_desc_2: "[Concept( 'epidemic', 'Поветрие' )|E], известное как «[epidemic.GetName]», распространяется на владения [LEFT_TITLE.GetProvince.GetBaronyNameExplicitly] и [RIGHT_TITLE.GetProvince.GetBaronyNameExplicitly]"
  msg_epidemic_infection_desc: "[Concept( 'epidemic', 'Поветрие' )|E], известное как «[epidemic.GetName]», распространяется на владения [LEFT_TITLE.GetProvince.GetBaronyNameExplicitly], [RIGHT_TITLE.GetProvince.GetBaronyNameExplicitly] и $message_consolidation_others$"
-
+ 
  EVENT_WINDOW_OPTION_AVAILABLE_PHYSICIAN: "Доступно, потому что у вас есть [GetCourtPositionType('court_physician_court_position').GetName|l]"

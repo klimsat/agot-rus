@@ -1,12 +1,12 @@
 ﻿l_russian:
- # Precurser events
+ # Precursor events
  agot_dragon_combat.will_engage:0 "[enemy_dragonrider.GetTitledFirstName] и [enemy_dragon.GetName] сразятся с вами в битве драконов!"
  agot_dragon_combat.will_engage_enemy:0 "[dragonrider_in_battle.GetTitledFirstName] и [dragon_in_battle.GetName] сразятся с вами в битве драконов!"
  agot_dragon_combat.will_attempt_engage:0 "Вы попытаетесь сразиться с [Select_CString(enemy_dragonrider.IsFemale, 'наездницей', 'наездником' )] [enemy_dragonrider.GetTitledFirstName] и драконом [enemy_dragon.GetName] в битве драконов!"
  agot_dragon_combat.will_attempt_engage_enemy:0 "Вы попытаетесь сразиться с [Select_CString(enemy_dragonrider.IsFemale, 'наездницей', 'наездником' )] [enemy_dragonrider.GetTitledFirstName] и драконом [enemy_dragon.GetName] в битве драконов!"
  agot_dragon_combat.will_not:0 "Вы попытаетесь скрыться от [Select_CString(enemy_dragonrider.IsFemale, 'наездницы', 'наездника' )] [enemy_dragonrider.GetTitledFirstName] и дракона [enemy_dragon.GetName]!"
  agot_dragon_combat.will_not_enemy:0 "Вы попытаетесь скрыться от [Select_CString(enemy_dragonrider.IsFemale, 'наездницы', 'наездника' )] [enemy_dragonrider.GetTitledFirstName] и дракона [enemy_dragon.GetName]!"
- 
+
  agot_dragon_combat.0001.t:0 "[Select_CString(enemy_dragonrider.IsFemale, 'Замечена вражеская драконья наездница', 'Замечен вражеский драконий наездник' )]"
  agot_dragon_combat.0001.desc_opening:0 "[dragon_in_battle.GetName] и я летим над владением [battle_location.GetName],"
  agot_dragon_combat.0001.desc_opening_fly:0 " пейзаж остаётся позади, пока мы мчимся навстречу войскам, которые ведёт в бой [enemy_commander_in_battle.GetTitledFirstName]."
@@ -35,7 +35,7 @@
  agot_dragon_combat.0001.b.no_notice:0 "Они не замечают, как вы покидаете поле боя."
  agot_dragon_combat.0001.b.swift:0 "#P Стремительность дракона [enemy_dragon.GetNamePossessiveNoTooltip] упростит побег#!"
  agot_dragon_combat.0001.b.slow:0 "#N Медлительность дракона [enemy_dragon.GetNamePossessiveNoTooltip] усложнит побег#!"
- 
+
  agot_dragon_combat.0002.t:0 "Засада с неба!"
  agot_dragon_combat.0002.desc:0 "Я превращаю войска, которые ведёт в бой [dragon_commander_in_battle.GetTitledFirstName] в пепел, пока подо мной бушует сражение во владении [battle_location.GetName], как вдруг в небе вспыхивает вторая струя пламени!\n\nЯ чувствую как [enemy_dragon.GetName] выныривает из под меня, и я едва успеваю уклониться от шквала пламени, вздымающегося над головой. Взглянув наверх, я вижу, как [dragon_in_battle.GetName] летит в моём направлении с удивительной скоростью, [dragon_in_battle.Custom('GetDragonHerHis')] [Select_CString(dragonrider_in_battle.IsFemale, 'наездница', 'наездник' )] [dragonrider_in_battle.GetTitledFirstName] убийственным взглядом смотрит на меня из седла.\n\n[dragonrider_in_battle.GetSheHe|U] хочет боя!"
  agot_dragon_combat.0002.a:0 "Тогда [dragonrider_in_battle.GetSheHe] его получит!"
@@ -47,7 +47,7 @@
  agot_dragon_combat.0002.b.enemy_slow:0 "#P Медлительность дракона [enemy_dragon.GetNamePossessiveNoTooltip] упростит побег#!"
  agot_dragon_combat.0002.escape.t:0 "[enemy_dragonrider.GetShortUIName] сбегает!"
  agot_dragon_combat.0002.escape.desc:0 "Вместо того, чтобы столкнуться с вами, [enemy_dragonrider.GetShortUIName] улетает на драконе [enemy_dragon.GetName]!"
- 
+
  agot_dragon_combat.0003.t:0 "Полет драконьего пламени"
  agot_dragon_combat.0003.desc:0 "Я обращаю войска, которые ведёт в бой [dragon_commander_in_battle.GetTitledFirstName] в пепел, пока подо мной бушует сражение во владении [battle_location.GetName], как вдруг я замечаю #S неестественно# движущееся облако!... Это дракон!\n\nДа, приглядевшись я отчетливо вижу, как [dragon_in_battle.GetName] стремительно улетает прочь! Должно быть это [dragonrider_in_battle.GetTitledFirstName], [Select_CString(dragonrider_in_battle.IsFemale, 'трусиха испугалась', 'трус испугался' )] меня и моего дракона [enemy_dragon.GetName]!"
  agot_dragon_combat.0003.a:0 "[dragonrider_in_battle.GetSheHe|U] не уйдёт!"
@@ -59,7 +59,7 @@
  agot_dragon_combat.0003.b:0 "Пускай бегут."
  agot_dragon_combat.0003.escape.t:0 "[dragonrider_in_battle.GetShortUIName] летит слишком быстро!"
  agot_dragon_combat.0003.escape.desc:0 "[dragonrider_in_battle.GetShortUIName] [Select_CString(dragonrider_in_battle.IsFemale, 'сумела', 'сумел' )] оторваться от преследования дракона [dragon_in_battle.GetName]!"
- 
+
  #############
  # Dragon fight!
  #############
@@ -76,27 +76,27 @@
  agot_dragon_combat.1001.tt.wait_and_hope:0 "Вы ничего не делаете, надеясь, что [my_foe.GetTitledFirstName] ошибется [Select_CString(my_foe.IsFemale, 'первой', 'первым' )]."
  agot_dragon_combat.1001.desc.my_feedback.wait_and_hope:0 "Мое ожидание ни к чему не привело. [my_foe.GetTitledFirstName] и [my_foe_dragon.GetName] получили достаточно времени, чтобы разработать свой собственный план."
  agot_dragon_combat.1001.desc.opponent_response.wait_and_hope:0 "И все это при том, что [my_foe.GetTitledFirstName] и [my_foe_dragon.GetName] вообще ничего не делали."
- 
+
  agot_dragon_combat.1001.unsure_attack:0 "Просто #EMP сожжем их#!, почему бы и нет!"
  agot_dragon_combat.1001.tt.unsure_attack:0 "Вы верхом на огнедышащей ящерице... используйте ее."
  agot_dragon_combat.1001.desc.my_feedback.unsure_attack:0 "Дыхание моего дракона скользит по чешуе дракона [my_foe_dragon.GetNamePossessive], оставляя темные пятна на чешуе, пылающие от яростного пламени."
  agot_dragon_combat.1001.desc.opponent_response.unsure_attack:0 "Дыхание дракона [my_foe_dragon.GetNamePossessive] опасно пронеслось над моим драконом."
- 
+
  agot_dragon_combat.1001.enthusiastic_onslaught:0 "[my_dragon.GetName] куда опаснее, чем [my_foe_dragon.GetName]!"
  agot_dragon_combat.1001.tt.enthusiastic_onslaught:0 "Используя когти и клыки, [my_dragon.GetNameNoTooltip] сможет разорвать дракона [my_foe_dragon.GetNameNoTooltip]"
  agot_dragon_combat.1001.desc.my_feedback.enthusiastic_onslaught:0 "Я и [my_dragon.GetName] бросились на дракона [my_foe_dragon.GetName], в седле [Select_CString(EqualTo_string('он', my_foe_dragon.Custom('GetDragonSheHe')), 'которого', 'которой')] сидит [my_foe.GetName], пытаясь нанести им все возможные удары, укусы и ожоги."
  agot_dragon_combat.1001.desc.opponent_response.enthusiastic_onslaught:0 "[my_foe.GetName] и [my_foe_dragon.GetName] бросились прямо на меня и дракона [my_dragon.GetName], но их укусы и пламя, смогли оставить лишь царапины."
- 
+
  agot_dragon_combat.1001.underbelly:0 "Брюхо дракона [my_foe_dragon.GetNamePossessive] выглядит открытым..."
  agot_dragon_combat.1001.tt.underbelly:0 "Вы выбираете самое очевидное место для нападения на дракона."
  agot_dragon_combat.1001.desc.my_feedback.underbelly:0 "Я и [my_dragon.GetName] пронеслись под драконом [my_foe_dragon.GetName], а затем нырнули прямо вверх, и наши драконы с грохотом встретились в небе. К сожалению, мы не смогли найти брешь в [my_foe_dragon.Custom('GetDragonHerHis')] шкуре."
  agot_dragon_combat.1001.desc.opponent_response.underbelly:0 "[my_foe_dragon.GetName] внезапно ныряет, и в тот же миг я понимаю, что [Select_CString(EqualTo_string('он', my_foe_dragon.Custom('GetDragonSheHe')), 'он', 'она')] направляется к подбрюшью дракона [my_dragon.GetNamePossessive]! Предвидя удар, я и [my_dragon.GetName] уходим вверх, а затем без вреда отлетаем назад, готовясь к следующему столкновению."
- 
+
  agot_dragon_combat.1001.tail_smash:0 "Вдарь по ним хвостом!"
  agot_dragon_combat.1001.tt.tail_smash:0 "Вы выбираете несколько... нестандартную стратегию."
  agot_dragon_combat.1001.desc.my_feedback.tail_smash:0 "[my_dragon.GetName] и я, как будто для того, чтобы укусить дракона [my_foe_dragon.GetNamePossessive] за крыло, прежде чем перевернуться, нанесли сильный удар хвостом по [Select_CString(EqualTo_string('он', my_foe_dragon.Custom('GetDragonSheHe')), 'его', 'её')] шее!"
  agot_dragon_combat.1001.desc.opponent_response.tail_smash:0 "[my_foe_dragon.GetName] стремительно бросаются вперед, чтобы укусить за крыло дракона [my_dragon.GetNamePossessive], но когда я [Select_CString(ROOT.Char.IsFemale, 'двинулась', 'двинулся' )], чтобы избежать удара, [my_foe_dragon.GetName] [Select_CString(EqualTo_string('он', my_foe_dragon.Custom('GetDragonSheHe')), 'нанес', 'нанесла')] сильный удар хвостом по шее дракона [my_dragon.GetNamePossessiveNoTooltip], отбросив нас друг от друга и заставив попятиться."
- 
+
  agot_dragon_combat.1001.guard:0 "Мы подождем подходящего момента для атаки."
  agot_dragon_combat.1001.tt.guard:0 "Вы и [my_dragon.GetName] ждете подходящего момента, чтобы нанести ответный удар"
  agot_dragon_combat.1001.desc.my_feedback.guard:0 "Чешуйки лязгали и скрежетали, отражая удары, искры летели, когда зубы дракона [my_foe_dragon.GetNamePossessive] вонзались в бронированную шкуру."
@@ -219,20 +219,20 @@
  agot_dragon_combat.1001.tt.special_fallback:0 "Вы тактически отступаете, чтобы переоценить ситуацию"
  agot_dragon_combat.1001.desc.my_feedback.special_fallback:0 "Мы отступили как раз вовремя, едва уклонившись от укуса, который мог бы разорвать крылья дракона [my_dragon.GetNamePossessive]."
  agot_dragon_combat.1001.desc.opponent_response.special_fallback:0 "Затем мы последовали за ними, сделав выпад, который едва не зацепил их крылья! Видя нашу свирепость, [my_foe.GetName] и [my_foe_dragon.GetName] отступили - явный признак слабости!"
- 
+
  # Injuries
  agot_dragon_combat.1001.desc.my_injury.none:0 "\n\n[my_dragon.GetNameNoTooltip] и я совершенно невредимы, "
  agot_dragon_combat.1001.desc.my_injury.light:0 "\n\n[my_dragon.GetNameNoTooltip] и я лишь слегка ранены, "
  agot_dragon_combat.1001.desc.my_injury.heavy:0 "\n\n[my_dragon.GetNameNoTooltip] и я ранены, кровь капает на землю под ними, "
  agot_dragon_combat.1001.desc.my_injury.severe:0 "\n\n[my_dragon.GetNameNoTooltip] и я сильно ранены, кровь льется ручьём, "
  agot_dragon_combat.1001.desc.my_injury.mortal:0 "\n\n[my_dragon.GetNameNoTooltip] и я на волосок от смерти, наши многочисленные раны едва не заставили нас упасть с неба, "
- 
+
  agot_dragon_combat.1001.desc.foe_injury.none:0 "пока [my_foe_dragon.GetNameNoTooltip] и [my_foe.GetTitledFirstNameNoTooltip] выглядят не хуже, чем обычно."
  agot_dragon_combat.1001.desc.foe_injury.light:0 "пока [my_foe_dragon.GetNameNoTooltip] и [my_foe.GetTitledFirstNameNoTooltip] лишь поверхностно ранены."
  agot_dragon_combat.1001.desc.foe_injury.heavy:0 "пока [my_foe_dragon.GetNameNoTooltip] и [my_foe.GetTitledFirstNameNoTooltip] заметно истекают кровью."
  agot_dragon_combat.1001.desc.foe_injury.severe:0 "пока [my_foe_dragon.GetNameNoTooltip] и [my_foe.GetTitledFirstNameNoTooltip] тяжело ранены."
  agot_dragon_combat.1001.desc.foe_injury.mortal:0 "пока [my_foe_dragon.GetNameNoTooltip] и [my_foe.GetTitledFirstNameNoTooltip] явно обречены."
- 
+
  # Chance of winning
  agot_dragon_combat.1001.desc.chance_of_winning.near_zero:0 "\n\nУчитывая то, как все это происходило до сих пор, я [Select_CString(ROOT.Char.IsFemale, 'уверена', 'уверен' )], что смерть дышит нам в затылок."
  agot_dragon_combat.1001.desc.chance_of_winning.minimal:0 "\n\nЯ крайне пессимистично оцениваю наши шансы на данный момент."
@@ -252,48 +252,48 @@
  agot_dragon_combat.wound_dragon.3:0 "[wounded_dragon.GetName] получает $trait_dragon_wounded_3$."
  agot_dragon_combat.wound_dragon.4:0 "[wounded_dragon.GetName] получает $trait_dragon_wounded_4$."
  agot_dragon_combat.wound_dragon.5:0 "[wounded_dragon.GetName] получает $trait_dragon_wounded_5$."
- 
+
  # I lost!
  agot_dragon_combat.1003.t:0 "Танец погибели!"
  agot_dragon_combat.1003.desc.sudden_strike:0 "Наши судьбы изменились так же внезапно, как ветер. В одну секунду [my_foe.GetTitledFirstName] выглядит [Select_CString(my_foe.IsFemale, 'уязвимой', 'уязвимым' )], в нескольких мгновениях от поражения. В следующую секунду я вижу, как разворачивает шею, и перед моими глазами открывается огромная пасть.\n\nЯ успеваю заглянуть в зияющую пасть, почувствовать горячий воздух смерти, поднимающийся, чтобы поприветствовать меня, прежде чем она закроется, и я думаю..."
  agot_dragon_combat.1003.a.sudden_strike:0 "Вот как все закончится."
  agot_dragon_combat.1003.f.sudden_strike:0 "[my_foe_dragon.GetName] пожирает вас"
- 
+
  agot_dragon_combat.1003.desc.dragonfire:0 "Я [Select_CString(ROOT.Char.IsFemale, 'воевала', 'воевал' )] на драконе. Я знаю, что такое видеть, как горят люди. Никогда не [Select_CString(ROOT.Char.IsFemale, 'думала', 'думал' )], что окажусь по эту сторону.\n\nС ревом и приливом жара я вижу, как [my_foe_dragon.GetName] открывает глотку, и быстрая струя драконьего огня устремляется ко мне и дракону [my_dragon.GetName]. Слишком большая, чтобы избежать. Слишком близко, чтобы блокировать. Я инстинктивно поднимаю руки, зная, что это не поможет, и кричу."
  agot_dragon_combat.1003.a.dragonfire:0 "#EMP АРРРРГГГГГХ!!!!#!"
  agot_dragon_combat.1003.f.dragonfire:0 "Вы и [my_dragon.GetName] почти наверняка будете испепелены. Если вы и выживете, то после падения на землю будете мучиться в агонии."
- 
+
  agot_dragon_combat.1003.desc.driven_to_ground:0 "От сильного удара дракона [my_foe_dragon.GetNamePossessive] на дракона [my_dragon.GetName] меня трясет в седле, как будто на меня упал дом. [my_dragon.GetNameNoTooltip] испускает тщетный крик протеста, когда нас прижимает к земле - сильно.\n\n Я слышу хруст [my_dragon.Custom('GetDragonHerHis')] крыла, сломанного под общим весом двух драконов. Я смотрю на массивную фигуру дракона [my_foe_dragon.GetNameNoTooltip], [Select_CString(EqualTo_string('он', my_foe_dragon.Custom('GetDragonSheHe')), 'который, словно бог', 'которая, словно богиня')], возвышается над изломанной фигурой дракона [my_dragon.GetNameNoTooltip] и начинает #italic пожирать#!!"
  agot_dragon_combat.1003.a.driven_to_ground:0 "Я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] выбраться из этого седла!"
  agot_dragon_combat.1003.f.driven_to_ground:0 "Вы изо всех сил стараетесь убежать!"
- 
+
  agot_dragon_combat.1003.desc.disemboweled:0 "Мне кажется, что сквозь облака я вижу дракона [my_foe_dragon.GetName], [Select_CString(EqualTo_string('он', my_foe_dragon.Custom('GetDragonSheHe')), 'который', 'которая')] явно готовится... нет, там!\n\n Слишком поздно.\n\n[my_foe_dragon.GetNameNoTooltip] мчится к нам, как молния, и так же неудержимо. [my_foe_dragon.Custom('GetDragonSheHe')|U] впивается в незащищенное брюхо дракона [my_dragon.GetNamePossessive] и вырывает огромный кусок плоти, разворачивая нас прямо в небе! С последним ревом мы оба падаем, ветер проносится мимо, а кровь и кишки дракона заливают небо над головой."
  agot_dragon_combat.1003.a.disemboweled:0 "Чертчертчертчерт"
  agot_dragon_combat.1003.f.disemboweled:0 "Земля близится ужасно быстро..."
- 
+
  agot_dragon_combat.1003.desc.eviscerated:0 "Отбросив всякое чувство изящества и элегантности, [my_foe.GetTitledFirstName] гонит дракона [my_foe_dragon.GetName] прямо на нас! Хотя [my_dragon.GetName] пытается уклониться, а затем поднять крылья для защиты, каждое из них разрывается зубами и когтями!\n\n[my_dragon.GetNameNoTooltip] ревет в муках, когда [Select_CString(EqualTo_string('он', my_dragon.Custom('GetDragonSheHe')), 'ему', 'ей')] отрывают крыло, но [my_foe_dragon.GetName] не отпускает [Select_CString(EqualTo_string('он', my_dragon.Custom('GetDragonSheHe')), 'его', 'её')], продолжая терзать и рвать. [my_foe_dragon.Custom('GetDragonSheHe')] свирепо кусает шею дракона [my_dragon.GetNamePossessiveNoTooltip] и, издав последний крик, [my_foe_dragon.Custom('GetDragonSheHe')] отрывает [my_dragon.Custom('GetDragonHerHis')] голову прямо у меня на глазах!"
  agot_dragon_combat.1003.a.eviscerated:0 "Нет! Ты не можешь! Пожалуйста!"
  agot_dragon_combat.1003.f.eviscerated:0 "[my_foe_dragon.GetName] пожирает вас и дракона [my_dragon.GetName]."
- 
+
  agot_dragon_combat.1003.desc.chomp:0 "«Спокойно, [my_dragon.GetName]! Мы еще можем выжить!», - кричу я, ветер срывает мой голос, пока мы мчимся между облаками. Несколько раз мне кажется, что я вижу тень дракона [my_foe_dragon.GetName], но по мере приближения она исчезает. Но я слышу дыхание зверя. Хлопанье крыльев. Глубокий гортанный звук настоящего дракона.\n\nПервобытная часть моего тела распознает, что это такое. Глубокий внутренний крик инстинктов, отточенных, когда люди были не более чем зверьми. На нас охотятся.\n\nКак будто в подтверждение этой мысли, передо мной возникает еще одна тень. Я на мгновение ожидаю, что эта тень будет такой же мнимой, как и остальные, но тут перед нами появляется титаническая форма, пасть которой раскрыта настолько, что может проглотить дракона [my_dragon.GetName] и меня целиком."
  agot_dragon_combat.1003.a.chomp:0 "Вы даже не успеваете закричать."
  agot_dragon_combat.1003.f.chomp:0 "[my_foe_dragon.GetName] разрывает вас дракона [my_dragon.GetName]"
- 
- 
+
+
  # I won!
  agot_dragon_combat.1004.t:0 "Победа!"
  agot_dragon_combat.1004.desc.sudden_strike:0 "Мой план сработал! [my_foe.GetName] не [Select_CString(my_foe.IsFemale, 'ожидала', 'ожидал' )] такого поворота событий. В одну секунду я и [my_dragon.GetName] выглядим уязвимыми, и [my_foe_dragon.GetName] идет на добивание. В следующую секунду [my_dragon.GetNameNoTooltip] [Select_CString(EqualTo_string('он', my_dragon.Custom('GetDragonSheHe')), 'перемахнул', 'перемахнула')] через спину дракона [my_foe_dragon.GetNamePossessiveNoTooltip] и [Select_CString(EqualTo_string('он', my_dragon.Custom('GetDragonSheHe')), 'протянул', 'протянула')] свою шею к [Select_CString(my_foe.IsFemale, 'беззащитной наезднице', 'беззащитному наезднику' )] сзади.\n\n[my_foe.GetNameNoTooltip] предстаёт перед огромной раскрытой пастью дракона [my_dragon.GetNamePossessiveNoTooltip], [Select_CString(EqualTo_string('он', my_dragon.Custom('GetDragonSheHe')), 'который', 'которая')] пожирает [my_foe.GetHerHis]!"
  agot_dragon_combat.1004.a.sudden_strike:0 "Теперь дракон станет лёгкой добычей!"
  agot_dragon_combat.1004.f.sudden_strike_survived:0 "[my_foe_dragon.GetName] [Select_CString(EqualTo_string('он', my_foe_dragon.Custom('GetDragonSheHe')), 'сумел', 'сумела')] сбежать"
  agot_dragon_combat.1004.f.sudden_strike_died:0 "[my_foe_dragon.GetName] быстро попадает под второй удар дракона [my_dragon.GetName]"
- 
+
  agot_dragon_combat.1004.desc.dragonfire:0 "С ревом и приливом жара я чувствую, как [my_dragon.GetName] сметает всех противников, а [my_dragon.Custom('GetDragonHerHis')] распахнутая глотка выплёскивает гигантскую струю пламени в ту сторону, где парят [my_foe_dragon.GetName] и [my_foe.GetTitledFirstName]. Слишком близко, чтобы уклониться. Слишком большая, чтобы блокировать. С приливом удовлетворения, зеркально отражающим порыв ветра, поглощенного пламенем, я вижу, как [my_foe_dragon.GetNameNoTooltip] и [my_foe.GetTitledFirstNameNoTooltip] испепелены драконом [my_dragon.GetNameNoTooltip]."
  agot_dragon_combat.1004.a.dragonfire:0 "Я [Select_CString(ROOT.Char.IsFemale, 'достала', 'достал' )] тебя!"
  agot_dragon_combat.1004.f.dragonfire_both:0 "[my_foe.GetName] и [my_foe_dragon.GetName] сожжены драконом [my_dragon.GetName]"
  agot_dragon_combat.1004.f.dragonfire_dragon:0 "[my_foe_dragon.GetName] смертельно [Select_CString(EqualTo_string('он', my_foe_dragon.Custom('GetDragonSheHe')), 'ранен', 'ранена')] драконом [my_dragon.GetName], но [my_foe.GetName] успевает спастись бегством"
  agot_dragon_combat.1004.f.dragonfire_rider:0 "[my_foe_dragon.GetName] [Select_CString(EqualTo_string('он', my_foe_dragon.Custom('GetDragonSheHe')), 'сожжен', 'сожжена')] драконом [my_dragon.GetName], но [my_foe.GetName] успевает выскользнуть"
  agot_dragon_combat.1004.f.dragonfire_neither:0 "[my_foe.GetName] и [my_foe_dragon.GetName] ужасно обгорели, но им все-же удалось спастись"
- 
+
  agot_dragon_combat.1004.desc.driven_to_ground:0 "Когда [my_dragon.GetNamePossessive] наваливается всем весом на дракона [my_foe_dragon.GetName] меня подбрасывает в седле. [my_foe_dragon.GetName] испускает бесполезный рёв протеста, когда мы с силой прижимаем наших врагов к земле.\n\n Я слышу удовлетворительный хруст крыла дракона [my_foe_dragon.GetNamePossessiveNoTooltip], сломанного под общим весом двух драконов. Я смотрю вниз на дракона [my_foe_dragon.GetNameNoTooltip], когда мы, словно боги, нависаем над изломанными телами наших врагов, и чувствую, как голод побуждает [my_dragon.Custom('GetDragonHerHis')] убивать."
  agot_dragon_combat.1004.a.driven_to_ground:0 "Вот и все, [my_dragon.GetName]! Покончи с ними!"
  agot_dragon_combat.1004.f.driven_to_ground_died:0 "[my_foe.GetFirstName] [Select_CString(my_foe.IsFemale, 'пожрана', 'пожран' )] яростными укусами дракона [my_dragon.GetNameNoTooltip]"
@@ -303,17 +303,17 @@
  agot_dragon_combat.1004.a.disemboweled:0 "Земля заберет их обоих!"
  agot_dragon_combat.1004.f.disemboweled_died:0 "[my_foe_dragon.GetName] [Select_CString(EqualTo_string('он', my_foe_dragon.Custom('GetDragonSheHe')), 'мертв', 'мертва')], и [my_foe.GetName] [Select_CString(my_foe.IsFemale, 'последовала', 'последовал' )] за [Select_CString(EqualTo_string('он', my_foe_dragon.Custom('GetDragonSheHe')), 'ним', 'ней')]."
  agot_dragon_combat.1004.f.disemboweled_escaped:0 "[my_foe_dragon.GetName] мертв, но [my_foe.GetName] [Select_CString(my_foe.IsFemale, 'сумела', 'сумел' )] пережить падение"
- 
+
  agot_dragon_combat.1004.desc.eviscerated:0 "Не обращая внимания на защиту, [my_dragon.GetName] несется прямо на дракона [my_foe_dragon.GetName]! Хотя [my_foe_dragon.GetNameNoTooltip] пытается уклониться, а затем поднять свои крылья в защиту, каждое из них разрывается нашими зубами и когтями! \n\n[my_foe_dragon.GetNameNoTooltip] ревет в муках, когда [Select_CString(EqualTo_string('он', my_foe_dragon.Custom('GetDragonSheHe')), 'ему', 'ей')] отрывают крыло, но [my_dragon.GetNameNoTooltip] не отпускает [Select_CString(EqualTo_string('он', my_foe_dragon.Custom('GetDragonSheHe')), 'его', 'её')], продолжая рвать и терзать. Хлестким ударом шеи [my_dragon.Custom('GetDragonSheHe')] яростно кусает шею дракона [my_foe_dragon.GetNamePossessiveNoTooltip], и после последнего крика существа [my_dragon.Custom('GetDragonSheHe')] отрывает [my_foe_dragon.Custom('GetDragonHerHim')] голову!"
  agot_dragon_combat.1004.a.eviscerated:0 "Рви! Кромсай! Пожирай!"
  agot_dragon_combat.1004.f.eviscerated:0 "[my_foe.GetTitledFirstName] и [my_foe_dragon.GetName] пожраны драконом [my_dragon.GetName]"
- 
+
  agot_dragon_combat.1004.desc.chomp:0 "[my_foe.GetFirstName] не [Select_CString(my_foe.IsFemale, 'могла', 'мог' )] ни на что надеяться. [my_foe_dragon.GetName] вдвое меньше моего дракона [my_dragon.GetName], и [my_foe.GetSheHe] знает, что нападение в лоб было бы самоубийством, предпочитая скрываться между облаками.\n\nНесколько раз мне казалось, что я вижу тень нашей добычи, но по мере приближения она исчезала.\n\nПока мы летим, первобытная часть моего тела осознает, что это такое. Глубокий гортанный крик инстинктов, отточенных, когда люди были не более чем зверями. Мы - хищники, а дракон - наша добыча.\n\nКак бы в подтверждение этой мысли, передо мной возникает еще одна тень. Я уже ожидаю, что эта тень будет такой же, как и остальные, но тут прямо перед нами появляется тень поменьше! [my_dragon.GetNameNoTooltip] действует без приказа. [my_dragon.Custom('GetDragonSheHe')|U] открывает пасть, а [my_foe_dragon.GetName] и [my_foe.GetName] пожраны одним укусом."
  agot_dragon_combat.1004.a.chomp:0 "Они даже не успели закричать."
  agot_dragon_combat.1004.f.chomp:0 "[my_foe.GetName] и [my_foe_dragon.GetName] разорваны драконом [my_dragon.GetName]"
  agot_dragon_combat.1004.chomp.t:0 "[my_dragon.GetNameNoTooltip] довольствуется вкусом"
- 
- 
+
+
  # More Dragon Duel Event
  agot_dragon_combat.1010.t:0 "Крылья возмездия"
 
@@ -335,7 +335,7 @@
  agot_dragon_combat.1010.a.tt.not_me:0 "[dragonrider_in_battle.GetTitledFirstNameNoTooltip] вступит в драконий поединок с [enemy_dragonrider.GetTitledFirstNameNoTooltip]."
 
  agot_dragon_combat.1010.b:0 "В другой раз, возможно."
- 
+
  # Tooltips
  ## Own Duel Success Increase Tooltips
  agot_dragon_combat.duel_success.none:0 "#difficulty_hard Нет#! увеличения ваших шансов на успех"

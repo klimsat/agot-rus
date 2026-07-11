@@ -194,7 +194,6 @@
  agot_dragon_slaying_events.0110.egg:0 "Постойте... что это?"
  agot_dragon_slaying_events.0110.egg.flavor:0 "Не может быть..."
  agot_dragon_slaying_events.0110.egg.tt:0 "В яме драконьего логова вы находите драконье яйцо."
-
  ## 0111 Defeat
  agot_dragon_slaying_events.0111.t:0 "$agot_dragon_duel.t$ Поражение"
  agot_dragon_slaying_events.0111.desc.move_climb_tail:0 "Быстро, как вспышка, [dragon.GetNamePossessiveNoTooltip] взмахивает хвостом в моем направлении, когда я пытаюсь взобраться на [dragon.Custom('GetDragonHerHis')] спину."
@@ -209,7 +208,7 @@
  agot_dragon_slaying_events.0111.desc.death_running_pursuit:0 "Я вряд ли выживу в этой схватке. Я быстро разворачиваюсь и бросаюсь прочь от дракона [dragon.GetNameNoTooltip], но мой побег прерван.\n\n"
  agot_dragon_slaying_events.0111.desc.run_escape:0 "Я ни за что не смогу победить этого монстра... У меня нет другого выбора, кроме как бежать, и даже тогда я могу погибнуть.\n\nЯ поспешно отступаю, уворачиваясь и петляя, как только могу, пока не убеждаюсь, что я [Select_CString(ROOT.Char.IsFemale, 'одна', 'один' )]. Каким-то образом мне удается сбежать от дракона и оставить этот ад позади."
  agot_dragon_slaying_events.0111.desc.climb_let_fly:0 "\n\nТолько дурак стал бы цепляться за летающего дракона — и, несмотря на то, что я [Select_CString(ROOT.Char.IsFemale, 'решила', 'решил' )] отправиться в это безумное приключение, у меня все еще есть немного ума. Я падаю на землю, и [dragon.GetNameNoTooltip] улетает...\n\n"
- agot_dragon_slaying_events.0111.desc.dive_let_fly:0 "\n\nВ таком положении у меня нет никакой надежды остановить [dragon.Custom('GetDragonHerHis')]. Я перекатываюсь на спину и наблюдаю, как [dragon.GetNameNoTooltip] улетает, издав последний рев и извергнув пламя, как [dragon.Custom('GetDragonSheHe')] исчезает из моего затуманенного зрения.\n\n"
+ agot_dragon_slaying_events.0111.desc.dive_let_fly:"\n\nВ таком положении у меня нет никакой надежды остановить [dragon.Custom('GetDragonHerHis')]. Я перекатываюсь на спину и наблюдаю, как [dragon.GetNameNoTooltip] улетает, издав последний рев и извергнув пламя, как [dragon.Custom('GetDragonSheHe')] исчезает из моего затуманенного зрения.\n\n"
  agot_dragon_slaying_events.0111.desc.death_burn_risky:0 "\n\nЯ [Select_CString(ROOT.Char.IsFemale, 'знала', 'знал' )], что пламя будет жарким, но и представить себе не [Select_CString(ROOT.Char.IsFemale, 'могла', 'мог' )], что оно будет #bold таким#! горячим. У меня такое чувство, будто я изжариваюсь внутри своих доспехов как гротескный пирог в горшочках, готовый выплеснуть наружу мои собственные поджаренные внутренности.\n\nНесмотря на все это, я предпринимаю последнюю попытку приблизиться к дракону [dragon.GetNameNoTooltip], как раз вовремя, чтобы увидеть, как [dragon.Custom('GetDragonSheHe')] открывает пасть и выпускает новый поток пламени. Я чувствую, что таю, как мягкий сыр.\n\n"
  agot_dragon_slaying_events.0111.desc.death_lunge_risky:0 "Мое вступление короткое, и я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] сделать рискованный шаг. Бросаясь вперед, я надеюсь застать дракона [dragon.GetNameNoTooltip] врасплох, используя [ROOT.Char.Custom('signature_weapon')], но [dragon.Custom('GetDragonSheHe')] слишком [Select_CString(EqualTo_string('он', dragon.Custom('GetDragonSheHe')), 'быстр', 'быстра')].\n\n"
  agot_dragon_slaying_events.0111.desc.death_rock_risky:0 "Я вижу самую короткую возможность, поэтому делаю свой ход. Бросаясь вперед, держа [ROOT.Char.Custom('signature_weapon')] в руке, я пытаюсь сократить расстояние между мной и чудовищем.\n\nНо прежде чем я успеваю добраться до н[dragon.Custom('GetDragonHerHis')], огромный валун смещается из-за грохота, который издает [dragon.GetNamePossessiveNoTooltip]... Он ударяет мне прямо в голову, и мое зрение затуманивается, а затем #bold темнеет#!. Неужели здесь я умру?\n\n"
@@ -269,6 +268,6 @@
  agot_dragon_slaying_events.0110.tt.slew_dragon_timer:0 "Вы не сможете бросить вызов другому дракону в течение года"
  agot_dragon_slay_wounded:0 "Вы были ранены"
 
- #agot_dragon_slaying_events.0100.bite:0 "[dragon.GetNameNoTooltip] намеревается откусить кусочек вашего аппетитного мяса."
- #agot_dragon_slaying_events.0100.burn:0 "[dragon.GetNameNoTooltip] сворачивает [dragon.Custom('GetDragonHerHis')] шею. Раздается низкое рычание [dragon.Custom('GetDragonHerHis')] разевает пасть, и воздух наполняется запахом древесного угля. Нет сомнений, [dragon.Custom('GetDragonSheHe')]  готовится очистить местность огнем."
- #agot_dragon_slaying_events.0100.roar:0 "рев"
+ #agot_dragon_slaying_events.0100.bite:0 "[dragon.GetNameNoTooltip] intends to take a bite of your savory flesh."
+ #agot_dragon_slaying_events.0100.burn:0 "[dragon.GetNameNoTooltip] coils [dragon.Custom('GetDragonHerHis')] neck. A low growl reverberates from [dragon.Custom('GetDragonHerHis')] maw and the scent of charcoal fills the air. There is no doubt, [dragon.Custom('GetDragonSheHe')] is preparing to cleanse the area with flame."
+ #agot_dragon_slaying_events.0100.roar:0 "roar"

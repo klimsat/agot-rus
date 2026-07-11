@@ -5,15 +5,15 @@
  situation_dynastic_cycle_claim_mandate_decision_confirm: "Установление имперской гегемонии"
  situation_dynastic_cycle_claim_mandate_decision_county_percentage_tt: "Вы контролируете хотя бы [SCOPE.ScriptValue('claim_mandate_china_county_percentage_value')|V%0] [de_jure|El] [Concept('counties', 'графств')|E] державы [GetTitleByKey('h_china').GetDefinitiveName]"
  situation_dynastic_cycle_claim_mandate_decision_phase_tt: "Вы выбираете следующий [Concept('dynastic_cycle_era_type_stable', 'стабильный тип эры')|E] [Concept('situation_situations_possessive', 'ситуации')|E] «[situation.GetName]»"
-  
+
  situation_dynastic_cycle_claim_mandate_decision_tooltip: "Вы получаете [Concept('title', 'титул')|E] «[GetTitleByKey('h_china').GetDefinitiveName|U]» и переводите ситуацию «[GetSituation('dynastic_cycle').GetName]» в [Concept('dynastic_cycle_era_type_stable', 'стабильный тип эры')|E]"
  claim_mandate_decision_county_percentage_tt: "#V Вы#! должны контролировать хотя бы [SCOPE.ScriptValue('claim_mandate_china_county_percentage_value')|V%0] [Concept('de_jure', 'де-юре')|E] [Concept('counties', 'графств')|E] державы [GetTitleByKey('h_china').GetDefinitiveName] #weak (сейчас: [SCOPE.ScriptValue('claim_mandate_china_control_percent_value')|0]%)#!"
  claim_mandate_decision_phase_tt: "[THIS.Char.GetShortUIName|U] [Select_CString(THIS.Char.IsLocalPlayer, 'выберете', 'выберет')] следующий [Concept('dynastic_cycle_era_type_stable', 'стабильный тип эры')|E] для ситуации «[situation.GetName]»"
  claim_mandate_turn_vassal_celestial_desc: "Каждый [Concept('de_jure', 'де-юре')|E]-[Concept('vassal', 'вассал')|E] #ONCLICK:TITLE,h_china #TOOLTIP:LANDED_TITLE,h_china #L Китайской гегемонии#!#!#! в вашей [Concept('realm', 'державе')|E], но не [GetGovernment( 'republic_government' ).GetNameWithIcon] или [GetGovernment( 'theocracy_government' ).GetNameWithIcon] введет [Concept('government', 'правительство')|E] «[GetGovernment( 'celestial_government' ).GetNameWithIcon]»"
  claim_mandate_trigger_conquest_tt: "[GetSituation('dynastic_cycle').GetName] переходит в [Concept('dynastic_cycle_era_type_unstable', 'нестабильную эру')|E] «[GetSituationType('dynastic_cycle').GetPhaseType('situation_dynastic_cycle_phase_instability_conquest').GetNameWithIcon]»"
- claim_mandate_turn_independent_realms_celestial_desc: "Каждый [Concept('independent_ruler', 'независимый правитель')|E] в [Concept('dynastic_cycle', 'династическом цикле')|E], имеющий [Concept('government', 'форму правления')|E] «[GetGovernment( 'celestial_government' ).GetNameWithIcon]» или обладающий тем же [Concept('heritage', 'наследием')|E], что и #V вы#!, станет вашим [Concept('vassal', 'вассалом')|E] и примет [Concept('government', 'форму правления')|E] «[GetGovernment( 'celestial_government' ).GetNameWithIcon]»"
+  claim_mandate_turn_independent_realms_celestial_desc: "Каждый [Concept('independent_ruler', 'независимый правитель')|E] в [Concept('dynastic_cycle', 'династическом цикле')|E], имеющий [Concept('government', 'форму правления')|E] «[GetGovernment( 'celestial_government' ).GetNameWithIcon]» или обладающий тем же [Concept('heritage', 'наследием')|E], что и #V вы#!, станет вашим [Concept('vassal', 'вассалом')|E] и примет [Concept('government', 'форму правления')|E] «[GetGovernment( 'celestial_government' ).GetNameWithIcon]»"
 
-  # Conquest dynasty - Promote Cultural Governors 
+ # Conquest dynasty - Promote Cultural Governors
  situation_dynastic_cycle_favor_own_culture_for_appointments: "Продвижение губернаторов-соотечественников"
  situation_dynastic_cycle_favor_own_culture_for_appointments_desc: "Я не могу опираться на существующую бюрократию. Для эффективного правления мне требуются надежные и верные губернаторы. Если я поддержу свою культуру, моим соотечественникам будет намного легче взять под свой контроль многочисленные провинции державы [ROOT.Char.GetPrimaryTitle.GetBaseNameNoTierNoTooltip]"
  situation_dynastic_cycle_favor_own_culture_for_appointments_confirm_1: "Все [ROOT.Char.GetCulture.GetNameNoTooltip|l] получат наше расположение"
@@ -30,13 +30,13 @@
  situation_dynastic_cycle_own_culture_already_favored_desc: "Ваша [Concept('culture', 'культура')|E] уже получает поддержку в рамках закона «[GetLaw('appointment_succession_law').GetName]»"
  situation_dynastic_cycle_no_favored_culture_desc: "Ни одна из [Concept('culture', 'культур')|E] не получает поддержку в рамках закона «[GetLaw('appointment_succession_law').GetName]»"
  dynastic_cycle_conquerer_promoted_culture: "[Concept('son_of_heaven', 'Сын Неба')|E] поддерживает #L [ROOT.Char.GetCulture.GetCollectiveNoun|l]ую#! [Concept('culture', 'культуру')|E]"
-  
+
  capital_duchy_name: "[duchy_name.GetNameNoTierNoTooltip]"
  capital_kingdom_name: "[kingdom_name.GetNameNoTierNoTooltip]"
  new_realm_title_name_from_var: "[ROOT.Var( 'new_realm_title_name' ).GetFlagKey]"
  new_realm_title_name_entered_text: "[ROOT.Char.GetLocalizedText('new_realm_title_name')]"
-  
-  # Debate 
+ 
+ # Debate
  dynastic_cycle_debate_decision: "Провести дебаты"
  dynastic_cycle_debate_decision_desc: "Заслуги, влияние, #EMP власть#!. Они ничего не значат, если вы не в состоянии привести весомые доводы в пользу своей точки зрения и убедить других, что вы достойны, нет, #EMP заслуживаете#! более важной должности."
  dynastic_cycle_debate_decision_tooltip: "Провести дебаты с другим видным членом [Concept('movement', 'движения')|E]"
@@ -59,7 +59,7 @@
  dynastic_cycle_debate_movement_debate_desc: "Провести дебаты за лидерство в движении «[my_movement.GetName]», оппонентом в которых станет [Concept('movement_leader', 'лидер движения')|E] [challenged_movement_leader.GetShortUIName]"
  dynastic_cycle_debate_is_ongoing_imperial_desc: "[Concept('movement_leader', 'Лидер')|E] сильного [Concept('movement', 'движения')|E] занят"
  dynastic_cycle_debate_is_ongoing_desc: "[Concept('movement_leader', 'Лидер движения')|E] занят"
-  
+
  renounce_noble_family_title_decision: "Перестать быть главой дома [ROOT.Char.GetHouse.GetNameNoTooltip]"
  renounce_noble_family_title_decision_desc: "Уйти на покой в [Concept('estate', 'имение') |E] вашего семейства и отказаться от всех [Concept('titles', 'титулов')|E], включая звание [Concept('house_head', 'главы дома')|E], в пользу [Select_CString(ROOT.Char.GetHouse.GetHeirOfHouse.IsFemale, 'вашей наследницы', 'вашего наследника')] по имени [ROOT.Char.GetHouse.GetHeirOfHouse.GetName]."
  renounce_noble_family_title_decision_no_heir_desc: "Уйти на покой в [Concept('estate', 'имение') |E] вашего семейства и отказаться от всех [Concept('titles', 'титулов')|E], включая звание [Concept('house_head', 'главы дома')|E], в пользу наследника [Concept('house_possessive', 'дома')|E]."
@@ -70,7 +70,7 @@
  renounce_noble_family_title_decision_tt: "Вы уходите в отставку и теряете все [Concept('titles', 'титулы')|E]"
  renounce_noble_family_title_decision_toast_title: "Вы уходите в отставку"
  renounce_noble_family_title_decision_toast_desc: "[Select_CString(new_player.IsFemale, 'Новой правительницей', 'Новым правителем' )] ваших владений становится [new_player.GetName]"
-  
+
  favor_dynastic_cycle_era: "Определить следующую эру"
  favor_dynastic_cycle_era_hegemon_desc: "Бремя государства довлеет надо мной. Мне суждено поддерживать [Concept('mandate_of_heaven', 'Небесный мандат')|E], и [GetSituation('dynastic_cycle').GetName|l] неудержимо движется вперед с каждым принятым мной решением. Будущее всех жителей Поднебесной в моих руках. Будет ли оно полно мира и процветания или славных побед и подчинения иноземных владык?"
  favor_dynastic_cycle_era_chaos_desc: "Если я надеюсь однажды принять священные обязательства [Concept('mandate_of_heaven', 'Небесного мандата')|E], нужно вести себя как владыка и не забывать о тех, кто будет видеть во мне властителя всех земель под небом. Если — нет, #EMP когда#! — это время настанет, будет ли оно полно мира и процветания или славных побед и подчинения иноземных владык?"
@@ -90,11 +90,11 @@
  favor_expansion_tt: "$favor_expansion_tooltip$"
  favor_advancement_movement_power_tt: "[movement_power|E] «[GetSituation('dynastic_cycle').GetTopParticipantGroupByKey( 'advancement_movement' ).GetName]»: [movement_power_i]#P +200#!"
  favor_advancement_movement_power_chaos_tt: "Если держава [GetTitleByKey('h_china').GetName] восстановлена, [Concept('movement_power', 'сила движения')|E] «[GetSituation('dynastic_cycle').GetTopParticipantGroupByKey( 'advancement_movement' ).GetName]» увеличится на #P 200#![movement_power_i]"
-  
+
  favor_movement_decision: "Отдать предпочтение движению"
  favor_movement_decision_desc: "Все [Concept('movements', 'движения')|E] могут влиять на ход [Concept('dynastic_cycle', 'династического цикла')|E], но некоторые из них имеют больший вес, чем остальные. Как [ROOT.Char.GetTitleAsNameNoTooltip|l], я могу даровать одному из них свою благосклонность и объявить его [Concept('favored_movement', 'предпочитаемым движением')|E]."
-  #AGOT Modified 
- # favor_movement_decision_tooltip: "[Concept('son_of_heaven', 'Сын Неба')|E] может объявить любое [Concept('movement', 'движение')|E] [Concept('favored_movement', 'предпочитаемым')|E]. В свою очередь, [GetActivityType('activity_debate').GetName|l] могут использоваться другими [Concept('characters', 'персонажами')|E], чтобы склонить Сына Неба на сторону своего [Concept('movement', 'движения')|E]."
+ #AGOT Modified
+ # favor_movement_decision_tooltip: "[son_of_heaven|E] can set any [movement|E] as a [favored_movement|E]. [GetActivityType('activity_debate').GetName] can be called by other [characters|E] to vie for their [movement|E] to be favored instead."
  favor_movement_decision_tooltip: "[Concept('son_of_heaven', 'Сын Неба')|E] может объявить любое [Concept('movement', 'движение')|E] [Concept('favored_movement', 'предпочитаемым')|E]."
  SELECT_FAVOR_MOVEMENT: "Выбрать движение"
  favor_advancement_movement_desc: ""
@@ -119,7 +119,7 @@
  tgp_dynastic_cycle_decision_event.0111.a_new: "Небеса никогда не ошибаются, и [hegemon.GetTitleAsNameNoTooltip|l] тоже."
  tgp_dynastic_cycle_decision_event.0111.a_former: "Возможно, это просто недоразумение…"
  tgp_dynastic_cycle_decision_event.0111.a_other: "Это знак свыше."
-  
+
  favored_movement_consults_heaven_decision: "Изменить династический цикл"
  favored_movement_consults_heaven_decision_desc: "По милости [Concept('son_of_heaven', 'Сына Неба')|E] в моей власти влиять не только на судьбу моей семьи, но и на весь регион [GetSituation('dynastic_cycle').GetTopSubRegion.GetName]. Небеса мне свидетель, я заставлю крутиться колеса [Concept('dynastic_cycle', 'династического цикла')|E]!"
  favored_movement_consults_heaven_decision_tooltip: "Изменить цикл, запустив [Concept('dynastic_cycle_catalyst', 'катализатор')|E] [Concept('dynastic_cycle_possessive', 'династического цикла')|E]"
@@ -154,7 +154,7 @@
  negative_advancement_catalyst_tt: "Вы должны быть [Concept('son_of_heaven', 'Сыном Неба')|E] или членом движения «[GetSituation('dynastic_cycle').GetTopParticipantGroupByKey( 'advancement_movement' ).GetName]»"
  positive_expansion_catalyst_tt: "Вы должны быть [Concept('son_of_heaven', 'Сыном Неба')|E] или членом движения «[GetSituation('dynastic_cycle').GetTopParticipantGroupByKey( 'expansion_movement' ).GetName]»"
  negative_expansion_catalyst_tt: "Вы должны быть [Concept('son_of_heaven', 'Сыном Неба')|E] или членом движения «[GetSituation('dynastic_cycle').GetTopParticipantGroupByKey( 'expansion_movement' ).GetName]»"
-  
+
  house_head_consults_heaven_decision: "Обратиться к Небесам"
  house_head_consults_heaven_decision_desc: "По милости [Concept('son_of_heaven', 'Сына Неба')|E] мое [Concept('movement', 'движение')|E] и я получили прямой доступ к воле Небес. Это может повлиять на ход [Concept('dynastic_cycle', 'династического цикла')|E]."
  house_head_consults_heaven_decision_tooltip: "[Concept('house_head', 'Глава дома')|E] обращается к Небесам, чтобы запустить [Concept('dynastic_cycle_catalyst', 'катализатор')|E] [Concept('dynastic_cycle_possessive', 'династического цикла')|E]"

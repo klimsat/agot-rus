@@ -2,7 +2,7 @@
  legend_quality_famed: "[legend_famed|E]"
  legend_quality_illustrious: "[legend_illustrious|E]"
  legend_quality_mythical: "[legend_mythical|E]"
- legend_cost_scale_by_era_desc: "Эпоха: [GetPlayer.GetCulture.GetCultureEra.GetNameNoTooltip]"
+ legend_cost_scale_by_era_desc:0 "Эпоха: [GetPlayer.GetCulture.GetCultureEra.GetNameNoTooltip]"
 
  PROMOTED_LEGEND_EXPENSES: "[promoted_legend|E]"
  OWNED_LEGEND_EXPENSES: "[Concept( 'owned_legend', 'Собственная легенда' )|E]"
@@ -25,7 +25,7 @@
  legend_can_not_promote_tt: "Вам требуется что-то из этого списка:#!\n@warning_icon! #X Вы и [legend.GetOwner.GetName] говорите на одном языке#!\n@warning_icon! #X [legend.GetName] присутствует в провинции, соседствующей с вашей державой#!\n@warning_icon! #X Вы и [legend.GetOwner.GetName] $game_concept_lovers$#!\n@warning_icon! #X Вы и [legend.GetOwner.GetName] $game_concept_friends$#!"
  legend_no_legend: "Вы не поддерживаете [Concept( 'legend', 'легенду' )|E]"
  CHARACTER_CANNOT_REACH_LEGEND: "@warning_icon! #X Легенда находится вне вашей [Concept( 'realm', 'державы' )|E], и вы не находитесь в землях, где она распространена.#!"
-
+ 
  LEGEND_PROMOTER_MODIFIERS: "Модификаторы [Concept( 'legend_promoter', 'покровителя легенды' )|E]"
 
  LEGEND_PROVINCE_MODIFIERS_SUBTEXT: "#S $PROVINCE_MODIFIERS$#!\n[Legend.GetImpactModifiers( 'province' )]"
@@ -57,7 +57,7 @@
  game_concept_legends_desc: "$game_concept_legend_desc$"
  game_concept_legend_seed: "Зарождающаяся легенда"
  #AGOT Modified
- #game_concept_legend_seed_desc: "Творящаяся [Concept( 'legend', 'легенда' )|E]. Зарождающаяся легенда служит основой для легенды и, создав ее, [Concept( 'ruler', 'правитель' )|E] может положить начало легенде.\n\nЗарождающуюся легенду можно получить, выполнив определенные условия, например являясь потомком Карла Великого или совершив легендарные подвиги: серьезные [Concept( 'decisions', 'решения' )|E], победа в [Concept( 'great_holy_war', 'великой священной войне' )|E], получение [Concept( 'king', 'королевского' )|E] или [Concept( 'emperor', 'императорского' )|E] титула, проведение грандиозного [Concept( 'activity', 'занятия' )|E], охота на легендарного зверя и так далее.\n\nНеактивные зарождающиеся легенды не имеют стоимости, но и не дают эффектов. На первое основание зарождающейся легенды тратится [Concept( 'gold', 'золото' )|E]."
+ #game_concept_legend_seed_desc: "A [legend|E] in the making. $game_concept_legend_seeds$ are the basis of a $game_concept_legend$ and, by founding them, a [ruler|E] may start a $game_concept_legend$.\n\n$game_concept_legend_seeds$ can be earned by fulfilling some criteria like being the heir of Charlemagne or by performing legendary deeds: Major [decisions|E], winning a [great_holy_war|E], becoming a [king|E] or [emperor|E], organizing a Grand [activity|E], hunting a legendary animal, et cetera.\n\nInactive $game_concept_legend_seeds$ have no cost, but bear no effects. Founding a $game_concept_legend_seed$ for the first time has a [gold|E] cost to it."
  game_concept_legend_seed_desc: "Творящаяся [Concept( 'legend', 'легенда' )|E]. Зарождающаяся легенда служит основой для легенды и, создав ее, [Concept( 'ruler', 'правитель' )|E] может положить начало легенде.\n\nЗарождающуюся легенду можно получить, выполнив определенные условия или совершив легендарные подвиги: серьезные [Concept( 'decisions', 'решения' )|E], получение [Concept( 'king', 'королевского' )|E] или [Concept( 'emperor', 'императорского' )|E] титула, проведение грандиозного [Concept( 'activity', 'занятия' )|E], охота на легендарного зверя и так далее.\n\nНеактивные зарождающиеся легенды не имеют стоимости, но и не дают эффектов. На первое основание зарождающейся легенды тратится [Concept( 'gold', 'золото' )|E]."
  game_concept_legend_seeds: "Зарождающиеся легенды"
  game_concept_legend_seeds_desc: "$game_concept_legend_seed_desc$"
@@ -179,7 +179,7 @@
  legend_holy_site: "$legend_saintly_location_name$"
  legend_holy_site_desc: "$legend_saintly_location_desc$"
  legend_saintly_location_name: "[ROOT.Char.CustomFixedRandom('GetCustodianSynonym')|U] [protagonist.GetFaith.GetNameNoTooltip|l]ого святого места"
- legend_saintly_location_desc: "Контроль над священным [faith.GetNameNoTooltip|l]им местом — сам по себе признак святости."
+ legend_saintly_location_desc: "Контроль над священным местом веры [faith.GetAdjectiveNoTooltip] — сам по себе признак святости."
  legend_chapter_opening_saintly_location: "Земля [location.GetNameNoTooltip] имеет наивысшую священную ценность, а из ее почвы, как говорят, бьет чудодейственная вода, способная исцелить любые недуги."
  legend_chapter_motivation_religious: "Когда [ROOT.Legend.GetProtagonist.GetTitledFirstNameNoTooltip] [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'узнала', 'узнал' )] об этом, [ROOT.Legend.GetProtagonist.GetSheHe] [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'ощутила', 'ощутил' )] тепло в сердце, ибо [ROOT.Legend.GetProtagonist.GetHerHis] набожность была столь велика, что одна мысль о святом месте заставляла [ROOT.Legend.GetProtagonist.GetHerHim] прослезиться."
  legend_saintly_life_name: "[protagonist.GetTitledFirstNameNoTooltip] и [Select_CString(protagonist.IsFemale, 'ее', 'его' )] [ROOT.Char.CustomFixedRandom('GetPiousAdj')|l]ая жизнь"
@@ -261,11 +261,11 @@
  legend_chronicle_debug_legend_desc: "#D Контроль качества — древнее и благородное ремесло#!"
  legend_chronicle_beast_slayer: "[Localize( beast )|U] сражен"
  #AGOT Modified
- #legend_chronicle_beast_slayer_desc: "Во владении [location.GetName] был сражен [Localize( beast )]"
+ #legend_chronicle_beast_slayer_desc: "In [location.GetName] a [Localize( beast )] was slayed"
  legend_chronicle_beast_slayer_desc: "Во владении [location.GetName] был сражен [Localize( beast )]"
  legend_chronicle_holy_war: "Священная война во владении [location.GetName]"
  legend_chronicle_holy_war_desc: "Во владении [location.GetName] был разбит [Localize( antagonist )|l]"
-
+ 
  legend_chronicle_generic_opening: "$legend_chapter_opening_generic$"
 
  legend_ruler_loc: "[protagonist.GetFirstNameNoTooltip|U]"
@@ -288,7 +288,7 @@
  legend_gesta: "Деяния, что [Select_CString(protagonist.IsFemale, 'совершила', 'совершил' )] $legend_ruler_loc$"
  legend_deeds: "Подвиги, что [Select_CString(protagonist.IsFemale, 'совершила', 'совершил' )] $legend_ruler_loc$"
 
- legend_history: "История рода $legend_ruler_family_loc$"
+ legend_history: "История рода $legend_ruler_family_loc$" 
  legend_chronicles: "Хроники рода $legend_ruler_family_loc$"
  legend_compendium: "Компендий рода $legend_ruler_family_loc$"
  legend_genealogy: "От кого ведет свой род $legend_ruler_loc$"
@@ -321,14 +321,14 @@
  must_own_georgia_or_be_georgian_tt: "Вы должны владеть державой [GetTitleByKey('k_georgia').GetNameNoTier], или ваша столица должна быть в пределах державы [GetTitleByKey('k_georgia').GetNameNoTier], или вы должны принадлежать к грузинской культуре"
  persian_or_zoroastrian_tt: "Ваша столица располагается в регионе [GetGeographicalRegion('world_middle_east_persia').GetName], или ваша [Concept( 'culture', 'культура' )|E] обладает иранским наследием, или ваша религия — [GetReligionByKey('zoroastrianism_religion').GetAdjective|l]"
  theologian_or_high_piety_tt: "Вы должны обладать [Concept( 'trait', 'свойство' )|E] «[GetTrait('theologian').GetName( GetNullCharacter )]» или обладать [Concept( 'piety_level', 'уровнем набожности' )|E] «$piety_level_3$»"
-
+ 
  #Legend Properties
  ramses: "Рамзес"
  bear: "медведь"
  dragon: "дракон"
  huge_beast: "огромный зверь"
  ferocious_beast: "свирепый зверь"
-
+ 
  #Legend Chapters
  legend_chapter_opening_generic: "Легенда, героем которой выступает [ROOT.Legend.GetProtagonist.GetNameNoTooltip], велика, словно сам свет, ибо [ROOT.Legend.GetProtagonist.GetHerHis] деяниям нет равных."
  legend_chapter_extra_deed_memory: "Но [ROOT.Legend.GetProtagonist.GetNameNoTooltip] на этом не [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'остановилась', 'остановился' )], а [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'продолжила', 'продолжил' )] и с превеликой храбростью [ROOT.Legend.MakeScope.Var('extra_deed_memory').CharacterMemory.GetThirdPerspectiveDescription]."
@@ -338,7 +338,7 @@
  legend_chapter_motivation_spouse: "Когда однажды утром [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'супруг пришел к ней', 'супруга пришла к нему' )] с тревожными слухами, [ROOT.Legend.GetProtagonist.GetFirstNameNoTooltip] тотчас же [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'пообещала', 'пообещал' )] не забывать об их вечной любви."
  legend_chapter_motivation_honor_lady: "Когда [ROOT.Legend.GetProtagonist.GetFirstNameNoTooltip|U] и любовь всей [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'ее', 'его' )] жизни встретились взглядами, все было решено. Выслушав мольбу о помощи и желая доказать свою смелость, [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'она отправилась', 'он отправился' )] в путешествие."
  #AGOT Modified, Vanilla Error
- #legend_chapter_discovery_generic: "[ROOT.Legend.GetProtagonist.GetNameNoTooltip] со своей свитой обыскали [Localize( location )|l], и им потребовалось совсем немного времени, чтобы найти то самое место."
+ #legend_chapter_discovery_generic: "[ROOT.Legend.GetProtagonist.GetNameNoTooltip] surveilled [Localize( location )] with [ROOT.Legend.GetProtagonist.GetHerHis] entourage, and it did not take long for [ROOT.Legend.GetProtagonist.GetHerHim] to find the exact place."
  legend_chapter_discovery_generic: "[ROOT.Legend.GetProtagonist.GetNameNoTooltip] со своей свитой обыскали [Localize( .GetString )], и им потребовалось совсем немного времени, чтобы найти то самое место."
  legend_chapter_hunt_generic: "[Localize( beast )|U] уже стоял там, лакая воду из ручья. Зверь поднял голову и бросился туда, где [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'стояла', 'стоял' )] [ROOT.Legend.GetProtagonist.GetFirstNameNoTooltip]. Зверь был голоден. Но [ROOT.Legend.GetProtagonist.GetFirstNameNoTooltip] [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'оказалась', 'оказался' )] быстрее и искусным ударом сразила зверя."
  legend_chapter_battle_generic: "Битва была яростной. [ROOT.Legend.GetProtagonist.GetNameNoTooltip] и [loser.GetNameNoTooltip] сошлись посреди поля, в [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'ее', 'его' )] глазах светилась доблесть. [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'Она занесла', 'Он занес' )] свое оружие и [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'нанесла', 'нанес' )] удар в грудь своему врагу. Хлынула кровь. Победа."
@@ -451,7 +451,7 @@
  legend_chapter_winner_change_toast: "[winner.GetPromotedLegend.GetName] меняется"
  legend_chapter_change_toast: "[ROOT.Char.GetPromotedLegend.GetName] меняется"
  legend_chapter_change_culture_toast: "[founder.GetPromotedLegend.GetName] меняется"
-
+ 
  spread_legend_intent: "Распространить легенду"
  spread_legend_intent_desc: "Вы воспользуетесь этим занятием, чтобы распространить свою [Concept( 'legend', 'легенду' )|E]."
  spread_legend_intent_not_valid_desc: "#X Сейчас у вас нет [Concept( 'legend', 'легенды' )|E]"
@@ -482,7 +482,7 @@
 
  legend_chronicle_accolade_chronicle: "Самый доблестный [founder.Custom( 'KnightCultureNoTooltipLowercase' )]"
  legend_chronicle_accolade_chronicle_desc: "[founder.GetName|U] [Select_CString(founder.IsFemale, 'имела', 'имел' )] в рядах своих войск множество великих воинов, но величайший [founder.Custom( 'KnightCultureNoTooltipLowercase' )] у [Select_CString(founder.IsFemale, 'нее', 'него' )] в услужении — [first_accolade_knight.GetName], [first_accolade.GetName]."
-
+ 
  legend_conqueror_chronicle: "$legend_chronicle_conqueror_chronicle$"
  legend_conqueror_chronicle_desc: "$legend_chronicle_conqueror_chronicle_desc$"
  legend_chronicle_conqueror_chronicle: "Величайший из завоевателей"
@@ -493,11 +493,11 @@
  heroic_legend_seed_drop.t: "Доступна новая зарождающаяся легенда"
  legend_chapter_opening_great_deed: "$legend_chapter_opening_generic$"
  legend_chapter_conclusion_great_deed: "$legend_chapter_conclusion_generic$"
-
- #Divine creatures
+ 
+ # Divine creatures
  angels: "ангелы"
  the_angels: "ангелы"
- #Legendary locations
+ # Legendary locations
  atlantis: "Атлантида"
  olympus: "Олимп"
  hindustan: "Индостан"
@@ -517,7 +517,7 @@
  vercingetorix: "Верцингеториг"
  shibi_chakravarti: "Шиби Чакраварти"
 
- #To account for some ancestors being flags
+ # To account for some ancestors being flags
  ancestor_flag_name: "[ROOT.Legend.GetProperty( 'ancestor_flag' ).GetFlagName|U]"
  ancestor_flag_name_possessive: "[ROOT.Legend.GetProperty( 'ancestor_flag' ).GetFlagName|U]"
  ancestor_name: "[ROOT.Legend.GetProperty('ancestor').Char.GetName]"
@@ -563,11 +563,11 @@
  gain_heroic_legend_seed.tt: "Теперь у вас есть героическая [Concept( 'legend_seed', 'зарождающаяся легенда' )|E]"
  gain_holy_legend_seed.tt: "Теперь у вас есть святая [Concept( 'legend_seed', 'зарождающаяся легенда' )|E]"
  gain_legitimizing_legend_seed.tt: "Теперь у вас есть легитимизирующая [Concept( 'legend_seed', 'зарождающаяся легенда' )|E]"
-
+ 
  legend_events.1000.t: "[ROOT.Char.Custom2('InsultAdjective', SCOPE.sC('legend_owner'))][Select_CString(legend_owner.IsFemale, 'ая', 'ый' )] [ROOT.Char.GetTitledFirstNameNoTooltip]!"
  legend_events.1000.desc: "Сколь постыдна ваша суть! Сколь коварна! Вам было обещано золото за укрепление моей легенды, а вы просто бросили ее, словно шелудивого пса."
  legend_events.1000.a: "#EMP Ха!#! Просто заберите уже."
  legend_events.1000.b: "Берусь утверждать, что цена была #EMP намного#! ниже."
-
+ 
  legend_spread_notification_title: "Легенда распространяется в вашей державе!"
  legend_spread_notification_desc: "[spread_legend.GetName] распространяется во владении [spread_county.GetName]"

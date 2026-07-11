@@ -1,4 +1,4 @@
-﻿l_russian:
+﻿l_russian: 
  dynastic_cycle: "$game_concept_dynastic_cycle$"
  dynastic_cycle_desc: "$game_concept_dynastic_cycle_desc$"
  situation_dynastic_cycle: "$game_concept_dynastic_cycle$"
@@ -11,9 +11,9 @@
  situation_dynastic_cycle_phase_stability_advancement_icon: "@tgp_dynastic_cycle_advancement_icon! $situation_dynastic_cycle_phase_stability_advancement$"
  situation_dynastic_cycle_phase_stability_advancement_desc_short: "В эту [Concept('dynastic_cycle_era_short', 'эру')|E] империя занимается внутренним развитием с помощью [Concept('innovations', 'инноваций')|E], совершенствования культуры, народного процветания и правильного [Concept('meritorious', 'заслуженного')|E] #TOOLTIP:RELIGION,confucianism_religion #L конфуцианского#!#! управления."
  situation_dynastic_cycle_phase_stability_advancement_desc: "$situation_dynastic_cycle_phase_stability_expansion_desc_short$\n\n$SITUATION_DYNASTIC_CYCLE_FROM_UNSTABLE_ERA$ Таким образом, чтобы перевести Китай в эту эру из эры «[GetSituationType('dynastic_cycle').GetPhaseType('situation_dynastic_cycle_phase_stability_expansion').GetName]», нужно сначала войти в эру «[GetSituationType('dynastic_cycle').GetPhaseType('situation_dynastic_cycle_phase_instability').GetName]»."
-  
+
  SITUATION_DYNASTIC_CYCLE_FROM_UNSTABLE_ERA: "Китай переходит в эту эру из любого [Concept('dynastic_cycle_era_type_unstable', 'нестабильного типа эры')|E] при срабатывании достаточного числа [Concept('situation_catalyst_catalysts', 'катализаций')|lE]."
-  
+
  situation_dynastic_cycle_phase_instability_conquest: "Завоевание"
  situation_dynastic_cycle_phase_instability_conquest_icon: "@tgp_dynastic_cycle_conquest_icon! $situation_dynastic_cycle_phase_instability_conquest$"
  situation_dynastic_cycle_phase_instability_conquest_desc_short: "[Concept('dynastic_cycle_era_short', 'Эра')|E] консолидации после завоевания Китая чужеземцами."
@@ -60,17 +60,17 @@
  dynastic_cycle.tt.forbid_title_creation: "Идет [GetSituation('dynastic_cycle').GetName], этот [Concept('title', 'титул')|E] невозможно создать"
  dynastic_cycle_current_phase_desc: "[Concept('situation_dynastic_cycle_phase', 'Эра династического цикла')|E] — [GetSituation('dynastic_cycle').GetTopCurrentPhase.GetName]"
  dynastic_cycle_not_corruption_phase_desc: "Текущая [Concept('situation_dynastic_cycle_phase', 'эра династического цикла')|E] ситуации «[GetSituation('dynastic_cycle').GetName]» #bold не#![GetSituationType('dynastic_cycle').GetPhaseType('situation_dynastic_cycle_phase_instability').GetName|l]"
-  
+
  dynastic_cycle_phase_tt: "#T [SituationPhaseType.GetNameNoTooltip]#!\n\n[SituationPhaseType.GetDesc]"
-  
-  ################################################## 
-  # Parameter Names 
+
+ ##################################################
+ # Parameter Names
  special_effects: "#bold Основные эффекты#!"
  special_effects_concept: "[situation_dynastic_cycle_phase|E]"
-  
+
  dynastic_cycle_government_effects: "#bold Правительство#!"
  dynastic_cycle_character_effects: "#bold Персонаж#!"
-  
+
  hegemon_effects: "#bold Эффекты Сына Неба#!"
  hegemon_effects_concept: "[GetSituation('dynastic_cycle').GetTopParticipantGroupByKey('hegemon_ruler').GetName]"
  pro_hegemon_movement_effects: "#bold Эффекты сторонников гегемонии Китая#!"
@@ -146,24 +146,24 @@
  my_movement_is_not_in_power: "[my_movement.GetName] #bold не#! является [Concept('favored_movement', 'предпочитаемым движением')|E]"
  is_any_movement_leader_tt_global: "[CHARACTER.GetShortUIName|U] — [Concept('movement_leader', 'лидер движения')|E]"
  recipient_is_any_movement_leader: "[recipient.GetShortUIName|U] [Concept('movement_leader', 'лидер движения')|E]: $VALUE|=+0$"
-  #AOGT Disabled 
- #recipient_has_high_movement_power: "[recipient.GetShortUIName|U] [CharHaveHas(recipient)] more than [EmptyScope.ScriptValue('high_movement_power_value')] [movement_power|E]: $VALUE|=+0$" 
- #actor_not_high_movement_power: "[actor.GetShortUIName|U] [CharHaveHas(actor)] less than #V [EmptyScope.ScriptValue('high_movement_power_value')]#! [movement_power|E] #weak ([actor.MakeScope.Var('movement_power').GetValue|0])#!" 
- #actor_not_extremely_high_movement_power: "[actor.GetShortUIName|U] [CharHaveHas(actor)] less than #V [EmptyScope.ScriptValue('extremely_high_movement_power_value')]#! [movement_power|E] #weak ([actor.MakeScope.Var('movement_power').GetValue|0])#!" 
+ #AOGT Disabled
+ #recipient_has_high_movement_power: "[recipient.GetShortUIName|U] [CharHaveHas(recipient)] more than [EmptyScope.ScriptValue('high_movement_power_value')] [movement_power|E]: $VALUE|=+0$"
+ #actor_not_high_movement_power: "[actor.GetShortUIName|U] [CharHaveHas(actor)] less than #V [EmptyScope.ScriptValue('high_movement_power_value')]#! [movement_power|E] #weak ([actor.MakeScope.Var('movement_power').GetValue|0])#!"
+ #actor_not_extremely_high_movement_power: "[actor.GetShortUIName|U] [CharHaveHas(actor)] less than #V [EmptyScope.ScriptValue('extremely_high_movement_power_value')]#! [movement_power|E] #weak ([actor.MakeScope.Var('movement_power').GetValue|0])#!"
  is_any_movement_leader_tt_global_not: "[CHARACTER.GetShortUIName|U] #bold не#! [Concept('movement_leader', 'лидер движения')|E]"
  situation_parameter_dynastic_cycle_hegemon_martial_examinations: "Для [GetActivityType('activity_imperial_examination').GetTextIcon]#TOOLTIP:ACTIVITY_TYPE,activity_imperial_examination #L Государственного экзамена#!#! доступен [Concept('activity_type', 'тип занятия')|E] #high $imperial_examination_focus_martial$#!"
  situation_parameter_dynastic_cycle_hegemon_stewardship_examinations: "Для [GetActivityType('activity_imperial_examination').GetTextIcon]#TOOLTIP:ACTIVITY_TYPE,activity_imperial_examination #L Государственного экзамена#!#! доступен [Concept('activity_type', 'тип занятия')|E] #high $imperial_examination_focus_stewardship$#!"
-  
-  # Cycle catalyst history custom entries 
+
+ # Cycle catalyst history custom entries
  situation_dynastic_cycle_era_change_history_entry: "#S Новая [Concept('situation_dynastic_cycle_phase', 'эра династического цикла')|E]: [SituationHistoryEntry.GetCatalyst.GetPhase.GetName]#! [SelectLocalization( SituationHistoryEntry.HasVariable( 'old_hegemon' ), 'situation_dynastic_cycle_era_old_dynasty_entry', '' )] [SelectLocalization( SituationHistoryEntry.HasVariable( 'new_hegemon' ), 'situation_dynastic_cycle_era_new_dynasty_entry', '' )]"
  situation_dynastic_cycle_era_old_dynasty_entry: "\nЗакат [Concept('dynasty', 'династии')|E] [SituationHistoryEntry.GetVariable( 'old_hegemon' ).Char.GetDynasty.GetName]"
  situation_dynastic_cycle_era_new_dynasty_entry: "\nПриход к власти [Concept('dynasty', 'династии')|E] [SituationHistoryEntry.GetVariable( 'new_hegemon' ).Char.GetDynasty.GetName]"
-  
-  # NATURAL DISASTERS 
+
+ # NATURAL DISASTERS
  situation_parameter_natural_disaster_governorships_more_easily_revoked: "Стоимость отзыва [Concept('governorships', 'губернаторств')|E] в зоне бедствия снижена"
-  
+
  dynastic_cycle_all: "Династический цикл"
-  
+ 
  movement_is_favored_desc: "Ваше [Concept('movement', 'движение')|E] является [Concept('favored_movement', 'предпочитаемым')|E]"
  new_movement_becomes_favored_power_increase: "[movement_power_i][Concept('movement_power_short', 'Сила')|E] движения «[movement_to_be_favored.GetName]»: [EmptyScope.ScriptValue('high_movement_power_gain')|=+0]"
  new_movement_becomes_favored_power_decrease: "[movement_power_i][Concept('movement_power_short', 'Сила')|E] движения «[movement_to_be_unfavored.GetName]»: [EmptyScope.ScriptValue('high_movement_power_loss')|=+0]"

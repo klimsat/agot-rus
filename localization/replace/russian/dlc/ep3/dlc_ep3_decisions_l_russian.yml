@@ -1,5 +1,5 @@
-﻿l_russian:
- #Estate Decisions
+﻿l_russian: 
+ # Estate Decisions
  estate_hire_agents_decisions: "Нанять соучастников"
  estate_hire_agents_decisions_desc: "Когда политической репутации и влияния недостаточно, чтобы добиться своего, мне приходится искать #EMP альтернативы#!. Но для большей эффективности понадобятся соучастники."
  estate_hire_agents_decisions_confirm: "Подать сюда соучастников!"
@@ -26,8 +26,8 @@
  estate_unlock_granary_decision_development_1_tt: "#weak Уровень [Concept( 'development', 'развития' )|E] графства [domicile_owner.GetDomicile.GetLocation.GetCounty.GetName] не менее [EmptyScope.ScriptValue('estate_granary_development_bonus_1_value')|V0]#!"
  estate_unlock_granary_decision_development_2_tt: "#weak Уровень [Concept( 'development', 'развития' )|E] графства [domicile_owner.GetDomicile.GetLocation.GetCounty.GetName] не менее [EmptyScope.ScriptValue('estate_granary_development_bonus_2_value')|V0]#!"
  estate_unlock_granary_decision_epidemic_tt: "#weak В местности [domicile_owner.GetDomicile.GetLocation.GetName] [Concept('epidemic', 'поветрие')|E], поэтому жители покупают зерно еще дороже#!"
-
- #Hold a Triumph Decision
+ 
+ # Hold a Triumph Decision
  hold_triumph_decision: "Устроить триумф"
  hold_triumph_decision_desc: "Триумфы — одна из старейших и почетнейших римских традиций. В стародавние времена полководца, одержавшего победу, встречали в Риме толпы, прославлявшие его как равного богам. Сегодня народ будет прославлять мои величайшие победы и благодарить за процветание, которое я несу ему!$ep3_triumph_influence_cost_desc$"
  hold_triumph_decision_tooltip: "Организовать величественный парад, чтобы прославить ваши успехи и повысить политическую репутацию"
@@ -130,7 +130,7 @@
  ep3_decisions_event.0007.a: "Да здравствует [ROOT.Char.GetCurrentLocation.GetBaronyNameExplicitlyNoTooltip]."
  ep3_decisions_event.0007.a.tt: "Ваш триумф завершается"
 
- #Find a Charioteer
+ # Find a Charioteer
  ep3_decisions_event.1000.t: "Мой [GetCourtPositionType('charioteer_court_position').GetNameNoTooltip|l]"
  ep3_decisions_event.1000.desc: "Слуги привели мне достойных кандидатов на роль возницы — один из них принесет мне славу на ипподроме.\n\n[mediocre_charioteer.GetFirstName] — не [Select_CString(mediocre_charioteer.IsFemale, 'самая опытная', 'самый опытный' )] из них, но пользу принести может. С другой стороны, [good_charioteer.GetFirstName] уже [Select_CString(good_charioteer.IsFemale, 'доказала', 'доказал' )] свое мастерство."
  ep3_decisions_event.1000.desc.stolen_charioteer: "\n\n#EMP Возможно#!, неплохим кандидатом станет [stolen_charioteer.GetFirstName]. [Select_CString(stolen_charioteer.IsFemale, 'Ей', 'Ему' )], правда, уже платит [stolen_charioteer.GetEmployer.GetTitledFirstName]. Но если предложение будет достаточно привлекательным, [stolen_charioteer.GetSheHe] может решить, что более щедрому нанимателю служить выгоднее..."
@@ -142,7 +142,7 @@
  ep3_decisions_event.1000.c.aptitude: "[Concept( 'aptitude', 'Пригодность' )|E] персонажа [stolen_charioteer.GetUIName] составляет [stolen_charioteer.GetCourtPositionAptitude( GetCourtPositionType( 'charioteer_court_position' ) )]"
  ep3_decisions_event.1000.d: "Но если подумать..."
 
- #Find a Bookmaker
+ # Find a Bookmaker
  ep3_decisions_event.1010.t: "Мой [GetCourtPositionType('bookmaker_court_position').GetNameNoTooltip|l]"
  ep3_decisions_event.1010.desc: "Слуги привели мне достойных кандидатов на роль приемщика ставок — человека, который будет заниматься ставками и финансовыми вопросами во время скачек на ипподроме.\n\n[mediocre_bookmaker.GetFirstName] — не [Select_CString(mediocre_bookmaker.IsFemale, 'самая опытная', 'самый опытный' )] из них, но пользу принести может. С другой стороны, [good_bookmaker.GetFirstName] уже [Select_CString(good_bookmaker.IsFemale, 'доказала', 'доказал' )], что является надежным специалистом."
  ep3_decisions_event.1010.a: "[mediocre_bookmaker.GetFirstNameNoTooltip] заслуживает моего доверия... и моих денег."
@@ -150,7 +150,7 @@
  ep3_decisions_event.1010.b: "[Select_CString(good_charioteer.IsFemale, 'Опытная', 'Опытный' )] [good_bookmaker.GetFirstNameNoTooltip] — именно [Select_CString(good_charioteer.IsFemale, 'та, кто мне нужна', 'тот, кто мне нужен' )]!"
  ep3_decisions_event.1010.b.aptitude: "[Concept( 'aptitude', 'Пригодность' )|E] персонажа [good_bookmaker.GetUIName] — [good_bookmaker.GetCourtPositionAptitude( GetCourtPositionType( 'bookmaker_court_position' ) )]"
 
- #Decision Menu Localization
+ # Decision Menu Localization
  admin_confirmation_decision: "Утверждение губернаторства"
  admin_confirmation_decision_desc: "Согласно обычаю, [ROOT.Char.GetTopLiege.GetTitleAsNameNoTooltip|l] официально подтверждает назначение губернатора на церемонии при [ROOT.Char.GetTopLiege.GetPrimaryTitle.GetAdjectiveNoTooltip|l]ом дворе."
  admin_confirmation_decision_tooltip: "Посетить церемонию [Concept( 'admin_confirmation', 'утверждения губернаторства' )|E], которую проводит ваш [Concept( 'liege', 'сюзерен' )|E]"
@@ -164,10 +164,10 @@
  admin_confirmation_time_tt: "Вы удерживали [Concept('primary_title', 'первый титул')|E] #weak ([THIS.Char.GetPrimaryTitle.GetNameNoTier])#! не менее #V 1#! года"
  admin_confirmation_decision.tt.if_accepted: "Если [CHARACTER.GetLiege.GetTitledFirstName] согласится принять вас:"
 
- #General Loc Strings
+ # General Loc Strings
  admin_confirmation_event_header: "Утверждение:"
 
- #Activity Start: Liege welcomes Governor
+ # Activity Start: Liege welcomes Governor
  ep3_decisions_event.2001.opening: "Приветствую, [Select_CString(ROOT.Char.IsFemale, 'славная', 'славный' )] [ROOT.Char.GetTitleAsNameNoTooltip|l],"
  ep3_decisions_event.2001.desc: "Я здесь как [confirmation_vassal.GetTitleAsNameNoTooltip|l] владения [confirmation_vassal.GetPrimaryTitle.GetName], чтобы вы официально подтвердили продление моих полномочий.\n\nСмиренно ожидаю вашего приглашения."
  ep3_decisions_event.2001.a: "Немедленно организовать церемонию."
@@ -180,7 +180,7 @@
  ep3_decisions_event.2002.desc: "Боюсь, пока что у меня нет времени на церемонию подтверждения. Вы ведь понимаете, столько неотложных государственных дел.\n\nЖелаю вам спокойной обратной дороги."
  ep3_decisions_event.2002.a: "#EMP Что?!#!"
 
- #Liege Event
+ # Liege Event
  ep3_decisions_event.2010.t: "$admin_confirmation_event_header$ слуга империи"
  ep3_decisions_event.2010.desc: "[ROOT.Char.Custom('GetThroneRoom')|U] гудит от голосов бесчисленных дворцовых чиновников, а передо мной выстроились в очередь назначенцы императора.\n\nСреди них особенно выделяется [confirmation_vassal.GetTitledFirstName] [confirmation_vassal.GetDynastyHouseName], [Select_CString(confirmation_vassal.IsFemale, 'которая прибыла', 'который прибыл' )] сюда из владения [confirmation_vassal.GetCapitalLocation.GetNameNoTooltip]. [Select_CString(confirmation_vassal.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.Custom2('RelationToMeShort', confirmation_vassal)|l] правит титулом [confirmation_vassal.GetPrimaryTitle.GetName]:"
  ep3_decisions_event.2010.desc_theme_civilian: "оживленный центр ремесел и торговли,"
@@ -207,7 +207,7 @@
  ep3_decisions_event.2010.desc_generic_outro: "\n\n[confirmation_vassal.GetTitledFirstNameNoTooltip] низко кланяется, принимает символ свой власти и клянется служить верой и правдой."
  ep3_decisions_event.2010.a: "«Правь достойно, [confirmation_vassal.GetTitleAsNameNoTooltip|l]»."
 
- #Vassal Event
+ # Vassal Event
  ep3_decisions_event.2011.desc: "Передо мной простирается [confirmation_liege.Custom('GetThroneRoom')] главного дворца, где величественно восседает [confirmation_liege.GetTitledFirstNameRegnal] — [Select_CString(confirmation_liege.IsFemale, 'наместница', 'наместник' )] [confirmation_liege.GetFaith.HighGodNamePossessive] на земле.\n\n"
  ep3_decisions_event.2011.desc_child: "Довольно странно стоять среди старших чинов, глядя, как прыщавое дитя хнычет и ерзает на троне."
  ep3_decisions_event.2011.desc_heretic: "[confirmation_liege.GetPrimaryTitle.GetTierAsName|U], где правит язычник-[confirmation_liege.GetCapitalLocation.GetCounty.GetFaith.GetAdherentName|l]. Напряженность ощущается даже при дворе, где нас со всех сторон окружают прелаты и [confirmation_liege.GetFaith.PriestNeuterPlural|l]."
@@ -232,7 +232,7 @@
  ep3_decisions_event.2011.desc_outro: "\n\nЯ произношу подобающий ответ и низко склоняюсь перед сюзереном, принимая символ власти над провинцией."
  ep3_decisions_event.2011.a: "Да здравствует [confirmation_liege.GetTitleAsNameNoTooltip]."
 
- #Invalidated event
+ # Invalidated event
  ep3_decisions_event.2080.t: "$admin_confirmation_event_header$ — отмена"
  ep3_decisions_event.2080.desc.court: "Я же [ROOT.Char.GetTitleAsNameNoTooltip|l] владения [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip]. Отправляться куда-то нет нужды..."
  ep3_decisions_event.2080.desc.imprisoned_me: "$ep3_decisions_event.2080_shared_intro$ [ROOT.Char.GetImprisonedBy.GetTitledFirstName] [Select_CString(ROOT.Char.GetImprisonedBy.IsFemale, 'бросила', 'бросил')] меня в темницу."
@@ -258,7 +258,7 @@
  become_landless_adventurer_decision_domain_size_tt: "В вашем [Concept( 'domain', 'домене' )|E] не более #V 3#! [Concept( 'counties', 'графств' )|E]"
  become_landless_adventurer_decision_title_scope_tt: "#negative_value Все ваши [Concept( 'landed', 'землевладельческие' )|E] [Concept( 'titles', 'титулы' )|E] и [Concept('vassals', 'вассалов' )|E] получит [THIS.Char.GetName]#!"
  become_landless_adventurer_decision_title_created_tt: "#negative_value Все ваши [Concept( 'landed', 'землевладельческие' )|E] [Concept( 'titles', 'титулы' )|E] получит новый местный [Concept( 'ruler', 'правитель' )|E]#!"
-
+ 
  wipe_slate_decision: "Начать с чистого листа"
  wipe_slate_decision_desc: "Неужели человек должен всю жизнь страдать за преступления, совершенные от отчаяния? Разве не все [ROOT.Char.GetFaith.GetAdherentNamePlural|l] могут встать на путь искупления?\n\nЕсли потратить достаточно времени, сил и, самое главное, #EMP денег#!, мир позабудет о любых грехах."
  wipe_slate_decision_tooltip: "Снижает негативные эффекты [Concept('trait', 'свойства')|E] «[GetTrait('gallowsbait').GetName( GetNullCharacter )]»"
@@ -296,7 +296,7 @@
  visit_local_settlement_effect_tavern: "\n$EFFECT_LIST_BULLET$Послушать необычные истории или нанять @followers_icon![Concept( 'followers', 'последователей' )|E]"
  visit_local_settlement_effect_church: "\n$EFFECT_LIST_BULLET$Заняться своим @health_icon![Concept( 'health', 'здоровьем' )|E] или поразмыслить о @stress_loss_icon!#L [THIS.Char.GetCurrentLocation.GetCounty.GetFaith.GetName|l]ом#! учении"
  visit_local_settlement_effect_castle: "\n$EFFECT_LIST_BULLET$Провести тренировки с местной элитной стражей или нанять сведущих в военном деле @knight_icon![Concept('followers', 'последователей')|E]"
- visit_local_settlement_effect_cheaper_supplies: "\n$EFFECT_LIST_BULLET$Купить @provisions_icon![Concept( 'provisions', 'припасы для лагеря' )|E] по сниженной цене"
+ visit_local_settlement_effect_cheaper_supplies: "\n$EFFECT_LIST_BULLET$Купить @provisions_icon![Concept( 'provisions', 'припасы для лагеря' )|E] по сниженной цене" 
  visit_local_settlement_effect_expensive_artifacts: "\n$EFFECT_LIST_BULLET$Продать @artifact_icon![Concept( 'artifacts', 'артефакты' )|E] по более выгодной цене"
  visit_local_settlement_effect_city: "\n$EFFECT_LIST_BULLET$ Купить @rare_artifact_icon![Concept( 'artifacts', 'артефакты' )|E] у искусных ремесленников владения [THIS.Char.GetCurrentLocation.GetBaronyNameExplicitlyNoTooltip]"
  visit_local_settlement_tribal_holding_decision_tt: "$visit_local_settlement_effect_intro$$visit_local_settlement_effect_tavern$$visit_local_settlement_effect_supplies$$visit_local_settlement_effect_artifacts$$visit_local_settlement_effect_contracts$"
@@ -322,7 +322,7 @@
  DECISION_ALREADY_EXCAVATING_TREASURE: "Вы уже копаете сокровище"
 
 
- #Restore Backwater Counties Decision
+ # Restore Backwater Counties Decision
  restore_backwater_counties_decision: "Восстановить владение в державе [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip]"
  restore_backwater_counties_decision_desc: "За прошедшие века владение в державе [ROOT.Char.GetPrimaryTitle.GetNameNoTier] растеряло былой блеск и представляет собой постыдную тень некогда яркой славы.\n\nНо мы неустанно трудились, возрождая земли предков. Слава владений державы [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip] воссияет вновь!"
  restore_backwater_counties_decision_tooltip: "Удаляет [Concept('county_modifier', 'модификатор')|E] «[GetModifier('backwater_county_modifier').GetNameWithTooltip]» из всех [Concept('counties', 'графств')|E] с [Concept('development', 'уровнем развития')|E] #V 50#! и выше"
@@ -337,7 +337,7 @@
 
  ep3_theme_not_backwater.t: "Фема [target_theme.GetNameNoTierNoTooltip] восстановлена"
  ep3_theme_not_backwater.desc: "Каждое [Concept( 'county', 'графство' )|E] в феме [target_theme.GetNameNoTierNoTooltip] лишилось [Concept( 'county_modifier', 'модификатора' )|E] «[GetModifier('backwater_county_modifier').GetName]»"
-
+ 
  ep3_decisions_event.3001.opening: "[ROOT.Char.GetTopLiege.Custom2('AppropriateGreeting', ROOT.Char)]"
  ep3_decisions_event.3000.desc: "Вы отлично потрудились, возвращая землям владения [ROOT.Char.GetPrimaryTitle.GetNameNoTier] их былую славу! Впечатляющее достижение.\n\n[ROOT.Char.GetPrimaryTitle.GetNameNoTooltip] больше не порочит репутацию империи."
  ep3_decisions_event.3000.a: "Да славится [ROOT.Char.GetPrimaryTitle.GetNameNoTierNoTooltip]!"
@@ -507,8 +507,8 @@
  reconfirm_grain_dole_decision_tooltip: "Вновь утвердить раздачу хлеба жителям столицы"
  reconfirm_grain_dole_decision_confirm: "$reinstitute_grain_dole_decision_confirm$"
  reconfirm_grain_dole_decision_tt: "Зерновое пособие утверждено вновь"
-
- #Consolidate Rule
+ 
+ # Consolidate Rule
  consolidate_rule_decision: "Укрепить власть"
  consolidate_rule_decision_desc: "Попросить [Concept( 'head_of_faith', 'главу конфессии' )|E] подкрепить вашу претензию на трон — в конце концов, вы порядком щедрее остальных благотворителей."
  consolidate_rule_decision_tooltip: "Обратитесь к [Concept( 'head_of_faith', 'главе конфессии' )|E] с просьбой подкрепить вашу [Concept( 'legitimacy', 'легитимность' )|E]"
@@ -537,7 +537,7 @@
  adopt_state_faith_confirm: "[ROOT.Char.GetTopLiege.GetPrimaryTitle.GetNameNoTooltip] — мой сюзерен, в миру и в вере."
  every_governor_of_state_faith: "Все [THIS.Char.GetTopLiege.GetPrimaryTitle.MakeScope.Var('state_faith').Faith.GetAdjective]ые [Concept( 'vassal', 'вассалы' )|E]"
 
- #Found Salon
+ # Found Salon
  found_salon_decision: "Устроить салон"
  found_salon_decision_desc: "Открыть постоянный поэтический салон во владении [ROOT.Char.GetCurrentLocation.GetBaronyNameExplicitly], где лучшие, ярчайшие умы смогут раскрыться в полной мере."
  found_salon_decision_tooltip: "Открыть постоянный поэтический салон"
@@ -550,13 +550,13 @@
  ep3_decisions_event.4080.heir: "Мечта моего наставника"
  ep3_decisions_event.4080.desc.outro: "сбывается: [location.GetName] превращается в полный сил, многолюдный центр искусств.\n\nУкладываются последние доски на пол, запах свежеокрашенного кирпича наполняет двор. Когда я зову местных сирот на урок, толпа отзывается одобрительным гулом.\n\nВсе, чего я сейчас хочу, — чтобы здание пережило еще много поколений."
  ep3_decisions_event.4080.a: "Кульминация моих — и не только моих! — трудов."
-
+ 
  mass_arrests_decision: "Начать массовые аресты"
  mass_arrests_decision_desc: "Когда [Concept( 'powerful_family', 'могущественное семейство' )|E] становится #EMP чересчур могущественным#!, иногда стоит прибегнуть к более решительным мерам. Защититься от посягательств знатного дома на мою власть не так-то легко, и есть лишь одно надежное средство: #EMP заковать их всех в кандалы.#!"
  mass_arrests_decision_tooltip: "Приказать немедленно арестовать всех членов [Concept( 'powerful_family', 'могущественного семейства' )|E]"
  mass_arrests_decision_confirm: "Выбрать цель"
  choose_a_powerful_family: "Все выбранные члены [Concept( 'powerful_family', 'могущественного семейства' )|E]"
- imprisoned_by_you: "У вас в заключении"
+ imprisoned_by_you: "У вас в заключении" 
  house_loses_power_rating: "[Concept( 'powerful_family_rating', 'Ранг могущественного семейства' )|E] [Concept('house', 'дома')|E] [recipient.GetHouse.GetName] снижается на #N 15%#!"
  every_house_member_tt: "Все члены дома [THIS.House.GetName]"
  ep3_decisions_event.3200.t: "Массовые аресты"
@@ -578,7 +578,7 @@
  renounce_vows_decision_desc: "Мои клятвы — это оковы, приковавшие меня к образу жизни, давно отвергнутому мной. Ради процветания, ради подлинной #EMP свободы#! мне нужно отринуть и их."
  renounce_vows_decision_tooltip: "Удалить [Concept('trait', 'свойство')|E] «[GetTrait('devoted').GetName( GetNullCharacter )]», чтобы вы могли вновь [Concept('marry', 'вступить в брак')|E]"
  renounce_vows_decision_confirm: "Больше не слуга."
-
+ 
  reject_inheritance_decision: "Отказаться от наследства"
  reject_inheritance_decision_desc: "Что хорошего в новых титулах? Очередное бремя ответственности и незаслуженного богатства, которые только висят на душе мертвым грузом.\n\nЕсли мне вдруг захочется чего-то подобного, я просто возьму все, что захочу."
  reject_inheritance_decision_tooltip: "Отказаться от наследования [Concept( 'titles', 'титулов' )|E]"
@@ -631,7 +631,7 @@
  convert_to_administrative_decision_title_multiple: "Перейти к централизованной бюрократии"
  convert_to_administrative_decision_confirm_multiple: "Перенять бюрократические методы управления"
  convert_to_administrative_decision_tooltip_multiple: "Сменить [Concept('government', 'форму правления')|E] на одну из разновидностей [Concept('government_bureaucratic_gov', 'бюрократического правительства')|E]"
-
+ 
  convert_to_administrative_celestial_desc: "Вы #bold не#! соответствуете ни одному из следующих условий:\n$EFFECT_LIST_BULLET$Ваша держава — [GetTitleByKey('h_china').GetName]\n$EFFECT_LIST_BULLET$Вы — #L [GetTitleByKey('h_china').GetAdjective|l]ий#! вассал\n$EFFECT_LIST_BULLET$Ваш [Concept('top_liege_possessive', 'верховный сюзерен')|E] принадлежит к #L [GetCultureByKey('han').GetCollectiveNoun|l]ой#! [Concept('culture', 'культуре')|E]\n$EFFECT_LIST_BULLET$[Concept('culture', 'Культура')|E] вашего [Concept('top_liege_possessive', 'верховного сюзерена')|E] происходит от #L [GetCultureByKey('han').GetCollectiveNoun|l]ой#!"
  convert_to_administrative_meritocratic_desc: "Вы #bold не#! соответствуете ни одному из следующих условий:\n$EFFECT_LIST_BULLET$Ваша [Concept('realm', 'держава')|E] граничит с владениями [Concept('ruler', 'правителя')|E], чья [Concept('government', 'форма правления')|E] полагается на [Concept('merit', 'заслуги')|E]\n$EFFECT_LIST_BULLET$Ваша [Concept('capital', 'столица')|E] расположена в регионах [GetGeographicalRegion('world_asia').GetName], [GetGeographicalRegion('world_tibet').GetName], [GetGeographicalRegion('world_burma').GetName] или [GetGeographicalRegion('world_steppe_east').GetName]"
  convert_to_administrative_japanese_desc: "Вы #bold не#! соответствуете ни одному из следующих условий:\n$EFFECT_LIST_BULLET$[Concept('government', 'форма правления')|E] вашего [Concept('top_liege_possessive', 'верховного сюзерена')|E] — [GetGovernment('japan_administrative_government').GetName|l] или [GetGovernment( 'japan_feudal_government' ).GetName|l];\n$EFFECT_LIST_BULLET$ваша [Concept('government', 'форма правления')|E] — [GetGovernment( 'japan_feudal_government' ).GetName|l]."
@@ -654,7 +654,7 @@
  ep3_decisions_event.4060.desc: "Не так-то просто изменить настолько большую державу, как [ROOT.Char.GetPrimaryTitle.GetDefinitiveNameNoTooltip]. Сложная сеть отношений, основанных на личной преданности уступила место государству с губернаторами и чиновниками.\n\n"
  ep3_decisions_event.4060.resistance.desc: "Но некоторые области державы остались не затронуты этой реформой. [obstinate_vassal.GetName] не доверяет ни мне, ни моим реформам. Мы не можем долго терпеть подобное.\n\n"
  ep3_decisions_event.4060.state_faith.desc: "Но некоторые области державы остались не затронуты этой реформой. [non_state_faith_vassal.GetName] не доверяет самой идее государственной религии и отвергает мои реформы. Мы не можем долго терпеть подобное.\n\n"
- ep3_decisions_event.4060.de_jure.desc: "Но некоторые области державы остались не затронуты этой реформой. [non_de_jure_vassal.GetPrimaryTitle.GetNameNoTooltip|U] лежит за пределами нового государства. Мы не можем долго терпеть подобное.\n\n"
+ ep3_decisions_event.4060.de_jure.desc: "Но некоторые области державы остались не затронуты этой реформой. [non_de_jure_vassal.GetPrimaryTitle.GetNameNoTooltip|U] лежит за пределами нового государства. Мы не можем долго терпеть подобное.\n\n" 
  ep3_decisions_event.4060.outro.desc: "Легализм распространяется по державе, и никто не сомневается, что идеи родства и вассалитета уступят место гражданской гордости и централизации."
  ep3_decisions_event.4060.a: "Теперь на этих землях действует власть закона!"
 
@@ -677,7 +677,7 @@
 
  ep3_decisions_event.4075.opening: "[actor.Custom2('AppropriateGreeting', ROOT.Char)]"
  ep3_decisions_event.4075.a: "$ep3_decisions_event.4065.a$"
- #Gather Provisions
+ # Gather Provisions
  gather_provisions_decision: "Добыть припасы для лагеря"
  gather_provisions_decision_desc: "Не только армия, но и лагерь живут, пока полон живот. Если возникнет нужда, [ROOT.Char.GetCurrentLocation.GetName] даст нам припасы. Главное — хорошо искать."
  gather_provisions_decision_tooltip: "Искать [Concept( 'provisions', 'припасы' )|E] на территории"
@@ -717,7 +717,7 @@
  ep3_decisions_event.7000.d.crit_failure: "[huntperson.GetFirstNameNoTooltip] [Select_CString(huntperson.IsFemale, 'ранена', 'ранен' )]"
  ep3_decisions_event.7000.no_provisions_tt: "[Concept( 'provisions', 'Припасы' )|E] не найдены"
 
- #EP3 Split the Empire
+ # EP3 Split the Empire
  split_roman_empire_decision: "Расколоть Империю"
  split_roman_empire_decision_desc: "Наши предшественники раскололи обширную империю по множеству причин, и эти причины до сих пор не утратили актуальности. Нужно вновь разделить власть."
  split_roman_empire_decision_selection_tooltip: "[GetPlayer.GetPrimaryTitle.GetName] разделится на две части, и в результате возникнет [Concept('eastern_roman_empire', 'Восточная Римская империя')|E]"
@@ -762,13 +762,13 @@
  ep3_laamp_decision_event.1101.a: "Я искупаюсь в лучах славы [ROOT.Char.GetFaith.HighGodNamePossessive|U]!"
  ep3_laamp_decision_event.1101.a.desc: "$zealous_missionary_prep_decision_reward_desc$\nЧтобы продолжить свой благочестивый путь, вам нужно отправиться в земли иноверцев."
 
- zealous_missionary_start_decision: "[ROOT.Char.GetFaith.GetNameNoTooltip]ий путь — Прелюдия"
+ zealous_missionary_start_decision: "[ROOT.Char.GetFaith.GetNameNoTooltip]ий путь — Прелюдия" 
  zealous_missionary_start_decision_desc: "Не может же [ROOT.Char.GetFaith.HighGodName|U] делать всю работу. [ROOT.Char.GetFaith.HighGodNameSheHe|U] нуждается в верных последователях, которые укажут путь заблудшим... хотят они того или нет."
  zealous_missionary_start_decision_other_faith_location: "Выбранная область должна принадлежать к другой [Concept('faith', 'конфессии')|E]"
  zealous_missionary_start_decision_tooltip: "Нужно, чтобы все увидели, что я добрый [ROOT.Char.GetFaith.GetAdherentNameNoTooltip|l]"
  zealous_missionary_start_decision_reward_desc: "$zealous_missionary_prep_decision_reward_desc$"
  zealous_missionary_start_decision_confirm: "Моя душа, спеши, на зов [ROOT.Char.GetFaith.HighGodHerHis|U] лети!"
-
+ 
  ep3_laamp_decision_event.1102.t: "$zealous_missionary_start_decision$" #You have started spreading the good word
  ep3_laamp_decision_event.1102.desc: "Священная земля [ROOT.Var('holy_site_ascension').Province.GetName] осталась далеко позади. Но я все еще ощущаю в себе мощь [ROOT.Char.GetFaith.HighGodNamePossessive]. Она пылает сильнее, чем когда-либо.\n\nЭто моя судьба, всегда было моей судьбой. Мне суждено делать [ROOT.Char.GetFaith.HighGodHerHis|U] работу и наполнить души живущих здесь [ROOT.Char.GetFaith.HighGodHerHis|U] светом. Спасение ждет их, и я лишь [ROOT.Char.GetFaith.HighGodHerHis|U] скромный инструмент."
  ep3_laamp_decision_event.1102.a: "Все будут знать имя [ROOT.Char.GetFaith.HighGodNamePossessive]!"
@@ -905,8 +905,8 @@
  ep3_laamp_decision_event.1137.c: "Увы, но нет."
 
  ep3_laamp_decision_event.1140.toast: "[city_location.GetName] платит отчисления."
-
- #Renounce Governorship
+ 
+ # Renounce Governorship
  renounce_governorship_decision: "Отказаться от губернаторства"
  renounce_ministership_decision: "Отказаться от должности министра"
  renounce_governorship_decision_desc: "Уйти на покой в [Concept('estate', 'имение') |E] вашего семейства и копить богатство и влияние вдали от обязанностей [Concept('governorship', 'губернаторства')|E].\n\nПусть мои соперники думают, что меня постигло забвение. В действительности же я буду копить силы, чтобы однажды вернуться и сразить их!"
@@ -926,13 +926,13 @@
  renounced_governorship_japan_desc: "Этот персонаж какое-то время служил губернатором в сельской местности и теперь вернулся в средоточие имперской политики."
  ep3_renounced_estate: "Спокойная зима"
  ep3_renounced_estate_desc: "Этот персонаж решил уйти в отставку, чтобы прожить остаток своих дней вдали от лишнего внимания."
-
+ 
  ep3_decisions_event.4090.t: "Шаг назад"
  ep3_decisions_event.4090.desc: "За стенами поместья дети с криками играют в свои игры, повозки скрипят колесами, торговцы нахваливают свои товары.\n\n[liege.GetTitledFirstName] уже долго пользуется моими услугами.\n\nЭти стены сами себя не построят. Дому в первую очередь необходим устойчивый фундамент."
  ep3_decisions_event.4090.a: "Я буду искать подходящие возможности."
  ep3_decisions_event.4090.a_merit: "Я займусь учебой."
-
- #Change Imperial Aspirations
+ 
+ # Change Imperial Aspirations
  change_imperial_aspirations_decision: "Определиться с притязаниями на [GetPlayer.GetTopLiege.Custom('GetRoyalCourtRank')|U] престол"
  change_imperial_aspirations_decision_desc: "Не всякий человек имеет нужный склад характера, чтобы идти вверх по лестнице к трону, — и не всякий человек этого хочет. К чему подвергать себя опасностям, если меня вполне устраивает то, что я имею сейчас? Пускай другие копошатся в этой яме со змеями!"
  change_imperial_aspirations_decision_tooltip: "Заявить о том, претендуете ли вы на трон"
@@ -949,11 +949,11 @@
  admin_desire_throne_house_name: "Заявить об амбициях дома"
  admin_desire_throne_house_desc: "Всем представителям [Concept('house', 'дома')|E] [GetPlayer.GetHouse.GetName] будет позволено бороться за престол."
  admin_desire_throne_house_tooltip: "$admin_desire_throne_house_desc$"
-
- #The Knight of the Swan
+ 
+ # The Knight of the Swan
  knight_errant_decision: "$knight_culture_player_no_tooltip$ [ROOT.Char.CustomFixedRandom('GetKnightErrantAnimal')|U]"
  #AGOT Modified
- #knight_errant_decision_desc: "Говорят, таинственный $knight_culture_player_no_tooltip_lowercase$ прибывает на лодке под управлением [ROOT.Char.CustomFixedRandom('GetKnightErrantAnimal')], чтобы спасти попавших в беду.\n\nПлывущий челн жемчугами блестит, и статный $knight_culture_player_no_tooltip_lowercase$ в нем сидит."
+ #knight_errant_decision_desc: "It is said that a mysterious $knight_culture_player_no_tooltip_lowercase$ comes in a [ROOT.Char.CustomFixedRandom('GetKnightErrantAnimal')] driven boat to rescue those in danger.\n\nA little boat of pearly sheen, and a stately $knight_culture_player_no_tooltip_lowercase$ that sat therein."
  knight_errant_decision_desc: "Говорят, таинственный $knight_culture_player_no_tooltip_lowercase$ прибывает верхом, а под седлом позолоченный [ROOT.Char.CustomFixedRandom('GetKnightErrantAnimal')], чтобы спасти попавших в беду.\n\nНа благородном скакуне, сияющем отблеском, восседает величественный $knight_culture_player_no_tooltip_lowercase$."
  knight_errant_decision_tooltip: "Получить титул «[GetTrait('knight_errant').GetName( GetNullCharacter )]»"
  knight_errant_decision_confirm: "[Select_CString(ROOT.Char.IsFemale, 'Лучшая', 'Лучший' )] в своем роде."
@@ -989,7 +989,7 @@
  legend_chapter_motivation_swan_knight: "Однажды утром [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'она услышала', 'он услышал' )] крик о помощи, который [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'она не могла', 'он не мог' )] проигнорировать."
  legend_chapter_famous_deed_swan_knight: "Прекрасной деве угрожал порочный рыцарь, но [ROOT.Legend.GetProtagonist.GetFirstNameNoTooltip] [Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'одолела', 'одолел' )] его в поединке, и в то же время [ROOT.Legend.GetProperty( 'friendly_animal' ).GetFlagName] белого цвета рождается из лужи крови."
  legend_chapter_conclusion_swan_knight: "[Select_CString(ROOT.Legend.GetProtagonist.IsFemale, 'Она сказала', 'Он сказал' )] ей, «не спрашивай мое имя, ибо оно не принадлежит мне»."
-
+ 
  ep3_decisions_event.5002.t: "Позор семьи"
  ep3_decisions_event.5002.desc: "«Я и подумать не [Select_CString(my_rival.IsFemale, 'могла', 'мог' )], что ты покорно примешь такой позор», — у нашего лагеря останавливается конь. При взгляде на всадника я мгновенно понимаю, что это [Select_CString(my_rival.IsFemale, 'моя', 'мой' )] #EMP [Select_CString(my_rival.IsFemale, 'дорогая', 'дорогой' )]#! [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('my_rival'))], [my_rival.GetTitledFirstName].\n\n«Что на тебя нашло? Ты теперь $knight_culture_player_no_tooltip_lowercase$ из детских сказок?» — [Select_CString(my_rival.IsFemale, 'она', 'он' )] спрыгивает на землю и сплевывает.\n\n«Когда ты одумаешься? Найди себе землю, прекращай позорить доброе имя своей семьи»."
  ep3_decisions_event.5002.a: "«Возможно, пора мне осесть...»"
@@ -1000,26 +1000,26 @@
  ep3_black_sheep_desc: "Этот персонаж воспротивился члену своей семьи, назвавшему его позором семьи из-за бродячего образа жизни."
  ep3_decisions_event_5002_a_tt: "#bold Покупка земли#! станет на #high 50%#! дешевле"
 
- #Commission Icon
+ # Commission Icon
  commission_artifact_decision_option_trinket_icon_desc: "[AddTextIf( Not( ROOT.Char.GetInventory.GetSlot( 'miscellaneous' ).IsEmpty ), Concatenate( 'Используется:\n', ROOT.Char.GetInventory.GetEquippedArtifactsInSlotTypeString( 'miscellaneous', 'NEWLINE', 'NEWLINE', 'NEWLINE' ) ) )]"
  commission_trinket_icon_tooltip: "#T Икона#! \n$DESC$"
  commission_court_icon_large_tooltip: "#T Икона#! \n$DESC$"
  commission_court_icon_small_tooltip: "#T Икона#! \n$DESC$"
  commission_artifact_decision_option_trinket_icon: "Украшение\n#low Принадлежит: [ROOT.Char.GetInventory.GetNumberOfArtifactsForSlotTypeString( 'miscellaneous' )]#!"
  commission_artifact_decision_option_court_icon_large: "Большая драпировка\n#low Принадлежит: [ROOT.Char.GetInventory.GetNumberOfArtifactsForSlotTypeString( 'wall_big' )]#!"
- commission_artifact_decision_option_court_icon_small_desc: "[AddTextIf( ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'wall_small' ), Concatenate( 'Демонстрируется:\n', ROOT.Char.GetInventory.GetEquippedArtifactsInSlotTypeString( 'wall_small', 'NEWLINE', 'NEWLINE', 'NEWLINE' ) ) )]"
+ commission_artifact_decision_option_court_icon_small_desc:0 "[AddTextIf( ROOT.Char.GetInventory.HasEquippedArtifactsInSlotType( 'wall_small' ), Concatenate( 'Демонстрируется:\n', ROOT.Char.GetInventory.GetEquippedArtifactsInSlotTypeString( 'wall_small', 'NEWLINE', 'NEWLINE', 'NEWLINE' ) ) )]"
  commission_artifact_decision_option_court_icon_small: "Маленькая драпировка\n#low Принадлежит: [ROOT.Char.GetInventory.GetNumberOfArtifactsForSlotTypeString( 'wall_small' )]#!"
  artifact_wall_court_icon_large_name: "Большая икона"
- #AGOT MODIFIED
- #artifact_wall_court_icon_large_description: "Внушительная икона в традиционном стиле православной церкви, изображающая торжественный религиозный сюжет: [owner.Custom('RandomIconTopic')]."
+ #AGOT Modified
+ #artifact_wall_court_icon_large_description: "An imposing icon, painted in the traditional style of the Orthodox church, depicting a solemn religious scene: [owner.Custom('RandomIconTopic')]."
  artifact_wall_court_icon_large_description: "Внушительная икона в традиционном #L [ROOT.Char.GetFaith.GetName|l]ом#! стиле, изображающая торжественный религиозный сюжет."
  artifact_wall_court_icon_small_name: "Маленькая икона"
- #AGOT MODIFIED
- #artifact_wall_court_icon_small_description: "Небольшая, но выразительная икона в традиционном стиле православной церкви, изображающая религиозный сюжет в ярких красках: [owner.Custom('RandomIconTopic')]."
+ #AGOT Modified
+ #artifact_wall_court_icon_small_description: "A small but evocative icon, painted in the traditional style of the Orthodox church, depicting in vivid colors a religious scene: [owner.Custom('RandomIconTopic')]"
  artifact_wall_court_icon_small_description: "Небольшая, но выразительная икона в традиционном #L [ROOT.Char.GetFaith.GetName|l]ом#! стиле, изображающая религиозный сюжет в ярких красках."
  artifact_trinket_icon_name: "Переносная икона"
- #AGOT MODIFIED
- #artifact_trinket_icon_description: "Переносная икона в традиционном стиле православной церкви, изображающая традиционный религиозный сюжет: [owner.Custom('RandomIconTopic')]. Несмотря на скромные размеры, она достаточно выразительна, выполнена яркими красками и выглядит торжественно."
+ #AGOT Modified
+ #artifact_trinket_icon_description: "A portable icon, painted in the usual style of the Orthodox church, depicting a traditional religious scene: [owner.Custom('RandomIconTopic')]. Despite its diminutive size, the pictorial traits are neat, the colors are vivid, and the tone is solemn."
  artifact_trinket_icon_description: "Переносная икона в традиционном #L [ROOT.Char.GetFaith.GetName|l]ом#! стиле, изображающая традиционный религиозный сюжет. Несмотря на скромные размеры, она достаточно выразительна, выполнена яркими красками и выглядит торжественно."
  commission_icon_decision_effect: "Будет приглашен местный художник для создания [Concept('artifact', 'артефакта')|E]-иконы"
  ep3_decisions_event.5000.t: "Икона завершена"
@@ -1042,8 +1042,8 @@
  commission_icon_decision_confirm: "Пригласить художника"
  THEOTOKOS_GLOSS: "«Богородица», Мария. В иконографии так обозначается любимый византийский сюжет: Мария кормит грудью или держит младенца Иисуса на руках."
  PANTOKRATOR_GLOSS: "«Христос Вседержитель». Частый образ в византийской иконографии, изображающий Иисуса, держащего Новый Завет в одной руке и благословляющего второй."
-
- #Hire Chief Eunuch
+ 
+ # Hire Chief Eunuch
  hire_eunuch_decision: "Найти старшего евнуха"
  hire_eunuch_decision_desc: "[GetCourtPositionType('chief_eunuch_court_position').GetDescription|U]"
  hire_eunuch_decision_tooltip: "Ваши слуги предложат несколько кандидатур, подходящих на должность #TOOLTIP:COURT_POSITION_TYPE,chief_eunuch_court_position #L старшего евнуха#!#!"
@@ -1054,7 +1054,7 @@
  ep3_decisions_event.5010.b: "[good_eunuch.GetFirstNameNoTooltip] внушает мне больше доверия."
  ep3_decisions_event.5010.b.aptitude: "[Concept('aptitude', 'Пригодность' )|E] персонажа [good_eunuch.GetUIName] составляет [good_eunuch.GetCourtPositionAptitude( GetCourtPositionType( 'chief_eunuch_court_position' ) )]"
 
- #Embrace Heresy
+ # Embrace Heresy
  embrace_heresy_decision: "Впасть в ересь"
  embrace_heresy_decision_desc: "Несмотря на существование официальной религии, которую поддерживает [ROOT.Char.GetTopLiege.GetPrimaryTitle.GetNameNoTooltip], в наших землях ширятся еретические верования. Если я открыто приму и возглавлю одно из них, я смогу направить весь потенциал необузданной веры, чтобы увеличить свою власть и достичь своих политических целей."
  embrace_heresy_decision_tooltip: "Впасть в ересь и возглавить ее"
@@ -1084,13 +1084,13 @@
  embrace_heresy_decision_confirm: "Впасть в ересь"
  push_heresy_as_state_faith_confirm: "[ROOT.Char.GetTopLiege.GetTitleAsNameNoTooltip] получит требование"
 
- #Establish Silk Production
+ # Establish Silk Production
  establish_silk_production_decision: "Начать производство шелка"
  #AGOT Modified
- #establish_silk_production_decision_desc.boilerplate: "С тех пор, как в древние времена контрабандисты вывезли первых шелковичных червей из далеких восточных земель в Константинополь, производство и продажа шелка оставались имперской монополией."
- #establish_silk_production_decision_desc: "$establish_silk_production_decision_desc.boilerplate$\n\nЭто будет недешево, но мы могли бы купить императорское разрешение и заложить собственное производство шелка в нашем фамильном поместье."
- #establish_silk_production_decision_desc.emperor: "$establish_silk_production_decision_desc.boilerplate$\n\nБудучи главой императорской семьи, я могу одним взмахом руки даровать себе и своим наследникам право иметь собственное шелковое производство."
- #establish_silk_production_decision_tooltip: "Купить императорское разрешение и разблокировать здания по производству шелка в вашем [Concept('estate', 'имении') |E]"
+ # establish_silk_production_decision_desc.boilerplate: "Since the ancients smuggled the first silkworms from the remotest lands in the East to Constantinople, silk manufacture and sale have always been an imperial monopoly."
+ # establish_silk_production_decision_desc: "$establish_silk_production_decision_desc.boilerplate$\n\nIt would be an expensive venture, but we could buy an imperial dispensation to be allowed to establish our own silk production in our family Estate."
+ # establish_silk_production_decision_desc.emperor: "$establish_silk_production_decision_desc.boilerplate$\n\nAs the head of the imperial family, I can grant myself and my successors the privilege of its manufacture with but a wave of the hand."
+ # establish_silk_production_decision_tooltip: "Buy an imperial permit to unlock silk production buildings in your [estate|E]"
  establish_silk_production_decision_desc.boilerplate: "Это было бы дорогостоящее предприятие, но с надлежащими ресурсами и тщательным планированием мы могли бы наладить собственное производство шёлка в нашем родовом поместье."
  establish_silk_production_decision_desc: "$establish_silk_production_decision_desc.boilerplate$"
  establish_silk_production_decision_desc.emperor: "$establish_silk_production_decision_desc.boilerplate$"
@@ -1101,7 +1101,7 @@
  has_unlocked_estate_silk: "Вы должны открыть модификатор «[GetModifier('ep3_unlocked_silk').GetNameWithTooltip]» с помощью [Concept('decision', 'решения')|E] «[GetDecisionWithKey('establish_silk_production_decision').GetName]» или у вашей [Concept('culture', 'культуры')|E] должна быть [Concept('innovation', 'инновация')|E] #V $innovation_sericulture$#!"
  commission_silk_regalia_decision: "Заказать шелковую регалию"
  #AGOT Modified
- #commission_silk_regalia_decision_desc: "Наше семейство входит в число немногих производителей и продавцов тончайшего византийского шелка, имеющих императорское разрешение. Подобное производство приносит нам золото и влияние, а также другие #EMP преимущества#!, но мы редко пользуемся ими напрямую. Думаю, что для разнообразия стоит #EMP побаловать себя#!!"
+ #commission_silk_regalia_decision_desc: "Our family is among the few imperially-authorized producers and sellers of the finest Byzantine silk. Our activity brings us gold and influence — and some more #EMP advantages#! — but we rarely enjoy the benefits directly. I think I deserve something #EMP extra nice#! for myself, for once!"
  commission_silk_regalia_decision_desc: "Наше семейство входит в число лучших производителей шёлка. Подобное производство приносит нам золото и влияние, а также другие #EMP преимущества#!, но мы редко пользуемся ими напрямую. Думаю, что для разнообразия стоит #EMP побаловать себя#!!"
  commission_silk_regalia_decision_tooltip: "Заказать для себя шелковый [Concept('artifact', 'артефакт')|E]"
  commission_silk_regalia_decision_confirm: "Пригласить ремесленника"
@@ -1111,10 +1111,10 @@
  ep3_decisions_event.5030.a: "Великолепно!"
  silk_regalia_name: "Изящная шелковая регалия"
  #AGOT Modified
- #silk_regalia_description: "Шелковые одеяния, достойные императора, изготовленные лучшими знатоками византийского стиля в семейном поместье дома [owner.GetHouse.GetName].\n\nЦвета яркие и выразительные, а золотое шитье подчеркивает тонкую работу."
+ #silk_regalia_description: "A set of silk robes worthy of an emperor, made by some of the best artisans of the Byzantine style in the family estate of House [owner.GetHouse.GetName].\n\nThe colors are brilliant, and a gold thread is elegantly interwoven throughout to make the intricate designs stand out."
  silk_regalia_description: "Шелковые одеяния, достойные архонта, изготовленные лучшими знатоками стиля Вольных городов в семейном поместье дома [owner.GetHouse.GetName].\n\nЦвета яркие и выразительные, а золотое шитье подчеркивает тонкую работу."
 
- #Foster Integration
+ # Foster Integration
  foster_integration_decision: "Поспособствовать интеграции"
  foster_integration_decision_desc: "Мое семейное поместье стоит на беспокойных землях. Но в этом есть и положительные стороны, ведь я могу помочь сюзерену укрепить власть державы [ROOT.Char.GetTopLiege.GetPrimaryTitle.GetNameNoTooltip] над местным населением, одновременно с этим укрепляя мое политическое и финансовое положение."
  foster_integration_decision_tooltip: "Поддержать де-юре и культурную интеграцию [Concept('estate', 'поместного')|E] [Concept('county', 'графства')|E]"
@@ -1124,7 +1124,7 @@
  improve_promote_culture_modifier_tt: "[ROOT.Char.GetTitledFirstName] [Select_CString(ROOT.Char.IsFemale, 'начала', 'начал' )] поддерживать культурную интеграцию владения [target_county.GetName].\nБонус к [Concept('councillor_task', 'заданию совета')|E] по [Concept('promote_culture', 'обращению')|E] этого графства."
  improve_de_jure_integration_modifier_tt: "[ROOT.Char.GetTitledFirstName] [Select_CString(ROOT.Char.IsFemale, 'начала', 'начал' )] де-юре интеграцию владения [target_county.GetName].\nБонус к [Concept('councillor_task', 'заданию совета')|E] по [Concept('integrate_title', 'интеграции')|E] этого графства."
 
- #Gather Faction Support
+ # Gather Faction Support
  gather_faction_support_decision: "Набрать сторонников фракции"
  gather_faction_support_decision_desc: "Мое родовое поместье является средоточием порядка и власти, источником влияния дома [ROOT.Char.GetHouse.GetName]. Я могу воспользоваться этим выгодным положением, чтобы привлечь сторонников в мою фракцию."
  gather_faction_support_decision_tooltip: "Привлечь сторонников во [Concept('faction', 'фракцию')|E], в которой вы состоите"
@@ -1132,8 +1132,8 @@
  gathered_support_for_faction_army: "Набраны местные сторонники"
  gathered_support_for_faction_get_army_tt: "Если эта [Concept('faction', 'фракция')|E] навяжет [Concept('claim', 'претензию')|E] в следующие 5 лет и начнет войну, вы получите дополнительную армию из местного ополчения и легких пехотинцев"
  belong_to_claimant_liberty_faction_tt: "Вы должны присоединиться к [Concept('claimant_faction', 'фракции в поддержку претендента')|E] или [Concept('liberty_faction', 'фракции свободы')|E]"
-
- #Separatist Uprising
+ 
+ # Separatist Uprising
  separatist_uprising_decision: "Защитить [ROOT.Char.GetCulture.GetCollectiveNounNoTooltip|l]ую культуру"
  separatist_uprising_decision_desc: "Земля принадлежит тем, кто на ней живет. [ROOT.Char.GetCurrentLocation.GetCounty.GetTitle.GetDeJureLiege.GetDefinitiveNameNoTooltip|U] может принадлежать лишь детям [ROOT.Char.GetCulture.GetCollectiveNounNoTooltip|l]ого народа."
  separatist_uprising_decision_tooltip: "Заполучить [Concept('duchy', 'герцогство')|E] для своей [Concept('culture', 'культуры')|E]"
@@ -1149,7 +1149,7 @@
  separatist_uprising_culture_duchy_check_tt: "Ваше местонахождение имеет статус [Concept('de_jure', 'де-юре')|E]-[Concept('duchy', 'герцогства')|E]."
  separatist_uprising_capital_county_tt: "Ваш [Concept('camp', 'лагерь')|E] не находится в [Concept('capital', 'столичном')|E] [Concept('county', 'графстве')|E] [Concept('realm_possessive', 'державы')|E]"
  culture_separatists: "[ROOT.Char.GetCulture.GetNameNoTooltip]-сепаратисты"
-
+ 
  ep3_decisions_event.6001.t: "Защитник [ROOT.Char.GetCulture.GetCollectiveNounNoTooltip|l]ого народа"
  ep3_decisions_event.6001.desc.intro: "Меня обдувает легкий бриз, пока я осматриваю лагерь. [county.Custom('TerrainTypeCountyScope')|U] тянется до самого горизонта. Здесь мой дом, дом моего народа. Я делаю глубокий вдох.\n\n"
  ep3_decisions_event.6001.desc.spouse_common: "«Знаешь, это все может быть твоим», — говорит [spouse.GetFirstName] сладким голосом, прерывая мои размышления."
@@ -1167,14 +1167,14 @@
  ep3_decisions_event.6002.t: "Народный лидер"
  ep3_decisions_event.6002.desc: "«За [ROOT.Char.GetCulture.GetCollectiveNoun|l]ий#! народ! За [ROOT.Char.GetCulture.GetCollectiveNounNoTooltip|l]ий народ! За #EMP [ROOT.Char.GetCulture.GetCollectiveNounNoTooltip|l]ий народ, аррр!»\n\nЯ набираю воздуха в грудь, стараясь совладать с эмоциями, но мой голос все равно дрожит. [ROOT.Char.GetCulture.GetNameNoTooltip], [ROOT.Char.GetCulture.GetNameNoTooltip|l], [ROOT.Char.GetCulture.GetNameNoTooltip|l]. Нельзя забывать, за кого я сражаюсь.\n\n«[loser.GetTitledFirstName] [Select_CString(loser.IsFemale, 'повержена', 'повержен' )], [ROOT.Char.Custom('FormOfAddressForLiege')]! — сообщает юноша, покрытый грязью. — Мы победили!»"
  ep3_decisions_event.6002.a: "Мы свободны."
-
+ 
  trait_populist_leader: "Народный лидер"
  trait_populist_leader_desc: "Этот персонаж пришел к власти после сражения за независимость своего народа."
  trait_populist_leader_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] [Select_CString(ROOT.Char.IsFemale, 'пришла', 'пришел' )] к власти после сражения за независимость своего народа."
-
+ 
  ep3_master_todor_modifier: "Местный символ"
  ep3_master_todor_modifier_desc: "Народ восхищается этим персонажем за его нежелание отречься от своей культуры."
-
+ 
  legitimize_latin_dominion_decision: "Узаконить господство латинян"
  legitimize_latin_dominion_decision_desc: "Хотя обитатели моих земель помнят императора греков, они примут новую действительность. На эту землю пришли мы, латиняне, и наша власть над ней будет вечной."
  legitimize_latin_dominion_decision_confirm: "Королевство, наше навеки!"
@@ -1202,12 +1202,12 @@
  has_latin_kingdom_title_tt: "Вы владеете [Concept('kingdom', 'королевским')|E] [Concept('title', 'титулом')|E], входящим в державу [GetTitleByKey('e_latin_empire').GetName], и хотя бы #high 50%#! его [Concept('de_jure', 'де-юре')|E] [Concept('counties', 'графств')|E]"
  liege_isnt_latin_emp_tt: "[Concept('primary_title', 'Первый титул')|E] вашего [Concept('liege', 'сюзерена')|E] не [GetTitleByKey('e_latin_empire').GetName]"
  you_arent_an_emp_tt: "Вашим [Concept('primary_title', 'первым титулом')|E] не является [Concept('empire', 'империя')|E], отличная от державы [GetTitleByKey('e_byzantium').GetName]"
-
+ 
  holds_roman_emp_tt: "Вы владеете титулом [GetTitleByKey('h_roman_empire').GetName]"
  legitimize_latin_holder_influence_tt: "Вы получите @influence_icon![Concept('influence', 'влияние')|E] или улучшение [Concept('opinion', 'мнения')|E] у [Concept('holder', 'владетеля')|E] [Concept('kingdom', 'королевства')|E]"
  legitimize_latin_holder_legitimacy_tt: "Вы получите [GetLocalPlayerLegitimacyTextIcon][Concept('legitimacy', 'легитимность')|E] или улучшение [Concept('opinion', 'мнения')|E] у [Concept('holder', 'владетеля')|E] [Concept('kingdom', 'королевства')|E]"
 
- #Go Fishing
+ # Go Fishing
  go_fishing_decision: "Пойти на рыбалку"
  go_fishing_decision_desc: "Каждый имеет право на отдых. Отложите все дела, забросьте удочку в воды владения [ROOT.Char.GetCurrentLocation.GetBaronyNameExplicitly] — и пусть течение унесет все тревоги. Быть может, это пойдет вам на пользу…"
  go_fishing_decision_tooltip: "Отдохнуть и снять немного [stress_loss_i|E][Concept('stress', 'стресса')|E]"
@@ -1232,7 +1232,7 @@
  ep3_decisions_event.9010.b: "Позволить удилищу выскользнуть из пальцев."
  ep3_decisions_event.9010.b.trait: "Вы чувствуете удивительный душевный покой"
  ep3_decisions_event.9010.b.nothing: "Удочка падает в воду и уплывает"
-
+ 
  ep3_decisions_event.9020.t: "Рыбацкая дружба"
  ep3_decisions_event.9020.desc: "[potential_friend.GetNameNoTooltip|U] и я быстро находим общий язык. Мы смеемся над одними и теми же шутками, нас беспокоят одинаковые проблемы… Похоже, мы уже не просто [ROOT.Char.GetTitleAsNameNoTooltip] и [Select_CString(ROOT.Char.IsFemale, 'ее', 'его' )] [ROOT.Char.Custom2('RelationToMeShort', potential_friend)].\n\nЗабросив удочки, мы болтаем и смеемся, дожидаясь, пока что-нибудь клюнет.\n\nСудя по этой рыбалке, из нас получилась отличная команда. Надеюсь, теперь мы почаще будем проводить вместе время."
  ep3_decisions_event.9020.a: "Было так весело, что я почти [Select_CString(ROOT.Char.IsFemale, 'забыла', 'забыл' )], зачем мы сюда пришли."
@@ -1346,26 +1346,26 @@
  ep3_laamp_decision_event.1205.a.tt: "Вы больше не сможете эффективно использовать элефантерию"
  ep3_laamp_decision_event_1205_modifier: "Слоны не забывают"
  ep3_laamp_decision_event_1205_modifier_desc: "И не прощают."
+ 
+ascendant_byz_reclaimant_ortho_modifier: "Восходящий восстановитель Византии"
+ascendant_byz_reclaimant_ortho_modifier_desc: "Молитвы верующих, надежды всех, кто мечтает увидеть возрождение Византии, возложены на этого решительного правителя."
+ascendant_byz_reclaimant_modifier: "Восходящий восстановитель Византии"
+ascendant_byz_reclaimant_modifier_desc: "Надежды всех, кто мечтает увидеть возрождение Византии, возложены на этого решительного правителя."
+holds_byz_emp_tt: "Вы владеете державой [GetTitleByKey('e_byzantium').GetName]"
+legitimize_byz_claim_tt: "Если вы не владеете [Concept('kingdom', 'королевским')|E] [Concept('title', 'титулом')|E], вы получите [Concept('pressed_claim', 'обоснованную претензию')|E]"
 
- ascendant_byz_reclaimant_ortho_modifier: "Восходящий восстановитель Византии"
- ascendant_byz_reclaimant_ortho_modifier_desc: "Молитвы верующих, надежды всех, кто мечтает увидеть возрождение Византии, возложены на этого решительного правителя."
- ascendant_byz_reclaimant_modifier: "Восходящий восстановитель Византии"
- ascendant_byz_reclaimant_modifier_desc: "Надежды всех, кто мечтает увидеть возрождение Византии, возложены на этого решительного правителя."
- holds_byz_emp_tt: "Вы владеете державой [GetTitleByKey('e_byzantium').GetName]"
- legitimize_byz_claim_tt: "Если вы не владеете [Concept('kingdom', 'королевским')|E] [Concept('title', 'титулом')|E], вы получите [Concept('pressed_claim', 'обоснованную претензию')|E]"
-
- humiliate_the_stooge_decision: "Унизить прислугу"
- humiliate_the_stooge_decision_desc: "Людям всегда нужен кто-то, на ком можно спустить пар. В ход пойдут тухлые яйца, гнилые овощи, обидные слова…"
- humiliate_the_stooge_decision_confirm: "#EMP Ха-ха!#!"
- humiliate_the_stooge_decision_tooltip: "Потратить [Concept('prestige', 'престиж')|E] ради веселой жизни, в которой нет места [Concept('stress', 'стрессу')|E]"
- humiliate_the_stooge_decision_rewards: "Вы публично унижаете свою прислугу:\n$EFFECT_LIST_BULLET$Вы избавитесь от [stress_i] [Concept('stress', 'стресса')|E]\n$EFFECT_LIST_BULLET$Вы повысите уровень [dread_i] [Concept('dread', 'ужаса')|E]\n$EFFECT_LIST_BULLET$Вы на #high 2#! года получите [Concept('modifier', 'модификатор')|E] «[GetModifier( 'stooge_humiliated_modifier' ).GetNameWithTooltip]»"
- stooge_humiliated_modifier: "Унижение прислуги"
- stooge_humiliated_modifier_desc: "Ах! Как приятно, когда с плохими людьми случается что-то плохое."
- humiliate_the_stooge_decision_tt: "Вы унижаете персонажа [stooge.GetShortUIName]"
- humiliate_the_stooge_decision_2_tt: "[stooge.GetShortUIName] выглядит [Select_CString(stooge.IsFemale, 'раздраженной', 'раздраженным' )]…"
- humiliate_the_stooge_decision_3_tt: "[stooge.GetShortUIName] хнычет"
- humiliate_the_stooge_decision_4_tt: "[stooge.GetShortUIName] в слезах убегает"
- stooge_humiliated_fourth_time_modifier: "Бегство прислуги"
- stooge_humiliated_fourth_time_modifier_desc: "Этот персонаж так часто унижал прислугу, что бедняге пришлось бежать."
- latin_de_jure_lost_on_title_loss_tt: "@warning_icon! #X Если титул [GetTitleByKey('e_latin_empire').GetName] будет уничтожен, его [Concept('de_jure', 'де-юре')|E] [Concept('titles', 'владения')|E] снова станут #L [GetTitleByKey('e_byzantium').GetAdjective|l]ими#!"
- byzantines_threaten_latin_titles_tt: "@warning_icon! #X #L [GetTitleByKey('e_byzantium').GetAdjective]ие#! [Concept('rulers', 'правители')|E] могут вернуть свои [Concept('de_jure', 'де-юре')|E] #L [GetTitleByKey('e_latin_empire').GetAdjective|l]ие#! [Concept('titles', 'титулы')|E] под [GetTitleByKey('e_byzantium').GetAdjectiveNoTooltip|l]ую юрисдикцию"
+humiliate_the_stooge_decision: "Унизить прислугу"
+humiliate_the_stooge_decision_desc: "Людям всегда нужен кто-то, на ком можно спустить пар. В ход пойдут тухлые яйца, гнилые овощи, обидные слова…"
+humiliate_the_stooge_decision_confirm: "#EMP Ха-ха!#!"
+humiliate_the_stooge_decision_tooltip: "Потратить [Concept('prestige', 'престиж')|E] ради веселой жизни, в которой нет места [Concept('stress', 'стрессу')|E]"
+humiliate_the_stooge_decision_rewards: "Вы публично унижаете свою прислугу:\n$EFFECT_LIST_BULLET$Вы избавитесь от [stress_i] [Concept('stress', 'стресса')|E]\n$EFFECT_LIST_BULLET$Вы повысите уровень [dread_i] [Concept('dread', 'ужаса')|E]\n$EFFECT_LIST_BULLET$Вы на #high 2#! года получите [Concept('modifier', 'модификатор')|E] «[GetModifier( 'stooge_humiliated_modifier' ).GetNameWithTooltip]»"
+stooge_humiliated_modifier: "Унижение прислуги"
+stooge_humiliated_modifier_desc: "Ах! Как приятно, когда с плохими людьми случается что-то плохое."
+humiliate_the_stooge_decision_tt: "Вы унижаете персонажа [stooge.GetShortUIName]"
+humiliate_the_stooge_decision_2_tt: "[stooge.GetShortUIName] выглядит [Select_CString(stooge.IsFemale, 'раздраженной', 'раздраженным' )]…"
+humiliate_the_stooge_decision_3_tt: "[stooge.GetShortUIName] хнычет"
+humiliate_the_stooge_decision_4_tt: "[stooge.GetShortUIName] в слезах убегает"
+stooge_humiliated_fourth_time_modifier: "Бегство прислуги"
+stooge_humiliated_fourth_time_modifier_desc: "Этот персонаж так часто унижал прислугу, что бедняге пришлось бежать."
+latin_de_jure_lost_on_title_loss_tt: "@warning_icon! #X Если титул [GetTitleByKey('e_latin_empire').GetName] будет уничтожен, его [Concept('de_jure', 'де-юре')|E] [Concept('titles', 'владения')|E] снова станут #L [GetTitleByKey('e_byzantium').GetAdjective|l]ими#!"
+byzantines_threaten_latin_titles_tt: "@warning_icon! #X #L [GetTitleByKey('e_byzantium').GetAdjective]ие#! [Concept('rulers', 'правители')|E] могут вернуть свои [Concept('de_jure', 'де-юре')|E] #L [GetTitleByKey('e_latin_empire').GetAdjective|l]ие#! [Concept('titles', 'титулы')|E] под [GetTitleByKey('e_byzantium').GetAdjectiveNoTooltip|l]ую юрисдикцию"

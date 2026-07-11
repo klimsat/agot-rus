@@ -5,7 +5,7 @@
  BattlePoiVictoriousSide: "Победитель: [Province.MakeScope.Var('battle_poi_winner').Char.GetName]"
  BattlePoiLosingSide: "Проигравший: [Province.MakeScope.Var('battle_poi_loser').Char.GetName]"
  #AGOT Modified
- #BattlePoiDate: "Дата: [Province.Custom('OrdinalIndicatorPoI')] [Province.Custom('MonthBattlePoI')] [Province.MakeScope.Var('battle_poi_date_year').GetValue] г."
+ #BattlePoiDate: "Date: [Province.Custom('OrdinalIndicatorPoI')] of [Province.Custom('MonthBattlePoI')], [Province.MakeScope.Var('battle_poi_date_year').GetValue] AD"
  BattlePoiDate: "Дата: [Province.Custom('OrdinalIndicatorPoI')] [Province.Custom('MonthBattlePoI')] [Province.MakeScope.Var('battle_poi_date_year').GetValue] г. от [Province.Custom('EraBattlePoI')]"
  BattlePoiDescription: "#weak [Province.Custom('BattlePoIDescriptionLocIntro')] [Province.Custom('BattlePoIDescriptionLocMid')] [Province.Custom('BattlePoIDescriptionLocOutcome')] [Province.Custom('BattlePoIDescriptionLocOutro')]#!"
 
@@ -29,14 +29,14 @@
 
  BattlePoiBraveKnight: "[Province.MakeScope.Var('battle_poi_brave_knight').Char.GetName]"
 
- #Intro
+ # Intro
  BattlePoiDescriptionIntro1: "Две стороны столкнулись в провинции $BattlePoiProvince$. Во главе противостоящих войск стояли $BattlePoiCommander$ и $BattlePoiEnemyCommander$."
  BattlePoiDescriptionIntroAttacker2: "$BattlePoiCommander$ со своей армией обрушили ошеломляющий натиск на врага."
  BattlePoiDescriptionIntroDefender2: "$BattlePoiCommander$ со своими войсками выстроили великолепную оборону, на которую наткнулись $BattlePoiEnemyCommander$ со своей армией."
  BattlePoiDescriptionIntroAttackerFallback: "$BattlePoiCommander$ со своими войсками отважно атаковали $BattlePoiEnemyCommanderCulture$ую армию."
  BattlePoiDescriptionIntroDefenderFallback: "$BattlePoiCommander$ со своими войсками отважно отражали натиск $BattlePoiEnemyCommanderCulture$ой армии."
 
- #Key Moment
+ # Key Moment
  BattlePoiDescriptionLocArchers: "Переломный момент в битве случился тогда, когда $BattlePoiCommanderCulture$ие лучники сумели обойти врага,"
  BattlePoiDescriptionLocHeavyInfantry: "Исход битвы был решен в тот момент, когда полк $BattlePoiCommanderCulture$их тяжелых пехотинцев прорвался сквозь вражеский строй,"
  BattlePoiDescriptionLocLightCavalry: "Исход битвы был решен в тот момент, когда $BattlePoiCommanderCulture$ие всадники сумели зайти в тыл вражеского войска,"
@@ -51,7 +51,7 @@
  BattlePoiDescriptionLocBerserker: "Битва приняла неожиданный поворот, когда $BattlePoiBraveKnight$ со свитой прорвались сквозь $BattlePoiEnemyCommanderCulture$ий строй,"
  BattlePoiDescriptionLocMidFallback: "Стороны истощили друг друга, но под конец $BattlePoiCommanderCulture$ое войско окружило врага"
 
- #Outcome
+ # Outcome
  BattlePoiDescriptionLocOutcomeBerserker: "лично сокрушив боевой дух врага, сразив несколько дюжин воинов,"
  BattlePoiDescriptionLocOutcomeBerserkerFled: "лично сокрушив боевой дух врага и сразив несколько дюжин воинов."
  BattlePoiDescriptionLocOutcomeDevastation: "уничтожив врагов"
@@ -61,7 +61,7 @@
  BattlePoiDescriptionLocOutcomeLoss: "сокрушив боевой дух противника"
  BattlePoiDescriptionLocOutcomeLossFled: "и сокрушив боевой дух противника."
 
- #Outro
+ # Outro
  BattlePoiDescriptionLocOutroImprisoned: "и захватив в плен вражеского командира."
  BattlePoiDescriptionLocOutroSlain: "и сразив вражеского командира."
  BattlePoiDescriptionLocOutroFledChaos: "В неразберихе боя $BattlePoiEnemyCommander$ со своими приближенными сумели сбежать."
@@ -81,9 +81,9 @@
  MonthBattlePoINovember: "ноября"
  MonthBattlePoIDecember: "декабря"
 
- #Historical Battles
+ # Historical Battles
  TRAVEL_POINT_OF_INTEREST_TT_poi_battles_historical: "#T $TRAVEL_POINT_OF_INTEREST_TT_poi_battles_historical_name$#!\n$TRAVEL_POINT_OF_INTEREST_TT_poi_battles_historical_desc$\n\n"
-
+ 
  TRAVEL_POINT_OF_INTEREST_TT_poi_battles_historical_name: "[Province.Custom('BattlePoiNameHistorical')]"
  TRAVEL_POINT_OF_INTEREST_TT_poi_battles_historical_desc: "[Province.Custom('BattlePoIDescriptionHistorical')]"
 
@@ -131,7 +131,7 @@
 
  BattlePoIHistoricalNamePalembang: "Нападение Чолы на Палембанг"
  BattlePoIHistoricalDescPalembang: "#emp Победа: [GetScriptedCharacterByHistoryID( '189038' ).GetFullName]\nПоражение: [GetScriptedCharacterByHistoryID( 'javanese_sailendra_25' ).GetFullName]\nДата: 1025 н. э.#!\n#weak Внезапное нападение Чолы на столицу Шривиджаи Палембанг.\n\nПрибыв по морю, войска Чолы стремительным ударом захватили столицу Шривиджаи и разграбили город.\n\nПадение Палембанга привело к крушению империи Шривиджая. Весь регион на несколько десятилетий оказался под влиянием Чолы.#!"
-
+ 
  BattlePoIHistoricalNameAngkor: "Осада Ангкора"
  BattlePoIHistoricalDescAngkor: "#emp Победа: [GetScriptedCharacterByHistoryID( 'cham_panduranga_04' ).GetFullName]\nПоражение: [GetScriptedCharacterByHistoryID( 'khmer_tribhuvanaditya_01' ).GetFullName]\nДата: 1177 н. э.#!\n#weak В результате периода смуты и череды переворотов к власти в Камбудже пришел некий Трибхуванадитья, не принадлежавший к царской династии. Пока узурпатор был занят борьбой со сторонниками других претендентов, в Камбуджу вторглось царство Чампа.\n\nВойско Чампы поднялось по Меконгу к озеру Тонлесап и разграбило столицу Камбуджи Ангкор. Трибхуванадитья погиб в бою.\n\nПосле осады в Камбудже началась анархия. Часть сокровищ Ангкора была унесена чамскими воинами домой, остальное растащили местные жители.#!"
 
