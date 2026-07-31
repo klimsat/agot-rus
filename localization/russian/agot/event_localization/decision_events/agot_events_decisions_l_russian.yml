@@ -31,7 +31,7 @@
 
  needs_the_rhllor_religion_chaplain:0 "Ваш [court_chaplain|El] исповедует рглорианскую конфессию."
  needs_the_flames_religion_chaplain:0 "Ваш [court_chaplain|El] исповедует валирийскую религию."
- needs_mystic_figure:0 "Придворный имеет свойство образа жизни [GetTrait('lifestyle_mystic').GetName( GetNullCharacter )]."
+ needs_mystic_figure: "Придворный имеет свойство образа жизни «[GetTrait('lifestyle_mystic').GetName( GetNullCharacter )]»."
 
  agot_bloodbinding:0 "Кровавые узы"
 
@@ -127,7 +127,7 @@
  agot_decisions_events.1000.t:0 "$rhaenys_circlet_name$"
  agot_decisions_events.1000.desc:0 "За запертой дверью, глубоко в подземельях Пекла, я нахожу то, что так долго искал[Select_CString(ROOT.Char.IsFemale, 'а', '' )]: диадему [rhaenys.GetFirstNamePossessive]. Это редкой красоты вещь, выкованная из темной валирийской стали с едва заметными волнами на металле; её обод инкрустирован рубинами, огранёнными, как алмазы, — каждый сверкает в свете факела, словно тлеющий уголёк.\n\nПосле того как [meraxes.GetFirstName] пала с небес, [uller_ancestor.GetName] извлёк её из обломков. Он сохранил её как трофей — символ непокорности драконьим владыкам, принесшим Дорну столько разрушений. С тех пор она оставалась здесь, погребённая во тьме и молчании.\n\nНо она не должна оставаться скрытой вечно."
  agot_decisions_events.1000.desc_targs:0 "\n\nЕсли я обнародую находку, Таргариены, несомненно, разгневаются. Возможно, будет мудрее вернуть её тихо, в знак доброй воли, прежде чем они узнают об этом другим путём."
- agot_decisions_events.1000.a:0 "По праву завоевания она принадлежит Дому Уллер."
+ agot_decisions_events.1000.a: "По праву завоевания она принадлежит дому Уллер."
  agot_decisions_events.1000.b:0 "Я верну её."
 
  agot_decisions_events.1001.t:0 "$rhaenys_circlet_name$"
@@ -136,7 +136,7 @@
  agot_decisions_events.1001.b:0 "Я долж[Select_CString(ROOT.Char.IsFemale, 'на', 'ен' )] попытаться простить."
 
  agot_decisions_events.1002.t:0 "$rhaenys_circlet_name$"
- agot_decisions_events.1002.desc:0 "Курьер из Пекла прибывает неожиданно, неся с собой небольшую коробку на бархатной подкладке и запечатанное письмо, которое [Select_CString(current_uller.IsFemale, 'отправила', 'отправил' )] [current_uller.GetName]. Внутри лежит вовсе не безделушка. Это диадема, которую когда-то носила [rhaenys.GetName], и которую мы считали потерянной после того, как [meraxes.GetFirstName] была сбита в небесах над Дорном.\n\n[current_uller.GetTitledFirstNameNoTooltip] пишет, что [current_uller.GetSheHe] желает передать её мне в знак доброй воли и сожалеет, что [current_uller.GetSheHe] и [current_uller.GetHerHis] дом так долго держали её в секрете."
+ agot_decisions_events.1002.desc: "Гонец из Пекла прибывает неожиданно, неся с собой небольшой ларец на бархатной подкладке и запечатанное письмо, которое [Select_CString(current_uller.IsFemale, 'отправила', 'отправил' )] [current_uller.GetName]. Внутри лежит вовсе не безделушка. Это диадема, которую когда-то носила [rhaenys.GetName], и которую мы считали потерянной после того, как [meraxes.GetFirstName] была сбита в небесах над Дорном.\n\n[current_uller.GetTitledFirstNameNoTooltip] пишет, что [current_uller.GetSheHe] желает передать её мне в знак доброй воли и сожалеет, что [current_uller.GetSheHe] и [current_uller.GetHerHis] дом так долго держали её в секрете."
  agot_decisions_events.1002.a:0 "Наконец-то, она возвращена нам."
 
  #Blackfyre
@@ -151,33 +151,33 @@
 
  #Targ Reactions
  agot_decisions_events.1011.t:0 "$agot_decisions_events.1010.t$"
- agot_decisions_events.1011.desc:0 "Слухи оказались правдой. Черное Пламя, меч королей, вновь появился — теперь в руках [current_mopatis.GetName]. Этот меч по праву принадлежит нам, он — символ крови Таргариенов и нашего наследия как владык драконов."
- agot_decisions_events.1011.desc_keep:0 "Но [current_mopatis.GetSheHe] решил оставить его себе и выставляет напоказ, будто имеет на него хоть какое-то право."
- agot_decisions_events.1011.desc_blackfyre:0 "Более того, [current_mopatis.GetSheHe] передал его [blackfyre_heir.GetName], что является прямым оскорблением нашего дома."
+ agot_decisions_events.1011.desc: "Слухи оказались правдой. Черное Пламя, меч королей, вновь дал о себе знать — им владеет [current_mopatis.GetName]. Этот меч по праву принадлежит нам, он — символ крови Таргариенов и нашего наследия как драконьих владык."
+ agot_decisions_events.1011.desc_keep: "Но [current_mopatis.GetSheHe] [Select_CString(current_mopatis.IsFemale, 'решила', 'решил' )] оставить его себе и выставляет напоказ, будто имеет на него хоть какое-то право."
+ agot_decisions_events.1011.desc_blackfyre: "Более того, [blackfyre_heir.GetName] [Select_CString(blackfyre_heir.IsFemale, 'получила', 'получил' )] его из [current_mopatis.GetHerHis] рук, что является прямым оскорблением нашего дома."
  agot_decisions_events.1011.a:0 "[current_mopatis.GetFirstNameNoTooltip] заплатит за это!"
  agot_decisions_events.1011.b:0 "Я постараюсь отпустить эту обиду."
 
  agot_decisions_events.1012.t:0 "$agot_decisions_events.1010.t$"
- agot_decisions_events.1012.desc:0 "Курьер прибывает неожиданно, неся с собой большой запертый сундук. «Подарок для вас», — говорит он, — «от имени [current_mopatis.GetName]», — и вручает мне подходящий ключ и изящно написанное письмо. Я открываю сундук и вижу меч из тёмной валирийской стали с перекрестием, украшенным головами чёрных драконов — Черное Пламя, меч королей.\n\nС тех пор как [aegoniv.GetNameNicknamedRegnal] безрассудно передал его предателю [daemon.GetName], он был утерян для Таргариенов. [current_mopatis.GetFirstNameNoTooltip] пишет, что оказался обладателем меча и счёл, что его следует вернуть истинным владельцам."
+ agot_decisions_events.1012.desc: "Гонец прибывает неожиданно, неся с собой большой запертый сундук. «Подарок для вас», — говорит он, — «[current_mopatis.GetName] шлёт свои наилучшие пожелания», — и вручает мне подходящий ключ и изящно написанное письмо. Я открываю сундук и вижу меч из тёмной валирийской стали с перекрестием, украшенным головами чёрных драконов — Чёрное Пламя, меч королей.\n\nС тех пор как [aegoniv.GetNameNicknamedRegnal] безрассудно передал его изменнику #L [daemon.GetFirstName]у#!, он был утерян для Таргариенов. [current_mopatis.GetFirstNameNoTooltip] пишет, что [Select_CString(current_mopatis.IsFemale, 'оказалась обладательницей', 'оказался обладателем' )] меча и [Select_CString(current_mopatis.IsFemale, 'сочла', 'счёл' )], что его следует вернуть истинным владельцам."
  agot_decisions_events.1012.a:0 "Наконец-то он возвращён нам."
 
  #Blackfyre Reactions
  agot_decisions_events.1013.t:0 "$agot_decisions_events.1010.t$"
- agot_decisions_events.1013.desc:0 "Слухи оказались правдой. Черное Пламя, меч королей, вновь появилось — теперь в руках [current_mopatis.GetName]. Этот меч по праву принадлежит нам, он — символ крови Блэкфайров и нашего притязания на трон."
+ agot_decisions_events.1013.desc: "Слухи оказались правдой. Черное Пламя, меч королей, вновь дал о себе знать — им владеет [current_mopatis.GetName]. Этот меч по праву принадлежит нам, он — символ крови Блэкфайров и нашего притязания на трон."
  agot_decisions_events.1013.desc_keep:0 "$agot_decisions_events.1011.desc_keep$"
- agot_decisions_events.1013.desc_blackfyre:0 "Более того, [current_mopatis.GetSheHe] передал его [targ_heir.GetName], что является прямым оскорблением нашего дома."
+ agot_decisions_events.1013.desc_blackfyre: "Более того, [targ_heir.GetName] [Select_CString(targ_heir.IsFemale, 'получила', 'получил' )] его из [current_mopatis.GetHerHis] рук, что является прямым оскорблением нашего дома."
  agot_decisions_events.1013.a:0 "$agot_decisions_events.1011.a$"
  agot_decisions_events.1013.b:0 "$agot_decisions_events.1011.b$"
 
  agot_decisions_events.1014.t:0 "$agot_decisions_events.1010.t$"
- agot_decisions_events.1014.desc:0 "Курьер прибывает неожиданно, неся с собой большой запертый сундук. «Подарок для вас», — говорит он, — «от имени [current_mopatis.GetName]», — и вручает мне подходящий ключ и изящно написанное письмо. Я открываю сундук и вижу меч из тёмной валирийской стали с перекрестием, украшенным головами чёрных драконов — Черное Пламя, меч королей.\n\nЭто символ нашего дома и нашего права на власть; [aegoniv.GetNameRegnal] передал его [daemon.GetName] как своему истинному наследнику. [current_mopatis.GetFirstNameNoTooltip] пишет, что оказался обладателем меча и счёл, что его следует вернуть истинным владельцам."
+ agot_decisions_events.1014.desc: "Гонец прибывает неожиданно, неся с собой большой запертый сундук. «Подарок для вас», — говорит он, — «[current_mopatis.GetName] шлёт свои наилучшие пожелания», — и вручает мне подходящий ключ и изящно написанное письмо. Я открываю сундук и вижу меч из тёмной валирийской стали с перекрестием, украшенным головами чёрных драконов — Черное Пламя, меч королей.\n\nЭто символ нашего дома и нашего права на власть; [aegoniv.GetNameRegnal] передал его #L [daemon.GetFirstName]у#! как своему истинному наследнику. [current_mopatis.GetFirstNameNoTooltip] пишет, что [Select_CString(current_mopatis.IsFemale, 'оказалась обладательницей', 'оказался обладателем' )] меча и [Select_CString(current_mopatis.IsFemale, 'сочла', 'счёл' )], что его следует вернуть истинным владельцам."
  agot_decisions_events.1014.a:0 "$agot_decisions_events.1012.a$"
 
- agot_decisions_events.1100.character_must_respond_to_demands_tt:0 "[petition_vassal.GetName] должен ответить на следующие требования:"
+ agot_decisions_events.1100.character_must_respond_to_demands_tt: "[petition_vassal.GetName] [Select_CString(petition_vassal.IsFemale, 'должна', 'должен' )] ответить на следующие требования:"
 
- agot_decision_events.1101_success:0 "[petition_vassal.GetName] убеждает [petition_liege.GetName]"
- agot_decision_events.1101_failure:0 "[petition_vassal.GetName] не может убедить [petition_liege.GetName]"
- agot_decisions_events.1101_vassal_said_no_to_counter_offer:0 "[petition_vassal.GetName] отверг ваше альтернативное предложение!"
+ agot_decision_events.1101_success: "[petition_vassal.GetName] убеждает персонажа [petition_liege.GetName]"
+ agot_decision_events.1101_failure: "[petition_vassal.GetName] не может убедить персонажа [petition_liege.GetName]"
+ agot_decisions_events.1101_vassal_said_no_to_counter_offer: "[petition_vassal.GetName] отвергает ваше встречное предложение!"
  agot_decisions_events.1100_this_is_my_title:0 "[petition_paramount.GetName] будет моим, навсегда."
  agot_decisions_events.1100_this_is_my_title_tt:0 "Де-юре вассалы [petition_paramount.GetNameNoTooltip] больше не смогут требовать у вас этот титул."
- agot_decisions_events.1100_this_is_my_title_opinion_tt:0 "Де-юре вассалы [petition_paramount.GetNameNoTooltip] потеряют #N -50 мнение#! о вас."
+ agot_decisions_events.1100_this_is_my_title_opinion_tt: "Де-юре вассалы [petition_paramount.GetNameNoTooltip] потеряют о вас #N -50 мнения#!."

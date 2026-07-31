@@ -10,88 +10,88 @@
 
  agot_kingsguard.1001.t: "Клятва исполнена: [AGOTGetTitledFirstNameNicknamedNoTooltip(dead_kingsguard)]"
  agot_kingsguard.1001.fallback.t: "Нарушенная клятва: [AGOTGetTitledFirstNameNicknamedNoTooltip(removed_kg)]"
- agot_kingsguard.1001.desc.intro:0 "[dead_kingsguard.Custom2('MyCharacterIntroduction',ROOT.Char)|U] исполнил свою священную клятву и покинул этот мир под покровом своего белого плаща. [AGOTGetTitledFirstNameNicknamedNoTooltip(dead_kingsguard)] [dead_kingsguard.GetDeathReason] в возрасте [dead_kingsguard.GetAge][dead_kingsguard.Custom('GetAgeOrdinal')] лет."
- agot_kingsguard.1001.fallback.desc.intro:0 "[removed_kg.Custom2('MyCharacterIntroduction',ROOT.Char)|U] опозорил себя и был лишён своего белого плаща."
- agot_kingsguard.1001.desc.talented:0 "\n\n[dead_kingsguard.GetSheHe|U] был невероятно славным воином. Те, кому посчастливилось видеть [dead_kingsguard.GetHerHis] с мечом в руке, описывали [dead_kingsguard.GetHerHis], словно это [dead_kingsguard.GetFaith.WarGodName] во плоти. [dead_kingsguard.GetHerHis|U] клинок теперь покоится рядом с ним, но он будет отзываться эхом в умах молодых воинов по всему королевству в веках!"
- agot_kingsguard.1001.desc.suitable:0 "\n\n[dead_kingsguard.GetFirstNameNicknamedNoTooltip] - опытный [dead_kingsguard.Custom('KnightCultureNoTooltip')], что оправдал себя с мастерством на службе у [dead_kingsguard.GetHerHis] сюзерена, [king.GetTitledFirstNameRegnal], был хорошо известен своим мастерством в бою."
- agot_kingsguard.1001.desc.passing:0 "\n\n[dead_kingsguard.GetSheHe|U] был храбрым и надёжным воином, хотя никто не сказал бы, что [dead_kingsguard.GetSheHe] был самым свирепым воином."
- agot_kingsguard.1001.desc.unsuitable:0 "\n\nПоложение королевского гвардейца [dead_kingsguard.GetFirstNameNicknamedPossessiveNoTooltip] в рядах гвардии было довольно сомнительным, хотя клятва была незыблема."
- agot_kingsguard.1001.desc.end:0 "\n\nТеперь, когда [dead_kingsguard.GetHerHis] душа отправилась в [dead_kingsguard.GetFaith.PositiveAfterLife], теперь на меня ложится долг восполнить ряды прославленных воинов в белых плащах."
- agot_kingsguard.1001.fallback.desc.end:0 "\n\nС [removed_kg.GetHerHis] уходом на меня ложится обязанность восполнить ряды прославленных воинов в белых плащах."
- agot_kingsguard.1001.a:0 "Приведите ко мне величайших рыцарей со всего королевства!"
- agot_kingsguard.1001.a.tt:0 "Перед вами предстанут потенциальные кандидаты."
- agot_kingsguard.1001.b:0 "Приведите ко мне отпрысков великих лордов!"
- agot_kingsguard.1001.b.tt:0 "Великие лорды пришлют претендентов, но их может возмутить отказ."
- agot_kingsguard.1001.c:0 "Есть и более важные дела."
- agot_kingsguard.1001.c.tt:0 "Вы можете приглашать персонажей в личную гвардию через взаимодействие с ними."
+ agot_kingsguard.1001.desc.intro: "[dead_kingsguard.Custom2('MyCharacterIntroduction',ROOT.Char)|U] [Select_CString(dead_kingsguard.IsFemale, 'исполнила', 'исполнил' )] свою священную клятву и [Select_CString(dead_kingsguard.IsFemale, 'покинула', 'покинул' )] этот мир под покровом своего белого плаща. [AGOTGetTitledFirstNameNicknamedNoTooltip(dead_kingsguard)] [dead_kingsguard.GetDeathReason] в возрасте [dead_kingsguard.GetAge][dead_kingsguard.Custom('GetAgeOrdinal')] лет."
+ agot_kingsguard.1001.fallback.desc.intro: "[removed_kg.Custom2('MyCharacterIntroduction',ROOT.Char)|U] [Select_CString(removed_kg.IsFemale, 'опозорила', 'опозорил' )] себя и [Select_CString(removed_kg.IsFemale, 'была лишена', 'был лишён' )] своего белого плаща."
+ agot_kingsguard.1001.desc.talented: "\n\n[dead_kingsguard.GetSheHe|U] [Select_CString(dead_kingsguard.IsFemale, 'была', 'был' )] невероятно [Select_CString(dead_kingsguard.IsFemale, 'славной воительницей', 'славным воином' )]. Те, кому посчастливилось видеть [dead_kingsguard.GetHerHis] с мечом в руке, описывали [dead_kingsguard.GetHerHis], словно это [dead_kingsguard.GetFaith.WarGodName] во плоти. [dead_kingsguard.GetHerHis|U] клинок теперь покоится рядом с [Select_CString(dead_kingsguard.IsFemale, 'ней', 'ним' )], но [Select_CString(dead_kingsguard.IsFemale, 'она', 'он' )] будет отзываться эхом в умах молодых воинов по всей державе в веках!"
+ agot_kingsguard.1001.desc.suitable: "\n\n[dead_kingsguard.GetFirstNameNicknamedNoTooltip] - опытный [dead_kingsguard.Custom('KnightCultureNoTooltip')], что [Select_CString(dead_kingsguard.IsFemale, 'оправдала', 'оправдал' )] себя с мастерством на службе у своего сюзерена, [Select_CString(king.IsFemale, 'которой была', 'которым был' )] [king.GetTitledFirstNameRegnal], и [Select_CString(dead_kingsguard.IsFemale, 'славилась', 'славился' )] своей доблестью в бою."
+ agot_kingsguard.1001.desc.passing: "\n\n[dead_kingsguard.GetSheHe|U] [Select_CString(dead_kingsguard.IsFemale, 'была храброй и надёжной воительницей', 'был храбрым и надёжным воином' )], хотя никто не сказал бы, что [dead_kingsguard.GetSheHe] [Select_CString(dead_kingsguard.IsFemale, 'славилась', 'славился' )] своей свирепостью."
+ agot_kingsguard.1001.desc.unsuitable: "\n\n[dead_kingsguard.GetFirstNameNicknamedNoTooltip] [Select_CString(dead_kingsguard.IsFemale, 'занимала', 'занимал' )] в рядах гвардии довольно сомнительное положение, хотя клятва была незыблема."
+ agot_kingsguard.1001.desc.end: "\n\nТеперь, когда [dead_kingsguard.GetHerHis] душа отправилась в [dead_kingsguard.GetFaith.PositiveAfterLife], на меня ложится долг восполнить ряды прославленных воинов в белых плащах."
+ agot_kingsguard.1001.fallback.desc.end: "\n\nС [removed_kg.GetHerHis] исключением на меня ложится обязанность восполнить ряды прославленных воинов в белых плащах."
+ agot_kingsguard.1001.a: "Приведите ко мне величайших рыцарей со всей державы!"
+ agot_kingsguard.1001.a.tt: "Перед вами предстанут потенциальные кандидаты."
+ agot_kingsguard.1001.b: "Приведите ко мне отпрысков великих лордов!"
+ agot_kingsguard.1001.b.tt: "Великие лорды пришлют претендентов, но их может возмутить отказ."
+ agot_kingsguard.1001.c: "Есть и более важные дела."
+ agot_kingsguard.1001.c.tt: "Вы можете приглашать персонажей в личную гвардию через взаимодействие с ними."
 
- agot_kingsguard.1002.t:0 "Дарование плаща"
- agot_kingsguard.1002.desc.intro:0 "[dead_kingsguard.Custom2('MyCharacterIntroduction',ROOT.Char)] исполнил [dead_kingsguard.GetHerHis] священную клятву и покинул этот мир под покровом своего белого плаща. [AGOTGetTitledFirstNameNicknamedNoTooltip(dead_kingsguard)] [dead_kingsguard.GetDeathReason] в возрасте [dead_kingsguard.GetAge][dead_kingsguard.Custom('GetAgeOrdinal')] лет."
- agot_kingsguard.1002.fallback.desc.intro:0 "[removed_kg.Custom2('MyCharacterIntroduction',ROOT.Char)|U] опозорил себя и был лишён своего белого плаща."
- agot_kingsguard.1002.desc.end:0 "\n\n[AGOTGetTitledFirstNameNicknamed(lord_commander)] привёл ко мне величайших рыцарей со всего королевства, которые могут вступить в ряды присягнувших братьев ордена [ROOT.Char.Custom('KingsguardName')], если я того пожелаю."
+ agot_kingsguard.1002.t: "Дарование плаща"
+ agot_kingsguard.1002.desc.intro: "[dead_kingsguard.Custom2('MyCharacterIntroduction',ROOT.Char)] [Select_CString(dead_kingsguard.IsFemale, 'исполнила', 'исполнил' )] свою священную клятву и [Select_CString(dead_kingsguard.IsFemale, 'покинула', 'покинул' )] этот мир под покровом своего белого плаща. [AGOTGetTitledFirstNameNicknamedNoTooltip(dead_kingsguard)] [dead_kingsguard.GetDeathReason] в возрасте [dead_kingsguard.GetAge][dead_kingsguard.Custom('GetAgeOrdinal')] лет."
+ agot_kingsguard.1002.fallback.desc.intro: "[removed_kg.Custom2('MyCharacterIntroduction',ROOT.Char)|U] [Select_CString(removed_kg.IsFemale, 'опозорила', 'опозорил' )] себя и [Select_CString(removed_kg.IsFemale, 'была лишена', 'был лишён' )] своего белого плаща."
+ agot_kingsguard.1002.desc.end: "\n\n[AGOTGetTitledFirstNameNicknamed(lord_commander)] [Select_CString(lord_commander.IsFemale, 'привела', 'привёл' )] ко мне величайших рыцарей со всей державы, которые могут вступить в ряды гвардии, если на то будет моя воля." #[ROOT.Char.Custom('KingsguardName')]
  agot_kingsguard.1002.a: "[AGOTGetTitledFirstNameNicknamedNoTooltip(kingsguard_candidate_1)] - прекрасный выбор!"
- agot_kingsguard.1002.b: "[AGOTGetTitledFirstNameNicknamedNoTooltip(kingsguard_candidate_2)] обладает силой настоящего воина!"
- agot_kingsguard.1002.c: "[AGOTGetTitledFirstNameNicknamedNoTooltip(kingsguard_candidate_3)] рождён, чтобы стать гвардейцем!"
- agot_kingsguard.1002.d:0 "Эх, никто из них не подходит."
- agot_kingsguard.1002.d.tt:0 "Вы можете приглашать персонажей в ряды Королевской гвардии через взаимодействие с ними." #[ROOT.Char.Custom('KingsguardName')] <- this doesn't work in tooltips
- agot_kingsguard.1002.e:0 "Мне придётся поискать в другом месте."
- agot_kingsguard.1002.e.tt:0 "Взаимодействуйте с персонажами в вашей державе, чтобы назначить их в Королевскую гвардию" #[ROOT.Char.Custom('KingsguardName')] <- this doesn't work in tooltips
+ agot_kingsguard.1002.b: "[AGOTGetTitledFirstNameNicknamedNoTooltip(kingsguard_candidate_2)] обладает силой [Select_CString(kingsguard_candidate_2.IsFemale, 'настоящей воительницы', 'настоящего воина' )]!"
+ agot_kingsguard.1002.c: "[AGOTGetTitledFirstNameNicknamedNoTooltip(kingsguard_candidate_3)] [Select_CString(kingsguard_candidate_3.IsFemale, 'рождена', 'рождён' )], чтобы стать гвардейцем!"
+ agot_kingsguard.1002.d: "Эх, никто из них не подходит."
+ agot_kingsguard.1002.d.tt: "Вы можете приглашать персонажей в пределах своей державы в ряды Королевской гвардии через взаимодействие с ними" #[ROOT.Char.Custom('KingsguardName')] <- this doesn't work in tooltips
+ agot_kingsguard.1002.e: "Мне придётся поискать в другом месте."
+ agot_kingsguard.1002.e.tt: "Вы можете приглашать персонажей в пределах своей державы в ряды Королевской гвардии через взаимодействие с ними." #[ROOT.Char.Custom('KingsguardName')] <- this doesn't work in tooltips
 
- agot_kingsguard.1003.t:0 "Дарование плаща"
- agot_kingsguard.1003.desc.intro:0 "[dead_kingsguard.Custom2('MyCharacterIntroduction',ROOT.Char)] исполнил [dead_kingsguard.GetHerHis] священную клятву и покинул этот мир под покровом своего белого плаща. [AGOTGetTitledFirstNameNicknamedNoTooltip(dead_kingsguard)] [dead_kingsguard.GetDeathReason]."
- agot_kingsguard.1003.fallback.desc.intro:0 "[removed_kg.Custom2('MyCharacterIntroduction',ROOT.Char)|U] опозорил себя и был лишён своего белого плаща." 
- agot_kingsguard.1003.desc.no_options:0 "\n\nК сожалению, [AGOTGetTitledFirstNameNicknamed(lord_commander)] сообщает мне, что после тщательного рассмотрения знати державы не удалось найти достойных кандидатов для службы в рядах ордена [ROOT.Char.Custom('KingsguardName')]."
- agot_kingsguard.1003.desc.end:0 "\n\nДети из различных благородных домов собрались во дворе, и [AGOTGetTitledFirstNameNicknamed(lord_commander)] рядом с вами подмечает, кто из них был бы идеальным кандидатом на вступление в ряды присягнувших братьев ордена [ROOT.Char.Custom('KingsguardName')]."
+ agot_kingsguard.1003.t: "Дарование плаща"
+ agot_kingsguard.1003.desc.intro: "[dead_kingsguard.Custom2('MyCharacterIntroduction',ROOT.Char)] [Select_CString(dead_kingsguard.IsFemale, 'исполнила', 'исполнил' )] свою священную клятву и [Select_CString(dead_kingsguard.IsFemale, 'покинула', 'покинул' )] этот мир под покровом своего белого плаща. [AGOTGetTitledFirstNameNicknamedNoTooltip(dead_kingsguard)] [dead_kingsguard.GetDeathReason]."
+ agot_kingsguard.1003.fallback.desc.intro: "[removed_kg.Custom2('MyCharacterIntroduction',ROOT.Char)|U] [Select_CString(removed_kg.IsFemale, 'опозорила', 'опозорил' )] себя и [Select_CString(removed_kg.IsFemale, 'была лишена', 'был лишён' )] своего белого плаща." 
+ agot_kingsguard.1003.desc.no_options: "\n\nК сожалению, [AGOTGetTitledFirstNameNicknamed(lord_commander)] сообщает мне, что после тщательного рассмотрения знати державы не удалось найти достойных кандидатов для службы в рядах гвардии." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.1003.desc.end: "\n\nДети из различных благородных домов собрались во дворе, и [AGOTGetTitledFirstNameNicknamed(lord_commander)] рядом с вами подмечает, кто из них был бы идеальным кандидатом на вступление в ряды гвардии." #[ROOT.Char.Custom('KingsguardName')]
 
- agot_kingsguard.1005.opening:0 "[kingsguard_candidate.Custom2('AppropriateGreeting', ROOT.Char)]"
- agot_kingsguard.1005.opening_desc:0 "Для меня будет честью служить среди славных рыцарей ордена [ROOT.Char.Custom('KingsguardName')]!"
- agot_kingsguard.1005.host_likes_me:0 "Надеюсь, вы прибудете, поскольку мне будет очень нехватать вашего присутствия."
- agot_kingsguard.1005.host_gets_along_with_me:0 "Как [Select_CString(ROOT.Char.IsFemale, 'выдающаяся', 'выдающийся' )] [ROOT.Char.GetTitleAsNameNoTooltip], для меня было бы честью Ваше присутствие."
- agot_kingsguard.1005.host_dislikes_me:0 "Я жду каждого знаменитого воина, к сожалению, вас это тоже касается."
- agot_kingsguard.1005.a:0 "Вы прибудете в столицу, чтобы принести свои клятвы!"
+ agot_kingsguard.1005.opening: "[kingsguard_candidate.Custom2('AppropriateGreeting', ROOT.Char)]"
+ agot_kingsguard.1005.opening_desc: "Для меня будет честью служить в рядах вашей гвардии!" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.1005.host_likes_me: "Надеюсь, вы прибудете, поскольку мне будет очень не хватать вашего присутствия."
+ agot_kingsguard.1005.host_gets_along_with_me: "Как [Select_CString(ROOT.Char.IsFemale, 'выдающаяся', 'выдающийся' )] [ROOT.Char.GetTitleAsNameNoTooltip|l], меня почтит ваше присутствие."
+ agot_kingsguard.1005.host_dislikes_me: "Я жду каждого знаменитого воина, к сожалению, это относится и к вам."
+ agot_kingsguard.1005.a: "Вы прибудете в столицу, чтобы принести свои клятвы!"
 
- agot_kingsguard.1007.opening:0 "[kingsguard_candidate.Custom2('AppropriateGreeting', ROOT.Char)]"
- agot_kingsguard.1007.opening_desc:0 "Я вынужден отказаться от службы в рядах ордена [ROOT.Char.Custom('KingsguardName')].\n\n"
- agot_kingsguard.1007.faith:0 "Я не собираюсь посвящать свою жизнь служению вашим причудам и [ROOT.Char.Custom('InsultAdjective')] богам."
- agot_kingsguard.1007.claim:0 "Я не могу просто отказаться от своих притязаний и титулов как от старых тряпок."
- agot_kingsguard.1007.lustful:0 "Я никогда не хотел бы отказаться от плотских утех ради жизни в целибате!"
- agot_kingsguard.1007.ambitious:0 "В моей жизни есть более важные дела, чем охранять ваш ночной горшок!"
- agot_kingsguard.1007.reject:0 "Моя семья нуждается во мне больше, чем ваш двор."
- agot_kingsguard.1007.hate:0 "Да я скорее поцелую мёртвую свинью в гузно, чем буду служить вам!"
- agot_kingsguard.1007.a:0 "На этот раз найди мне тех, кто будет служить королевству!" 
- agot_kingsguard.1007.a.tt:0 "Вы найдёте новых рыцарей." 
- agot_kingsguard.1007.b:0 "Я [ROOT.Char.GetTitleAsNameNoTooltip]! И [kingsguard_candidate.GetSheHe] отвергает меня?!"
+ agot_kingsguard.1007.opening: "[kingsguard_candidate.Custom2('AppropriateGreeting', ROOT.Char)]"
+ agot_kingsguard.1007.opening_desc: "Я [Select_CString(kingsguard_candidate.IsFemale, 'вынуждена', 'вынужден' )] отказаться от службы в рядах вашей гвардии.\n\n" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.1007.faith: "Я не собираюсь посвящать свою жизнь служению вашим причудам и [ROOT.Char.Custom('InsultAdjective')]им богам."
+ agot_kingsguard.1007.claim: "Я не могу просто отказаться от своих притязаний и титулов как от старых тряпок."
+ agot_kingsguard.1007.lustful: "Я никогда не откажусь от плотских утех ради жизни в целибате!"
+ agot_kingsguard.1007.ambitious: "В моей жизни есть более важные дела, чем охранять ваш ночной горшок!"
+ agot_kingsguard.1007.reject: "Моя семья нуждается во мне больше, чем ваш двор."
+ agot_kingsguard.1007.hate: "Да я скорее поцелую мёртвую свинью в гузно, чем буду служить вам!"
+ agot_kingsguard.1007.a: "На этот раз найдите мне тех, кто будет служить державе!" 
+ agot_kingsguard.1007.a.tt: "Вы призовёте новых рыцарей." 
+ agot_kingsguard.1007.b: "Я [ROOT.Char.GetTitleAsNameNoTooltip]! А [kingsguard_candidate.GetSheHe] отвергает меня?!"
 
- agot_kingsguard.1008.t:0 "Принесение клятв"
- agot_kingsguard.1008.desc:0 "[kingsguard_candidate.Custom2('MyCharacterIntroduction',ROOT.Char)|U] преклоняет передо мной колени, принося клятву отдать свою жизнь за меня, повиноваться моему слову, хранить доверие, говорить или держать язык за зубами по моему приказу, и защищать честь моего имени, моей династии, и моего трона. [kingsguard_candidate.GetSheHe|U] встаёт, и обязуется оберегать меня всеми [kingsguard_candidate.GetHerHis] силами и отдать свою жизнь за меня."
- agot_kingsguard.1008.a:0 "Встань, сир [kingsguard_candidate.GetFirstNameNoTooltip]."
+ agot_kingsguard.1008.t: "Принесение клятв"
+ agot_kingsguard.1008.desc: "[kingsguard_candidate.Custom2('MyCharacterIntroduction',ROOT.Char)|U] преклоняет передо мной колени, принося клятву отдать свою жизнь за меня, повиноваться моему слову, хранить доверие, говорить или держать язык за зубами по моему приказу, и защищать честь моего имени, моей династии, и моего трона. [kingsguard_candidate.GetSheHe|U] встаёт, и обязуется оберегать меня всеми силами и отдать свою жизнь за меня."
+ agot_kingsguard.1008.a: "Поднимитесь, сир [kingsguard_candidate.GetFirstNameNoTooltip]."
 
- agot_kingsguard.1009.t:0 "[kingsguard_candidate.Custom2('RelationToMeShort', SCOPE.sC('family_member') )|U]: Реакция"
- agot_kingsguard.1009.desc.mad:0 "«Вы считаете, что можете действовать за моей спиной, назначив [family_member.Custom2('RelationToMeShort', kingsguard_candidate)] в вашу гвардию? Вы [ROOT.Char.Custom('InsultAdjective')] [ROOT.Char.Custom('InsultNoun')]!?» Мой [ROOT.Char.Custom2('DescriptorNegative', SCOPE.sC('family_member') )] [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('family_member'))] [family_member.GetName] обрушивается на меня после церемонии помазания рыцаря [kingsguard_candidate.GetNameNicknamedNoTooltip]. \n\n"
- agot_kingsguard.1009.desc.heir:0 "«Вы можете лишить меня наследника, но я этого не забуду.»"
+ agot_kingsguard.1009.t: "[kingsguard_candidate.Custom2('RelationToMeShort', SCOPE.sC('family_member') )|U]: Реакция"
+ agot_kingsguard.1009.desc.mad: "«Вы считаете, что можете действовать за моей спиной? [family_member.Custom2('RelationToMeShort', kingsguard_candidate)] [Select_CString(kingsguard_candidate.IsFemale, 'принята', 'принят' )] в вашу гвардию без моего ведома! Вы [ROOT.Char.Custom('InsultAdjective')][Select_CString(ROOT.Char.IsFemale, 'ая', 'ий' )] [ROOT.Char.Custom('InsultNoun')]!» [Select_CString(family_member.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.Custom2('DescriptorNegative', SCOPE.sC('family_member') )] [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('family_member'))] [family_member.GetName] обрушивается на меня после церемонии, на которой [kingsguard_candidate.GetNameNicknamedNoTooltip] [Select_CString(kingsguard_candidate.IsFemale, 'приняла', 'принял' )] назначение.\n\n"
+ agot_kingsguard.1009.desc.heir: "«Вы можете лишить меня наследника, но я этого не забуду»."
 
- agot_kingsguard.1009.desc.glad:0 "«Я [Select_CString(family_member.IsFemale, 'должна', 'должен' )] поблагодарить вас, [Select_CString(ROOT.Char.IsFemale, 'моя', 'мой' )] [ROOT.Char.Custom('ComplimentAdjective')] [ROOT.Char.GetTitleAsNameNoTooltip], за то, что оказали честь, позволив [family_member.Custom2('RelationToMeShort', kingsguard_candidate)] служить в рядах гвардии.» [Select_CString(family_member.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.Custom2('DescriptorPositive', SCOPE.sC('family_member') )] [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('family_member'))] [family_member.GetName] подходит ко мне после церемонии посвящения в ряды ордена [ROOT.Char.Custom('KingsguardName')], [kingsguard_candidate.GetFullName]" 
+ agot_kingsguard.1009.desc.glad: "«Я [Select_CString(family_member.IsFemale, 'должна', 'должен' )] поблагодарить вас, [Select_CString(ROOT.Char.IsFemale, 'моя', 'мой' )] [ROOT.Char.Custom('ComplimentAdjective')][Select_CString(ROOT.Char.IsFemale, 'ая', 'ый' )] [ROOT.Char.GetTitleAsNameNoTooltip], за то, что оказали честь, ведь теперь [family_member.Custom2('RelationToMeShort', kingsguard_candidate)] служит в рядах гвардии». [Select_CString(family_member.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.Custom2('DescriptorPositive', SCOPE.sC('family_member') )][Select_CString(family_member.IsFemale, 'ая', 'ый' )] [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('family_member'))] [family_member.GetName] подходит ко мне после церемонии, на которой [kingsguard_candidate.GetFullName] [Select_CString(kingsguard_candidate.IsFemale, 'была посвящена', 'был посвящён' )] в ряды гвардии." #[ROOT.Char.Custom('KingsguardName')]
 
- agot_kingsguard.1009.a.mad:0 "Я не [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] извиняться перед такими, как вы."
- agot_kingsguard.1009.a.glad:0 "Несомненно, защищать меня - это честь."
+ agot_kingsguard.1009.a.mad: "Я не [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] извиняться перед такими, как вы."
+ agot_kingsguard.1009.a.glad: "Несомненно, защищать меня - это честь."
 
- agot_kingsguard.1010.t:0 "Потери Братства"
- agot_kingsguard.1010.desc.intro:0 "После смерти персонажа [dead_kingsguard.Custom2('MyCharacterIntroduction',ROOT.Char)], ваши присяжные защитники лишились предводителя. "
- agot_kingsguard.1010.fallback.desc.intro:0 "С уходом персонажа [removed_kg.Custom2('MyCharacterIntroduction',ROOT.Char)], [ROOT.Char.Custom('KingsguardName')] лишились предводителя. "
- agot_kingsguard.1010.desc.end:0 "Предстоит очень важная задача поиска замены. [AGOTGetTitledFirstName(kingsguard_successor)] кажется наиболее подходящим для этой работы, и большинство ожидает, что он не посрамит память, которую [AGOTGetTitledFirstName(removed_kg)] оставил на посту лорда-командующего. Как бы там ни было, выбор полностью в моих руках."
- agot_kingsguard.1010.fallback.desc.end:0 "Предстоит очень важная задача поиска замены. Поскольку [ROOT.Char.Custom('KingsguardName')] пустует, сейчас, возможно, самое подходящее время для поиска рыцарей, достойных белого плаща."
- agot_kingsguard.1010.a: "[AGOTGetName(kingsguard_successor)] - истинный преемник титула."
- agot_kingsguard.1010.b: "[AGOTGetName(kingsguard_1)] возглавит орден [ROOT.Char.Custom('KingsguardName')]."
- agot_kingsguard.1010.c:0 "[AGOTGetName(kingsguard_2)] возглавит орден [ROOT.Char.Custom('KingsguardName')]."
- agot_kingsguard.1010.d:0 "[AGOTGetName(kingsguard_3)] возглавит орден [ROOT.Char.Custom('KingsguardName')]."
- agot_kingsguard.1010.e:0 "Возможно кто-то другой должен занять место персонажа [removed_kg.GetNamePossessive]."
- agot_kingsguard.1010.f:0 "Там... там никого не осталось."
+ agot_kingsguard.1010.t: "Потери братства"
+ agot_kingsguard.1010.desc.intro: "[dead_kingsguard.Custom2('MyCharacterIntroduction',ROOT.Char)] [Select_CString(dead_kingsguard.IsFemale, 'умерла', 'умер' )], вследствие чего гвардия лишилась командования. " #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.1010.fallback.desc.intro: "[removed_kg.Custom2('MyCharacterIntroduction',ROOT.Char)] покидает нас, вследствие чего гвардия лишилась командования. " #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.1010.desc.end: "Предстоит очень важная задача поиска замены. [AGOTGetTitledFirstName(kingsguard_successor)] кажется наиболее [Select_CString(kingsguard_successor.IsFemale, 'подходящей', 'подходящим' )] для этой работы, и большинство ожидает, что [Select_CString(kingsguard_successor.IsFemale, 'она', 'он' )] не посрамит память, которую [AGOTGetTitledFirstName(removed_kg)] [Select_CString(removed_kg.IsFemale, 'оставила', 'оставил' )] на посту лорда-командующего. Как бы там ни было, выбор полностью в моих руках."
+ agot_kingsguard.1010.fallback.desc.end: "Предстоит очень важная задача поиска замены. Поскольку ряды гвардии пустуют, сейчас, возможно, самое подходящее время для поиска рыцарей, достойных белого плаща." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.1010.a: "[AGOTGetName(kingsguard_successor)] - [Select_CString(kingsguard_successor.IsFemale, 'истинная преемница', 'истинный преемник' )] титула."
+ agot_kingsguard.1010.b: "[AGOTGetName(kingsguard_1)] возглавит гвардию." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.1010.c:0 "[AGOTGetName(kingsguard_2)] возглавит гвардию." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.1010.d:0 "[AGOTGetName(kingsguard_3)] возглавит гвардию." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.1010.e: "Возможно кто-то другой должен принять честь, которой [Select_CString(removed_kg.IsFemale, 'обладала', 'обладал' )] [removed_kg.GetName]."
+ agot_kingsguard.1010.f: "Там... там никого не осталось."
 
- agot_kingsguard.1011.a:0 "[AGOTGetName(kingsguard_4)] возглавит орден [ROOT.Char.Custom('KingsguardName')]"
- agot_kingsguard.1011.b:0 "[AGOTGetName(kingsguard_5)] возглавит орден [ROOT.Char.Custom('KingsguardName')]"
- agot_kingsguard.1011.c:0 "[AGOTGetName(kingsguard_6)] возглавит орден [ROOT.Char.Custom('KingsguardName')]"
+ agot_kingsguard.1011.a: "[AGOTGetName(kingsguard_4)] возглавит гвардию" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.1011.b: "[AGOTGetName(kingsguard_5)] возглавит гвардию" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.1011.c: "[AGOTGetName(kingsguard_6)] возглавит гвардию" #[ROOT.Char.Custom('KingsguardName')]
 
- kingsguard_other_selections_available_tt:0 "Мне стоит рассмотреть других претендентов"
+ kingsguard_other_selections_available_tt: "Мне стоит рассмотреть других претендентов"
 
 
  ################################
@@ -100,136 +100,136 @@
  ################################
 
  agot_kingsguard.2001.t: "[ROOT.Char.Custom('KingsguardName')]: Назначение"
- agot_kingsguard.2001.desc: "Я могу отправить своего [GetPlayer.Custom2('RelationToMe',SCOPE.sC('councillor'))], [councillor.GetShortUIName], чтобы защитить важного человека при дворе персонажа [target_character.GetUINamePossessive]."
- agot_kingsguard.2001.desc_own_court: "Я могу назначить своего [GetPlayer.Custom2('RelationToMe',SCOPE.sC('councillor'))], [councillor.GetTitledFirstName], для защиты одного из моих гостей и придворных."
- agot_kingsguard.2001.desc_bodyguard_courtowner: "В качестве альтернативы, я [Select_CString(ROOT.Char.IsFemale, 'могла', 'мог' )] бы назначить личного телохранителя для персонажа [target_character.GetTitledFirstName]."
- agot_kingsguard.2001.a: "Защитить порученную цель."
- agot_kingsguard.2001.b: "Защитить персонажа [target_character.GetTitledFirstName]."
+ agot_kingsguard.2001.desc: "Мой [GetPlayer.Custom2('RelationToMe',SCOPE.sC('councillor'))] [councillor.GetShortUIName] может быть направлен по моему приказу ко двору, которым правит [target_character.GetUINamePossessive], чтобы защитить важного человека, находящегося там."
+ agot_kingsguard.2001.desc_own_court: "Я могу приказать, чтобы мой [GetPlayer.Custom2('RelationToMe',SCOPE.sC('councillor'))] [councillor.GetTitledFirstName] защищал одного из моих гостей или придворных."
+ agot_kingsguard.2001.desc_bodyguard_courtowner: "В качестве альтернативы, я [Select_CString(ROOT.Char.IsFemale, 'могла', 'мог' )] бы назначить личного телохранителя, которого получит [target_character.GetTitledFirstName]."
+ agot_kingsguard.2001.a: "Защищайте порученную цель."
+ agot_kingsguard.2001.b: "[target_character.GetTitledFirstName] - [Select_CString(target_character.IsFemale, 'ваша подопечная', 'ваш подопечный' )]."
  agot_kingsguard.2001.c: "Впрочем, не берите в голову."
  indicate_bodyguard_target: "[councillor.GetTitledFirstName] будет защищать персонажа [si_target.GetShortUIName]."
  set_relation_bodyguard_first: "[TARGET_CHARACTER.GetUIName] будет защищать персонажа [CHARACTER.GetUIName]."
 
- agot_kingsguard.2002.title:0 "[ROOT.Char.Custom('KingsguardName')]-ренегат!"
- agot_kingsguard.2002.desc:0 "[recipient.GetTitledFirstName] сумел избежать захвата и скрылся в городе! Возможно, ещё есть время пресечь [recipient.GetHerHis] бегство.\n\n[kingsguard.GetName] стоит на страже и может перехватить беглеца [recipient.GetNameNoTooltip], либо я могу послать весточку, чтобы [goldcloaks.GetName] направили всю городскую стражу на его поиски."
- agot_kingsguard.2002.a:0 "[kingsguard.GetName], приведи своего присягнувшего брата ко мне!"
- agot_kingsguard.2002.a.failure:0 "[recipient.GetName] сбежал"
- agot_kingsguard.2002.b:0 "[goldcloaks.GetTitledFirstName], схватить его!"
- agot_kingsguard.2002.c:0 "Отпустить [recipient.GetHerHis], [recipient.GetSheHe] не представляют для меня угрозы."
+ agot_kingsguard.2002.title: "Гвардеец-отступник!" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.2002.desc: "[recipient.GetTitledFirstName] сумел избежать захвата и скрылся в городе! Возможно, ещё есть время пресечь [recipient.GetHerHis] бегство.\n\n[kingsguard.GetName] стоит на страже и может перехватить беглеца, либо я могу послать весточку, чтобы [goldcloaks.GetName] [Select_CString(goldcloaks.IsFemale, 'направила', 'направил' )] всю городскую стражу на его поиски." #[recipient.GetNameNoTooltip]
+ agot_kingsguard.2002.a: "[kingsguard.GetName], приведите своего присягнувшего брата ко мне!"
+ agot_kingsguard.2002.a.failure: "[recipient.GetName] сбежал"
+ agot_kingsguard.2002.b: "[goldcloaks.GetTitledFirstName], схватить его!"
+ agot_kingsguard.2002.c: "Отпустить [recipient.GetHerHis], [recipient.GetSheHe] не представляют для меня угрозы."
 
- agot_kingsguard.2003.title:0 "[ROOT.Char.Custom('KingsguardName')]-ренегат!"
- agot_kingsguard.2003.desc:0 "Мой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('fleeing_kingsguard'))] пришёл ко двору в поисках убежища. [crown.GetTitledFirstNamePossessive] [Select_CString(crown.IsFemale, 'попыталась', 'попытался' )] заключить гвардейца [fleeing_kingsguard.GetFirstName] под стражу по какому-то сфабрикованному обвинению и теперь  [fleeing_kingsguard.GetSheHe] оказался беглецом. Мне предстоит сделать выбор между долгом и семьёй, и решить, как быть в дальнейшем."
- agot_kingsguard.2003.a:0 "Ты мой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('fleeing_kingsguard'))], и твоё место здесь." 
- agot_kingsguard.2003.b:0 "Если ты отправишься на Стену, [crown.GetTitledFirstNamePossessive] оставит тебя в покое!"
- agot_kingsguard.2003.c:0 "Ты должен бежать за Узкое море!"
- agot_kingsguard.2003.d:0 "Прости меня, [fleeing_kingsguard.GetFirstName], но я не могу укрывать беглеца."
+ agot_kingsguard.2003.title: "Гвардеец-отступник!" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.2003.desc: "Мой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('fleeing_kingsguard'))] пришёл ко двору в поисках убежища. [crown.GetTitledFirstName] [Select_CString(crown.IsFemale, 'попыталась', 'попытался' )] заключить [fleeing_kingsguard.GetHerHis] под стражу по какому-то сфабрикованному обвинению и теперь [fleeing_kingsguard.GetFirstName] находится в бегах. Мне предстоит сделать выбор между долгом и семьёй, и решить, как быть в дальнейшем."
+ agot_kingsguard.2003.a: "Ты мой [ROOT.Char.Custom2('RelationToMe', SCOPE.sC('fleeing_kingsguard'))], и твоё место здесь." 
+ agot_kingsguard.2003.b: "Если ты отправишься на Стену, [crown.GetTitledFirstName] оставит тебя в покое!"
+ agot_kingsguard.2003.c: "Ты должен бежать за Узкое море!"
+ agot_kingsguard.2003.d: "Прости меня, [fleeing_kingsguard.GetFirstName], но я не могу укрывать беглеца."
 
  ################################
- # Kingsguard Flavour Events 
+ # Kingsguard Flavour Events
  # 3000 - 3999
- # by Badger 
+ # by Badger
  ################################
 
- agot_kingsguard.3001.t:0 "Детская мечта"
- agot_kingsguard.3001.desc:0 "Малютка [child.GetFirstName] всегда был увлечён историями об ордене [king.Custom('KingsguardName')], более всего превозносится [lord_commander.GetTitledFirstName], считая [lord_commander.GetHerHis] равным таким героям, как сир [GetScriptedCharacterByHistoryID('Heroes_25').GetFirstName] Зеркальный Щит и сир [GetScriptedCharacterByHistoryID('Heroes_24').GetFirstName] Звездоглазый.\n\n Я всегда [Select_CString(ROOT.Char.IsFemale, 'думала', 'думал' )], что [child.GetSheHe] мечтает быть похожим на этих легендарных героев, также, как и все дети, ведь у каждого ребенка есть герои на которых они хотят быть похожими, но чем [child.GetFirstName] становится старше, [child.GetHerHis] мысли о вступлении в ряды братства [king.Custom('KingsguardName')] становятся всё более реальными. Сегодня [child.GetSheHe] предстал передо мной и просит меня отменить любые помолвки, которые я только мог планировать на [child.GetHerHis] счёт, чтобы [child.GetSheHe] мог начать тренироваться, чтобы стать членом присяжных защитников персонажа [king.GetTitledFirstNamePossessive] в рядах ордена [king.Custom('KingsguardName')]."
- agot_kingsguard.3001.a:0 "Во что бы то ни стало, малыш."
- agot_kingsguard.3001.b:0 "Твой долг перед семьей важнее, чем твой долг перед короной."
+ agot_kingsguard.3001.t: "Детская мечта"
+ agot_kingsguard.3001.desc: "Малютка [child.GetFirstName] всегда был увлечён историями о королевских гвардейцах, более всего превозносится [lord_commander.GetTitledFirstName], [lord_commander.GetSheHe] ставится в один ряд с такими героями, как сир [GetScriptedCharacterByHistoryID('Heroes_25').GetFirstName] Зеркальный Щит и сир [GetScriptedCharacterByHistoryID('Heroes_24').GetFirstName] Звездоглазый.\n\nЯ всегда [Select_CString(ROOT.Char.IsFemale, 'думала', 'думал' )], что [child.GetSheHe] мечтает быть похожим на этих легендарных героев, также, как и все дети, ведь у каждого ребенка есть герои на которых они хотят быть похожими, но чем [child.GetFirstName] становится старше, [child.GetHerHis] мысли о вступлении в Королевскую гвардию становятся всё более реальными. Сегодня [child.GetSheHe] предстал передо мной и просит меня отменить любые помолвки, которые я только мог планировать на [child.GetHerHis] счёт, чтобы [child.GetSheHe] мог начать тренироваться, чтобы вступить в гвардию, под защитой которой находится [king.GetTitledFirstName]." #[king.Custom('KingsguardName')]
+ agot_kingsguard.3001.a: "Во что бы то ни стало, малыш."
+ agot_kingsguard.3001.b: "Твой долг перед семьей важнее, чем твой долг перед короной."
 
- agot_kingsguard.3002.t:0 "Пример для всех рыцарей"
- agot_kingsguard.3002.desc:0 "До моего сведения дошло, что мой [ROOT.Char.Custom('KingsguardName')] [gallant_kingsguard.GetFullName] стал причиной сплетен и разговоров по всему королевству. Простолюдины сравнивают [gallant_kingsguard.GetHerHis] с легендарными воинами из древних времён, молодые оруженосцы восхваляют [gallant_kingsguard.GetHerHis] подвиги в величайших битвах, а служанки мечтают даровать свою благосклонность [ROOT.Char.Custom('KnightCulturePluralNoTooltipLowercase')] о [gallant_kingsguard.GetHerHis] репутации.\n\nТеперь эти разговоры сотрясают мой двор. Придворные [ROOT.Char.Custom('KnightCulturePluralNoTooltipLowercase')] стремятся подражать [gallant_kingsguard.GetHerHis] деяниям, а [gallant_kingsguard.Custom('AttractionWomanManMultiple')] соревнуются за [gallant_kingsguard.GetHerHis] внимание. Становится обыденным, что в землях [ROOT.Char.GetPrimaryTitle.GetTierAsNameNoTooltip] имя [gallant_kingsguard.GetFirstNameNoTooltip] стало синонимом умений, чести и доблести."
- agot_kingsguard.3002.a:0 "Славься, сир [gallant_kingsguard.GetFirstNameNoTooltip]!"
- agot_kingsguard.3002.b:0 "Я бы лучше [Select_CString(ROOT.Char.IsFemale, 'поговорила', 'поговорил' )] о своей любимой теме - [Select_CString(ROOT.Char.IsFemale, 'самой', 'самом' )] себе."
+ agot_kingsguard.3002.t: "Образец рыцарства"
+ agot_kingsguard.3002.desc: "До моего сведения дошло, что мой гвардеец [gallant_kingsguard.GetFullName] стал причиной сплетен и разговоров по всей державе. Простолюдины сравнивают [gallant_kingsguard.GetHerHis] с легендарными воинами из древних времён, молодые оруженосцы восхваляют [gallant_kingsguard.GetHerHis] подвиги в величайших битвах, а служанки мечтают о том, чтобы такие прославленные [ROOT.Char.Custom('KnightCulturePluralNoTooltipLowercase')], как [gallant_kingsguard.GetSheHe], обратили на них внимание.\n\nТеперь эти разговоры сотрясают мой двор. [ROOT.Char.Custom('KnightCulturePluralNoTooltip')] стремятся подражать [gallant_kingsguard.GetHerHis] деяниям, а [gallant_kingsguard.Custom('AttractionWomanManMultiple')] соревнуются за [gallant_kingsguard.GetHerHis] внимание. Становится обыденным, что по всей державе имя «[gallant_kingsguard.GetFirstNameNoTooltip]» стало синонимом мастерства, чести и доблести." #[ROOT.Char.Custom('KingsguardName')], [ROOT.Char.GetPrimaryTitle.GetTierAsNameNoTooltip]
+ agot_kingsguard.3002.a: "Славьтесь, сир [gallant_kingsguard.GetFirstNameNoTooltip]!"
+ agot_kingsguard.3002.b: "Я бы лучше [Select_CString(ROOT.Char.IsFemale, 'поговорила', 'поговорил' )] о своей любимой теме - [Select_CString(ROOT.Char.IsFemale, 'самой', 'самом' )] себе."
 
- agot_kingsguard.3003.t:0 "[ROOT.Char.Custom('KingsguardName')|U]: пойман с поличным"
- agot_kingsguard.3003.desc_bedroom:0 "«Ваша Милость, ваш [ROOT.Char.Custom('KingsguardName')] [lusty_kingsguard.GetName] был обнаружен в своих покоях, развлекающимся с персонажем [lusty_lover.GetFullName].»"
- agot_kingsguard.3003.desc_brothel:0 "«Ваша Милость, ваш [ROOT.Char.Custom('KingsguardName')] [lusty_kingsguard.GetName] был обнаружен в борделе, кувыркающимся с известной блудницей [lusty_lover.GetName]!»"
- agot_kingsguard.3003.a:0 "Бросить [lusty_kingsguard.GetHerHis] в темницу, пока я не решу, что делать с [Select_CString(lusty_kingsguard.IsFemale, 'этой клятвопреступницей', 'этим клятвопреступником' )]."
- agot_kingsguard.3003.b:0 "Оскопить [lusty_kingsguard.GetHerHim] и выслать в Ночной Дозор."
- agot_kingsguard.3003.c:0 "Лишить [lusty_kingsguard.GetHerHis] белого плаща."
- agot_kingsguard.3003.d:0 "У каждого могут быть свои пороки..."
- agot_kingsguard.3003.e:0 "Ты можешь оставить себе свой белый плащ, но [lusty_lover.GetFirstNameNoTooltip] [Select_CString(lusty_lover.IsFemale, 'моя', 'мой' )]."
+ agot_kingsguard.3003.t: "[ROOT.Char.Custom('KingsguardName')|U]: пойман с поличным"
+ agot_kingsguard.3003.desc_bedroom: "«Ваша милость, ваш гвардеец [lusty_kingsguard.GetName] был обнаружен в своих покоях, вместе с ним [Select_CString(lusty_lover.IsFemale, 'находилась', 'находился' )] [lusty_lover.GetFullName]. Вместе они предавались разным непотребствам»." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3003.desc_brothel: "«Ваша милость, ваш гвардеец [lusty_kingsguard.GetName] был обнаружен в борделе, он и известная блудница [lusty_lover.GetName] предавались разным непотребствам!»" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3003.a: "Бросить [lusty_kingsguard.GetHerHis] в темницу, пока я не решу, что делать с [Select_CString(lusty_kingsguard.IsFemale, 'этой клятвопреступницей', 'этим клятвопреступником' )]."
+ agot_kingsguard.3003.b: "Оскопить [lusty_kingsguard.GetHerHis] и выслать в Ночной Дозор."
+ agot_kingsguard.3003.c: "Лишить [lusty_kingsguard.GetHerHis] белого плаща."
+ agot_kingsguard.3003.d: "У каждого могут быть свои пороки..."
+ agot_kingsguard.3003.e: "Ты можешь оставить себе свой белый плащ, но [lusty_lover.GetFirstNameNoTooltip] [Select_CString(lusty_lover.IsFemale, 'моя', 'мой' )]."
 
- agot_kingsguard.3004.t:0 "Дорогу [ROOT.Char.Custom('KingsguardName')|U]!"
- agot_kingsguard.3004.desc:0 "«Дорогу [ROOT.Char.Custom('KingsguardName')]!». Крик эхом раздался в конце тронного зала. Вы поворачиваетесь как раз вовремя, чтобы увидеть, как [marching_kingsguard.GetNameNicknamed], марширует с угрожающей скоростью, кричит на молодого [obstructing_brat.GetName], который стоит безмолвно у н[marching_kingsguard.GetHerHis] на пути. \n\nНамеренно или случайно, [obstructing_brat.GetName] не откликается. Ребёнок растоптан пятой гвардейца [ROOT.Char.Custom('KingsguardName')], кто проносится через [obstructing_brat.GetHerHis] всего лишь немного взглянул на ребёнка, как если бы [marching_kingsguard.GetSheHe] наступил в лужу.\n\nРаздавленный ботинком, [obstructing_brat.GetName] теперь лежит на полу дворца, стонет от боли, а [marching_kingsguard.GetName] марширует в мою сторону заступая в утренний дозор."
- agot_kingsguard.3004.a:0 "Никто не прерывает [ROOT.Char.Custom('KingsguardName')] в [ROOT.Char.GetTitleAsNamePossessiveNoTooltip] делах."
- agot_kingsguard.3004.b:0 "[marching_kingsguard.GetName], ты с ума сошёл?! Помоги [obstructing_brat.GetName] встать на ноги."
- agot_kingsguard.3004.c:0 "Отошлите ребенка к мейстеру."
- agot_kingsguard.3004.cure_toast:0 "Мейстер успешно лечит персонажа [obstructing_brat.GetName]"
- agot_kingsguard.3004.toast:0 "Попытки мейстера оказались безуспешными"
- agot_kingsguard.3004.toast_desc:0 "[obstructing_brat.GetName] остаётся раненым."
+ agot_kingsguard.3004.t: "Дорогу королевскому гвардейцу!" # [ROOT.Char.Custom('KingsguardName')|U]
+ agot_kingsguard.3004.desc: "«Дорогу королевскому гвардейцу!». Крик эхом раздался в конце тронного зала. Вы поворачиваетесь как раз вовремя, чтобы увидеть, как [marching_kingsguard.GetNameNicknamed] марширует с угрожающей скоростью, кричит на [Select_CString(obstructing_brat.IsFemale, 'девицу, которая', 'юнца, который' )] стоит безмолвно у н[marching_kingsguard.GetHerHis] на пути.\n\nНамеренно или случайно, [obstructing_brat.GetName] не откликается. Ребёнок попадает под пяту гвардейца, который проносится через н[obstructing_brat.GetHerHis], лишь мельком взглянув на н[obstructing_brat.GetHerHis], как если бы [marching_kingsguard.GetSheHe] наступил в лужу.\n\n[Select_CString(obstructing_brat.IsFemale, 'Задетая', 'Задетый' )] сапогом, [obstructing_brat.GetName] теперь лежит на полу, стонет от боли, а [marching_kingsguard.GetName] марширует в мою сторону, заступая в утренний дозор." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3004.a: "Никто не отвлечёт гвардейца в делах, которые поручает [ROOT.Char.GetTitleAsNameNoTooltip]." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3004.b: "[marching_kingsguard.GetName], вы с ума сошли?! Помогите [obstructing_brat.GetHerHim] встать на ноги."
+ agot_kingsguard.3004.c: "Отослать ребёнка к мейстеру."
+ agot_kingsguard.3004.cure_toast: "Мейстер успешно лечит персонажа [obstructing_brat.GetName]"
+ agot_kingsguard.3004.toast: "Попытки мейстера оказались безуспешными"
+ agot_kingsguard.3004.toast_desc: "[obstructing_brat.GetName] остаётся [Select_CString(obstructing_brat.IsFemale, 'раненой', 'раненым' )]."
 
- agot_kingsguard.3005.t:0 "[essosi_warrior.GetSheHe|U] хорошо зарекомендовал себя"
- agot_kingsguard.3005.desc:0 "[sponsor.GetTitledFirstName] входит в тронный зал, вместе с [Select_CString(essosi_warrior.IsFemale, 'незнакомой', 'незнакомым' )] мне [Select_CString(essosi_warrior.IsFemale, 'женщиной', 'мужчиной' )].\n\n«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )]», - хрипит [sponsor.GetFirstNameNoTooltip] с гордостью на лице. «Для меня честь представить вам величайшего война Эссоса, [Select_CString(essosi_warrior.IsFemale, 'которую', 'которого' )] когда либо видели. [essosi_warrior.GetFirstNameNoTooltip] [Select_CString(essosi_warrior.IsFemale, 'известна', 'известен' )] от Браавоса до Асшая, и [essosi_warrior.GetSheHe] станет отличным бойцом в рядах присяжных рыцарей ордена [ROOT.Char.Custom('KingsguardName')].»"
- agot_kingsguard.3005.a:0 "Добро пожаловать в ряды ордена [ROOT.Char.Custom('KingsguardName')]!"
- agot_kingsguard.3005.agot_kingsguard.tt:0 "[essosi_warrior.GetName] вступит в ряды ордена [GetPlayer.Custom('KingsguardName')]"
- agot_kingsguard.3005.b:0 "Возможно тебе предначертан иной удел?"
- agot_kingsguard.3005.court_position.tt:0 "Вы находите подходящую должность для персонажа [essosi_warrior.GetName]."
- agot_kingsguard.3005.c:0 "Мне не нужны придворные."
+ agot_kingsguard.3005.t: "[essosi_warrior.GetSheHe|U] хорошо [Select_CString(essosi_warrior.IsFemale, 'зарекомендовала', 'зарекомендовал' )] себя"
+ agot_kingsguard.3005.desc: "[sponsor.GetTitledFirstName] входит в тронный зал вместе с [Select_CString(essosi_warrior.IsFemale, 'незнакомой', 'незнакомым' )] мне [Select_CString(essosi_warrior.IsFemale, 'женщиной', 'мужчиной' )].\n\n«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )]», - хрипит [sponsor.GetFirstNameNoTooltip] с гордостью на лице. «Для меня честь представить вам [Select_CString(essosi_warrior.IsFemale, 'величайшую воительницу, которую', 'величайшего воина, которого' )] когда либо видел Эссос. [essosi_warrior.GetFirstNameNoTooltip] [Select_CString(essosi_warrior.IsFemale, 'известна', 'известен' )] от Браавоса до Асшая, и [essosi_warrior.GetSheHe] станет отличным бойцом в рядах вашей гвардии»." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3005.a: "Добро пожаловать в гвардию!" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3005.agot_kingsguard.tt: "[essosi_warrior.GetName] вступит в вашу гвардию" #[GetPlayer.Custom('KingsguardName')]
+ agot_kingsguard.3005.b: "Возможно тебе предначертан иной удел?"
+ agot_kingsguard.3005.court_position.tt: "Вы находите подходящую должность для персонажа [essosi_warrior.GetName]."
+ agot_kingsguard.3005.c: "Мне не нужны придворные."
 
- agot_kingsguard.3006.t:0 "[ROOT.Char.Custom('KingsguardName')]: Братья по оружию"
- agot_kingsguard.3006.desc:0 "[friendly_kingsguard.GetFullName] - [Select_CString(friendly_kingsguard.IsFemale, 'общительная женщина, всегда готовая', 'общительный мужчина, всегда готовый' )] завязать разговор или вклиниться в него. Хотя [Select_CString(friendly_kingsguard.IsFemale, 'она', 'он' )] раздражает более сдержанных членов ордена [ROOT.Char.Custom('KingsguardName')], [Select_CString(friendly_kingsguard.IsFemale, 'она', 'он' )] и [kingsguard_friend.GetFullName] стали неразлучны, как братья.\n\nОни вместе тренируются, вместе постятся, и в гуще сражения они оказываются бок о бок, подстёгивая друг друга. Кровные узы между этими двумя воинами стали общим местом для разговоров при дворе, сила которых в моём ордене [ROOT.Char.Custom('KingsguardName')] может только послужить дальнейшему укреплению моего правления."
- agot_kingsguard.3006.a:0 "Пусть их дружба приведёт их к новым подвигам!"
+ agot_kingsguard.3006.t: "[ROOT.Char.Custom('KingsguardName')]: Братья по оружию"
+ agot_kingsguard.3006.desc: "[friendly_kingsguard.GetFullName] - [Select_CString(friendly_kingsguard.IsFemale, 'общительная женщина, всегда готовая', 'общительный мужчина, всегда готовый' )] завязать разговор или вклиниться в него. Хотя [Select_CString(friendly_kingsguard.IsFemale, 'она', 'он' )] раздражает более сдержанных членов гвардии, [Select_CString(friendly_kingsguard.IsFemale, 'она', 'он' )] и [kingsguard_friend.GetFullName] стали неразлучны, как братья.\n\nОни вместе тренируются, вместе постятся, и в гуще сражения они оказываются бок о бок, подстёгивая друг друга. Кровные узы между этими двумя воинами стали общим местом для разговоров при дворе, сила которых в моей гвардии может только послужить дальнейшему укреплению моего правления." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3006.a: "Пусть их дружба приведёт их к новым подвигам!"
 
- agot_kingsguard.3007.notification:0 "[ROOT.Char.Custom('KingsguardName')] улучшил свои навыки"
- agot_kingsguard.3007.desc:0 "Многочасовые тренировки персонажа [improved_kingsguard.GetNamePossessive] во дворе и [improved_kingsguard.GetHerHis] верность своим клятвам поспособствовали этому."
+ agot_kingsguard.3007.notification: "[ROOT.Char.Custom('KingsguardName')] улучшил свои навыки"
+ agot_kingsguard.3007.desc: "Многочасовые тренировки персонажа [improved_kingsguard.GetName] во дворе и [improved_kingsguard.GetHerHis] верность своим клятвам поспособствовали этому."
 
- agot_kingsguard.3008.t:0 "[candidate.GetSheHe|U] хорошо зарекомендовал себя"
- agot_kingsguard.3008.desc:0 "[sponsor.GetTitledFirstName] входит в тронный зал, вместе с [Select_CString(candidate.IsFemale, 'незнакомой', 'незнакомым' )] мне [Select_CString(candidate.IsFemale, 'женщиной', 'мужчиной' )].\n\n«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )]», - хрипит [sponsor.GetFirstNameNoTooltip] с гордостью на лице. «Для меня честь представить вам [Select_CString(candidate.IsFemale, 'воительницу', 'воина' )] [candidate.GetFullNameNoTooltip]. [candidate.GetSheHe|U] является [Select_CString(candidate.IsFemale, 'могучей женщиной', 'могучим мужчиной' )] и обладает значительным боевым опытом. [Select_CString(candidate.IsFemale, 'Она отказалась', 'Он отказался' )] от брака и титулов в надежде вступить в ряды ордена [ROOT.Char.Custom('KingsguardName')].»"
- agot_kingsguard.3008.a:0 "Добро пожаловать в ряды ордена [ROOT.Char.Custom('KingsguardName')]!"
- agot_kingsguard.3008.agot_kingsguard.tt:0 "[candidate.GetName] вступит в ряды ордена [GetPlayer.Custom('KingsguardName')]"
- agot_kingsguard.3008.b:0 "Возможно тебе предначертан иной удел?"
- agot_kingsguard.3008.b.tt:0 "[candidate.GetName] займёт должность, когда она освободится."
- agot_kingsguard.3008.c:0 "Я не настолько [Select_CString(ROOT.Char.IsFemale, 'отчаялась', 'отчаялся' )], чтобы ты охранял меня."
+ agot_kingsguard.3008.t: "[candidate.GetSheHe|U] хорошо [Select_CString(candidate.IsFemale, 'зарекомендовала', 'зарекомендовал' )] себя"
+ agot_kingsguard.3008.desc: "[sponsor.GetTitledFirstName] входит в тронный зал вместе с [Select_CString(candidate.IsFemale, 'незнакомой', 'незнакомым' )] мне [Select_CString(candidate.IsFemale, 'женщиной', 'мужчиной' )].\n\n«[Select_CString(ROOT.Char.IsFemale, 'Миледи', 'Милорд' )]», - хрипит [sponsor.GetFirstNameNoTooltip] с гордостью на лице. «Для меня честь представить [Select_CString(candidate.IsFemale, 'такую воительницу', 'такого воина' )], как [candidate.GetFullNameNoTooltip]. [candidate.GetSheHe|U] является [Select_CString(candidate.IsFemale, 'могучей женщиной', 'могучим мужчиной' )] и обладает значительным боевым опытом. [Select_CString(candidate.IsFemale, 'Она отказалась', 'Он отказался' )] от брака и титулов в надежде вступить в ряды вашей гвардии»." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3008.a: "Добро пожаловать в гвардию!" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3008.agot_kingsguard.tt: "[candidate.GetName] вступит в вашу гвардию" #[GetPlayer.Custom('KingsguardName')]
+ agot_kingsguard.3008.b: "Возможно, тебе предначертан иной удел?"
+ agot_kingsguard.3008.b.tt: "[candidate.GetName] займёт должность, когда она освободится."
+ agot_kingsguard.3008.c: "Я не настолько [Select_CString(ROOT.Char.IsFemale, 'отчаялась', 'отчаялся' )], чтобы ты охранял меня."
 
- agot_kingsguard.3010.t:0 "Пот с [strong_kingsguard.GetHerHis] бровей"
- agot_kingsguard.3010.desc:0 "Мой [ROOT.Char.Custom('KingsguardName')] [strong_kingsguard.GetFullName] стал проводить всё свое время во дворе и конюшнях замка, и там, где другие в основном упражняются в бою на мечах или верховой езде, [strong_kingsguard.GetFirstNameNoTooltip] проводит каждую минуту в поисках напряженной и трудной физической работы. \n\nЭто хорошо заметно по [strong_kingsguard.GetHerHis] фигуре - [strong_kingsguard.GetHerHis] тело стало жилистым, плотным и твёрдым, к большому удовольствию глазеющих на [strong_kingsguard.Custom('AttractionGirlBoyPlural')] придворного, которого можно найти во дворе, когда [strong_kingsguard.GetFirstNameNoTooltip] работает."
- agot_kingsguard.3010.a:0 "Возможно, вы бы могли бы позировать для портрета, [strong_kingsguard.Custom('SisterBrother')]!"
+ agot_kingsguard.3010.t: "Пот с [strong_kingsguard.GetHerHis] бровей"
+ agot_kingsguard.3010.desc: "Мой гвардеец [strong_kingsguard.GetFullName] стал проводить всё свое время во дворе и конюшнях замка, и там, где другие в основном упражняются в бою на мечах или верховой езде, [strong_kingsguard.GetFirstNameNoTooltip] проводит каждую минуту в поисках напряженной и трудной физической работы.\n\nЭто хорошо заметно по [strong_kingsguard.GetHerHis] фигуре - [strong_kingsguard.GetHerHis] тело стало жилистым, плотным и твёрдым, к большому удовольствию глазеющих придворных, которых можно найти во дворе, когда [strong_kingsguard.GetFirstNameNoTooltip] работает."
+ agot_kingsguard.3010.a: "Возможно, вы бы могли бы позировать для портрета, [strong_kingsguard.Custom('SisterBrother')]!"  #[ROOT.Char.Custom('KingsguardName')]
 
- agot_kingsguard.3011.t:0 "Претендент на горизонте"
- agot_kingsguard.3011.desc:0 "Унылый день при дворе оживился, когда глашатай объявил о прибытии персонажа [challenger.GetFullName], который вошёл в тронный зал, одетый более подходяще для поле боя, чем для появления при дворе. «[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.Custom('FormalComplimentAdjective')] [ROOT.Char.GetTitleAsNameNoTooltip]», - говорит [challenger.GetSheHe], когда я подзываю [challenger.GetHerHis]. «[ROOT.Char.Custom('KingsguardName')] - столп этого королевства. Но один червь защищает вас. [unworthy_kingsguard.Custom('InsultAdjective')] [unworthy_kingsguard.Custom('InsultNoun')] [unworthy_kingsguard.GetFullName] не имеет права бросать тень на вас!»\n[unworthy_kingsguard.GetFirstName] внезапно встаёт по стойке смирно, когда понимает, о ком идёт речь. «[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetTitleTierName], [ROOT.Char.Custom('KingsguardName')] - братство, скреплённое клятвами. Мы служим всю жизнь, моя кровь обязательно однажды прольётся за вас», заикается [unworthy_kingsguard.GetSheHe|l].\n\n«Это не проблема», - отвечает [challenger.GetName], [challenger.Custom('quirk_pos_pp')]. «Я с радостью освобожу вас от занимаемой должности.»"
- agot_kingsguard.3011.a:0 "Пусть кто-нибудь другой охраняет мою дверь."
- agot_kingsguard.3011.a.challenger.toast:0 "[challenger.GetTitledFirstName] убивает персонажа [unworthy_kingsguard.GetTitledFirstName]"
- agot_kingsguard.3011.a.unworthy_kingsguard.toast:0 "[unworthy_kingsguard.GetTitledFirstName] убивает персонажа [challenger.GetTitledFirstName]"
- agot_kingsguard.3011.b:0 "Уходи, [challenger.GetTitledFirstNameNoTooltip]. [unworthy_kingsguard.GetTitledFirstNameNoTooltip] более чем оправдал моё доверие."
- agot_kingsguard.3011.c:0 "Никто не смеет сомневаться в тех, кого я [Select_CString(ROOT.Char.IsFemale, 'назначила', 'назначил' )]. Стража!"
+ agot_kingsguard.3011.t: "Претендент на горизонте"
+ agot_kingsguard.3011.desc: "Унылый день при дворе оживился, когда глашатай объявил о том, что [Select_CString(challenger.IsFemale, 'прибыла', 'прибыл' )] [challenger.GetFullName], [Select_CString(challenger.IsFemale, 'которая вошла', 'который вошёл' )] в тронный зал, [Select_CString(challenger.IsFemale, 'одетая', 'одетый' )] более подходяще для поле боя, чем для появления при дворе. «[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.Custom('FormalComplimentAdjective')][Select_CString(ROOT.Char.IsFemale, 'ая', 'ый' )] [ROOT.Char.GetTitleAsNameNoTooltip]», - говорит [challenger.GetSheHe], когда я подзываю [challenger.GetHerHis]. «Гвардия - столп этой державы. Но один червь защищает вас. [unworthy_kingsguard.Custom('InsultAdjective')][Select_CString(unworthy_kingsguard.IsFemale, 'ая', 'ый' )] [unworthy_kingsguard.Custom('InsultNoun')] [unworthy_kingsguard.GetFullName] не имеет права бросать тень на вас!»\n[unworthy_kingsguard.GetFirstName] внезапно встаёт по стойке смирно, когда понимает, о ком идёт речь. «[Select_CString(ROOT.Char.IsFemale, 'Моя', 'Мой' )] [ROOT.Char.GetTitleTierName], гвардия - братство, скреплённое клятвами. Мы служим всю жизнь, моя кровь обязательно однажды прольётся за вас», - заикается [unworthy_kingsguard.GetSheHe|l].\n\n«Это не проблема», - отвечает [challenger.GetName], [challenger.Custom('quirk_pos_pp')]. «Я с радостью освобожу вас от занимаемой должности»." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3011.a: "Пусть кто-нибудь другой охраняет мою дверь."
+ agot_kingsguard.3011.a.challenger.toast: "[challenger.GetTitledFirstName] убивает персонажа [unworthy_kingsguard.GetTitledFirstName]"
+ agot_kingsguard.3011.a.unworthy_kingsguard.toast: "[unworthy_kingsguard.GetTitledFirstName] убивает персонажа [challenger.GetTitledFirstName]"
+ agot_kingsguard.3011.b: "Уходите, [challenger.GetTitledFirstNameNoTooltip]. [unworthy_kingsguard.GetTitledFirstNameNoTooltip] более чем оправдал моё доверие."
+ agot_kingsguard.3011.c: "Никто не смеет сомневаться в тех, кого я [Select_CString(ROOT.Char.IsFemale, 'назначила', 'назначил' )]. Стража!"
 
- agot_kingsguard.3012.t:0 "Разбитая мечта"
- agot_kingsguard.3012.desc:0 "Я смотрю с галереи, как [Select_CString(failed_kingsguard.IsFemale, 'моя', 'мой' )] [failed_kingsguard.Custom('GetDaughterSon')] слоняется по двору. [Select_CString(failed_kingsguard.IsFemale, 'Она', 'Он' )] неуклюже мечется по двору, не выказывая никакого прогресса с тех пор, как [Select_CString(failed_kingsguard.IsFemale, 'она решила', 'он решил' )] присоединиться к престижной гвардии [ruler.GetHerHis] Милости. Возможно, мне следует вмешаться. В конце концов, позволять [Select_CString(failed_kingsguard.IsFemale, 'ей', 'ему' )] и дальше питать ложные надежды будет куда более жестоко, чем пресечь [Select_CString(failed_kingsguard.IsFemale, 'её', 'его' )] глупости здесь и сейчас?"
- agot_kingsguard.3012.a:0 "Пришло время двигаться дальше."
- agot_kingsguard.3012.b:0 "Ночной Дозор всегда нуждается в хороших людях!"
- agot_kingsguard.3012.c:0 "У тебя всё получится!"
-
-
- agot_kingsguard.3013.t:0 "Напиток на память"
- agot_kingsguard.3013.desc:0 "[drunken_kingsguard.GetFullName] проводит всё свободное от службы время, выпивая и развлекаясь в местных тавернах и трактирах. [drunken_kingsguard.GetSheHe|U] заслужил славу того, кто перепьёт любого, способный выпить целый бочонок арборского золотого, стоя на голове.\n\nДо меня дошли тревожные вести о том, как [drunken_kingsguard.GetFirstName] привёл в бордель осла и медовые соты. Такое поведение кажется недостойным члена такой престижной организации, как [ROOT.Char.Custom('KingsguardName')], но вызвало много смеха."
- agot_kingsguard.3013.a:0 "Ночь в темнице отрезвит [drunken_kingsguard.GetHerHis]."
- agot_kingsguard.3013.b:0 "Быть членом такой организации, как [ROOT.Char.Custom('KingsguardName')] непросто, оставьте [drunken_kingsguard.GetHerHis] в покое."
- agot_kingsguard.3013.c:0 "[drunken_kingsguard.GetFullName] - [drunken_kingsguard.GetWomanMan] по велению моего сердца!"
+ agot_kingsguard.3012.t: "Разбитая мечта"
+ agot_kingsguard.3012.desc:0 "Я смотрю с галереи, как [Select_CString(failed_kingsguard.IsFemale, 'моя', 'мой' )] [failed_kingsguard.Custom('GetDaughterSon')] слоняется по двору. [Select_CString(failed_kingsguard.IsFemale, 'Она', 'Он' )] неуклюже мечется по двору, не выказывая никакого прогресса с тех пор, как [Select_CString(failed_kingsguard.IsFemale, 'она решила', 'он решил' )] присоединиться к престижной гвардии [ruler.GetHerHis|U] милости. Возможно, мне следует вмешаться. В конце концов, позволять [Select_CString(failed_kingsguard.IsFemale, 'ей', 'ему' )] и дальше питать ложные надежды будет куда более жестоко, чем пресечь [Select_CString(failed_kingsguard.IsFemale, 'её', 'его' )] глупости здесь и сейчас?"
+ agot_kingsguard.3012.a: "Пришло время двигаться дальше."
+ agot_kingsguard.3012.b: "Ночной Дозор всегда нуждается в хороших людях!"
+ agot_kingsguard.3012.c: "У тебя всё получится!"
 
 
- agot_kingsguard.3014.t:0 "[ROOT.Char.Custom('KingsguardName')]-мечник"
- agot_kingsguard.3014.desc:0 "Мой [ROOT.Char.Custom('KingsguardName')] [lifestyle_kingsguard.GetFullName] проводит уйму времени не рядом со мной или при дворе, пот, стекающий с [lifestyle_kingsguard.GetHerHis] бровей, когда [lifestyle_kingsguard.GetSheHe] скрещивает мечи с величайшими войнами королевства.\n\nМои оружейники и [GetPlayer.GetCouncillorPosition( 'councillor_marshal' ).GetPositionName] часто проводят беседы с персонажем [lifestyle_kingsguard.GetName], [lifestyle_kingsguard.GetHerHis] ловкость в обращении с мечом стала притчей во языцех при дворе. И нет ничего необычного, что [lifestyle_kingsguard.GetHerHis] можно обнаружить во дворе с первыми лучами солнца до его последнего луча. [lifestyle_kingsguard.GetName] приобрёл репутацию опытного мечника."
- agot_kingsguard.3014.a:0 "Возможно вы сможете помочь мне с фехтованием, [lifestyle_kingsguard.GetFirstNameNoTooltip]?"
+ agot_kingsguard.3013.t: "Напиток на память"
+ agot_kingsguard.3013.desc: "[drunken_kingsguard.GetFullName] проводит всё свободное от службы время, выпивая и развлекаясь в местных тавернах и трактирах. [drunken_kingsguard.GetSheHe|U] заслужил славу того, кто перепьёт любого, способный выпить целый бочонок арборского золотого, стоя на голове.\n\nДо меня дошли тревожные вести о том, как [drunken_kingsguard.GetFirstName] привёл в бордель осла и медовые соты. Такое поведение кажется недостойным гвардейца, но вызвало много смеха." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3013.a: "Ночь в темнице отрезвит [drunken_kingsguard.GetHerHis]."
+ agot_kingsguard.3013.b: "Быть гвардейцем непросто, оставьте [drunken_kingsguard.GetHerHis] в покое." #[ROOT.Char.Custom('KingsguardName')] 
+ agot_kingsguard.3013.c: "[drunken_kingsguard.GetFullName] - [drunken_kingsguard.GetWomanMan] по велению моего сердца!"
 
 
- agot_kingsguard.3015.t:0 "[ROOT.Char.Custom('KingsguardName')]-охотник"
- agot_kingsguard.3015.desc:0 "Мой [ROOT.Char.Custom('KingsguardName')] [lifestyle_kingsguard.GetFullName] проводит уйму [lifestyle_kingsguard.GetHerHis] свободного от службы времени не рядом со мной, а в королевских лесах, в полной мере пользуясь привилегиями, предоставляемыми [lifestyle_kingsguard.GetHerHim].\n\n[lifestyle_kingsguard.GetName] известен среди ваших егерей и лесников своим превосходным владением луком. Неудивительно, что [lifestyle_kingsguard.GetSheHe] вернулся с охоты, в натоптанных сапогах и с трофеем в [lifestyle_kingsguard.GetHerHis] руке. [lifestyle_kingsguard.GetHerHis|U] покои украшены кожей, шкурами и черепами, а [lifestyle_kingsguard.GetName] заработал репутацию настоящего охотника."
- agot_kingsguard.3015.a:0 "Изловите мне жирного лося для сегодняшего ужина, [lifestyle_kingsguard.GetFirstNameNoTooltip]!"
+ agot_kingsguard.3014.t: "Королевский гвардеец-мечник" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3014.desc: "Мой королевский гвардеец [lifestyle_kingsguard.GetFullName] проводит уйму времени не рядом со мной или при дворе. С [lifestyle_kingsguard.GetHerHis] бровей стекает пот, когда [lifestyle_kingsguard.GetSheHe] скрещивает мечи с величайшими воинами державы.\n\nМои оружейники и [GetPlayer.GetCouncillorPosition( 'councillor_marshal' ).GetPositionName] и [lifestyle_kingsguard.GetName] часто беседуют, [lifestyle_kingsguard.GetHerHis] ловкость в обращении с мечом стала притчей во языцех при дворе. И нет ничего необычного, что [lifestyle_kingsguard.GetHerHis] можно обнаружить во дворе с первыми лучами солнца до его последнего луча. [lifestyle_kingsguard.GetName] приобрёл репутацию опытного мечника." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3014.a: "Возможно, вы сможете помочь мне с фехтованием, [lifestyle_kingsguard.GetFirstNameNoTooltip]?"
 
- agot_kingsguard.3016.t:0 "[ROOT.Char.Custom('KingsguardName')]-сокольничий"
- agot_kingsguard.3016.desc:0 "Мой [ROOT.Char.Custom('KingsguardName')] [lifestyle_kingsguard.GetFullName] проводит уйму [lifestyle_kingsguard.GetHerHis] свободного от службы времени не рядом со мной, а в королевских лесах, в полной мере пользуясь привилегиями, предоставляемыми [lifestyle_kingsguard.GetHerHim] благодаря престижному положению.\n\n[lifestyle_kingsguard.GetName] известен среди ваших егерей и лесников своим превосходным владением луком. Неудивительно, что [lifestyle_kingsguard.GetSheHe] вернулся с охоты, в натоптанных сапогах и с трофеем в [lifestyle_kingsguard.GetHerHis] руке. [lifestyle_kingsguard.GetHerHis|U] покои украшены кожей, шкурами и черепами, а [lifestyle_kingsguard.GetName] заработал репутацию настоящего охотника."
- agot_kingsguard.3016.a:0 "Поистине благородное стремление, [lifestyle_kingsguard.GetFullNameNoTooltip]!"
 
- agot_kingsguard.3017.t:0 "[ROOT.Char.Custom('KingsguardName')]: Бесславное убийство!"
- agot_kingsguard.3017.desc:0 "Мой [ROOT.Char.Custom('KingsguardName')] [eunuch_kingsguard.GetFullName] был обнаружен мёртвым в нагом виде возле местного борделя. [eunuch_kingsguard.GetHerHis|U] оскопили и засунули в глотку собственный член, в качестве насмешки. Согласно донесениям, его заметили ссорящимся с посетителем, когда его начали окружать. Обнажённый и безоружный, он был побеждён шлюхами.\n\nПод влиянием этого простолюдины пришли в буйство и устроили беспорядки на улицах. Похоже, [eunuch_kingsguard.GetFirstName] был хорошо известен, но не слишком любим."
- agot_kingsguard.3017.a:0 "[eunuch_kingsguard.GetFirstNameNoTooltip], ты глупец!"
+ agot_kingsguard.3015.t: "Королевский гвардеец-охотник" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3015.desc: "Мой гвардеец [lifestyle_kingsguard.GetFullName] проводит уйму свободного от службы времени не рядом со мной, а в королевских лесах, в полной мере пользуясь привилегиями, предоставляемыми [lifestyle_kingsguard.GetHerHim].\n\n[lifestyle_kingsguard.GetName] известен среди ваших егерей и лесников своим превосходным владением луком. Неудивительно, что [lifestyle_kingsguard.GetSheHe] вернулся с охоты, в натоптанных сапогах и с трофеем в руке. [lifestyle_kingsguard.GetHerHis|U] покои украшены кожей, шкурами и черепами, а [lifestyle_kingsguard.GetName] заработал репутацию настоящего охотника." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3015.a: "Изловите мне жирного лося для сегодняшего ужина, [lifestyle_kingsguard.GetFirstNameNoTooltip]!"
 
- agot_kingsguard.9100.t:0 "Новый [ROOT.Char.Custom('KingsguardName')]"
- agot_kingsguard.9100.desc:0 "Теперь, когда [loser.GetName] [Select_CString(loser.IsFemale, 'потерпела', 'потерпел' )] поражение, я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] решить, стоит ли мне утвердить [loser.GetHerHis] назначения в орден [ROOT.Char.Custom('KingsguardName')] или назначить своих собственных защитников.\n\nВыдвижение моих собственных назначенцев в ряды ордена [ROOT.Char.Custom('KingsguardName')], несомненно, обеспечит мою безопасность, но, возможно, можно привести аргументы в пользу сохранения некоторых из нынешних членов?"
- agot_kingsguard.9100.a:0 "Пусть суд начнется."
+ agot_kingsguard.3016.t: "Королевский гвардеец-сокольничий" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3016.desc: "Мой гвардеец [lifestyle_kingsguard.GetFullName] проводит уйму свободного от службы времени не рядом со мной, а в королевских лесах, в полной мере пользуясь привилегиями, предоставляемыми [lifestyle_kingsguard.GetHerHim] благодаря престижному положению.\n\n[lifestyle_kingsguard.GetName] известен среди ваших егерей и лесников своим превосходным владением луком. Неудивительно, что [lifestyle_kingsguard.GetSheHe] вернулся с охоты, в натоптанных сапогах и с трофеем в руке. [lifestyle_kingsguard.GetHerHis|U] покои украшены кожей, шкурами и черепами, а [lifestyle_kingsguard.GetName] заработал репутацию настоящего охотника." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3016.a: "Поистине благородное стремление, [lifestyle_kingsguard.GetFullNameNoTooltip]!"
 
- agot_kingsguard.9101.t:0 "Новый [ROOT.Char.Custom('KingsguardName')]"
- agot_kingsguard.9101.desc:0 "Пришло время принять решение о том, кто будет исключён из ордена [ROOT.Char.Custom('KingsguardName')]."
- agot_kingsguard.9101.a:0 "Моя воля будет исполнена."
- agot_kingsguard.9101.a_tt:0 "[THIS.Char.GetName] будет снят со своей должности и заключен в темницу."
- agot_kingsguard.9101.b:0 "[kg.GetNameNoTooltip] может оставаться в рядах ордена [ROOT.Char.Custom('KingsguardName')]."
- agot_kingsguard.9101.c:0 "[kg.GetNameNoTooltip] может оставаться в рядах ордена [ROOT.Char.Custom('KingsguardName')]."
+ agot_kingsguard.3017.t: "[ROOT.Char.Custom('KingsguardName')]: Бесславное убийство!"
+ agot_kingsguard.3017.desc: "Мой королевский гвардеец [eunuch_kingsguard.GetFullName] был обнаружен мёртвым в нагом виде возле местного борделя. [eunuch_kingsguard.GetHerHis|U] оскопили и засунули в глотку собственный член, в качестве насмешки. Согласно донесениям, его заметили ссорящимся с посетителем, когда его начали окружать. Обнажённый и безоружный, он был побеждён шлюхами.\n\nПод влиянием этого простолюдины пришли в буйство и устроили беспорядки на улицах. Похоже, [eunuch_kingsguard.GetFirstName] был хорошо известен, но не слишком любим." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.3017.a: "[eunuch_kingsguard.GetFirstNameNoTooltip], ты глупец!"
+
+ agot_kingsguard.9100.t: "Новая гвардия" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.9100.desc: "Теперь, когда [loser.GetName] [Select_CString(loser.IsFemale, 'потерпела', 'потерпел' )] поражение, я [Select_CString(ROOT.Char.IsFemale, 'должна', 'должен' )] решить, стоит ли мне утвердить [loser.GetHerHis] назначения в Королевскую гвардию или выбрать своих собственных защитников.\n\nВыдвижение моих собственных назначенцев в ряды гвардии, несомненно, обеспечит мою безопасность, но, возможно, можно привести аргументы в пользу сохранения некоторых из нынешних членов?" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.9100.a: "Да начнётся суд."
+
+ agot_kingsguard.9101.t: "Новая гвардия" #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.9101.desc: "Пришло время принять решение о том, кто будет исключён из Королевской гвардии." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.9101.a: "Моя воля будет исполнена."
+ agot_kingsguard.9101.a_tt: "[THIS.Char.GetName] будет снят со своей должности и заключен в темницу."
+ agot_kingsguard.9101.b: "[kg.GetNameNoTooltip] может остаться в рядах гвардии." #[ROOT.Char.Custom('KingsguardName')]
+ agot_kingsguard.9101.c:0 "[kg.GetNameNoTooltip] может остаться в рядах гвардии." #[ROOT.Char.Custom('KingsguardName')]
