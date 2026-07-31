@@ -22,22 +22,97 @@ types GameTooltipTypes
 
 	type agot_culture_tooltip_rd = text_multi
 	{
-		layoutpolicy_horizontal = growing
+		layoutpolicy_horizontal = expanding
 		text = "AGOT_CULTURE_COOLTIP_RD"
 		margin = { 10 0 }
 		visible = "[Culture.MakeScope.Var('agot_culture_tt_desc').IsSet]"
 		autoresize = yes
-		max_width = 380
+		max_width = 430
 	}
 
-	type agot_culture_tooltip_click = text_multi
+	type agot_culture_tooltip_click = vbox
 	{
-		layoutpolicy_horizontal = growing
-		text = "AGOT_CULTURE_COOLTIP_CLICK"
-		margin = { 10 0 }
+		layoutpolicy_horizontal = expanding
+		datacontext = "[Culture.GetCultureHead]"
 		visible = "[Culture.MakeScope.Var('agot_culture_tt_desc').IsSet]"
-		autoresize = yes
-		max_width = 380
+
+		text_multi = {
+			layoutpolicy_horizontal = expanding
+			margin = { 0 2 }
+			text = "AGOT_CULTURE_COOLTIP_RD"
+			fonttintcolor = "[TooltipInfo.GetTintColor]"
+			default_format = "#flavor"
+			autoresize = yes
+			max_width = 430
+
+			using = DefaultTooltipText
+		}
+
+		spacer = {
+			size = { 0 4 }
+		}
+		divider_light = {
+			layoutpolicy_horizontal = growing
+		}
+
+		text_single = {
+			layoutpolicy_horizontal = expanding
+			fonttintcolor = "[TooltipInfo.GetTintColor]"
+			margin = { 10 3 }
+			text = "AGOT_CULTURE_COOLTIP_CLICK"
+			max_width = 430
+
+			using = DefaultTooltipText
+		}
+	}
+
+	type agot_culture_tooltip_insert = vbox
+	{
+		layoutpolicy_horizontal = expanding
+		datacontext = "[Culture.GetCultureHead]"
+
+		spacer = {
+			size = { 0 9 }
+			visible = "[Culture.MakeScope.Var('agot_culture_tt_desc').IsSet]"
+		}
+		divider_light = {
+			layoutpolicy_horizontal = growing
+			visible = "[Culture.MakeScope.Var('agot_culture_tt_desc').IsSet]"
+		}
+		spacer = {
+			size = { 0 5 }
+			visible = "[Culture.MakeScope.Var('agot_culture_tt_desc').IsSet]"
+		}
+
+		text_multi = {
+			layoutpolicy_horizontal = expanding
+			visible = "[Culture.MakeScope.Var('agot_culture_tt_desc').IsSet]"
+			margin = { 0 2 }
+			text = "AGOT_CULTURE_COOLTIP_RD"
+			fonttintcolor = "[TooltipInfo.GetTintColor]"
+			default_format = "#flavor"
+			autoresize = yes
+			max_width = 430
+
+			using = DefaultTooltipText
+		}
+
+		spacer = {
+			size = { 0 4 }
+		}
+		divider_light = {
+			layoutpolicy_horizontal = growing
+		}
+
+		text_single = {
+			layoutpolicy_horizontal = expanding
+			fonttintcolor = "[TooltipInfo.GetTintColor]"
+			margin = { 10 3 }
+			text = "AGOT_CULTURE_COOLTIP_CLICK"
+			max_width = 430
+
+			using = DefaultTooltipText
+		}
 	}
 
 	# Dragon Types
