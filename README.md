@@ -6,6 +6,7 @@
 
 ## Скачать
 Google Drive - https://drive.google.com/drive/folders/1TrnLN_4FXwQRANXdjPGjNidoFHEyajGH
+
 Steam - https://steamcommunity.com/sharedfiles/filedetails/?id=2962803371
 
 ## Сам мод
