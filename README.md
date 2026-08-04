@@ -5,8 +5,7 @@
 <img width="475" alt="2887695716_preview" src="https://github.com/klimsat/agot-rus/assets/25348662/abb11849-bbab-4633-93a6-f5630d5db800">
 
 ## Скачать
-Google Drive - https://drive.google.com/file/d/1UcyJlNCJEeCZ4jv22jwzJzJL17a7J8c6/view?usp=sharing
-
+Google Drive - https://drive.google.com/drive/folders/1TrnLN_4FXwQRANXdjPGjNidoFHEyajGH
 Steam - https://steamcommunity.com/sharedfiles/filedetails/?id=2962803371
 
 ## Сам мод
