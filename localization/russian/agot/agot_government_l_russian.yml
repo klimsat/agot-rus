@@ -15,6 +15,23 @@
  lp_feudal_vassal_desc:0 "$game_concept_feudal_desc$"
 
  # Free Cities
+ norvos_government:0 "Priestly Norvoshi"
+ norvos_government_adjective:0 "Priestly Norvoshi"
+ norvos_government_filter_option:0 "$norvos_government$"
+ norvos_government_filter_option_desc:0 "Only show characters with $norvos_government$ [government|E]"
+ norvos_government_desc:0 "Under the $norvos_government$ [government_form|E], power is balanced between the magisterial government and the theocratic Bearded Priests."
+ norvos_govt_concept:0 "[norvos_govt_i|E]"
+ government_is_norvos:0 "[government|E] type is [GetGovernment( 'norvos_government' ).GetName]"
+ norvos_government_vassals_label:1 "$norvos_government$ [obligations|E] are the same for all $norvos_government$ [vassals|E]"
+ norvos_vassal:0 "$norvos_government$"
+
+ norvos_government_house_attribute_flavor_name_no_tooltip:0 "$administrative_government_house_attribute_flavor_name_no_tooltip$"
+ norvos_government_house_attribute_flavor_name:0 "$administrative_government_house_attribute_flavor_name$"
+
+ norvos_regency_succession_law:0 "Norvoshi Elective"
+ norvos_regency_succession_subname:0 "$free_city_election_succession_law_subname$"
+ norvos_regency_succession_law_effects:0 "\n#V Under $norvos_regency_succession_law$, the landed rulers of $k_norvos$ are chosen among the wealthiest and most influential citizens, but the Bearded Priests have a massive influence on who is ultimately allowed to govern the realm's lands.#!"
+
  free_city_election_succession_law:0 "Выборы Вольного города"
  free_city_election_succession_law_subname:0 "Избрание на определённый срок или пожизненно"
  free_city_election_succession_law_effects:0 "\n#V Выборы Вольного города подразумевают, что правителя Вольного города избирают самые богатые и влиятельные горожане. В зависимости от законов державы, различные фракции могут иметь большее влияние, а срок полномочий может варьироваться - некоторые города могут даже назначать правителя пожизненно.#!"
@@ -103,6 +120,20 @@
  silent_sisterhood_government_desc:0 "[government_form|E] Молчаливых Сестёр является исключительной для ордена Молчаливых Сестёр. Они не владеют [Concept('domain', 'доменом')|E], не имеют [Concept('vassals', 'вассалов')|E] и [Concept('armies', 'войск')|E]."
  silent_sisterhood_govt_concept:0 "[silent_sisters_govt_i|E]"
  government_is_silent_sisters:0 "Форма [Concept( 'government', 'правления' )|E] — [GetGovernment( 'silent_sisterhood_government' ).GetName|l]"
+
+ # Lorathi Principality
+ lorathi_principality_government_with_icon:0 "@government_type_lorathi_principality! $lorathi_principality_government$"
+ lorathi_principality_government:0 "Lorathi Principality"
+ lorathi_principality_government_desc:0 "The three Lorathi Principalities of the Harvest, the Fishers, and the Streets once ruled every aspect of the Free City of Lorath. Now they are merely ceremonial positions, elected by those who inhabit Lorath and its islands."
+ lorathi_principality_government_adjective:0 "Princely Lorathi"
+ lorathi_principality_government_realm:0 "Lorathi Principality"
+ lorathi_principality_government_filter_option:0 "$game_concept_lorathi_principality_govt$"
+ lorathi_principality_government_filter_option_desc:0 "Only show characters with Lorathi Principality [government|E]"
+ lorathi_principality_govt_concept:0 "[lorathi_principality_govt_i|E]"
+ government_is_lorathi_principality:0 "[government|E] type is [GetGovernment( 'lorathi_principality_government' ).GetName]"
+
+ lorathi_principality_succession_law:0 "Princely Lorathi Succession"
+ lorathi_principality_succession_law_effects:0 "\n#V Under $lorathi_principality_succession_law$, the [agot_lorathi_princes|E] are each elected by a specific group of electors.#!"
 
  # Dummy adv for bookmark purposes
  dummy_adventurer_govt_for_bms:0 "$landless_adventurer_government$"

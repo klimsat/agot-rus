@@ -514,9 +514,13 @@
  on_entered_diarchy.notification.vassal.desc.outro.travel: "из-за заграничного [Concept( 'traveling', 'путешествия' )|E]"
 
  msg_end_diarchy_title: "Наделение полномочиями остановлено"
- msg_end_diarchy_effect: "Я и [Select_CString(RIGHT_CHARACTER.IsFemale, 'моя', 'мой' )] [LEFT_CHARACTER.Custom2('RelationToMeShort', RIGHT_CHARACTER.Self)] [RIGHT_CHARACTER.GetShortUIName] больше не [Concept('sharing_power', 'делим власть')|E]"
+ #AGOT Modified
+ #msg_end_diarchy_effect: "Я и [Select_CString(RIGHT_CHARACTER.IsFemale, 'моя', 'мой' )] [LEFT_CHARACTER.Custom2('RelationToMeShort', RIGHT_CHARACTER.Self)] [RIGHT_CHARACTER.GetShortUIName] больше не [Concept('sharing_power', 'делим власть')|E]"
+ msg_end_diarchy_effect: "[SelectLocalization(GetPlayer.GetGovernment.IsType('norvos_government'),'msg_end_diarchy_effect_norvos','msg_end_diarchy_effect_vanilla')]"
  on_left_diarchy.notification.vassal.t: "Сюзерен прекращает наделение полномочиями"
- on_left_diarchy.notification.vassal.desc: "[ROOT.Char.GetShortUIName|U] и [Select_CString(old_diarch.IsFemale, 'ее', 'его' )] [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('old_diarch'))] [old_diarch.GetShortUIName] больше не [Concept( 'sharing_power', 'делят власть' )|E]"
+ #AGOT Modified
+ #on_left_diarchy.notification.vassal.desc: "[ROOT.Char.GetShortUIName|U] и [Select_CString(old_diarch.IsFemale, 'ее', 'его' )] [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('old_diarch'))] [old_diarch.GetShortUIName] больше не [Concept( 'sharing_power', 'делят власть' )|E]"
+ on_left_diarchy.notification.vassal.desc: "[SelectLocalization(GetPlayer.GetGovernment.IsType('norvos_government'),'msg_end_diarchy_effect_norvos_vassal','on_left_diarchy.notification.vassal.desc_vanilla')]"
 
  msg_change_diarchy_type_title: "Изменился тип наделения полномочиями"
  msg_change_diarchy_type_effect: "$OLD_TYPE$ теперь $NEW_TYPE$"
