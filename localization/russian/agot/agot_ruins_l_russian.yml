@@ -35,6 +35,10 @@
  building_large_ruin_04:0 "Восстановленные большие руины"
  building_large_ruin_04_desc:0 "Когда-то это были руины больших размеров, сгинувшие в анналах истории, но с тех пор они были полностью восстановлены и, возможно, даже превзошли то, чем были изначально."
 
+ building_type_special_ruin_01:0 "Venerable Ruins"
+ building_special_ruin_01:0 "Abandoned Venerable Ruins"
+ building_special_ruin_01_desc:0 "A venerable ruin, which has been left to its fate among the wilderness."
+
  ### Ruin Afflictions
  # Salted Earth
  building_type_ruin_salted_earth_01:0 "Засоленная земля"
@@ -72,6 +76,14 @@
  building_ruin_wildfire_02:0 "Сдержанная вспышка"
  building_ruin_wildfire_02_desc:0 "Теперь, когда дикий огонь удалось сдержать, процесс восстановления стал проще, поскольку постоянная угроза того, что все достижения сгорят дотла, уже не вызывает такого беспокойства. Однако земли и люди, окружающие теперь уже сгоревшие руины, понесли потери."
 
+ # Stone Men
+ building_type_ruin_stone_men_01:0 "Stone Men Presence"
+ building_ruin_stone_men_01:0 "Active Stone Men"
+ building_ruin_stone_men_01_desc:0 "Once inhabited by able-minded men and women, this place now only harbors those afflicted with greyscale, a disease which rots both mind and body. Although it is usual for them to keep to themselves, they still pose a danger, as one could contract the disease from them by mere touch."
+
+ building_ruin_stone_men_02:0 "Subdued Stone Men"
+ building_ruin_stone_men_02_desc:0 "Either through force, coercion, or other means, the plagued Stone Men of this location have been dealt with, and their absence now allows repopulation efforts to continue under safer conditions, though the risk of contagion may still remain."
+
  # Interaction
  agot_ruin_begin_reconstruction:0 "Восстановление руин"
  agot_ruin_begin_reconstruction_desc:0 "Возьмите под контроль усилия по реконструкции, чтобы вернуть территории былую славу."
@@ -95,12 +107,14 @@
  ruin_history_landless:0 ""
  ruin_history_generic:0 "Мир усеян руинами, от Вестероса до Эссоса, от Соториоса до Ультоса; они разбросаны повсюду. Некоторые из них были когда-то великими крепостями и замками, которые тысячелетиями противостояли врагам, но были повержены непобедимым противником, другие были сторожевыми башнями и небольшими крепостями, которые были разрушены мелкими набегами, затерявшимися во времени. О многих из них сложены легенды, другие давно забыты и их сторонятся все певцы.\n\nЧтобы завладеть разорённым графством и начать его восстановление, перейдите к просмотру владения и выберите «Восстановление руин». Если вы владеете баронством с руинами, вы можете улучшить основное здание руин, чтобы начать восстановление."
  reconstruct_ruin_confirm_title:0 "Начать реставрацию?"
- reconstruct_small_ruin_confirm_desc:0 "Восстановление руин - это трудное, дорогостоящее, а иногда и опасное занятие. Вы уверены, что хотите начать процесс восстановления?\n\nВаши первоначальные инвестиции потребуют @gold_icon!#high 200#!."
- reconstruct_med_ruin_confirm_desc:0 "Восстановление руин - это трудное, дорогостоящее, а иногда и опасное занятие. Вы уверены, что хотите начать процесс восстановления?\n\nВаши первоначальные инвестиции потребуют @gold_icon!#high 400#!."
- reconstruct_large_ruin_confirm_desc:0 "Восстановление руин - это трудное, дорогостоящее, а иногда и опасное занятие. Вы уверены, что хотите начать процесс восстановления?\n\nВаши первоначальные инвестиции потребуют @gold_icon!#high 600#!."
- reconstruct_small_ruin_tooltip:0 "У вас должно быть не менее @gold_icon!#high 200#! и вы должны граничить с руинами, либо быть де-юре сюзереном руин, чтобы начать реконструкцию."
- reconstruct_med_ruin_tooltip:0 "У вас должно быть не менее @gold_icon!#high 400#! и вы должны граничить с руинами, либо быть де-юре сюзереном руин, чтобы начать реконструкцию."
- reconstruct_large_ruin_tooltip:0 "У вас должно быть не менее @gold_icon!#high 600#! и вы должны граничить с руинами, либо быть де-юре сюзереном руин, чтобы начать реконструкцию."
+ reconstruct_small_ruin_confirm_desc:0 "Восстановление руин - это трудное, дорогостоящее, а иногда и опасное занятие. Вы уверены, что хотите начать процесс восстановления?\n\nВаши первоначальные инвестиции потребуют [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 200#!."
+ reconstruct_med_ruin_confirm_desc:0 "Восстановление руин - это трудное, дорогостоящее, а иногда и опасное занятие. Вы уверены, что хотите начать процесс восстановления?\n\nВаши первоначальные инвестиции потребуют [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 400#!."
+ reconstruct_large_ruin_confirm_desc:0 "Восстановление руин - это трудное, дорогостоящее, а иногда и опасное занятие. Вы уверены, что хотите начать процесс восстановления?\n\nВаши первоначальные инвестиции потребуют [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 600#!."
+ reconstruct_special_ruin_confirm_desc:0 "Restoring ruins is an arduous, expensive, and sometimes dangerous endeavor. Are you sure you want to begin the restoration process?\n\nYour initial investment will require [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 1000#!."
+ reconstruct_small_ruin_tooltip:0 "У вас должно быть не менее [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 200#! и вы должны граничить с руинами, либо быть де-юре сюзереном руин, чтобы начать реконструкцию."
+ reconstruct_med_ruin_tooltip:0 "У вас должно быть не менее [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 400#! и вы должны граничить с руинами, либо быть де-юре сюзереном руин, чтобы начать реконструкцию."
+ reconstruct_large_ruin_tooltip:0 "У вас должно быть не менее [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 600#! и вы должны граничить с руинами, либо быть де-юре сюзереном руин, чтобы начать реконструкцию."
+ reconstruct_special_ruin_tooltip:0 "You must have at least [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 1000#! and either border the ruin or be the de jure liege to begin restoration."
  reconstruct_summerhall_tooltip:0 "Даже рабочие считают это место проклятым и отказываются здесь работать. Вы не сможете восстановить Летний замок."
  reconstruct_ruin_confirm_button:0 "Подтверждение"
 

@@ -6,7 +6,9 @@
  CHILDREN_NO_HOUSE: "#warning @warning_icon!Дети от этого брака не станут членами какого-либо [Concept( 'house', 'дома' )|E]#!"
  CONCUBINE_CHILDREN_HOUSE: "Дети от этого брака станут членами [houses|El] [MatchOffer.GetSecondaryActor.GetHouse.GetBaseName]"
  MARRIAGE_INFO: "[MarriageInfo.GetMarriageOrBetrothal]"
- MARRIAGE_CHILDREN_CHANCE_INFO: "[MatchOffer.GetChanceOfChildrenDesc]"
+ #AGOT MODIFIED
+ #MARRIAGE_CHILDREN_CHANCE_INFO: "[MatchOffer.GetChanceOfChildrenDesc]"
+ MARRIAGE_CHILDREN_CHANCE_INFO: "[MatchOffer.GetSecondaryActor.Custom2('agot_incompatible_biology_children_chance', MatchOffer.GetSecondaryRecipient)]"
  MARRIAGE_CHILDREN_HOUSE_INFO: "[MatchOffer.GetChildrensHouse]"
  MARRIAGE_IMPACT_ON_HOUSE_RELATION: "[Concept('house_relation', 'Отношения между домами')|E] [MarriageInfo.GetSecondaryActorHouse.GetName] и [MarriageInfo.GetSecondaryRecipientHouse.GetName] #P улучшатся#! на [MarriageInfo.GetHouseRelationChange|=+^%] ([MarriageInfo.GetNewHouseRelationLevel.GetName])."
  CONVERT_BETROTHAL_TO_MARRIAGE: "Превратить [Concept( 'betrothal', 'помолвку' )|E] в брак"
