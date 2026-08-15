@@ -6,7 +6,9 @@
  CHILDREN_NO_HOUSE:1 "#warning @warning_icon! Children of this marriage will not be born into a [house|E]#!"
  CONCUBINE_CHILDREN_HOUSE:1 "Children of this partnership will be born into [house|E] [MatchOffer.GetSecondaryActor.GetHouse.GetBaseName]"
  MARRIAGE_INFO:0 "[MarriageInfo.GetMarriageOrBetrothal]"
- MARRIAGE_CHILDREN_CHANCE_INFO:1 "[MatchOffer.GetChanceOfChildrenDesc]"
+ #AGOT MODIFIED
+ # MARRIAGE_CHILDREN_CHANCE_INFO:1 "[MatchOffer.GetChanceOfChildrenDesc]"
+ MARRIAGE_CHILDREN_CHANCE_INFO:1 "[MatchOffer.GetSecondaryActor.Custom2('agot_incompatible_biology_children_chance', MatchOffer.GetSecondaryRecipient)]"
  MARRIAGE_CHILDREN_HOUSE_INFO:1 "[MatchOffer.GetChildrensHouse]"
  MARRIAGE_IMPACT_ON_HOUSE_RELATION: "[MarriageInfo.GetSecondaryActorHouse.GetName]-[MarriageInfo.GetSecondaryRecipientHouse.GetName] [house_relation|E] will #P improve#! by [MarriageInfo.GetHouseRelationChange|=+^%] ([MarriageInfo.GetNewHouseRelationLevel.GetName])."
  CONVERT_BETROTHAL_TO_MARRIAGE:0 "Convert the [betrothal|E] into a marriage"

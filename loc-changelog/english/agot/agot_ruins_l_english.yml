@@ -35,6 +35,10 @@
  building_large_ruin_04:0 "Restored Large-Sized Ruins"
  building_large_ruin_04_desc:0 "Once a large-sized ruin swept aside into the annals of history, it has since been fully rebuilt, and perhaps even surpassed what it had originally been."
 
+ building_type_special_ruin_01:0 "Venerable Ruins"
+ building_special_ruin_01:0 "Abandoned Venerable Ruins"
+ building_special_ruin_01_desc:0 "A venerable ruin, which has been left to its fate among the wilderness."
+
  ### Ruin Afflictions
  # Salted Earth
  building_type_ruin_salted_earth_01:0 "Salted Earth"
@@ -72,6 +76,14 @@
  building_ruin_wildfire_02:0 "Subdued Outbreak"
  building_ruin_wildfire_02_desc:0 "Now that the wildfire has been contained, the process of reconstruction has become easier now that the enduring threat of all progress being burnt to embers is not nearly as worrying. However, the lands, and people, surrounding the now burnt ruins have taken a toll."
 
+ # Stone Men
+ building_type_ruin_stone_men_01:0 "Stone Men Presence"
+ building_ruin_stone_men_01:0 "Active Stone Men"
+ building_ruin_stone_men_01_desc:0 "Once inhabited by able-minded men and women, this place now only harbors those afflicted with greyscale, a disease which rots both mind and body. Although it is usual for them to keep to themselves, they still pose a danger, as one could contract the disease from them by mere touch."
+
+ building_ruin_stone_men_02:0 "Subdued Stone Men"
+ building_ruin_stone_men_02_desc:0 "Either through force, coercion, or other means, the plagued Stone Men of this location have been dealt with, and their absence now allows repopulation efforts to continue under safer conditions, though the risk of contagion may still remain."
+
  # Interaction
  agot_ruin_begin_reconstruction:0 "Restore Ruins"
  agot_ruin_begin_reconstruction_desc:0 "Take control of a reconstruction effort to bring back the former glory of the area."
@@ -95,12 +107,14 @@
  ruin_history_landless:0 ""
  ruin_history_generic:0 "The world is dotted with ruins, from Westeros to Essos, from Sothoryos to Ulthos; they are scattered across every land. Some were once great fortresses and castles, standing against enemies for thousands of years before falling to an unbeatable foe. Others were watchtowers and small holdfasts, broken by minor raids and lost to time. Many have had legends sung about them, while others lie forgotten and shunned by all singers.\n\nTo claim a destroyed county and begin reconstruction, go to the holding view and choose "Restore Ruins". When you own a ruins barony, you can upgrade the main ruins building to start restoration."
  reconstruct_ruin_confirm_title:0 "Begin Restoration?"
- reconstruct_small_ruin_confirm_desc:0 "Restoring ruins is is an arduous, expensive and sometimes dangerous endeavor. Are you sure you want to begin undertaking the restoration process?\n\nYour initial investment will require @gold_icon!#high 200#!."
- reconstruct_med_ruin_confirm_desc:0 "Restoring ruins is is an arduous, expensive and sometimes dangerous endeavor. Are you sure you want to begin undertaking the restoration process?\n\nYour initial investment will require @gold_icon!#high 400#!."
- reconstruct_large_ruin_confirm_desc:0 "Restoring ruins is is an arduous, expensive and sometimes dangerous endeavor. Are you sure you want to begin undertaking the restoration process?\n\nYour initial investment will require @gold_icon!#high 600#!."
- reconstruct_small_ruin_tooltip:0 "You must have at least @gold_icon!#high 200#! and either border the ruin or be the de jure liege to begin reconstruction."
- reconstruct_med_ruin_tooltip:0 "You must have at least @gold_icon!#high 400#! and either border the ruin or be the de jure liege to begin reconstruction."
- reconstruct_large_ruin_tooltip:0 "You must have at least @gold_icon!#high 600#! and either border the ruin or be the de jure liege to begin reconstruction."
+ reconstruct_small_ruin_confirm_desc:0 "Restoring ruins is an arduous, expensive, and sometimes dangerous endeavor. Are you sure you want to begin the restoration process?\n\nYour initial investment will require [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 200#!."
+ reconstruct_med_ruin_confirm_desc:0 "Restoring ruins is an arduous, expensive, and sometimes dangerous endeavor. Are you sure you want to begin the restoration process?\n\nYour initial investment will require [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 400#!."
+ reconstruct_large_ruin_confirm_desc:0 "Restoring ruins is an arduous, expensive, and sometimes dangerous endeavor. Are you sure you want to begin the restoration process?\n\nYour initial investment will require [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 600#!."
+ reconstruct_special_ruin_confirm_desc:0 "Restoring ruins is an arduous, expensive, and sometimes dangerous endeavor. Are you sure you want to begin the restoration process?\n\nYour initial investment will require [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 1000#!."
+ reconstruct_small_ruin_tooltip:0 "You must have at least [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 200#! and either border the ruin or be the de jure liege to begin restoration."
+ reconstruct_med_ruin_tooltip:0 "You must have at least [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 400#! and either border the ruin or be the de jure liege to begin restoration."
+ reconstruct_large_ruin_tooltip:0 "You must have at least [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 600#! and either border the ruin or be the de jure liege to begin restoration."
+ reconstruct_special_ruin_tooltip:0 "You must have at least [Select_CString(GetPlayer.HasTreasury, '@treasury_icon!', '@gold_icon!')]#high 1000#! and either border the ruin or be the de jure liege to begin restoration."
  reconstruct_summerhall_tooltip:0 "Even workers find this place to be ill-fated and refuse to work here. You will not be able to restore Summerhall."
  reconstruct_ruin_confirm_button:0 "Confirm"
 

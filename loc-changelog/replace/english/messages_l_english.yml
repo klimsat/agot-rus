@@ -514,9 +514,13 @@
  on_entered_diarchy.notification.vassal.desc.outro.travel:0 "due to [traveling|E] abroad"
 
  msg_end_diarchy_title:0 "$game_concept_diarchy$ Ended"
- msg_end_diarchy_effect:0 "I'm no longer [sharing_power|E] with my [LEFT_CHARACTER.Custom2('RelationToMeShort', RIGHT_CHARACTER.Self)], [RIGHT_CHARACTER.GetShortUIName]"
+ #AGOT Modified
+ #msg_end_diarchy_effect:0 "I'm no longer [sharing_power|E] with my [LEFT_CHARACTER.Custom2('RelationToMeShort', RIGHT_CHARACTER.Self)], [RIGHT_CHARACTER.GetShortUIName]"
+ msg_end_diarchy_effect:0 "[SelectLocalization(GetPlayer.GetGovernment.IsType('norvos_government'),'msg_end_diarchy_effect_norvos','msg_end_diarchy_effect_vanilla')]"
  on_left_diarchy.notification.vassal.t:0 "Liege's $game_concept_diarchy$ Ended"
- on_left_diarchy.notification.vassal.desc:0 "[ROOT.Char.GetShortUIName|U] is no longer [sharing_power|E] with [ROOT.Char.GetHerHisMy] [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('old_diarch'))], [old_diarch.GetShortUIName]"
+ #AGOT Modified
+ #on_left_diarchy.notification.vassal.desc:0 "[ROOT.Char.GetShortUIName|U] is no longer [sharing_power|E] with [ROOT.Char.GetHerHisMy] [ROOT.Char.Custom2('RelationToMeShort', SCOPE.sC('old_diarch'))], [old_diarch.GetShortUIName]"
+ on_left_diarchy.notification.vassal.desc:0 "[SelectLocalization(GetPlayer.GetGovernment.IsType('norvos_government'),'msg_end_diarchy_effect_norvos_vassal','on_left_diarchy.notification.vassal.desc_vanilla')]"
  
  msg_change_diarchy_type_title:0 "My $game_concept_diarchy$ Type Changed"
  msg_change_diarchy_type_effect:0 "My $OLD_TYPE$ changed into $NEW_TYPE$"
