@@ -291,13 +291,17 @@
 				#### MAIN PORTRAIT ###
 				vbox = {
 					layoutpolicy_horizontal = expanding
+					#AGOT Added
+					visible = "[IsCharacterNormal]"
 
 					###############
 					# Character box
 					widget = {
 						name = "main_characters"
 						layoutpolicy_horizontal = expanding
-						size = { 0 280 }
+						#AGOT Modified
+						# size = { 0 280 }
+						size = { 0 360 }
 
 						datacontext = "[GetIllustration( 'character_view_bg' )]"
 
@@ -312,8 +316,11 @@
 							name = "liege"
 							datacontext = "[LobbyView.GetSelectedPlayable.GetCharacter.GetLiege]"
 							visible = "[And(Character.IsValid, Not(Character.IsSelected))]"
-							parentanchor = bottom|left
-							position = { 5 -125 }
+							#AGOT Modified
+							# parentanchor = bottom|left
+							# position = { 5 -125 }
+							parentanchor = top|left
+							position = { 5 15 }
 
 							portrait_head_small = {
 
@@ -364,8 +371,11 @@
 							name = "heir"
 							datacontext = "[LobbyView.GetSelectedPlayable.GetCharacter.GetPlayerHeir]"
 							visible = "[Character.IsValid]"
-							parentanchor = bottom|left
-							position = { 5 -10 }
+							#AGOT Modified
+							# parentanchor = bottom|left
+							# position = { 5 -10 }
+							parentanchor = top|left
+							position = { 5 135 }
 
 							portrait_head_small = {
 								blockoverride "portrait_transformation"
@@ -396,15 +406,15 @@
 						portrait_body = {
 							name = "tutorial_highlight_main_character_button"
 							parentanchor = bottom|right
+							position = { -10 0 }
 							#AGOT Modified
-							# position = { -10 0 }
-							position = { -40 0 }
-							size = { 240 300 }
+							# size = { 240 300 }
+							size = { 300 300 }
 
 							blockoverride "portrait_button" {
 								#AGOT Modified
 								# size = { 280 421 }
-								size = { 450 421 }
+								size = { 450 441 }
 							}
 
 							blockoverride "portrait_glow" {}
@@ -440,6 +450,8 @@
 
 				vbox = {
 					layoutpolicy_horizontal = expanding
+					#AGOT Added
+					visible = "[IsCharacterNormal]"
 
 					vbox = {
 						layoutpolicy_horizontal = expanding
@@ -458,11 +470,13 @@
 								name = "character_name"
 								layoutpolicy_horizontal = expanding
 								#AGOT Modified
-								#raw_text = "[Character.GetUINameNotMeNoTooltip], #low [Character.GetAge]#!"
+								# raw_text = "[Character.GetUINameNotMeNoTooltip], #low [Character.GetAge]#!"
 								raw_text = "[AGOTGetLongUINameNoTooltip(Character)], #low [Character.GetAge]#!"
 								default_format = "#high"
 								using = Font_Size_Medium
-								fontsize_min = 14
+								#AGOT Modified
+								# fontsize_min = 14
+								fontsize_min = 13
 								align = left|nobaseline
 								max_width = 375
 
@@ -659,6 +673,8 @@
 						visible = "[Character.HasLandedTitles]"
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
+						#AGOT Added
+						margin_bottom = 10
 
 						widget = {
 							size = { 85 100 }
@@ -976,7 +992,8 @@
 			vbox = {
 				name = "select_and_customize_character"
 				datacontext = "[LobbyView.GetSelectedPlayable.GetCharacter]"
-				margin_top = 35
+				#AGOT Disabled
+				# margin_top = 35
 				spacing = 5
 
 				vbox = {

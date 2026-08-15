@@ -66,7 +66,12 @@ types CountyViewTypes
 					}
 
 					blockoverride "button_close" {
-						visible = no
+						name = "button_close"
+						shortcut = "close_window"
+						tooltip = "CLOSE_TOOLTIP"
+						onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
+						clicksound = "event:/SFX/UI/Generic/sfx_ui_generic_close"
+						using = Animation_ShowHide_Standard
 					}
 				}
 			}
@@ -90,7 +95,7 @@ types CountyViewTypes
 
 				button_primary_big = {
 					text = "reconstruct_ruin_confirm_button"
-
+					enabled = "[GetScriptedGui('can_reconstruct_ruin').IsValid(GuiScope.SetRoot(HoldingView.GetProvince.MakeScope).AddScope('actor', GetPlayer.MakeScope ).End)]"
 					onclick = "[GetScriptedGui('reconstruct_ruin').Execute( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).AddScope('actor', GetPlayer.MakeScope ).End)]"
 					onclick = "[GetVariableSystem.Toggle('window_ruins_confirm')]"
 				}

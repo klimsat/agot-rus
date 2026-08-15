@@ -4266,7 +4266,9 @@ types MyRealmWindow
 				{
 					visible = "[And( GuiLawGroup.IsAvailable, GuiLawGroup.GetLawGroup.HasFlag( 'admin_law' ) )]"
 
-					enabled = "[Not( Character.HasOverlord )]"
+					#AGOT Modified
+					#enabled = "[Not( Character.HasOverlord )]"
+					enabled = "[Character.IsIndependentRuler]"
 
 					tooltip_when_disabled = "MY_REALM_WINDOW_LAWS_PROVINCIAL_LAWS_DESC_DISABLED"
 				}
