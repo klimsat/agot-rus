@@ -38,20 +38,20 @@
  agot_braavos_pentos_treaty_is_active: "Вы не можете объявить войну пока действует [GetModifier('agot_pentos_braavos_treaty').GetNameWithTooltip]."
  agot_break_braavos_pentos_treaty_as_braavos_tooltip: "$agot_break_braavos_pentos_treaty_tooltip$"
 
- agot_overthrow_bearded_priests:0 "Overthrow the Bearded Priests"
- agot_overthrow_bearded_priests_desc:0 "The Bearded Priests are said to be the true rulers in Norvos. They exercise a shadowy sovereignty over the realm while the magisterial government is nothing more than a day-to-day figurehead who handles the menial tasks. It is time to regain control of the city from the Bearded Priests once and for all!"
+ agot_overthrow_bearded_priests: "Свергнуть Бородатых жрецов"
+ agot_overthrow_bearded_priests_desc: "Говорят, что истинными правителями Норвоса являются Бородатые жрецы. Они правят державой из тени, в то время как магистры обладают не более чем номинальной властью, занимаясь рутинными делами. Пришло время раз и навсегда вырвать контроль над городом у Бородатых жрецов!"
 
- norvos_diarch_attempt_to_overthrow_liege.tt.majority_powerful_conspirators_support:0 "You currently have [SCOPE.ScriptValue('norvos_pv_overthrow_tally_display_value')|0] eligible [powerful_vassal|E] or [powerful_family|E] supporters #weak (including yourself)#! in your conspiracy, out of a required [SCOPE.ScriptValue('norvos_pv_overthrow_threshold_display_value')|0]"
+ norvos_diarch_attempt_to_overthrow_liege.tt.majority_powerful_conspirators_support: "В настоящее время ваш заговор поддерживают [SCOPE.ScriptValue('norvos_pv_overthrow_tally_display_value')|0] подходящих сторонников из числа [Concept('powerful_vassal', 'могущественных вассалов')|E] или [Concept('powerful_family', 'могущественных семейств')|E] #weak (включая вас)#! из необходимых [SCOPE.ScriptValue('norvos_pv_overthrow_threshold_display_value')|0]"
 
- agot_attempt_to_overthrow_bearded_priests.tt.liege_accepts.keep_hof:0 "[liege.GetTitledFirstName] keeps [liege.GetHerHis] [head_of_faith|E] titles."
- agot_attempt_to_overthrow_bearded_priests.tt.liege_fights_and_loses.may_lose_everything:0 "[liege.GetTitledFirstName] will be forced to abdicate [liege.GetHerHis] [head_of_faith|E] titles"
+ agot_attempt_to_overthrow_bearded_priests.tt.liege_accepts.keep_hof: "[liege.GetTitledFirstName] сохраняет свои титулы [Concept('head_of_faith', 'главы конфессии')|E]."
+ agot_attempt_to_overthrow_bearded_priests.tt.liege_fights_and_loses.may_lose_everything: "[liege.GetTitledFirstName] будет [Select_CString(liege.IsFemale, 'вынуждена', 'вынужден' )] отказаться от своих титулов [Concept('head_of_faith', 'главы конфессии')|E]"
 
- agot_attempt_to_overthrow_bearded_priests.tt.liege_response:0 "Your [diarch|E] will either give in, try to beat you at the [skill|E] you choose, or have a proxy try to do so"
- agot_attempt_to_overthrow_bearded_priests.tt.liege_response.information_on_converting_councillors:0 "#WEAK [powerful_vassals|E] who support your coup will refuse to proxy for your [diarch|E]#!"
- agot_attempt_to_overthrow_bearded_priests.tt.convert_to_free_city:0 "Norvos will be converted to a [GetGovernment( 'administrative_government' ).GetName] realm"
- norvos_estate_tier_change_warning:0 "@warning_icon! #warning The [estate|E] of [usurper.GetName] and every character in your realm will become [duchy|e] [title_tier|e], which may result in changes to already built [domicile_buildings|E]!#!"
+ agot_attempt_to_overthrow_bearded_priests.tt.liege_response: "Ваш [Concept('diarch', 'диарх')|E] либо уступит, либо попытается обыграть вас в выбранном вами [Concept('skill', 'навыке')|E], либо поручит это сделать своему представителю"
+ agot_attempt_to_overthrow_bearded_priests.tt.liege_response.information_on_converting_councillors: "#WEAK [Concept('powerful_vassals', 'Могущественные вассалов')|E], поддерживающие ваш переворот, откажутся представлять интересы вашего [Concept('diarch', 'диарха')|E]#!"
+ agot_attempt_to_overthrow_bearded_priests.tt.convert_to_free_city: "Норвос станет #L [GetGovernment( 'administrative_government' ).GetAdjective|l]ой#! державой"
+ norvos_estate_tier_change_warning: "@warning_icon! #warning [Concept('estate', 'Имения')|E] персонажа [usurper.GetName] и всех прочих в вашей державе примут [Concept('title_tier', 'уровень')|E] [Concept('duchy', 'герцогства')|E], что может привести к изменениям в уже построенных [Concept('domicile_buildings', 'постройках в имении')|E]!#!"
 
- diarch_attempt_to_overthrow_liege.tt.win.norvos_diarch_captured:0 "#P Win#!: you [imprisoned|E] your [diarch|E]"
- diarch_attempt_to_overthrow_liege.tt.win.norvos_diarch_dies:0 "#P Win#!: your [diarch|E] [character_death_dies|E]"
- norvos_diarch_coup_liege_interaction.tt.promising_nothing:0 "Wants me to risk everything for nothing: $VALUE|+=0$"
- norvos_diarch_coup_liege_interaction.tt.has_eroded_bp_power:0 "Has noticeably eroded the Bearded Priests' [swing_scales_of_power|E] swing"
+ diarch_attempt_to_overthrow_liege.tt.win.norvos_diarch_captured: "#P Победа#!: вы [Concept('imprisoned', 'заключили')|E] [Concept('diarch', 'диарха')|E] в темницу"
+ diarch_attempt_to_overthrow_liege.tt.win.norvos_diarch_dies: "#P Победа#!: ваш [Concept('diarch', 'диарх')|E] [Concept('character_death_dies', 'умирает')|E]"
+ norvos_diarch_coup_liege_interaction.tt.promising_nothing: "Хочет риска всем ради ничего: $VALUE|+=0$"
+ norvos_diarch_coup_liege_interaction.tt.has_eroded_bp_power: "Заметное ослабление [Concept('swing_scales_of_power', 'изменения равновесия сил')|E] Бородатых жрецов"
