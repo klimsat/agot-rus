@@ -1,0 +1,1076 @@
+﻿############################################################
+################# AGOT DRAGON CUSTOMIZER ###################
+############################################################
+
+types DragonCustomizer
+{
+	# Dragon gene value slider row with buttons; 0-100
+	type agot_dc_slider_row = hbox
+	{
+		layoutpolicy_horizontal = expanding
+
+		text_single = {
+			autoresize = yes
+			min_width = 140
+			max_width = 140
+			fontsize_min = 13
+			align = left|nobaseline
+			block "label" {
+				text = ""
+			}
+		}
+
+		block "prefix_widget" {}
+
+		expand = {}
+		hbox = { layoutpolicy_horizontal = growing }
+
+		# Slider; hover to show cursor and value, click to select the displayed value
+		widget = {
+			size = { 170 30 }
+
+			progressbar = {
+				parentanchor = vcenter
+				size = { 170 12 }
+				min = 0
+				max = 1
+				progresstexture = "gfx/interface/colors/gold_darker.dds"
+				noprogresstexture = "gfx/interface/progressbars/progress_black.dds"
+				spriteType = Corneredtiled
+				spriteborder = { 2 2 }
+				block "track_value" {
+					value = 0
+				}
+				block "track_alpha" {}
+
+				icon = {
+					name = "overlay"
+					texture = "gfx/interface/progressbars/progress_overlay.dds"
+					spriteType = Corneredstretched
+					spriteborder = { 2 2 }
+					size = { 100% 100% }
+					alwaystransparent = yes
+				}
+			}
+
+			fixedgridbox = {
+				size = { 170 28 }
+				addcolumn = 1.6832
+				addrow = 28
+				flipdirection = yes
+				setitemsizefromcell = yes
+				datamodel = "[DataModelFirst(GetAllTraits, '(int32)101')]"
+
+				item = {
+					button = {
+						block "slider_datacontext" {
+							datacontext = "[GetScriptedGui('agot_dragon_skin_color_set')]"
+						}
+						block "interaction_enabled" {}
+						onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('value', MakeScopeValue(Divide_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel), '(CFixedPoint)100'))).End )]"
+
+						icon = {
+							name = "hover_cursor"
+							visible = no # Visibility controlled by hover location
+							size = { 100% 100% }
+							texture = "gfx/interface/colors/white.dds"
+							alpha = 0.8
+							alwaystransparent = yes
+							text_single = {
+								name = "hover_value"
+								default_format = "#high;glow_color:{0,0,0,1}"
+								text = "[PdxGuiWidget.GetIndexInDataModel]"
+								parentanchor = center
+								position = { -12 -14 }
+							}
+						}
+						onmousehierarchyenter = "[PdxGuiWidget.FindChild('hover_cursor').Show]"
+						onmousehierarchyleave = "[PdxGuiWidget.FindChild('hover_cursor').Hide]"
+					}
+				}
+			}
+		}
+
+		spacer = { size = { 8 0 } }
+
+		vbox = {
+			layoutpolicy_horizontal = fixed
+			layoutpolicy_vertical = expanding
+
+			text_single = {
+				block "value" {
+					text = ""
+				}
+				autoresize = yes
+				min_width = 40
+				max_width = 40
+				default_format = "#high"
+			}
+			expand = {}
+		}
+
+		button_round = {
+			size = { 28 28 }
+			block "minus" {}
+			button_ignore = none
+
+			button_minus_small = {
+				parentanchor = center
+				alwaystransparent = yes
+			}
+		}
+		button_round = {
+			size = { 28 28 }
+			block "plus" {}
+			button_ignore = none
+
+			button_plus_small = {
+				parentanchor = center
+				alwaystransparent = yes
+			}
+		}
+
+		button_replace = {
+			button_ignore = none
+			block "reset" {}
+		}
+	}
+
+	# Dragon gene template row with buttons
+	type agot_dc_template_row = hbox
+	{
+		layoutpolicy_horizontal = expanding
+
+		text_single = {
+			autoresize = yes
+			min_width = 150
+			max_width = 150
+			fontsize_min = 12
+			align = left|nobaseline
+			block "label" {
+				text = ""
+			}
+		}
+
+		expand = {}
+		hbox = { layoutpolicy_horizontal = growing }
+		expand = {}
+
+		vbox = {
+			layoutpolicy_horizontal = fixed
+			layoutpolicy_vertical = expanding
+
+			text_single = {
+				block "value" {
+					text = ""
+				}
+			}
+			expand = {}
+		}
+
+		expand = {}
+
+		button_round = {
+			size = { 28 28 }
+			block "minus" {}
+			button_ignore = none
+
+			button_select_arrow = {
+				parentanchor = center
+				alwaystransparent = yes
+				mirror = horizontal
+			}
+		}
+		button_round = {
+			size = { 28 28 }
+			block "plus" {}
+			button_ignore = none
+
+			button_select_arrow = {
+				parentanchor = center
+				alwaystransparent = yes
+			}
+		}
+
+		button_replace = {
+			button_ignore = none
+			block "reset" {}
+		}
+	}
+
+	# Color selection buttons which fill the grid; click actions and marker visibility are baked per column
+	type agot_dc_palette_cell = button
+	{
+		size = { 10 10 }
+
+		block "cell_onclick" {}
+
+		icon = {
+			name = "hover_cursor"
+			visible = no
+			size = { 100% 100% }
+			texture = "gfx/interface/colors/white.dds"
+			alpha = 0.35
+			alwaystransparent = yes
+		}
+		onmousehierarchyenter = "[PdxGuiWidget.FindChild('hover_cursor').Show]"
+		onmousehierarchyleave = "[PdxGuiWidget.FindChild('hover_cursor').Hide]"
+
+		# Selection marker for last clicked cell
+		icon = {
+			block "cell_visibility" {
+				visible = no
+			}
+			size = { 15 15 }
+			parentanchor = center
+			widgetanchor = center
+			texture = "gfx/interface/icons/color_picker.dds"
+			alwaystransparent = yes
+		}
+	}
+
+	# Saturation selection buttons which fill the bar
+	type agot_dc_saturation_cell = button
+	{
+		size = { 28 3.9604 }
+
+		block "cell_onclick" {}
+
+		icon = {
+			name = "hover_cursor"
+			visible = no
+			size = { 100% 100% }
+			texture = "gfx/interface/colors/white.dds"
+			alpha = 0.5
+			alwaystransparent = yes
+		}
+		onmousehierarchyenter = "[PdxGuiWidget.FindChild('hover_cursor').Show]"
+		onmousehierarchyleave = "[PdxGuiWidget.FindChild('hover_cursor').Hide]"
+
+		icon = {
+			block "cell_visibility" {
+				visible = no
+			}
+			size = { 100% 3 }
+			parentanchor = vcenter
+			widgetanchor = vcenter
+			texture = "gfx/interface/colors/white.dds"
+			alwaystransparent = yes
+		}
+	}
+
+	# Color picker hbox insert
+	type agot_dragon_customizer_color_picker = hbox
+	{
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+
+		expand = {}
+
+		widget = {
+			size = { 460 456 }
+
+			background = {
+				using = Background_Area_Dark
+				alpha = 1
+				margin_bottom = 7
+			}
+			background = {
+				using = Background_Frame
+				alpha = 1
+				margin = { -5 -5 }
+				margin_bottom = 3
+			}
+
+			vbox = {
+				hbox = {
+					parentanchor = top
+					margin_top = 10
+					spacing = 8
+					button_standard = {
+						name = "primary_channel_button"
+						size = { 78 30 }
+						onclick = "[GetVariableSystem.Set('agot_dc_channel', 'primary')]"
+						onclick = "[GetScriptedGui('agot_dc_select_channel').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('value', MakeScopeValue('(CFixedPoint)1')).End )]"
+						down = "[GetVariableSystem.HasValue('agot_dc_channel', 'primary')]"
+						text = agot_dc_channel_primary
+					}
+					button_standard = {
+						name = "secondary_channel_button"
+						size = { 78 30 }
+						onclick = "[GetVariableSystem.Set('agot_dc_channel', 'secondary')]"
+						onclick = "[GetScriptedGui('agot_dc_select_channel').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('value', MakeScopeValue('(CFixedPoint)2')).End )]"
+						down = "[GetVariableSystem.HasValue('agot_dc_channel', 'secondary')]"
+						text = agot_dc_channel_secondary
+					}
+					button_standard = {
+						name = "tertiary_channel_button"
+						size = { 78 30 }
+						onclick = "[GetVariableSystem.Set('agot_dc_channel', 'tertiary')]"
+						onclick = "[GetScriptedGui('agot_dc_select_channel').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('value', MakeScopeValue('(CFixedPoint)3')).End )]"
+						down = "[GetVariableSystem.HasValue('agot_dc_channel', 'tertiary')]"
+						text = agot_dc_channel_tertiary
+					}
+					button_standard = {
+						name = "eye_channel_button"
+						size = { 78 30 }
+						onclick = "[GetVariableSystem.Set('agot_dc_channel', 'eye')]"
+						onclick = "[GetScriptedGui('agot_dc_select_channel').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('value', MakeScopeValue('(CFixedPoint)4')).End )]"
+						down = "[GetVariableSystem.HasValue('agot_dc_channel', 'eye')]"
+						text = agot_dc_channel_eye
+					}
+					button_standard = {
+						name = "horn_channel_button"
+						size = { 78 30 }
+						onclick = "[GetVariableSystem.Set('agot_dc_channel', 'horn')]"
+						onclick = "[GetScriptedGui('agot_dc_select_channel').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('value', MakeScopeValue('(CFixedPoint)5')).End )]"
+						down = "[GetVariableSystem.HasValue('agot_dc_channel', 'horn')]"
+						text = agot_dc_channel_horn
+					}
+				}
+
+				# Color palette and saturation bar hbox
+				hbox = {
+					spacing = 8
+
+					widget = {
+						size = { 400 400 }
+
+						icon = { # Primary
+							size = { 100% 100% }
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'primary')]"
+							texture = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+							shaderfile = "gfx/FX/agot_customizer_gui.shader"
+							effectname = "AgotPaletteSaturation"
+							alpha = "[FixedPointToFloat(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_primary_color_saturation_svalue'), '(CFixedPoint)0.95'), '(CFixedPoint)0.05'))]"
+						}
+						icon = { # Secondary
+							size = { 100% 100% }
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'secondary')]"
+							texture = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+							shaderfile = "gfx/FX/agot_customizer_gui.shader"
+							effectname = "AgotPaletteSaturation"
+							alpha = "[FixedPointToFloat(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_secondary_saturation_svalue'), '(CFixedPoint)0.95'), '(CFixedPoint)0.05'))]"
+						}
+						icon = { # Tertiary
+							size = { 100% 100% }
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'tertiary')]"
+							texture = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+							shaderfile = "gfx/FX/agot_customizer_gui.shader"
+							effectname = "AgotPaletteSaturation"
+							alpha = "[FixedPointToFloat(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_tertiary_saturation_svalue'), '(CFixedPoint)0.95'), '(CFixedPoint)0.05'))]"
+						}
+						icon = { # Eyes
+							size = { 100% 100% }
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'eye')]"
+							texture = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+							shaderfile = "gfx/FX/agot_customizer_gui.shader"
+							effectname = "AgotPaletteSaturation"
+							alpha = "[FixedPointToFloat(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_eye_color_saturation_svalue'), '(CFixedPoint)0.95'), '(CFixedPoint)0.05'))]"
+						}
+						icon = { # Horns
+							size = { 100% 100% }
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'horn')]"
+							texture = "gfx/models/portraits/decals/color_palettes/dragon_skin_palette.dds"
+							shaderfile = "gfx/FX/agot_customizer_gui.shader"
+							effectname = "AgotPaletteSaturation"
+							alpha = "[FixedPointToFloat(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_horn_color_saturation_svalue'), '(CFixedPoint)0.95'), '(CFixedPoint)0.05'))]"
+						}
+
+						# 40 generated column strips: each bakes its hue index, the row datamodel supplies value
+						hbox = {
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)0')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('0_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('0_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)1')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('1_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('1_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)2')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('2_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('2_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)3')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('3_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('3_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)4')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('4_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('4_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)5')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('5_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('5_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)6')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('6_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('6_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)7')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('7_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('7_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)8')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('8_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('8_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)9')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('9_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('9_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)10')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('10_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('10_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)11')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('11_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('11_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)12')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('12_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('12_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)13')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('13_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('13_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)14')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('14_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('14_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)15')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('15_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('15_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)16')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('16_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('16_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)17')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('17_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('17_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)18')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('18_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('18_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)19')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('19_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('19_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)20')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('20_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('20_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)21')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('21_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('21_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)22')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('22_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('22_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)23')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('23_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('23_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)24')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('24_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('24_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)25')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('25_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('25_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)26')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('26_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('26_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)27')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('27_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('27_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)28')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('28_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('28_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)29')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('29_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('29_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)30')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('30_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('30_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)31')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('31_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('31_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)32')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('32_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('32_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)33')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('33_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('33_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)34')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('34_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('34_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)35')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('35_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('35_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)36')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('36_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('36_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)37')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('37_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('37_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)38')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('38_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('38_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+							vbox = {
+								datamodel = "[DataModelFirst(GetAllTraits, '(int32)40')]"
+								item = {
+									agot_dc_palette_cell = {
+										blockoverride "cell_onclick" {
+											onclick = "[GetScriptedGui('agot_dragon_set_color').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('hue_idx', MakeScopeValue('(CFixedPoint)39')).AddScope('val_idx', MakeScopeValue(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))).End )]"
+											onclick = "[GetVariableSystem.Set(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('39_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+										blockoverride "cell_visibility" {
+											visible = "[GetVariableSystem.HasValue(Concatenate('agot_dc_palette_', GetVariableSystem.Get('agot_dc_channel')), Concatenate('39_', GetString_CFixedPoint(IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel))))]"
+										}
+									}
+								}
+							}
+						}
+					}
+
+					# Saturation bar; renders the picked color from full saturation to greyscale
+					widget = {
+						size = { 28 400 }
+						icon = { # Primary
+							size = { 100% 100% }
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'primary')]"
+							texture = "gfx/interface/icons/agot_dc_palette_bar.dds"
+							framesize = { 2 256 }
+							frame = "[Add_int32(FixedPointToInt(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_primary_color_hue_svalue'), '(CFixedPoint)127'), '(CFixedPoint)0.5')), '(int32)1')]"
+							alpha = "[FixedPointToFloat(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_primary_color_value_svalue'), '(CFixedPoint)0.95'), '(CFixedPoint)0.05'))]"
+							shaderfile = "gfx/FX/agot_customizer_gui.shader"
+							effectname = "AgotSaturationBar"
+						}
+						icon = { # Secondary
+							size = { 100% 100% }
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'secondary')]"
+							texture = "gfx/interface/icons/agot_dc_palette_bar.dds"
+							framesize = { 2 256 }
+							frame = "[Add_int32(FixedPointToInt(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_secondary_hue_svalue'), '(CFixedPoint)127'), '(CFixedPoint)0.5')), '(int32)1')]"
+							alpha = "[FixedPointToFloat(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_secondary_value_svalue'), '(CFixedPoint)0.95'), '(CFixedPoint)0.05'))]"
+							shaderfile = "gfx/FX/agot_customizer_gui.shader"
+							effectname = "AgotSaturationBar"
+						}
+						icon = { # Tertiary
+							size = { 100% 100% }
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'tertiary')]"
+							texture = "gfx/interface/icons/agot_dc_palette_bar.dds"
+							framesize = { 2 256 }
+							frame = "[Add_int32(FixedPointToInt(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_tertiary_hue_svalue'), '(CFixedPoint)127'), '(CFixedPoint)0.5')), '(int32)1')]"
+							alpha = "[FixedPointToFloat(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_tertiary_value_svalue'), '(CFixedPoint)0.95'), '(CFixedPoint)0.05'))]"
+							shaderfile = "gfx/FX/agot_customizer_gui.shader"
+							effectname = "AgotSaturationBar"
+						}
+						icon = { # Eyes
+							size = { 100% 100% }
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'eye')]"
+							texture = "gfx/interface/icons/agot_dc_palette_bar.dds"
+							framesize = { 2 256 }
+							frame = "[Add_int32(FixedPointToInt(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_eye_color_hue_svalue'), '(CFixedPoint)127'), '(CFixedPoint)0.5')), '(int32)1')]"
+							alpha = "[FixedPointToFloat(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_eye_color_value_svalue'), '(CFixedPoint)0.95'), '(CFixedPoint)0.05'))]"
+							shaderfile = "gfx/FX/agot_customizer_gui.shader"
+							effectname = "AgotSaturationBar"
+						}
+						icon = { # Horns
+							size = { 100% 100% }
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'horn')]"
+							texture = "gfx/interface/icons/agot_dc_palette_bar.dds"
+							framesize = { 2 256 }
+							frame = "[Add_int32(FixedPointToInt(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_horn_color_hue_svalue'), '(CFixedPoint)127'), '(CFixedPoint)0.5')), '(int32)1')]"
+							alpha = "[FixedPointToFloat(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_horn_color_value_svalue'), '(CFixedPoint)0.95'), '(CFixedPoint)0.05'))]"
+							shaderfile = "gfx/FX/agot_customizer_gui.shader"
+							effectname = "AgotSaturationBar"
+						}
+
+						# Clickable items for the saturation bar; one strip per channel
+						vbox = { # Primary
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'primary')]"
+							datamodel = "[DataModelFirst(GetAllTraits, '(int32)101')]"
+							item = {
+								agot_dc_saturation_cell = {
+									blockoverride "cell_onclick" {
+										onclick = "[GetScriptedGui('agot_dragon_set_saturation').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('value', MakeScopeValue(Divide_CFixedPoint(Subtract_CFixedPoint('(CFixedPoint)100', IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel)), '(CFixedPoint)100'))).End )]"
+									}
+									blockoverride "cell_visibility" {
+										visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, Subtract_int32('(int32)100', FixedPointToInt(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_primary_color_saturation_svalue'), '(CFixedPoint)100'), '(CFixedPoint)0.5'))))]"
+									}
+								}
+							}
+						}
+						vbox = { # Secondary
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'secondary')]"
+							datamodel = "[DataModelFirst(GetAllTraits, '(int32)101')]"
+							item = {
+								agot_dc_saturation_cell = {
+									blockoverride "cell_onclick" {
+										onclick = "[GetScriptedGui('agot_dragon_set_saturation').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('value', MakeScopeValue(Divide_CFixedPoint(Subtract_CFixedPoint('(CFixedPoint)100', IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel)), '(CFixedPoint)100'))).End )]"
+									}
+									blockoverride "cell_visibility" {
+										visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, Subtract_int32('(int32)100', FixedPointToInt(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_secondary_saturation_svalue'), '(CFixedPoint)100'), '(CFixedPoint)0.5'))))]"
+									}
+								}
+							}
+						}
+						vbox = { # Tertiary
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'tertiary')]"
+							datamodel = "[DataModelFirst(GetAllTraits, '(int32)101')]"
+							item = {
+								agot_dc_saturation_cell = {
+									blockoverride "cell_onclick" {
+										onclick = "[GetScriptedGui('agot_dragon_set_saturation').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('value', MakeScopeValue(Divide_CFixedPoint(Subtract_CFixedPoint('(CFixedPoint)100', IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel)), '(CFixedPoint)100'))).End )]"
+									}
+									blockoverride "cell_visibility" {
+										visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, Subtract_int32('(int32)100', FixedPointToInt(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_tertiary_saturation_svalue'), '(CFixedPoint)100'), '(CFixedPoint)0.5'))))]"
+									}
+								}
+							}
+						}
+						vbox = { # Eyes
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'eye')]"
+							datamodel = "[DataModelFirst(GetAllTraits, '(int32)101')]"
+							item = {
+								agot_dc_saturation_cell = {
+									blockoverride "cell_onclick" {
+										onclick = "[GetScriptedGui('agot_dragon_set_saturation').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('value', MakeScopeValue(Divide_CFixedPoint(Subtract_CFixedPoint('(CFixedPoint)100', IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel)), '(CFixedPoint)100'))).End )]"
+									}
+									blockoverride "cell_visibility" {
+										visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, Subtract_int32('(int32)100', FixedPointToInt(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_eye_color_saturation_svalue'), '(CFixedPoint)100'), '(CFixedPoint)0.5'))))]"
+									}
+								}
+							}
+						}
+						vbox = { # Horns
+							visible = "[GetVariableSystem.HasValue('agot_dc_channel', 'horn')]"
+							datamodel = "[DataModelFirst(GetAllTraits, '(int32)101')]"
+							item = {
+								agot_dc_saturation_cell = {
+									blockoverride "cell_onclick" {
+										onclick = "[GetScriptedGui('agot_dragon_set_saturation').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('value', MakeScopeValue(Divide_CFixedPoint(Subtract_CFixedPoint('(CFixedPoint)100', IntToFixedPoint(PdxGuiWidget.GetIndexInDataModel)), '(CFixedPoint)100'))).End )]"
+									}
+									blockoverride "cell_visibility" {
+										visible = "[EqualTo_int32(PdxGuiWidget.GetIndexInDataModel, Subtract_int32('(int32)100', FixedPointToInt(Add_CFixedPoint(Multiply_CFixedPoint(Scope.Var('editing_dragon').ScriptValue('gene_dragon_horn_color_saturation_svalue'), '(CFixedPoint)100'), '(CFixedPoint)0.5'))))]"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		expand = {}
+	}
+}
