@@ -31,6 +31,7 @@
  culture_parameter_hunts_cd_ten_percent_quicker:0 "Delay between [GetActivityType('activity_hunt').GetName] [activities|E]: #P -10% #!"
  culture_parameter_more_likely_to_steal_artifacts:0 "Members of this culture are more likely to steal [artifacts|E] in battles or raids"
  culture_parameter_immune_to_all_diseases_except_greyscale:0 "Members of this culture are immune to all diseases except for [GetTrait('greyscale').GetName( GetNullCharacter )], which they are always born with"
+ culture_parameter_malformed_infants_more_common:0 "Children are more likely to be born with #N negative#! [congenital|E] traits"
 
  #Child Traits
  culture_parameter_bossy_trait_more_common:0 "[children|E] are more likely to get the [GetTrait('bossy').GetName( GetNullCharacter )] [trait|E]"
@@ -48,6 +49,9 @@
  culture_parameter_possessed_trait_more_common:0 "The [GetTrait('possessed_1').GetName( GetNullCharacter )] [trait|E] is more common"
  culture_parameter_deceitful_trait_more_common:0 "The [GetTrait('deceitful').GetName( GetNullCharacter )] [trait|E] is more common"
  culture_parameter_gregarious_trait_more_common:0 "The [GetTrait('gregarious').GetName( GetNullCharacter )] [trait|E] is more common"
+ culture_parameter_lustful_trait_more_common:0 "The [GetTrait('lustful').GetName( GetNullCharacter )] [trait|E] is more common"
+ culture_parameter_eccentric_trait_more_common:0 "The [GetTrait('eccentric').GetName( GetNullCharacter )] [trait|E] is more common"
+ culture_parameter_sadistic_trait_more_common:0 "The [GetTrait('sadistic').GetName( GetNullCharacter )] [trait|E] is more common"
 
  #Commander Traits
  culture_parameter_organizer_trait_more_common:0 "The [GetTrait('organizer').GetName( GetNullCharacter )] [commander_trait|E] is more common"
@@ -59,6 +63,7 @@
  culture_parameter_forder_trait_more_common:0 "The [GetTrait('forder').GetName( GetNullCharacter )] [commander_trait|E] is more common"
  culture_parameter_open_terrain_expert_trait_more_common:0 "The [GetTrait('open_terrain_expert').GetName( GetNullCharacter )] [commander_trait|E] is more common"
  culture_parameter_reaver_trait_more_common:0 "The [GetTrait('reaver').GetName( GetNullCharacter )] [commander_trait|E] is more common"
+ culture_parameter_unyielding_defender_trait_more_common:0 "The [GetTrait('unyielding_defender').GetName( GetNullCharacter )] [commander_trait|E] is more common"
 
  #Terrain Bonuses
  culture_parameter_wetlands_trait_bonuses:0 "Some [commander_traits|E] and [personality_traits|E] have extra Wetlands bonuses"
@@ -66,6 +71,9 @@
  culture_parameter_steppe_trait_bonuses:0 "Some [commander_traits|E] and [personality_traits|E] have extra Steppe bonuses"
  culture_parameter_urban_trait_bonuses:0 "Some [commander_traits|E] and [personality_traits|E] have extra Urban bonuses"
  culture_parameter_bog_hunt_success_chance:0 "Increased [hunt_success_chance|E] in [GetTerrain( 'the_bog' ).GetName]"
+
+ #Misc Trait Bonuses
+ culture_parameter_raid_bonuses:0 "Some [commander_traits|E] and [personality_traits|E] have extra raiding bonuses"
 
  #Trait Valued
  culture_parameter_shrewd_trait_more_valued:0 "The [GetTrait('shrewd').GetName( GetNullCharacter )] [trait|E] is more valued"
@@ -97,6 +105,10 @@
  culture_parameter_eunuch_trait_is_looked_down_upon:0 "The [GetTrait('eunuch_1').GetName(GetNullCharacter)] [traits|E] and [GetTrait('beardless_eunuch').GetName(GetNullCharacter)] are looked down upon"
  culture_parameter_impatient_trait_is_looked_down_upon:0 "The [GetTrait('impatient').GetName(GetNullCharacter)] [trait|E] is looked down upon"
  culture_parameter_sadistic_trait_looked_down_upon:0 "The [GetTrait('sadistic').GetName(GetNullCharacter)] [trait|E] is looked down upon"
+ culture_parameter_arrogant_trait_looked_down_upon:0 "The [GetTrait('arrogant').GetName(GetNullCharacter)] [trait|E] is looked down upon"
+ culture_parameter_forgiving_trait_looked_down_upon:0 "The [GetTrait('forgiving').GetName(GetNullCharacter)] [trait|E] is looked down upon"
+ culture_parameter_greedy_trait_looked_down_upon:0 "The [GetTrait('greedy').GetName(GetNullCharacter)] [trait|E] is looked down upon"
+ culture_parameter_trusting_trait_looked_down_upon:0 "The [GetTrait('trusting').GetName(GetNullCharacter)] [trait|E] is looked down upon"
 
  #Wanderers Extra Skills
  culture_parameter_wanderers_gain_extra_learning_skills:0 "[wanderers|E] gain extra knowledge skills over time, such as [learning|E] or [lifestyle_traits|E]"
@@ -130,6 +142,7 @@
  culture_parameter_better_watchtower_bonuses:0 "The #V $building_type_watchtowers_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_better_monastic_school_bonuses:0 "The #V $building_type_monastic_schools_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
  culture_parameter_better_scriptorium_bonuses:0 "The #V $building_type_scriptorium_01$#! line of [buildings|E] have additional bonuses in [counties|E] of this [culture|E]"
+ watermills_without_innovations_unlock_name:0 "#V $tradition_agot_rivermen_main_name$#!"
 
  #Naming
  culture_parameter_uses_generic_milk_names:0 "Characters of this culture use [agot_milk_names|E] for newborns"
@@ -405,7 +418,7 @@
  tradition_agot_ibbatese_name:0 "Upon Frozen Heights"
  tradition_agot_ibbatese_desc:0 "#italic “The Ibbenese of the woods and mountains have even less love of strangers than their cousins by the sea and seldom speak any tongue but their own. Foresters, goatherds, and miners, they make their homes in caves or houses of grey stone dug into the earth and roofed with slate or thatch.”#!"
 
- tradition_agot_sarese_name:0 "Upon Chiled Shores"
+ tradition_agot_sarese_name:0 "Upon Chilled Shores"
  tradition_agot_sarese_desc:0 "#italic “Ib Sar, its only town, was originally a place of exile and punishment where the Ibbenese of old sent their most notorious criminals, often after mutilating them so they might never return to Ib itself.”#!"
 
  tradition_agot_valemen_main_name:0 "Chivalry of Falcons"
