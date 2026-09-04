@@ -1929,34 +1929,3 @@ types CharacterWindow
 		}
 	}
 }
-
-#####################
-# DRAGONS TEMPLATES #
-#####################
-template visible_if_dragon {
-	visible = "[IsCharacterDragon]"
-}
-
-template visible_if_dragon_normal {
-	visible = "[GetScriptedGui('normal_size_dragon').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-}
-
-template visible_if_dragon_small {
-	visible = "[GetScriptedGui('small_size_dragon').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-}
-
-template visible_if_not_dragon {
-	visible = "[Not(IsCharacterDragon)]"
-}
-
-template visible_if_dragonrider_flight {
-	visible = "[GetScriptedGui('dragonrider_flight').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-}
-
-template visible_if_dragon_land {
-	visible = "[GetScriptedGui('dragon_land').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-}
-
-template visible_if_not_dragon_or_riding_dragon {
-	visible = "[GetScriptedGui('not_dragon_or_dragonrider').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
-}

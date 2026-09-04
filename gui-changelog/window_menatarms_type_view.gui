@@ -174,7 +174,9 @@ window = {
 				duration = 0.2
 
 				animation = {
-					size = { 0 540 }
+					#AGOT Modified
+					# size = { 0 540 }
+					size = { 0 575 }
 					bezier = { 0 0.5 0.5 1 }
 				}
 
@@ -238,6 +240,8 @@ window = {
 					spacer = {
 						size = { 10 46 }
 					}
+					#AGOT Added
+					expand = {}
 
 					text_label_center = {
 						visible = "[And( Not(GetPlayer.GetGovernment.IsType( 'landless_adventurer_government' )), Not( MenAtArmsTypeView.IsUsingHorde ))]"
@@ -627,8 +631,12 @@ types MenAtArms
 				visible = "[MenAtArmsType.FightsInMainPhase]"
 				layoutpolicy_horizontal = growing
 				autoresize = yes
-				max_width = 320
+				#AGOT Modified
+				# max_width = 320
+				max_width = 400
 				text = "MAA_COUNTERS_LABEL"
+				#AGOT Added
+				fontsize = 13
 			}
 			expand = {}
 		}
@@ -642,8 +650,7 @@ types MenAtArms
 			visible = "[Not(IsDataModelEmpty(MenAtArmsType.GetTerrainModifiers))]"
 			layoutpolicy_horizontal = expanding
 
-			#AGOT Disabled
-			# vbox = {
+			vbox = {
 				spacing = 5
 
 				text_single = {
@@ -701,30 +708,31 @@ types MenAtArms
 				}
 				#AGOT Added
 				agot_secondary_menatarms_terrain_grid = {}
-			#AGOT Disabled
-			# }
+			}
 
 			expand = {}
 
-			#AGOT Disabled
-			# hbox = {
-				# layoutpolicy_vertical = expanding
-				# spacing = 5
+			hbox = {
+				layoutpolicy_vertical = expanding
+				spacing = 5
+				#AGOT Added
+				layoutpolicy_horizontal = expanding
+				margin_top = 4
+				margin_bottom = -4
 
 				text_single = {
 					name = "winter_label"
 					layoutpolicy_horizontal = expanding
 					text = "REGIMENT_WINTER_EFFECT_HEADER"
 					visible = "[MenAtArmsType.HasWinterHarshModifier]"
-					#AGOT Disabled
-					# max_width = 150
+					max_width = 150
 				}
 
 				hbox = {
 					layoutpolicy_horizontal = expanding
 					visible = "[MenAtArmsType.HasWinterHarshModifier]"
 					#AGOT Added
-					margin_bottom = -5
+					margin_left = -45
 
 					maa_winter_effects_positive_icon = { # Positive Harsh Winter Effects
 						blockoverride "maa_has_winter_modifier" {
@@ -773,8 +781,7 @@ types MenAtArms
 				}
 
 				expand = {}
-			#AGOT Disabled
-			# }
+			}
 		}
 
 		text_single = {
@@ -841,10 +848,13 @@ types MenAtArms
 
 			text_multi = {
 				layoutpolicy_horizontal = expanding
-				size = { 0 75 }
+				# size = { 0 75 }
+				size = { 0 110 }
 				text = "[MenAtArmsType.GetFlavorString]"
 				margin = { 15 5 }
 				max_width = 430
+				#AGOT Added
+				fontsize = 14
 			}
 
 			expand = {}

@@ -10,7 +10,7 @@ types PortraitTypes
 		size = { 80 100 }
 		using = portrait_base
 
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 		block "portrait_texture_dragon"
 		{
 			portrait_texture = "[Character.GetPortrait('environment_dragonpit_portrait', 'camera_dragon_head', 'dragon_head', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
@@ -44,7 +44,7 @@ types PortraitTypes
 		size = { 80 100 }
 		using = portrait_base
 
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 		block "portrait_texture_dragon"
 		{
 			portrait_texture = "[Character.GetPortrait('environment_dragonpit_portrait', 'camera_dragon_head', 'dragon_head', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
@@ -75,7 +75,7 @@ types PortraitTypes
 
 	type agot_dragons_portrait_head = portrait_button
 	{ # Courtiers list, etc.
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 		parentanchor = bottom|hcenter
 		size = { 100 125 }
 		using = portrait_base
@@ -107,7 +107,7 @@ types PortraitTypes
 
 	type agot_dragon_memory_window_portrait_button = portrait_button
 	{
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 		layoutpolicy_horizontal = expanding
 		block "portrait_size"
 		{
@@ -129,7 +129,7 @@ types PortraitTypes
 
 	type agot_dragons_portrait_shoulders = portrait_button
 	{ # Schemes, Murder Scheme, Dragon Taming Scheme, etc.
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 		parentanchor = bottom|hcenter
 		size = { 145 175 }
 		using = portrait_base
@@ -162,7 +162,7 @@ types PortraitTypes
 
 	type agot_dragons_portrait_torso = portrait_button
 	{ #Tooltips (When highlighting dragons name in a tooltip for example)
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 		parentanchor = bottom|hcenter
 		size = { 100% 200 }
 		position = { 0 0 }
@@ -193,7 +193,7 @@ types PortraitTypes
 
 	type agot_dragons_portrait_torso_tooltip = portrait_button
 	{ # Tooltips - Made for Commander List Dragonrider/Stat Tooltip
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 		parentanchor = bottom|hcenter
 		size = { 100% 200 }
 		position = { 0 0 }
@@ -209,7 +209,7 @@ types PortraitTypes
 
 	type agot_dragons_portrait_body = portrait_button
 	{ # Debug using "gui.CreateWidget gui/debug/test_gui.gui test_window"
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 		parentanchor = bottom|hcenter
 		size = { 240 330 }
 		using = portrait_base
@@ -247,7 +247,7 @@ types PortraitTypes
 		parentanchor = bottom|hcenter
 		size = { 432 594 }
 		using = portrait_base
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 
 		block "portrait_texture_dragon"
 		{
@@ -284,7 +284,7 @@ types PortraitTypes
 		parentanchor = bottom|hcenter
 		size = { 440 330 }
 		using = portrait_base
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 
 		block "portrait_texture_dragon"
 		{
@@ -319,7 +319,7 @@ types PortraitTypes
 		parentanchor = bottom|hcenter
 		size = { 1200 1000 }
 		using = portrait_base
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 
 		block "portrait_texture_dragon"
 		{
@@ -357,7 +357,7 @@ types PortraitTypes
 		position = { -30 30 }
 		parentanchor = bottom|hcenter
 		using = portrait_base
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 
 		block "portrait_texture_dragon"
 		{
@@ -393,7 +393,7 @@ types PortraitTypes
 		position = { 0 10 }
 		parentanchor = bottom|hcenter
 		using = portrait_base
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 
 		block "portrait_texture_dragon"
 		{
@@ -427,7 +427,7 @@ types PortraitTypes
 	{
 		size = { 1200 580 }
 		using = portrait_base
-		using = visible_if_dragon_normal
+		visible = "[GetScriptedGui('normal_size_dragon').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 		parentanchor = hcenter|bottom
 
 		portrait_texture = "[Character.GetAnimatedPortrait('environment_event_standard', 'environment_event_standard', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
@@ -451,7 +451,7 @@ types PortraitTypes
 		position = { 0 -50 }
 		#scale = { 0.5 0.5 }
 		using = portrait_base
-		using = visible_if_dragon_small
+		visible = "[GetScriptedGui('small_size_dragon').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 		parentanchor = hcenter|bottom
 
 		portrait_texture = "[Character.GetAnimatedPortrait('environment_event_standard', 'environment_event_standard', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
@@ -471,7 +471,7 @@ types PortraitTypes
 	{
 		size = { 580 490 }
 		using = portrait_base
-		using = visible_if_dragonrider_flight
+		visible = "[GetScriptedGui('dragonrider_flight').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 		parentanchor = hcenter|bottom
 
 		block "portrait_texture_dragon"
@@ -490,7 +490,7 @@ types PortraitTypes
 	{
 		size = { 900 490 }
 		using = portrait_base
-		using = visible_if_dragon_land
+		visible = "[GetScriptedGui('dragon_land').IsShown(GuiScope.SetRoot(Character.MakeScope).End)]"
 		parentanchor = hcenter|bottom
 
 		block "portrait_texture_dragon"
@@ -508,7 +508,7 @@ types PortraitTypes
 	type agot_dragons_portrait_event_small_button = portrait_button
 	{
 		size = { 100% 100% }
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 		using = portrait_base
 		blockoverride "portrait_glows" {}
 		block "portrait_texture_dragon"
@@ -541,7 +541,7 @@ types PortraitTypes
 	{ #AGOT WIP - NOT DONE YET
 		size = { 1150 900 }
 		using = portrait_base
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 		parentanchor = hcenter|bottom
 
 		block "portrait_texture_dragon"
@@ -569,7 +569,7 @@ types PortraitTypes
 			position = { 0 -15 }
 			size = { 90 112 }
 			using = portrait_base
-			using = visible_if_dragon
+			visible = "[IsCharacterDragon]"
 			block "portrait_texture_dragon"
 			{
 				portrait_texture = "[Character.GetPortrait('environment_dragonpit_portrait', 'camera_dragon_head', 'dragon_head', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
@@ -601,7 +601,7 @@ types PortraitTypes
 
 	type agot_dragons_portrait_council_button = portrait_button
 	{
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 		block "portrait_size"
 		{
 			size = { 260 285 }
@@ -623,7 +623,7 @@ types PortraitTypes
 
 	type agot_dragons_portrait_regency_button = portrait_button
 	{
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 		position = { 0 4 }
 		block "portrait_size"
 		{
@@ -650,7 +650,7 @@ types PortraitTypes
 		size = { 420 632 }
 		parentanchor = bottom|hcenter
 		using = portrait_base
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 
 		block "portrait_texture_dragon"
 		{

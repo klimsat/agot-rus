@@ -25,7 +25,7 @@ types LedgerTypes
 	type agot_dragon_portrait_ledger_tiny = portrait_button
 	{
 		parentanchor = bottom|hcenter
-		using = visible_if_dragon
+		visible = "[IsCharacterDragon]"
 		size = { 100% 45 }
 		position = { 0 -3 }
 		using = portrait_base
@@ -34,17 +34,16 @@ types LedgerTypes
 		effectname = "NoHighlight"
 
 		block "portrait_button" {}
-		visible = "[IsCharacterDragon]"
 	}
 
 	type agot_dragon_portrait_frame_ledger = portrait_button
 	{
 		parentanchor = bottom|hcenter
+		visible = "[IsCharacterDragon]"
 		size = { 68 68 }
 		position = { 0 6 }
 		using = portrait_base
-		using = visible_if_dragon
-		
+
 		block "portrait_texture"
 		{
 			portrait_texture = "[Character.GetPortrait('environment_dragonpit_portrait', 'camera_dragon_head', 'dragon_head', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"

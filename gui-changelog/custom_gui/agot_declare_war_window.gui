@@ -7,13 +7,12 @@ types DeclareWarTypes
 	type agot_rv_comparison_text = text_multi
 	{
 		name = "rv_comparison_text"
-		margin_top = 16
 		datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"
 		visible = "[Or(EqualTo_string(Localize('RESCUE_WAR_NAME'),CasusBelliItem.GetLabel),EqualTo_string(Localize('REVENGE_WAR_NAME'),CasusBelliItem.GetLabel))]"
 		text = "[Localize('rv_liege_warning')]"
 		default_format = "#warning"
 		autoresize = yes
-		max_width = 210
+		max_width = 200
 		align = center
 	}
 
@@ -264,7 +263,7 @@ types DeclareWarTypes
 	type agot_rv_declare_war_send_button = button_standard_big
 	{
 		name = "rv_send_button"
-		enabled = "[GetScriptedGui('rv_can_send_rescue_war').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+		enabled = "[And(DeclareWarInteractionWindow.CanSend, GetScriptedGui('rv_can_send_rescue_war').IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End))]"
 		onclick = "[DeclareWarInteractionWindow.Send]"
 
 		datacontext = "[DeclareWarInteractionWindow.GetSelectedCasusBelliItem]"

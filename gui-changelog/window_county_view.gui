@@ -1860,7 +1860,9 @@ window = {
 											name = "toggle_find_vassal"
 											datacontext = "[HoldingView.GetTitle]"
 											datacontext = "[GetPlayer]"
-											visible = "[And( And( ObjectsEqual( Title.GetHolder, Character.Self ), Title.CanUseFindVassal( Character.Self ) ), Not( Title.IsLeasedOut ) )]"
+											#AGOT Modified
+											# visible = "[And( And( ObjectsEqual( Title.GetHolder, Character.Self ), Title.CanUseFindVassal( Character.Self ) ), Not( Title.IsLeasedOut ) )]"
+											visible = "[And(And(And(ObjectsEqual(Title.GetHolder, Character.Self), Title.CanUseFindVassal(Character.Self)), Not(Title.IsLeasedOut)), GetScriptedGui('agot_human_held_ruin_county').IsShown(GuiScope.SetRoot(HoldingView.GetProvince.MakeScope).End))]"
 
 											onclick = "[HoldingView.ToggleFindVassalListWindow]"
 

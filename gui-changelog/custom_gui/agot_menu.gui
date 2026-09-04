@@ -14,8 +14,8 @@ types Main
 
 		state = {
 			name = _show
-			on_start = "[PdxGuiWidget.AccessChild('letter_paper').TriggerAnimation('show')]"
-			on_start = "[PdxGuiWidget.AccessChild('letter_content').TriggerAnimation('show')]"
+			on_finish = "[PdxGuiWidget.AccessChild('letter_paper').TriggerAnimation('show')]"
+			on_finish = "[PdxGuiWidget.AccessChild('letter_content').TriggerAnimation('show')]"
 
 			start_sound = {
 				soundeffect = "event:/SFX/UI/Frontend/sfx_ui_frontend_window_show"
@@ -25,8 +25,8 @@ types Main
 		state = {
 			name = _hide
 			duration = 1
-			on_start = "[PdxGuiWidget.AccessChild('letter_paper').TriggerAnimation('hide')]"
-			on_start = "[PdxGuiWidget.AccessChild('letter_content').TriggerAnimation('hide')]"
+			on_finish = "[PdxGuiWidget.AccessChild('letter_paper').TriggerAnimation('hide')]"
+			on_finish = "[PdxGuiWidget.AccessChild('letter_content').TriggerAnimation('hide')]"
 		}
 
 		state = {
@@ -239,13 +239,13 @@ template Version_Warning
 	state = {
 		name = fail
 		next = _show
-		on_start = "[GetVariableSystem.Set('inconsistent_game_version', 'true')]"
+		on_finish = "[GetVariableSystem.Set('inconsistent_game_version', 'true')]"
 		trigger_when = "[Not(ObjectsEqual(GetGameVersionInfoShort, Localize('AGOT_REQUIRED_VERSION')))]"
 	}
 	state = {
 		name = pass
 		next = _show
-		on_start = "[GetVariableSystem.Set('inconsistent_game_version', 'false')]"
+		on_finish = "[GetVariableSystem.Set('inconsistent_game_version', 'false')]"
 		trigger_when = "[ObjectsEqual(GetGameVersionInfoShort, Localize('AGOT_REQUIRED_VERSION'))]"
 	}
 	state = {

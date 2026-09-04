@@ -6,6 +6,7 @@
 		allow_outside = yes
 		movable = yes
 		parentanchor = center
+		layer = middle # needs to be above windows_layer but below confirmation layer and top layer
 		size = { 0 0 }
 
 		visible = "[And( Not( IsPauseMenuShown ), And(Or(Not(IsObserver), GetPlayer.IsValid), IsDefaultGUIMode))]"
@@ -25,21 +26,19 @@
 
 		visible = "[GetScriptedGui('agot_artifact_market_window').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 
-
-
 		state = {
 			name = _show
 			using = Animation_FadeIn_Quick
 			using = Sound_WindowShow_Standard
 
-			on_start = "[GetScriptedGui('agot_get_market_artifacts').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+			on_finish = "[GetScriptedGui('agot_get_market_artifacts').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 		}
 		state = {
 			name = _hide
 			using = Animation_FadeOut_Quick
 			using = Sound_WindowHide_Standard
 
-			on_start = "[GetScriptedGui('agot_clear_artifact_market_window_variables').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+			on_finish = "[GetScriptedGui('agot_clear_artifact_market_window_variables').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 		}
 
 		vbox = {
@@ -115,10 +114,8 @@
 					hbox = {
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
-
 					}
 				}
-
 
 				vbox = {
 					layoutpolicy_horizontal = expanding
@@ -253,7 +250,6 @@
 						size = { 0 26 }
 					}
 				}
-
 			}
 			hbox = {
 				layoutpolicy_horizontal = expanding
@@ -282,7 +278,6 @@
 					onclick = "[GetScriptedGui('agot_get_market_artifacts').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 				}
 			}
-
 
 			hbox = {
 				layoutpolicy_horizontal = expanding
@@ -315,7 +310,7 @@
 			name = _hide
 			using = Animation_FadeOut_Quick
 			using = Sound_WindowHide_Standard
-			on_start = "[GetScriptedGui('agot_clear_artifact_sell_window_variables').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+			on_finish = "[GetScriptedGui('agot_clear_artifact_sell_window_variables').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 		}
 		vbox = {
 			using = Window_Margins
@@ -396,8 +391,6 @@
 	type agot_artifact_info_button = button_standard_hover {
 		size = { 100% 100% }
 
-
-
 		block "artifact_select" {
 			down = "[GetScriptedGui('agot_select_sell_artifact').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('agot_selected_artifact', Scope.Artifact.MakeScope).End )]"
 			onclick = "[GetScriptedGui('agot_select_sell_artifact').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('agot_selected_artifact', Scope.Artifact.MakeScope).End )]"
@@ -441,8 +434,6 @@
 						using = Font_Size_Small
 						align = right|nobaseline
 						autoresize = yes
-
-
 						using = tooltip_ne
 						tooltipwidget = {
 							widget_value_breakdown_tooltip = {
@@ -480,8 +471,6 @@
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 
-
-
 			expand = {}
 
 			hbox = {
@@ -495,8 +484,6 @@
 				}
 
 				expand = {}
-
-
 			}
 
 			hbox = {
@@ -512,7 +499,6 @@
 				}
 
 				expand = {}
-
 			}
 
 
@@ -544,18 +530,14 @@
 							autoresize = yes
 						}
 					}
-
 				}
 
 				spacer = {
 					size = { 5% 0 }
 				}
 			}
-
 			expand = {}
 		}
-
-
 		expand = {}
 	}
 
@@ -564,7 +546,6 @@
 	}
 
 	type agot_selling_artifact_value_breakdown = vbox {
-
 		datamodel = "[ValueBreakdown.GetSubValues]"
 		alwaystransparent = no
 		margin = { 17 10 }
@@ -615,7 +596,6 @@
 	}
 
 	type agot_selling_button_hover = button_normal {
-
 		alpha = 0.9
 		size = { 345 80 }
 
@@ -636,7 +616,6 @@
 			duration = 0.7
 			using = Animation_Curve_Default
 		}
-
 	}
 
 	type agot_artifact_market_debug_window = window {
@@ -655,13 +634,11 @@
 			name = _show
 			using = Animation_FadeIn_Quick
 			using = Sound_WindowShow_Standard
-
 		}
 		state = {
 			name = _hide
 			using = Animation_FadeOut_Quick
 			using = Sound_WindowHide_Standard
-
 		}
 
 		vbox = {
@@ -746,7 +723,6 @@
 										}
 
 										expand = {}
-
 									}
 
 									hbox = {
@@ -760,7 +736,6 @@
 										}
 
 										expand = {}
-
 									}
 								}
 
@@ -783,11 +758,7 @@
 									vbox = {
 										layoutpolicy_horizontal = expanding
 
-
-
 										expand = {}
-
-
 
 										hbox = {
 											layoutpolicy_horizontal = expanding
@@ -800,7 +771,6 @@
 											}
 
 											expand = {}
-
 										}
 
 										hbox = {
@@ -816,7 +786,6 @@
 											}
 
 											expand = {}
-
 										}
 										hbox_artifact_durability = {
 											layoutpolicy_horizontal = expanding
@@ -825,13 +794,8 @@
 									}
 
 									vbox = {
-
-
-
 										hbox = {
 											layoutpolicy_horizontal = expanding
-
-
 
 											expand = {}
 
@@ -851,7 +815,6 @@
 														autoresize = yes
 														using = tooltip_ne
 													}
-
 												}
 												hbox = {
 													icon = {
@@ -868,21 +831,14 @@
 														using = tooltip_ne
 													}
 												}
-
-
-
 											}
 
 											spacer = {
 												size = { 5% 0 }
 											}
 										}
-
 										expand = {}
 									}
-
-
-
 									expand = {}
 								}
 								spacer = {
@@ -895,14 +851,11 @@
 			}
 
 			hbox = {
-
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
 			}
-
 		}
 	}
-
 }
 
 agot_artifact_market_window_open = {}

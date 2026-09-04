@@ -1,0 +1,37 @@
+﻿##############################################################
+################# AGOT EVENT WINDOW WIDGETS ##################
+##############################################################
+
+types EventWindowWidgets
+{
+	type agot_dynastic_event_widget_name_child_button = event_button_round
+	{
+		visible = "[GetScriptedGui('agot_dynastic_name').IsShown(GuiScope.SetRoot(EventWindowWidgetNameCharacter.GetCharacter.MakeScope).End)]"
+		onclick = "[GetScriptedGui('agot_dynastic_name').Execute(GuiScope.SetRoot(EventWindowWidgetNameCharacter.GetCharacter.MakeScope).End)]"
+		onclick = "[PdxGuiWidget.FindChild('relation_icon').TriggerAnimation('dynastic_name_refresh')]"
+		tooltip = "agot_event_window_widget_name_child_dynastic_name"
+		using = tooltip_se
+
+		highlight_icon = {
+			name = "relation_icon"
+			size = { 35 35 }
+			parentanchor = center
+			texture = "gfx/interface/icons/portraits/relation.dds"
+			framesize = { 40 40 }
+			frame = "5"
+
+			state = {
+				name = "dynastic_name_refresh"
+				next = "c"
+				duration = 0.05
+				using = Animation_Refresh_FadeOut
+				on_finish = "[EventWindow.ResetContents]"
+			}
+
+			state = {
+				name = "c"
+				using = Animation_Refresh_FadeIn
+			}
+		}
+	}
+}
