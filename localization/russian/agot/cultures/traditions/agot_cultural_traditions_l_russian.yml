@@ -29,8 +29,9 @@
  culture_parameter_cheaper_tour_activity:0 "Занятие «[GetActivityType( 'activity_tour' ).GetName]» обходится на #P 10%#! дешевле"
  cheaper_tour_activity_discount:0 "#L [GetPlayer.GetCulture.GetCollectiveNoun]ая#! [Concept('culture', 'культура')|E]" # multiplier desc
  culture_parameter_hunts_cd_ten_percent_quicker: "Задержка между [Concept('activity', 'занятиями')|E] «[GetActivityType('activity_hunt').GetName]»: #P -10% #!"
- culture_parameter_more_likely_to_steal_artifacts: "Представители этой культуры чаще похищают [artifacts|E] в битвах или налётах"
+ culture_parameter_more_likely_to_steal_artifacts: "Представители этой культуры чаще похищают [artifacts|El] в битвах или налётах"
  culture_parameter_immune_to_all_diseases_except_greyscale: "Представители этой культуры невосприимчивы ко всем болезням, кроме #TOOLTIP:GAME_TRAIT,greyscale, #L серой хвори#!#! — этот недуг всегда присутствует у них с рождения"
+ culture_parameter_malformed_infants_more_common: "Дети чаще рождаются с #N негативными#! [Concept('congenital', 'врождёнными')|E] свойствами"
 
  #Child Traits
  culture_parameter_bossy_trait_more_common:0 "[children|E] с большей вероятностью получат [Concept('trait', 'свойство')|E] «[GetTrait('bossy').GetName( GetNullCharacter )]»"
@@ -48,6 +49,9 @@
  culture_parameter_possessed_trait_more_common: "[trait|E] «[GetTrait('possessed_1').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_deceitful_trait_more_common: "[trait|E] «[GetTrait('deceitful').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_gregarious_trait_more_common: "[trait|E] «[GetTrait('gregarious').GetName( GetNullCharacter )]» встречается чаще"
+ culture_parameter_lustful_trait_more_common: "[trait|E] «[GetTrait('lustful').GetName( GetNullCharacter )]» встречается чаще"
+ culture_parameter_eccentric_trait_more_common: "[trait|E] «[GetTrait('eccentric').GetName( GetNullCharacter )]» встречается чаще"
+ culture_parameter_sadistic_trait_more_common: "[trait|E] «[GetTrait('sadistic').GetName( GetNullCharacter )]» встречается чаще"
 
  #Commander Traits
  culture_parameter_organizer_trait_more_common:0 "[commander_trait|E] «[GetTrait('organizer').GetName( GetNullCharacter )]» встречается чаще"
@@ -59,6 +63,7 @@
  culture_parameter_forder_trait_more_common:0 "[commander_trait|E] «[GetTrait('forder').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_open_terrain_expert_trait_more_common:0 "[commander_trait|E] «[GetTrait('open_terrain_expert').GetName( GetNullCharacter )]» встречается чаще"
  culture_parameter_reaver_trait_more_common:0 "[commander_trait|E] «[GetTrait('reaver').GetName( GetNullCharacter )]» встречается чаще"
+ culture_parameter_unyielding_defender_trait_more_common: "[commander_trait|E] «[GetTrait('unyielding_defender').GetName( GetNullCharacter )]» встречается чаще"
 
  #Terrain Bonuses
  culture_parameter_wetlands_trait_bonuses:0 "Некоторые из [Concept('commander_traits', 'свойств командира')|E] и [Concept('personality_traits', 'личностных свойств')|E] дают дополнительные бонусы на болотах"
@@ -66,6 +71,9 @@
  culture_parameter_steppe_trait_bonuses:0 "Некоторые из [Concept('commander_traits', 'свойств командира')|E] и [Concept('personality_traits', 'личностных свойств')|E] дают дополнительные бонусы на степях"
  culture_parameter_urban_trait_bonuses:0 "Некоторые из [Concept('commander_traits', 'свойств командира')|E] и [Concept('personality_traits', 'личностных свойств')|E] дают дополнительные бонусы в городах"
  culture_parameter_bog_hunt_success_chance:0 "Повышенный [Concept('hunt_success_chance', 'шанс успеха охоты')|E] на такой местности, как [GetTerrain( 'the_bog' ).GetName]"
+
+ #Misc Trait Bonuses
+ culture_parameter_raid_bonuses: "Некоторые из [Concept('commander_traits', 'свойств командира')|E] и [Concept('personality_traits', 'личностных свойств')|E] дают дополнительные бонусы в набегах"
 
  #Trait Valued
  culture_parameter_shrewd_trait_more_valued:0 "[trait|E] «[GetTrait('shrewd').GetName( GetNullCharacter )]» ценится выше"
@@ -97,6 +105,10 @@
  culture_parameter_eunuch_trait_is_looked_down_upon: "[traits|E] «[GetTrait('eunuch_1').GetName(GetNullCharacter)]» и «[GetTrait('beardless_eunuch').GetName(GetNullCharacter)]» презираются"
  culture_parameter_impatient_trait_is_looked_down_upon: "[trait|E] «[GetTrait('impatient').GetName(GetNullCharacter)]» презирается"
  culture_parameter_sadistic_trait_looked_down_upon: "[trait|E] «[GetTrait('sadistic').GetName(GetNullCharacter)]» презирается"
+ culture_parameter_arrogant_trait_looked_down_upon: "[trait|E] «[GetTrait('arrogant').GetName(GetNullCharacter)]» презирается"
+ culture_parameter_forgiving_trait_looked_down_upon: "[trait|E] «[GetTrait('forgiving').GetName(GetNullCharacter)]» презирается"
+ culture_parameter_greedy_trait_looked_down_upon: "[trait|E] «[GetTrait('greedy').GetName(GetNullCharacter)]» презирается"
+ culture_parameter_trusting_trait_looked_down_upon: "[trait|E] «[GetTrait('trusting').GetName(GetNullCharacter)]» презирается"
 
  #Wanderers Extra Skills
  culture_parameter_wanderers_gain_extra_learning_skills:0 "[wanderers|E] со временем получают дополнительные навыки, например [Concept('learning', 'учёность')|E] или [Concept('lifestyle_traits', 'приобретённые свойства')|E]"
@@ -130,6 +142,7 @@
  culture_parameter_better_watchtower_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_watchtowers_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_better_monastic_school_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_monastic_schools_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
  culture_parameter_better_scriptorium_bonuses: "Цепочка [Concept('buildings', 'зданий')|E] #V $building_type_scriptorium_01$#! предоставляет дополнительные бонусы [Concept('counties', 'графствам')|E] этой [Concept('culture', 'культуры')|E]"
+ watermills_without_innovations_unlock_name: "#V $tradition_agot_rivermen_main_name$#!"
 
  #Naming
  culture_parameter_uses_generic_milk_names: "Персонажи этой культуры используют [Concept('agot_milk_names', 'молочные имена')|E] для новорождённых"
